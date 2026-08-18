@@ -121,6 +121,17 @@
                     </div>
                 {/if}
 
+                {#if columnIndex === 0}
+                    {#each custom_sort_icons as iconSortData}
+                        | <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList, iconSortData.sort_identifier, iconSortData.sort_options[0], iconSortData.sort_options[1], true)} >
+                        <i title={iconSortData.title} class={'material-icons chat-active ' + ($lhcList.toggleWidgetData[iconSortData.sort_identifier] != iconSortData.sort_options[1] && $lhcList.toggleWidgetData[iconSortData.sort_identifier] != iconSortData.sort_options[0] ? 'text-muted' : '')}>
+                            {$lhcList.toggleWidgetData[iconSortData.sort_identifier] == iconSortData.sort_options[1] ? iconSortData['sort_icon_' + iconSortData.sort_options[1]] : iconSortData['sort_icon_' + iconSortData.sort_options[0]]}
+                        </i>
+                    </a>
+                        {#if $lhcList.toggleWidgetData[iconSortData.sort_identifier] == iconSortData.sort_options[0] || $lhcList.toggleWidgetData[iconSortData.sort_identifier] == iconSortData.sort_options[1]}<a class="text-muted" on:click={(e) => lhcServices.toggleWidgetSort(lhcList, iconSortData.sort_identifier, '', '',true)} title="Remove sort"><span class="material-icons">close</span></a>{/if}
+                    {/each}
+                {/if}
+
             </th>
         {/each}
     </tr>
@@ -466,6 +477,25 @@
                     <td class:align-middle={column !== 'name'} class:text-danger={column === 'capacity' && chat.max_chats && chat.max_chats > 0 && chat.free_slots <= 0} class:text-success={column === 'capacity' && chat.max_chats && chat.max_chats > 0 && chat.free_slots >= 1}>
                         {#if column === 'name'}
                             <div class="abbr-list">
+                                
+                                {#each custom_icons as iconData}
+                                    {#if iconData.icon_attr_type == 'bool' || iconData.icon_attr_type == 'cmp'}
+                                        {#if (
+                                            (chat[iconData['icon_attr']] && iconData['icon_attr_true'] && iconData.icon_attr_type == 'bool') ||
+                                            (iconData.icon_attr_type == 'bool' && !chat[iconData['icon_attr']] && iconData['icon_attr_false']) ||
+                                            (iconData.icon_attr_type == 'cmp' && chat[iconData['icon_attr']] == iconData['icon_attr_val'])
+                                        )}
+                                            <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class + " me-0 " + (iconData.class_false ? getClassListList(chat, iconData.class_false, false) : '') + " " + (iconData.class_true ? getClassListList(chat, iconData.class_true, true) : '')} on:click={(e) => iconData['click'] ? ee.emitEvent(iconData['click'],[chat]) : null} >{((chat[iconData['icon_attr']] && iconData.icon_attr_type == 'bool')|| (chat[iconData['icon_attr']] == iconData['icon_attr_val'] && iconData.icon_attr_type == 'cmp')) ? iconData['icon_attr_true'] : iconData['icon_attr_false']}</span>
+                                        {/if}
+                                    {:else if iconData.icon_attr_type == 'string'}
+                                        {#if iconData['class']}
+                                            <span title={iconData['title'] ? iconData['title'] : null} class={iconData.class}>{iconData['icon_attr_prepend'] ? iconData['icon_attr_prepend'] : ''}{chat[iconData.icon_attr]}{iconData['icon_attr_append'] ? iconData['icon_attr_append'] : ''}</span>
+                                        {:else}
+                                            {iconData['icon_attr_prepend'] ? iconData['icon_attr_prepend'] : ''}{chat[iconData.icon_attr]}{iconData['icon_attr_append'] ? iconData['icon_attr_append'] : ''}
+                                        {/if}
+                                    {/if}
+                                {/each}
+
                                 {#if chat.avatar && !hide_op_avatar}<img class="rounded-circle" src={chat.avatar} alt="" width="20" />{/if}
                                 {#if chat.user_id != $lhcList.current_user_id && permissions.indexOf('lhgroupchat_use') !== -1}<a href="#" on:click={(e) => lhcServices.startChatOperator(chat.user_id)} title={$t("widget.start_chat")}><i class="material-icons me-0">chat</i></a>{/if}
                                 {#if $lhcList[type].cl.indexOf('status') === -1}
