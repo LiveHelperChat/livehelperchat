@@ -76,7 +76,7 @@
     <tr>
         {#each $lhcList[type].cl as column, columnIndex}
             {#if hide_columns.indexOf(column) === -1}
-            <th width={column == 'last_assignment' ? '5%' : (column == 'capacity' ? '15%' : (column == 'department' ? '20%' : (column == 'name' ? '36%' : 'none')))}>
+            <th width={column == 'last_assignment' ? column_2_width : (column == 'capacity' ? '15%' : (column == 'department' ? '20%' : (column == 'name' ? column_1_width : 'none')))}>
                 {#if column === 'name'}
                     <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onn_dsc','onn_asc',true)} title={$t("widget.sort_by_online_name")}>
                         <i class:text-muted={$lhcList.toggleWidgetData[sort_identifier] != 'onn_dsc' && $lhcList.toggleWidgetData[sort_identifier] != 'onn_asc'} class="material-icons chat-active">account_box</i>
