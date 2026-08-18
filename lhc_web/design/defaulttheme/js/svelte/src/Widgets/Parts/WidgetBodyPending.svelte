@@ -73,7 +73,7 @@
     <thead>
     {#if type === 'online_op'}
     <tr>
-        {#each $lhcList[type].cl as column}
+        {#each $lhcList[type].cl as column, columnIndex}
             <th width={column == 'last_assignment' ? '5%' : (column == 'capacity' ? '15%' : (column == 'department' ? '20%' : (column == 'name' ? '36%' : 'none')))}>
                 {#if column === 'name'}
                     <a on:click={(e) => lhcServices.toggleWidgetSort(lhcList,sort_identifier,'onn_dsc','onn_asc',true)} title={$t("widget.sort_by_online_name")}>
@@ -109,6 +109,18 @@
                 {:else if column === 'offline_since'}
                     <i title="Session duration" class:text-danger={$lhcList.hideOnline} class:text-success={!$lhcList.hideOnline} class="material-icons">schedule</i>
                 {/if}
+
+                {#if no_expand === false && columnIndex === $lhcList[type].cl.length - 1}
+                    <div class="float-end expand-actions">
+                        <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,true)} class="text-muted disable-select">
+                            <i title={$t("widget.more_rows")}  class="material-icons">expand</i>
+                        </a>
+                        <a on:click={(e) => lhcServices.changeWidgetHeight(lhcList,panel_id,false)} class="text-muted disable-select">
+                            <i title={$t("widget.less_rows")} class="material-icons">compress</i>
+                        </a>
+                    </div>
+                {/if}
+
             </th>
         {/each}
     </tr>
