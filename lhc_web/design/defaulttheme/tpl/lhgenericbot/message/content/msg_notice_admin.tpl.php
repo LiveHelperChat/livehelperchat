@@ -1,3 +1,9 @@
+<?php if (isset($metaMessage['reason']) && $metaMessage['reason'] == 'msg_edit' && !(isset($paramsMessageRenderOverride['show_edit_history']) && $paramsMessageRenderOverride['show_edit_history'] === true)) : ?>
+    <div class="whisper-msg mb-1">
+    <button type="button" class="btn btn-sm btn-link text-decoration-none fs12" title="Click to see a history" onclick="return lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/previewmsg/<?php echo (is_object($msg) ? $msg->id : $msg['id'])?>'})"><span class="material-icons">edit</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncuser','Edited')?></button>
+    </div>
+    <?php else : ?>
+
 <?php
 $msgBody = $metaMessage['content'];
 
@@ -29,3 +35,5 @@ $paramsMessageRender = array('download_policy' => $download_policy, 'operator_re
         <?php endforeach; ?>
     <?php endif; ?>
 </div>
+
+<?php endif; ?>

@@ -188,6 +188,11 @@ $ViewList['previewchat'] = array(
     'functions' => array( 'use' )
 );
 
+$ViewList['previewmsg'] = array(
+    'params' => array('msg_id'),
+    'functions' => array( 'use' )
+);
+
 $ViewList['previewmessage'] = array(
     'params' => array(),
     'functions' => array( 'use' )

@@ -65,6 +65,7 @@ if (trim($form->msg) != '' && $form->hasValidData('msgid'))
                 if ($contentChanged == true && ($msg->user_id != $currentUser->getUserID() || !erLhcoreClassUser::instance()->hasAccessTo('lhchat','no_edit_history'))) {
                     $metaData = $msg->meta_msg_array;
                     $historyContent = '[' . $currentUser->getUserID() . '] ' . $currentUser->getUserData()->name_support . ' ' . htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','has modified a message.')) . ' '.htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Original message')).' - [b]'.$originalMessage.'[/b]';
+                    $metaData['content']['notice']['reason'] = 'msg_edit';
                     if (!isset($metaData['content']['notice']['content'])) {
                         $metaData['content']['notice']['content'] =  $historyContent;
                     } else {
