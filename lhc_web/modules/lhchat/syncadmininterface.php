@@ -180,8 +180,44 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     }
 
 	$onlineOperators = erLhcoreClassModelUserDep::getOnlineOperators($currentUser,$canListOnlineUsersAll,$filter,is_numeric($Params['user_parameters_unordered']['limito']) ? (int)$Params['user_parameters_unordered']['limito'] : 10,$onlineTimeout, ['dashboard' => true]);
+
+    $onlineOperatorColumnsDefault = array('name', 'status', 'last_assignment', 'capacity', 'department', 'offline_reason', 'offline_since');
+    $onlineOperatorColumns = ['name', 'last_assignment', 'capacity', 'department'];
+
+    if ($currentUser->hasAccessTo('lhstatistic','onlineop_settings')) {
+        $onlineOperatorColumns = json_decode(erLhcoreClassModelUserSetting::getSetting('online_op_columns', json_encode($onlineOperatorColumns)), true);
+        $onlineOperatorColumns = is_array($onlineOperatorColumns) ? array_values(array_unique(array_intersect($onlineOperatorColumns, $onlineOperatorColumnsDefault))) : array();
+        if (empty($onlineOperatorColumns)) {
+            $onlineOperatorColumns = $onlineOperatorColumnsDefault;
+        }
+    }
+
+    $offlineReasons = array();
+    if (in_array('offline_reason', $onlineOperatorColumns)) {
+        foreach ($onlineOperators as $onlineOperator) {
+            if ($onlineOperator->hide_online == 1 && $onlineOperator->hide_online_ts > 0) {
+                if (isset($onlineOperator->user) && $onlineOperator->user->offline_reason_id > 0) {
+                    $offlineReasons[$onlineOperator->user_id] = (int)$onlineOperator->user->offline_reason_id;
+                }
+            }
+        }
+    }
+
+    $offlineReasonNames = array();
+    if (!empty($offlineReasons)) {
+        $reasons = \LiveHelperChat\Models\LHCAbstract\OfflineReason::getList(array('filterin' => array('id' => array_unique($offlineReasons)), 'limit' => false));
+        foreach ($reasons as $reason) {
+            $offlineReasonNames[$reason->id] = $reason->name;
+        }
+    }
 	
 	erLhcoreClassChat::prefillGetAttributes($onlineOperators,array('offline_since_s','free_slots','live_chats', 'last_accepted_ago','lastactivity_ago','lac_ago_s','max_chats','offline_since','ro','dep_id','user_id','id','name_official','pending_chats','inactive_chats','active_chats','departments_names','hide_online','avatar'),array(),array('filter_function' => true, 'remove_all' => true));
+
+    if (!empty($offlineReasons)) {
+        foreach ($onlineOperators as $onlineOperator) {
+            $onlineOperator->offline_reason = isset($offlineReasons[$onlineOperator->user_id], $offlineReasonNames[$offlineReasons[$onlineOperator->user_id]]) ? $offlineReasonNames[$offlineReasons[$onlineOperator->user_id]] : '';
+        }
+    }
 
 	$currentOp = isset($onlineOperators[$userData->id]) ? $onlineOperators[$userData->id] : null;
 
@@ -197,7 +233,7 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
         }
     }
 
-	$ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'op_on' => $operatorsCountOnline, 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend, 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
+    $ReturnMessages['online_op'] = array('list' => array_values($onlineOperators), 'cl' => $onlineOperatorColumns, 'op_on' => $operatorsCountOnline, 'op_cc' => $operatorsCount, 'op_sn' => $operatorsSend, 'tt' => erLhcoreClassModule::getDifference($startTimeRequestItem, microtime()));
 
     $timeLog['online_op'] = $ReturnMessages['online_op']['tt'];
 }

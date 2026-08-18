@@ -155,6 +155,13 @@ $ViewList['performancesettings'] = array(
     'multiple_arguments' => array()
 );
 
+$ViewList['onlineopsettings'] = array(
+    'params' => array(),
+    'uparams' => array(),
+    'functions' => array( 'onlineop_settings' ),
+    'multiple_arguments' => array()
+);
+
 $FunctionList['exportxls'] = array('explain' => 'Allow to operator to export departments statistic in XLS');
 $FunctionList['viewstatistic'] = array('explain' =>'Allow operator to view statistic');
 $FunctionList['configuration'] = array('explain' =>'Allow operator to configure statistic');
@@ -164,5 +171,6 @@ $FunctionList['dep_performance'] = array('explain' =>'Allow operator to see depa
 $FunctionList['op_performance'] = array('explain' =>'Allow an operator to view other operators performance across all departments they belong to (including departments where they only have read access)');
 $FunctionList['op_performance_write'] = array('explain' =>'Allow an operator to view other operators performance only for departments where they have write permission');
 $FunctionList['performance_settings'] = array('explain' =>'Allow operator to configure performance widgets settings');
+$FunctionList['onlineop_settings'] = array('explain' =>'Allow operator to configure online operators widget settings');
 
 ?>
