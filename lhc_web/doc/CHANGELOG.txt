@@ -1,6 +1,23 @@
 4.89v
 
+1. Notable changes since 4.88v
+   - Online operators widget customization: added a new "Online operators widget settings" screen under Statistics (`statistic/onlineopsettings`) with a new `onlineop_settings` permission, letting operators choose which columns appear in the online operators dashboard widget (Name, Status, Last assignment, Live chats/free slots, Department, Reason for offline, Session duration) and their position; the widget now renders the configured columns, shows "offline since" in the name column when a dedicated column is hidden, restores expand/collapse actions, preserves passed column widths and allows controlling widget columns from the embed code.
+   - Track who set a user offline: added `updated_by_user_id` column to `lh_users_online_session` recording which operator set a user offline or online; online-hours statistics gained a "Set offline by" column showing that operator, with the offline action attributed only to the operator who explicitly set the user offline; last visit is now updated when toggling the hide-online status in user edit.
+   - Autoclose enhancements: all autoclose settings now accept fractional timeout values; the activity timeout supports sender-based modes by appending `,1` (close only when the visitor sent the last message) or `,2` (close only when the operator sent the last message) to the configured value; settings descriptions in the chat list configuration were clarified.
+   - Chat cleanup on close: `cleanupOnClose()` is now executed when chats are closed via the cronjob or by changing their status (previously it only ran on manual close), removing orphaned records such as auto-responder chat links, bot repeat restrictions, bot chat events, pending bot events, voice/video sessions, transfers, group chats and temporary files; a new utility cron `cron/util/cleanup_orphan_chats_data` cleans orphaned chat data for chats that were closed before this fix, iterating chats from newest to oldest with an optional start chat id parameter.
+   - Blocked users search: added a block type (`btype`) filter to the blocked users search covering all block types (IP, Nick, Nick and Department, IP + Nick, IP + Nick and Department, E-mail, Country, Online user, Sender E-mail).
+   - Transfer department window: improved the transfer department window using the searchable multi-dropdown with radio selection and added `on_change` handler support to the multi-dropdown renderer.
+   - Mail conversations: added "Expand all"/"Collapse all" actions to the mail conversation screen for quickly expanding or collapsing all message bodies.
+   - Message edit history: added a new "Preview message" modal (`chat/previewmsg`) and an "Edited" link on edited admin messages opening the preview with the edit history.
+   - Widget filters reset: "Reset widget filters" now clears widget local storage client-side instead of performing a server-side action; fixed a related typo.
+   - Miscellaneous: added the Isle of Man flag icon; updated install scripts and database structure definition for the new column; bumped version to 4.89v.
 
+2. Summary
+   - This release focuses on dashboard customization and data hygiene.
+   - The online operators widget becomes fully configurable with selectable and reorderable columns, backed by a new settings screen and permission.
+   - Online-hours statistics now show which operator set a user offline, recorded in a new `updated_by_user_id` field.
+   - Autoclose rules gain finer control with fractional timeouts and sender-based activity modes, while close-time cleanup is fixed for cron/status-driven closures, with a dedicated script to purge previously orphaned data.
+   - Search, transfer, mail, and message-preview UX are improved across blocked users, department transfer, mail conversations, and edited-message history.
 
 execute doc/update_db/update_355.sql for update
 
