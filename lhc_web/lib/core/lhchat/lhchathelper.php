@@ -315,6 +315,8 @@ class erLhcoreClassChatHelper
 
                 $chat->last_msg_id = $msg->id;
                 $chat->updateThis();
+
+                self::cleanupOnClose($chat->id);
         
                 // Execute callback for close chat
                 erLhcoreClassChat::closeChatCallback($chat,$userData);

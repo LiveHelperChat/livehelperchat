@@ -294,6 +294,8 @@ class erLhcoreClassChatWorkflow {
 
                         $chat->updateThis();
 
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
+
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                         erLhcoreClassChat::closeChatCallback($chat, $chat->user);
@@ -352,6 +354,8 @@ class erLhcoreClassChatWorkflow {
                         $chat->has_unread_messages = 0;
                         $chat->updateThis();
 
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
+
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
                         erLhcoreClassChat::closeChatCallback($chat, $chat->user);
@@ -408,6 +412,8 @@ class erLhcoreClassChatWorkflow {
                         $chat->cls_time = time();
                         $chat->has_unread_messages = 0;
                         $chat->updateThis();
+
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
@@ -469,6 +475,8 @@ class erLhcoreClassChatWorkflow {
                         $chat->cls_time = time();
                         $chat->has_unread_messages = 0;
                         $chat->updateThis();
+
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
@@ -532,6 +540,8 @@ class erLhcoreClassChatWorkflow {
                         $chat->cls_time = time();
                         $chat->has_unread_messages = 0;
                         $chat->updateThis();
+
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
@@ -612,6 +622,8 @@ class erLhcoreClassChatWorkflow {
                         $chat->cls_time = time();
                         $chat->has_unread_messages = 0;
                         $chat->updateThis();
+
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
@@ -730,6 +742,8 @@ class erLhcoreClassChatWorkflow {
                         $chat->cls_time = time();
                         $chat->has_unread_messages = 0;
                         $chat->updateThis();
+
+                        erLhcoreClassChatHelper::cleanupOnClose($chat->id);
 
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.auto_close',array('msg' => & $msg,'chat' => & $chat));
 
