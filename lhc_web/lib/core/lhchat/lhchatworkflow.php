@@ -244,11 +244,11 @@ class erLhcoreClassChatWorkflow {
         $db = ezcDbInstance::get();
 
         $closedChatsNumber = 0;
-        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_timeout')->current_value;
+        $timeout = (float)erLhcoreClassModelChatConfig::fetch('autoclose_timeout')->current_value;
         if ($timeout > 0) {
 
             // Close normal chats
-            $delay = time()-($timeout*60);
+            $delay = (int)(time()-($timeout*60));
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filtergt' => array('last_user_msg_time' => 0), 'filterlt' => array('last_user_msg_time' => $delay), 'filter' => array('status' => erLhcoreClassModelChat::STATUS_ACTIVE_CHAT))) as $chat) {
                 try {
                     $db->beginTransaction();
@@ -368,10 +368,10 @@ class erLhcoreClassChatWorkflow {
             }
         }
 
-        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_pending')->current_value;
+        $timeout = (float)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_pending')->current_value;
         if ($timeout > 0) {
 
-            $delay = time()-($timeout*60);
+            $delay = (int)(time()-($timeout*60));
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_PENDING_CHAT)))) as $chat) {
                 try {
                     $db->beginTransaction();
@@ -425,9 +425,9 @@ class erLhcoreClassChatWorkflow {
             }
         }
 
-        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_active')->current_value;
+        $timeout = (float)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_active')->current_value;
         if ($timeout > 0) {
-            $delay = time()-($timeout*60);
+            $delay = (int)(time()-($timeout*60));
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'filterlt' => array('time' => $delay), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)))) as $chat) {
                 try {
                     $db->beginTransaction();
@@ -486,9 +486,9 @@ class erLhcoreClassChatWorkflow {
             }
         }
 
-        $timeout = (int)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_bot')->current_value;
+        $timeout = (float)erLhcoreClassModelChatConfig::fetch('autoclose_timeout_bot')->current_value;
         if ($timeout > 0) {
-            $delay = time()-($timeout*60);
+            $delay = (int)(time()-($timeout*60));
             foreach (erLhcoreClassChat::getList(array('limit' => 500,'customfilter' => array('((last_user_msg_time = 0 AND time < ' . $delay . ') OR (last_user_msg_time > 0 AND last_user_msg_time < ' . $delay . '))'), 'filterin' => array('status' => array(erLhcoreClassModelChat::STATUS_BOT_CHAT)))) as $chat) {
                 try {
                     $db->beginTransaction();
@@ -550,10 +550,10 @@ class erLhcoreClassChatWorkflow {
         }
 
         $timeoutParts = explode(',', str_replace(' ', '', erLhcoreClassModelChatConfig::fetch('autoclose_activity_timeout')->current_value));
-        $timeout = (int)$timeoutParts[0];
+        $timeout = (float)$timeoutParts[0];
         if ($timeout > 0) {
             $mode = isset($timeoutParts[1]) ? (int)$timeoutParts[1] : 0;
-            $delay = time()-($timeout*60);
+            $delay = (int)(time()-($timeout*60));
 
             if ($mode == 1) {
                 // Close only when the last message was sent by the visitor
@@ -631,9 +631,9 @@ class erLhcoreClassChatWorkflow {
         
         $timeoutParts = explode(',',str_replace(' ','',erLhcoreClassModelChatConfig::fetch('autoclose_abandon_pending')->current_value));
 
-        if ((int)$timeoutParts[0] > 0) {
-            $delay = time()-((int)$timeoutParts[0]*60);
-            $delayMobile = time()-((isset($timeoutParts[1]) && is_numeric($timeoutParts[1]) ? (int)$timeoutParts[1] : (int)$timeoutParts[0]) * 60);
+        if ((float)$timeoutParts[0] > 0) {
+            $delay = (int)(time()-((float)$timeoutParts[0]*60));
+            $delayMobile = (int)(time()-((isset($timeoutParts[1]) && is_numeric($timeoutParts[1]) ? (float)$timeoutParts[1] : (float)$timeoutParts[0]) * 60));
             $closeActive = isset($timeoutParts[2]) && is_numeric($timeoutParts[2]) ? (int)$timeoutParts[2] : 0;
             if ($closeActive == 1) {
                 $closeTypes = array(
