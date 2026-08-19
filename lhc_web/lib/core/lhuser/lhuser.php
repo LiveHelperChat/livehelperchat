@@ -359,7 +359,7 @@ class erLhcoreClassUser{
              $user_id = $user_id > 0 ? $user_id : $this->userid;
 
              // Who performed the action (the currently logged in operator)
-             $updatedByUserId = (int)$user_id > 0 && $user_id != $this->userid ? (int)$this->userid : 0;
+             $updatedByUserId = (int)$user_id > 0 && $user_id != $this->userid && $action === 2 ? (int)$this->userid : 0;
 
              if ($lda > 0) {
                  $_SESSION['lhc_online_session_lda'] = $lda;

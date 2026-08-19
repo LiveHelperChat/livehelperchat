@@ -122,6 +122,8 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
 
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
         
+        $currentUser->updateLastVisit(time(), $UserData->hide_online == 1 ? 2 : 1, $UserData->id); // Went offline OR went online
+
         if ($can_edit_groups == true) {
             $UserData->setUserGroups();
         }
