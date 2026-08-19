@@ -2793,6 +2793,8 @@ Table "lh_users_online_session" {
   "duration" int(11) [not null]
   "lactivity" int(11) [not null]
   "type" tinyint(1) [not null, default: 0]
+  "offline_reason_id" int(11) [not null, default: 0, note: 'Offline reason ID']
+  "updated_by_user_id" int(11) unsigned [not null, default: 0, note: 'User who performed the action']
 
   Indexes {
     (user_id, lactivity) [name: "user_id_lactivity"]

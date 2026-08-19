@@ -358,6 +358,9 @@ class erLhcoreClassUser{
 
              $user_id = $user_id > 0 ? $user_id : $this->userid;
 
+             // Who performed the action (the currently logged in operator)
+             $updatedByUserId = (int)$user_id > 0 && $user_id != $this->userid ? (int)$this->userid : 0;
+
              if ($lda > 0) {
                  $_SESSION['lhc_online_session_lda'] = $lda;
              }
@@ -383,21 +386,29 @@ class erLhcoreClassUser{
 
                      if (is_numeric($id) && $id > 0) {
                          $offlineReasonSet = ($action === 2 && $offline_reason_id > 0) ? ', `offline_reason_id` = :offline_reason_id' : '';
-                         $stmt = $db->prepare('UPDATE `lh_users_online_session` SET `lactivity` = :lactivity, `duration` = :lactivity_two - `time`, `type` = '.($action > 0 ? (int)$action : '`type`').$offlineReasonSet.' WHERE `id` = :id');
+                         $updatedByUserSet = $updatedByUserId > 0 ? ', `updated_by_user_id` = :updated_by_user_id' : '';
+                         $stmt = $db->prepare('UPDATE `lh_users_online_session` SET `lactivity` = :lactivity, `duration` = :lactivity_two - `time`, `type` = '.($action > 0 ? (int)$action : '`type`').$offlineReasonSet.$updatedByUserSet.' WHERE `id` = :id');
                          $stmt->bindValue(':id',$id,PDO::PARAM_INT);
                          $stmt->bindValue(':lactivity_two',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':lactivity',time(),PDO::PARAM_INT);
+                         if ($updatedByUserId > 0) {
+                             $stmt->bindValue(':updated_by_user_id',$updatedByUserId,PDO::PARAM_INT);
+                         }
                          if ($action === 2 && $offline_reason_id > 0) {
                              $stmt->bindValue(':offline_reason_id',$offline_reason_id,PDO::PARAM_INT);
                          }
                          $stmt->execute();
                      } else if ($action !== 2) {
                          $offlineReasonCol = ($offline_reason_id > 0) ? ', `offline_reason_id` = :offline_reason_id' : '';
-                         $stmt = $db->prepare('INSERT INTO `lh_users_online_session` SET `time` = :time, `type` = :type, `lactivity` = :lactivity, `duration` = 0, `user_id` = :user_id'.$offlineReasonCol);
+                         $updatedByUserCol = $updatedByUserId > 0 ? ', `updated_by_user_id` = :updated_by_user_id' : '';
+                         $stmt = $db->prepare('INSERT INTO `lh_users_online_session` SET `time` = :time, `type` = :type, `lactivity` = :lactivity, `duration` = 0, `user_id` = :user_id'.$offlineReasonCol.$updatedByUserCol);
                          $stmt->bindValue(':lactivity',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':time',time(),PDO::PARAM_INT);
                          $stmt->bindValue(':user_id',$user_id,PDO::PARAM_INT);
                          $stmt->bindValue(':type',$action,PDO::PARAM_INT);
+                         if ($updatedByUserId > 0) {
+                             $stmt->bindValue(':updated_by_user_id',$updatedByUserId,PDO::PARAM_INT);
+                         }
                          if ($offline_reason_id > 0) {
                              $stmt->bindValue(':offline_reason_id',$offline_reason_id,PDO::PARAM_INT);
                          }

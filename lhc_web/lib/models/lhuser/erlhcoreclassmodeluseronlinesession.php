@@ -21,7 +21,8 @@ class erLhcoreClassModelUserOnlineSession
             'lactivity' => $this->lactivity,
             'duration' => $this->duration,
             'type' => $this->type,
-            'offline_reason_id' => $this->offline_reason_id
+            'offline_reason_id' => $this->offline_reason_id,
+            'updated_by_user_id' => $this->updated_by_user_id
         );
     }
     
@@ -74,6 +75,18 @@ class erLhcoreClassModelUserOnlineSession
                 }
                 return $this->offline_reason_name;
             break;	
+
+            case 'updated_by_user_name':
+                $this->updated_by_user_name = '';
+                if ($this->updated_by_user_id > 0) {
+                    try {
+                        $this->updated_by_user_name = (string)erLhcoreClassModelUser::fetch($this->updated_by_user_id,true);
+                    } catch (Exception $e) {
+                        $this->updated_by_user_name = '';
+                    }
+                }
+                return $this->updated_by_user_name;
+            break;
             
             default:
                 ;
@@ -142,6 +155,7 @@ class erLhcoreClassModelUserOnlineSession
     public $duration = null;
     public $type = self::ACTIVITY;
     public $offline_reason_id = 0;
+    public $updated_by_user_id = 0;
 
     public $chatsOnline = 0;
 
