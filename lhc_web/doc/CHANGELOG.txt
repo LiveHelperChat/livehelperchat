@@ -1,3 +1,10 @@
+4.90v
+
+1. Notable changes since 4.88v
+   - Track who set a user online: added `online_by_user_id` column to `lh_users_online_session` recording which operator set a user online; online-hours statistics gained a "Set online by" column showing that operator.
+
+execute doc/update_db/update_356.sql for update
+
 4.89v
 
 1. Notable changes since 4.88v

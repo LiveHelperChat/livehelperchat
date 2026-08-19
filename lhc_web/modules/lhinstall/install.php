@@ -397,6 +397,7 @@ try {
         	       `type` tinyint(1) NOT NULL DEFAULT '0',
                    `offline_reason_id` int(11) unsigned NOT NULL DEFAULT 0,
                    `updated_by_user_id` int(11) unsigned NOT NULL DEFAULT 0,
+                   `online_by_user_id` int(11) unsigned NOT NULL DEFAULT 0,
         	       PRIMARY KEY (`id`), 
         	       KEY `user_id_lactivity` (`user_id`, `lactivity`), 
                    KEY `user_id_time` (`user_id`, `time`),
