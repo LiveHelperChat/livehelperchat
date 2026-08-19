@@ -24,7 +24,7 @@
  * DELETE FROM lh_transfer WHERE transfer_scope = 0 AND chat_id IN (SELECT id FROM lh_chat WHERE status = 2);
  */
 
-/* To preview whcih data will be deleted
+/* To preview which data will be deleted
 
 SELECT 'auto_responder_chat' AS t, COUNT(*) AS c FROM lh_abstract_auto_responder_chat r JOIN lh_chat c ON c.id = r.chat_id AND c.status = 2
 UNION ALL SELECT 'bot_repeat_restrict', COUNT(*) FROM lh_generic_bot_repeat_restrict r JOIN lh_chat c ON c.id = r.chat_id AND c.status = 2
