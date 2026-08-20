@@ -240,6 +240,7 @@ $FunctionList['see_assigned_departments'] = array('explain' => 'Allow user to se
 $FunctionList['see_assigned_departments_groups'] = array('explain' => 'Allow user to see departments groups assigned to them');
 $FunctionList['editdepartaments'] = array('explain' => 'Allow user to edit their own responsible departments/departments groups');
 $FunctionList['offlinereasons'] = array('explain' => 'Allow user to manage offline reasons');
+$FunctionList['offlinereasons_operator'] = array('explain' => 'Allow user to use offline reasons');
 
 $FunctionList['userlistonline'] = array('explain' => 'Allow user to see logged operators list, only from their department');
 $FunctionList['userlistonlineall'] = array('explain' => 'Allow user to see logged operators list, not only from their department');

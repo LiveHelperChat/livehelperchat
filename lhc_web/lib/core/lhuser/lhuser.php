@@ -501,7 +501,7 @@ class erLhcoreClassUser{
        }
 
        // Global rights
-       if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
+       if ((isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*'])) && ($returnLimitation === false || is_array($functions) || !isset($AccessArray[$module][$functions])))
        {
            if ($returnLimitation === false) {
                return true;

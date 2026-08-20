@@ -1,4 +1,7 @@
-<?php $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Summary');?>
+<?php 
+$modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Summary');
+$modalSize = 'xl';
+?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php')); ?>
     <table class="table table-sm list-links">
         <tr>
@@ -6,6 +9,7 @@
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Role')?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Module')?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Function')?></th>
+            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Limitation')?></th>
             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Type')?></th>
         </tr>
         <?php foreach (erLhcoreClassModelGroupUser::getList(['filter' => ['user_id' => $user_id]]) as $groupUser) : ?>
@@ -28,6 +32,9 @@
                             </td>
                             <td>
                                 <?php echo htmlspecialchars($ruleFunction->function) ?>
+                            </td>
+                            <td>
+                                <?php echo htmlspecialchars($ruleFunction->limitation) ?>
                             </td>
                             <td>
                                 <?php if ($ruleFunction->type === 0) : ?>

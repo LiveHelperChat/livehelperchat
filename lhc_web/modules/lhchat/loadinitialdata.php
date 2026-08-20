@@ -266,11 +266,25 @@ $response = array(
     'bot_st' => array(
         'msg_nm' =>  (int)erLhcoreClassModelUserSetting::getSetting('bot_msg_nm',3),
         'bot_notifications' => (int)erLhcoreClassModelUserSetting::getSetting('bot_notifications',0)
-    ),
-    'offline_reasons' => array_values(array_map(function($r) {
-        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description];
-    }, \LiveHelperChat\Models\LHCAbstract\OfflineReason::getList(['sort' => 'pos DESC, name ASC', 'limit' => false])))
+    )
 );
+
+if (($reasonsLimitation = $currentUser->hasAccessTo('lhuser', 'offlinereasons_operator', true)) !== false) {
+
+    $filterReasons = ['sort' => 'pos DESC, name ASC', 'limit' => false];
+
+    if (!empty($reasonsLimitation)) {
+        // $reasonsLimitation is always a JSON string like {"id":[2,4]}
+        $limitationParams = json_decode($reasonsLimitation, true);
+        $reasonsLimitation = is_array($limitationParams) && isset($limitationParams['id']) ? $limitationParams['id'] : [];
+        erLhcoreClassChat::validateFilterIn($reasonsLimitation);
+        $filterReasons['filterin']['id'] = $reasonsLimitation;
+    }
+
+    $response['offline_reasons'] = array_values(array_map(function($r) {
+        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description];
+    }, \LiveHelperChat\Models\LHCAbstract\OfflineReason::getList($filterReasons)));
+}
 
 $noticeOptions = erLhcoreClassModelChatConfig::fetch('notice_message');
 $data = (array)$noticeOptions->data;

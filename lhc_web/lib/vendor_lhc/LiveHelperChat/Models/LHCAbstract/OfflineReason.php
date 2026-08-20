@@ -20,7 +20,7 @@ class OfflineReason
 
     public $hide_add = false;
 
-    public $hide_delete = true;
+    public $hide_delete = false;
 
     public function getState()
     {

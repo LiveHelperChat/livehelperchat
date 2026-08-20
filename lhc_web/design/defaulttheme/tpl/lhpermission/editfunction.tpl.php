@@ -20,6 +20,11 @@
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Limitation')?></label>
         <textarea name="Limitation" class="form-control"><?php echo htmlspecialchars($function->limitation)?></textarea>
+        <?php if (preg_match('/^[a-z0-9-]+/i', $function->module) && preg_match('/^[a-z0-9-]+/i', $function->function) && ($pathDynamic = erLhcoreClassDesign::designtpldynamic('lhpermission/limitation/' . $function->module . '_' . $function->function . '.tpl.php')) != 'design/defaulttheme/tpl/lhkernel/missing_template.tpl.php') : ?>
+            <div class="alert alert-info mt-1 mb-1" role="alert">
+                <?php include $pathDynamic;?>
+            </div>
+        <?php endif; ?>
     </div>
 
     <div class="btn-group" role="group" aria-label="...">

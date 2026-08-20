@@ -28,8 +28,30 @@
                     <label><input type="radio" name="onlineStatus" value="1" <?php $user->hide_online == 0 ? print 'checked="checked"' : ''?>> <?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Online')?></label>
                 </div>
 
+                <?php if (!empty($offline_reasons)) : ?>
+                <div class="form-group" id="offline-reasons-container" style="<?php echo $user->hide_online == 1 ? '' : 'display:none;'?>">
+                    <label><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Reason for offline')?></label>
+                    <select name="offlineReason" class="form-control form-control-sm">
+                        <option value="0"><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','None')?></option>
+                        <?php foreach ($offline_reasons as $offlineReason) : ?>
+                        <option value="<?php echo $offlineReason['id']?>" <?php $user->offline_reason_id == $offlineReason['id'] ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($offlineReason['name'])?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <?php endif; ?>
+
                 <input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
 
             </form>
+
+<?php if (!empty($offline_reasons)) : ?>
+<script>
+    $(document).ready(function() {
+        $('input[name="onlineStatus"]').change(function() {
+            $('#offline-reasons-container').toggle($(this).val() == '0');
+        });
+    });
+</script>
+<?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
