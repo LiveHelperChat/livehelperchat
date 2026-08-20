@@ -1509,7 +1509,11 @@ class erLhcoreClassGenericBotActionRestapi
                             }
                         }
 
-                        $dataStarted = str_starts_with(trim($line),'data: {');
+                        if (isset($methodSettings['streaming_sse_start']) && !empty($methodSettings['streaming_sse_start'])) {
+                            $dataStarted = str_starts_with(trim($line), $methodSettings['streaming_sse_start']);
+                        } else {
+                            $dataStarted = str_starts_with(trim($line), 'data: {');
+                        }
 
                         if ($line != "" && ($dataStarted === true || !empty($streamBuffer))) {
 
@@ -1547,6 +1551,8 @@ class erLhcoreClassGenericBotActionRestapi
                                 'paramsRequest' => null,
                                 'stream_event' => $streamEvent
                             ]);
+
+
 
                             //$streamLines[] = self::getCurrentTimeWithMilliseconds().' [trigger exec] - [' . $trigger->name . '] [' . $trigger->id . ']';
 

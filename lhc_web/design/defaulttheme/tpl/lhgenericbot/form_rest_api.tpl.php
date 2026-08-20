@@ -683,10 +683,22 @@
 
                 <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'streaming-'+$index}" id="streaming-{{$index}}">
 
-                    <label class="d-block"><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
+                    <div class="form-group">
+                        <label class="d-block"><input type="checkbox" value="on" ng-model="param.streaming_request"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','This is a streaming request');?></label>
+                        <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Enable this if the API responds with a continuous stream (e.g. SSE). Rows are processed as they arrive so the bot can react to events before the request has finished.');?></small></p>
+                    </div>
 
-                    <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming event type field');?></label>
-                    <input type="text" ng-model="param.streaming_event_type_field" class="form-control form-control-sm" placeholder="event">
+                    <div class="form-group">
+                        <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming event type field');?></label>
+                        <input type="text" ng-model="param.streaming_event_type_field" class="form-control form-control-sm" placeholder="event">
+                        <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Name of the field inside each stream row that holds the event type. It is matched against the "Output is matched only if event is this type" value in the Output parsing tab.');?></small></p>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Stream row start pattern');?></label>
+                        <input type="text" ng-model="param.streaming_sse_start" class="form-control form-control-sm" placeholder="data: {">
+                        <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','The exact string (e.g. the SSE "data:" prefix or any other marker) that marks the beginning of a new stream row. Each row following this pattern is parsed separately. Leave empty for standard SSE streams where rows are already separated by newlines.');?></small></p>
+                    </div>
 
                 </div>
 
