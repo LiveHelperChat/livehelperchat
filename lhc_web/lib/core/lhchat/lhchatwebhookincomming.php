@@ -2593,6 +2593,10 @@ class erLhcoreClassChatWebhookIncoming {
             'sql' => 'application/octet-stream'
         );
 
+        if ($getMime == false && $mimeType == 'application/vnd.rar') {
+            return 'rar';
+        }
+
         if ($getMime == false) {
             return array_search($mimeType,$mime_types);
         } else {
