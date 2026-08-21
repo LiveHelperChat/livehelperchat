@@ -170,6 +170,7 @@
                 <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'remote-msg-'+$index}" href="#remote-msg-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Remote Message ID');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'polling-'+$index}" href="#polling-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Polling');?></a></li>
                 <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'streaming-'+$index}" href="#streaming-{{$index}}" aria-controls="headers" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Streaming');?></a></li>
+                <li role="presentation" class="nav-item"><a class="nav-link" ng-class="{'active': lhcrestapi.currentTabHash == 'multistep-rest-'+$index}" href="#multistep-rest-{{$index}}" aria-controls="multistep" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Multi-step upload');?></a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -698,6 +699,57 @@
                         <label class="d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Stream row start pattern');?></label>
                         <input type="text" ng-model="param.streaming_sse_start" class="form-control form-control-sm" placeholder="data: {">
                         <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','The exact string (e.g. the SSE "data:" prefix or any other marker) that marks the beginning of a new stream row. Each row following this pattern is parsed separately. Leave empty for standard SSE streams where rows are already separated by newlines.');?></small></p>
+                    </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.currentTabHash == 'multistep-rest-'+$index}" id="multistep-rest-{{$index}}">
+
+                    <div class="form-group">
+                        <label class="d-block"><input type="checkbox" value="on" ng-model="param.multi_step_upload.enabled">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Enable multi-step upload flow for media attachments');?></label>
+                        <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Used for APIs (such as WhatsApp Cloud API, Viber, Discord, etc.) where an upload URL or token is requested first before binary upload and final message dispatch.');?></small></p>
+                    </div>
+
+                    <div ng-show="param.multi_step_upload.enabled">
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Step 1: Init / Request Upload URL');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.init_url" placeholder="/uploads?type={{file_type}}">
+                                    <p class="text-muted"><small ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Relative or absolute URL. Supports placeholders: {{file_type}}, {{file_name}}, {{file_mime}}, {{file_size}}');?></small></p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Init HTTP Method');?></label>
+                                    <select class="form-control form-control-sm" ng-model="param.multi_step_upload.init_method">
+                                        <option value="POST">POST</option>
+                                        <option value="GET">GET</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Step 2: Multipart Form File Field Name');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.upload_file_field" placeholder="data">
+                                    <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Field name for multipart/form-data upload (default: data)');?></small></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label class="d-block"><input type="checkbox" value="on" ng-model="param.multi_step_upload.convert_audio_to_mp3">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Auto-convert voice/audio (OGG/OGA) to MP3 via ffmpeg');?></label>
+                                    <label class="d-block mt-2"><input type="checkbox" value="on" ng-model="param.multi_step_upload.upload_send_auth">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Send Authorization headers during binary upload');?></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Step 3: Message Body (configured on the Body tab)');?></label>
+                            <p class="text-muted"><small ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','The final message payload is taken from the "If you are sending file you can have a different body content" textarea on the Body tab. You can use the following placeholders in your JSON body: {{upload_token}}, {{media_token}}, {{upload_url}}, {{file_type}}, {{file_name}}, {{file_mime}}, {{file_size}}, {{msg_clean}}.');?></small></p>
+                        </div>
                     </div>
 
                 </div>

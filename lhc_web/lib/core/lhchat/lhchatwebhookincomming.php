@@ -6,6 +6,8 @@ class erLhcoreClassChatWebhookIncoming {
     public static $chatInstance = null;
     public static function processEvent($incomingWebhook, array $payload) {
 
+        self::$staticErrors = [];
+
         $conditions = $incomingWebhook->conditions_array;
 
         if (isset($conditions['main_cond']) && $conditions['main_cond'] != "") {
@@ -1257,13 +1259,15 @@ class erLhcoreClassChatWebhookIncoming {
                                     $overrideAttributes
                                 );
 
-                                if (!empty($file)) {
+                                if (!empty($file) && str_starts_with($file, '[file=')) {
                                     $filesCollected[] = $file;
                                 }
                             }
 
                             if (!empty($filesCollected)) {
                                 self::array_set_value($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_body'], implode("\n", $filesCollected));
+                            } else {
+                                self::array_set_value($payloadMessage, $conditions['msg_cond_' . $typeMessage . '_body'], '');
                             }
 
 
@@ -1283,7 +1287,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $last_user_msg_time = $chat->last_user_msg_time;
 
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = self::extractMessageBody($msgBody, $payloadMessage);
+                    $msg->msg = trim(self::extractMessageBody($msgBody, $payloadMessage));
                     $msg->chat_id = $chat->id;
                     $msg->user_id = $sender;
 
@@ -1299,7 +1303,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $metaMessage = [];
                     if (!empty($externalMessageId)) {
                         $metaMessage = ['iwh_msg_id' => $externalMessageId];
-                        if (isset($conditions['message_id_uniq']) && $conditions['message_id_uniq'] == 1 && erLhcoreClassModelmsg::getCount(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($externalMessageId)]]) > 0) {
+                        if ($typeMessage != 'button' && isset($conditions['message_id_uniq']) && $conditions['message_id_uniq'] == 1 && erLhcoreClassModelmsg::getCount(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($externalMessageId)]]) > 0) {
                             throw new Exception('Message with external id of '.$externalMessageId.' already exists!');
                         }
                     }
@@ -1623,14 +1627,13 @@ class erLhcoreClassChatWebhookIncoming {
                     self::sendBotResponse($chat, $msg, array('msg_last_id' => ($msg->id > 0 ? $msg->id : $chat->last_msg_id), 'init' => $renotify));
                 }
 
-                // If we are not in bot status error messages are not sent.
-                if (!empty($errorMessages) && !($chat->gbot_id > 0 && (!isset($chat->chat_variables_array['gbot_disabled']) || $chat->chat_variables_array['gbot_disabled'] == 0))) {
+                if (!empty($errorMessages)) {
                     foreach ($errorMessages as $errorMessage) {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.web_add_msg_admin', array(
                             'chat' => & $chat,
                             'msg' => $errorMessage,
                             'source'=> 'webhook',
-                            'no_auto_events' => true    // Some triggers updates last message and webhooks them self sends this event, we want to avoid that
+                            'no_auto_events' => true
                         ));
                     }
                 }
@@ -1873,7 +1876,7 @@ class erLhcoreClassChatWebhookIncoming {
 
                     // Save message
                     $msg = new erLhcoreClassModelmsg();
-                    $msg->msg = self::extractMessageBody($msgBody, $payloadMessage);
+                    $msg->msg = trim(self::extractMessageBody($msgBody, $payloadMessage));
                     $msg->chat_id = $chat->id;
                     $msg->user_id = $sender;
 
@@ -1887,7 +1890,7 @@ class erLhcoreClassChatWebhookIncoming {
                     if (!empty($externalMessageId)) {
                         $metaMessage = ['iwh_msg_id' => $externalMessageId];
 
-                        if (isset($conditions['message_id_uniq']) && $conditions['message_id_uniq'] == 1 && erLhcoreClassModelmsg::getCount(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($externalMessageId)]]) > 0) {
+                        if ($typeMessage != 'button' && isset($conditions['message_id_uniq']) && $conditions['message_id_uniq'] == 1 && erLhcoreClassModelmsg::getCount(['filter' => ['chat_id' => $chat->id], 'customfilter' => ['`meta_msg` != \'\' AND JSON_EXTRACT(meta_msg,\'$.iwh_msg_id\') = ' . ezcDbInstance::get()->quote($externalMessageId)]]) > 0) {
                             throw new Exception('Message with external id of '.$externalMessageId.' already exists!');
                         }
                     }
@@ -2432,9 +2435,14 @@ class erLhcoreClassChatWebhookIncoming {
             $partsFilename = explode('/',strtok($url, '?'));
             $upload_name = (isset($overrideAttributes['upload_name']) && $overrideAttributes['upload_name'] != '') ? $overrideAttributes['upload_name'] : array_pop($partsFilename);
 
-            // File extension
-            $partsExtension = explode('.',strtok($url, '?'));
-            $file_extension = array_pop($partsExtension);
+            // File extension - extract from upload_name first, fallback to url
+            $partsExtension = explode('.', strtok($upload_name, '?'));
+            $file_extension = count($partsExtension) > 1 ? strtolower(array_pop($partsExtension)) : '';
+
+            if (empty($file_extension)) {
+                $partsExtensionUrl = explode('.', strtok($url, '?'));
+                $file_extension = count($partsExtensionUrl) > 1 ? strtolower(array_pop($partsExtensionUrl)) : '';
+            }
 
             if (isset($overrideAttributes['mime_type']) && !empty($overrideAttributes['mime_type']) && ($file_extension_mime = self::getExtensionByMime($overrideAttributes['mime_type'])) !== false) {
                 $file_extension = $file_extension_mime;
@@ -2489,9 +2497,31 @@ class erLhcoreClassChatWebhookIncoming {
             if ($mimeType !== false) {
                 $mimeType = trim(explode(';',$mimeType)[0]);
                 $extension = self::getExtensionByMime($mimeType);
-                if ($extension !== false) {
+                $hasValidOriginalExt = !empty($file_extension) && $file_extension !== 'bin' && self::getExtensionByMime($file_extension, true) !== null;
+
+                if ($extension !== false && !$hasValidOriginalExt) {
                     $fileUpload->extension = $extension;
+                    if (!str_ends_with(strtolower($fileUpload->upload_name), '.' . strtolower($extension))) {
+                        $fileUpload->upload_name = str_replace('.','_',$fileUpload->upload_name) . '.' . $extension;
+                    }
+                    $mimeTypeByExtension = self::getExtensionByMime($extension, true);
+                    if ($mimeTypeByExtension !== null) {
+                        $mimeType = $mimeTypeByExtension;
+                    }
+                } elseif (($mimeTypeByExtension = self::getExtensionByMime($fileUpload->extension, true)) !== null) {
+                    $mimeType = $mimeTypeByExtension;
                 }
+            }
+
+            $allowedFileTypes = isset($fileData['ft_us']) ? $fileData['ft_us'] : '';
+            if ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT && !empty($fileData['ft_us_bot'])) {
+                $allowedFileTypes = $fileData['ft_us_bot'];
+            }
+
+            if ($allowedFileTypes != '' && preg_match('/^(' . $allowedFileTypes . ')$/i', $fileUpload->extension) !== 1) {
+                self::$staticErrors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Not an accepted file type');
+                $fileUpload->removeThis();
+                return erTranslationClassLhTranslation::getInstance()->getTranslation('files/files','Not an accepted file type');
             }
 
             $fileUpload->type = $mimeType !== false ? $mimeType : 'application/octet-stream';
@@ -2531,6 +2561,12 @@ class erLhcoreClassChatWebhookIncoming {
     public static function getExtensionByMime($mimeType, $getMime = false) {
         $mime_types = array(
             'txt' => 'text/plain',
+            'log' => 'text/plain',
+            'md' => 'text/markdown',
+            'yaml' => 'text/yaml',
+            'yml' => 'text/yaml',
+            'ini' => 'text/plain',
+            'conf' => 'text/plain',
             'htm' => 'text/html',
             'html' => 'text/html',
             'php' => 'text/html',
