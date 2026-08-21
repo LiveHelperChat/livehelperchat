@@ -77,7 +77,9 @@ return array (
                             30 => 'hun',
                             31 => 'svk',
                             32 => 'jpn',
-                            33 => 'site_admin'
+                            33 => 'est',
+                            34 => 'lav',
+                            35 => 'site_admin'
                         ),
                 ),
             'default_url' =>
@@ -720,6 +722,42 @@ return array (
                         array (
                             'locale' => 'ja_JP',
                             'content_language' => 'ha',
+                            'dir_language' => 'ltr',
+                            'title' => '',
+                            'description' => '',
+                            'theme' =>
+                                array (
+                                    0 => 'customtheme',
+                                    1 => 'defaulttheme'
+                                ),
+                            'default_url' =>
+                                array (
+                                    'module' => 'chat',
+                                    'view' => 'start'
+                                ),
+                        ),
+                    'est' =>
+                        array (
+                            'locale' => 'et_EE',
+                            'content_language' => 'et',
+                            'dir_language' => 'ltr',
+                            'title' => '',
+                            'description' => '',
+                            'theme' =>
+                                array (
+                                    0 => 'customtheme',
+                                    1 => 'defaulttheme'
+                                ),
+                            'default_url' =>
+                                array (
+                                    'module' => 'chat',
+                                    'view' => 'start'
+                                ),
+                        ),
+                    'lav' =>
+                        array (
+                            'locale' => 'lv_LV',
+                            'content_language' => 'lv',
                             'dir_language' => 'ltr',
                             'title' => '',
                             'description' => '',

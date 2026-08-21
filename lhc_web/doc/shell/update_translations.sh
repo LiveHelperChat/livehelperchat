@@ -166,3 +166,9 @@ update_translation "uk" "translations/uk_UK/translation.ts"
 
 echo "Updating ja_JP translations"
 update_translation "ja_jp" "translations/ja_JP/translation.ts"
+
+echo "Updating et_EE translations"
+update_translation "et" "translations/et_EE/translation.ts"
+
+echo "Updating lv_LV translations"
+update_translation "lv" "translations/lv_LV/translation.ts"
