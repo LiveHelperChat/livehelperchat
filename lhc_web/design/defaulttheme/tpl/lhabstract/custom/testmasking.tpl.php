@@ -11,7 +11,7 @@
                             <div class="col-6">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Chat ID');?></h6>
                                 <input type="number" name="chat_id" min="0" value="<?php echo (int)$chat_id?>" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Optional');?>" />
-                                <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Department, assigned operator and its permissions are taken from the chat. Leave empty to test a pattern directly.');?></small>
+                                <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Simulates the visitor side - checks if this message would be masked for the visitor. Department, assigned operator and its permissions are taken from the chat. Leave empty to test a pattern directly.');?></small>
                             </div>
                             <div class="col-6">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Message to test against');?></h6>
