@@ -3191,6 +3191,186 @@ class erLhcoreClassGenericBotActionRestapi
         return array('found' => $partFound, 'value' => $partData);
     }
 
-}
 
-?>
+    public static function validateUrlSSRF($url) {
+        $urlParts = parse_url($url);
+
+        if (!is_array($urlParts) || !isset($urlParts['scheme']) || !in_array(strtolower($urlParts['scheme']), ['http','https'])) {
+            throw new \Exception('Only HTTP/HTTPS are supported!');
+        }
+
+        $host = $urlParts['host'] ?? '';
+        $port = isset($urlParts['port']) ? (int)$urlParts['port'] : (strtolower($urlParts['scheme']) === 'https' ? 443 : 80);
+
+        if ($host === '' || strtolower($host) === 'localhost') {
+            throw new \Exception('Blocked: private destination');
+        }
+
+        if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
+            $resolvedIp = $host;
+        } else {
+            $resolvedIp = gethostbyname($host);
+
+            if ($resolvedIp === $host || filter_var($resolvedIp, FILTER_VALIDATE_IP) === false) {
+                throw new \Exception('Blocked: unresolvable host');
+            }
+        }
+
+        if (filter_var($resolvedIp, FILTER_VALIDATE_IP,
+                FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+            throw new \Exception('Blocked: private/reserved IP');
+        }
+
+        return [$host, $port, $resolvedIp];
+    }
+
+    public static function processMultiStepUpload($mediaFile, &$methodSettings, $headers, &$replaceVariables, &$replaceVariablesJSON, $file_body, $file_name, $file_size, $file_mime)
+    {
+        $stepCfg = isset($methodSettings['multi_step_upload']) && is_array($methodSettings['multi_step_upload']) ? $methodSettings['multi_step_upload'] : [];
+        if (empty($stepCfg) || empty($stepCfg['enabled'])) {
+            return false;
+        }
+
+        $fileType = 'file';
+        if (strpos($mediaFile->type, 'image/') === 0 || in_array(strtolower($mediaFile->extension), ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'])) {
+            $fileType = 'image';
+        } elseif (strpos($mediaFile->type, 'audio/') === 0 || in_array(strtolower($mediaFile->extension), ['mp3', 'ogg', 'oga', 'wav', 'm4a', 'aac', 'opus'])) {
+            $fileType = 'audio';
+        } elseif (strpos($mediaFile->type, 'video/') === 0 || in_array(strtolower($mediaFile->extension), ['mp4', 'mov', 'avi', 'mkv', 'webm'])) {
+            $fileType = 'video';
+        }
+
+        $replaceVariables['{{file_type}}'] = $fileType;
+        $replaceVariablesJSON['{{file_type}}'] = json_encode($fileType);
+        $replaceVariables['{{file_name}}'] = $mediaFile->upload_name;
+        $replaceVariablesJSON['{{file_name}}'] = json_encode($mediaFile->upload_name);
+        $replaceVariables['{{file_mime}}'] = $mediaFile->type;
+        $replaceVariablesJSON['{{file_mime}}'] = json_encode($mediaFile->type);
+        $replaceVariables['{{file_size}}'] = (string)$mediaFile->size;
+        $replaceVariablesJSON['{{file_size}}'] = json_encode((string)$mediaFile->size);
+
+        $host = isset($methodSettings['host']) ? rtrim($methodSettings['host'], '/') : '';
+        $initUrl = isset($stepCfg['init_url']) ? $stepCfg['init_url'] : '/uploads?type={{file_type}}';
+        $initUrl = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $initUrl);
+        if (strpos($initUrl, 'http://') !== 0 && strpos($initUrl, 'https://') !== 0) {
+            $initUrl = $host . (strpos($initUrl, '/') === 0 ? '' : '/') . $initUrl;
+        }
+
+        try {
+            list($vHost, $vPort, $vResolvedIp) = self::validateUrlSSRF($initUrl);
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        $initHeaders = $headers;
+        $chInit = curl_init();
+        curl_setopt($chInit, CURLOPT_URL, $initUrl);
+        curl_setopt($chInit, CURLOPT_RESOLVE, [$vHost . ':' . $vPort . ':' . $vResolvedIp]);
+        @curl_setopt($chInit, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($chInit, CURLOPT_POST, 1);
+        if (!empty($initHeaders)) {
+            curl_setopt($chInit, CURLOPT_HTTPHEADER, $initHeaders);
+        }
+        curl_setopt($chInit, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($chInit, CURLOPT_TIMEOUT, 30);
+        curl_setopt($chInit, CURLOPT_CONNECTTIMEOUT, 10);
+        $initResponseBody = curl_exec($chInit);
+        $initHttpCode = curl_getinfo($chInit, CURLINFO_HTTP_CODE);
+        curl_close($chInit);
+
+        if ($initHttpCode < 200 || $initHttpCode >= 300 || empty($initResponseBody)) {
+            return false;
+        }
+
+        $initData = json_decode($initResponseBody, true);
+        if (!is_array($initData)) {
+            return false;
+        }
+
+        $uploadUrl = isset($initData['url']) ? $initData['url'] : (isset($initData['upload_url']) ? $initData['upload_url'] : '');
+        $uploadToken = isset($initData['token']) ? $initData['token'] : (isset($initData['upload_token']) ? $initData['upload_token'] : (isset($initData['id']) ? $initData['id'] : ''));
+
+        if (empty($uploadUrl)) {
+            return false;
+        }
+
+        if (strpos($uploadUrl, 'http://') !== 0 && strpos($uploadUrl, 'https://') !== 0) {
+            $uploadUrl = $host . (strpos($uploadUrl, '/') === 0 ? '' : '/') . $uploadUrl;
+        }
+
+        try {
+            list($uHost, $uPort, $uResolvedIp) = self::validateUrlSSRF($uploadUrl);
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        $replaceVariables['{{upload_url}}'] = $uploadUrl;
+        $replaceVariablesJSON['{{upload_url}}'] = json_encode($uploadUrl);
+        if (!empty($uploadToken)) {
+            $replaceVariables['{{upload_token}}'] = $uploadToken;
+            $replaceVariablesJSON['{{upload_token}}'] = json_encode($uploadToken);
+            $replaceVariables['{{media_token}}'] = $uploadToken;
+            $replaceVariablesJSON['{{media_token}}'] = json_encode($uploadToken);
+        }
+
+        $uploadPath = $mediaFile->file_path_server;
+        $uploadName = $mediaFile->upload_name;
+        $uploadMime = $mediaFile->type;
+
+        $fileField = !empty($stepCfg['upload_file_field']) ? $stepCfg['upload_file_field'] : 'data';
+        $cFile = new CurlFile($uploadPath, $uploadMime, $uploadName);
+        $postFields = [$fileField => $cFile];
+
+        $uploadHeaders = [];
+        if (!empty($stepCfg['upload_send_auth'])) {
+            $uploadHeaders = $headers;
+        }
+
+        $chUpload = curl_init();
+        curl_setopt($chUpload, CURLOPT_URL, $uploadUrl);
+        curl_setopt($chUpload, CURLOPT_RESOLVE, [$uHost . ':' . $uPort . ':' . $uResolvedIp]);
+        @curl_setopt($chUpload, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($chUpload, CURLOPT_POST, 1);
+        curl_setopt($chUpload, CURLOPT_POSTFIELDS, $postFields);
+        curl_setopt($chUpload, CURLOPT_RETURNTRANSFER, 1);
+        if (!empty($uploadHeaders)) {
+            curl_setopt($chUpload, CURLOPT_HTTPHEADER, $uploadHeaders);
+        }
+        curl_setopt($chUpload, CURLOPT_TIMEOUT, 120);
+        curl_setopt($chUpload, CURLOPT_CONNECTTIMEOUT, 10);
+        $uploadResponseBody = curl_exec($chUpload);
+        $uploadHttpCode = curl_getinfo($chUpload, CURLINFO_HTTP_CODE);
+        curl_close($chUpload);
+
+        if ($uploadHttpCode < 200 || $uploadHttpCode >= 300) {
+            return false;
+        }
+
+        $uploadData = json_decode($uploadResponseBody, true);
+        if (is_array($uploadData)) {
+            if (isset($uploadData['token'])) {
+                $replaceVariables['{{upload_token}}'] = $uploadData['token'];
+                $replaceVariablesJSON['{{upload_token}}'] = json_encode($uploadData['token']);
+                $replaceVariables['{{media_token}}'] = $uploadData['token'];
+                $replaceVariablesJSON['{{media_token}}'] = json_encode($uploadData['token']);
+            } elseif (isset($uploadData['id'])) {
+                $replaceVariables['{{upload_token}}'] = $uploadData['id'];
+                $replaceVariablesJSON['{{upload_token}}'] = json_encode($uploadData['id']);
+                $replaceVariables['{{media_token}}'] = $uploadData['id'];
+                $replaceVariablesJSON['{{media_token}}'] = json_encode($uploadData['id']);
+            }
+            if (isset($uploadData['file_id'])) {
+                $replaceVariables['{{file_id}}'] = $uploadData['file_id'];
+                $replaceVariablesJSON['{{file_id}}'] = json_encode($uploadData['file_id']);
+            }
+        }
+
+        $file_api = false;
+        $methodSettings['body_request_type'] = 'raw';
+        if (isset($methodSettings['body_raw_file'])) {
+            $methodSettings['body_raw'] = $methodSettings['body_raw_file'];
+        }
+
+        return true;
+    }
+}
