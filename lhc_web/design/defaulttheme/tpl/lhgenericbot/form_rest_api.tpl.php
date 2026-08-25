@@ -730,6 +730,29 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Step 1: Init request body (optional)');?></label>
+                            <textarea rows="4" class="form-control form-control-sm" ng-model="param.multi_step_upload.init_body" placeholder='{"filename":"{{file_name}}","size":{{file_size}}}'></textarea>
+                            <p class="text-muted"><small ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Sent only for POST init requests. Supports {{file_type}}, {{file_name}}, {{file_mime}} and {{file_size}} placeholders.');?></small></p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Init response upload URL path');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.init_response_url_path" placeholder="url or data.upload_url">
+                                    <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Dot-separated JSON path. Default fallback: url, upload_url.');?></small></p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Init response token path');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.init_response_token_path" placeholder="token or data.upload_token">
+                                    <p class="text-muted"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Default fallback: token, upload_token, id.');?></small></p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -741,6 +764,27 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label class="d-block mt-4"><input type="checkbox" value="on" ng-model="param.multi_step_upload.upload_send_auth">&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Send Authorization headers during binary upload');?></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Upload response URL path');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.upload_response_url_path" placeholder="url">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Upload response token path');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.upload_response_token_path" placeholder="token or id">
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Upload response file ID path');?></label>
+                                    <input type="text" class="form-control form-control-sm" ng-model="param.multi_step_upload.upload_response_file_id_path" placeholder="file_id">
                                 </div>
                             </div>
                         </div>

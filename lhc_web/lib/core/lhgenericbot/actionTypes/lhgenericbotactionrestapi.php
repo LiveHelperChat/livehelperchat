@@ -619,6 +619,27 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        $multiStepConfigured = isset($methodSettings['multi_step_upload']['enabled']) && $methodSettings['multi_step_upload']['enabled'] && !empty($methodSettings['body_raw_file']);
+        if ($multiStepConfigured && count($files) > 1) {
+            return array(
+                'content' => 'Multi-step upload supports exactly one local media file per request',
+                'content_raw' => '',
+                'params_request' => '',
+                'http_code' => 422,
+                'http_error' => 'multi_step_upload_files',
+                'http_data' => '',
+                'content_2' => '',
+                'content_3' => '',
+                'content_4' => '',
+                'content_5' => '',
+                'content_6' => '',
+                'meta' => array(),
+                'conditions_met' => false,
+                'as_failed_request' => true,
+                'id' => 0
+            );
+        }
+
         // Cleanup if file bodu has reply to api defined
         if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && strpos($methodSettings['body_raw_file'],'{reply_to}') !== false) {
              $msg_text_cleaned = trim(preg_replace('#\[quote="?([0-9]+)"?\](.*?)\[/quote\]#ms','',$msg_text_cleaned));
@@ -634,6 +655,7 @@ class erLhcoreClassGenericBotActionRestapi
         $file_mime = null;
 
         $file_api = false;
+        $multiStepUpload = false;
         $canSendSingleFileWithText = false;
 
         if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && trim($msg_text_cleaned) != '' && strpos($methodSettings['body_raw_file'], '{{msg_clean}}') !== false) {
@@ -943,7 +965,8 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-        if ($file_api === true) {
+        $multiStepBodyConfigured = isset($methodSettings['multi_step_upload']['enabled']) && $methodSettings['multi_step_upload']['enabled'] && isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] !== '' && count($files) === 1;
+        if ($file_api === true || $multiStepBodyConfigured) {
             $methodSettings['body_raw_file'] = self::processReplyTo($methodSettings['body_raw_file'], $msg_text);
         } else {
             $methodSettings['body_raw'] = self::processReplyTo($methodSettings['body_raw'], $msg_text);
@@ -1206,6 +1229,7 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        $userParamQueryArgs = [];
         if (isset($methodSettings['userparams']) && !empty($methodSettings['userparams'])) {
             foreach ($methodSettings['userparams'] as $userParam) {
 
@@ -1217,11 +1241,59 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if (!isset($userParam['location']) || $userParam['location'] == '') {
                     $queryArgs[$userParam['key']] = $valueParam;
+                    $userParamQueryArgs[$userParam['key']] = $valueParam;
                 } elseif (isset($userParam['location']) && $userParam['location'] == 'post_param') {
                     $postParams[$userParam['key']] = $valueParam;
                 } elseif (isset($userParam['location']) && $userParam['location'] == 'body_param') {
-                    $methodSettings['body_raw'] = str_replace('{{' . $userParam['key'] . '}}', json_encode($valueParam), $file_api === true ? $methodSettings['body_raw_file'] : $methodSettings['body_raw']);
+                    if ($file_api === true || $multiStepBodyConfigured) {
+                        $methodSettings['body_raw_file'] = str_replace('{{' . $userParam['key'] . '}}', json_encode($valueParam), $methodSettings['body_raw_file']);
+                    } else {
+                        $methodSettings['body_raw'] = str_replace('{{' . $userParam['key'] . '}}', json_encode($valueParam), $methodSettings['body_raw']);
+                    }
                 }
+            }
+        }
+
+        // Complete the optional init/upload phase after user parameters have
+        // been collected, so init_query and init_body see their values.
+        if (isset($methodSettings['multi_step_upload']['enabled']) && $methodSettings['multi_step_upload']['enabled'] && isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] !== '' && count($files) === 1) {
+            $multiStepError = '';
+            $multiStepErrorDetails = [];
+            if (!self::processMultiStepUpload($files[0], $methodSettings, $host, $headers, $replaceVariables, $replaceVariablesJSON, $queryArgs, $multiStepError, $multiStepErrorDetails)) {
+                $errorMessage = $multiStepError !== '' ? $multiStepError : 'Multi-step media upload failed';
+                return array(
+                    'content' => $errorMessage,
+                    'content_raw' => $errorMessage,
+                    'params_request' => '',
+                    'http_code' => isset($multiStepErrorDetails['http_code']) ? $multiStepErrorDetails['http_code'] : 502,
+                    'http_error' => isset($multiStepErrorDetails['http_error']) ? $multiStepErrorDetails['http_error'] : 'multi_step_upload',
+                    'http_data' => isset($multiStepErrorDetails['http_data']) ? $multiStepErrorDetails['http_data'] : '',
+                    'content_2' => '',
+                    'content_3' => '',
+                    'content_4' => '',
+                    'content_5' => '',
+                    'content_6' => '',
+                    'meta' => array(),
+                    'conditions_met' => false,
+                    'as_failed_request' => true,
+                    'id' => 0
+                );
+            }
+            $file_api = false;
+            $multiStepUpload = true;
+
+            // File placeholders are populated by the upload flow. Rebuild configured
+            // query arguments after that phase so {{file_*}}/{{upload_*}} values are
+            // also available in the final URL.
+            if (isset($methodSettings['query']) && !empty($methodSettings['query'])) {
+                foreach ($methodSettings['query'] as $dataQuery) {
+                    $queryArgs[$dataQuery['key']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $dataQuery['value']);
+                }
+            }
+            // Preserve the existing precedence where values supplied by the
+            // action user override same-named configured query parameters.
+            foreach ($userParamQueryArgs as $key => $value) {
+                $queryArgs[$key] = $value;
             }
         }
 
@@ -1340,14 +1412,14 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
-        $queryArgsString = http_build_query($queryArgs);
         $replaceVariablesURL = [];
 
         foreach ($replaceVariables as $keyVariable => $variableValue) {
                 $replaceVariablesURL['urlencode_' . $keyVariable] = rawurlencode((string)$variableValue);
         }
 
-        $url = trim(str_replace(array_keys($replaceVariables), array_values($replaceVariables), str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), rtrim($host) . (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))) . (!empty($queryArgsString) ? '?' . $queryArgsString : ''));
+        $urlBase = trim(str_replace(array_keys($replaceVariables), array_values($replaceVariables), str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), rtrim($host) . (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))));
+        $url = self::multiStepMergeQuery($urlBase, $queryArgs);
 
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
 
@@ -1438,8 +1510,30 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         $urlParts = parse_url($url);
+        $multiStepFinalResolve = null;
+        if ($multiStepUpload) {
+            try {
+                list($finalHost, $finalPort, $finalResolvedIp) = self::validateUrlSSRF($url);
+                $multiStepFinalResolve = self::multiStepResolveEntry($finalHost, $finalPort, $finalResolvedIp);
+            } catch (\Throwable $e) {
+                return array(
+                    'content' => 'Multi-step upload final request blocked: ' . $e->getMessage(),
+                    'content_raw' => '',
+                    'params_request' => '',
+                    'http_code' => 502,
+                    'http_error' => 'multi_step_upload_ssrf',
+                    'http_data' => '',
+                    'content_2' => '',
+                    'content_3' => '',
+                    'content_4' => '',
+                    'content_5' => '',
+                    'content_6' => '',
+                    'meta' => array()
+                );
+            }
+        }
 
-        if (!in_array($urlParts['scheme'],['http','https']) || (class_exists('erLhcoreClassInstance') && isset($urlParts['port']) && !in_array($urlParts['port'],[80,443]))) {
+        if (!is_array($urlParts) || !isset($urlParts['scheme']) || !in_array(strtolower($urlParts['scheme']),['http','https']) || (class_exists('erLhcoreClassInstance') && isset($urlParts['port']) && !in_array($urlParts['port'],[80,443]))) {
             return array(
                 'content' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only. '.$url,
                 'content_raw' => 'Only HTTP/HTTPS protocols are supported. In automated hosting environment 80 and 443 ports only. '.$url,
@@ -1458,7 +1552,18 @@ class erLhcoreClassGenericBotActionRestapi
 
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        if ($multiStepUpload) {
+            // A response-derived URL must never be followed to an unvalidated host.
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+            curl_setopt($ch, CURLOPT_NOPROXY, '*');
+            if ($multiStepFinalResolve !== null) {
+                curl_setopt($ch, CURLOPT_RESOLVE, [$multiStepFinalResolve]);
+            }
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+        } else {
+            @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        }
 
         $responseContent = [];
         $streamLines = [];
@@ -3193,41 +3298,286 @@ class erLhcoreClassGenericBotActionRestapi
 
 
     public static function validateUrlSSRF($url) {
+        if (!is_string($url) || $url === '' || preg_match('/[\x00-\x1F\x7F]/', $url)) {
+            throw new \Exception('Blocked: invalid URL');
+        }
         $urlParts = parse_url($url);
 
-        if (!is_array($urlParts) || !isset($urlParts['scheme']) || !in_array(strtolower($urlParts['scheme']), ['http','https'])) {
+        if (!is_array($urlParts) || !isset($urlParts['scheme']) || !in_array(strtolower($urlParts['scheme']), ['http','https'], true)) {
             throw new \Exception('Only HTTP/HTTPS are supported!');
         }
+        if (isset($urlParts['user']) || isset($urlParts['pass']) || isset($urlParts['fragment'])) {
+            throw new \Exception('Blocked: URL userinfo/fragment is not allowed');
+        }
 
-        $host = $urlParts['host'] ?? '';
+        $host = trim($urlParts['host'] ?? '', '[]');
         $port = isset($urlParts['port']) ? (int)$urlParts['port'] : (strtolower($urlParts['scheme']) === 'https' ? 443 : 80);
 
-        if ($host === '' || strtolower($host) === 'localhost') {
+        if ($host === '' || strtolower($host) === 'localhost' || str_ends_with(strtolower($host), '.localhost')) {
             throw new \Exception('Blocked: private destination');
         }
 
-        if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
-            $resolvedIp = $host;
-        } else {
-            $resolvedIp = gethostbyname($host);
+        if ($port < 1 || $port > 65535) {
+            throw new \Exception('Blocked: invalid port');
+        }
 
-            if ($resolvedIp === $host || filter_var($resolvedIp, FILTER_VALIDATE_IP) === false) {
-                throw new \Exception('Blocked: unresolvable host');
+        $addresses = [];
+        if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
+            $addresses[] = $host;
+        } else {
+            $records = @dns_get_record($host, DNS_A | DNS_AAAA);
+            if (is_array($records)) {
+                foreach ($records as $record) {
+                    if (isset($record['ip'])) {
+                        $addresses[] = $record['ip'];
+                    } elseif (isset($record['ipv6'])) {
+                        $addresses[] = $record['ipv6'];
+                    }
+                }
+            }
+
+            if (empty($addresses) && function_exists('gethostbynamel')) {
+                $addresses = gethostbynamel($host) ?: [];
             }
         }
 
-        if (filter_var($resolvedIp, FILTER_VALIDATE_IP,
-                FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
-            throw new \Exception('Blocked: private/reserved IP');
+        $addresses = array_values(array_unique($addresses));
+        if (empty($addresses)) {
+            throw new \Exception('Blocked: unresolvable host');
         }
 
-        return [$host, $port, $resolvedIp];
+        foreach ($addresses as $address) {
+            if (filter_var($address, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false || self::isBlockedSSRFAddress($address)) {
+                throw new \Exception('Blocked: private/reserved IP');
+            }
+        }
+
+        return [$host, $port, $addresses[0]];
     }
 
-    public static function processMultiStepUpload($mediaFile, &$methodSettings, $headers, &$replaceVariables, &$replaceVariablesJSON, $file_body, $file_name, $file_size, $file_mime)
+    private static function isBlockedSSRFAddress($address)
     {
+        if (filter_var($address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false) {
+            $ip = ip2long($address);
+            if ($ip === false) {
+                return true;
+            }
+            $ip = (int)sprintf('%u', $ip);
+            foreach (array(
+                array('0.0.0.0', 8),
+                array('10.0.0.0', 8),
+                array('100.64.0.0', 10),
+                array('127.0.0.0', 8),
+                array('169.254.0.0', 16),
+                array('172.16.0.0', 12),
+                array('192.0.0.0', 24),
+                array('192.0.2.0', 24),
+                array('192.88.99.0', 24),
+                array('192.168.0.0', 16),
+                array('198.18.0.0', 15),
+                array('198.51.100.0', 24),
+                array('203.0.113.0', 24),
+                array('224.0.0.0', 4),
+                array('240.0.0.0', 4)
+            ) as $range) {
+                $network = (int)sprintf('%u', ip2long($range[0]));
+                $mask = $range[1] === 0 ? 0 : (0xFFFFFFFF << (32 - $range[1])) & 0xFFFFFFFF;
+                if (($ip & $mask) === ($network & $mask)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        $packed = @inet_pton($address);
+        if ($packed === false || strlen($packed) !== 16) {
+            return true;
+        }
+
+        // IPv4-mapped IPv6 addresses must inherit the IPv4 policy.
+        if (substr($packed, 0, 12) === str_repeat("\0", 10) . "\xff\xff") {
+            $mapped = inet_ntop(substr($packed, 12, 4));
+            return $mapped === false || self::isBlockedSSRFAddress($mapped);
+        }
+
+        foreach (array(
+            array('::', 128),
+            array('::1', 128),
+            array('::ffff:0:0', 96),
+            array('100::', 64),
+            array('2001:db8::', 32),
+            array('2002::', 16),
+            array('fc00::', 7),
+            array('fec0::', 10),
+            array('fe80::', 10),
+            array('ff00::', 8)
+        ) as $range) {
+            $network = inet_pton($range[0]);
+            $bits = (int)$range[1];
+            $fullBytes = intdiv($bits, 8);
+            if (substr($packed, 0, $fullBytes) !== substr($network, 0, $fullBytes)) {
+                continue;
+            }
+            $remainingBits = $bits % 8;
+            if ($remainingBits === 0 || (ord($packed[$fullBytes]) & (0xFF << (8 - $remainingBits))) === (ord($network[$fullBytes]) & (0xFF << (8 - $remainingBits)))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static function multiStepResolveEntry($host, $port, $ip)
+    {
+        $hostPart = strpos($host, ':') !== false ? '[' . trim($host, '[]') . ']' : $host;
+        $ipPart = strpos($ip, ':') !== false ? '[' . trim($ip, '[]') . ']' : $ip;
+        return $hostPart . ':' . (int)$port . ':' . $ipPart;
+    }
+
+    private static function multiStepResolveUrl($baseUrl, $candidate)
+    {
+        if (!is_string($candidate) || trim($candidate) === '') {
+            return '';
+        }
+        $candidate = trim($candidate);
+        if (preg_match('#^https?://#i', $candidate)) {
+            return $candidate;
+        }
+        $base = parse_url($baseUrl);
+        if (!is_array($base) || empty($base['scheme']) || empty($base['host'])) {
+            return '';
+        }
+        $origin = strtolower($base['scheme']) . '://' . (strpos($base['host'], ':') !== false ? '[' . trim($base['host'], '[]') . ']' : $base['host']);
+        if (isset($base['port'])) {
+            $origin .= ':' . (int)$base['port'];
+        }
+        if (str_starts_with($candidate, '//')) {
+            return strtolower($base['scheme']) . ':' . $candidate;
+        }
+        $basePath = isset($base['path']) && $base['path'] !== '' ? $base['path'] : '/';
+        // A query-only reference keeps the path of the URL it is relative to.
+        // Resolving "?token=..." against the directory would incorrectly drop
+        // the init endpoint (for example, /uploads -> /?token=...).
+        if (str_starts_with($candidate, '?')) {
+            return $origin . $basePath . $candidate;
+        }
+        if (str_starts_with($candidate, '#')) {
+            $baseQuery = isset($base['query']) ? '?' . $base['query'] : '';
+            return $origin . $basePath . $baseQuery . $candidate;
+        }
+        if (str_starts_with($candidate, '/')) {
+            return $origin . $candidate;
+        }
+        $dir = substr($basePath, -1) === '/' ? $basePath : dirname($basePath);
+        $dir = rtrim(str_replace('\\', '/', $dir), '/');
+        return $origin . ($dir === '' ? '/' : $dir . '/') . $candidate;
+    }
+
+    private static function multiStepMergeQuery($url, array $params)
+    {
+        if (empty($params) || !is_string($url) || $url === '') {
+            return $url;
+        }
+
+        $fragment = '';
+        $fragmentPos = strpos($url, '#');
+        if ($fragmentPos !== false) {
+            $fragment = substr($url, $fragmentPos);
+            $url = substr($url, 0, $fragmentPos);
+        }
+
+        $existing = [];
+        $queryPos = strpos($url, '?');
+        if ($queryPos !== false) {
+            parse_str(substr($url, $queryPos + 1), $existing);
+            $url = substr($url, 0, $queryPos);
+        }
+
+        // Configured query arguments take precedence over values embedded in
+        // the endpoint URL, avoiding duplicate keys with ambiguous semantics.
+        $query = http_build_query(array_merge($existing, $params));
+        return $url . ($query !== '' ? '?' . $query : '') . $fragment;
+    }
+
+    private static function multiStepRenderBody($body, $replaceVariables)
+    {
+        if (is_array($body) || is_object($body)) {
+            $body = json_encode($body, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        }
+        if (!is_string($body) || $body === '') {
+            return $body;
+        }
+        foreach ((array)$replaceVariables as $key => $value) {
+            $jsonValue = json_encode($value, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            if ($jsonValue === false) {
+                $jsonValue = 'null';
+            }
+            // Preserve JSON types when the placeholder is the complete value.
+            $body = str_replace('"' . $key . '"', $jsonValue, $body);
+            $body = str_replace($key, is_scalar($value) ? (string)$value : $jsonValue, $body);
+        }
+        return $body;
+    }
+
+    private static function multiStepResponseValue($data, $configuredPath, array $fallbackPaths, &$found)
+    {
+        $paths = [];
+        if (is_string($configuredPath) && trim($configuredPath) !== '') {
+            $paths[] = trim($configuredPath);
+        }
+        foreach ($fallbackPaths as $path) {
+            if (!in_array($path, $paths, true)) {
+                $paths[] = $path;
+            }
+        }
+        foreach ($paths as $path) {
+            $result = self::extractAttribute($data, $path, '.');
+            if ($result['found'] && (is_string($result['value']) || is_numeric($result['value']))) {
+                $found = true;
+                return $result['value'];
+            }
+        }
+        $found = false;
+        return null;
+    }
+
+    private static function multiStepApplyAuth($ch, $methodSettings, $replaceVariables, $enabled)
+    {
+        if (!$enabled || !is_array($methodSettings)) {
+            return;
+        }
+        $authorization = strtolower((string)($methodSettings['authorization'] ?? ''));
+        if ($authorization === 'basicauth' || $authorization === 'ntlmauth') {
+            $username = (string)($methodSettings['auth_username'] ?? '');
+            $password = (string)($methodSettings['auth_password'] ?? '');
+            $username = str_replace(array_keys((array)$replaceVariables), array_values((array)$replaceVariables), $username);
+            $password = str_replace(array_keys((array)$replaceVariables), array_values((array)$replaceVariables), $password);
+            curl_setopt($ch, CURLOPT_USERPWD, $username . ':' . $password);
+            curl_setopt($ch, CURLOPT_HTTPAUTH, $authorization === 'ntlmauth' ? CURLAUTH_NTLM : CURLAUTH_BASIC);
+        }
+    }
+
+    private static function multiStepSetError(&$errorMessage, &$errorDetails, $message, $stage, $httpCode = 502, $curlError = '', $body = '')
+    {
+        $errorMessage = (string)$message;
+        $errorDetails = array(
+            'http_code' => ((int)$httpCode > 0 ? (int)$httpCode : 502),
+            'http_error' => (string)$stage . ($curlError !== '' ? ': ' . $curlError : ''),
+            'http_data' => is_string($body) ? substr($body, 0, 4096) : ''
+        );
+    }
+
+    public static function processMultiStepUpload($mediaFile, &$methodSettings, $host, $headers, &$replaceVariables, &$replaceVariablesJSON, &$queryArgs, &$errorMessage, &$errorDetails = [])
+    {
+        $errorDetails = [];
         $stepCfg = isset($methodSettings['multi_step_upload']) && is_array($methodSettings['multi_step_upload']) ? $methodSettings['multi_step_upload'] : [];
         if (empty($stepCfg) || empty($stepCfg['enabled'])) {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Multi-step upload is not enabled', 'multi_step_disabled');
+            return false;
+        }
+
+        if (!is_object($mediaFile) || !empty($mediaFile->remote_file) || empty($mediaFile->file_path_server) || !is_readable($mediaFile->file_path_server)) {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Multi-step upload requires a local media file', 'multi_step_file');
             return false;
         }
 
@@ -3249,67 +3599,157 @@ class erLhcoreClassGenericBotActionRestapi
         $replaceVariables['{{file_size}}'] = (string)$mediaFile->size;
         $replaceVariablesJSON['{{file_size}}'] = json_encode((string)$mediaFile->size);
 
-        $host = isset($methodSettings['host']) ? rtrim($methodSettings['host'], '/') : '';
+        $host = rtrim((string)$host, '/');
         $initUrl = isset($stepCfg['init_url']) ? $stepCfg['init_url'] : '/uploads?type={{file_type}}';
         $initUrl = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $initUrl);
-        if (strpos($initUrl, 'http://') !== 0 && strpos($initUrl, 'https://') !== 0) {
-            $initUrl = $host . (strpos($initUrl, '/') === 0 ? '' : '/') . $initUrl;
+        if (!preg_match('#^https?://#i', $initUrl)) {
+            $initUrl = self::multiStepResolveUrl($host . '/', $initUrl);
+        }
+        if ($initUrl === '') {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Upload initialization URL is invalid', 'multi_step_init_url');
+            return false;
+        }
+
+        // Carry configured query/API-key parameters into the init request.
+        $initQuery = [];
+        foreach ((array)$queryArgs as $key => $value) {
+            $initQuery[$key] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), (string)$value);
+        }
+        if (isset($stepCfg['init_query']) && is_array($stepCfg['init_query'])) {
+            foreach ($stepCfg['init_query'] as $key => $value) {
+                if (is_array($value) && isset($value['key'])) {
+                    $initQuery[$value['key']] = $value['value'] ?? '';
+                } else {
+                    $initQuery[$key] = $value;
+                }
+            }
+        }
+        if (!empty($initQuery)) {
+            $renderedQuery = [];
+            foreach ($initQuery as $key => $value) {
+                $renderedQuery[$key] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), (string)$value);
+            }
+            $initUrl = self::multiStepMergeQuery($initUrl, $renderedQuery);
         }
 
         try {
             list($vHost, $vPort, $vResolvedIp) = self::validateUrlSSRF($initUrl);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
+            self::multiStepSetError($errorMessage, $errorDetails, $e->getMessage(), 'multi_step_init_ssrf');
             return false;
         }
 
-        $initHeaders = $headers;
+        $initHeaders = [];
+        foreach ($headers as $header) {
+            $initHeaders[] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $header);
+        }
+        $initBody = array_key_exists('init_body', $stepCfg) ? self::multiStepRenderBody($stepCfg['init_body'], $replaceVariables) : '';
+        if (is_array($initBody)) {
+            $initBody = json_encode($initBody, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+            if ($initBody === false) {
+                self::multiStepSetError($errorMessage, $errorDetails, 'Upload initialization body could not be encoded as JSON', 'multi_step_init_body');
+                return false;
+            }
+        }
+        $hasInitContentType = false;
+        foreach ($initHeaders as $header) {
+            if (preg_match('/^\s*content-type\s*:/i', $header)) {
+                $hasInitContentType = true;
+                break;
+            }
+        }
+        if (!$hasInitContentType && is_string($initBody) && trim($initBody) !== '') {
+            $configuredContentType = strtolower(trim((string)($stepCfg['init_content_type'] ?? $methodSettings['body_request_type_content'] ?? '')));
+            $contentTypeMap = array(
+                'json' => 'application/json',
+                'text' => 'text/plain',
+                'js' => 'application/javascript',
+                'appxml' => 'application/xml',
+                'textxml' => 'text/xml',
+                'texthtml' => 'text/html'
+            );
+            if ($configuredContentType !== '') {
+                $initHeaders[] = 'Content-Type: ' . ($contentTypeMap[$configuredContentType] ?? $configuredContentType);
+            } elseif (preg_match('/^\s*[\[{]/', $initBody)) {
+                $initHeaders[] = 'Content-Type: application/json';
+            }
+        }
         $chInit = curl_init();
+        if ($chInit === false) {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Unable to initialize cURL for upload initialization', 'multi_step_init_curl');
+            return false;
+        }
         curl_setopt($chInit, CURLOPT_URL, $initUrl);
-        curl_setopt($chInit, CURLOPT_RESOLVE, [$vHost . ':' . $vPort . ':' . $vResolvedIp]);
-        @curl_setopt($chInit, CURLOPT_FOLLOWLOCATION, false);
-        curl_setopt($chInit, CURLOPT_POST, 1);
+        curl_setopt($chInit, CURLOPT_RESOLVE, [self::multiStepResolveEntry($vHost, $vPort, $vResolvedIp)]);
+        curl_setopt($chInit, CURLOPT_NOPROXY, '*');
+        curl_setopt($chInit, CURLOPT_FOLLOWLOCATION, false);
+        $initMethod = strtoupper(trim((string)($stepCfg['init_method'] ?? 'POST')));
+        if ($initMethod === 'GET') {
+            curl_setopt($chInit, CURLOPT_HTTPGET, true);
+        } elseif ($initMethod === 'POST') {
+            curl_setopt($chInit, CURLOPT_POST, true);
+            if (is_string($initBody) && $initBody !== '') {
+                curl_setopt($chInit, CURLOPT_POSTFIELDS, $initBody);
+            }
+        } else {
+            curl_setopt($chInit, CURLOPT_CUSTOMREQUEST, $initMethod);
+            if (is_string($initBody) && $initBody !== '') {
+                curl_setopt($chInit, CURLOPT_POSTFIELDS, $initBody);
+            }
+        }
         if (!empty($initHeaders)) {
             curl_setopt($chInit, CURLOPT_HTTPHEADER, $initHeaders);
         }
         curl_setopt($chInit, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($chInit, CURLOPT_TIMEOUT, 30);
         curl_setopt($chInit, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($chInit, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($chInit, CURLOPT_SSL_VERIFYHOST, 2);
+        self::multiStepApplyAuth($chInit, $methodSettings, $replaceVariables, true);
         $initResponseBody = curl_exec($chInit);
         $initHttpCode = curl_getinfo($chInit, CURLINFO_HTTP_CODE);
+        $initCurlError = curl_error($chInit);
         curl_close($chInit);
 
-        if ($initHttpCode < 200 || $initHttpCode >= 300 || empty($initResponseBody)) {
+        if ($initResponseBody === false || $initHttpCode < 200 || $initHttpCode >= 300) {
+            self::multiStepSetError($errorMessage, $errorDetails, $initCurlError !== '' ? $initCurlError : 'Upload initialization returned HTTP ' . (int)$initHttpCode, 'multi_step_init_http', $initHttpCode ?: 502, $initCurlError, (string)$initResponseBody);
             return false;
         }
 
         $initData = json_decode($initResponseBody, true);
         if (!is_array($initData)) {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Upload initialization returned invalid JSON: ' . json_last_error_msg(), 'multi_step_init_json', $initHttpCode, '', (string)$initResponseBody);
             return false;
         }
 
-        $uploadUrl = isset($initData['url']) ? $initData['url'] : (isset($initData['upload_url']) ? $initData['upload_url'] : '');
-        $uploadToken = isset($initData['token']) ? $initData['token'] : (isset($initData['upload_token']) ? $initData['upload_token'] : (isset($initData['id']) ? $initData['id'] : ''));
-
-        if (empty($uploadUrl)) {
+        $foundUrl = false;
+        $uploadUrl = self::multiStepResponseValue($initData, $stepCfg['init_response_url_path'] ?? '', ['url', 'upload_url', 'data.url', 'data.upload_url'], $foundUrl);
+        if (!$foundUrl || !is_string($uploadUrl) || trim($uploadUrl) === '') {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Upload initialization did not return an upload URL', 'multi_step_init_response', $initHttpCode, '', (string)$initResponseBody);
             return false;
         }
 
-        if (strpos($uploadUrl, 'http://') !== 0 && strpos($uploadUrl, 'https://') !== 0) {
-            $uploadUrl = $host . (strpos($uploadUrl, '/') === 0 ? '' : '/') . $uploadUrl;
+        $uploadUrl = self::multiStepResolveUrl($initUrl, $uploadUrl);
+        if ($uploadUrl === '') {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Upload initialization returned an invalid upload URL', 'multi_step_upload_url');
+            return false;
         }
 
         try {
             list($uHost, $uPort, $uResolvedIp) = self::validateUrlSSRF($uploadUrl);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
+            self::multiStepSetError($errorMessage, $errorDetails, $e->getMessage(), 'multi_step_upload_ssrf');
             return false;
         }
 
         $replaceVariables['{{upload_url}}'] = $uploadUrl;
         $replaceVariablesJSON['{{upload_url}}'] = json_encode($uploadUrl);
-        if (!empty($uploadToken)) {
-            $replaceVariables['{{upload_token}}'] = $uploadToken;
+        $foundToken = false;
+        $uploadToken = self::multiStepResponseValue($initData, $stepCfg['init_response_token_path'] ?? '', ['token', 'upload_token', 'id', 'file_id', 'data.token', 'data.upload_token', 'data.id'], $foundToken);
+        if ($foundToken) {
+            $replaceVariables['{{upload_token}}'] = (string)$uploadToken;
             $replaceVariablesJSON['{{upload_token}}'] = json_encode($uploadToken);
-            $replaceVariables['{{media_token}}'] = $uploadToken;
+            $replaceVariables['{{media_token}}'] = (string)$uploadToken;
             $replaceVariablesJSON['{{media_token}}'] = json_encode($uploadToken);
         }
 
@@ -3323,13 +3763,22 @@ class erLhcoreClassGenericBotActionRestapi
 
         $uploadHeaders = [];
         if (!empty($stepCfg['upload_send_auth'])) {
-            $uploadHeaders = $headers;
+            foreach ($headers as $header) {
+                if (!preg_match('/^\s*(content-type|content-length|host)\s*:/i', $header)) {
+                    $uploadHeaders[] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $header);
+                }
+            }
         }
 
         $chUpload = curl_init();
+        if ($chUpload === false) {
+            self::multiStepSetError($errorMessage, $errorDetails, 'Unable to initialize cURL for binary upload', 'multi_step_upload_curl');
+            return false;
+        }
         curl_setopt($chUpload, CURLOPT_URL, $uploadUrl);
-        curl_setopt($chUpload, CURLOPT_RESOLVE, [$uHost . ':' . $uPort . ':' . $uResolvedIp]);
-        @curl_setopt($chUpload, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($chUpload, CURLOPT_RESOLVE, [self::multiStepResolveEntry($uHost, $uPort, $uResolvedIp)]);
+        curl_setopt($chUpload, CURLOPT_NOPROXY, '*');
+        curl_setopt($chUpload, CURLOPT_FOLLOWLOCATION, false);
         curl_setopt($chUpload, CURLOPT_POST, 1);
         curl_setopt($chUpload, CURLOPT_POSTFIELDS, $postFields);
         curl_setopt($chUpload, CURLOPT_RETURNTRANSFER, 1);
@@ -3338,30 +3787,54 @@ class erLhcoreClassGenericBotActionRestapi
         }
         curl_setopt($chUpload, CURLOPT_TIMEOUT, 120);
         curl_setopt($chUpload, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($chUpload, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($chUpload, CURLOPT_SSL_VERIFYHOST, 2);
+        self::multiStepApplyAuth($chUpload, $methodSettings, $replaceVariables, !empty($stepCfg['upload_send_auth']));
         $uploadResponseBody = curl_exec($chUpload);
         $uploadHttpCode = curl_getinfo($chUpload, CURLINFO_HTTP_CODE);
+        $uploadCurlError = curl_error($chUpload);
         curl_close($chUpload);
 
-        if ($uploadHttpCode < 200 || $uploadHttpCode >= 300) {
+        if ($uploadResponseBody === false || $uploadHttpCode < 200 || $uploadHttpCode >= 300) {
+            self::multiStepSetError($errorMessage, $errorDetails, $uploadCurlError !== '' ? $uploadCurlError : 'Binary upload returned HTTP ' . (int)$uploadHttpCode, 'multi_step_upload_http', $uploadHttpCode ?: 502, $uploadCurlError, (string)$uploadResponseBody);
             return false;
         }
 
-        $uploadData = json_decode($uploadResponseBody, true);
-        if (is_array($uploadData)) {
-            if (isset($uploadData['token'])) {
-                $replaceVariables['{{upload_token}}'] = $uploadData['token'];
-                $replaceVariablesJSON['{{upload_token}}'] = json_encode($uploadData['token']);
-                $replaceVariables['{{media_token}}'] = $uploadData['token'];
-                $replaceVariablesJSON['{{media_token}}'] = json_encode($uploadData['token']);
-            } elseif (isset($uploadData['id'])) {
-                $replaceVariables['{{upload_token}}'] = $uploadData['id'];
-                $replaceVariablesJSON['{{upload_token}}'] = json_encode($uploadData['id']);
-                $replaceVariables['{{media_token}}'] = $uploadData['id'];
-                $replaceVariablesJSON['{{media_token}}'] = json_encode($uploadData['id']);
+        $uploadData = [];
+        if (trim((string)$uploadResponseBody) !== '') {
+            $uploadData = json_decode($uploadResponseBody, true);
+            if (!is_array($uploadData)) {
+                self::multiStepSetError($errorMessage, $errorDetails, 'Binary upload returned invalid JSON: ' . json_last_error_msg(), 'multi_step_upload_json', $uploadHttpCode, '', (string)$uploadResponseBody);
+                return false;
             }
-            if (isset($uploadData['file_id'])) {
-                $replaceVariables['{{file_id}}'] = $uploadData['file_id'];
-                $replaceVariablesJSON['{{file_id}}'] = json_encode($uploadData['file_id']);
+        }
+        if (is_array($uploadData)) {
+            $foundToken = false;
+            $finalToken = self::multiStepResponseValue($uploadData, $stepCfg['upload_response_token_path'] ?? '', ['token', 'upload_token', 'id', 'file_id', 'data.token', 'data.upload_token', 'data.id'], $foundToken);
+            if ($foundToken) {
+                $replaceVariables['{{upload_token}}'] = (string)$finalToken;
+                $replaceVariablesJSON['{{upload_token}}'] = json_encode($finalToken);
+                $replaceVariables['{{media_token}}'] = (string)$finalToken;
+                $replaceVariablesJSON['{{media_token}}'] = json_encode($finalToken);
+            }
+            $foundFileId = false;
+            $fileId = self::multiStepResponseValue($uploadData, $stepCfg['upload_response_file_id_path'] ?? '', ['file_id', 'id', 'data.file_id', 'data.id'], $foundFileId);
+            if ($foundFileId) {
+                $replaceVariables['{{file_id}}'] = $fileId;
+                $replaceVariablesJSON['{{file_id}}'] = json_encode($fileId);
+            }
+            $foundReturnedUrl = false;
+            $returnedUrl = self::multiStepResponseValue($uploadData, $stepCfg['upload_response_url_path'] ?? '', ['url', 'upload_url', 'data.url', 'data.upload_url'], $foundReturnedUrl);
+            if ($foundReturnedUrl && is_string($returnedUrl) && trim($returnedUrl) !== '') {
+                $returnedUrl = self::multiStepResolveUrl($uploadUrl, $returnedUrl);
+                try {
+                    self::validateUrlSSRF($returnedUrl);
+                    $replaceVariables['{{upload_url}}'] = $returnedUrl;
+                    $replaceVariablesJSON['{{upload_url}}'] = json_encode($returnedUrl);
+                } catch (\Throwable $e) {
+                    self::multiStepSetError($errorMessage, $errorDetails, $e->getMessage(), 'multi_step_upload_response_ssrf');
+                    return false;
+                }
             }
         }
 
