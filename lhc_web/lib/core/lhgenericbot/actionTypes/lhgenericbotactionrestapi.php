@@ -1419,7 +1419,14 @@ class erLhcoreClassGenericBotActionRestapi
         }
 
         $urlBase = trim(str_replace(array_keys($replaceVariables), array_values($replaceVariables), str_replace(array_keys($replaceVariablesURL), array_values($replaceVariablesURL), rtrim($host) . (isset($methodSettings['suburl']) ? $methodSettings['suburl'] : ''))));
-        $url = self::multiStepMergeQuery($urlBase, $queryArgs);
+        if ($multiStepUpload) {
+            $url = self::multiStepMergeQuery($urlBase, $queryArgs);
+        } else {
+            // Preserve the legacy query-string construction for ordinary REST
+            // requests; the merge helper is needed only for response-derived URLs.
+            $queryArgsString = http_build_query($queryArgs);
+            $url = $urlBase . (!empty($queryArgsString) ? '?' . $queryArgsString : '');
+        }
 
         if (!filter_var($url, FILTER_VALIDATE_URL)) {
 
@@ -3610,11 +3617,10 @@ class erLhcoreClassGenericBotActionRestapi
             return false;
         }
 
-        // Carry configured query/API-key parameters into the init request.
+        // Carry configured init query parameters into the init request first.
+        // Values already collected from the action (including user parameters)
+        // take precedence when keys overlap.
         $initQuery = [];
-        foreach ((array)$queryArgs as $key => $value) {
-            $initQuery[$key] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), (string)$value);
-        }
         if (isset($stepCfg['init_query']) && is_array($stepCfg['init_query'])) {
             foreach ($stepCfg['init_query'] as $key => $value) {
                 if (is_array($value) && isset($value['key'])) {
@@ -3623,6 +3629,9 @@ class erLhcoreClassGenericBotActionRestapi
                     $initQuery[$key] = $value;
                 }
             }
+        }
+        foreach ((array)$queryArgs as $key => $value) {
+            $initQuery[$key] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), (string)$value);
         }
         if (!empty($initQuery)) {
             $renderedQuery = [];
