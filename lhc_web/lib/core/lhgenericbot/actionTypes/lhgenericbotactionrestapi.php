@@ -1185,6 +1185,7 @@ class erLhcoreClassGenericBotActionRestapi
             }
         }
 
+        $apiKeyQueryArgs = [];
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, (isset($methodSettings['max_execution_time']) && is_numeric($methodSettings['max_execution_time']) && $methodSettings['max_execution_time'] >= 1 && $methodSettings['max_execution_time'] <= 360) ? (int)$methodSettings['max_execution_time'] : 10);
@@ -1226,6 +1227,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $headers[] = $methodSettings['auth_api_key_name'] . ': ' . $methodSettings['auth_api_key_key'];
             } else if ($methodSettings['api_key_location'] == 'queryparams') {
                 $queryArgs[$methodSettings['auth_api_key_name']] = $methodSettings['auth_api_key_key'];
+                $apiKeyQueryArgs[$methodSettings['auth_api_key_name']] = $methodSettings['auth_api_key_key'];
             }
         }
 
@@ -1289,6 +1291,9 @@ class erLhcoreClassGenericBotActionRestapi
                 foreach ($methodSettings['query'] as $dataQuery) {
                     $queryArgs[$dataQuery['key']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $dataQuery['value']);
                 }
+            }
+            foreach ($apiKeyQueryArgs as $key => $value) {
+                $queryArgs[$key] = $value;
             }
             // Preserve the existing precedence where values supplied by the
             // action user override same-named configured query parameters.
