@@ -68,6 +68,7 @@ $FunctionList['use'] = array('explain' => 'General permission to use canned mess
 $FunctionList['see_global'] = array('explain' => 'Allow operator to see global canned messages');
 $FunctionList['use_import'] = array('explain' => 'Allow operator to import canned messages');
 $FunctionList['use_replace'] = array('explain' => 'Allow operator manage replaceable variables');
+$FunctionList['use_replace_sensitive'] = array('explain' => 'Allow operator manage sensitive replaceable variables');
 $FunctionList['suggesterconfig'] = array('explain' => 'Allow operator configure canned messages suggester');
 
 ?>

@@ -9,6 +9,11 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
     exit;
 }
 
+if (!empty($item->configuration_array['restricted_access']) && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_replace_sensitive')) {
+    erLhcoreClassModule::redirect('cannedmsg/listreplace');
+    exit;
+}
+
 $item->removeThis();
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);

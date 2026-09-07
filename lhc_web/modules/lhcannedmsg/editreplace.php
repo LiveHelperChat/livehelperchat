@@ -4,6 +4,11 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhcannedmsg/editreplace.tpl.php');
 
 $item = erLhcoreClassModelCannedMsgReplace::fetch((int)$Params['user_parameters']['id']);
 
+if (!empty($item->configuration_array['restricted_access']) && !erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_replace_sensitive')) {
+    erLhcoreClassModule::redirect('cannedmsg/listreplace');
+    exit;
+}
+
 if ( isset($_POST['Cancel_action']) ) {
     erLhcoreClassModule::redirect('cannedmsg/listreplace');
     exit;

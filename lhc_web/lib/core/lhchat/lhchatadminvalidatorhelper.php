@@ -85,6 +85,12 @@ class erLhcoreClassAdminChatValidatorHelper {
             'time_zone' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'hide_in_list' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
+            'restricted_access' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
         );
 
         foreach (erLhcoreClassDepartament::getWeekDays() as $dayShort => $dayLong) {
@@ -194,6 +200,27 @@ class erLhcoreClassAdminChatValidatorHelper {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Activity to period has to be bigger than activity from');
             }
         }
+
+        // Store additional configuration options (hide value in list / restricted access)
+        $configuration = $replace->configuration_array;
+
+        if ($form->hasValidData('hide_in_list') && $form->hide_in_list == true) {
+            $configuration['hide_in_list'] = true;
+        } else {
+            $configuration['hide_in_list'] = false;
+        }
+
+        // Restricted flag can be changed only by operators allowed to manage sensitive replaceable variables
+        if (erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_replace_sensitive')) {
+            if ($form->hasValidData('restricted_access') && $form->restricted_access == true) {
+                $configuration['restricted_access'] = true;
+            } else {
+                $configuration['restricted_access'] = false;
+            }
+        }
+
+        $replace->configuration_array = $configuration;
+        $replace->configuration = json_encode($configuration);
 
         return $Errors;
     }

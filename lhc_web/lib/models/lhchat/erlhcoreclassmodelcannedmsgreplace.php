@@ -19,6 +19,7 @@ class erLhcoreClassModelCannedMsgReplace
             'identifier' => $this->identifier,
             'default' => $this->default,
             'conditions' => $this->conditions,
+            'configuration' => $this->configuration,
             'active_from' => $this->active_from,
             'active_to' => $this->active_to,
             'repetitiveness' => $this->repetitiveness,
@@ -33,6 +34,7 @@ class erLhcoreClassModelCannedMsgReplace
 
             case 'days_activity_array':
             case 'conditions_array':
+            case 'configuration_array':
                 $varSystem = str_replace('_array','', $var);
                 $jsonData = json_decode($this->{$varSystem},true);
                 if ($jsonData !== null) {
@@ -398,6 +400,7 @@ class erLhcoreClassModelCannedMsgReplace
     public $identifier = '';
     public $default = '';
     public $conditions = '';
+    public $configuration = '';
 
     // Activity data
     public $active_from = '';

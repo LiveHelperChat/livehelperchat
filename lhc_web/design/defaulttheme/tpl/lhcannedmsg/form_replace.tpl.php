@@ -23,6 +23,27 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-12 form-group" ng-non-bindable>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="hide_in_list" value="1" <?php (!empty($item->configuration_array['hide_in_list'])) ? print 'checked="checked"' : ''?> id="hide-in-list">
+            <label class="form-check-label" for="hide-in-list">
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Hide value in list');?>
+                <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Variable value will not be shown in the replaceable variables list.');?></small>
+            </label>
+        </div>
+        <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhcannedmsg','use_replace_sensitive')) : ?>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="restricted_access" value="1" <?php (!empty($item->configuration_array['restricted_access'])) ? print 'checked="checked"' : ''?> id="restricted-access">
+            <label class="form-check-label" for="restricted-access">
+                <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Restricted access');?>
+                <small class="text-muted d-block"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Only operators with special permission can manage this variable.');?></small>
+            </label>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+
 <?php if (is_numeric($item->id)) : ?>
     <script>
         $('#check-against-chat').click(function(){
