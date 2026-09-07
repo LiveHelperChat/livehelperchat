@@ -429,7 +429,7 @@ class erLhcoreClassDesign
         return implode($break, $lines);
     }
 
-    public static function shrt($string = '', $max = 10, $append = '...', $wordrap = 30, $encQuates = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401)
+    public static function shrt($string = '', $max = 10, $append = '...', $wordrap = 30, $encQuates = ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, $fromBothSides = false)
     {
         $string = str_replace('&nbsp;', ' ', $string);
         $string = str_replace(array(
@@ -449,6 +449,22 @@ class erLhcoreClassDesign
 
         if (mb_strlen($string) <= $max) {
             return htmlspecialchars($string, $encQuates);
+        }
+
+        if ($fromBothSides === true) {
+            $appendLength = mb_strlen($append);
+
+            // Short text: keep only a 5 character preview to avoid exposing most of it
+            $totalLength = mb_strlen($string) <= $max + $appendLength ? 5 : $max;
+
+            $contentLength = max(0, $totalLength - $appendLength);
+            $leftLength = (int)ceil($contentLength / 2);
+            $rightLength = $contentLength - $leftLength;
+
+            $startPart = $leftLength > 0 ? mb_substr($string, 0, $leftLength) : '';
+            $endPart = $rightLength > 0 ? mb_substr($string, -$rightLength) : '';
+
+            return htmlspecialchars($startPart . $append . $endPart, $encQuates);
         }
 
         $cutted = mb_strcut($string, 0, $max, 'UTF-8') . $append;

@@ -199,7 +199,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                         if (isset($response['params_request']['headers']) && is_array($response['params_request']['headers'])) {
                             foreach ($response['params_request']['headers'] as $keyHeader => $valueHeader) {
-                                $response['params_request']['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15);
+                                $response['params_request']['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15,'...',30,ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401,true);
                             }
                         }
 
@@ -1194,15 +1194,15 @@ class erLhcoreClassGenericBotActionRestapi
         if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'basicauth') {
             curl_setopt($ch, CURLOPT_USERPWD, str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_username']) . ":" . str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_password']));
         } elseif (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'NTLMauth') {
-            curl_setopt($ch, CURLOPT_USERPWD, $methodSettings['auth_username'] . ":" . $methodSettings['auth_password']);
+            curl_setopt($ch, CURLOPT_USERPWD, str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_username']) . ":" . str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_password']));
             curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_NTLM);
         } elseif (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'bearer' && isset($methodSettings['auth_bearer']) && $methodSettings['auth_bearer'] != '') {
-            $headers[] = 'Authorization: Bearer ' . $methodSettings['auth_bearer'];
+            $headers[] = 'Authorization: Bearer ' . str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_bearer']);
         } else if (isset($methodSettings['authorization']) && $methodSettings['authorization'] == 'apikey') {
             if ($methodSettings['api_key_location'] == 'header' && isset($methodSettings['auth_api_key_key']) && isset($methodSettings['auth_api_key_name'])) {
-                $headers[] = $methodSettings['auth_api_key_name'] . ': ' . $methodSettings['auth_api_key_key'];
+                $headers[] = $methodSettings['auth_api_key_name'] . ': ' . str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_api_key_key']);
             } else if ($methodSettings['api_key_location'] == 'queryparams') {
-                $queryArgs[$methodSettings['auth_api_key_name']] = $methodSettings['auth_api_key_key'];
+                $queryArgs[$methodSettings['auth_api_key_name']] = str_replace(array_keys($replaceVariables), array_values($replaceVariables), $methodSettings['auth_api_key_key']);
             }
         }
 
@@ -1954,7 +1954,7 @@ class erLhcoreClassGenericBotActionRestapi
 
                 if (isset($paramsRequestDebug['headers']) && is_array($paramsRequestDebug['headers'])) {
                     foreach ($paramsRequestDebug['headers'] as $keyHeader => $valueHeader) {
-                        $paramsRequestDebug['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15);
+                        $paramsRequestDebug['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15,'...',30,ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401,true);
                     }
                 }
 
