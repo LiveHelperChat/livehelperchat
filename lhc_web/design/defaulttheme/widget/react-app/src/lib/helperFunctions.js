@@ -179,6 +179,12 @@ class _helperFunctions {
         }
     }
 
+    isRelativeURI(uri) {
+        if (uri.startsWith('//')) return false;
+        try { new URL(uri); return false; }
+        catch { return true; }
+    }
+    
     logJSError(params) {
         var e;
         e = {};
