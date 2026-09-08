@@ -4,6 +4,11 @@ erLhcoreClassRestAPIHandler::setHeaders();
 
 $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['chat_id']);
 
+if (!is_object($chat)) {
+    echo json_encode(array('error' => true));
+    exit;
+}
+
 $validStatuses = array(
     erLhcoreClassModelChat::STATUS_PENDING_CHAT,
     erLhcoreClassModelChat::STATUS_ACTIVE_CHAT,
@@ -17,29 +22,55 @@ if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status
     $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.transfer_to_human',array('chat' => & $chat, 'event' => 'transfer_to_human'));
 
     if ($statusWorkflow === false) {
-        // Store system message that chat was transferred to pending state by visitor
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser','Visitor requested to speak with a human agent by clicking Switch To Human button'),ENT_QUOTES);
-        $msg->chat_id = $chat->id;
-        $msg->user_id = -1;
-        $msg->time = time();
-        erLhcoreClassChat::getSession()->save($msg);
 
-        $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
-        $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_CLOSED; // Will be used to indicate that we have to show notification for this chat if it appears on list
-        $chat->pnd_time = time();
-        $chat->last_msg_id = $msg->id;
-        $chat->saveThis(['update' => ['last_msg_time', 'pnd_time', 'status_sub_sub', 'status']]);
+        $db = ezcDbInstance::get();
 
-        if ($chat->auto_responder instanceof erLhAbstractModelAutoResponderChat) {
-            $chat->auto_responder->wait_timeout_send = 0;
-            $chat->auto_responder->pending_send_status = 0;
-            $chat->auto_responder->active_send_status = 0;
-            $chat->auto_responder->updateThis();
+        try {
+            $db->beginTransaction();
+
+            // Chat row is locked the same way as in closechat/stopchat actions to avoid lock wait timeouts
+            $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id']);
+
+            // Re-check after the lock was acquired, chat could have been closed/transferred in the meantime
+            if (!is_object($chat) || $chat->hash != $Params['user_parameters']['hash'] || !in_array($chat->status,$validStatuses)) {
+                $db->rollback();
+                echo json_encode(array('error' => true));
+                exit;
+            }
+
+            erLhcoreClassChat::lockDepartment($chat->dep_id, $db);
+
+            // Store system message that chat was transferred to pending state by visitor
+            $msg = new erLhcoreClassModelmsg();
+            $msg->msg = htmlspecialchars_decode(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser','Visitor requested to speak with a human agent by clicking Switch To Human button'),ENT_QUOTES);
+            $msg->chat_id = $chat->id;
+            $msg->user_id = -1;
+            $msg->time = time();
+            erLhcoreClassChat::getSession()->save($msg);
+
+            $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+            $chat->status_sub_sub = erLhcoreClassModelChat::STATUS_SUB_SUB_CLOSED; // Will be used to indicate that we have to show notification for this chat if it appears on list
+            $chat->pnd_time = time();
+            $chat->last_msg_id = $msg->id;
+            $chat->saveThis(['update' => ['last_msg_time', 'pnd_time', 'status_sub_sub', 'status']]);
+
+            if ($chat->auto_responder instanceof erLhAbstractModelAutoResponderChat) {
+                $chat->auto_responder->wait_timeout_send = 0;
+                $chat->auto_responder->pending_send_status = 0;
+                $chat->auto_responder->active_send_status = 0;
+                $chat->auto_responder->updateThis();
+            }
+
+            // If chat is transferred to pending state we don't want to process any old events
+            erLhcoreClassGenericBotWorkflow::removePreviousEvents($chat->id);
+
+            $db->commit();
+        } catch (\Exception $e) {
+            $db->rollback();
+            error_log($e);
+            echo json_encode(array('error' => 'Could not transfer'));
+            exit;
         }
-
-        // If chat is transferred to pending state we don't want to process any old events
-        erLhcoreClassGenericBotWorkflow::removePreviousEvents($chat->id);
 
         // Because we want that mobile app would receive notification
         // By default these listeners are not set if visitors sends a message and chat is not active

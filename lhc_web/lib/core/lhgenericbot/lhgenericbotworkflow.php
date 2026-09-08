@@ -2807,7 +2807,7 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
-        if (isset($params['chat'])) {
+        if (isset($params['chat']) && is_object($params['chat'])) {
 
             $replaceArray = array(
                 '{lhc.nick}' => $params['chat']->nick,

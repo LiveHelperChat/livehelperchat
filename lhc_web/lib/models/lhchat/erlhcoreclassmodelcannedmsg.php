@@ -382,7 +382,11 @@ class erLhcoreClassModelCannedMsg
     }
     
     public static function groupItems($items, $chat, $user)
-    {  
+    {
+        if (!is_object($chat)) {
+            return [];
+        }
+
         $replaceArray = array(
             '{nick}' => $chat->nick,
             '{email}' => $chat->email,

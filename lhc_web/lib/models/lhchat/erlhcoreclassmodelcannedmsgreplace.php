@@ -174,7 +174,9 @@ class erLhcoreClassModelCannedMsgReplace
 
                         $conditionItemValid = false;
 
-                        $conditionAttr = $conditionsCurrent['field'];
+                        // Condition row might be incomplete (no comparator/value selected), skip evaluation safely
+                        $conditionAttr = isset($conditionsCurrent['field']) ? $conditionsCurrent['field'] : '';
+                        $comparator = isset($conditionsCurrent['comparator']) ? $conditionsCurrent['comparator'] : '';
                         if (strpos($conditionAttr, '{args.') !== false) {
                             $matchesValues = array();
                             preg_match_all('~\{args\.((?:[^\{\}\}]++|(?R))*)\}~', $conditionAttr, $matchesValues);
@@ -188,7 +190,7 @@ class erLhcoreClassModelCannedMsgReplace
                             $conditionAttr = erLhcoreClassGenericBotWorkflow::translateMessage($conditionAttr, array('user' => $params['user'], 'chat' => $params['chat'], 'args' => ['chat' => $params['chat']]));
                         }
 
-                        $valueAttr = $conditionsCurrent['value'];
+                        $valueAttr = isset($conditionsCurrent['value']) ? $conditionsCurrent['value'] : '';
 
                         if (strpos($valueAttr, '{args.') !== false) {
                             $matchesValues = array();
@@ -211,7 +213,7 @@ class erLhcoreClassModelCannedMsgReplace
                         $conditionAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $conditionAttr);
                         $valueAttr = str_replace(array_keys($replaceArray), array_values($replaceArray), $valueAttr);
 
-                        if (!in_array($conditionsCurrent['comparator'],['like','notlike','contains'])) {
+                        if (!in_array($comparator,['like','notlike','contains'])) {
                             // Remove spaces
                             $conditionAttr = preg_replace('/\s+/', '', $conditionAttr);
                             $valueAttr = preg_replace('/\s+/', '', $valueAttr);
@@ -239,31 +241,31 @@ class erLhcoreClassModelCannedMsgReplace
                             }
                         }
 
-                        if ($conditionsCurrent['comparator'] == 'eq' && ($conditionAttr == $valueAttr)) {
+                        if ($comparator == 'eq' && ($conditionAttr == $valueAttr)) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'lt' && ($conditionAttr < $valueAttr)) {
+                        } else if ($comparator == 'lt' && ($conditionAttr < $valueAttr)) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'lte' && ($conditionAttr <= $valueAttr)) {
+                        } else if ($comparator == 'lte' && ($conditionAttr <= $valueAttr)) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'neq' && ($conditionAttr != $valueAttr)) {
+                        } else if ($comparator == 'neq' && ($conditionAttr != $valueAttr)) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'gte' && ($conditionAttr >= $valueAttr)) {
+                        } else if ($comparator == 'gte' && ($conditionAttr >= $valueAttr)) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'gt' && ($conditionAttr > $valueAttr)) {
+                        } else if ($comparator == 'gt' && ($conditionAttr > $valueAttr)) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                        } else if ($comparator == 'like' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
                                 'pattern' => $valueAttr,
                                 'msg' => $conditionAttr,
                                 'words_typo' => 0,
                             ))['found'] == true) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
+                        } else if ($comparator == 'notlike' && erLhcoreClassGenericBotWorkflow::checkPresenceMessage(array(
                                 'pattern' => $valueAttr,
                                 'msg' => $conditionAttr,
                                 'words_typo' => 0,
                             ))['found'] == false) {
                             $conditionItemValid = true;
-                        } else if ($conditionsCurrent['comparator'] == 'contains' && strrpos($conditionAttr,$valueAttr) !== false) {
+                        } else if ($comparator == 'contains' && strrpos($conditionAttr,$valueAttr) !== false) {
                             $conditionItemValid = true;
                         }
 
