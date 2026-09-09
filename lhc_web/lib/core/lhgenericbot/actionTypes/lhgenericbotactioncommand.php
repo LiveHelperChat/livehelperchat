@@ -596,7 +596,7 @@ class erLhcoreClassGenericBotActionCommand {
                         $params['msg']->{$action['content']['payload']} = $contentPayload;
                     }
 
-                    if (in_array($action['content']['payload'],['msg','meta_msg','time','chat_id','user_id','name_support'])) {
+                    if (in_array($action['content']['payload'],['del_st','msg','meta_msg','time','chat_id','user_id','name_support'])) {
                         $params['msg']->updateThis(['update' => [$action['content']['payload']]]);
                     }
 

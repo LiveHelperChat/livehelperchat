@@ -196,6 +196,10 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
             $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
         }
 
+        if (!is_object($userDep)) {
+            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Assignment record was not found'));
+        }
+
         $db = ezcDbInstance::get();
         $db->beginTransaction();
 
