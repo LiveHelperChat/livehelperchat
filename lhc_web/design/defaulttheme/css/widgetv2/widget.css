@@ -8,6 +8,8 @@ body {
     --lhc-message-op-background: #ededed;
     --lhc-message-vi-background: #3267e4;
     --lhc-message-padding: 6px 9px;
+    --lhc-message-spacing: 3px;
+    --lhc-message-group-spacing: 0px;
     --bs-code-color: #CECECE;
 }
 
@@ -373,7 +375,7 @@ div.message-admin div.msg-body{
     padding: var(--lhc-message-padding);
     margin-top:0px;
     color:#FFF;
-    margin-bottom:3px;
+    margin-bottom: var(--lhc-message-spacing);
     display:inline-block;
     text-align: left;
     max-width:85%;
@@ -388,6 +390,10 @@ div.message-row.message-admin+div.message-row.message-admin div.msg-body {
 div.message-row.message-admin:last-child div.msg-body,
 div.message-row.message-admin:has(+ :not(.message-row.message-admin)) div.msg-body {
     border-bottom-left-radius: var(--lhc-message-border-radius);
+}
+
+div.message-row:not(.message-admin)+div.message-row.message-admin {
+    margin-top: var(--lhc-message-group-spacing);
 }
 
 div.message-admin div.msg-body a.link{
@@ -410,7 +416,7 @@ div.message-row.response div.msg-body{
     padding:var(--lhc-message-padding);
     margin-top:0px;
     border-radius: var(--lhc-message-border-radius) var(--lhc-message-border-radius) 0px var(--lhc-message-border-radius);
-    margin-bottom:3px;
+    margin-bottom: var(--lhc-message-spacing);
     display:inline-block;
     text-align: left;
     max-width:90%;
@@ -423,6 +429,10 @@ div.message-row.response+div.message-row.response div.msg-body{
 div.message-row.response:last-child div.msg-body,
 div.message-row.response:has(+ :not(.message-row.response)) div.msg-body{
     border-bottom-right-radius: var(--lhc-message-border-radius);
+}
+
+div.message-row:not(.message-row.response)+div.message-row.response {
+    margin-top: var(--lhc-message-group-spacing);
 }
 
 div.message-row.response div.msg-body.sub-message{
