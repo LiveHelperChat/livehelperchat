@@ -8,7 +8,8 @@
 <fieldset class="border rounded p-2 mb-2">
     <legend class="fs13 float-none w-auto mb-0 px-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Operator assignment priority')?></legend>
     <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Operator assignment priority, optional, default - 0. Inclusive.')?></label>
-    <input type="text" class="form-control form-control-sm" name="assign_priority" value="<?php echo $userDep->assign_priority?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agents with higher assignment priority will be assigned first to chat')?>" />
+    <input type="text" class="form-control form-control-sm" name="assign_priority" value="<?php echo $userDep->assign_priority?>" />
+    <p class="text-muted fs13 fst-italic mb-0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Agents with higher assignment priority will be assigned first to chat. Only taken into account when the department enables "Assign chat by operator priority" (or "Assign chat by operator assignment priority also" within the chat priority queue). Otherwise auto-assignment ignores this field and sorts by lowest workload / least recently accepted first.');?></p>
 </fieldset>
 
 <fieldset class="border rounded p-2 mb-2">
