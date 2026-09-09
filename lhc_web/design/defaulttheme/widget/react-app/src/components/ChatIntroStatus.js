@@ -26,7 +26,7 @@ class ChatIntroStatus extends PureComponent {
                     <SharedTextarea
                         text={this.props.value}
                         textMaxLength="500"
-                        textAutoFocus={true}
+                        textAutoFocus={this.props.isMobile === false && (typeof this.props.textAutoFocus !== 'undefined' ? this.props.textAutoFocus : true)}
                         classNameText="ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0"
                         textPlaceholder={this.props.placeholderMessage}
                         textareaRef={this.props.textMessageRef}
