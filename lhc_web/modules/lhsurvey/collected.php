@@ -50,6 +50,8 @@ if ($limitation !== false) {
     $filterSearch['customfilter'][] = '1 = -1';
 }
 
+ezcDbInstance::get()->query("SET sql_mode=''");
+
 if ($filterParams['input_form']->group_results == true) {
     $filterSearch['group'] = 'user_id';
     $filterSearch['sort'] = 'total_stars DESC';

@@ -31,6 +31,7 @@ $modalSize = 'xl';
                 </tr>
                 </thead>
                 <?php
+                ezcDbInstance::get()->query("SET sql_mode=''");
                 $paramsGroup = ['sort' => 'user_id ASC, type ASC','filter' => ['dep_group_id' => $department_group->id], 'limit' => false];
                 if ($group_op === true) {
                     $paramsGroup['group'] = 'user_id';
