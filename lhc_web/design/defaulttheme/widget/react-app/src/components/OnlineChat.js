@@ -642,7 +642,7 @@ class OnlineChat extends Component {
             prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']).size != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size
         ) {
             if (this.props.chatwidget.get('newChat') == true && this.props.chatwidget.getIn(['chatLiveData','messages']).size == 1) {
-                this.scrollBottom(false, true);
+                this.scrollBottom(false, false);
             } else {
                 this.scrollBottom(false, prevProps.chatwidget.getIn(['chatLiveData','msg_to_store']).size != this.props.chatwidget.getIn(['chatLiveData','msg_to_store']).size);
             }
@@ -663,9 +663,11 @@ class OnlineChat extends Component {
             if ((this.props.chatwidget.get('isMobile') === false || this.props.chatwidget.get('newChat') === true) && (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (this.props.chatwidget.getIn(['chat_ui','auto_start']) === false && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor))) {
                 this.focusMessage();
                 // Sometimes component is not rendered itself. We want to be 100% sure it will always have a focus.
-                setTimeout(() => {
-                    this.focusMessage();
-                },500);
+                if (this.props.chatwidget.get('isMobile') === false) {
+                    setTimeout(() => {
+                        this.focusMessage();
+                    },500);
+                }
             }
         }
 
@@ -673,14 +675,13 @@ class OnlineChat extends Component {
             if (this.messagesAreaRef.current) {
 
                 var msgScroller = document.getElementById('messages-scroll');
-                var messageElement = document.getElementById('scroll-to-message') || (this.props.chatwidget.get('newChat') === true ? document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid'])) : null);
+                var messageElement = document.getElementById('scroll-to-message') || (this.props.chatwidget.get('newChat') === false ? document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid'])) : null);
 
                 if (msgScroller && messageElement && messageElement.className.indexOf('ignore-auto-scroll') === -1 && (msgScroller.scrollHeight - msgScroller.offsetHeight) - messageElement.offsetTop > 70) {
                     this.setState({scrollButton: true});
-                    // this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
-                    messageElement.scrollIntoView();
+                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
                 } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && messageElement ) {
-                    messageElement.scrollIntoView();
+                    this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
@@ -727,9 +728,8 @@ class OnlineChat extends Component {
     doScrollBottom(smartScroll) {
         if (this.messagesAreaRef.current) {
             var messageElement;
-            if (smartScroll && this.props.chatwidget.get('newChat') === true && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null && messageElement.className.indexOf('ignore-auto-scroll') === -1 ) {
-                // this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
-                messageElement.scrollIntoView();
+            if (smartScroll && this.props.chatwidget.get('newChat') === false && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null && messageElement.className.indexOf('ignore-auto-scroll') === -1 ) {
+                this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
             } else {
                 this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
             }
