@@ -687,7 +687,7 @@ class StartChat extends Component {
                                             <i className="record-icon material-icons text-muted settings me-0">&#xf10b;</i>
                                         </a>}
 
-                                        {this.props.chatwidget.get('processStatus') != 1 && (this.props.chatwidget.getIn(['chat_ui','voice_engine']) != 1 || !this.canUseVoiceMessage() || (this.state.Question.length > 0 && this.state.voiceMode === false)) && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.handleSubmit() : '' }} onClick={this.handleSubmit} title={t('button.start_chat')}>
+                                        {this.props.chatwidget.get('processStatus') != 1 && (this.props.chatwidget.getIn(['chat_ui','voice_engine']) != 1 || !this.canUseVoiceMessage() || (this.state.Question.length > 0 && this.state.voiceMode === false)) && <a tabIndex="0" onMouseDown={(e) => e.preventDefault()} onKeyPress={(e) => { e.key === "Enter" ? this.handleSubmit() : '' }} onClick={this.handleSubmit} title={t('button.start_chat')}>
                                             <i className={"send-icon material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                         </a>}
 

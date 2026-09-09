@@ -260,7 +260,7 @@ class OnlineChat extends Component {
 
         // We want to focus only if widget is open and not on mobile
         var elm = document.getElementById('CSChatMessage');
-        if (elm !== null && this.props.chatwidget.get('isMobile') === false && ((this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') || this.props.chatwidget.get('mode') == 'popup')) {
+        if (elm !== null && (this.props.chatwidget.get('isMobile') === false || this.props.chatwidget.get('newChat') === true) && ((this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') || this.props.chatwidget.get('mode') == 'popup')) {
             elm.focus();
         }
     }
@@ -660,7 +660,7 @@ class OnlineChat extends Component {
                 this.scrollBottom(false, true);
             }
 
-            if (this.props.chatwidget.get('isMobile') === false && (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (this.props.chatwidget.getIn(['chat_ui','auto_start']) === false && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor))) {
+            if ((this.props.chatwidget.get('isMobile') === false || this.props.chatwidget.get('newChat') === true) && (!(this.props.chatwidget.getIn(['chat_ui','auto_start']) === true && this.props.chatwidget.get('mode') == 'embed') || (this.props.chatwidget.getIn(['chat_ui','auto_start']) === false && this.props.chatwidget.get('mode') == 'embed') || (prevState.enabledEditor === false && prevState.enabledEditor != this.state.enabledEditor))) {
                 this.focusMessage();
                 // Sometimes component is not rendered itself. We want to be 100% sure it will always have a focus.
                 setTimeout(() => {
@@ -1325,7 +1325,7 @@ class OnlineChat extends Component {
                                        <i className="record-icon material-icons text-muted settings me-0">&#xf10b;</i>
                                     </a>}
 
-                                    {!isSending && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !this.canUseVoiceMessage() || ( (this.state.value.length > 0 || this.state.previewFiles.length > 0) && this.state.voiceMode === false)) && <a tabIndex="0" onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); this.sendMessage();}}} onClick={this.sendMessage} title={t('button.send_msg')}>
+                                    {!isSending && (!this.props.chatwidget.hasIn(['chat_ui','voice_message']) || !this.canUseVoiceMessage() || ( (this.state.value.length > 0 || this.state.previewFiles.length > 0) && this.state.voiceMode === false)) && <a tabIndex="0" onMouseDown={(e) => e.preventDefault()} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); this.sendMessage();}}} onClick={this.sendMessage} title={t('button.send_msg')}>
                                        <i className={"send-icon material-icons settings me-0" + (this.state.value.length == 0 && this.state.previewFiles.length == 0 && this.state.voiceMode === false ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                     </a>}
 
