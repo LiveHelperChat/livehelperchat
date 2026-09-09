@@ -414,10 +414,8 @@ class OnlineChat extends Component {
                                 this.intervalFunction = null;
                                 clearInterval(this.intervalPending);
 
-                                adminMessages[0].scrollIntoView();
+                                this.scrollBottom(false, false);
                             }
-
-                            //this.scrollBottom(false, false); // We now scroll to very first admin message after it's appearance
 
                         } else {
                             if (!this.hasClass(msg,'meta-hider'))
@@ -511,7 +509,7 @@ class OnlineChat extends Component {
         this.nextUntil(msg,'.meta-hider').forEach((item) => {
             this.removeClass(item,'hide');
             if (scrollViewScrolled == false) {
-                item.scrollIntoView();
+                this.scrollBottom(false, false);
                 scrollViewScrolled = true;
             }
         });
@@ -567,11 +565,11 @@ class OnlineChat extends Component {
             if (this.messagesAreaRef.current) {
                 scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
 
-                // Scroll to bottom if from bottom there is already less than 70px
-                if ((scrollValue - this.messagesAreaRef.current.offsetHeight) < 70) {
+                // Scroll to bottom if user has not scrolled up or is near bottom
+                if (!this.state.scrollButton || (scrollValue - this.messagesAreaRef.current.offsetHeight) < 100) {
                     scrollValue = 0;
                 } else {
-                    setScrollBottom = false
+                    setScrollBottom = false;
                 }
 
                 setScroll = true;
@@ -682,6 +680,8 @@ class OnlineChat extends Component {
                     this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
                 } else if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && messageElement ) {
                     this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
+                } else if (snapshot === 0) {
+                    this.scrollBottom(false, false);
                 } else {
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight - snapshot;
                 }
@@ -693,8 +693,11 @@ class OnlineChat extends Component {
         }
 
         // Auto focus if it's show operation
-        if (this.props.chatwidget.get('isMobile') === false && prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
-            this.textMessageRef.current.focus();
+        if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
+            this.scrollBottom(false, false);
+            if (this.props.chatwidget.get('isMobile') === false && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+                this.textMessageRef.current.focus();
+            }
         }
 
         // We show start form instantly if it's enabled
@@ -727,6 +730,10 @@ class OnlineChat extends Component {
 
     doScrollBottom(smartScroll) {
         if (this.messagesAreaRef.current) {
+            var block = document.getElementById('messagesBlock');
+            if (block && block.scrollTop !== 0) {
+                block.scrollTop = 0;
+            }
             var messageElement;
             if (smartScroll && this.props.chatwidget.get('newChat') === false && (messageElement = document.getElementById('msg-'+this.props.chatwidget.getIn(['chatLiveData','lfmsgid']))) !== null && messageElement.className.indexOf('ignore-auto-scroll') === -1 ) {
                 this.messagesAreaRef.current.scrollTop = messageElement.offsetTop - 3;
@@ -1048,7 +1055,7 @@ class OnlineChat extends Component {
 
         if (this.props.chatwidget.get('initLoaded') === false || this.props.chatwidget.get('msgLoaded') === false) {
 
-                var msg_expand = "flex-grow-1 overflow-scroll position-relative";
+                var msg_expand = "flex-grow-1 overflow-hidden position-relative";
 
                 if (this.props.chatwidget.hasIn(['chat_ui','msg_expand'])) {
                     msg_expand = "overflow-scroll position-relative";
@@ -1091,7 +1098,7 @@ class OnlineChat extends Component {
                 placeholder = this.props.chatwidget.hasIn(['chat_ui','placeholder_message']) ? this.props.chatwidget.getIn(['chat_ui','placeholder_message']) : t('chat.type_here');
             }
 
-            var msg_expand = "flex-grow-1 overflow-scroll position-relative";
+            var msg_expand = "flex-grow-1 overflow-hidden position-relative";
             var bottom_messages = "bottom-message px-1";
 
             if (this.props.chatwidget.hasIn(['chat_ui','show_ts'])){
@@ -1300,12 +1307,19 @@ class OnlineChat extends Component {
                                     <SharedTextarea
                                         text={!this.props.chatwidget.getIn(['chatLiveData','closed']) ? this.state.value : ''}
                                         textMaxLength={this.props.chatwidget.getIn(['chat_ui','max_length'])}
-                                        onTextTouchStart={this.scrollBottom}
+                                        onTextTouchStart={() => { if (this.props.chatwidget.get('isMobile') == true) { setTimeout(() => { this.scrollBottom(false, false); }, 300); } }}
                                         onTextKeyUp={this.keyUp}
                                         onTextChange={this.handleChange}
                                         onTextKeyDown={this.enterKeyDown}
                                         textReadOnly={this.props.chatwidget.getIn(['chatLiveData','closed']) || this.props.chatwidget.get('network_down')}
-                                        onTextFocus={(e) => {this.setState({'reactToMsgId' : 0})}}
+                                        onTextFocus={(e) => {
+                                            this.setState({'reactToMsgId' : 0});
+                                            if (this.props.chatwidget.get('isMobile') == true) {
+                                                setTimeout(() => {
+                                                    this.scrollBottom(false, false);
+                                                }, 300);
+                                            }
+                                        }}
                                         classNameText={"ps-0 no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0"}
                                         textPlaceholder={placeholder}
                                         textareaRef={this.props.textMessageRef}

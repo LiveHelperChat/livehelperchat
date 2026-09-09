@@ -423,7 +423,12 @@ class StartChat extends Component {
         }
 
         // Auto focus if it's show operation
-        if ((needFocus === true || (this.props.chatwidget.get('isMobile') == false && prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+        if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true) {
+            this.scrollBottom();
+            if (this.props.chatwidget.get('isMobile') == false && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+                this.textMessageRef.current.focus();
+            }
+        } else if (needFocus === true && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
             this.textMessageRef.current.focus();
             this.scrollBottom();
         }
@@ -447,12 +452,20 @@ class StartChat extends Component {
 
     scrollBottom() {
         if (this.messagesAreaRef.current) {
+            var block = document.getElementById('messagesBlock');
+            if (block && block.scrollTop !== 0) {
+                block.scrollTop = 0;
+            }
             this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
             setTimeout(() => {
                 if (this.messagesAreaRef.current) {
+                    var b = document.getElementById('messagesBlock');
+                    if (b && b.scrollTop !== 0) {
+                        b.scrollTop = 0;
+                    }
                     this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
                 }
-            },450);
+            }, 300);
         }
     }
 
@@ -460,6 +473,11 @@ class StartChat extends Component {
         var temp_value = e.target.value;
         e.target.value = '';
         e.target.value = temp_value;
+        if (this.props.chatwidget.get('isMobile') == true) {
+            setTimeout(() => {
+                this.scrollBottom();
+            }, 300);
+        }
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -603,7 +621,7 @@ class StartChat extends Component {
 
                 var classMessageInput = (!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh']) ? 'ps-0' : 'ps-2')+" no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0";
 
-                var msg_expand = "flex-grow-1 overflow-scroll position-relative";
+                var msg_expand = "flex-grow-1 overflow-hidden position-relative";
                 var bottom_messages = "bottom-message px-1";
 
                 if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {
