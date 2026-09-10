@@ -7,7 +7,7 @@
     <?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_bot.tpl.php')); ?>
 <?php else : ?>
     <div class="operator-info d-flex">
-        <div>
+        <div class="align-self-center op-photo">
             <?php if ($theme !== false && $theme->operator_image_avatar !== false) : ?>
 
                 <?php if ($theme->operator_image_url !== false) : ?>
@@ -22,7 +22,7 @@
                 </i>
             <?php endif;?>
         </div>
-        <div class="p-1 ps-2 w-100">
+        <div class="p-1 ps-2 w-100 operator-profile-content">
 
             <?php if (!isset($react)) : ?>
                 <?php $rightLanguage = true;?>
