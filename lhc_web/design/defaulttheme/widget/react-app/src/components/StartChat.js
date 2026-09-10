@@ -680,7 +680,7 @@ class StartChat extends Component {
 
                                 </div>
                                 <div className="disable-select d-flex flex-column justify-content-end align-items-stretch" id="send-button-wrapper">
-                                    <div className="user-chatwidget-buttons" id="ChatSendButtonContainer">
+                                    <div className="user-chatwidget-buttons pe-1" id="ChatSendButtonContainer">
                                         {this.props.chatwidget.get('processStatus') != 1 && this.props.chatwidget.getIn(['chat_ui','voice_engine']) == 1 && this.canUseVoiceMessage() && this.state.voiceMode === true && <Suspense fallback="..."><VoiceMessage voice_engine={this.props.chatwidget.getIn(['chat_ui','voice_engine']) } setText={(text) => this.handleContentChange({'id' : 'Question' ,'value' : text})} onCompletion={() => {}} progress={() => {}} base_url={this.props.chatwidget.get('base_url')} chat_id={0} hash={''} maxSeconds={this.props.chatwidget.getIn(['chat_ui','voice_message'])} cancel={this.cancelVoiceRecording} lang={this.props.chatwidget.getIn(['chat_ui','speech_lang'])} /></Suspense>}
 
                                         {this.props.chatwidget.get('processStatus') != 1 && this.props.chatwidget.getIn(['chat_ui','voice_engine']) == 1 && this.canUseVoiceMessage() && this.state.Question.length == 0 && this.state.voiceMode === false && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.startVoiceRecording() : '' }} onClick={this.startVoiceRecording} title={t('voice.dictate')}>
@@ -688,7 +688,7 @@ class StartChat extends Component {
                                         </a>}
 
                                         {this.props.chatwidget.get('processStatus') != 1 && (this.props.chatwidget.getIn(['chat_ui','voice_engine']) != 1 || !this.canUseVoiceMessage() || (this.state.Question.length > 0 && this.state.voiceMode === false)) && <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.handleSubmit() : '' }} onClick={this.handleSubmit} title={t('button.start_chat')}>
-                                            <i className={"send-icon material-icons settings" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
+                                            <i className={"send-icon material-icons settings me-0" + (this.state.Question.length == 0 ? ' text-muted-light' : ' text-muted')}>&#xf107;</i>
                                         </a>}
 
                                         {this.props.chatwidget.get('processStatus') == 1 && <i className="in-progress-icon material-icons text-muted settings me-0">&#xf113;</i>}

@@ -34,7 +34,7 @@ class ChatIntroStatus extends PureComponent {
                 </div>
                 <div className="disable-select d-flex flex-column justify-content-end align-items-stretch" id="send-button-wrapper">
                     <div className="user-chatwidget-buttons pe-1" id="ChatSendButtonContainer">
-                        <i className="material-icons text-muted-light settings me-0">&#xf113;</i>
+                        <i className="in-progress-icon material-icons text-muted settings me-0">&#xf113;</i>
                     </div>
                 </div>
             </div>}
