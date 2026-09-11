@@ -265,6 +265,15 @@ div.response div.meta-message{
 }
 <?php endif; ?>
 
+<?php if (isset($theme->bot_configuration_array['job_new_row']) && $theme->bot_configuration_array['job_new_row'] == true) : ?>
+.operator-profile-content .op-job-title{
+    display: block!important;
+}
+.operator-profile-content .op-job-title-sep{
+    display: none!important;
+}
+<?php endif; ?>
+
 .header-chat {
     background-color: #<?php echo $theme->header_background;?>!important;
 <?php if ($theme->header_height > 0) : ?>

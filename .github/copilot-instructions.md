@@ -724,3 +724,36 @@ export const activeChat = derived(chats, $chats =>
 - Never expose internal IDs without hash validation
 
 For comprehensive security guidance, see: `.github/instructions/9-security.md`
+
+# Widget CSS ownership (message grouping)
+
+Inside the widget iframe the theme CSS (`custom_widget_css` of `lh_abstract_widget_theme`) is
+inserted **before** the main widget stylesheet (`core.css`), which is inserted before the
+mobile/embed overrides. So theme rules need `!important` to win — **except** where core
+deliberately implements behaviour with non-`!important` declarations.
+
+Message grouping is that exception. `core.css` groups a run of messages from the same sender by
+squaring the corners that touch:
+
+```css
+div.message-row.message-admin+div.message-row.message-admin div.msg-body { border-top-left-radius: 0 }
+div.message-row.message-admin:last-child div.msg-body,
+div.message-row.message-admin:has(+:not(.message-row.message-admin)) div.msg-body
+    { border-bottom-left-radius: var(--lhc-message-border-radius) }
+div.message-row.response+div.message-row.response div.msg-body { border-top-right-radius: 0 }
+div.message-row.response:last-child div.msg-body,
+div.message-row.response:has(+:not(.message-row.response)) div.msg-body
+    { border-bottom-right-radius: var(--lhc-message-border-radius) }
+```
+
+- **Never add `border-radius` (or `margin-bottom`) to `.msg-body` with `!important`** — in
+  `core.css` or in a theme. It outranks the rules above and every bubble becomes a loose pill.
+- Radius is driven by `--lhc-message-border-radius`; gaps by `--lhc-message-spacing` (gap inside
+  a run, default 3px) and `--lhc-message-group-spacing` (extra `margin-top` added when the
+  sender changes). Do not swap them.
+- Avatars in a run are hidden with `display`: `div.message-admin:not(#scroll-to-message)+
+  div.message-admin:not(#scroll-to-message) .usr-tit { display: none }` vs. the run opener
+  `div.message-row.operator-changes .usr-tit { display: block !important }` — overrides of
+  `.usr-tit` may only position the box, never set `display`/`visibility`/`width`/`height`.
+- Theme authoring sandbox and full playbook: `z:\sites\qu_lt\theme-generator`
+  (`.github/copilot-instructions.md`, section 13).
