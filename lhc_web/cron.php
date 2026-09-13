@@ -77,11 +77,15 @@ ezcBaseInit::setCallback(
 
 function defaultCronjobFatalHandler($errno, $errstr, $errfile, $errline) {
 
+    if (!(error_reporting() & $errno)) {
+        return false;
+    }
+
     $msg = 'Unexpected error, the message was : ' . $errstr . ' in ' . $errfile . ' on line ' . $errline;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
 
-    if ($errno == E_USER_ERROR || $errno == E_COMPILE_ERROR || $errno == E_PARSE || $errno == E_ERROR || $errno == E_RECOVERABLE_ERROR || $errno == E_WARNING) {
+    if ($errno == E_USER_ERROR || $errno == E_COMPILE_ERROR || $errno == E_PARSE || $errno == E_ERROR || $errno == E_RECOVERABLE_ERROR) {
         error_log($msg);
 
         erLhcoreClassLog::write($msg);
