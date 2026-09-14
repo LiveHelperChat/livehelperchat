@@ -110,6 +110,7 @@
     "giggsey/libphonenumber-for-php": "^8.12.44",
     "league/oauth2-server": "^8.3",
     "longman/telegram-bot": "dev-master#79e5e3abc82d130aa791bd767bd0980f7b85067c",
+    "mcp/sdk": "^0.8.1",
     "michelf/php-markdown": "^2.0",
     "minishlink/web-push": "^7.0",
     "nickdnk/graph-sdk": "^8.0.1",
@@ -117,6 +118,7 @@
     "slim/slim": "^4.14.0",
     "sonata-project/google-authenticator": "^3.0@dev",
     "symfony/event-dispatcher": "^7.1",
+    "symfony/finder": "^7.4",
     "tgallice/fb-messenger-sdk": "dev-master#a0d103f38473891432965c0f5b38b142b5dbfc3c",
     "webklex/php-imap": "^5.1.0"
   },
