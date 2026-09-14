@@ -94,7 +94,13 @@ class AccessTools
                     $result['notes'][] = 'No permission is required to open `' . $url . '`, the view is public - a valid login session is still required.';
                 } else {
                     foreach ($urlData['permissions'] as $permission) {
-                        $controllerChecks[] = Access::checkPermission($accessArray, $permission['module'], $permission['function'], $permission['explain']);
+                        // `resolveUrl()` returns `module`/`function` explicitly, `permission` holds the plain function name.
+                        $controllerChecks[] = Access::checkPermission(
+                            $accessArray,
+                            isset($permission['module']) ? $permission['module'] : (isset($urlData['module']) ? $urlData['module'] : ''),
+                            isset($permission['function']) ? $permission['function'] : (isset($permission['permission']) ? $permission['permission'] : ''),
+                            isset($permission['explain']) ? $permission['explain'] : ''
+                        );
                     }
                 }
             }

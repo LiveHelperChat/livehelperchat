@@ -21,42 +21,27 @@ class Access
     {
         $sysConfiguration = \erLhcoreClassSystem::instance();
 
-        // --- Normalize the given URL into a Live Helper Chat RequestURI -------------
-        $path = parse_url($url, PHP_URL_PATH);
-        if ($path === false || $path === null || $path === '') {
-            $path = $url; // A plain path was passed.
-        }
-
-        $path = '/' . ltrim(preg_replace('~/{2,}~', '/', $path), '/');
-
-        // RequestURI never contains the installation folder nor index.php.
-        $basePath = trim((string)$sysConfiguration->WWWDir, '/');
-        if ($basePath != '' && stripos($path, '/' . $basePath . '/') === 0) {
-            $path = substr($path, strlen($basePath));
-        }
-        if (stripos($path, '/index.php/') === 0) {
-            $path = substr($path, strlen('/index.php'));
-        }
-
-        $segments = array_values(array_filter(explode('/', $path), 'strlen'));
-
-        // URL has to start with a siteaccess, otherwise module/function would be shifted.
-        $siteAccesses = (array)\erConfigClassLhConfig::getInstance()->getSetting('site', 'available_site_access', array());
-        foreach ((array)\erConfigClassLhConfig::getInstance()->getSetting('site', 'default_admin_site_access', array()) as $siteAccessItem) {
-            $siteAccesses[] = $siteAccessItem;
-        }
-        $siteAccesses[] = $sysConfiguration->SiteAccess;
-        $siteAccesses = array_unique($siteAccesses);
-
-        if (empty($segments) || !in_array($segments[0], $siteAccesses, true)) {
-            array_unshift($segments, $sysConfiguration->SiteAccess);
-        }
-
-        // --- Resolve module/function the exact same way the routing does -------------
+        // --- Resolve module/function the exact same way `lhpermission/explorer.php` does -----------
+        // The URL is handed over untouched: `erLhcoreClassURL` is configured with `basedir = WWWDir`
+        // and `script = IndexFile`, so it understands every form the back office hands out - absolute
+        // URL, plain path, with or without `index.php`, with or without the siteaccess (a first
+        // segment which is not a known siteaccess is then used as the module).
+        // Normalizing the path by hand used to drop `index.php` only when it sat right after the
+        // leading slash, so `https://host/index.php/site_admin/...` was shifted and resolved wrong.
         $requestURIOriginal = $sysConfiguration->RequestURI;
 
-        $sysConfiguration->RequestURI = '/' . implode('/', $segments);
+        // `getInstance()` re-detects the siteaccess from the parsed URL, keep the real request state.
+        $siteAccessState = array(
+            'SiteAccess' => $sysConfiguration->SiteAccess,
+            'WWWDirLang' => $sysConfiguration->WWWDirLang,
+            'Language' => $sysConfiguration->Language,
+            'ThemeSite' => $sysConfiguration->ThemeSite,
+            'ContentLanguage' => $sysConfiguration->ContentLanguage,
+        );
+
+        $sysConfiguration->RequestURI = str_replace('index.php','',$url);
         \erLhcoreClassURL::resetInstance();
+
         $urlInstance = \erLhcoreClassURL::getInstance();
 
         $currentModuleName = preg_replace('/[^a-zA-Z0-9\-_]/', '', (string)$urlInstance->getParam('module'));
@@ -64,6 +49,9 @@ class Access
 
         // Back to the real request, the instance is recreated lazily if anything asks for it.
         $sysConfiguration->RequestURI = $requestURIOriginal;
+        foreach ($siteAccessState as $property => $value) {
+            $sysConfiguration->$property = $value;
+        }
         \erLhcoreClassURL::resetInstance();
 
         if ($currentModuleName == '' || $currentView == '') {
@@ -96,7 +84,9 @@ class Access
             if (isset($moduleFunction['url']) && in_array($permissionModule . '/' . $currentView, $moduleFunction['url'])) {
                 $requiredPermissions[] = array(
                     'permission' => $permission,
-                    'explain' => $moduleFunction['explain'],
+                    'module' => $permissionModule,
+                    'function' => $permission,
+                    'explain' => isset($moduleFunction['explain']) ? $moduleFunction['explain'] : '',
                 );
             }
         }
@@ -162,6 +152,14 @@ class Access
      */
     public static function checkPermission($accessArray, $module, $function, $explain = '', $options = array())
     {
+        // Cast so a missing/null module or function never becomes a `null` array offset (deprecated in PHP 8.1+).
+        $module = (string)$module;
+        $function = (string)$function;
+
+        if ($module === '' || $function === '') {
+            return self::checkEntry($module . '/' . $function, false, '`module`/`function` is missing for this requirement, it cannot be evaluated.', (string)$explain, $options + array('granted' => false));
+        }
+
         $requirement = $module . '/' . $function;
 
         if (isset($accessArray['ex_perm'][$module][$function])) {

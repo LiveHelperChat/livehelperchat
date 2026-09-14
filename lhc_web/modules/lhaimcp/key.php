@@ -45,7 +45,7 @@ $tpl->set('mcp_server_name', isset($data['server_name']) ? (string)$data['server
 $mcpToken = isset($data['token']) ? trim((string)$data['token']) : '';
 $tpl->set('mcp_token', $mcpToken);
 
-$mcpEndpoint = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('aimcp/mcp');
+$mcpEndpoint = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('aimcp/mcp');
 if ($mcpToken !== '') {
     $mcpEndpoint .= '?token=' . rawurlencode($mcpToken);
 }

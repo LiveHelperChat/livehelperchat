@@ -569,6 +569,7 @@ class erLhcoreClassSystem{
 
     public $MobileDevice = false;
 
+    public $QueryString = '';
 
     private static $instance = null;
 
