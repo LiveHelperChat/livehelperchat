@@ -57,6 +57,7 @@ If you are installing extensions, make sure that your version has webhooks enabl
  * [Mobile app](https://github.com/LiveHelperChat/lhc_messenger) flutter
  * [Agora - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/voice-video-screenshare) powered by [agora](https://www.agora.io/en/), paid
  * [Jitsi - Voice & Video & ScreenShare](https://doc.livehelperchat.com/docs/integrating/jitsi) powered by [jitsi](https://jitsi.org/), Free out of the box integration
+ * [MCP Setup with Claude or ChatGPT](https://doc.livehelperchat.com/docs/mcp-setup)
  * [Rest API](https://api.livehelperchat.com)
  * [Bot](https://doc.livehelperchat.com/docs/how-to-use-bot) with the possibility to integrate any third-party AI
    * E.g Rasa AI https://doc.livehelperchat.com/docs/bot/rasa-integration-intent
