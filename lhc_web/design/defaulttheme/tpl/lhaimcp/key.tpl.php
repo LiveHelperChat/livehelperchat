@@ -25,13 +25,15 @@
 
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-	<input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
-	<input type="submit" class="btn btn-secondary" name="GenerateToken" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaimcp/key','Generate new token'); ?>" />
+	<div class="btn-group">
+		<input type="submit" class="btn btn-secondary" name="StoreOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Save'); ?>" />
+		<input type="submit" class="btn btn-secondary" name="GenerateToken" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaimcp/key','Generate new token'); ?>" />
+	</div>
 
 </form>
 
 <?php if (!empty($mcp_tools)) : ?>
-<h3 class="attr-header"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaimcp/key','Tools exposed to the client');?></h3>
+<h4 class="attr-header pt-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('lhaimcp/key','Tools exposed to the client');?></h4>
 
 <table class="table table-sm table-hover" cellpadding="0" cellspacing="0" ng-non-bindable>
 	<thead>
