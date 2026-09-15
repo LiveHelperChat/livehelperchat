@@ -59,9 +59,25 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
     //source: erLhcoreClassModelLHCChatBotQuestion
     //time: 2019-01-05 12:17:15
     //1 row in set (0.00 sec)
+
+    /**
+     * Assumed MySQL `max_allowed_packet` value is 16 MB.
+     *
+     * Audit records are written to the database (lh_audits table) and a single record
+     * bigger than that limit fails with
+     * "Got a packet bigger than 'max_allowed_packet' bytes" error.
+     * 1 MB is reserved for the rest of the query itself.
+     */
+    const MAX_AUDIT_LOG_LENGTH = 15728640; // 16 MB - 1 MB
+
 	static function write($msg, $level=ezcLog::WARNING, $attributes = array()) {
 		// Use log
         static $logFileWriterAdded = false;
+
+        // Oversized messages are truncated to a safe size
+        if (is_string($msg) && in_array($level, [ezcLog::FAILED_AUDIT, ezcLog::SUCCESS_AUDIT], true) && strlen($msg) > self::MAX_AUDIT_LOG_LENGTH) {
+            $msg = self::truncateLogMessage($msg, self::MAX_AUDIT_LOG_LENGTH);
+        }
 
 		$log = ezcLog::getInstance ();
 
@@ -70,8 +86,39 @@ class erLhcoreClassLog implements ezcBaseConfigurationInitializer {
             self::addLogFileWrite($log);
         }
 
-		$log->log ( $msg, $level, $attributes);
+        try {
+            $log->log ( $msg, $level, $attributes);
+        } catch (Exception $e) {
+            // Failing to write a log record should not break the actual flow
+            $cfg = erConfigClassLhConfig::getInstance();
+            if ($cfg->getSetting( 'site', 'debug_output', false ) === true) {
+                throw $e;
+            } else {
+                error_log("erLhcoreClassLog::write failed: " . $e->getMessage());
+            }
+        }
 	}
+
+    /**
+     * Truncates log message to the given byte size without breaking UTF-8 sequences
+     */
+    public static function truncateLogMessage($msg, $maxLength)
+    {
+        $originalLength = strlen($msg);
+
+        if (function_exists('mb_strcut')) {
+            $msg = mb_strcut($msg, 0, $maxLength, 'UTF-8');
+        } else {
+            $msg = substr($msg, 0, $maxLength);
+
+            // Remove an incomplete multi-byte UTF-8 sequence from the end
+            while ($msg !== '' && (ord($msg[strlen($msg) - 1]) & 0xC0) === 0x80) {
+                $msg = substr($msg, 0, -1);
+            }
+        }
+
+        return $msg . ' ... [log record truncated, original size: ' . $originalLength . ' bytes]';
+    }
 
     public static function addLogFileWrite($log) {
         #Rule for log write to a file
