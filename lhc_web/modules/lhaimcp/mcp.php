@@ -23,6 +23,9 @@
  * Deployment notes:
  *   composer require mcp/sdk symfony/finder
  *   composer dump-autoload -o   # composer.json enables classmap-authoritative
+ *
+ * Sessions are kept in the `lh_mcp_session` table, which is created by the regular database update
+ * (`system/update` in the back office or `cron/util/update_database`).
  */
 
 // ---------------------------------------------------------------------------
@@ -139,13 +142,8 @@ if (!class_exists(\Mcp\Server::class) || !class_exists(\LiveHelperChat\Mcp\Serve
 // Hand the request over to the SDK
 // ---------------------------------------------------------------------------
 
-// HTTP needs a persistent session store, PHP keeps no state between requests.
-/*$McpSessionDir = dirname(__DIR__, 2) . '/cache/mcp_sessions';
-if (!is_dir($McpSessionDir)) {
-    @mkdir($McpSessionDir, 0777, true);
-}*/
-
-$McpServer = \LiveHelperChat\Mcp\ServerFactory::build($McpServerName, $McpInstructions/*, $McpSessionDir*/);
+// Sessions are kept in the `lh_mcp_session` table by the server factory.
+$McpServer = \LiveHelperChat\Mcp\ServerFactory::build($McpServerName, $McpInstructions);
 
 // `php-http/discovery` is already a dependency and can build a PSR-7 request from the superglobals.
 $McpPsr17 = new \Http\Discovery\Psr17Factory();

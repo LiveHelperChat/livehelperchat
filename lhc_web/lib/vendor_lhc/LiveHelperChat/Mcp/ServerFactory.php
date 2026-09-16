@@ -2,8 +2,8 @@
 
 namespace LiveHelperChat\Mcp;
 
+use LiveHelperChat\Mcp\Session\DatabaseSessionStore;
 use Mcp\Server;
-use Mcp\Server\Session\FileSessionStore;
 use Mcp\Server\Transport\Http\Middleware\CorsMiddleware;
 use Mcp\Server\Transport\Http\Middleware\DnsRebindingProtectionMiddleware;
 
@@ -34,12 +34,10 @@ class ServerFactory
     /**
      * @param string      $name         Server name shown in the MCP client.
      * @param string|null $instructions Hints handed to the model during `initialize`.
-     * @param string|null $sessionDir   Writable directory for HTTP sessions. HTTP needs a persistent
-     *                                  store because PHP keeps no state between requests.
      *
      * @return Server
      */
-    public static function build($name, $instructions = null, $sessionDir = null)
+    public static function build($name, $instructions = null)
     {
         $builder = Server::builder()
             ->setServerInfo($name, self::SERVER_VERSION)
@@ -49,9 +47,10 @@ class ServerFactory
             $builder->setInstructions($instructions);
         }
 
-        if ($sessionDir !== null && $sessionDir !== '') {
-            $builder->setSession(new FileSessionStore($sessionDir));
-        }
+        // Sessions live in the `lh_mcp_session` table, created by the regular Live Helper Chat
+        // database update - run it before using the endpoint, otherwise the handshake succeeds but
+        // every following request is answered with "Session not found or has expired.".
+        $builder->setSession(new DatabaseSessionStore());
 
         return $builder->build();
     }

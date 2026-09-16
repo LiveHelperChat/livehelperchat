@@ -1,5 +1,41 @@
 {
   "tables": {
+    "lh_mcp_session": [
+      {
+        "field": "session_id",
+        "type": "varchar(36)",
+        "null": "NO",
+        "key": "PRI",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "data",
+        "type": "longtext",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": "",
+        "collation": "utf8mb4_unicode_ci"
+      },
+      {
+        "field": "ctime",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": null,
+        "extra": ""
+      },
+      {
+        "field": "utime",
+        "type": "int(11) unsigned",
+        "null": "NO",
+        "key": "MUL",
+        "default": null,
+        "extra": ""
+      }
+    ],
     "lh_brand": [
       {
         "field": "id",
@@ -12580,6 +12616,7 @@
     ]
   },
   "tables_create": {
+    "lh_mcp_session" : "CREATE TABLE `lh_mcp_session` (  `session_id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,  `data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,  `ctime` int(11) unsigned NOT NULL,  `utime` int(11) unsigned NOT NULL,  PRIMARY KEY (`session_id`),  KEY `utime` (`utime`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_product_departament" : "CREATE TABLE `lh_abstract_product_departament` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `product_id` int(11) NOT NULL,  `departament_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `departament_id` (`departament_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_admin_theme" : "CREATE TABLE `lh_admin_theme` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(100) NOT NULL, `static_content` longtext NOT NULL, `static_js_content` longtext NOT NULL, `user_id` int(11) NOT NULL, `static_css_content` longtext NOT NULL, `header_content` text NOT NULL, `header_css` text NOT NULL, PRIMARY KEY (`id`),  KEY `user_id` (`user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_abstract_product" : "CREATE TABLE `lh_abstract_product` (`id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(250) NOT NULL, `priority` int(11) NOT NULL, `departament_id` int(11) NOT NULL, `disabled` int(11) NOT NULL, KEY `departament_id` (`departament_id`), PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",

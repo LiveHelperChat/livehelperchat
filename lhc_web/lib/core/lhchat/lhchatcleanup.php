@@ -90,6 +90,12 @@ class erLhcoreClassChatCleanup {
             $stmt->bindValue(':ts', time(), PDO::PARAM_INT);
             $stmt->execute();
 
+            // Expired MCP handshake sessions - they are only useful an hour after the last write,
+            // the same timeout the session store uses (LiveHelperChat\Mcp\Session\DatabaseSessionStore)
+            $stmt = $db->prepare('DELETE FROM `lh_mcp_session` WHERE `utime` < :utime LIMIT 50000');
+            $stmt->bindValue(':utime', time() - 3600, PDO::PARAM_INT);
+            $stmt->execute();
+
             $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
             $data = (array)$auditOptions->data;
 

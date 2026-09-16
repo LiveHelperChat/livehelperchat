@@ -2804,6 +2804,16 @@ Table "lh_users_online_session" {
   }
 }
 
+Table "lh_mcp_session" {
+  "session_id" varchar(36) [pk, not null, note: 'MCP session ID, a UUID handed out during the initialize handshake']
+  "data" longtext [not null, note: 'Session payload (JSON)']
+  "ctime" int(11) [not null, note: 'Creation time']
+  "utime" int(11) [not null, note: 'Last write time. Session is expired one hour after this']
+  Indexes {
+    utime [name: "utime"]
+  }
+}
+
 Table "lh_abstract_performance" {
   "id" bigint(20) [pk, not null, increment]
   "type" tinyint(1) [not null]

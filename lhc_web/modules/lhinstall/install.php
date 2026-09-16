@@ -425,6 +425,8 @@ try {
 
                     $db->query("CREATE TABLE `lh_chat_event_track` ( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(50) NOT NULL, `data` longtext NOT NULL, `department_id` int(11) NOT NULL, PRIMARY KEY (`id`), KEY `department_id` (`department_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
+                    $db->query("CREATE TABLE `lh_mcp_session` ( `session_id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL, `data` longtext COLLATE utf8mb4_unicode_ci NOT NULL, `ctime` int(11) unsigned NOT NULL, `utime` int(11) unsigned NOT NULL, PRIMARY KEY (`session_id`), KEY `utime` (`utime`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+
                     $db->query("CREATE TABLE `lh_chat_archive_range` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `range_from` bigint(20) unsigned NOT NULL,
