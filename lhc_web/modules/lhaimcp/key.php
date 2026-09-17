@@ -53,15 +53,7 @@ if ($mcpToken !== '') {
 $tpl->set('mcp_endpoint', $mcpEndpoint);
 
 // Read from the `#[McpTool]` attributes, so the page cannot drift away from what `tools/list` answers.
-$mcpTools = array();
-
-if (class_exists('LiveHelperChat\\Mcp\\ServerFactory')) {
-    try {
-        $mcpTools = \LiveHelperChat\Mcp\ServerFactory::tools();
-    } catch (\Throwable $e) {
-        $mcpTools = array();
-    }
-}
+$mcpTools = \LiveHelperChat\Mcp\ServerFactory::tools();
 
 $tpl->set('mcp_tools', $mcpTools);
 

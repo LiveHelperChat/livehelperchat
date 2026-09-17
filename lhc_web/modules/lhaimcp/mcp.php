@@ -62,7 +62,16 @@ $McpInstructions = 'Live Helper Chat administration tools. Use `get_user_id_by_e
     . '`check_user_object_access` to diagnose object editing (department, user, chat, ...). '
     . 'For chats nobody picked up use `explain_chat_auto_assign` ("would chat X be auto assigned?", '
     . '"why was example@example.com not auto assigned to chat X") and `get_department_auto_assign_settings` to inspect '
-    . 'the auto assignment configuration of a department and its operators.';
+    . 'the auto assignment configuration of a department and its operators. '
+    . 'For numbers use the read only, installation wide statistics tools: `count_chats` ("how many chats were there in the '
+    . 'past 24 hours", counts per department/operator/status or per day), `get_chat_statistics` (chat volume and message '
+    . 'counters of a window), `get_chat_activity` (time series per hour/day/week/month/weekday) and `get_chat_performance` '
+    . '(wait and response times). `get_last_chats` is the follow up - it answers "give me the last chat ids of this '
+    . 'visitor" with at most five chats, each as a chat id and a date, ordered by chat id: newest first by default, '
+    . 'oldest first with `sort` = `oldest`; it also returns a `list_url` which opens the back office chat list '
+    . 'with the same filters and ordering, so the reported chats can be verified manually. They take the same raw `filters` map, the data '
+    . 'tools also accept a `nick`, and `get_chat_filter_fields` lists the accepted operators, the filterable fields and '
+    . 'the time window shorthands.';
 
 // ---------------------------------------------------------------------------
 // Early exits - these happen before the SDK is involved, so they answer plain JSON
@@ -126,16 +135,6 @@ $queryValid = $queryToken !== '' && hash_equals($McpToken, $queryToken);
 
 if (!$headerValid && !$queryValid) {
     lhaimcp_output(array('error' => true, 'message' => 'Unauthorized'), 401);
-}
-
-if (!class_exists(\Mcp\Server::class) || !class_exists(\LiveHelperChat\Mcp\ServerFactory::class)) {
-    // `composer.json` enables classmap-authoritative, so the tool/server classes only become
-    // autoloadable once the classmap is rebuilt.
-    lhaimcp_output(array(
-        'error' => true,
-        'message' => 'The MCP server is not available: install the SDK with `composer require mcp/sdk symfony/finder` '
-            . 'and rebuild the autoloader with `composer dump-autoload -o`.',
-    ), 503);
 }
 
 // ---------------------------------------------------------------------------
