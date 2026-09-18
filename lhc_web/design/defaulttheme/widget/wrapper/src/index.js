@@ -97,7 +97,7 @@
 
                 const prefixLowercase = scopeScript.toLowerCase();
                 const prefixStorage = (prefixLowercase && LHC_API.args.scope_storage ? prefixLowercase : 'lhc');
-                const cookieEnabledUser = typeof LHC_API.args.cookie_enabled !== 'undefined' ? LHC_API.args.cookie_enabled : true;
+                var cookieEnabledUser = typeof LHC_API.args.cookie_enabled !== 'undefined' ? LHC_API.args.cookie_enabled : true;
                 const userMode = LHC_API.args.mode || 'widget';
                 var storageHandler = new storageHandler(global, LHC_API.args.domain || null, prefixStorage, cookieEnabledUser);
 
@@ -657,6 +657,8 @@
                 // Toggle cookies policy
                 attributesWidget.eventEmitter.addListener('enableCookies', function () {
 
+                     cookieEnabledUser = LHC_API.args.cookie_enabled = true;
+
                     // Check does cookies are supported in genreal
                     if (storageHandler.checkCookiesSupport() === true) {
                         // Store session
@@ -742,7 +744,9 @@
                     // Just to restyle if needed
                     attributesWidget.mainWidget.hideInvitation();
 
-                    attributesWidget.widgetStatus.next(true);
+                    if (cookieEnabledUser === true) {
+                        attributesWidget.widgetStatus.next(true);
+                    }
 
                     if (attributesWidget.mode == 'popup') {
                         attributesWidget.popupWidget.init(attributesWidget, chatEvents, params);
@@ -1113,6 +1117,10 @@
 
                 // Listed for post messages
                 const handleMessages = (e) => {
+
+                    if (cookieEnabledUser === false) {
+                        return;
+                    }
 
                     if (attributesWidget.terminated === true || typeof e.data !== 'string' || e.data.indexOf(attributesWidget.prefixLowercase + '::')) {
                         if (typeof e.data === 'object' && typeof e.data.action === 'string' &&  e.data.action === "lhc_set_var") {
