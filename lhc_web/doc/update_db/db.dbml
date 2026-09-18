@@ -2681,6 +2681,7 @@ Table "lh_users" {
   "always_on" tinyint(1) [not null, default: 0]
   "exclude_autoasign_mails" tinyint(1) [not null, default: 0]
   "max_active_mails" int(11) [not null, default: 0]
+  "team_lead_user_id" int(11) [not null, default: 0, note: 'Team lead user ID']
 
   Indexes {
     hide_online [name: "hide_online"]
@@ -2689,6 +2690,7 @@ Table "lh_users" {
     email [name: "email"]
     xmpp_username [name: "xmpp_username"]
     username [name: "username"]
+    team_lead_user_id [name: "team_lead_user_id"]
   }
 }
 

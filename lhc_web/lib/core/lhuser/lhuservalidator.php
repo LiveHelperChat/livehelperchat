@@ -218,6 +218,9 @@ class erLhcoreClassUserValidator {
 			),
 			'XMPPUsername' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+			),
+			'team_lead_user_id' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
 			)
 		);
 		
@@ -373,7 +376,15 @@ class erLhcoreClassUserValidator {
 		    } else {
 		        $userData->disabled = 0;
 		    }
-		    
+
+            if ($form->hasInputField('team_lead_user_id')) {
+                if ( $form->hasValidData( 'team_lead_user_id' ) ) {
+                    $userData->team_lead_user_id = (int)$form->team_lead_user_id;
+                } else {
+                    $userData->team_lead_user_id = 0;
+                }
+            }
+
     		if ( $form->hasValidData( 'DefaultGroup' ) ) {
 
     		    if ($params['groups_can_edit'] === true) {

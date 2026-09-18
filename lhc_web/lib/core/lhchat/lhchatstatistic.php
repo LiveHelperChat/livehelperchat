@@ -2206,6 +2206,10 @@ class erLhcoreClassChatStatistic {
             $filterUsers['filterin']['id'] = $filtergte['filterin']['id'];
         }
 
+        if (isset($filtergte['filterin']['team_lead_user_id'])) {
+            $filterUsers['filterin']['team_lead_user_id'] = $filtergte['filterin']['team_lead_user_id'];
+        }
+
         $userIdGroup = array();
 
         // Explicit user filter

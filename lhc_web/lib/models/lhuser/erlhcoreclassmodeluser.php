@@ -51,7 +51,8 @@ class erLhcoreClassModelUser {
             'cache_version' => $this->cache_version,
             'llogin' => $this->llogin,
             'force_logout' => $this->force_logout,
-            'offline_reason_id' => $this->offline_reason_id
+            'offline_reason_id' => $this->offline_reason_id,
+            'team_lead_user_id' => $this->team_lead_user_id
         );
    }
 
@@ -147,6 +148,12 @@ class erLhcoreClassModelUser {
                    $this->{$param} = '';
                }
        		   return $this->{$param};
+
+       	case 'team_lead_user':
+       		   if (!isset($this->team_lead_user)) {
+                   $this->team_lead_user = $this->team_lead_user_id > 0 ? erLhcoreClassModelUser::fetch($this->team_lead_user_id) : false;
+       		   }
+       		   return $this->team_lead_user;
 
        	default:
        		break;
@@ -261,6 +268,7 @@ class erLhcoreClassModelUser {
     public $llogin = 0;
     public $force_logout = 0;
     public $offline_reason_id = 0;
+    public $team_lead_user_id = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

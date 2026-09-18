@@ -1,3 +1,10 @@
+4.93v
+
+1. Added `team_lead_user_id` attribute for operators. Team lead can be assigned in the new/edit user window under the user groups section. The team lead is shown read-only above the username in the operator account page. User list now has a team lead column and a multi-select team lead filter.
+
+execute doc/update_db/update_359.sql for update
+
+
 4.92v
 
 1. Notable changes since 4.91v

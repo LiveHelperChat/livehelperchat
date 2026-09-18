@@ -3,37 +3,37 @@
 	<input type="hidden" name="doSearch" value="1">
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Username');?></label>
 			<input type="text" class="form-control form-control-sm" name="username" value="<?php echo htmlspecialchars($input->username)?>" />
 		   </div>
 		</div>
-        <div class="col-md-3">
+        <div class="col-md-2">
 		   <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Nickname');?></label>
 			<input type="text" class="form-control form-control-sm" name="chat_nickname" value="<?php echo htmlspecialchars((string)$input->chat_nickname)?>" />
 		   </div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','E-mail');?></label>
 			<input type="text" class="form-control form-control-sm" name="email" value="<?php echo htmlspecialchars($input->email)?>" />
 		  </div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Name');?></label>
 			<input type="text" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars($input->name)?>" />
 		  </div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 		  <div class="form-group">
 			<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Surname');?></label>
 			<input type="text" class="form-control form-control-sm" name="surname" value="<?php echo htmlspecialchars($input->surname)?>" />
 		  </div>
 		</div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User group');?></label>
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -47,7 +47,22 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Team lead');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'team_lead_user_id[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose team lead'),
+                    'selected_id'    => $input->team_lead_user_id,
+                    'css_class'      => 'form-control form-control-sm',
+                    'display_name'   => 'name_official',
+                    'ajax'           => 'users',
+                    'list_function_params' => array('limit' => 50, 'sort' => '`name` ASC'),
+                    'list_function'  => 'erLhcoreClassModelUser::getUserList',
+                )); ?>
+            </div>
+        </div>
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Account status');?></label>
                 <select name="disabled" class="form-control form-control-sm">
@@ -57,7 +72,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User language');?></label>
                 <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -143,8 +158,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
                         <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -159,7 +173,7 @@
                         )); ?>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department group');?></label>
                         <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -173,8 +187,6 @@
                         )); ?>
                     </div>
                 </div>
-
-        
     </div>
 
 	<div class="btn-group" role="group" aria-label="...">

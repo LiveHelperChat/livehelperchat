@@ -148,6 +148,29 @@
                 )); ?>
             </div>
         <?php endif; ?>
+
+        <hr>
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Team lead');?></label>
+            <?php $teamLeadParams = array('limit' => 10, 'sort' => '`name` ASC');  ?>
+            <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                'input_name'     => 'team_lead_user_id',
+                'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Choose team lead'),
+                'optional_value_text' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','None'),
+                'selected_id'    => [(int)$user->team_lead_user_id],
+                'type'           => 'radio',
+                'data_prop'      => 'data-limit="1"',
+                'css_class'      => 'form-control',
+                'display_name'   => 'name_official',
+                'show_optional'  => true,
+                'no_selector'    => true,
+                'ajax'           => 'users',
+                'wrapper_class'  => 'team-lead-dropdown',
+                'list_function_params' => $teamLeadParams,
+                'list_function'  => 'erLhcoreClassModelUser::getList',
+            )); ?>
+        </div>
+
         <hr>
 		<label>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label><br>
 						
@@ -311,3 +334,8 @@
 </div>
 </form>
 
+<script>
+    $(function() {
+        $('.team-lead-dropdown').makeDropdown();
+    });
+</script>

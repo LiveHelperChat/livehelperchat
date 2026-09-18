@@ -89,10 +89,11 @@ $ViewList['statistic'] = array(
         73 => 'all_msg_count',
         74 => 'all_msg_count_till',
         75 => 'delete_item',
-        76 => 'csfr'
+        76 => 'csfr',
+        77 => 'team_lead_user_id'
     ),
     'functions' => array( 'viewstatistic' ),
-    'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids','attr_int_1_multi')
+    'multiple_arguments' => array('bot_ids','subject_ids','department_ids','group_ids','user_ids','department_group_ids','invitation_ids','chart_type','country_ids','attr_int_1_multi','team_lead_user_id')
 );
 
 $ViewList['loadreport'] = array(

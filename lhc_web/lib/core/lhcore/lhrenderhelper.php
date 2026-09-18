@@ -193,6 +193,7 @@ class erLhcoreClassRenderHelper {
         $selectedOptions = '';
         $attrId = isset($params['attr_id']) ? $params['attr_id'] : 'id';
         $nameSelect = isset($params['display_name']) ? $params['display_name'] : 'name';
+        $optionalValueText = isset($params['optional_value_text']) ? $params['optional_value_text'] : 'Any';
 
         if (is_array($params['selected_id']) && !empty($params['selected_id'])) {
             $filterSelected = isset($params['list_function_params']) ? $params['list_function_params'] : array();
@@ -237,7 +238,7 @@ class erLhcoreClassRenderHelper {
         $ngModel .= isset($params['on_change']) ? ' onchange="'.$params['on_change'].'" ' : '';
 
         if (isset($params['show_optional']) && $params['show_optional'] == true) {
-            $template .= '<li data-stoppropagation="true" class="search-option-item fw-bold"><label><input class="me-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">Any</label></li>';
+            $template .= '<li data-stoppropagation="true" class="search-option-item fw-bold"><label><input class="me-1" '. (((is_numeric($params['selected_id']) && 0 == $params['selected_id']) || (is_array($params['selected_id']) && in_array(0,$params['selected_id']))) ? 'checked="checked"' : '') .$ngModel.' type="'.$type.'" name="'.$selector.$params['input_name'] .'" value="0">' . $optionalValueText . '</label></li>';
         }
 
 

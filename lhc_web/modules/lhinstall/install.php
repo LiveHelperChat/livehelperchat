@@ -2133,6 +2133,7 @@ try {
                   `attr_int_3` int(11) NOT NULL,
                   `force_logout` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `offline_reason_id` int(11) unsigned NOT NULL DEFAULT '0',
+                  `team_lead_user_id` int(11) unsigned NOT NULL DEFAULT '0',
                   `llogin` bigint(20) unsigned NOT NULL DEFAULT '0',
                   `always_on` tinyint(1) NOT NULL DEFAULT '0',
                   `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT '0',
@@ -2143,6 +2144,7 @@ try {
                   KEY `disabled` (`disabled`),
                   KEY `email` (`email`),
                   KEY `username` (`username`),
+                  KEY `team_lead_user_id` (`team_lead_user_id`),
                   KEY `xmpp_username` (`xmpp_username`(191))
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 

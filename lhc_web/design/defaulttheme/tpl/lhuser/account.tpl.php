@@ -64,6 +64,14 @@
 		
 		<?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
+        <?php $teamLead = $user->team_lead_user; ?>
+        <?php if ($teamLead instanceof erLhcoreClassModelUser) : ?>
+        <div class="alert alert-info" role="alert">
+            <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your team lead');?>:</strong>
+            <?php echo htmlspecialchars($teamLead->name_official)?>
+        </div>
+        <?php endif; ?>
+
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Username');?>*</label> <input <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> type="text" ng-non-bindable class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your username');?>" name="Username" value="<?php echo htmlspecialchars($user->username);?>" />
         </div>
