@@ -134,6 +134,11 @@ class erLhcoreClassMailconvParser {
 
             $mailbox = erLhcoreClassModelMailconvMailbox::fetchAndLock($mailbox->id);
 
+            if (!($mailbox instanceof erLhcoreClassModelMailconvMailbox)) {
+                $db->rollback();
+                return;
+            }
+
             if (!isset($params['live']) || $params['live'] == false){
                 // This mailbox is still in sync
                 // Skip sync only if in progress and less than 10 minutes.
