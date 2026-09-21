@@ -20,8 +20,14 @@ class erLhcoreClassMailConvMailingWorker {
         $db->beginTransaction();
         $campaign = erLhcoreClassModelMailconvMailingCampaign::fetchAndLock($this->args['campaign_id']);
 
+        if (!($campaign instanceof erLhcoreClassModelMailconvMailingCampaign)) {
+            $db->rollback();
+            return;
+        }
+
         // Campaign was terminated in the middle of process
         if ($campaign->enabled == 0) {
+            $db->rollback();
             return;
         }
 
@@ -80,8 +86,10 @@ class erLhcoreClassMailConvMailingWorker {
 
             $db->beginTransaction();
             $campaign = erLhcoreClassModelMailconvMailingCampaign::fetchAndLock($this->args['campaign_id']);
-            $campaign->status = erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED;
-            $campaign->updateThis(['update' => ['status']]);
+            if ($campaign instanceof erLhcoreClassModelMailconvMailingCampaign) {
+                $campaign->status = erLhcoreClassModelMailconvMailingCampaign::STATUS_FINISHED;
+                $campaign->updateThis(['update' => ['status']]);
+            }
             $db->commit();
         }
     }
