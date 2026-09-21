@@ -1433,6 +1433,36 @@ class erLhcoreClassChatStatistic {
                 unset($filter['filtergt']['user_id']);
             }
 
+            if (isset($filter['filtergt']['aart'])) {
+                $filter['filtergt']['`lh_chat_participant`.`aart`'] = $filter['filtergt']['aart'];
+                unset($filter['filtergt']['aart']);
+            }
+
+            if (isset($filter['filterlte']['aart'])) {
+                $filter['filterlte']['`lh_chat_participant`.`aart`'] = $filter['filterlte']['aart'];
+                unset($filter['filterlte']['aart']);
+            }
+
+            if (isset($filter['filtergt']['mart'])) {
+                $filter['filtergt']['`lh_chat_participant`.`mart`'] = $filter['filtergt']['mart'];
+                unset($filter['filtergt']['mart']);
+            }
+
+            if (isset($filter['filterlte']['mart'])) {
+                $filter['filterlte']['`lh_chat_participant`.`mart`'] = $filter['filterlte']['mart'];
+                unset($filter['filterlte']['mart']);
+            }
+
+            if (isset($filter['filtergt']['frt'])) {
+                $filter['filtergt']['`lh_chat_participant`.`frt`'] = $filter['filtergt']['frt'];
+                unset($filter['filtergt']['frt']);
+            }
+
+            if (isset($filter['filterlte']['frt'])) {
+                $filter['filterlte']['`lh_chat_participant`.`frt`'] = $filter['filterlte']['frt'];
+                unset($filter['filterlte']['frt']);
+            }
+
             if (isset($filter['filter']['dep_id'])){
                 $filter['filter']['`lh_chat_participant`.`dep_id`'] = $filter['filter']['dep_id'];
                 unset($filter['filter']['dep_id']);
