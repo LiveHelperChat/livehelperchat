@@ -17,6 +17,10 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
 
         $chat = erLhcoreClassModelChat::fetchAndLock($Params['user_parameters']['chat_id'], false);
 
+        if (!($chat instanceof erLhcoreClassModelChat)) {
+            throw new Exception('Chat not found!');
+        }
+
         $chatVariables = $chat->chat_variables_array;
 
         $auditOptions = erLhcoreClassModelChatConfig::fetch('audit_configuration');
@@ -43,7 +47,7 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
             exit;
         }
 
-        if ($chat->hash == $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
+        if ($chat->hash === $Params['user_parameters']['hash'] && ($chat->status == erLhcoreClassModelChat::STATUS_BOT_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_PENDING_CHAT || $chat->status == erLhcoreClassModelChat::STATUS_ACTIVE_CHAT)) // Allow add messages only if chat is active
         {
             $errors = array();
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_user_uploadfile.file_store', array('errors' => & $errors));
