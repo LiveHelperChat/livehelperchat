@@ -65,7 +65,7 @@ class _nodeJSChat {
         })();
 
         function doActionByConnectionStatus(status) {
-            if (status.isAuthenticated && chatId > 0) {
+            if (status.isAuthenticated && chatId > 0 && socket.authToken && socket.authToken.chanelName === chanelName) {
                 connectVisitor();
             } else {
                 authentificate();
