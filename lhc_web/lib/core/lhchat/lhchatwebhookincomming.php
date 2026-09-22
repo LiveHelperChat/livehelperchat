@@ -303,7 +303,7 @@ class erLhcoreClassChatWebhookIncoming {
                 $validConditions = false;
             }
 
-            if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+            if ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1])))) {
                 $validConditions = false;
             }
 
@@ -321,7 +321,7 @@ class erLhcoreClassChatWebhookIncoming {
         return $validConditions;
     }
 
-    public static function processMessage($incomingWebhook, $payloadMessage, $payloadAll) {
+    public static function processMessage($incomingWebhook, $payloadMessage, $payloadAll, $returnDeterminedData = false) {
 
         $conditions = $incomingWebhook->conditions_array;
 
@@ -351,7 +351,7 @@ class erLhcoreClassChatWebhookIncoming {
                 $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                 $messageValue = $messageData['value'];
 
-                if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                     $typeMessage = 'unknown';
                 }
 
@@ -390,7 +390,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -430,7 +430,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -470,7 +470,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -510,7 +510,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -550,7 +550,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -590,7 +590,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -632,7 +632,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -670,7 +670,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
                 }
@@ -703,7 +703,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
                 }
@@ -745,7 +745,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     } elseif (isset($conditions['msg_btn_cond_payload_1']) && $conditions['msg_btn_cond_payload_1'] != "") {
                         $startsWithOptions = explode(',',str_replace(' ','',$conditions['msg_btn_cond_payload_1']));
@@ -807,7 +807,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     } elseif (isset($conditions['msg_btn_cond_payload_2']) && $conditions['msg_btn_cond_payload_2'] != "") {
                         $startsWithOptions = explode(',',str_replace(' ','',$conditions['msg_btn_cond_payload_2']));
@@ -870,7 +870,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     } elseif (isset($conditions['msg_btn_cond_payload_3']) && $conditions['msg_btn_cond_payload_3'] != "") {
                         $startsWithOptions = explode(',',str_replace(' ','',$conditions['msg_btn_cond_payload_3']));
@@ -927,7 +927,7 @@ class erLhcoreClassChatWebhookIncoming {
                     $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
                     $messageValue = $messageData['value'];
 
-                    if ($messageData['found'] === true && (is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))) {
+                    if ($messageData['found'] === false || ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1]))))) {
                         $typeMessage = 'unknown';
                     }
 
@@ -984,6 +984,19 @@ class erLhcoreClassChatWebhookIncoming {
                     $sender = -2;
                 }
             }
+        }
+
+        // Everything above is pure condition matching. When requested we return what was
+        // determined so it can be tested without touching the database.
+        if ($returnDeterminedData === true) {
+            return array(
+                'type' => $typeMessage,
+                'body' => isset($msgBody) ? $msgBody : '',
+                'sender' => $sender,
+                'operator_condition' => $conditionsOperator,
+                'operator_condition_key' => $operatorConditionKey,
+                'enable_unread_op_flow' => ($sender == -2 && $operatorConditionKey != '' && isset($conditions[$operatorConditionKey . '_unread']) && $conditions[$operatorConditionKey . '_unread'] == true),
+            );
         }
 
         $enableUnreadOpFlow = ($sender == -2 && $operatorConditionKey != '' && isset($conditions[$operatorConditionKey . '_unread']) && $conditions[$operatorConditionKey . '_unread'] == true);
@@ -2422,6 +2435,10 @@ class erLhcoreClassChatWebhookIncoming {
         }
 
         if (!is_array($url)) {
+
+            if (empty(trim((string)$url))) {
+                return "";
+            }
 
             $mediaContent = erLhcoreClassModelChatOnlineUser::executeRequest(str_replace(' ','%20',trim($url)), $headers, [
                 'deny_local' => true, 

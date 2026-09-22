@@ -6,3 +6,4 @@ post_deploy.sh
 translations/trans/
 cache/default.log
 /.idea/
+/tests/
