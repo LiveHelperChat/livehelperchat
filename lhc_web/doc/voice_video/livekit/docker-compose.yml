@@ -1,0 +1,27 @@
+# Self hosted LiveKit media server for Live Helper Chat Voice & Video & ScreenShare
+# Docs: https://docs.livekit.io/home/self-hosting/deployment/
+#
+# 1. Point DNS of livekit.example.com (and turn.example.com) to this server
+# 2. Replace domains in Caddyfile and livekit.yaml, generate API key/secret (see README.md)
+# 3. docker compose up -d
+services:
+  livekit:
+    image: livekit/livekit-server:v1.9
+    command: --config /etc/livekit.yaml
+    restart: unless-stopped
+    # Host networking is recommended for WebRTC UDP port range performance
+    network_mode: host
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml:ro
+
+  # TLS termination for wss://livekit.example.com -> 127.0.0.1:7880
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+
+volumes:
+  caddy_data:

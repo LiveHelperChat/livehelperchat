@@ -26,6 +26,15 @@ echo json_encode(array(
         "visitor_joined" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Visitor has joined the call!"),
         "audio_call" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Operator"),
         "join_to_start" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Start conversation"),
+        "reconnecting" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Connection lost. Reconnecting..."),
+        "network_quality" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Network quality"),
+        "call_duration" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Call duration"),
+        "device_error" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Could not access microphone or camera. Please check browser permissions."),
+        "connect_error" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Could not connect to the call server."),
+        "screen_share_error" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Screen could not be shared!"),
+        "microphone" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Microphone"),
+        "camera" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Camera"),
+        "settings" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Devices"),
     ]
 ));
 

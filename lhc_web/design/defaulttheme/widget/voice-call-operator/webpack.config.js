@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
     entry: './src/index.js',
@@ -11,7 +10,8 @@ const config = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'voice.call.js',
         publicPath: "./",
-        chunkFilename: "[name].[contenthash].js"
+        chunkFilename: "[name].[contenthash].js",
+        clean: true
     },
     devtool: 'source-map',
     module: {

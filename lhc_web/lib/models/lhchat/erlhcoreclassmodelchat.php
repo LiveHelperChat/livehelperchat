@@ -148,6 +148,16 @@ class erLhcoreClassModelChat {
            $stmt->execute();
        }
 
+       // Call history. Separate as table might not exist if database was not updated yet.
+       try {
+           $q = ezcDbInstance::get()->createDeleteQuery();
+           $q->deleteFrom('lh_chat_voice_video_session')->where( $q->expr->eq( 'chat_id', $this->id ) );
+           $stmt = $q->prepare();
+           $stmt->execute();
+       } catch (Exception $e) {
+
+       }
+
        $this->removePendingEvents();
 
        erLhcoreClassModelGroupChat::deleteByChatId($this->id);

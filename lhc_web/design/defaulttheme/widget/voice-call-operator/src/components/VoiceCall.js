@@ -1,11 +1,16 @@
-import React, { useEffect, useState, useReducer, useRef, useBoolean } from "react";
+import React, { useEffect, useState, useReducer, useRef, useMemo } from "react";
 import axios from "axios";
 import {useTranslation} from 'react-i18next';
 import useInterval from "../lib/useInterval";
-import AgoraRTC from "agora-rtc-sdk-ng"
 import MediaStream from "./parts/MediaStream";
 
-const client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+const formatDuration = (seconds) => {
+    seconds = Math.max(0, Math.floor(seconds));
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    return (hours > 0 ? hours + ':' + String(minutes).padStart(2, '0') : minutes) + ':' + String(secs).padStart(2, '0');
+}
 
 function reducer(state, action) {
     switch (action.type) {
@@ -56,6 +61,15 @@ function reducer(state, action) {
 
 const VoiceCall = props => {
 
+    const { rtc, client } = props.provider;
+
+    // Operator requests are protected with CSRF token
+    const api = useMemo(() => axios.create({
+        headers: props.isVisitor === true ? {} : {'X-CSRFToken': props.initParams.csrf}
+    }), []);
+
+    const [now, setNow] = useState(Date.now());
+
     const [state, dispatch] = useReducer(reducer, {
         call : {},
         localTracks : {
@@ -70,7 +84,16 @@ const VoiceCall = props => {
         inCall: false,
         pendingJoin: false,
         type: "",
-        isMuted : false
+        isMuted : false,
+        audioDevices: [],
+        videoDevices: [],
+        microphoneId: '',
+        cameraId: '',
+        showDevices: false,
+        connectionState: 'CONNECTED',
+        networkQuality: 0,
+        callStartedAt: null,
+        error: null
     });
 
     const STATUS_OP_PENDING = 0;
@@ -95,7 +118,18 @@ const VoiceCall = props => {
 
         updateUI();
 
-        AgoraRTC.getDevices()
+        client.on("user-published", handleUserPublished);
+        client.on("user-unpublished", handleUserUnpublished);
+        client.on("user-left", handleUserLeft);
+        client.on("token-privilege-will-expire", tokenWillExpire);
+        client.on("connection-state-change", (curState) => {
+            dispatch({type: 'update', value: {"connectionState" : curState}});
+        });
+        client.on("network-quality", (stats) => {
+            dispatch({type: 'update', value: {"networkQuality" : Math.max(stats.uplinkNetworkQuality, stats.downlinkNetworkQuality)}});
+        });
+
+        rtc.getDevices()
             .then(devices => {
 
                 const audioDevices = devices.filter(function(device){
@@ -110,10 +144,12 @@ const VoiceCall = props => {
                     type: 'update',
                     value: {
                         "hasAudio" : (audioDevices.length > 0),
-                        "hasVideo" : (videoDevices.length > 0)
+                        "hasVideo" : (videoDevices.length > 0),
+                        "audioDevices" : audioDevices,
+                        "videoDevices" : videoDevices
                     }
                 });
-            });
+            }).catch(() => {});
     },[]);
 
     const { t, i18n } = useTranslation('voice_call');
@@ -128,7 +164,7 @@ const VoiceCall = props => {
             url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/join';
         }
 
-        axios.post(url, {
+        api.post(url, {
             "type" : type
         }).then(result => {
             dispatch({
@@ -149,10 +185,10 @@ const VoiceCall = props => {
         if (props.isVisitor === true) {
             url = WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/' + type;
         } else {
-            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/' + '/(action)/' + type;
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/' + type;
         }
 
-        axios.get(url).then(result => {
+        api.get(url).then(result => {
             dispatch({
                 type: 'update',
                 value: {
@@ -179,6 +215,10 @@ const VoiceCall = props => {
                     "remoteUsers" : {},
                     "uid": null,
                     "inCall": false,
+                    "isMuted": false,
+                    "screenShare": false,
+                    "callStartedAt": null,
+                    "networkQuality": 0,
                     "localTracks" : {
                         videoTrack : null,
                         audioTrack: null
@@ -212,7 +252,7 @@ const VoiceCall = props => {
             url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id;
         }
 
-        axios.get(url).then(result => {
+        api.get(url).then(result => {
             dispatch({
                 type: 'update',
                 value: {
@@ -317,7 +357,7 @@ const VoiceCall = props => {
         }
 
         try {
-            const screenTrack = await AgoraRTC.createScreenVideoTrack(  );
+            const screenTrack = await rtc.createScreenVideoTrack();
 
             let localTracks = state.localTracks;
 
@@ -342,7 +382,7 @@ const VoiceCall = props => {
             await client.publish(screenTrack);
 
         } catch (e) {
-            alert('Screen could not be shared!');
+            dispatch({type: 'update', value: {"error" : t('voice_call.screen_share_error')}});
         }
     }
 
@@ -373,7 +413,14 @@ const VoiceCall = props => {
 
         } else {
 
-            const videoTrack = await AgoraRTC.createCameraVideoTrack();
+            let videoTrack = null;
+
+            try {
+                videoTrack = await rtc.createCameraVideoTrack(state.cameraId);
+            } catch (e) {
+                dispatch({type: 'update', value: {"error" : t('voice_call.device_error')}});
+                return;
+            }
 
             let localTracks = state.localTracks;
 
@@ -401,10 +448,10 @@ const VoiceCall = props => {
         if (props.isVisitor === true) {
             url = WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/token';
         } else {
-            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/' + '/(action)/token';
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/token';
         }
 
-        axios.get(url).then( result => {
+        api.get(url).then( result => {
             dispatch({
                 type: 'update',
                 value: {
@@ -417,25 +464,74 @@ const VoiceCall = props => {
 
     }
 
+    useInterval(
+        () => {
+            setNow(Date.now())
+        },
+        (state.inCall === true && state.callStartedAt !== null) ? 1000 : null
+    );
+
+    const changeDevice = async (kind, deviceId) => {
+        if (kind == 'audio') {
+            dispatch({type: 'update', value: {"microphoneId" : deviceId}});
+            if (state.localTracks.audioTrack) {
+                try { await state.localTracks.audioTrack.setDevice(deviceId); } catch (e) {
+                    dispatch({type: 'update', value: {"error" : t('voice_call.device_error')}});
+                }
+            }
+        } else {
+            dispatch({type: 'update', value: {"cameraId" : deviceId}});
+            if (state.localTracks.videoTrack && state.screenShare === false) {
+                try { await state.localTracks.videoTrack.setDevice(deviceId); } catch (e) {
+                    dispatch({type: 'update', value: {"error" : t('voice_call.device_error')}});
+                }
+            }
+        }
+    }
+
+    const qualityIcon = (quality) => {
+        if (quality >= 5) return {icon: 'signal_cellular_0_bar', className: 'text-danger'};
+        if (quality >= 3) return {icon: 'network_cell', className: 'text-warning'};
+        return {icon: 'signal_cellular_alt', className: 'text-success'};
+    }
+
     const join = async (data) => {
 
         if (state.inCall === true || (props.isVisitor === true && data.vi_status != STATUS_VI_JOINED) ) {
             return;
         }
 
-        // add event listener to play remote tracks when remote user publishs.
-        client.on("user-published", handleUserPublished);
-        client.on("user-unpublished", handleUserUnpublished);
-        client.on("user-left", handleUserLeft);
-        client.on("token-privilege-will-expire", tokenWillExpire);
+        dispatch({type: 'update', value: {"inCall": true, "error": null}});
 
-        var uui = await client.join(props.initParams.appid, props.initParams.id + '_' + props.initParams.hash, data.token || null);
         var localTracks = {
-            audioTrack : await AgoraRTC.createMicrophoneAudioTrack()
+            audioTrack : null,
+            videoTrack : null
         };
 
-        if (state.type == "audiovideo" || (props.isVisitor == true && state.call.video == 1)) {
-            localTracks.videoTrack = await AgoraRTC.createCameraVideoTrack();
+        // Acquire devices first, so permission problem is reported before joining the room
+        try {
+            localTracks.audioTrack = await rtc.createMicrophoneAudioTrack(state.microphoneId);
+
+            if (state.type == "audiovideo" || (props.isVisitor == true && state.call.video == 1)) {
+                localTracks.videoTrack = await rtc.createCameraVideoTrack(state.cameraId);
+            }
+        } catch (e) {
+            Object.values(localTracks).forEach(track => { if (track) { track.stop(); track.close(); } });
+            dispatch({type: 'update', value: {"inCall": false, "pendingJoin": false, "error": t('voice_call.device_error')}});
+            return;
+        }
+
+        var uui = null;
+
+        try {
+            uui = await client.join(props.initParams, data.token);
+        } catch (e) {
+            Object.values(localTracks).forEach(track => { if (track) { track.stop(); track.close(); } });
+            dispatch({type: 'update', value: {"inCall": false, "pendingJoin": false, "error": t('voice_call.connect_error')}});
+            return;
+        }
+
+        if (localTracks.videoTrack !== null) {
             localTracks.videoTrack.play("local-player");
         }
 
@@ -445,10 +541,12 @@ const VoiceCall = props => {
                 "uid" : uui,
                 "inCall": true,
                 "localTracks" : localTracks,
+                "callStartedAt" : Date.now(),
+                "connectionState" : 'CONNECTED'
             }
         });
 
-        await client.publish(Object.values(localTracks));
+        await client.publish(Object.values(localTracks).filter(track => track !== null));
     }
 
     return (
@@ -462,9 +560,36 @@ const VoiceCall = props => {
                     return (<MediaStream user={state.remoteUsers[val].user} key={"media_" + (state.remoteUsers[val].user.uid) + '_' + state.remoteUsers[val].media.join('_')} audio={state.remoteUsers[val].audio} video={state.remoteUsers[val].video} media={state.remoteUsers[val].media} />)
                 })}
             </div>
+            {(state.error !== null || (state.inCall == true && state.connectionState == 'RECONNECTING')) && <div className="row">
+                {state.inCall == true && state.connectionState == 'RECONNECTING' && <div className="col-12 alert alert-warning py-1 px-2 m-0 rounded-0"><span className="material-icons">sync_problem</span>{t('voice_call.reconnecting')}</div>}
+                {state.error !== null && <div className="col-12 alert alert-danger py-1 px-2 m-0 rounded-0" onClick={() => dispatch({type: 'update', value: {"error" : null}})}><span className="material-icons">error_outline</span>{state.error}</div>}
+            </div>}
+
+            {state.showDevices === true && <div className="row border-top pt-2">
+                {state.audioDevices.length > 0 && <div className="col-md-6 col-12 pb-2">
+                    <label className="fs13 text-muted mb-0">{t('voice_call.microphone')}</label>
+                    <select className="form-control form-control-sm" value={state.microphoneId} onChange={(e) => changeDevice('audio', e.target.value)}>
+                        <option value="">-</option>
+                        {state.audioDevices.map((device, index) => <option key={"mic-" + index} value={device.deviceId}>{device.label || (t('voice_call.microphone') + ' ' + (index + 1))}</option>)}
+                    </select>
+                </div>}
+                {props.initParams.options.video == true && state.videoDevices.length > 0 && <div className="col-md-6 col-12 pb-2">
+                    <label className="fs13 text-muted mb-0">{t('voice_call.camera')}</label>
+                    <select className="form-control form-control-sm" value={state.cameraId} onChange={(e) => changeDevice('video', e.target.value)}>
+                        <option value="">-</option>
+                        {state.videoDevices.map((device, index) => <option key={"cam-" + index} value={device.deviceId}>{device.label || (t('voice_call.camera') + ' ' + (index + 1))}</option>)}
+                    </select>
+                </div>}
+            </div>}
+
             <div className="row border-top">
 
                 <div className="btn-toolbar p-2 text-center mx-auto btn-toolbar" role="toolbar" >
+
+                    {state.inCall == true && state.callStartedAt !== null && <div className="p-2 text-center mx-auto text-muted py-2 align-self-center">
+                        <span title={t('voice_call.network_quality')} className={"material-icons " + qualityIcon(state.networkQuality).className}>{qualityIcon(state.networkQuality).icon}</span>
+                        <span title={t('voice_call.call_duration')}>{formatDuration((now - state.callStartedAt) / 1000)}</span>
+                    </div>}
 
                     <div className="p-2 text-center mx-auto btn-group" role="group">
                         {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">{t('voice_call.wait_let_in')} </span>}
@@ -476,7 +601,7 @@ const VoiceCall = props => {
                     </div>
 
                     <div className="p-2 text-center mx-auto btn-group" role="group">
-                        {props.isVisitor == false && state.call.token != '' && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-sm btn-outline-primary" onClick={() => cancelJoin('letvisitorin')} ><span className="material-icons">face</span>{t('voice_call.let_visitor_in')}</button>}
+                        {props.isVisitor == false && state.call.op_status == STATUS_OP_JOINED && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-sm btn-outline-primary" onClick={() => cancelJoin('letvisitorin')} ><span className="material-icons">face</span>{t('voice_call.let_visitor_in')}</button>}
 
                         {props.isVisitor == false && state.inCall == true && <React.Fragment>
                             <button title={t('voice_call.leave_a_call')} className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('leave')}><span className="material-icons">exit_to_app</span>{t('voice_call.leave_call_op')}</button>
@@ -499,6 +624,8 @@ const VoiceCall = props => {
                         </React.Fragment>}
 
                         {props.isVisitor == true && state.pendingJoin === true && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-outline-primary btn-sm" onClick={() => cancelJoin('cancel')} >{t('voice_call.cancel_join')}</button>}
+
+                        {(state.audioDevices.length > 1 || state.videoDevices.length > 1) && <button title={t('voice_call.settings')} className={"btn btn-sm " + (state.showDevices ? "btn-secondary" : "btn-outline-secondary")} onClick={() => dispatch({type: 'update', value: {"showDevices" : !state.showDevices}})}><span className="material-icons mr-0">settings</span></button>}
 
                     </div>
 

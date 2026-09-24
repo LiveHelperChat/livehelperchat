@@ -1,0 +1,40 @@
+# LiveKit server configuration
+# Full reference: https://github.com/livekit/livekit/blob/master/config-sample.yaml
+port: 7880
+bind_addresses:
+  - "127.0.0.1"
+
+rtc:
+  tcp_port: 7881
+  port_range_start: 50000
+  port_range_end: 60000
+  # Detect public IP automatically. Set node_ip if server is behind 1:1 NAT
+  use_external_ip: true
+
+# Same key and secret has to be entered in Live Helper Chat
+# System configuration -> Voice & Video & ScreenShare -> Configuration
+keys:
+  REPLACE_API_KEY: REPLACE_API_SECRET
+
+# Built in TURN server, needed for visitors behind strict firewalls/corporate networks
+turn:
+  enabled: true
+  domain: turn.example.com
+  udp_port: 3478
+  # TURN over TLS (port 5349) helps when only TCP/443-like traffic is allowed.
+  # Uncomment and provide certificate for turn.example.com
+  # tls_port: 5349
+  # cert_file: /etc/livekit/turn.crt
+  # key_file: /etc/livekit/turn.key
+
+room:
+  # One chat = one room. Operator, visitor and supervisor
+  max_participants: 5
+  empty_timeout: 300
+
+logging:
+  level: info
+
+# Uncomment for multi node (horizontal scaling) deployments
+# redis:
+#   address: redis.example.com:6379

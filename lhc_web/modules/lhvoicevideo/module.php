@@ -11,7 +11,7 @@ $ViewList['configuration'] = array(
 
 $ViewList['sessions'] = array(
     'params' => array(),
-    'functions' => array( 'configuration' )
+    'functions' => array( 'sessions' )
 );
 
 $ViewList['call'] = array(
@@ -35,6 +35,7 @@ $ViewList['joinoperator'] = array(
 );
 
 $FunctionList['configuration'] = array('explain' => 'Voice & Video & ScreenShare module configuration');
+$FunctionList['sessions'] = array('explain' => 'Allow operator to see Voice & Video calls history');
 $FunctionList['use'] = array('explain' => 'Allow operator to use Voice & Video & ScreenShare calls');
 
 ?>

@@ -134,6 +134,9 @@ class erLhcoreClassChatHelper
             $stmt->execute();
         }
 
+        // Close call history records which were left open
+        erLhcoreClassVoiceVideo::trackCallEndByChatId($chatId, 'chat_closed');
+
         // Close by support chat
         erLhcoreClassModelGroupChat::closeByChatId($chatId);
     }

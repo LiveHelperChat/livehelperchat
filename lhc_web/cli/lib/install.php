@@ -1763,6 +1763,7 @@ class Install
                    PRIMARY KEY (`id`),
                    KEY `chat_id` (`chat_id`)
                 ) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
+            $db->query("CREATE TABLE IF NOT EXISTS `lh_chat_voice_video_session` (`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT, `chat_id` bigint(20) unsigned NOT NULL, `user_id` bigint(20) unsigned NOT NULL, `dep_id` int(11) unsigned NOT NULL, `provider` varchar(20) NOT NULL, `initiator` tinyint(1) unsigned NOT NULL, `voice` tinyint(1) unsigned NOT NULL, `video` tinyint(1) unsigned NOT NULL, `status` tinyint(1) unsigned NOT NULL, `ctime` int(11) unsigned NOT NULL, `answered_at` int(11) unsigned NOT NULL, `ended_at` int(11) unsigned NOT NULL, `duration` int(11) unsigned NOT NULL, `end_reason` varchar(30) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id_status` (`chat_id`,`status`), KEY `ctime` (`ctime`), KEY `user_id_ctime` (`user_id`,`ctime`), KEY `dep_id_ctime` (`dep_id`,`ctime`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
             $db->query("CREATE TABLE `lh_canned_msg_replace` (
                     `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

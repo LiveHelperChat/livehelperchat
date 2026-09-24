@@ -7,46 +7,52 @@ if (is_numeric($Params['user_parameters']['id']))
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters']['id']);
     if ( erLhcoreClassChat::hasAccessToRead($chat) )
     {
+        $action = (string)$Params['user_parameters_unordered']['action'];
+
+        // All state changing actions require a valid CSRF token
+        if ($action != '' && (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN']))) {
+            http_response_code(403);
+            echo json_encode(array('error' => true, 'result' => 'Invalid CSRF token'));
+            exit;
+        }
+
+        if ($action != '' && !erLhcoreClassVoiceVideo::isEnabled()) {
+            http_response_code(400);
+            echo json_encode(array('error' => true, 'result' => 'Calls are disabled'));
+            exit;
+        }
+
         $vvcall = erLhcoreClassModelChatVoiceVideo::getInstance($chat->id);
 
-        $updateStatus = false;
+        $userData = $currentUser->getUserData();
 
-        if ($Params['user_parameters_unordered']['action'] == 'end') {
+        if ($action == 'end') {
             $vvcall->op_status = erLhcoreClassModelChatVoiceVideo::STATUS_OP_PENDING;
             $vvcall->vi_status = erLhcoreClassModelChatVoiceVideo::STATUS_VI_PENDING;
             $vvcall->status = erLhcoreClassModelChatVoiceVideo::STATUS_PENDING;
             $vvcall->updateThis(array('update' => array('op_status','status','vi_status')));
-            $updateStatus = true;
-        } else if ($Params['user_parameters_unordered']['action'] == 'leave') {
+            erLhcoreClassVoiceVideo::trackCallEnd($chat, 'operator_ended');
+        } else if ($action == 'leave') {
             $vvcall->op_status = erLhcoreClassModelChatVoiceVideo::STATUS_OP_PENDING;
             $vvcall->updateThis(array('update' => array('op_status')));
-            $updateStatus = true;
-        } else if ($Params['user_parameters_unordered']['action'] == 'token') {
-            $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
-
-            // Update token
-            include 'lib/core/lhvoicevideo/RtcTokenBuilder.php';
-            $token = AgoraIO\RtcTokenBuilder::buildTokenWithUserAccount($voiceData['agora_app_id'], $voiceData['agora_app_token'], $chat->id . '_' . $chat->hash, null, AgoraIO\RtcTokenBuilder::RoleAttendee, (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp()+(300));
-            $vvcall->token = $token;
-            $vvcall->updateThis(array('update' => array('token')));
-
-        } else if ($Params['user_parameters_unordered']['action'] == 'join') {
+            erLhcoreClassVoiceVideo::trackCallEnd($chat, 'operator_left');
+        } else if ($action == 'join') {
             $vvcall->op_status = erLhcoreClassModelChatVoiceVideo::STATUS_OP_JOINED;
+            $vvcall->user_id = $currentUser->getUserID();
 
-            $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
+            $payload = json_decode(file_get_contents('php://input'),true);
+            if (isset($payload['type']) && in_array($payload['type'], array('audio', 'audiovideo'))) {
+                $vvcall->voice = 1;
+                if ($payload['type'] == 'audiovideo') {
+                    $vvcall->video = 1;
+                }
+            }
 
-            // Update token
-            include 'lib/core/lhvoicevideo/RtcTokenBuilder.php';
-            $token = AgoraIO\RtcTokenBuilder::buildTokenWithUserAccount($voiceData['agora_app_id'], $voiceData['agora_app_token'], $chat->id . '_' . $chat->hash, null, AgoraIO\RtcTokenBuilder::RoleAttendee, (new DateTime("now", new DateTimeZone('UTC')))->getTimestamp()+(300));
-            $vvcall->token = $token;
+            $vvcall->updateThis(array('update' => array('op_status', 'user_id', 'voice', 'video')));
 
-            $vvcall->updateThis(array('update' => array('op_status','token')));
-            $updateStatus = true;
+            erLhcoreClassVoiceVideo::trackCallStart($chat, $vvcall, $currentUser->getUserID());
 
-            // Inform operator that visitor want's a voice call
-            $userData = $currentUser->getUserData();
-
-            // Inform visitor that he want's to start a voice chat
+            // Inform visitor that operator wants to start a voice chat
             if ($vvcall->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_PENDING) {
                 $msg = new erLhcoreClassModelmsg();
                 $msg->user_id = $currentUser->getUserID();
@@ -74,21 +80,22 @@ if (is_numeric($Params['user_parameters']['id']))
                 $chat->updateThis(array('update' => array('last_msg_id', 'last_op_msg_time', 'has_unread_op_messages', 'unread_op_messages_informed')));
             }
 
-        } else if ($Params['user_parameters_unordered']['action'] == 'letvisitorin') {
+        } else if ($action == 'letvisitorin') {
             $vvcall->vi_status = erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED;
             $vvcall->status = erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRMED;
             $vvcall->updateThis(array('update' => array('vi_status','status')));
-            $updateStatus = true;
+            erLhcoreClassVoiceVideo::trackCallAnswered($chat, $vvcall, $currentUser->getUserID());
         }
 
-        $chat->operation_admin = "lhinst.updateVoteStatus(".$chat->id.");";
-        $chat->updateThis(array('update' => array('operation_admin')));
+        if ($action != '' && $action != 'token') {
+            $chat->operation_admin = "lhinst.updateVoteStatus(".$chat->id.");";
+            $chat->updateThis(array('update' => array('operation_admin')));
+        }
 
-        echo json_encode($vvcall->getState());
+        echo json_encode(erLhcoreClassVoiceVideo::getCallState($vvcall, erLhcoreClassVoiceVideo::getOperatorToken($chat, $vvcall, $currentUser->getUserID(), $userData->name_support)));
     }
 }
 
 exit;
-
 
 ?>

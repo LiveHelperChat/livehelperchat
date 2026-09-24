@@ -22,6 +22,18 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         'agora_app_token' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'string'
         ),
+        'livekit_url' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'livekit_api_key' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'livekit_api_secret' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'token_ttl' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 86400)
+        ),
         'voice' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -31,47 +43,53 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         'screenshare' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'log_calls' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
     );
 
     $Errors = array();
 
     $form = new ezcInputForm(INPUT_POST, $definition);
-    $Errors = array();
 
-    if ($form->hasValidData('provider') && $form->provider != '') {
-        $data['provider'] = $form->provider;
-    } else {
-        $data['provider'] = '';
+    $data['provider'] = ($form->hasValidData('provider') && in_array($form->provider, array(erLhcoreClassVoiceVideo::PROVIDER_AGORA, erLhcoreClassVoiceVideo::PROVIDER_LIVEKIT))) ? $form->provider : erLhcoreClassVoiceVideo::PROVIDER_AGORA;
+
+    foreach (array('agora_app_id', 'livekit_api_key') as $attr) {
+        $data[$attr] = ($form->hasValidData($attr) && $form->{$attr} != '') ? trim($form->{$attr}) : '';
     }
 
-    if ($form->hasValidData('agora_app_id') && $form->agora_app_id != '') {
-        $data['agora_app_id'] = $form->agora_app_id;
-    } else {
-        $data['agora_app_id'] = '';
+    // Secrets are never printed back to the browser. Empty value keeps the stored one.
+    foreach (array('agora_app_token', 'livekit_api_secret') as $attr) {
+        if (isset($_POST[$attr . '_clear'])) {
+            $data[$attr] = '';
+        } elseif ($form->hasValidData($attr) && trim($form->{$attr}) != '') {
+            $data[$attr] = trim($form->{$attr});
+        } elseif (!isset($data[$attr])) {
+            $data[$attr] = '';
+        }
     }
 
-    if ($form->hasValidData('agora_app_token') && $form->agora_app_token != '') {
-        $data['agora_app_token'] = $form->agora_app_token;
-    } else {
-        $data['agora_app_token'] = '';
+    $data['livekit_url'] = '';
+    if ($form->hasValidData('livekit_url') && trim($form->livekit_url) != '') {
+        if (preg_match('/^(wss?|https?):\/\/[^\s]+$/i', trim($form->livekit_url))) {
+            $data['livekit_url'] = rtrim(trim($form->livekit_url), '/');
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit server URL has to start with wss:// or https://');
+        }
     }
 
-    if ($form->hasValidData('voice') && $form->voice == true) {
-        $data['voice'] = true;
-    } else {
-        $data['voice'] = false;
+    $data['token_ttl'] = $form->hasValidData('token_ttl') ? (int)$form->token_ttl : 0;
+
+    foreach (array('voice', 'video', 'screenshare', 'log_calls') as $attr) {
+        $data[$attr] = $form->hasValidData($attr) && $form->{$attr} == true;
     }
 
-    if ($form->hasValidData('video') && $form->video == true) {
-        $data['video'] = true;
-    } else {
-        $data['video'] = false;
+    if ($data['voice'] == true && $data['provider'] == erLhcoreClassVoiceVideo::PROVIDER_LIVEKIT && ($data['livekit_url'] == '' || $data['livekit_api_key'] == '' || $data['livekit_api_secret'] == '')) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit server URL, API key and API secret are required');
     }
 
-    if ($form->hasValidData('screenshare') && $form->screenshare == true) {
-        $data['screenshare'] = true;
-    } else {
-        $data['screenshare'] = false;
+    if ($data['voice'] == true && $data['provider'] == erLhcoreClassVoiceVideo::PROVIDER_AGORA && $data['agora_app_id'] == '') {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Agora APP ID is required');
     }
 
     if (empty($Errors)) {
@@ -82,6 +100,8 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         $voiceData->identifier = 'vvsh_configuration';
         $voiceData->value = serialize($data);
         $voiceData->saveThis();
+
+        erLhcoreClassVoiceVideo::resetSettings();
 
         // Cleanup cache to recompile templates etc.
         $CacheManager = erConfigClassLhCacheConfig::getInstance();
@@ -98,6 +118,6 @@ $tpl->set('voice_data', $data);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = array(
     array('url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'System configuration')),
-    array('url' => erLhcoreClassDesign::baseurl('file/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'Voice & Video & ScreenShare')));
+    array('url' => erLhcoreClassDesign::baseurl('voicevideo/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'Voice & Video & ScreenShare')));
 
 ?>
