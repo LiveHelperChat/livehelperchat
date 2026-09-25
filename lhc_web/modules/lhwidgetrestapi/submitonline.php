@@ -346,6 +346,10 @@ if (empty($Errors)) {
                             $paramsExecution['bot_id'] = $invitation->bot_id;
                             $paramsExecution['trigger_id'] = $invitation->trigger_id;
 
+                            if (isset($invitation->design_data_array['reset_tag_on_start']) && $invitation->design_data_array['reset_tag_on_start'] == 1) {
+                                $reset_tag = $invitation->tag;
+                            }
+
                             // If bot is appended to a widget we should always execute it first.
                             if ((
                                 (isset($invitation->design_data_array['append_bot']) && $invitation->design_data_array['append_bot'] == 1) || 
@@ -652,6 +656,10 @@ if (empty($Errors)) {
             'lmsg_id' => (is_numeric($chat->old_last_msg_id) ? $chat->old_last_msg_id : 0)
         )
     );
+
+    if (isset($reset_tag) && !empty($reset_tag)) {
+        $outputResponse['chatData']['reset_tag'] = $reset_tag;
+    }
 
 } else {
     $optionsJson = JSON_FORCE_OBJECT;

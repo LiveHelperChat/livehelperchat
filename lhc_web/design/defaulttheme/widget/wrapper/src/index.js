@@ -820,6 +820,15 @@
                         attributesWidget.storageHandler.storeSessionInformation(attributesWidget.userSession.getSessionAttributes());
                     }
 
+                    // Remove tag which triggered invitation so it can be triggered again
+                    if (data.reset_tag) {
+                        var resetTags = [data.reset_tag, data.reset_tag + '__reset'];
+                        attributesWidget.tag = attributesWidget.tag != '' ? attributesWidget.tag.split(',').filter(function (existingTag) {
+                            return resetTags.indexOf(existingTag) === -1;
+                        }).join(',') : attributesWidget.tag;
+                        attributesWidget.eventEmitter.emitEvent('tagAdded');
+                    }
+
                 });
 
                 // Subscribe event

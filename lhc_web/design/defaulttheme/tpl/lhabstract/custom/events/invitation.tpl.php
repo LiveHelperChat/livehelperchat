@@ -237,12 +237,26 @@
 <?php echo erLhcoreClassAbstract::renderInput('identifier', $fields['identifier'], $object)?>
 </div>
 
-<div class="form-group">		
-<label>
-    <?php echo $fields['tag']['trans'];?>
-    <a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/invitationtag'});" class="material-icons text-muted">help</a>
-</label>
-<?php echo erLhcoreClassAbstract::renderInput('tag', $fields['tag'], $object)?>
+
+<div class="row">
+    <div class="col-12">
+        <label><?php echo $fields['tag']['trans'];?><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/invitationtag'});" class="material-icons text-muted">help</a>
+        </label>
+    </div>
+    <div class="col-6">
+        <div class="form-group">		
+        
+            
+        <?php echo erLhcoreClassAbstract::renderInput('tag', $fields['tag'], $object)?>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">		
+        <label>
+            <?php echo erLhcoreClassAbstract::renderInput('reset_tag_on_start', $fields['reset_tag_on_start'], $object)?> <?php echo $fields['reset_tag_on_start']['trans'];?> 
+        </label>
+        </div>
+    </div>
 </div>
 
 <?php $showAnyDepartment = !empty($limitDepartments = erLhcoreClassUserDep::conditionalDepartmentFilter()); ?>
