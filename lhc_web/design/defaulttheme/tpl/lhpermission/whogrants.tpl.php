@@ -1,6 +1,11 @@
 <?php 
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/editrole','Summary');
 $modalSize = 'xl';
+
+// Is there an explicit grant for the checked module function
+$explicitGranted = isset($permissions[$module_check][$function_check]);
+// Is there an exclude for the checked module function
+$excluded = isset($permissions['ex_perm'][$module_check][$function_check]);
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php')); ?>
     <table class="table table-sm list-links">
@@ -19,8 +24,27 @@ $modalSize = 'xl';
                         ($ruleFunction->module === $module_check && $ruleFunction->function === $function_check) ||
                         ($ruleFunction->module === $module_check && $ruleFunction->function === '*') ||
                         ($ruleFunction->module === '*' && $ruleFunction->function === '*')
-                    ) : ?>
-                        <tr>
+                    ) :
+                        // Determine whatever this rule actually affects the effective permissions
+                        if ($ruleFunction->type == 0) { // Grant rule
+                            if ($ruleFunction->module === $module_check && $ruleFunction->function === $function_check) {
+                                // Explicit grant always takes precedence
+                                $isActive = true;
+                            } else {
+                                // Granted through module,* or *,* - has no effect when explicitly excluded
+                                $isActive = $excluded == false;
+                            }
+                        } else { // Exclude rule
+                            if ($ruleFunction->module === $module_check && $ruleFunction->function === $function_check) {
+                                // Exclude is active unless an explicit grant overrides it
+                                $isActive = $explicitGranted == false;
+                            } else {
+                                // Excluding through module,* or *,* has no effect
+                                $isActive = false;
+                            }
+                        }
+                    ?>
+                        <tr class="<?php echo $isActive == true ? '' : 'text-decoration-line-through text-muted' ?>">
                             <td>
                                 <a href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup') ?>/<?php echo $role->group_id ?>"><?php echo htmlspecialchars(erLhcoreClassModelGroup::fetch($role->group_id)->name) ?></a>
                             </td>

@@ -492,7 +492,24 @@ class erLhcoreClassUser{
 
        $AccessArray = $this->accessArray();
 
-       if (is_string($module) && (
+       // Was permission granted directly to the module function
+       $explicitGranted = false;
+       if (is_string($module)) {
+           if (is_string($functions)) {
+               $explicitGranted = isset($AccessArray[$module][$functions]);
+           } elseif (is_array($functions) && !empty($functions)) {
+               $explicitGranted = true;
+               foreach ($functions as $function) {
+                   if (!isset($AccessArray[$module][$function])) {
+                       $explicitGranted = false;
+                       break;
+                   }
+               }
+           }
+       }
+
+       // Explicit permission overrides any exclude permission
+       if ($explicitGranted == false && is_string($module) && (
                 (is_string($functions) && isset($AccessArray['ex_perm'][$module][$functions])) ||
                (is_array($functions) && !empty($functions) && isset($AccessArray['ex_perm'][$module][$functions[0]]))
            )

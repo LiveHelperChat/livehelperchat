@@ -40,7 +40,22 @@ class erLhcoreClassRole{
    
    public static function canUseByModuleAndFunction($AccessArray, $module, $functions) {
 
-       if (is_string($module) && (
+       if (is_array($functions) && empty($functions)) {
+           return true;
+       }
+
+       // Was permission granted directly to the module function
+       $explicitGranted = false;
+       if (is_string($module)) {
+           if (is_string($functions)) {
+               $explicitGranted = isset($AccessArray[$module][$functions]);
+           } elseif (is_array($functions)) {
+               $explicitGranted = isset($AccessArray[$module][$functions[0]]);
+           }
+       }
+
+       // Explicit permission overrides any exclude permission
+       if ($explicitGranted == false && is_string($module) && (
                (is_string($functions) && isset($AccessArray['ex_perm'][$module][$functions])) ||
                (is_array($functions) && !empty($functions) && isset($AccessArray['ex_perm'][$module][$functions[0]]))
            )
@@ -48,7 +63,8 @@ class erLhcoreClassRole{
            return false;
        }
 
-       // Global rights
+       // Global rights. Exclude permission is applied before this check,
+       // so module,* or *,* grants are still excluded.
        if (isset($AccessArray['*']['*']) || isset($AccessArray[$module]['*']))
        {
            return true;
