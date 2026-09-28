@@ -1757,7 +1757,17 @@ $fields = array(
                 'same_target_link' => array(
                     'type' => 'checkbox',
                     'main_attr' => 'bot_configuration_array',
-                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Open link in the same browser tab if chat is in the widget'),
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Open link in the same browser tab if chat is in the widget and link points to the same domain'),
+                    'required' => false,
+                    'hidden' => true,
+                    'nginit' => true,
+                    'validation_definition' => new ezcInputFormDefinitionElement(
+                        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+                )),
+                'target_same_always' => array(
+                    'type' => 'checkbox',
+                    'main_attr' => 'bot_configuration_array',
+                    'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Open link in the same browser tab always'),
                     'required' => false,
                     'hidden' => true,
                     'nginit' => true,

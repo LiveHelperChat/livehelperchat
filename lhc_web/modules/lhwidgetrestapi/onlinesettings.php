@@ -859,6 +859,10 @@ if ($theme !== false) {
                 $chat_ui['same_target_link'] = true;
             }
 
+            if (isset($theme->bot_configuration_array['target_same_always']) && $theme->bot_configuration_array['target_same_always'] == true) {
+                $chat_ui['target_same_always'] = true;
+            }
+
             foreach (array('min_text','popup_text','end_chat_text','fheight_text_class','fheight_text_col','expand_text','shrink_text') as $textIcon) {
                 if (isset($theme->bot_configuration_array[$textIcon]) && $theme->bot_configuration_array[$textIcon] != '') {
                     $chat_ui[$textIcon] = $theme->bot_configuration_array[$textIcon];

@@ -383,10 +383,11 @@ class ChatMessage extends PureComponent {
                              * - target is _blank
                              * - website where widget is under the same domain
                              * */
-                            if (this.props.embedMode && this.props.embedMode == 'widget' && this.props.targetSame && cloneAttr.target && cloneAttr.target == '_blank' && domNode.attribs.href) {
+                            if (this.props.embedMode && this.props.embedMode == 'widget' && (this.props.targetSame || this.props.targetSameAlways) && cloneAttr.target && cloneAttr.target == '_blank' && domNode.attribs.href) {
                                 const href = domNode.attribs.href;
                                 const parentHost = window.parent.location.host;
-                                const isSameHost = href.startsWith(`http://${parentHost}`) 
+                                const isSameHost = this.props.targetSameAlways
+                                    || href.startsWith(`http://${parentHost}`)
                                     || href.startsWith(`https://${parentHost}`)
                                     || helperFunctions.isRelativeURI(href);
                                 if (isSameHost) {

@@ -140,6 +140,10 @@ try {
                     $outputResponse['chat_ui']['same_target_link'] = true;
                 }
 
+                if (isset($theme->bot_configuration_array['target_same_always']) && $theme->bot_configuration_array['target_same_always'] == true) {
+                    $outputResponse['chat_ui']['target_same_always'] = true;
+                }
+
                 if (isset($theme->bot_configuration_array['msg_expand']) && $theme->bot_configuration_array['msg_expand'] == true) {
                     $outputResponse['chat_ui']['msg_expand'] = true;
                 }
