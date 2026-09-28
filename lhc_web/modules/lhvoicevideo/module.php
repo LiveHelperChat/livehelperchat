@@ -31,11 +31,18 @@ $ViewList['joinop'] = array(
 
 $ViewList['joinoperator'] = array(
     'params' => array('id'),
+    'uparams' => array('mode'),
     'functions' => array( 'use' )
+);
+
+// LiveKit webhook receiver. Requests are authenticated by signature.
+$ViewList['webhook'] = array(
+    'params' => array()
 );
 
 $FunctionList['configuration'] = array('explain' => 'Voice & Video & ScreenShare module configuration');
 $FunctionList['sessions'] = array('explain' => 'Allow operator to see Voice & Video calls history');
+$FunctionList['supervise'] = array('explain' => 'Allow operator to silently listen to other operators calls');
 $FunctionList['use'] = array('explain' => 'Allow operator to use Voice & Video & ScreenShare calls');
 
 ?>

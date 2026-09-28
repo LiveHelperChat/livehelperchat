@@ -29,6 +29,9 @@
                     <?php elseif ($voiceCallInstance->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED) : ?>
                     <span class="badge bg-success fs12 me-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Visitor has joined a call')?></span>
                     <?php endif; ?>
+                    <?php if (($voiceCallInstance->op_status == erLhcoreClassModelChatVoiceVideo::STATUS_OP_JOINED || $voiceCallInstance->vi_status == erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED) && erLhcoreClassUser::instance()->hasAccessTo('lhvoicevideo','supervise')) : ?>
+                    <a class="text-muted d-block pt-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Silently listen to the call. Participants are not notified.')?>" onclick="window.open('<?php echo erLhcoreClassDesign::baseurl('voicevideo/joinoperator')?>/<?php echo $chat->id?>/(mode)/listen','lhc_voice_listen','scrollbars=yes,menubar=1,resizable=1,width=800,height=600')"><i class="material-icons">headset</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Listen to the call')?></a>
+                    <?php endif; ?>
             <?php endif; ?>
         </div>
     </td>

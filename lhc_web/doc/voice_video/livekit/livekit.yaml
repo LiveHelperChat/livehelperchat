@@ -27,6 +27,14 @@ turn:
   # cert_file: /etc/livekit/turn.crt
   # key_file: /etc/livekit/turn.key
 
+# Keeps Live Helper Chat call state and call history correct when a participant
+# closes the browser, crashes or loses connection.
+# URL is shown in Live Helper Chat Voice & Video configuration page.
+webhook:
+  api_key: REPLACE_API_KEY
+  urls:
+    - https://chat.example.com/index.php/voicevideo/webhook
+
 room:
   # One chat = one room. Operator, visitor and supervisor
   max_participants: 5

@@ -10,6 +10,7 @@ if (is_numeric($Params['user_parameters']['id']))
         $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
         $tpl->set('chat',$chat);
         $tpl->set('voice_data',$voiceData);
+        $tpl->set('listen_only', $Params['user_parameters_unordered']['mode'] == 'listen' && $currentUser->hasAccessTo('lhvoicevideo','supervise'));
     } else {
         $tpl->setFile('lhchat/errors/adminchatnopermission.tpl.php');
     }

@@ -27,7 +27,8 @@ With LiveKit provider audio/video/screen share media never leaves your own infra
    docker run --rm livekit/livekit-server:v1.9 generate-keys
    ```
 
-2. Replace `REPLACE_API_KEY: REPLACE_API_SECRET`, `turn.example.com` in `livekit.yaml` and `livekit.example.com` in `Caddyfile`.
+2. Replace `REPLACE_API_KEY`, `REPLACE_API_SECRET`, `turn.example.com` and the webhook URL (`chat.example.com`) in `livekit.yaml` and `livekit.example.com` in `Caddyfile`.
+   The webhook URL is also shown on the Live Helper Chat configuration page.
 3. Start
 
    ```
@@ -54,6 +55,19 @@ With LiveKit provider audio/video/screen share media never leaves your own infra
 * Allowed publish sources follow configuration (camera only if video enabled, screen share only if screen share enabled).
 * API secret is never printed back in the configuration form.
 
+## Call lifecycle
+
+* **Ring timeout** - if nobody lets the visitor in within configured seconds (default 60), the request is marked as not answered and the visitor is informed.
+* **Operator ring tone** - the operator call window rings while a visitor is waiting to be let in.
+* **Closed browser / lost connection** - the call window notifies the server on close, and LiveKit webhooks (`participant_left`, `room_finished`) end the call if a browser crashed or network dropped. Webhook requests are verified with the API secret.
+
+## Supervisor silent monitoring
+
+* Permission `lhvoicevideo` -> `supervise`.
+* While a call is in progress, chat information panel shows `Listen to the call`.
+* Supervisor joins with a listen only token (can not publish audio/video). Operator and visitor are not shown the supervisor.
+* Every listen session is written to the audit log (category `voice_call_supervise`).
+
 ## Call history
 
 `System configuration -> Voice & Video & ScreenShare -> Call history`
@@ -63,7 +77,7 @@ With LiveKit provider audio/video/screen share media never leaves your own infra
 * Operators see only calls from departments they have access to.
 * Permission `lhvoicevideo` -> `sessions`.
 * On call end a message with call type and duration is added to the chat (can be disabled in configuration).
-* Event `voicevideo.call_ended` is dispatched with `chat` and `session` for extensions/webhooks.
+* Events `voicevideo.call_ended` (`chat`, `session`) and `voicevideo.webhook` (`chat`, `call`, `event`) are dispatched for extensions.
 
 ## Scaling
 

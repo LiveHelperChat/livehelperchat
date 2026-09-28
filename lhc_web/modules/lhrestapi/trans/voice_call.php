@@ -35,6 +35,12 @@ echo json_encode(array(
         "microphone" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Microphone"),
         "camera" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Camera"),
         "settings" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Devices"),
+        "no_answer" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Nobody answered the call. Please try again later or continue in the chat."),
+        "no_active_call" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","There is no call in progress"),
+        "call_in_progress" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Call is in progress"),
+        "listen" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Listen to the call"),
+        "listening" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Listening. Participants are not notified."),
+        "stop_listening" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Stop listening"),
     ]
 ));
 

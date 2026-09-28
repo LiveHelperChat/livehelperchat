@@ -82,8 +82,16 @@ if (erLhcoreClassVoiceVideo::isEnabled() && $chat instanceof erLhcoreClassModelC
         $vvcall->updateThis(array('update' => array('vi_status', 'voice', 'video', 'status')));
     }
 
+    $state = erLhcoreClassVoiceVideo::getCallState($vvcall, erLhcoreClassVoiceVideo::getVisitorToken($chat, $vvcall));
+
+    // Nobody answered within ring timeout
+    if ($Params['user_parameters_unordered']['action'] == '' && erLhcoreClassVoiceVideo::checkRingTimeout($chat, $vvcall)) {
+        $state = erLhcoreClassVoiceVideo::getCallState($vvcall, '');
+        $state['missed'] = true;
+    }
+
     // Token is issued only if operator has let visitor in
-    echo json_encode(erLhcoreClassVoiceVideo::getCallState($vvcall, erLhcoreClassVoiceVideo::getVisitorToken($chat, $vvcall)));
+    echo json_encode($state);
 
 } else {
     echo json_encode(array(

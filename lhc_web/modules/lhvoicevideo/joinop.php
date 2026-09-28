@@ -9,8 +9,9 @@ if (is_numeric($Params['user_parameters']['id']))
     {
         $action = (string)$Params['user_parameters_unordered']['action'];
 
-        // All state changing actions require a valid CSRF token
-        if ($action != '' && (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN']))) {
+        // All state changing actions require a valid CSRF token. Header for XHR requests, POST field for sendBeacon on page close.
+        $csrfToken = isset($_SERVER['HTTP_X_CSRFTOKEN']) ? $_SERVER['HTTP_X_CSRFTOKEN'] : (isset($_POST['csrf_token']) ? $_POST['csrf_token'] : null);
+        if ($action != '' && ($csrfToken === null || !$currentUser->validateCSFRToken($csrfToken))) {
             http_response_code(403);
             echo json_encode(array('error' => true, 'result' => 'Invalid CSRF token'));
             exit;
@@ -25,6 +26,34 @@ if (is_numeric($Params['user_parameters']['id']))
         $vvcall = erLhcoreClassModelChatVoiceVideo::getInstance($chat->id);
 
         $userData = $currentUser->getUserData();
+
+        // Supervisor silent monitoring. Does not change call state.
+        if ($action == 'listen') {
+
+            if (!$currentUser->hasAccessTo('lhvoicevideo', 'supervise')) {
+                http_response_code(403);
+                echo json_encode(array('error' => true, 'result' => 'No permission'));
+                exit;
+            }
+
+            $token = erLhcoreClassVoiceVideo::getSupervisorToken($chat, $vvcall, $currentUser->getUserID(), $userData->name_support);
+
+            if ($token != '') {
+                erLhcoreClassLog::write('Supervisor ' . $userData->name_official . ' (' . $currentUser->getUserID() . ') started listening to a call in chat ' . $chat->id,
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'voice_call_supervise',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => $chat->id
+                    )
+                );
+            }
+
+            echo json_encode(erLhcoreClassVoiceVideo::getCallState($vvcall, $token));
+            exit;
+        }
 
         if ($action == 'end') {
             $vvcall->op_status = erLhcoreClassModelChatVoiceVideo::STATUS_OP_PENDING;
@@ -85,6 +114,10 @@ if (is_numeric($Params['user_parameters']['id']))
             $vvcall->status = erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRMED;
             $vvcall->updateThis(array('update' => array('vi_status','status')));
             erLhcoreClassVoiceVideo::trackCallAnswered($chat, $vvcall, $currentUser->getUserID());
+        }
+
+        if ($action == '') {
+            erLhcoreClassVoiceVideo::checkRingTimeout($chat, $vvcall);
         }
 
         if ($action != '' && $action != 'token') {

@@ -29,6 +29,7 @@ class erLhcoreClassVoiceVideo {
                 'livekit_api_key' => '',
                 'livekit_api_secret' => '',
                 'token_ttl' => 0,
+                'ring_timeout' => 60,
                 'log_calls' => true,
             ), $data);
 
@@ -93,10 +94,42 @@ class erLhcoreClassVoiceVideo {
         return 'operator_' . (int)$userId;
     }
 
+    public static function getSupervisorIdentity($userId)
+    {
+        return 'supervisor_' . (int)$userId;
+    }
+
+    /**
+     * Seconds visitor waits for operator to answer. 0 - wait forever.
+     */
+    public static function getRingTimeout()
+    {
+        $settings = self::getSettings();
+        return is_numeric($settings['ring_timeout']) ? max(0, (int)$settings['ring_timeout']) : 60;
+    }
+
+    /**
+     * Resolves chat from room name. Returns false if room name is not valid for the chat.
+     */
+    public static function getChatByRoomName($roomName)
+    {
+        if (!preg_match('/^lhc_([0-9]+)_[a-f0-9]{16}$/', (string)$roomName, $matches)) {
+            return false;
+        }
+
+        $chat = erLhcoreClassModelChat::fetch((int)$matches[1], false);
+
+        if (!($chat instanceof erLhcoreClassModelChat) || !hash_equals(self::getRoomName($chat), $roomName)) {
+            return false;
+        }
+
+        return $chat;
+    }
+
     /**
      * Builds access token for a participant.
      */
-    public static function buildToken(erLhcoreClassModelChat $chat, $identity, $name = '')
+    public static function buildToken(erLhcoreClassModelChat $chat, $identity, $name = '', $canPublish = true)
     {
         $settings = self::getSettings();
         $expireTs = time() + self::getTokenTTL();
@@ -110,6 +143,7 @@ class erLhcoreClassVoiceVideo {
                 'voice' => $settings['voice'] == true,
                 'video' => $settings['video'] == true,
                 'screenshare' => $settings['screenshare'] == true,
+                'can_publish' => $canPublish,
             ));
         }
 
@@ -156,10 +190,10 @@ class erLhcoreClassVoiceVideo {
             'video' => array(
                 'room' => $room,
                 'roomJoin' => true,
-                'canPublish' => true,
+                'canPublish' => !isset($options['can_publish']) || $options['can_publish'] == true,
                 'canSubscribe' => true,
-                'canPublishData' => true,
-                'canPublishSources' => $sources,
+                'canPublishData' => !isset($options['can_publish']) || $options['can_publish'] == true,
+                'canPublishSources' => (!isset($options['can_publish']) || $options['can_publish'] == true) ? $sources : array(),
             ),
         );
 
@@ -239,6 +273,102 @@ class erLhcoreClassVoiceVideo {
         }
 
         return self::buildToken($chat, self::getOperatorIdentity($userId), (string)$name);
+    }
+
+    /**
+     * Listen only token for supervisor. Issued only while call is in progress.
+     */
+    public static function getSupervisorToken(erLhcoreClassModelChat $chat, erLhcoreClassModelChatVoiceVideo $vvcall, $userId, $name = '')
+    {
+        if ($vvcall->op_status != erLhcoreClassModelChatVoiceVideo::STATUS_OP_JOINED && $vvcall->vi_status != erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED) {
+            return '';
+        }
+
+        return self::buildToken($chat, self::getSupervisorIdentity($userId), (string)$name, false);
+    }
+
+    /**
+     * Visitor requested a call, but nobody answered within ring timeout.
+     * Returns true if call request was cancelled.
+     */
+    public static function checkRingTimeout(erLhcoreClassModelChat $chat, erLhcoreClassModelChatVoiceVideo $vvcall)
+    {
+        $timeout = self::getRingTimeout();
+
+        if ($timeout == 0 || $vvcall->vi_status != erLhcoreClassModelChatVoiceVideo::STATUS_VI_REQUESTED || $vvcall->status == erLhcoreClassModelChatVoiceVideo::STATUS_CONFIRMED) {
+            return false;
+        }
+
+        try {
+            $session = self::getActiveSession($chat->id);
+        } catch (Exception $e) {
+            return false;
+        }
+
+        if (!($session instanceof erLhcoreClassModelChatVoiceVideoSession) || $session->answered_at > 0 || $session->ctime > time() - $timeout) {
+            return false;
+        }
+
+        $vvcall->vi_status = erLhcoreClassModelChatVoiceVideo::STATUS_VI_PENDING;
+        $vvcall->status = erLhcoreClassModelChatVoiceVideo::STATUS_PENDING;
+        $vvcall->updateThis(array('update' => array('vi_status', 'status')));
+
+        self::trackCallEnd($chat, 'no_answer');
+
+        $chat->operation_admin = "lhinst.updateVoteStatus(" . $chat->id . ");";
+        $chat->updateThis(array('update' => array('operation_admin')));
+
+        return true;
+    }
+
+    /**
+     * Verifies LiveKit webhook. Authorization header holds JWT signed with API secret with sha256 claim of the body.
+     * https://docs.livekit.io/home/server/webhooks/
+     */
+    public static function verifyLiveKitWebhook($body, $authorization)
+    {
+        $settings = self::getSettings();
+
+        if ($settings['livekit_api_key'] == '' || $settings['livekit_api_secret'] == '') {
+            return false;
+        }
+
+        $authorization = trim(preg_replace('/^Bearer\s+/i', '', (string)$authorization));
+        $parts = explode('.', $authorization);
+
+        if (count($parts) != 3) {
+            return false;
+        }
+
+        $header = json_decode(self::base64UrlDecode($parts[0]), true);
+        if (!is_array($header) || !isset($header['alg']) || $header['alg'] !== 'HS256') {
+            return false;
+        }
+
+        $signature = self::base64UrlEncode(hash_hmac('sha256', $parts[0] . '.' . $parts[1], $settings['livekit_api_secret'], true));
+
+        if (!hash_equals($signature, $parts[2])) {
+            return false;
+        }
+
+        $claims = json_decode(self::base64UrlDecode($parts[1]), true);
+
+        if (!is_array($claims) || !isset($claims['iss']) || $claims['iss'] !== $settings['livekit_api_key']) {
+            return false;
+        }
+
+        $now = time();
+
+        if ((isset($claims['exp']) && $claims['exp'] < $now - 60) || (isset($claims['nbf']) && $claims['nbf'] > $now + 60)) {
+            return false;
+        }
+
+        return isset($claims['sha256']) && hash_equals(base64_encode(hash('sha256', $body, true)), $claims['sha256']);
+    }
+
+    private static function base64UrlDecode($data)
+    {
+        return base64_decode(strtr($data, '-_', '+/') . str_repeat('=', (4 - strlen($data) % 4) % 4));
     }
 
     /*

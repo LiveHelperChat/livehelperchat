@@ -63,6 +63,10 @@ const VoiceCall = props => {
 
     const { rtc, client } = props.provider;
 
+    // Supervisor silent monitoring mode
+    const listenOnly = props.isVisitor !== true && props.initParams.listenOnly === true;
+    const isOperator = props.isVisitor !== true && listenOnly === false;
+
     // Operator requests are protected with CSRF token
     const api = useMemo(() => axios.create({
         headers: props.isVisitor === true ? {} : {'X-CSRFToken': props.initParams.csrf}
@@ -253,20 +257,98 @@ const VoiceCall = props => {
         }
 
         api.get(url).then(result => {
+            var value = {"call" : result.data};
+
+            // Nobody answered within ring timeout
+            if (result.data.missed === true) {
+                value.pendingJoin = false;
+                value.error = t('voice_call.no_answer');
+            }
+
             dispatch({
                 type: 'update',
-                value: {
-                    "call" : result.data
-                }
+                value: value
             });
         });
+    }
+
+    // Short ring tone for operator while visitor is waiting to be let in
+    const ringAudio = useRef(null);
+
+    const playRing = () => {
+        try {
+            if (ringAudio.current === null) {
+                ringAudio.current = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            const ctx = ringAudio.current;
+            [0, 0.25].forEach(offset => {
+                const oscillator = ctx.createOscillator();
+                const gain = ctx.createGain();
+                oscillator.frequency.value = 880;
+                gain.gain.setValueAtTime(0.15, ctx.currentTime + offset);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + offset + 0.2);
+                oscillator.connect(gain);
+                gain.connect(ctx.destination);
+                oscillator.start(ctx.currentTime + offset);
+                oscillator.stop(ctx.currentTime + offset + 0.2);
+            });
+        } catch (e) {}
+    }
+
+    useInterval(
+        () => {
+            playRing()
+        },
+        (isOperator && state.call.vi_status == STATUS_VI_REQUESTED) ? 2000 : null
+    );
+
+    // Inform server if window is closed during the call. Webhooks (LiveKit) handle crashes and lost connections.
+    useEffect(() => {
+        const onPageHide = () => {
+            if (chatsRef.current.inCall !== true || listenOnly === true || !navigator.sendBeacon) {
+                return;
+            }
+
+            if (props.isVisitor === true) {
+                navigator.sendBeacon(WWW_DIR_JAVASCRIPT + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/cancel');
+            } else {
+                const data = new FormData();
+                data.append('csrf_token', props.initParams.csrf);
+                navigator.sendBeacon(WWW_DIR_JAVASCRIPT + "voicevideo/joinop/" + props.initParams.id + '/(action)/leave', data);
+            }
+        }
+        window.addEventListener('pagehide', onPageHide);
+        return () => window.removeEventListener('pagehide', onPageHide);
+    }, []);
+
+    const startListening = async () => {
+        const result = await api.get(WWW_DIR_JAVASCRIPT + "voicevideo/joinop/" + props.initParams.id + '/(action)/listen');
+
+        if (!result.data.token && props.initParams.provider === 'livekit') {
+            dispatch({type: 'update', value: {"call" : result.data, "error": t('voice_call.no_active_call')}});
+            return;
+        }
+
+        dispatch({type: 'update', value: {"call" : result.data, "inCall": true, "error": null}});
+
+        try {
+            const uid = await client.join(props.initParams, result.data.token);
+            dispatch({type: 'update', value: {"uid" : uid, "callStartedAt" : Date.now(), "connectionState" : 'CONNECTED'}});
+        } catch (e) {
+            dispatch({type: 'update', value: {"inCall": false, "error": t('voice_call.connect_error')}});
+        }
+    }
+
+    const stopListening = async () => {
+        dispatch({type: 'update', value: {"inCall": false, "remoteUsers": {}, "uid": null, "callStartedAt": null}});
+        await client.leave();
     }
 
     useInterval(
         () => {
             updateUI()
         },
-        (state.call.status != STATUS_CONFIRMED || state.call.vi_status != STATUS_VI_JOINED || state.call.op_status != STATUS_OP_JOINED) ? 2000 : null
+        (listenOnly === true || state.call.status != STATUS_CONFIRMED || state.call.vi_status != STATUS_VI_JOINED || state.call.op_status != STATUS_OP_JOINED) ? 2000 : null
     );
 
     const subscribe = async (user, mediaType) => {
@@ -448,7 +530,7 @@ const VoiceCall = props => {
         if (props.isVisitor === true) {
             url = WWW_DIR_JAVASCRIPT  + "voicevideo/join/" + props.initParams.id + '/' + props.initParams.hash + '/(action)/token';
         } else {
-            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/token';
+            url = WWW_DIR_JAVASCRIPT  + "voicevideo/joinop/" + props.initParams.id + '/(action)/' + (listenOnly === true ? 'listen' : 'token');
         }
 
         api.get(url).then( result => {
@@ -554,7 +636,7 @@ const VoiceCall = props => {
             <div className="d-flex flex-md-row flex-column flex-grow-1 pt-0">
                 <div className="col bg-light m-0 align-middle text-center d-flex p-0" title={"UID "+state.uid} id="local-player">
                     {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <div className="align-self-center mx-auto text-muted font-weight-bold">{t('voice_call.wait_join_long')}</div>}
-                    {state.localTracks.videoTrack == null && state.inCall == true && <div className="align-self-center mx-auto text-muted font-weight-bold"><span className="material-icons">graphic_eq</span>{t('voice_call.me_audio')}</div>}
+                    {state.localTracks.videoTrack == null && state.inCall == true && listenOnly === false && <div className="align-self-center mx-auto text-muted font-weight-bold"><span className="material-icons">graphic_eq</span>{t('voice_call.me_audio')}</div>}
                 </div>
                 {state.inCall == true && Object.keys(state.remoteUsers).map((val, k) => {
                     return (<MediaStream user={state.remoteUsers[val].user} key={"media_" + (state.remoteUsers[val].user.uid) + '_' + state.remoteUsers[val].media.join('_')} audio={state.remoteUsers[val].audio} video={state.remoteUsers[val].video} media={state.remoteUsers[val].media} />)
@@ -595,15 +677,15 @@ const VoiceCall = props => {
                         {props.isVisitor == true && state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">{t('voice_call.wait_let_in')} </span>}
                         {props.isVisitor == true && (state.call.vi_status == STATUS_VI_PENDING || state.pendingJoin === false) && <span className="text-muted py-2">{t('voice_call.join_to_start')} </span>}
 
-                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_JOINED && <span className="text-muted py-2">{t('voice_call.visitor_joined')}</span>}
-                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_PENDING && <span className="text-muted py-2">{t('voice_call.pending_visitor_join')}</span>}
-                        {props.isVisitor == false && state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">{t('voice_call.visitor_waiting_in')}</span>}
+                        {isOperator && state.call.vi_status == STATUS_VI_JOINED && <span className="text-muted py-2">{t('voice_call.visitor_joined')}</span>}
+                        {isOperator && state.call.vi_status == STATUS_VI_PENDING && <span className="text-muted py-2">{t('voice_call.pending_visitor_join')}</span>}
+                        {isOperator && state.call.vi_status == STATUS_VI_REQUESTED && <span className="text-muted py-2">{t('voice_call.visitor_waiting_in')}</span>}
                     </div>
 
                     <div className="p-2 text-center mx-auto btn-group" role="group">
-                        {props.isVisitor == false && state.call.op_status == STATUS_OP_JOINED && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-sm btn-outline-primary" onClick={() => cancelJoin('letvisitorin')} ><span className="material-icons">face</span>{t('voice_call.let_visitor_in')}</button>}
+                        {isOperator && state.call.op_status == STATUS_OP_JOINED && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-sm btn-outline-primary" onClick={() => cancelJoin('letvisitorin')} ><span className="material-icons">face</span>{t('voice_call.let_visitor_in')}</button>}
 
-                        {props.isVisitor == false && state.inCall == true && <React.Fragment>
+                        {isOperator && state.inCall == true && <React.Fragment>
                             <button title={t('voice_call.leave_a_call')} className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('leave')}><span className="material-icons">exit_to_app</span>{t('voice_call.leave_call_op')}</button>
                             <button title={t('voice_call.end_call_op')} className="btn btn-sm btn-outline-secondary" onClick={() => cancelJoin('end')}><span className="material-icons">call_end</span>{t('voice_call.end_call_button')}</button>
                             <button title={state.isMuted == true ? t('voice_call.unmute_mic') : t('voice_call.mute_mic')} className="btn btn-sm btn-outline-secondary" onClick={() => muteMicrophone()} ><span className="material-icons mr-0">{state.isMuted == true ? 'mic_off' : 'mic'}</span></button>
@@ -611,7 +693,7 @@ const VoiceCall = props => {
                             {props.initParams.options.screenshare == true && <button className="btn btn-sm btn-outline-secondary" onClick={() => screenShare()} title={state.screenShare == true ? t('voice_call.stop_share_screen') : t('voice_call.share_your_screen')}><span className="material-icons mr-0">{state.screenShare == true ? 'stop_screen_share' : 'screen_share'}</span></button>}
                         </React.Fragment>}
 
-                        {((props.isVisitor == false && state.call.op_status == STATUS_OP_PENDING) || (props.isVisitor == true && state.call.vi_status == STATUS_VI_PENDING) || state.pendingJoin == false) && <React.Fragment>
+                        {((isOperator && state.call.op_status == STATUS_OP_PENDING) || (props.isVisitor == true && state.call.vi_status == STATUS_VI_PENDING) || state.pendingJoin == false) && <React.Fragment>
                             {state.hasAudio === true && <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audio')}><span className="material-icons">call</span>{t('voice_call.join_with_audio')}</button>}
                             {props.initParams.options.video == true && state.hasVideo === true && <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audiovideo')}><span className="material-icons">video_call</span>{t('voice_call.join_with_audio_video')}</button>}
                         </React.Fragment>}
@@ -625,7 +707,17 @@ const VoiceCall = props => {
 
                         {props.isVisitor == true && state.pendingJoin === true && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-outline-primary btn-sm" onClick={() => cancelJoin('cancel')} >{t('voice_call.cancel_join')}</button>}
 
-                        {(state.audioDevices.length > 1 || state.videoDevices.length > 1) && <button title={t('voice_call.settings')} className={"btn btn-sm " + (state.showDevices ? "btn-secondary" : "btn-outline-secondary")} onClick={() => dispatch({type: 'update', value: {"showDevices" : !state.showDevices}})}><span className="material-icons mr-0">settings</span></button>}
+                        {listenOnly === true && state.inCall == false && <React.Fragment>
+                            <span className="text-muted py-2 pe-2">{(state.call.op_status == STATUS_OP_JOINED || state.call.vi_status == STATUS_VI_JOINED) ? t('voice_call.call_in_progress') : t('voice_call.no_active_call')}</span>
+                            <button className="btn btn-sm btn-outline-primary" disabled={!(state.call.op_status == STATUS_OP_JOINED || state.call.vi_status == STATUS_VI_JOINED)} onClick={() => startListening()}><span className="material-icons">headset</span>{t('voice_call.listen')}</button>
+                        </React.Fragment>}
+
+                        {listenOnly === true && state.inCall == true && <React.Fragment>
+                            <span className="text-muted py-2 pe-2"><span className="material-icons">hearing</span>{t('voice_call.listening')}</span>
+                            <button className="btn btn-sm btn-outline-secondary" onClick={() => stopListening()}><span className="material-icons">stop</span>{t('voice_call.stop_listening')}</button>
+                        </React.Fragment>}
+
+                        {listenOnly === false && (state.audioDevices.length > 1 || state.videoDevices.length > 1) && <button title={t('voice_call.settings')} className={"btn btn-sm " + (state.showDevices ? "btn-secondary" : "btn-outline-secondary")} onClick={() => dispatch({type: 'update', value: {"showDevices" : !state.showDevices}})}><span className="material-icons mr-0">settings</span></button>}
 
                     </div>
 

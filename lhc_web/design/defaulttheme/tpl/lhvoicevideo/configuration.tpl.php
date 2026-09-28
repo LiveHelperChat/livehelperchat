@@ -55,6 +55,12 @@
                 <?php endif; ?>
             </div>
         </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Webhook URL. Add it to livekit.yaml webhook section, so calls are ended correctly if a participant closes the browser or loses connection.'); ?></label>
+                <input type="text" readonly class="form-control form-control-sm" value="<?php echo htmlspecialchars(erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('voicevideo/webhook'))?>" />
+            </div>
+        </div>
     </div>
 
     <div class="vvsh-provider-options<?php $provider != 'agora' ? print ' hide' : ''?>" data-provider="agora">
@@ -72,6 +78,13 @@
                 <label class="fs13"><input type="checkbox" name="agora_app_token_clear" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Remove stored certificate'); ?></label>
                 <?php endif; ?>
             </div>
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Ring timeout in seconds. If nobody lets visitor in within this time, call request is marked as not answered. 0 - wait forever'); ?></label>
+            <input type="number" min="0" max="3600" class="form-control form-control-sm" name="ring_timeout" value="<?php isset($voice_data['ring_timeout']) ? print (int)$voice_data['ring_timeout'] : print 60 ?>" />
         </div>
     </div>
 

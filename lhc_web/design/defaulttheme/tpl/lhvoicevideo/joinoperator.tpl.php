@@ -4,7 +4,7 @@
 <script>
     var WWW_DIR_LHC_WEBPACK_ADMIN = '<?php echo erLhcoreClassDesign::design('js/voice')?>/';
     (function (){
-        var initParams = <?php echo json_encode(erLhcoreClassVoiceVideo::getClientParams($chat, false)); ?>;
+        var initParams = <?php echo json_encode(array_merge(erLhcoreClassVoiceVideo::getClientParams($chat, false), array('listenOnly' => isset($listen_only) && $listen_only === true))); ?>;
         window.initParams = initParams;
 
     })();

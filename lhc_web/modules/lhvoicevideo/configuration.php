@@ -34,6 +34,9 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         'token_ttl' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 86400)
         ),
+        'ring_timeout' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 3600)
+        ),
         'voice' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
@@ -79,6 +82,7 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
     }
 
     $data['token_ttl'] = $form->hasValidData('token_ttl') ? (int)$form->token_ttl : 0;
+    $data['ring_timeout'] = $form->hasValidData('ring_timeout') ? (int)$form->ring_timeout : 0;
 
     foreach (array('voice', 'video', 'screenshare', 'log_calls') as $attr) {
         $data[$attr] = $form->hasValidData($attr) && $form->{$attr} == true;
