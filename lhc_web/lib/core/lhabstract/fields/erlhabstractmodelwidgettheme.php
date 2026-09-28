@@ -2186,6 +2186,50 @@ $fields = array(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             )
        ),
+       'send_area_border_w' => array(
+            'type' => 'text',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Send message area top border width (px)'),
+            'placeholder' => 1,
+            'required' => false,
+            'nginit' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'send_area_border_c' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Send message area top border color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'status_border_w' => array(
+            'type' => 'text',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat status area bottom border width (px)'),
+            'placeholder' => 1,
+            'required' => false,
+            'nginit' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
+       'status_border_c' => array(
+            'type' => 'colorpicker',
+            'main_attr' => 'bot_configuration_array',
+            'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat status area bottom border color'),
+            'required' => true,
+            'hidden' => true,
+            'validation_definition' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            )
+       ),
     'offl_bcolor' => array(
         'type' => 'colorpicker',
         'main_attr' => 'bot_configuration_array',

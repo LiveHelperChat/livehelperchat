@@ -52,6 +52,33 @@ if (isset($theme) && $theme->custom_widget_css != '') {
 }
 <?php endif;?>
 
+<?php if ( (isset($Result['theme']->bot_configuration_array['send_area_border_w']) && $Result['theme']->bot_configuration_array['send_area_border_w'] != '') ||  
+ (isset($Result['theme']->bot_configuration_array['send_area_border_c']) && $Result['theme']->bot_configuration_array['send_area_border_c'] != '')
+) : ?>
+.message-send-area.border-top{
+    <?php if (isset($Result['theme']->bot_configuration_array['send_area_border_w']) && $Result['theme']->bot_configuration_array['send_area_border_w'] != '') : ?>
+    border-top-width: <?php echo (int)$Result['theme']->bot_configuration_array['send_area_border_w'];?>px!important;
+    <?php endif; ?>
+    <?php if (isset($Result['theme']->bot_configuration_array['send_area_border_c']) && $Result['theme']->bot_configuration_array['send_area_border_c'] != '') : ?>
+    border-top-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['send_area_border_c']);?>!important;
+    <?php endif; ?>
+}
+<?php endif;?>
+
+<?php if ( (isset($Result['theme']->bot_configuration_array['status_border_w']) && $Result['theme']->bot_configuration_array['status_border_w'] != '') ||  
+ (isset($Result['theme']->bot_configuration_array['status_border_c']) && $Result['theme']->bot_configuration_array['status_border_c'] != '')
+) : ?>
+#chat-status-container.border-bottom{
+    <?php if (isset($Result['theme']->bot_configuration_array['status_border_w']) && $Result['theme']->bot_configuration_array['status_border_w'] != '') : ?>
+    border-bottom-width: <?php echo (int)$Result['theme']->bot_configuration_array['status_border_w'];?>px!important;
+    <?php endif; ?>
+    <?php if (isset($Result['theme']->bot_configuration_array['status_border_c']) && $Result['theme']->bot_configuration_array['status_border_c'] != '') : ?>
+    border-bottom-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['status_border_c']);?>!important;
+    <?php endif; ?>
+}
+<?php endif;?>
+
+
         <?php if (isset($Result['theme']->bot_configuration_array['operator_txt_color']) && $Result['theme']->bot_configuration_array['operator_txt_color'] != '') : ?>
         .status-text, .operator-info, .offline-intro{
             color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['operator_txt_color']);?>!important;
@@ -67,7 +94,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php if (isset($Result['theme']->bot_configuration_array['input_bg_color']) && $Result['theme']->bot_configuration_array['input_bg_color'] != '') : ?>
         .offline-form .form-select,
         .start-chat .form-select,
-        .start-chat .form-control,
+        .start-chat .form-control:not(#CSChatMessage),
         .offline-form .form-control
         {
             background-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_bg_color']);?>!important;
@@ -77,7 +104,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php if (isset($Result['theme']->bot_configuration_array['input_brd_color']) && $Result['theme']->bot_configuration_array['input_brd_color'] != '') : ?>
         .offline-form .form-select,
         .start-chat .form-select,
-        .start-chat .form-control,
+        .start-chat .form-control:not(#CSChatMessage),
         .offline-form .form-control{
             border-color: #<?php echo htmlspecialchars($Result['theme']->bot_configuration_array['input_brd_color']);?>!important;
         }
@@ -87,8 +114,8 @@ if (isset($theme) && $theme->custom_widget_css != '') {
         <?php if (isset($Result['theme']->bot_configuration_array['input_brd_active']) && $Result['theme']->bot_configuration_array['input_brd_active'] != '') : ?>
         .start-chat .form-select:active,
         .start-chat .form-select:focus,
-        .start-chat .form-control:active,
-        .start-chat .form-control:focus,
+        .start-chat .form-control:active:not(#CSChatMessage),
+        .start-chat .form-control:focus:not(#CSChatMessage),
         .offline-form .form-select:active,
         .offline-form .form-select:focus,
         .offline-form .form-control:active,
@@ -101,7 +128,7 @@ if (isset($theme) && $theme->custom_widget_css != '') {
 
         <?php if (isset($Result['theme']->bot_configuration_array['input_shd_color']) && $Result['theme']->bot_configuration_array['input_shd_color'] != '') : ?>
         .start-chat .form-select:focus,
-        .start-chat .form-control:focus,
+        .start-chat .form-control:focus:not(#CSChatMessage),
         .offline-form .form-select:focus,
         .offline-form .form-control:focus
         {
