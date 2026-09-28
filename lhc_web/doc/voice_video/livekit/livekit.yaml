@@ -8,8 +8,15 @@ rtc:
   tcp_port: 7881
   port_range_start: 50000
   port_range_end: 60000
-  # Detect public IP automatically. Set node_ip if server is behind 1:1 NAT
-  use_external_ip: true
+  # Fully self hosted: public IP is set explicitly, so no public STUN service
+  # (LiveKit default is Google STUN) is contacted to discover it.
+  use_external_ip: false
+  node_ip: 203.0.113.10
+  # STUN servers handed to browsers. Without this LiveKit gives browsers
+  # Google and Twilio public STUN servers, exposing visitor IPs to them.
+  # Built in TURN server below answers STUN requests too.
+  stun_servers:
+    - turn.example.com:3478
 
 # Same key and secret has to be entered in Live Helper Chat
 # System configuration -> Voice & Video & ScreenShare -> Configuration

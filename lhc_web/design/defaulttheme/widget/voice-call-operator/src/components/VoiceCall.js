@@ -324,7 +324,7 @@ const VoiceCall = props => {
     const startListening = async () => {
         const result = await api.get(WWW_DIR_JAVASCRIPT + "voicevideo/joinop/" + props.initParams.id + '/(action)/listen');
 
-        if (!result.data.token && props.initParams.provider === 'livekit') {
+        if (!result.data.token) {
             dispatch({type: 'update', value: {"call" : result.data, "error": t('voice_call.no_active_call')}});
             return;
         }

@@ -10,12 +10,8 @@ __webpack_public_path__ = WWW_DIR_LHC_WEBPACK_ADMIN;
 
 var el = document.getElementById('root');
 if (el !== null) {
-    // Only selected media provider SDK is downloaded
-    const providerLoader = window.initParams.provider === 'livekit' ?
-        import(/* webpackChunkName: "provider-livekit" */ './providers/livekit') :
-        import(/* webpackChunkName: "provider-agora" */ './providers/agora');
-
-    providerLoader.then(module => {
+    // Media SDK is loaded only when call window is opened
+    import(/* webpackChunkName: "provider-livekit" */ './providers/livekit').then(module => {
         const provider = module.default();
         ReactDOM.render(
             <Suspense fallback="..."><VoiceCall isVisitor={window.initParams.isVisitor} initParams={window.initParams} provider={provider}></VoiceCall></Suspense>,

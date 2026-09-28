@@ -326,9 +326,7 @@ try {
             $outputResponse['chat_ui']['voice_message'] = $fileData['sound_length'];
         }
 
-        $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
-
-        if (isset($voiceData['voice']) && $voiceData['voice'] == true) {
+        if (erLhcoreClassVoiceVideo::isEnabled()) {
             $outputResponse['chat_ui']['voice'] = true;
         }
 

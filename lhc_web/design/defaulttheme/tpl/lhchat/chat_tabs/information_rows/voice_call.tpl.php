@@ -1,5 +1,5 @@
 <?php if ( isset($orderInformation['voice_call']['enabled']) && $orderInformation['voice_call']['enabled'] == true && erLhcoreClassUser::instance()->hasAccessTo('lhvoicevideo','use') ) : ?>
-<?php $voiceData = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data; if (isset($voiceData['voice']) && $voiceData['voice'] == true) : ?>
+<?php if (erLhcoreClassVoiceVideo::isEnabled()) : ?>
 <tr>
     <td colspan="2" >
         <h6 class="fw-bold"><i class="material-icons">call</i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','Voice & Video & ScreenShare')?></h6>

@@ -27,7 +27,7 @@ With LiveKit provider audio/video/screen share media never leaves your own infra
    docker run --rm livekit/livekit-server:v1.9 generate-keys
    ```
 
-2. Replace `REPLACE_API_KEY`, `REPLACE_API_SECRET`, `turn.example.com` and the webhook URL (`chat.example.com`) in `livekit.yaml` and `livekit.example.com` in `Caddyfile`.
+2. Replace `REPLACE_API_KEY`, `REPLACE_API_SECRET`, `203.0.113.10` (server public IP), `turn.example.com` and the webhook URL (`chat.example.com`) in `livekit.yaml` and `livekit.example.com` in `Caddyfile`.
    The webhook URL is also shown on the Live Helper Chat configuration page.
 3. Start
 
@@ -46,6 +46,16 @@ With LiveKit provider audio/video/screen share media never leaves your own infra
    ```
    php cron.php -s site_admin -c cron/util/update_database -p local
    ```
+
+## No third party services
+
+Everything runs on your servers:
+
+* Media server (LiveKit SFU), TURN/STUN (built in LiveKit TURN) and signalling are self hosted.
+* The browser SDK is bundled with Live Helper Chat and served from your domain.
+* `rtc.stun_servers` and `rtc.node_ip` in `livekit.yaml` must be set. Otherwise LiveKit uses Google STUN to discover its IP and passes Google/Twilio STUN servers to browsers.
+
+Check what browsers receive: open the call window, `chrome://webrtc-internals` -> `iceServers` must contain only your own hosts.
 
 ## Security
 

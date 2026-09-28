@@ -9,8 +9,7 @@ import {
 } from "livekit-client";
 
 /**
- * LiveKit (open source, self hosted) adapter.
- * Mimics the subset of Agora SDK API used by the call application.
+ * LiveKit (open source, self hosted) media adapter used by the call application.
  */
 
 const attachTo = (track, elementId, isLocal) => {

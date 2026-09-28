@@ -8,7 +8,9 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
-<?php $provider = isset($voice_data['provider']) && $voice_data['provider'] == 'livekit' ? 'livekit' : 'agora'; ?>
+<?php if (isset($voice_data['voice']) && $voice_data['voice'] == true && !erLhcoreClassVoiceVideo::isConfigured()) : ?>
+    <div class="alert alert-warning"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Calls are enabled, but media server is not configured. Calls are not available until LiveKit server URL, API key and API secret are set.'); ?></div>
+<?php endif; ?>
 
 <form action="" method="post" ng-non-bindable autocomplete="off">
 
@@ -21,19 +23,10 @@
 
     <hr>
 
-    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Media provider'); ?></h5>
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Media server'); ?></h5>
 
-    <div class="row form-group">
-        <div class="col-md-6">
-            <select name="provider" class="form-control form-control-sm" id="vvsh-provider" onchange="document.querySelectorAll('.vvsh-provider-options').forEach(function(el){el.classList.toggle('hide', el.getAttribute('data-provider') != document.getElementById('vvsh-provider').value)})">
-                <option value="livekit" <?php $provider == 'livekit' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit - open source, self hosted'); ?></option>
-                <option value="agora" <?php $provider == 'agora' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Agora - cloud service'); ?></option>
-            </select>
-        </div>
-    </div>
-
-    <div class="vvsh-provider-options<?php $provider != 'livekit' ? print ' hide' : ''?>" data-provider="livekit">
-        <p class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit is an open source (Apache 2.0) WebRTC media server. Media never leaves your infrastructure. See doc/voice_video/livekit for a docker compose example.'); ?></p>
+    <div>
+        <p class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Calls run on your own self hosted LiveKit server - open source (Apache 2.0) WebRTC media server. Audio, video and screen share never leave your infrastructure. See doc/voice_video/livekit for installation.'); ?></p>
         <div class="row form-group">
             <div class="col-md-6">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit server URL'); ?></label>
@@ -63,24 +56,6 @@
         </div>
     </div>
 
-    <div class="vvsh-provider-options<?php $provider != 'agora' ? print ' hide' : ''?>" data-provider="agora">
-        <div class="row form-group">
-            <div class="col-md-6">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Agora APP ID'); ?></label>
-                <input type="text" class="form-control form-control-sm" name="agora_app_id" value="<?php isset($voice_data['agora_app_id']) ? print htmlspecialchars($voice_data['agora_app_id']) : '' ?>" />
-            </div>
-        </div>
-        <div class="row form-group">
-            <div class="col-md-6">
-                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Agora App Certificate'); ?></label>
-                <input type="password" class="form-control form-control-sm" name="agora_app_token" value="" autocomplete="new-password" placeholder="<?php echo (isset($voice_data['agora_app_token']) && $voice_data['agora_app_token'] != '') ? erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Stored. Leave empty to keep current value.') : ''; ?>" />
-                <?php if (isset($voice_data['agora_app_token']) && $voice_data['agora_app_token'] != '') : ?>
-                <label class="fs13"><input type="checkbox" name="agora_app_token_clear" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Remove stored certificate'); ?></label>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
-
     <div class="row form-group">
         <div class="col-md-6">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Ring timeout in seconds. If nobody lets visitor in within this time, call request is marked as not answered. 0 - wait forever'); ?></label>
@@ -90,7 +65,7 @@
 
     <div class="row form-group">
         <div class="col-md-6">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Access token lifetime in seconds. 0 - default (LiveKit 600, Agora 300)'); ?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Access token lifetime in seconds. 0 - default (600)'); ?></label>
             <input type="number" min="0" max="86400" class="form-control form-control-sm" name="token_ttl" value="<?php isset($voice_data['token_ttl']) ? print (int)$voice_data['token_ttl'] : print 0 ?>" />
         </div>
     </div>

@@ -3,13 +3,11 @@
 /**
  * Voice & Video & ScreenShare helper.
  *
- * Supported media providers
- *  - agora   - Agora.io cloud (legacy default)
- *  - livekit - LiveKit open source (Apache-2.0) self hosted SFU https://livekit.io
+ * Media is handled by self hosted LiveKit open source (Apache-2.0) SFU https://livekit.io
+ * No third party cloud service is involved.
  */
 class erLhcoreClassVoiceVideo {
 
-    const PROVIDER_AGORA = 'agora';
     const PROVIDER_LIVEKIT = 'livekit';
 
     private static $settings = null;
@@ -19,12 +17,9 @@ class erLhcoreClassVoiceVideo {
         if (self::$settings === null) {
             $data = (array)erLhcoreClassModelChatConfig::fetch('vvsh_configuration')->data;
             self::$settings = array_merge(array(
-                'provider' => self::PROVIDER_AGORA,
                 'voice' => false,
                 'video' => false,
                 'screenshare' => false,
-                'agora_app_id' => '',
-                'agora_app_token' => '',
                 'livekit_url' => '',
                 'livekit_api_key' => '',
                 'livekit_api_secret' => '',
@@ -33,9 +28,9 @@ class erLhcoreClassVoiceVideo {
                 'log_calls' => true,
             ), $data);
 
-            if (self::$settings['provider'] == '') {
-                self::$settings['provider'] = self::PROVIDER_AGORA;
-            }
+            // Settings of removed cloud provider are not used anymore
+            unset(self::$settings['agora_app_id'], self::$settings['agora_app_token']);
+            self::$settings['provider'] = self::PROVIDER_LIVEKIT;
         }
 
         return self::$settings;
@@ -46,16 +41,24 @@ class erLhcoreClassVoiceVideo {
         self::$settings = null;
     }
 
+    /**
+     * Calls are available only if enabled and media server is configured.
+     */
     public static function isEnabled()
     {
         $settings = self::getSettings();
-        return isset($settings['voice']) && $settings['voice'] == true;
+        return $settings['voice'] == true && self::isConfigured();
+    }
+
+    public static function isConfigured()
+    {
+        $settings = self::getSettings();
+        return $settings['livekit_url'] != '' && $settings['livekit_api_key'] != '' && $settings['livekit_api_secret'] != '';
     }
 
     public static function getProvider()
     {
-        $settings = self::getSettings();
-        return $settings['provider'] == self::PROVIDER_LIVEKIT ? self::PROVIDER_LIVEKIT : self::PROVIDER_AGORA;
+        return self::PROVIDER_LIVEKIT;
     }
 
     public static function getTokenTTL()
@@ -67,21 +70,16 @@ class erLhcoreClassVoiceVideo {
         }
 
         // LiveKit refreshes tokens of connected participants itself, token is used only for the initial connect.
-        return self::getProvider() == self::PROVIDER_LIVEKIT ? 600 : 300;
+        return 600;
     }
 
     /**
-     * Room (channel) name for a chat.
-     * For LiveKit room name is not guessable even if visitor hash is known, access still requires a signed token.
+     * Room name for a chat. Not guessable even if visitor hash is known, access still requires a signed token.
      */
     public static function getRoomName(erLhcoreClassModelChat $chat)
     {
-        if (self::getProvider() == self::PROVIDER_LIVEKIT) {
-            $settings = self::getSettings();
-            return 'lhc_' . $chat->id . '_' . substr(hash_hmac('sha256', $chat->id . '_' . $chat->hash, (string)$settings['livekit_api_secret']), 0, 16);
-        }
-
-        return $chat->id . '_' . $chat->hash;
+        $settings = self::getSettings();
+        return 'lhc_' . $chat->id . '_' . substr(hash_hmac('sha256', $chat->id . '_' . $chat->hash, (string)$settings['livekit_api_secret']), 0, 16);
     }
 
     public static function getVisitorIdentity(erLhcoreClassModelChat $chat)
@@ -134,26 +132,16 @@ class erLhcoreClassVoiceVideo {
         $settings = self::getSettings();
         $expireTs = time() + self::getTokenTTL();
 
-        if (self::getProvider() == self::PROVIDER_LIVEKIT) {
-            if ($settings['livekit_api_key'] == '' || $settings['livekit_api_secret'] == '') {
-                return '';
-            }
-
-            return self::buildLiveKitToken($settings['livekit_api_key'], $settings['livekit_api_secret'], self::getRoomName($chat), $identity, $name, $expireTs, array(
-                'voice' => $settings['voice'] == true,
-                'video' => $settings['video'] == true,
-                'screenshare' => $settings['screenshare'] == true,
-                'can_publish' => $canPublish,
-            ));
-        }
-
-        if ($settings['agora_app_token'] == '') {
-            // Agora project without App Certificate works without tokens
+        if (!self::isConfigured()) {
             return '';
         }
 
-        include_once 'lib/core/lhvoicevideo/RtcTokenBuilder.php';
-        return AgoraIO\RtcTokenBuilder::buildTokenWithUserAccount($settings['agora_app_id'], $settings['agora_app_token'], self::getRoomName($chat), null, AgoraIO\RtcTokenBuilder::RoleAttendee, $expireTs);
+        return self::buildLiveKitToken($settings['livekit_api_key'], $settings['livekit_api_secret'], self::getRoomName($chat), $identity, $name, $expireTs, array(
+            'voice' => $settings['voice'] == true,
+            'video' => $settings['video'] == true,
+            'screenshare' => $settings['screenshare'] == true,
+            'can_publish' => $canPublish,
+        ));
     }
 
     /**
@@ -223,10 +211,8 @@ class erLhcoreClassVoiceVideo {
             'id' => $chat->id,
             'hash' => $chat->hash,
             'isVisitor' => $isVisitor,
-            'provider' => self::getProvider(),
             'room' => self::getRoomName($chat),
-            'appid' => self::getProvider() == self::PROVIDER_AGORA ? $settings['agora_app_id'] : '',
-            'url' => self::getProvider() == self::PROVIDER_LIVEKIT ? $settings['livekit_url'] : '',
+            'url' => $settings['livekit_url'],
             'options' => array(
                 'video' => $settings['video'] == true,
                 'screenshare' => $settings['screenshare'] == true,

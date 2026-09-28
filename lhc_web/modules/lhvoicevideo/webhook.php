@@ -15,7 +15,7 @@ header('Content-Type: application/json');
 $body = file_get_contents('php://input');
 $authorization = isset($_SERVER['HTTP_AUTHORIZATION']) ? $_SERVER['HTTP_AUTHORIZATION'] : (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION']) ? $_SERVER['REDIRECT_HTTP_AUTHORIZATION'] : '');
 
-if (erLhcoreClassVoiceVideo::getProvider() != erLhcoreClassVoiceVideo::PROVIDER_LIVEKIT || !erLhcoreClassVoiceVideo::verifyLiveKitWebhook($body, $authorization)) {
+if (!erLhcoreClassVoiceVideo::verifyLiveKitWebhook($body, $authorization)) {
     http_response_code(401);
     echo json_encode(array('error' => true));
     exit;
