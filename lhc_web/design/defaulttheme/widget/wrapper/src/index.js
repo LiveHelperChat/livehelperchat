@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 276;
+            lhc.version = 277;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -378,6 +378,12 @@
                     // So parent page informs back that it has lhc
                     if ((attributesWidget.hide_parent || attributesWidget.hide_iframe || (data.chat_ui && (data.chat_ui.hide_iframe || data.chat_ui.hide_parent))) && window.location != window.parent.location && window.parent.closed === false) {
                         window.parent.postMessage('lhc::started','*');
+
+                        // When this widget (loaded inside an iframe) is unloaded - e.g. the iframe was removed or
+                        // navigated away - inform the parent so it can show itself again.
+                        const notifyParentUnloaded = () => window.parent.postMessage('lhc::showParent','*');
+                        window.addEventListener('pagehide', notifyParentUnloaded);
+                        window.addEventListener('beforeunload', notifyParentUnloaded);
                     }
 
                     attributesWidget.leaveMessage = attributesWidget.leaveMessage || data.chat_ui.leaveamessage;
@@ -931,6 +937,17 @@
                     helperFunctions.removeById(attributesWidget.prefixLowercase+'_status_widget_v2');
                 });
 
+                // Hide/restore parent widget when it's taken over by a widget loaded inside an iframe
+                attributesWidget.eventEmitter.addListener('hideParent', (data) => {
+                    var parentContainer = document.getElementById(attributesWidget.prefixLowercase + '_container_v2');
+                    parentContainer && parentContainer.style.setProperty('display', 'none', 'important');
+                });
+
+                attributesWidget.eventEmitter.addListener('showParent', (data) => {
+                    var parentContainer = document.getElementById(attributesWidget.prefixLowercase + '_container_v2');
+                    parentContainer && parentContainer.style.setProperty('display', 'block', 'important');
+                });
+
                 attributesWidget.eventEmitter.addListener('showInvitation', (data) => {
                     attributesWidget.widgetDimesions.nextProperty('bottom_override', 75);
                     attributesWidget.widgetDimesions.nextProperty('right_override', 75);
@@ -1151,7 +1168,7 @@
                         var originDomain = e.origin.replace("http://", "").replace("https://", "").replace(/:(\d+)$/, '');
 
                         // We allow to send events only from chat installation or page where script is embeded.
-                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain && ["started","isstarted","addTag","showWidget"].indexOf(parts[1]) === -1) {
+                        if (originDomain !== document.domain && attributesWidget.domain_lhc !== originDomain && ["started","isstarted","addTag","showWidget","showParent"].indexOf(parts[1]) === -1) {
                             return;
                         }
                     }
@@ -1210,10 +1227,12 @@
                         attributesWidget.eventEmitter.emitEvent('terminated', []);
                     } else if (parts[1] == 'started') {
                         if (attributesWidget.hide_parent) {
-                            attributesWidget.eventEmitter.emitEvent('terminated', []);
+                            attributesWidget.eventEmitter.emitEvent('hideParent', []);
                         } else {
                             e.source.postMessage('lhc::isstarted','*');
                         }
+                    } else if (parts[1] == 'showParent') {
+                        attributesWidget.eventEmitter.emitEvent('showParent', []);
                     } else {
                         attributesWidget.eventEmitter.emitEvent(parts[1], JSON.parse(parts[2]));
                     }
