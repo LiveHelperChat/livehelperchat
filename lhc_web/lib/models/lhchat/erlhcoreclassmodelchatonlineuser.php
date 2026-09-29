@@ -230,6 +230,26 @@ class erLhcoreClassModelChatOnlineUser
                     $replaceArray = array();
                     foreach ($this->chat_variables_array as $keyItem => $addItem) {
                         $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
+
+                        // If variable holds JSON (string or array) also expose its keys as {lhc.var.variable.key}
+                        // Do it only if message actually references this variable and value looks like JSON
+                        if (strpos($this->operator_message_front, '{lhc.var.' . $keyItem . '.') !== false) {
+
+                            $addItemJson = false;
+                            if (is_array($addItem)) {
+                                $addItemJson = $addItem;
+                            } elseif (is_string($addItem) && $addItem !== '' && ($addItem[0] === '{' || $addItem[0] === '[')) {
+                                $addItemJson = json_decode($addItem, true);
+                            }
+
+                            if (is_array($addItemJson)) {
+                                foreach ($addItemJson as $subKey => $subValue) {
+                                    if (is_scalar($subValue) || is_null($subValue)) {
+                                        $replaceArray['{lhc.var.' . $keyItem . '.' . $subKey . '}'] = (string)$subValue;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     foreach ($this->online_attr_array as $keyItem => $addItem) {

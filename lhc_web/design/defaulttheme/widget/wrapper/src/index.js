@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 277;
+            lhc.version = 278;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -770,7 +770,16 @@
                 // Add tag listener
                 attributesWidget.eventEmitter.addListener('addTag', function (tag) {
                     attributesWidget.tag = attributesWidget.tag != '' ? attributesWidget.tag + ',' + tag : tag;
-                    attributesWidget.eventEmitter.emitEvent('tagAdded');
+
+                    // Javascript variables are updated with a delay, so if update is still pending
+                    // we have to hold on tagAdded event until server receives the latest vars.
+                    // Otherwise proactive invitation is checked without new vars and tag is lost.
+                    // userSession will emit tagAdded as soon as vars update completes.
+                    if (attributesWidget.userSession.varsUpdatePending === true) {
+                        attributesWidget.userSession.tagUpdatePending = true;
+                    } else {
+                        attributesWidget.eventEmitter.emitEvent('tagAdded');
+                    }
                 });
 
                 // Events

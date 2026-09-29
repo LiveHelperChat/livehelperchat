@@ -14,6 +14,8 @@ export class userSession {
         this.sd = null;
         this.jsVars = [];
         this.updateVarsTimeout = null;
+        this.varsUpdatePending = false;
+        this.tagUpdatePending = false;
         this.JSON = {
             parse: window.JSON && (window.JSON.parse || window.JSON.decode) || String.prototype.evalJSON && function(str){return String(str).evalJSON();} || $.parseJSON || $.evalJSON,
             stringify:  Object.toJSON || window.JSON && (window.JSON.stringify || window.JSON.encode) || $.toJSON
@@ -91,6 +93,9 @@ export class userSession {
                     set: (obj, prop, value) => {
                         // The default behavior to store the value
                         obj[prop] = value;
+
+                        // Mark that vars update is scheduled but not yet delivered
+                        this.varsUpdatePending = true;
 
                         clearTimeout(this.updateVarsTimeout);
                         this.updateVarsTimeout = setTimeout( () => {
@@ -227,8 +232,19 @@ export class userSession {
         }
         
         xhr.onloadend = () => {
+
+            // Vars are delivered to the server, we can let listeners to continue
+            this.varsUpdatePending = false;
+
             if (typeof cb !== 'undefined' && this.hash === null && this.id === null) {
                 cb(varsJSON, this.getPrefillVars());
+            }
+
+            // Tag was added while vars update was pending, now server has latest vars
+            // so it's safe to emit tagAdded and let proactive invitations to be checked
+            if (this.tagUpdatePending === true) {
+                this.tagUpdatePending = false;
+                this.attributes.eventEmitter.emitEvent('tagAdded');
             }
         };
         
