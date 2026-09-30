@@ -1015,6 +1015,10 @@ class erLhcoreClassChatWorkflow {
                             $appendSQL .= ' AND `lh_userdep`.`user_id` IN (' . implode(', ',$params['user_ids']) . ')';
                         }
 
+                        // Standard queue chat priority range - limits what chats operator can receive via regular auto assignment
+                        // 0 means no bound, values are inclusive
+                        $appendSQLStandard = ' AND (chat_min_priority_std = 0 OR chat_min_priority_std <= ' . (int)$chat->priority . ') AND (chat_max_priority_std = 0 OR chat_max_priority_std >= ' . (int)$chat->priority . ')';
+
                         $sort = 'last_accepted ASC';
                         if (isset($botConfiguration['auto_lower_limit']) && $botConfiguration['auto_lower_limit'] == '1') {
                             $sort = 'active_chats ASC, last_accepted ASC';
@@ -1025,7 +1029,7 @@ class erLhcoreClassChatWorkflow {
                             $sort = 'assign_priority DESC, '.$sort;
                         }
 
-                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM `lh_userdep` WHERE `last_accepted` < :last_accepted AND `ro` = 0 AND `hide_online` = 0 AND `dep_id` = :dep_id AND `only_priority` = 0 AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `user_id` != :user_id {$appendSQL} ORDER BY {$sort} LIMIT 3";
+                        $sql = "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM `lh_userdep` WHERE `last_accepted` < :last_accepted AND `ro` = 0 AND `hide_online` = 0 AND `dep_id` = :dep_id AND `only_priority` = 0 AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `user_id` != :user_id {$appendSQL}{$appendSQLStandard} ORDER BY {$sort} LIMIT 3";
 
                         self::$lastSuccess = $sql;
                         $paramsFilterLog = [];
@@ -1098,7 +1102,7 @@ class erLhcoreClassChatWorkflow {
                         // Try to assign to operator speaking same language first
                         if ($tryDefault == true && $department->assign_same_language == 1 && $chat->chat_locale != '') {
 
-                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE `last_accepted` < :last_accepted AND `ro` = 0 AND `only_priority` = 0 AND `hide_online` = 0 AND `dep_id` = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL} ORDER BY {$sort} LIMIT 3";
+                            $sqlLanguages =  "SELECT `lh_userdep`.`user_id`, `lh_userdep`.`last_accepted`, `lh_userdep`.`pending_chats`, `lh_userdep`.`active_chats`, `lh_userdep`.`inactive_chats` FROM lh_userdep INNER JOIN lh_speech_user_language ON `lh_speech_user_language`.`user_id` = `lh_userdep`.`user_id` WHERE `last_accepted` < :last_accepted AND `ro` = 0 AND `only_priority` = 0 AND `hide_online` = 0 AND `dep_id` = :dep_id AND (`lh_userdep`.`last_activity` > :last_activity OR `lh_userdep`.`always_on` = 1) AND `lh_userdep`.`user_id` != :user_id AND `lh_speech_user_language`.`language` = :chatlanguage {$appendSQL}{$appendSQLStandard} ORDER BY {$sort} LIMIT 3";
 
                             self::$lastSuccess = $sqlLanguages;
 
@@ -1146,7 +1150,8 @@ class erLhcoreClassChatWorkflow {
                             $paramsFilterLog = [
                                 'last_activity' => ($timestamp - $isOnlineUser),
                                 'user_id' => $chat->user_id,
-                                'last_accepted' => ($timestamp - $department->delay_before_assign)
+                                'last_accepted' => ($timestamp - $department->delay_before_assign),
+                                'chat_priority' => (int)$chat->priority
                             ];
 
                             if ($department->max_active_chats > 0) {

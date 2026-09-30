@@ -555,6 +555,22 @@
         "key": "MUL",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "chat_min_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "chat_max_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_departament_group_user_disabled": [
@@ -571,6 +587,22 @@
         "type": "tinyint(1) unsigned",
         "null": "NO",
         "key": "MUL",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "chat_min_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "chat_max_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
         "default": "0",
         "extra": ""
       }
@@ -6439,6 +6471,22 @@
         "key": "MUL",
         "default": "0",
         "extra": ""
+      },
+      {
+        "field": "chat_min_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "chat_max_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
       }
     ],
     "lh_speech_user_language": [
@@ -9421,6 +9469,22 @@
       },
       {
         "field": "chat_min_priority",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "chat_min_priority_std",
+        "type": "int(11)",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "chat_max_priority_std",
         "type": "int(11)",
         "null": "NO",
         "key": "",

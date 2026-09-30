@@ -100,6 +100,14 @@
                                 <span class="material-icons">add</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
                             </span>
 
+                            <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority_std']) || $departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority_std'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min chat priority accepted from the standard queue')?>">
+                                <span class="material-icons">arrow_downward</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_min_priority_std']?><?php else : ?>0<?php endif;?>
+                            </span>
+
+                            <span class="badge bg-secondary<?php if (!isset($departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority_std']) || $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority_std'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Max chat priority accepted from the standard queue')?>">
+                                <span class="material-icons">arrow_upward</span><?php if (isset($departmentEditParams['individual']['all_dep'][$departament->id])) : ?><?php echo $departmentEditParams['individual']['all_dep'][$departament->id]['chat_max_priority_std']?><?php else : ?>0<?php endif;?>
+                            </span>
+
                             <?php if ($canEditDepartment == true) : ?><a data-ajax-remove="dep-indv-id-<?php echo $departament->id?>" href="<?php echo erLhcoreClassDesign::baseurl('user/editdepartment')?>/<?php echo $user->id?>/<?php echo $departament->id?>/(action)/remove<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" data-trans="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Are you sure you want to remove this department assignment?')?>" class="material-icons action-image text-danger csfr-required csfr-post">delete</a><?php endif; ?>
 
                             </div>
@@ -193,6 +201,14 @@
 
                     <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Max chat priority for chat being assigned by my assign priority')?>">
                         <span class="material-icons">add</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority']?><?php else : ?>0<?php endif;?>
+                    </span>
+
+                    <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority_std']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority_std'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min chat priority accepted from the standard queue')?>">
+                        <span class="material-icons">arrow_downward</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_min_priority_std']?><?php else : ?>0<?php endif;?>
+                    </span>
+
+                    <span class="badge bg-secondary<?php if (!isset($departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority_std']) || $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority_std'] == 0) : ?> bg-light text-muted<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Max chat priority accepted from the standard queue')?>">
+                        <span class="material-icons">arrow_upward</span><?php if (isset($departmentEditParams['groups']['all_group'][$departamentGroup->id])) : ?><?php echo $departmentEditParams['groups']['all_group'][$departamentGroup->id]['chat_max_priority_std']?><?php else : ?>0<?php endif;?>
                     </span>
 
                     <?php if ($canEditDepartment == true) : ?><a data-ajax-remove="depgroup-indv-id-<?php echo $departamentGroup->id?>" href="<?php echo erLhcoreClassDesign::baseurl('user/editdepartment')?>/<?php echo $user->id?>/<?php echo $departamentGroup->id?>/(action)/remove/(mode)/group<?php if (isset($departmentEditParams['self_edit']) && $departmentEditParams['self_edit'] === true) : ?>/(editor)/self<?php endif; ?>" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Remove')?>" data-trans="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Are you sure you want to remove this department group assignment?')?>" class="material-icons action-image text-danger csfr-required csfr-post">delete</a><?php endif; ?>

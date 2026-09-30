@@ -41,6 +41,8 @@ class erLhcoreClassModelUserDep
             'assign_priority' => $this->assign_priority,
             'chat_min_priority' => $this->chat_min_priority,
             'chat_max_priority' => $this->chat_max_priority,
+            'chat_min_priority_std' => $this->chat_min_priority_std,
+            'chat_max_priority_std' => $this->chat_max_priority_std,
             'only_priority' => $this->only_priority,
 
         );
@@ -199,7 +201,7 @@ class erLhcoreClassModelUserDep
 
         $filter = array_merge_recursive($filter, $params);
 
-        $filter['ignore_fields'] = array('only_priority','chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
+        $filter['ignore_fields'] = array('only_priority','chat_max_priority','chat_min_priority','chat_max_priority_std','chat_min_priority_std','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
 
         $filter['select_columns'] = '
          max(`lh_userdep`.`id`) as `id`, 
@@ -285,6 +287,8 @@ class erLhcoreClassModelUserDep
     public $assign_priority = 0;
     public $chat_min_priority = 0;
     public $chat_max_priority = 0;
+    public $chat_min_priority_std = 0;
+    public $chat_max_priority_std = 0;
     public $only_priority = 0;
     public $dep_id_filter = [];
 

@@ -420,6 +420,8 @@ class AutoAssign
             'assign_priority' => (int)$row->assign_priority,
             'chat_min_priority' => (int)$row->chat_min_priority,
             'chat_max_priority' => (int)$row->chat_max_priority,
+            'chat_min_priority_std' => (int)$row->chat_min_priority_std,
+            'chat_max_priority_std' => (int)$row->chat_max_priority_std,
             'max_chats' => (int)$row->max_chats,
             'active_chats' => (int)$row->active_chats,
             'pending_chats' => (int)$row->pending_chats,
@@ -654,6 +656,23 @@ class AutoAssign
             $blockedBy[] = 'only_priority_opt_out';
         }
 
+        // The default and the same language queries also honour the standard queue priority range of the operator.
+        $stdMinPriority = (int)$row->chat_min_priority_std;
+        $stdMaxPriority = (int)$row->chat_max_priority_std;
+        $stdRangeOk = ($stdMaxPriority == 0 || $stdMaxPriority >= $chatPriority)
+            && ($stdMinPriority == 0 || $stdMinPriority <= $chatPriority);
+
+        $checks[] = Access::checkEntry(
+            'operator.chat_priority_range_std',
+            $stdRangeOk,
+            'Chat priority ' . $chatPriority . ', accepted standard queue range ' . $stdMinPriority . ' - ' . ($stdMaxPriority == 0 ? 'unlimited' : $stdMaxPriority) . '.',
+            'Limits which chats the regular auto assignment queue can assign to the operator.',
+            array('affects' => $defaultPathOk)
+        );
+        if (!$stdRangeOk && $defaultPathOk) {
+            $blockedBy[] = 'operator_chat_priority_range_std';
+        }
+
         // The already assigned operator is never picked again by the candidate queries.
         $notAssignee = (int)$row->user_id != (int)$chat->user_id;
         $checks[] = Access::checkEntry(
@@ -696,7 +715,7 @@ class AutoAssign
         }
 
         $baseOk = $row->ro == 0 && $online && $notExcluded && $delayOk && $capacityOk && $notAssignee;
-        $pickable = $baseOk && ($defaultPathOk || $queueOk === true);
+        $pickable = $baseOk && (($defaultPathOk && $stdRangeOk) || $queueOk === true);
 
         return array(
             'pickable' => $pickable,

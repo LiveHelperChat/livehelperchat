@@ -649,7 +649,7 @@ class erLhAbstractModelProactiveChatInvitation {
                 $filter['customfilter'][] = '(last_activity > ' . (int)(time() - 120) . ' OR always_on = 1)';
                 $filter['filterin']['dep_id'] = [$item->dep_id,0];
                 $filter['group'] = 'user_id';
-                $filter['ignore_fields'] = array('only_priority','chat_max_priority','chat_min_priority','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
+                $filter['ignore_fields'] = array('only_priority','chat_max_priority','chat_min_priority','chat_max_priority_std','chat_min_priority_std','assign_priority', 'max_mails','last_accepted_mail','exc_indv_autoasign','exclude_autoasign_mails','active_mails','pending_mails','exclude_autoasign','max_chats','dep_group_id','type','ro','id','dep_id','hide_online_ts','hide_online','last_activity','lastd_activity','always_on','last_accepted','active_chats','pending_chats','inactive_chats','ro');
                 $filter['select_columns'] = 'max(`id`) as `id`,user_id';
 
                 if (isset($optionsInvitation['op_max_chats']) && !empty($optionsInvitation['op_max_chats'])) {

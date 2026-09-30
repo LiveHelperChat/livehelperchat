@@ -1,3 +1,10 @@
+4.94v
+
+1. Added a standard queue chat priority range for operators. The new `chat_min_priority_std` and `chat_max_priority_std` attributes limit which chats the regular auto assignment queue can assign to an operator; they mirror `chat_min_priority` / `chat_max_priority`, which only apply to the chat priority queue. Both values are editable in the department assignment window (individual departments and department groups), `0` means no limit and the values are inclusive.
+
+execute doc/update_db/update_360.sql for update
+
+
 4.93v
 
 1. Added `team_lead_user_id` attribute for operators. Team lead can be assigned in the new/edit user window under the user groups section. The team lead is shown read-only above the username in the operator account page. User list now has a team lead column and a multi-select team lead filter.

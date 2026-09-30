@@ -32,6 +32,21 @@
     </div>
 </fieldset>
 
+<fieldset class="border rounded p-2 mb-2">
+    <legend class="fs13 float-none w-auto mb-0 px-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Standard queue')?></legend>
+    <div class="row pb-1">
+        <div class="col-12 fs13 text-muted pb-1">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Limits which chats this agent can receive from the regular auto assignment queue. Inclusive. 0 - no limit.')?></label>
+        </div>
+        <div class="col-6">
+            <input name="chat_min_priority_std" value="<?php echo $userDep->chat_min_priority_std?>" type="text" class="form-control form-control-sm" />
+        </div>
+        <div class="col-6">
+            <input name="chat_max_priority_std" value="<?php echo $userDep->chat_max_priority_std?>" type="text" class="form-control form-control-sm" />
+        </div>
+    </div>
+</fieldset>
+
 <div class="row pb-2">
     <div class="col-6">
         <label class="d-block fs13 text-muted pb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Alias nick')?></label>

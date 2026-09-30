@@ -245,7 +245,7 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
         }
 
         if (count($Errors) == 0) {
-            $userDep->updateThis(['update' => ['only_priority','exc_indv_autoasign','ro','read_only','chat_max_priority','chat_min_priority','assign_priority']]);
+            $userDep->updateThis(['update' => ['only_priority','exc_indv_autoasign','ro','read_only','chat_max_priority','chat_min_priority','chat_max_priority_std','chat_min_priority_std','assign_priority']]);
 
             if ($dep instanceof erLhcoreClassModelDepartamentGroup) {
                 $userDep->afterSave();

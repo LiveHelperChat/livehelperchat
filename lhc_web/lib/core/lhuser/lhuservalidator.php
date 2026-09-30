@@ -23,6 +23,12 @@ class erLhcoreClassUserValidator {
             'chat_min_priority' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             ),
+            'chat_max_priority_std' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
+            'chat_min_priority_std' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'int'
+            ),
             'assign_priority' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'int'
             )
@@ -64,6 +70,18 @@ class erLhcoreClassUserValidator {
             $userDep->chat_min_priority = $form->chat_min_priority;
         } else {
             $Errors[] = 'Invalid chat_max_priority';
+        }
+
+        if ( $form->hasValidData( 'chat_max_priority_std' )) {
+            $userDep->chat_max_priority_std = $form->chat_max_priority_std;
+        } else {
+            $Errors[] = 'Invalid chat_max_priority_std';
+        }
+
+        if ( $form->hasValidData( 'chat_min_priority_std' )) {
+            $userDep->chat_min_priority_std = $form->chat_min_priority_std;
+        } else {
+            $Errors[] = 'Invalid chat_min_priority_std';
         }
 
         if ( $form->hasValidData( 'assign_priority' )) {

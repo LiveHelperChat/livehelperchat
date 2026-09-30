@@ -34,6 +34,25 @@ if ($Params['user_parameters_unordered']['action'] == 'chatsmoment') {
     exit;
 }
 
+if ($Params['user_parameters_unordered']['action'] == 'autoassign') {
+
+    $user_id = (int)$Params['user_parameters']['id'];
+    $chat_id = isset($_POST['chat_id']) ? (int)$_POST['chat_id'] : 0;
+
+    if ($chat_id <= 0) {
+        echo '<div class="alert alert-danger p-2 m-0">' . erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats', 'Please enter a valid chat ID') . '</div>';
+        exit;
+    }
+
+    $autoAssign = new \LiveHelperChat\Mcp\Tools\AutoAssignTools();
+    $explain = $autoAssign->explainOperatorForChat($chat_id, $user_id);
+
+    $tpl = erLhcoreClassTemplate::getInstance('lhstatistic/autoassign_explain.tpl.php');
+    $tpl->set('explain', $explain);
+    echo $tpl->fetch();
+    exit;
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhstatistic/userstats.tpl.php');
 try {
     $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['id']);

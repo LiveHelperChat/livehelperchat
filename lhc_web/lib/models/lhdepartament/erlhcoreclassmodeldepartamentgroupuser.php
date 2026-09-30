@@ -24,6 +24,8 @@ class erLhcoreClassModelDepartamentGroupUser
             'assign_priority' => $this->assign_priority,
             'chat_min_priority' => $this->chat_min_priority,
             'chat_max_priority' => $this->chat_max_priority,
+            'chat_min_priority_std' => $this->chat_min_priority_std,
+            'chat_max_priority_std' => $this->chat_max_priority_std,
             'only_priority' => $this->only_priority,
         );
     }
@@ -97,6 +99,8 @@ class erLhcoreClassModelDepartamentGroupUser
                     $member->assign_priority = isset($paramsAssignment['assign_priority'][$groupId]) ? (int)$paramsAssignment['assign_priority'][$groupId] : 0;
                     $member->chat_min_priority = isset($paramsAssignment['chat_min_priority'][$groupId]) ? (int)$paramsAssignment['chat_min_priority'][$groupId] : 0;
                     $member->chat_max_priority = isset($paramsAssignment['chat_max_priority'][$groupId]) ? (int)$paramsAssignment['chat_max_priority'][$groupId] : 0;
+                    $member->chat_min_priority_std = isset($paramsAssignment['chat_min_priority_std'][$groupId]) ? (int)$paramsAssignment['chat_min_priority_std'][$groupId] : 0;
+                    $member->chat_max_priority_std = isset($paramsAssignment['chat_max_priority_std'][$groupId]) ? (int)$paramsAssignment['chat_max_priority_std'][$groupId] : 0;
                     $member->only_priority = isset($paramsAssignment['only_priority'][$groupId]) ? (int)$paramsAssignment['only_priority'][$groupId] : 0;
                     $member->saveThis();
                 }
@@ -119,8 +123,8 @@ class erLhcoreClassModelDepartamentGroupUser
         
         foreach ($this->__get('dep_group')->departments_ids as $depId)
         {
-            $stmt = $db->prepare('INSERT INTO lh_userdep (only_priority,user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign,assign_priority,chat_max_priority,chat_min_priority) VALUES 
-            (:only_priority,:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign,:assign_priority,:chat_max_priority,:chat_min_priority)');
+            $stmt = $db->prepare('INSERT INTO lh_userdep (only_priority,user_id,dep_id,hide_online,last_activity,last_accepted,active_chats,type,dep_group_id,max_chats,exclude_autoasign,always_on,ro,exc_indv_autoasign,assign_priority,chat_max_priority,chat_min_priority,chat_max_priority_std,chat_min_priority_std) VALUES 
+            (:only_priority,:user_id,:dep_id,:hide_online,0,0,:active_chats,1,:dep_group_id,:max_chats,:exclude_autoasign,:always_on,:ro,:exc_indv_autoasign,:assign_priority,:chat_max_priority,:chat_min_priority,:chat_max_priority_std,:chat_min_priority_std)');
             $stmt->bindValue(':only_priority',$this->only_priority);
             $stmt->bindValue(':user_id',$this->user_id);
             $stmt->bindValue(':dep_id',$depId);
@@ -135,6 +139,8 @@ class erLhcoreClassModelDepartamentGroupUser
             $stmt->bindValue(':assign_priority', $this->assign_priority);
             $stmt->bindValue(':chat_max_priority', $this->chat_max_priority);
             $stmt->bindValue(':chat_min_priority', $this->chat_min_priority);
+            $stmt->bindValue(':chat_max_priority_std', $this->chat_max_priority_std);
+            $stmt->bindValue(':chat_min_priority_std', $this->chat_min_priority_std);
             $stmt->execute();
         }
         
@@ -180,6 +186,8 @@ class erLhcoreClassModelDepartamentGroupUser
     public $assign_priority = 0;
     public $chat_min_priority = 0;
     public $chat_max_priority = 0;
+    public $chat_min_priority_std = 0;
+    public $chat_max_priority_std = 0;
     public $only_priority = 0;
 }
 

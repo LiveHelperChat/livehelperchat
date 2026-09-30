@@ -1968,6 +1968,8 @@ Table "lh_departament_group_user" {
   "assign_priority" int(11) [not null, default: 0]
   "chat_min_priority" int(11) [not null, default: 0]
   "chat_max_priority" int(11) [not null, default: 0]
+  "chat_min_priority_std" int(11) [not null, default: 0]
+  "chat_max_priority_std" int(11) [not null, default: 0]
 
   Indexes {
     dep_group_id [name: "dep_group_id"]
@@ -2617,6 +2619,8 @@ Table "lh_userdep" {
   "chat_max_priority" int(11) [not null, default: 0]
   "chat_min_priority" int(11) [not null, default: 0]
   "only_priority" tinyint(1) [not null, default: 0, note: 'unsigned']
+  "chat_min_priority_std" int(11) [not null, default: 0]
+  "chat_max_priority_std" int(11) [not null, default: 0]
 
   Indexes {
     (last_activity, hide_online, dep_id) [name: "last_activity_hide_online_dep_id"]
@@ -2722,6 +2726,8 @@ Table lh_userdep_disabled {
   chat_max_priority int [not null, default: 0]
   chat_min_priority int [not null, default: 0]
   only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
+  chat_min_priority_std int [not null, default: 0]
+  chat_max_priority_std int [not null, default: 0]
   Indexes {
     (dep_id) [name: 'dep_id']
     (user_id, type) [name: 'user_id_type']
@@ -2741,6 +2747,8 @@ Table lh_departament_group_user_disabled {
   chat_min_priority int [not null, default: 0]
   chat_max_priority int [not null, default: 0]
   only_priority tinyint(1) [not null, default: 0, note: 'unsigned']
+  chat_min_priority_std int [not null, default: 0]
+  chat_max_priority_std int [not null, default: 0]
 
   Indexes {
     (dep_group_id) [name: 'dep_group_id']

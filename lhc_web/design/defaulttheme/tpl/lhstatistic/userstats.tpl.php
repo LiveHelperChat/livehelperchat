@@ -22,6 +22,7 @@ $modalSize = 'xl';
                 <li role="presentation" class="nav-item"><a href="#online-hours" class="nav-link" aria-controls="online-hours" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online hours');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#login-history" class="nav-link" aria-controls="login-history" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Login history');?></a></li>
                 <li role="presentation" class="nav-item"><a href="#activechatsatmoment" class="nav-link" aria-controls="activechatsatmoment" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chats momentary history');?></a></li>
+                <li role="presentation" class="nav-item"><a href="#autoassign-test" class="nav-link" aria-controls="autoassign-test" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Auto assign test');?></a></li>
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane" id="online-hours" style="max-height: 550px;overflow-y: auto">
@@ -83,6 +84,9 @@ $modalSize = 'xl';
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Assignment type');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Read only');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Exclude from auto assign workflow');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chat priority queue');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Standard queue priority');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Priority queue opt in');?></th>
                         </tr>
                         </thead>
                         <?php $totalStats = array('max_chats' => 0, 'active_chats' => 0, 'inactive_chats' => 0); foreach ($operatorsStatus as $operator) : ?>
@@ -140,6 +144,19 @@ $modalSize = 'xl';
                                         <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
                                     <?php endif; ?>
                                 </td>
+                                <td nowrap="nowrap">
+                                    <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chat priority queue range, min - max. 0 means no limit.');?>"><?php echo (int)($operator['chat_min_priority'] ?? 0)?> - <?php echo (int)($operator['chat_max_priority'] ?? 0)?></span>
+                                </td>
+                                <td nowrap="nowrap">
+                                    <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Standard queue chat priority range, min - max. 0 means no limit.');?>"><?php echo (int)($operator['chat_min_priority_std'] ?? 0)?> - <?php echo (int)($operator['chat_max_priority_std'] ?? 0)?></span>
+                                </td>
+                                <td>
+                                    <?php if ($operator['only_priority'] == 1) : ?>
+                                        <span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
+                                    <?php else : ?>
+                                        <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
@@ -179,6 +196,33 @@ $modalSize = 'xl';
                         })();
                     </script>
 
+                </div>
+                <div role="tabpanel" class="tab-pane" id="autoassign-test" style="max-height: 550px;overflow-y: auto">
+                    <div class="row ms-0 me-0">
+                        <div class="col-auto">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chat ID')?>*</label>
+                            <input class="form-control form-control-sm" id="autoassign-chat-id" type="number" min="1" step="1" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','E.g. 1234')?>" />
+                        </div>
+                        <div class="col-auto">
+                            <div>&nbsp;</div>
+                            <button type="submit" id="search-autoassign" class="btn btn-sm btn-primary mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Test');?></button>
+                        </div>
+                    </div>
+                    <div class="fs13 text-muted pb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Checks whether this operator would receive the chat from the auto assignment workflow.')?></div>
+                    <div id="autoassign-explain-result"></div>
+                    <script>
+                        $('#search-autoassign').click(function() {
+                            var chatId = $.trim($('#autoassign-chat-id').val());
+                            if (chatId == '') {
+                                alert('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Please enter a chat ID')?>');
+                                return;
+                            }
+                            $('#autoassign-explain-result').html('<div class="text-muted"><span class="material-icons">hourglass_top</span></div>');
+                            $.post(WWW_DIR_JAVASCRIPT + 'statistic/userstats/<?php echo $user->id?>/(action)/autoassign', {'chat_id' : chatId}, function(data) {
+                                $('#autoassign-explain-result').html(data);
+                            });
+                        });
+                    </script>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="login-history" style="max-height: 550px;overflow-y: auto">
 

@@ -13,6 +13,7 @@ foreach ([
              'dep_group_id','user_id',
              'read_only','exc_indv_autoasign',
              'assign_priority','chat_min_priority','chat_max_priority',
+             'chat_min_priority_std','chat_max_priority_std',
              'only_priority'
          ] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();

@@ -26,7 +26,7 @@ use Mcp\Schema\ToolAnnotations;
 class AutoAssignTools
 {
     /**
-     * Returns every setting which takes part in the auto assignment of a department: the department level switches (auto assignment enabled, department wide limits, assignment delay, reassignment timeout, capacity mode, same language preference, priority queue) together with a per operator view of `lh_userdep` (online state, exclusion flags, chat counters, `max_chats`, `only_priority`, assignment priority, chat priority range). Use it when a department has chats waiting, when nobody seems to receive them, or before explaining a single chat with `explain_chat_auto_assign`.
+     * Returns every setting which takes part in the auto assignment of a department: the department level switches (auto assignment enabled, department wide limits, assignment delay, reassignment timeout, capacity mode, same language preference, priority queue) together with a per operator view of `lh_userdep` (online state, exclusion flags, chat counters, `max_chats`, `only_priority`, assignment priority, chat priority range for the queue and for the standard queue). Use it when a department has chats waiting, when nobody seems to receive them, or before explaining a single chat with `explain_chat_auto_assign`.
      */
     #[McpTool(name: 'get_department_auto_assign_settings', annotations: new ToolAnnotations(readOnlyHint: true))]
     public function getDepartmentAutoAssignSettings(
@@ -162,6 +162,59 @@ class AutoAssignTools
         return $result;
     }
 
+    /**
+     * Same verdict as `explain_chat_auto_assign` for one operator addressed by chat ID.
+     *
+     * Used by the back office operator statistic modal (`statistic/userstats`), so unlike the MCP tools
+     * it never throws - a missing chat or operator is reported in the returned array instead.
+     */
+    public function explainOperatorForChat(int $chat_id, int $user_id): array
+    {
+        $chat = \erLhcoreClassModelChat::fetch($chat_id);
+
+        if (!($chat instanceof \erLhcoreClassModelChat)) {
+            return array(
+                'found' => false,
+                'error' => 'Chat with ID ' . $chat_id . ' was not found.',
+            );
+        }
+
+        if ($user_id <= 0) {
+            return array(
+                'found' => false,
+                'error' => 'Invalid operator ID.',
+            );
+        }
+
+        $timestamp = time();
+        $department = \erLhcoreClassModelDepartament::fetch($chat->dep_id);
+
+        $gates = AutoAssign::gates($chat, $department, $timestamp);
+        $pick = AutoAssign::pick($chat, $department, $timestamp);
+        $operator = $this->explainOperator($chat, $department, $user_id, $timestamp);
+
+        $operator['blocked_by_text'] = $this->gateReasonText(isset($operator['blocked_by']) ? $operator['blocked_by'] : array());
+
+        $operatorPickable = isset($operator['pickable']) && $operator['pickable'] === true;
+
+        return array(
+            'found' => true,
+            'chat' => AutoAssign::chatSummary($chat),
+            'department' => $department instanceof \erLhcoreClassModelDepartament
+                ? AutoAssign::departmentConfig($department)
+                : array(
+                    'id' => (int)$chat->dep_id,
+                    'label' => 'Department #' . (int)$chat->dep_id,
+                    'found' => false,
+                ),
+            'gates' => $gates,
+            'gates_blocked_by_text' => $this->gateReasonText($gates['blocked_by']),
+            'pick' => $pick,
+            'would_be_assigned_to_operator' => $gates['allowed'] && $operatorPickable,
+            'operator' => $operator,
+        );
+    }
+
     /** Chat independent operator overview used by `get_department_auto_assign_settings`. */
     protected function operatorOverview($department, $row, $timestamp)
     {
@@ -185,7 +238,7 @@ class AutoAssignTools
     }
 
     /** Rule by rule verdict for one operator and one chat. */
-    protected function explainOperator($chat, $department, $operatorId, $timestamp)
+    public function explainOperator($chat, $department, $operatorId, $timestamp)
     {
         $user = \erLhcoreClassModelUser::fetch($operatorId);
 
@@ -236,6 +289,7 @@ class AutoAssignTools
             'hide_online' => (int)$user->hide_online,
             'always_on' => (int)$user->always_on,
             'exclude_autoasign' => (int)$user->exclude_autoasign,
+            'pickable' => $pickable,
             'department_rows' => $departmentRows,
             'assignment_rows_for_chat_department' => $assignmentRows,
         );
@@ -301,6 +355,7 @@ class AutoAssignTools
             'queue_min_agent_priority' => 'the operator `assign_priority` is below the minimum agent priority of the queue',
             'queue_only_priority_opt_out' => 'the department queues assign priority chats to opted in operators only',
             'queue_chat_priority_range' => 'the chat priority is outside the `chat_min_priority` / `chat_max_priority` range of the operator',
+            'operator_chat_priority_range_std' => 'the chat priority is outside the `chat_min_priority_std` / `chat_max_priority_std` range of the operator, which the regular auto assignment queue honours',
         );
 
         $reasons = array();
