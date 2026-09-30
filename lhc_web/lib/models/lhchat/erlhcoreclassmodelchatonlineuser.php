@@ -813,9 +813,9 @@ class erLhcoreClassModelChatOnlineUser
     {
         $crawlers = 'Google|Googlebot|AdsBot-Google|Mediapartners-Google|APIs-Google|Storebot-Google|Google-InspectionTool|'
             . 'msnbot|bingbot|BingPreview|AdIdxBot|Yahoo|Slurp|DuckDuckBot|Baiduspider|Yandex(Bot|Images|MobileBot)|Sogou|Exabot|'
-            . 'facebot|facebookexternalhit|ia_archiver|Applebot|PetalBot|Bytespider|CCBot|SemrushBot|AhrefsBot|MJ12bot|DotBot|'
+            . 'facebot|facebookexternalhit|meta-externalagent|meta-externalads|meta-externalfetcher|meta-webindexer|ia_archiver|Applebot|PetalBot|Bytespider|CCBot|SemrushBot|AhrefsBot|MJ12bot|DotBot|'
             . 'LinkedInBot|Pinterestbot|Amazonbot|OAI-SearchBot|GPTBot|ChatGPT-User|PerplexityBot|ClaudeBot|cohere-ai|anthropic-ai';
-        $isCrawler = (preg_match("/$crawlers/", $userAgent) > 0);
+        $isCrawler = (preg_match("/$crawlers/i", $userAgent) > 0);
 
         return $isCrawler;
     }
