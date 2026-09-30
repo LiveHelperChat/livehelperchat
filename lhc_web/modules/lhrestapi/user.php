@@ -30,6 +30,7 @@ try
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            unset($user->password);
             erLhcoreClassRestAPIHandler::outputResponse(array
                 (
                     'error' => false,
@@ -113,6 +114,7 @@ try
         throw new Exception(implode("\n",$Errors));
     }
 
+    unset($user->password);
     erLhcoreClassRestAPIHandler::outputResponse(array
         (
             'error' => false,
