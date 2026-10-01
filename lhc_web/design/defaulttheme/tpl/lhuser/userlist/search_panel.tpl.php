@@ -187,6 +187,14 @@
                         )); ?>
                     </div>
                 </div>
+
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','User ID');?></label>
+                        <input type="text" class="form-control form-control-sm" placeholder="<?php echo htmlspecialchars("<id>[,<id>]");?>" name="user_id" value="<?php echo htmlspecialchars($input->user_id)?>" />
+                    </div>
+                </div>
+                
     </div>
 
 	<div class="btn-group" role="group" aria-label="...">

@@ -62,6 +62,19 @@ $fieldsSearch['team_lead_user_id'] = array (
     )
 );
 
+$fieldsSearch['user_id'] = array (
+    'type' => 'text',
+    'trans' => 'id',
+    'required' => false,
+    'valid_if_filled' => false,
+    'multiple_id' => true,
+    'filter_type' => 'filter',
+    'filter_table_field' => '`lh_users`.`id`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['disabled'] = array (
     'type' => 'text',
     'trans' => 'Disabled',
