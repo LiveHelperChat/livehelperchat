@@ -199,44 +199,76 @@
 
 <p class="text-muted fs12 mb-2"><i class="material-icons mi-fs15 align-middle">touch_app</i> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Click any element in the live preview to jump to the related setting.')?></p>
 
-<style>
-.lhc-theme-preview{position:relative;width:100%;max-width:360px;border:1px solid #cecece;border-radius:10px;overflow:hidden;background:#fff;}
+<style id="lhc-theme-preview-css">
+/* Preview only affordances. Everything else comes from the widget CSS bundle which is loaded
+   into the preview shadow root, so the preview DOM is styled by the very same rules as the widget. */
+:host{display:block;}
+.ng-hide{display:none!important;}
+/* The widget stylesheet declares this font as well, but a @font-face coming from a stylesheet
+   inside a shadow root is not registered by the browser, so it has to be declared here too. */
+@font-face{font-family:'MaterialIconsLHC';font-style:normal;font-weight:400;font-display:block;src:url('<?php echo erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v9.woff2');?>') format('woff2'),url('<?php echo erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v9.woff');?>') format('woff'),url('<?php echo erLhcoreClassDesign::design('fonts/MaterialIcons-lhc-v9.ttf');?>') format('truetype');}
+<?php $previewHeight = (isset($object->bot_configuration_array['wheight']) && (int)$object->bot_configuration_array['wheight'] > 0) ? (int)$object->bot_configuration_array['wheight'] : 450; ?>
+.lhc-theme-preview{position:relative;display:flex;flex-direction:column;width:100%;max-width:360px;height:<?php echo $previewHeight?>px;border-radius:10px;overflow:hidden;background:#fff;}
+/* Bootstrap applies these to the widget body, in the shadow tree the panel is the body */
+.lhc-theme-preview{font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);line-height:var(--bs-body-line-height);}
+.lhc-theme-preview #root{min-height:0;}
 .lhc-preview-col{flex:1 1 320px;min-width:280px;max-width:360px;}
 .lhc-theme-preview [data-preview-field]{cursor:pointer;}
 .lhc-theme-preview [data-preview-field]:hover{outline:2px dashed rgba(13,110,253,.55);outline-offset:1px;}
-.lhc-theme-preview .lhc-preview-header{display:flex;align-items:center;justify-content:space-between;padding:3px 4px;background-color:#ededed;}
-.lhc-theme-preview .lhc-preview-header .material-icons{font-size:32px;line-height:1;}
-.lhc-theme-preview .header-link{color:#343a40;text-decoration:none;cursor:pointer;}
-.lhc-theme-preview .header-link:hover{color:#000;}
-.lhc-theme-preview .operator-info{background-color:transparent!important;border:0!important;border-radius:0!important;padding:0!important;position:relative;z-index:1;font-size:12px;}
-.lhc-theme-preview .operator-info img{border:0!important;border-radius:6px;max-width:50px;width:48px;height:48px;object-fit:cover;}
-.lhc-theme-preview .operator-profile-start-chat{font-style:italic;}
-.lhc-theme-preview .lhc-preview-startchat{padding:10px;}
-.lhc-theme-preview .lhc-preview-startchat label{display:block;margin-bottom:3px;}
-.lhc-theme-preview .message-send-area{border-bottom-right-radius:10px;border-bottom-left-radius:10px;}
-.lhc-theme-preview #chat-status-container.border-bottom,.lhc-theme-preview .lhc-preview-status.border-bottom{border-bottom-width:{{ngModelAbstractInput_status_border_w}}px!important;border-bottom-color:#{{bactract_bg_color_status_border_c}}!important;}
-.lhc-theme-preview #chat-dropdown-options-wrapper{padding-bottom:5px;}
-.lhc-theme-preview #chat-dropdown-options{font-size:25px;line-height:1;height:25px;background:none;border:0;padding:0;cursor:pointer;}
-.lhc-theme-preview #CSChatMessage{background:transparent;border:0;resize:none;overflow:auto;max-height:100px;padding-top:6px;padding-bottom:7px;box-shadow:none;}
-.lhc-theme-preview #CSChatMessage::placeholder{color:#{{bactract_bg_color_input_plc_color}}!important;}
-.lhc-theme-preview #send-button-wrapper{padding-bottom:5px;}
-.lhc-theme-preview #ChatSendButtonContainer .material-icons{font-size:25px;line-height:1;cursor:pointer;}
-.lhc-theme-preview .user-chatwidget-buttons > a{text-decoration:none;}
-.lhc-theme-preview #messagesBlock{padding:6px;}
+/* Values the widget gets from its generated theme CSS, keep them live in the preview */
+.lhc-theme-preview #chat-status-container.border-bottom{border-bottom-width:{{ngModelAbstractInput_status_border_w}}px!important;border-bottom-color:#{{bactract_bg_color_status_border_c}}!important;}
+.lhc-theme-preview .start-chat .form-control::placeholder,.lhc-theme-preview #CSChatMessage::placeholder{color:#{{bactract_bg_color_input_plc_color}}!important;}
+/* The widget gets this from the theme generated CSS (page_head_css_theme.tpl.php):
+   .desktop-header,.desktop-body{border-color:#<widget_border_color>!important;border-width:<widget_border_width>px!important}
+   An empty setting renders "#"/"px" which is invalid and dropped, exactly like the widget does. */
+.lhc-theme-preview .desktop-header,.lhc-theme-preview .desktop-body{border-color:#{{bactract_bg_color_widget_border_color}}!important;border-width:{{ngModelAbstractInput_widget_border_width}}px!important;}
+.lhc-theme-preview .hide-visitor-profile .vis-tit{display:none!important;}
 .lhc-theme-target-highlight{animation:lhcThemePulse 1.6s ease;border-radius:4px;}
 @keyframes lhcThemePulse{0%{box-shadow:0 0 0 0 rgba(13,110,253,.65);}100%{box-shadow:0 0 0 8px rgba(13,110,253,0);}}
 </style>
 
-<div class="d-flex flex-wrap gap-3 align-items-start">
+<template id="lhc-theme-preview-reset"><style>
+/* The widget wrapper always injects this reset into the widget document first
+   (design/defaulttheme/widget/wrapper/src/lib/settings.js).
+   A shadow tree has no html/body, so "html,body" is applied to the shadow host and
+   "body" to the preview panel which represents the widget body. */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+.lhc-theme-preview{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+:host{height:100%!important;min-height:100%!important;max-height:100%!important;width:100%!important;min-width:100%!important;max-width:100%!important}
+.lhc-theme-preview{display:flex;flex-direction:column;background:transparent;font:13px Helvetica,Arial,sans-serif;position:relative}
+.clear{clear:both}
+.clearfix:after{content:'';display:block;height:0;clear:both;visibility:hidden}
+*,::after,::before{box-sizing:border-box}
+</style></template>
+
+<div class="d-flex flex-wrap gap-3 align-items-start" id="lhc-theme-preview-container">
 
 <div class="lhc-preview-col">
 <div class="mb-1"><span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Start chat form')?></span></div>
 
-<div class="lhc-theme-preview" id="lhc-theme-preview-startchat" style="background-color:#{{bactract_bg_color_send_area_background}};border-color:#{{bactract_bg_color_widget_border_color}};border-width:{{ngModelAbstractInput_widget_border_width}}px" data-preview-field="widget_border_color">
-    <div class="lhc-preview-header" style="background-color:#{{bactract_bg_color_header_background}}" data-preview-field="header_background">
-        <a class="header-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Minimize')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">remove</i></a>
-        <a class="header-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Popup')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">open_in_new</i></a>
+<div class="lhc-theme-preview" id="lhc-theme-preview-startchat" data-preview-field="widget_border_color">
+    <div id="root" class="container-fluid d-flex flex-column flex-grow-1 fade-in lhc-desktop lhc-widget-loaded">
+    <div class="lhc-custom-header-above"><div class="header-bg-circle"></div></div>
+    <div id="widget-header-content" class="position-relative row header-chat desktop-header online-header" style="background-color:#{{bactract_bg_color_header_background}}" data-preview-field="header_background">
+        <div class="col-12 px-1 widget-header-menu">
+            <a tabindex="0" class="minimize-icon header-link float-end" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Minimize')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">&#xf11c;</i></a>
+            <a tabindex="0" class="header-link float-end" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Popup')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">&#xf106;</i></a>
+        </div>
     </div>
+    <div class="d-flex flex-column flex-grow-1 reset-container-margins widget-body desktop-body start-chat" style="background-color:#{{bactract_bg_color_send_area_background}}" data-preview-field="send_area_background">
+    <div id="id-container-fluid">
     <div id="lhc-profile-body">
     <div id="chat-status-container" class="p-2" ng-class="{'border-bottom': !abstract_checked_np_border}" style="background-color:#{{bactract_bg_color_op_background}}" data-preview-field="op_background">
         <div class="operator-info d-flex" style="color:#{{bactract_bg_color_operator_txt_color}}" data-preview-field="operator_txt_color">
@@ -249,24 +281,26 @@
         </div>
     </div>
     </div>
-    <div class="lhc-preview-startchat" style="background-color:#{{bactract_bg_color_msg_background}}">
+    <div class="container-fluid">
+        <?php /* The widget renders a form element here, but the preview lives inside the admin form and a nested form is dropped by the HTML parser - a div looks identical. */ ?>
+        <div class="lhc-preview-form">
         <div class="row pt-2">
             <div class="col-12">
                 <div class="form-group">
                     <label class="control-label" style="color:#{{bactract_bg_color_label_txt_color}}" data-preview-field="label_txt_color"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your name')?> *</label>
-                    <input type="text" readonly class="form-control" style="background-color:#{{bactract_bg_color_input_bg_color}};border-color:#{{bactract_bg_color_input_brd_color}};color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your name')?>" data-preview-field="input_bg_color">
+                    <input type="text" readonly class="form-control form-control-sm" style="background-color:#{{bactract_bg_color_input_bg_color}};border-color:#{{bactract_bg_color_input_brd_color}};color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your name')?>" data-preview-field="input_bg_color">
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label class="control-label" style="color:#{{bactract_bg_color_label_txt_color}}" data-preview-field="label_txt_color"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your e-mail')?></label>
-                    <input type="text" readonly class="form-control" style="background-color:#{{bactract_bg_color_input_bg_color}};border-color:#{{bactract_bg_color_input_brd_active}};box-shadow:0 0 0 .25rem #{{bactract_bg_color_input_shd_color}}40;color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your e-mail')?>" data-preview-field="input_brd_active">
+                    <input type="text" readonly class="form-control form-control-sm" style="background-color:#{{bactract_bg_color_input_bg_color}};border-color:#{{bactract_bg_color_input_brd_active}};box-shadow:0 0 0 .25rem #{{bactract_bg_color_input_shd_color}}40;color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your e-mail')?>" data-preview-field="input_brd_active">
                 </div>
             </div>
             <div class="col-12">
                 <div class="form-group">
                     <label class="control-label" style="color:#{{bactract_bg_color_label_txt_color}}" data-preview-field="label_txt_color"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Your question')?> *</label>
-                    <textarea readonly rows="2" class="form-control" style="background-color:#{{bactract_bg_color_input_bg_color}};border-color:#{{bactract_bg_color_input_brd_color}};color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...')?>" data-preview-field="input_plc_color"></textarea>
+                    <textarea readonly rows="2" class="form-control form-control-sm" style="background-color:#{{bactract_bg_color_input_bg_color}};border-color:#{{bactract_bg_color_input_brd_color}};color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...')?>" data-preview-field="input_plc_color"></textarea>
                 </div>
             </div>
         </div>
@@ -275,6 +309,10 @@
                 <button type="button" class="btn btn-secondary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Start chat')?></button>
             </div>
         </div>
+        </div>
+    </div>
+    </div>
+    </div>
     </div>
 </div>
 
@@ -283,12 +321,17 @@
 <div class="lhc-preview-col">
 <div class="mb-1"><span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Chat window')?></span></div>
 
-<div class="lhc-theme-preview" id="lhc-theme-preview-chat" style="background-color:#{{bactract_bg_color_send_area_background}};border-color:#{{bactract_bg_color_widget_border_color}};border-width:{{ngModelAbstractInput_widget_border_width}}px" data-preview-field="widget_border_color">
-    <div class="lhc-preview-header" style="background-color:#{{bactract_bg_color_header_background}}" data-preview-field="header_background">
-        <a class="header-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Minimize')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">remove</i></a>
-        <a class="header-link" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Popup')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">open_in_new</i></a>
+<div class="lhc-theme-preview" id="lhc-theme-preview-chat" data-preview-field="widget_border_color">
+    <div id="root" class="container-fluid d-flex flex-column flex-grow-1 fade-in lhc-desktop lhc-widget-loaded" ng-class="{'bubble-messages': abstract_checked_bubble_style_profile, 'hide-visitor-profile' : abstract_checked_hide_visitor_profile}">
+    <div class="lhc-custom-header-above"><div class="header-bg-circle"></div></div>
+    <div id="widget-header-content" class="position-relative row header-chat desktop-header online-header" style="background-color:#{{bactract_bg_color_header_background}}" data-preview-field="header_background">
+        <div class="col-12 px-1 widget-header-menu">
+            <a tabindex="0" class="minimize-icon header-link float-end" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Minimize')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">&#xf11c;</i></a>
+            <a tabindex="0" class="header-link float-end" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Popup')?>" style="color:#{{bactract_bg_color_header_icon_color}}" data-preview-field="header_icon_color"><i class="material-icons">&#xf106;</i></a>
+        </div>
     </div>
-    <div class="lhc-preview-status p-2 border-bottom live-status-1" style="background-color:#{{bactract_bg_color_op_background}}" data-preview-field="op_background">
+    <div class="d-flex flex-column flex-grow-1 reset-container-margins widget-body desktop-body online-chat online-chat-status-1" style="background-color:#{{bactract_bg_color_send_area_background}}" data-preview-field="send_area_background">
+    <div id="chat-status-container" class="p-2 border-bottom live-status-1" style="background-color:#{{bactract_bg_color_op_background}}" data-preview-field="op_background">
         <div class="operator-info d-flex" style="color:#{{bactract_bg_color_operator_txt_color}}" data-preview-field="operator_txt_color">
             <div class="align-self-center op-photo">
                 <img width="48" height="48" src="<?php echo erLhcoreClassDesign::design('images/general/logo.png');?>" alt="">
@@ -301,19 +344,19 @@
         </div>
     </div>
 
-            		    <div id="messages" style="background-color:#{{bactract_bg_color_msg_background}}" ng-class="{'bubble-messages': abstract_checked_bubble_style_profile, 'hide-visitor-profile' : abstract_checked_hide_visitor_profile}">
-                            <div class="msgBlock" style="" id="messagesBlock">       
+    <div id="messagesBlock" class="flex-grow-1 overflow-scroll position-relative" style="background-color:#{{bactract_bg_color_msg_background}}" data-preview-field="msg_background">
+    <div id="messages-scroll" class="bottom-message px-1">
                                 <div class="message-row response" id="msg-10459" data-op-id="0">
                                     <div class="msg-date">10:14:39</div>
-                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button"><i class="material-icons chat-operators mi-fs15 me-0">face</i>
-                                        <span ng-hide="abstract_checked_bubble_style_profile">Visitor</span>
+                                    <span style="color:#{{bactract_bg_color_buble_visitor_title_color}}" class="usr-tit vis-tit" role="button" data-preview-field="buble_visitor_title_color"><i title="Visitor" class="vis-icon-hld material-icons chat-operators mi-fs15 me-0">&#xf104;</i>
+                                        <span class="user-nick-title">Visitor</span>
                                     </span>
-                                    <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}"><span ng-hide="abstract_checked_hide_delivery_status" class="material-icons me-0 text-primary msg-del-st-3" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Delivered messages indicators')?>" style="color:#{{bactract_bg_color_delivered_msg_color}}!important;font-size:16px;" data-preview-field="delivered_msg_color">done_all</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+                                    <div class="msg-body" style="background-color: #{{bactract_bg_color_buble_visitor_background}};color:#{{bactract_bg_color_buble_visitor_text_color}}"><span ng-hide="abstract_checked_hide_delivery_status" class="material-icons me-0 text-primary msg-del-st-3" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Delivered messages indicators')?>" style="color:#{{bactract_bg_color_delivered_msg_color}}!important;font-size:16px;" data-preview-field="delivered_msg_color">&#xf12a;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                                 </div>
             		            <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
-                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">account_box</i>
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">&#xf10d;</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
                                         <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 me-0">
@@ -328,7 +371,7 @@
                                 <div class="message-row message-admin operator-changes" id="msg-10463" data-op-id="1">
             		                <div class="msg-date">10:18:22</div>
                                     <span style="color:#{{bactract_bg_color_buble_operator_title_color}}" class="usr-tit op-tit" >
-                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">account_box</i>
+                                        <i ng-hide="abstract_checked_bubble_style_profile" class="material-icons chat-operators mi-fs15 me-0">&#xf10d;</i>
                                         <span ng-hide="abstract_checked_bubble_style_profile" class="op-nick-title">Operator</span>
 
                                         <i ng-show="abstract_checked_bubble_style_profile" class="chat-operators mi-fs15 me-0">
@@ -340,21 +383,23 @@
 
                                 <div class="btn-bottom-scroll fade-in-fast text-center"><button type="button" style="border-radius:15px;padding: 3px 10px;opacity: 0.85;color:#{{bactract_bg_color_text_scroll_bottom}}!important;background-color: #{{bactract_bg_color_bg_scroll_bottom}}!important;" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','↓ Scroll to the bottom')?></button></div>
 
-            		        </div>
-                        </div>
-		
+    </div>
+    </div>
+
     <div class="d-flex flex-row border-top position-relative message-send-area" style="background-color:#{{bactract_bg_color_send_area_background}};border-top-width:{{ngModelAbstractInput_send_area_border_w}}px!important;border-top-color:#{{bactract_bg_color_send_area_border_c}}!important" data-preview-field="send_area_background">
         <div id="chat-dropdown-options-wrapper" class="btn-group dropup disable-select ps-1 d-flex flex-column justify-content-end align-items-stretch">
-            <button type="button" tabindex="-1" id="chat-dropdown-options" class="border-0 p-0 material-icons settings text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Settings and send icons color')?>" style="color:#{{bactract_bg_color_send_icons_clr || 'd3d3d3'}}!important;" data-preview-field="send_icons_clr">settings</button>
+            <button type="button" tabindex="-1" id="chat-dropdown-options" class="border-0 p-0 material-icons settings text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Settings and send icons color')?>" style="{{bactract_bg_color_send_icons_clr ? 'color:#'+bactract_bg_color_send_icons_clr+'!important;' : ''}}" data-preview-field="send_icons_clr">&#xf100;</button>
         </div>
         <div class="mx-auto w-100">
             <textarea readonly rows="1" id="CSChatMessage" class="ps-0 no-outline form-control rounded-0 border-0" style="color:#{{bactract_bg_color_input_txt_color}}" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Type your message here...')?>" data-preview-field="input_txt_color"></textarea>
         </div>
         <div id="send-button-wrapper" class="disable-select d-flex flex-column justify-content-end align-items-stretch">
             <div id="ChatSendButtonContainer" class="user-chatwidget-buttons pe-1">
-                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send message')?>" data-preview-field="send_icons_clr"><i class="send-icon material-icons settings me-0 text-muted-light" style="color:#{{bactract_bg_color_send_icons_clr || 'd3d3d3'}}!important;">send</i></a>
+                <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Send message')?>" data-preview-field="send_icons_clr"><i class="send-icon material-icons settings me-0 text-muted-light" style="{{bactract_bg_color_send_icons_clr ? 'color:#'+bactract_bg_color_send_icons_clr+'!important;' : ''}}">&#xf107;</i></a>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </div>
 
@@ -441,12 +486,14 @@
 </div>
 
 <script>
-$(document).on('click', '.lhc-theme-preview [data-preview-field]', function(e) {
-    // Only the innermost mapped element should react (jQuery fires the handler for every matching ancestor)
-    if (!e.target.closest || e.target.closest('[data-preview-field]') !== this) { return; }
+// Bound to the preview shadow root (see the bottom of this template)
+window.lhcThemePreviewJump = function(e) {
+    // Only the innermost mapped element should react
+    var target = e.target && e.target.closest ? e.target.closest('[data-preview-field]') : null;
+    if (!target) { return; }
 
     e.preventDefault();
-    var field = $(this).attr('data-preview-field');
+    var field = target.getAttribute('data-preview-field');
     if (!field) { return; }
 
     var el = document.getElementById('id_AbstractInput_' + field) || document.querySelector('[name="AbstractInput_' + field + '"]');
@@ -463,14 +510,12 @@ $(document).on('click', '.lhc-theme-preview [data-preview-field]', function(e) {
     el.scrollIntoView({behavior:'smooth', block:'center'});
     try { el.focus({preventScroll:true}); } catch(err) { el.focus(); }
 
-    var group = $(el).closest('.form-group');
-    if (!group.length) { group = $(el).parent(); }
-    group.addClass('lhc-theme-target-highlight');
-    setTimeout(function(){ group.removeClass('lhc-theme-target-highlight'); }, 1700);
-});
+    var group = el.closest('.form-group') || el.parentElement;
+    group.classList.add('lhc-theme-target-highlight');
+    setTimeout(function(){ group.classList.remove('lhc-theme-target-highlight'); }, 1700);
+};
 
 // Map the existing message preview markup to the related settings
-$('#lhc-theme-preview-chat #messages').attr('data-preview-field', 'msg_background');
 $('#lhc-theme-preview-chat .message-row.response .msg-body').attr('data-preview-field', 'buble_visitor_background');
 $('#lhc-theme-preview-chat .message-row.response .vis-tit').attr('data-preview-field', 'buble_visitor_title_color');
 $('#lhc-theme-preview-chat .message-row.message-admin .msg-body').attr('data-preview-field', 'buble_operator_background');
@@ -1750,6 +1795,90 @@ $('#lhc-theme-preview-chat .btn-bottom-scroll button').attr('data-preview-field'
                     textarea.val(editor.getSession().getValue());
                 })
             });
+
+            // The live preview is rendered inside a Shadow DOM: it isolates the admin UI from the theme
+            // CSS and allows the theme's "Widget body additional CSS" to be applied as-is.
+            var previewContainer = document.getElementById('lhc-theme-preview-container');
+            var previewShadow = null;
+            var previewCustomCssStyle = null;
+
+            function initThemePreviewShadow() {
+                if (!previewContainer || !previewContainer.attachShadow || previewContainer.shadowRoot) { return; }
+
+                previewShadow = previewContainer.attachShadow({mode: 'open'});
+
+                // The widget always gets its reset CSS injected first, add it as the very first
+                // stylesheet of the shadow tree.
+                var previewResetTemplate = document.getElementById('lhc-theme-preview-reset');
+                if (previewResetTemplate && previewResetTemplate.content) {
+                    previewShadow.appendChild(previewResetTemplate.content.cloneNode(true));
+                }
+
+                // Then the very same stylesheet bundle the widget loads (LTR) - the preview DOM mirrors
+                // the widget DOM, so all widget rules apply without any preview specific overrides.
+                var previewWidgetCss = document.createElement('link');
+                previewWidgetCss.rel = 'stylesheet';
+                previewWidgetCss.href = '<?php echo erLhcoreClassDesign::designCSS('css/widgetv2/bootstrap.min.css;css/widgetv2/widget.css;css/widgetv2/widget_override.css')?>';
+                previewShadow.appendChild(previewWidgetCss);
+
+                // Move the preview into the shadow tree. This is done only once AngularJS has compiled the
+                // preview, so the interpolated values are already resolved and stay live after re-parenting.
+                while (previewContainer.firstChild) {
+                    previewShadow.appendChild(previewContainer.firstChild);
+                }
+
+                // The preview stylesheet contains interpolated values, mirror it into the shadow tree
+                var previewStyleSource = document.getElementById('lhc-theme-preview-css');
+                if (previewStyleSource) {
+                    var previewStyleMirror = document.createElement('style');
+                    previewStyleMirror.textContent = previewStyleSource.textContent;
+                    previewShadow.appendChild(previewStyleMirror);
+                    new MutationObserver(function () {
+                        previewStyleMirror.textContent = previewStyleSource.textContent;
+                    }).observe(previewStyleSource, {childList: true, characterData: true, subtree: true});
+                }
+
+                previewCustomCssStyle = document.createElement('style');
+                previewCustomCssStyle.id = 'lhc-theme-preview-custom-css';
+                previewShadow.appendChild(previewCustomCssStyle);
+
+                previewShadow.addEventListener('click', window.lhcThemePreviewJump);
+
+                updatePreviewCustomCss();
+            }
+
+            // AngularJS compiles the preview on DOMContentLoaded, so wait until the page is fully loaded
+            // otherwise the interpolations would be moved into the shadow tree unresolved.
+            if (document.readyState === 'complete') {
+                initThemePreviewShadow();
+            } else {
+                $(window).on('load', initThemePreviewShadow);
+            }
+
+            function getCustomWidgetCssValue() {
+                var aceEl = document.getElementById('ace-AbstractInput_custom_widget_css');
+                if (aceEl && window.ace) {
+                    try { return ace.edit(aceEl).getSession().getValue(); } catch(e) {}
+                }
+                var textarea = document.querySelector('[name="AbstractInput_custom_widget_css"]');
+                return textarea ? textarea.value : '';
+            }
+
+            function updatePreviewCustomCss() {
+                if (!previewCustomCssStyle) { return; }
+                var css = getCustomWidgetCssValue();
+                // In the real widget these selectors point to the document/widget root, in the preview that is the widget panel
+                previewCustomCssStyle.textContent = $.trim(css) == '' ? '' : css.replace(/(^|[,{}\s])(html|body|:root|:host)\b(?![\w-])/g, function(match, prefix) { return prefix + '.lhc-theme-preview'; });
+            }
+
+            (function () {
+                var aceEl = document.getElementById('ace-AbstractInput_custom_widget_css');
+                if (aceEl && window.ace) {
+                    try { ace.edit(aceEl).getSession().on('change', updatePreviewCustomCss); return; } catch(e) {}
+                }
+                var textarea = document.querySelector('[name="AbstractInput_custom_widget_css"]');
+                if (textarea) { textarea.addEventListener('input', updatePreviewCustomCss); }
+            })();
 
             $('#department-filter .btn-block-department').makeDropdown({"on_delete" : function(){
                     getDepartmentsIds();
