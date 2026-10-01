@@ -33,21 +33,46 @@ if (isset($_POST['CancelAction']) || !is_object($ObjectData)) {
 
 $object_trans = $ObjectData->getModuleTranslations();
 
+$permissionError = false;
+
 if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_trans['permission']['module'],$object_trans['permission']['function'])) {
-	erLhcoreClassModule::redirect();
-	exit;
+	$permissionError = 'permission';
 }
 
 if (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function'])) {
-	erLhcoreClassModule::redirect();
-	exit;
+	$permissionError = 'permission';
 }
 
-if ( method_exists($ObjectData,'checkPermission') ) {
-	if ( $ObjectData->checkPermission() === false ) {
-		erLhcoreClassModule::redirect();
-		exit;
+if ($permissionError === false && method_exists($ObjectData,'checkPermission') && $ObjectData->checkPermission() === false) {
+	$permissionError = 'departments';
+}
+
+if ($permissionError !== false) {
+
+	$tplPermission = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
+
+	$tplPermission->set('errors', array(
+		$permissionError === 'departments' ?
+			erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','Please check that you have all departments assigned which are assigned in the object you are trying to edit.') :
+			erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','You do not have permission to access this object.')
+	));
+
+	$tplPermission->set('hideErrorButton',true);
+
+	$Result['content'] = $tplPermission->fetch() . '<a class="btn btn-secondary btn-sm" href="javascript:window.history.back()">' . erTranslationClassLhTranslation::getInstance()->getTranslation('kernel/nopermission','Go back') . '</a>';
+
+	if (isset($object_trans['path'])) {
+		if (isset($object_trans['path']['url'])) {
+			$Result['path'][] = $object_trans['path'];
+		} else {
+			$Result['path'] = $object_trans['path'];
+		}
+		$Result['path'][] = array('title' => $object_trans['name']);
+	} else {
+		$Result['path'] = array(array('title' => $object_trans['name']));
 	}
+
+	return $Result;
 }
 
 if (
