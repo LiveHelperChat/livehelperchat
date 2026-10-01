@@ -1105,7 +1105,10 @@ class erLhAbstractModelProactiveChatInvitation {
         if (isset($this->dep_ids) && !empty($this->dep_ids)) {
             $values = [];
             foreach ($this->dep_ids as $department_id) {
-                $values[] = "(" . $this->id . "," . $department_id . ")";
+                // Ignore empty/invalid values e.g. "Any" option
+                if ((int)$department_id > 0) {
+                    $values[] = "(" . $this->id . "," . (int)$department_id . ")";
+                }
             }
             if (!empty($values)) {
                 $db->query('INSERT INTO `lh_abstract_proactive_chat_invitation_dep` (`invitation_id`,`dep_id`) VALUES ' . implode(',',$values));

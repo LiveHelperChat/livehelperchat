@@ -259,10 +259,10 @@
     </div>
 </div>
 
-<?php $showAnyDepartment = !empty($limitDepartments = erLhcoreClassUserDep::conditionalDepartmentFilter()); ?>
+<?php $limitDepartments = erLhcoreClassUserDep::conditionalDepartmentFilter(); ?>
 <div class="form-group">
 
-    <div class="d-flex">
+    <div class="d-flex pb-2">
         <div class="d-inline pe-2">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Department');?></label>
         </div>
@@ -288,35 +288,28 @@
         </div>
     </div>
 
-    <div class="row" style="max-height: 500px; overflow: auto">
-        <?php
-        $params = array (
-            'input_name'     => 'DepartmentID[]',
-            'display_name'   => 'name',
-            'css_class'      => 'form-control',
-            'multiple'       => true,
-            'wrap_prepend'   => '<div class="col-4">',
-            'wrap_append'    => '</div>',
-            'selected_id'    => $object->dep_ids_front,
-            'list_function'  => 'erLhcoreClassModelDepartament::getList',
-            'list_function_params'  => array_merge(array('sort' => '`name` ASC', 'limit' => false), $limitDepartments)
-        );
+    <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+        'input_name'     => 'DepartmentID[]',
+        'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+        'selected_id'    => $object->dep_ids_front,
+        'css_class'      => 'form-control',
+        'ajax'           => 'deps',
+        'display_name'   => 'name',
+        'list_function_params'  => array_merge(array('sort' => '`name` ASC', 'limit' => 50), $limitDepartments),
+        'list_function'  => 'erLhcoreClassModelDepartament::getList'
+    )); ?>
 
-        if (empty($limitDepartments) || (isset($showAnyDepartment) && $showAnyDepartment == true)) {
-            $params['optional_field'] = erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Any');
-        }
 
-        echo erLhcoreClassRenderHelper::renderCheckbox( $params ); ?>
-    </div>
 </div>
 
 <script>
     $( document ).ready(function() {
         $('#check-by-department-group,#uncheck-check-by-department-group').click(function(){
-            var id = $(this).attr('id');
+            var checkAll = $(this).attr('id') == 'check-by-department-group';
+            var departmentDropdown = $('.btn-block-department-filter > input[data-scope="DepartmentID"]').closest('.btn-block-department');
             $.getJSON(WWW_DIR_JAVASCRIPT + 'chat/searchprovider/depbydepgroup?d='+$('#id_cannedDepartmentGroup').val(), function(data) {
                 data.items.forEach( function(item) {
-                    $('#chk-DepartmentID-'+item).prop('checked', id == 'check-by-department-group');
+                    departmentDropdown.find('.dropdown-result input[type="checkbox"][value="'+item+'"]').prop('checked', checkAll).trigger('change');
                 })
             });
         });

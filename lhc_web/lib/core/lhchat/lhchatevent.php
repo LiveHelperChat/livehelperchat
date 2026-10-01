@@ -263,11 +263,22 @@ class erLhcoreClassChatEvent
             }
         }
 
-        if ( !$form->hasValidData( 'DepartmentID' )  ) {
+        $departmentIDs = [];
+
+        if ( $form->hasValidData( 'DepartmentID' ) ) {
+            foreach ((array)$form->DepartmentID as $departmentID) {
+                // Ignore empty/invalid values e.g. "Any" option or not selected department
+                if ((int)$departmentID > 0) {
+                    $departmentIDs[] = (int)$departmentID;
+                }
+            }
+        }
+
+        if ( empty($departmentIDs) ) {
             $params['obj']->dep_ids = $params['obj']->dep_ids_front = [];
             $params['obj']->dep_id = 0;
         } else {
-            $params['obj']->dep_ids_front = $params['obj']->dep_ids = $form->DepartmentID;
+            $params['obj']->dep_ids_front = $params['obj']->dep_ids = $departmentIDs;
             $params['obj']->dep_id = -1; // -1 means, individual per department
         }
 
