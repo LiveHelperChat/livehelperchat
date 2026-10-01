@@ -215,6 +215,17 @@ class erLhcoreClassGenericBotActionCommand {
 
         } elseif ($action['content']['command'] == 'closechat') {
 
+            // Mail module support
+            if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                if (($conversations = $chat->conversation) instanceof erLhcoreClassModelMailconvConversation) {
+                    erLhcoreClassMailconvWorkflow::closeConversation(array('conv' => & $conversations));
+                    if ($conversations->is_archive === false) {
+                        erLhcoreClassMailconvWorkflow::logInteraction('[BOT] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation.'), '[BOT]', $conversations->id);
+                    }
+                }
+                return;
+            }
+
             $db = ezcDbInstance::get();
 
             try {
@@ -936,7 +947,27 @@ class erLhcoreClassGenericBotActionCommand {
                 $department = erLhcoreClassModelDepartament::fetch($action['content']['payload']);
 
                 if ($department instanceof erLhcoreClassModelDepartament) {
+
                     $chat->dep_id = $department->id;
+
+                    // Mail module support. Update all related records as well.
+                    if ($chat instanceof erLhcoreClassModelMailconvMessage) {
+                        if (($mailConversation = $chat->conversation) instanceof erLhcoreClassModelMailconvConversation) {
+                            $mailConversation->dep_id = $department->id;
+                            $mailConversation->updateThis(['update' => ['dep_id']]);
+                        }
+
+                        foreach (erLhcoreClassModelMailconvMessage::getList(['limit' => false, 'filter' => ['conversation_id' => $chat->conversation_id]]) as $mailMessage) {
+                            if ($mailMessage->dep_id != $department->id) {
+                                $mailMessage->dep_id = $department->id;
+                                $mailMessage->updateThis(['update' => ['dep_id']]);
+                            }
+                        }
+
+                        erLhcoreClassChat::updateDepartmentStats($department);
+
+                        return;
+                    }
 
                     erLhAbstractModelAutoResponder::updateAutoResponder($chat);
 
