@@ -36,13 +36,16 @@
     <legend class="fs13 float-none w-auto mb-0 px-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Standard queue')?></legend>
     <div class="row pb-1">
         <div class="col-12 fs13 text-muted pb-1">
-            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Chat priority limits for chats assigned from the regular auto assignment queue. Inclusive. 0 - no limit.')?></label>
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Min and Max chat priority processed by chat standard queue. Inclusive. 0 - no limit.')?></label>
         </div>
         <div class="col-6">
             <input name="chat_min_priority_std" value="<?php echo $userDep->chat_min_priority_std?>" type="text" class="form-control form-control-sm" />
         </div>
         <div class="col-6">
             <input name="chat_max_priority_std" value="<?php echo $userDep->chat_max_priority_std?>" type="text" class="form-control form-control-sm" />
+        </div>
+        <div class="col-12 pt-1">
+            <p class="text-muted fs13 fst-italic mb-0"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Limits the chat priority range this agent accepts from the regular (standard) auto assignment queue. Inclusive. 0 - no limit. Chats with priority outside this range are not assigned to the agent from the standard queue.')?></p>
         </div>
     </div>
 </fieldset>
