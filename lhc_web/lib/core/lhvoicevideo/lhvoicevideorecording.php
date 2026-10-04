@@ -126,7 +126,8 @@ class erLhcoreClassVoiceVideoRecording {
         $recording->saveThis();
 
         $roomName = erLhcoreClassVoiceVideo::getRoomName($chat);
-        $relativePath = date('Y/m/d', $recording->ctime) . '/chat-' . $chat->id . '-' . $recording->id . '-' . $recording->ctime . ($recording->audio_only == 1 ? '.ogg' : '.mp4');
+        // Flat structure. Egress creates sub directories without group write permission, so files in them could not be removed by retention.
+        $relativePath = 'chat-' . $chat->id . '-' . $recording->id . '-' . date('Ymd-His', $recording->ctime) . ($recording->audio_only == 1 ? '.ogg' : '.mp4');
 
         try {
             $info = self::apiRequest('Egress', 'StartRoomCompositeEgress', array(
@@ -136,7 +137,8 @@ class erLhcoreClassVoiceVideoRecording {
                 'file_outputs' => array(
                     array(
                         'file_type' => $recording->audio_only == 1 ? 'OGG' : 'MP4',
-                        'filepath' => rtrim($settings['recording_egress_path'], '/') . '/' . $relativePath
+                        'filepath' => rtrim($settings['recording_egress_path'], '/') . '/' . $relativePath,
+                        'disable_manifest' => true
                     )
                 )
             ), array('roomRecord' => true));

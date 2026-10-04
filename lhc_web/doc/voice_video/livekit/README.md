@@ -60,7 +60,7 @@ Check what browsers receive: open the call window, `chrome://webrtc-internals` -
 
 ## Call recording
 
-1. Create the recordings directory on the host: `mkdir -p /var/lib/lhc-recordings && chown 1001:1001 /var/lib/lhc-recordings` (egress runs as uid 1001). Live Helper Chat web server user needs read (and delete for retention) access.
+1. Create the recordings directory on the host: `mkdir -p /var/lib/lhc-recordings && chown 1001:www-data /var/lib/lhc-recordings && chmod 2775 /var/lib/lhc-recordings`. Egress runs as uid 1001 with the web server group (see `user` in `docker-compose.yml`), files are written group writable into this directory, so Live Helper Chat can play and remove them.
 2. Put API key/secret into `egress.yaml`. `redis` in `livekit.yaml` must be enabled.
 3. `docker compose up -d` starts redis and egress as well.
 4. Live Helper Chat -> Voice & Video configuration -> Call recording

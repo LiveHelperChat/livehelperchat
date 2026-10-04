@@ -26,6 +26,11 @@ services:
     image: livekit/egress:v1.10
     restart: unless-stopped
     network_mode: host
+    # Egress has to run as uid 1001. Group = web server group (33 www-data on Ubuntu/Debian,
+    # check `id -g nginx` / `id -g apache` on AlmaLinux) and umask 0002, so Live Helper Chat
+    # can remove recordings (retention, chat deletion).
+    user: "1001:33"
+    entrypoint: ["/bin/bash", "-c", "umask 0002 && exec /entrypoint.sh"]
     cap_add:
       - SYS_ADMIN
     environment:
