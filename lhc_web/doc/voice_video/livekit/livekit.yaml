@@ -50,6 +50,6 @@ room:
 logging:
   level: info
 
-# Uncomment for multi node (horizontal scaling) deployments
-# redis:
-#   address: redis.example.com:6379
+# Required for recording (egress) and multi node (horizontal scaling) deployments
+redis:
+  address: 127.0.0.1:6379

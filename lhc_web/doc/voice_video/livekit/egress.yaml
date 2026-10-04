@@ -1,0 +1,14 @@
+# LiveKit Egress (call recording) configuration
+# https://docs.livekit.io/home/self-hosting/egress/
+api_key: REPLACE_API_KEY
+api_secret: REPLACE_API_SECRET
+ws_url: ws://127.0.0.1:7880
+redis:
+  address: 127.0.0.1:6379
+health_port: 8080
+log_level: info
+# Recordings are written to /out (mounted from /var/lib/lhc-recordings)
+# One room composite recording uses ~2-4 CPU cores while running
+cpu_cost:
+  room_composite_cpu_cost: 2
+  audio_room_composite_cpu_cost: 1

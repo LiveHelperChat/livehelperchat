@@ -54,7 +54,58 @@
                 <input type="text" readonly class="form-control form-control-sm" value="<?php echo htmlspecialchars(erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurldirect('voicevideo/webhook'))?>" />
             </div>
         </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit API URL used by this server (optional). E.g. http://127.0.0.1:7880 if LiveKit runs on the same host. Default - server URL above.'); ?></label>
+                <input type="text" class="form-control form-control-sm" placeholder="https://livekit.example.com" name="livekit_api_url" value="<?php isset($voice_data['livekit_api_url']) ? print htmlspecialchars($voice_data['livekit_api_url']) : '' ?>" />
+            </div>
+        </div>
     </div>
+
+    <hr>
+
+    <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Call recording'); ?></h5>
+    <p class="text-muted fs13"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Recordings are made by self hosted LiveKit Egress and stored on your servers. Egress output directory has to be available on this server (shared volume or network mount).'); ?></p>
+
+    <?php $recordingMode = isset($voice_data['recording_mode']) ? $voice_data['recording_mode'] : 'off'; ?>
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Recording'); ?></label>
+            <select name="recording_mode" class="form-control form-control-sm">
+                <option value="off" <?php $recordingMode == 'off' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Disabled'); ?></option>
+                <option value="manual" <?php $recordingMode == 'manual' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Manual - operator starts and stops recording'); ?></option>
+                <option value="auto" <?php $recordingMode == 'auto' ? print 'selected="selected"' : ''?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Automatic - every answered call is recorded'); ?></option>
+            </select>
+        </div>
+    </div>
+
+    <label class="d-block"><input type="checkbox" name="recording_audio_only" value="on" <?php isset($voice_data['recording_audio_only']) && ($voice_data['recording_audio_only'] == true) ? print 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Record audio only (smaller files). Video calls are recorded as video otherwise.'); ?></label>
+
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Egress output directory (inside egress container)'); ?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="/out" name="recording_egress_path" value="<?php isset($voice_data['recording_egress_path']) ? print htmlspecialchars($voice_data['recording_egress_path']) : print '/out' ?>" />
+        </div>
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Same directory on this server'); ?></label>
+            <input type="text" class="form-control form-control-sm" placeholder="/var/lib/lhc-recordings" name="recording_storage_dir" value="<?php isset($voice_data['recording_storage_dir']) ? print htmlspecialchars($voice_data['recording_storage_dir']) : '' ?>" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <div class="col-md-6">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Delete recordings after days. 0 - keep forever. Requires cron/voicevideo_recordings'); ?></label>
+            <input type="number" min="0" class="form-control form-control-sm" name="recording_retention_days" value="<?php isset($voice_data['recording_retention_days']) ? print (int)$voice_data['recording_retention_days'] : print 0 ?>" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Recording notice shown to visitor before joining a call. Leave empty for default text.'); ?></label>
+        <textarea class="form-control form-control-sm" name="recording_notice" rows="2" placeholder="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video','This call may be recorded for quality and training purposes.'))?>"><?php isset($voice_data['recording_notice']) ? print htmlspecialchars($voice_data['recording_notice']) : '' ?></textarea>
+    </div>
+
+    <hr>
+
 
     <div class="row form-group">
         <div class="col-md-6">

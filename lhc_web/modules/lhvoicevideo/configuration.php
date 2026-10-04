@@ -25,6 +25,27 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         'token_ttl' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 86400)
         ),
+        'livekit_api_url' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'recording_mode' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'recording_audio_only' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
+        'recording_egress_path' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'recording_storage_dir' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'string'
+        ),
+        'recording_retention_days' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 36500)
+        ),
+        'recording_notice' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
         'ring_timeout' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 3600)
         ),
@@ -68,6 +89,40 @@ if (isset($_POST['StoreVoiceConfiguration'])) {
         } else {
             $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit server URL has to start with wss:// or https://');
         }
+    }
+
+    $data['livekit_api_url'] = '';
+    if ($form->hasValidData('livekit_api_url') && trim($form->livekit_api_url) != '') {
+        if (preg_match('/^https?:\/\/[^\s]+$/i', trim($form->livekit_api_url))) {
+            $data['livekit_api_url'] = rtrim(trim($form->livekit_api_url), '/');
+        } else {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','LiveKit API URL has to start with http:// or https://');
+        }
+    }
+
+    // Recording
+    $data['recording_mode'] = ($form->hasValidData('recording_mode') && in_array($form->recording_mode, array(erLhcoreClassVoiceVideoRecording::MODE_OFF, erLhcoreClassVoiceVideoRecording::MODE_MANUAL, erLhcoreClassVoiceVideoRecording::MODE_AUTO))) ? $form->recording_mode : erLhcoreClassVoiceVideoRecording::MODE_OFF;
+    $data['recording_audio_only'] = $form->hasValidData('recording_audio_only') && $form->recording_audio_only == true;
+    $data['recording_retention_days'] = $form->hasValidData('recording_retention_days') ? (int)$form->recording_retention_days : 0;
+    $data['recording_notice'] = $form->hasValidData('recording_notice') ? mb_substr(trim(strip_tags($form->recording_notice)), 0, 500) : '';
+
+    foreach (array('recording_egress_path', 'recording_storage_dir') as $attr) {
+        $value = $form->hasValidData($attr) ? rtrim(trim($form->{$attr}), '/') : '';
+        if ($value != '' && (strpos($value, '..') !== false || !preg_match('/^\/[a-zA-Z0-9_\-\.\/]*$/', $value))) {
+            $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Recording directories have to be absolute paths');
+            $value = '';
+        }
+        $data[$attr] = $value;
+    }
+
+    if ($data['recording_egress_path'] == '') {
+        $data['recording_egress_path'] = '/out';
+    }
+
+    if ($data['recording_mode'] != erLhcoreClassVoiceVideoRecording::MODE_OFF && $data['recording_storage_dir'] == '') {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Recordings directory on this server is required when recording is enabled');
+    } elseif ($data['recording_storage_dir'] != '' && !is_dir($data['recording_storage_dir'])) {
+        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('voice/configuration','Recordings directory does not exist on this server');
     }
 
     $data['token_ttl'] = $form->hasValidData('token_ttl') ? (int)$form->token_ttl : 0;

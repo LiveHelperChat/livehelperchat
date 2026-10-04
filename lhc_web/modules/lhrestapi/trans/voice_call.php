@@ -41,6 +41,16 @@ echo json_encode(array(
         "listen" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Listen to the call"),
         "listening" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Listening. Participants are not notified."),
         "stop_listening" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Stop listening"),
+        "recording_active" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","This call is being recorded"),
+        "start_recording" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Start recording"),
+        "stop_recording" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Stop recording"),
+        "transfer" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Transfer the call"),
+        "transfer_to" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Transfer the call to"),
+        "no_operators" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","There are no online operators the call can be transferred to"),
+        "transfer_pending" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Call continues until the operator joins. Transferring to"),
+        "call_transferred" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Call was taken over by another operator."),
+        "join_conversation" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","Join the conversation"),
+        "speaking" => erTranslationClassLhTranslation::getInstance()->getTranslation("chat/voice_video","You are in the conversation. Participants can hear you."),
     ]
 ));
 

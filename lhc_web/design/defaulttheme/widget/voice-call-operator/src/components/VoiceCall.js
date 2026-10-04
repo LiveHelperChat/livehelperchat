@@ -97,7 +97,12 @@ const VoiceCall = props => {
         connectionState: 'CONNECTED',
         networkQuality: 0,
         callStartedAt: null,
-        error: null
+        error: null,
+        info: null,
+        barged: false,
+        showTransfer: false,
+        operators: [],
+        busy: false
     });
 
     const STATUS_OP_PENDING = 0;
@@ -203,36 +208,44 @@ const VoiceCall = props => {
 
         if (type == 'leave' || type == 'end' || type == 'cancel')
         {
-
-            Object.keys(state.localTracks).forEach(trackName => {
-                var track = state.localTracks[trackName];
-                if (track) {
-                    track.stop();
-                    track.close();
-                    state.localTracks[trackName] = undefined;
-                }
-            })
-
-            dispatch({
-                type: 'update',
-                value: {
-                    "remoteUsers" : {},
-                    "uid": null,
-                    "inCall": false,
-                    "isMuted": false,
-                    "screenShare": false,
-                    "callStartedAt": null,
-                    "networkQuality": 0,
-                    "localTracks" : {
-                        videoTrack : null,
-                        audioTrack: null
-                    }
-                }
-            });
-
-            // leave the channel
-           await client.leave();
+            await leaveLocal();
         }
+    }
+
+    // Leaves media room without changing call state on the server
+    const leaveLocal = async (extra) => {
+        const current = chatsRef.current;
+        Object.keys(current.localTracks).forEach(trackName => {
+            var track = current.localTracks[trackName];
+            if (track) {
+                track.stop();
+                track.close();
+                current.localTracks[trackName] = undefined;
+            }
+        })
+
+        dispatch({
+            type: 'update',
+            value: {
+                ...(extra || {}),
+                "barged": false,
+                "showTransfer": false,
+                "remoteUsers" : {},
+                "uid": null,
+                "inCall": false,
+                "isMuted": false,
+                "screenShare": false,
+                "callStartedAt": null,
+                "networkQuality": 0,
+                "localTracks" : {
+                    videoTrack : null,
+                    audioTrack: null
+                }
+            }
+        });
+
+        // leave the channel
+        await client.leave();
     }
 
     const muteMicrophone = () => {
@@ -321,6 +334,80 @@ const VoiceCall = props => {
         return () => window.removeEventListener('pagehide', onPageHide);
     }, []);
 
+    // Call was taken over by another operator (transfer). Leave media room locally.
+    useEffect(() => {
+        if (isOperator && state.inCall === true && state.call.op_status == STATUS_OP_JOINED && state.call.user_id && props.initParams.user_id && state.call.user_id != props.initParams.user_id) {
+            leaveLocal({"pendingJoin": false, "info": t('voice_call.call_transferred')});
+        }
+    }, [state.call.user_id, state.call.op_status]);
+
+    const operatorAction = async (action, payload) => {
+        dispatch({type: 'update', value: {"busy": true, "error": null}});
+        try {
+            const url = WWW_DIR_JAVASCRIPT + "voicevideo/joinop/" + props.initParams.id + '/(action)/' + action;
+            const result = payload ? await api.post(url, payload) : await api.get(url);
+            dispatch({type: 'update', value: {"busy": false}});
+            return result.data;
+        } catch (e) {
+            const message = e.response && e.response.data && e.response.data.result ? e.response.data.result : t('voice_call.connect_error');
+            dispatch({type: 'update', value: {"busy": false, "error": message}});
+            return null;
+        }
+    }
+
+    const toggleRecording = async () => {
+        const data = await operatorAction(state.call.recording === true ? 'record_stop' : 'record_start');
+        if (data !== null) {
+            dispatch({type: 'update', value: {"call" : data}});
+        }
+    }
+
+    const showTransfer = async () => {
+        if (state.showTransfer === true) {
+            dispatch({type: 'update', value: {"showTransfer": false}});
+            return;
+        }
+        const data = await operatorAction('operators');
+        if (data !== null) {
+            dispatch({type: 'update', value: {"showTransfer": true, "operators": data.operators}});
+        }
+    }
+
+    const transferCall = async (userId) => {
+        const data = await operatorAction('transfer', {"user_id": userId});
+        if (data !== null) {
+            dispatch({type: 'update', value: {"showTransfer": false, "info": t('voice_call.transfer_pending') + ' ' + data.transfer_to}});
+        }
+    }
+
+    // Supervisor steps in with microphone
+    const bargeIn = async () => {
+        const data = await operatorAction('barge');
+        if (data === null || !data.token) {
+            return;
+        }
+
+        let audioTrack = null;
+        try {
+            audioTrack = await rtc.createMicrophoneAudioTrack(state.microphoneId);
+        } catch (e) {
+            dispatch({type: 'update', value: {"error": t('voice_call.device_error')}});
+            return;
+        }
+
+        await client.leave();
+        dispatch({type: 'update', value: {"remoteUsers": {}}});
+
+        try {
+            const uid = await client.join(props.initParams, data.token);
+            await client.publish([audioTrack]);
+            dispatch({type: 'update', value: {"uid": uid, "barged": true, "localTracks": {audioTrack: audioTrack, videoTrack: null}}});
+        } catch (e) {
+            audioTrack.stop(); audioTrack.close();
+            dispatch({type: 'update', value: {"inCall": false, "error": t('voice_call.connect_error')}});
+        }
+    }
+
     const startListening = async () => {
         const result = await api.get(WWW_DIR_JAVASCRIPT + "voicevideo/joinop/" + props.initParams.id + '/(action)/listen');
 
@@ -340,15 +427,14 @@ const VoiceCall = props => {
     }
 
     const stopListening = async () => {
-        dispatch({type: 'update', value: {"inCall": false, "remoteUsers": {}, "uid": null, "callStartedAt": null}});
-        await client.leave();
+        await leaveLocal();
     }
 
     useInterval(
         () => {
             updateUI()
         },
-        (listenOnly === true || state.call.status != STATUS_CONFIRMED || state.call.vi_status != STATUS_VI_JOINED || state.call.op_status != STATUS_OP_JOINED) ? 2000 : null
+        (listenOnly === true || state.call.status != STATUS_CONFIRMED || state.call.vi_status != STATUS_VI_JOINED || state.call.op_status != STATUS_OP_JOINED) ? 2000 : 4000
     );
 
     const subscribe = async (user, mediaType) => {
@@ -642,9 +728,10 @@ const VoiceCall = props => {
                     return (<MediaStream user={state.remoteUsers[val].user} key={"media_" + (state.remoteUsers[val].user.uid) + '_' + state.remoteUsers[val].media.join('_')} audio={state.remoteUsers[val].audio} video={state.remoteUsers[val].video} media={state.remoteUsers[val].media} />)
                 })}
             </div>
-            {(state.error !== null || (state.inCall == true && state.connectionState == 'RECONNECTING')) && <div className="row">
+            {(state.error !== null || state.info !== null || (state.inCall == true && state.connectionState == 'RECONNECTING')) && <div className="row">
                 {state.inCall == true && state.connectionState == 'RECONNECTING' && <div className="col-12 alert alert-warning py-1 px-2 m-0 rounded-0"><span className="material-icons">sync_problem</span>{t('voice_call.reconnecting')}</div>}
                 {state.error !== null && <div className="col-12 alert alert-danger py-1 px-2 m-0 rounded-0" onClick={() => dispatch({type: 'update', value: {"error" : null}})}><span className="material-icons">error_outline</span>{state.error}</div>}
+                {state.info !== null && <div className="col-12 alert alert-info py-1 px-2 m-0 rounded-0" onClick={() => dispatch({type: 'update', value: {"info" : null}})}><span className="material-icons">info_outline</span>{state.info}</div>}
             </div>}
 
             {state.showDevices === true && <div className="row border-top pt-2">
@@ -664,9 +751,19 @@ const VoiceCall = props => {
                 </div>}
             </div>}
 
+            {state.showTransfer === true && <div className="row border-top pt-2 pb-2">
+                <div className="col-12">
+                    <div className="fs13 text-muted pb-1">{t('voice_call.transfer_to')}</div>
+                    {state.operators.length == 0 && <div className="text-muted">{t('voice_call.no_operators')}</div>}
+                    {state.operators.map(operator => <button key={"op-" + operator.id} disabled={state.busy} className="btn btn-sm btn-outline-secondary me-1 mb-1" onClick={() => transferCall(operator.id)}><span className="material-icons">support_agent</span>{operator.name}</button>)}
+                </div>
+            </div>}
+
             <div className="row border-top">
 
                 <div className="btn-toolbar p-2 text-center mx-auto btn-toolbar" role="toolbar" >
+
+                    {state.call.recording === true && <div className="p-2 text-center mx-auto py-2 align-self-center text-danger fw-bold" title={t('voice_call.recording_active')}><span className="material-icons">fiber_manual_record</span>REC</div>}
 
                     {state.inCall == true && state.callStartedAt !== null && <div className="p-2 text-center mx-auto text-muted py-2 align-self-center">
                         <span title={t('voice_call.network_quality')} className={"material-icons " + qualityIcon(state.networkQuality).className}>{qualityIcon(state.networkQuality).icon}</span>
@@ -691,9 +788,11 @@ const VoiceCall = props => {
                             <button title={state.isMuted == true ? t('voice_call.unmute_mic') : t('voice_call.mute_mic')} className="btn btn-sm btn-outline-secondary" onClick={() => muteMicrophone()} ><span className="material-icons mr-0">{state.isMuted == true ? 'mic_off' : 'mic'}</span></button>
                             {props.initParams.options.video == true && state.hasVideo === true && <button className="btn btn-sm btn-outline-secondary" disabled={state.screenShare} onClick={() => addCamera()} title={state.type == "audio" ? t('voice_call.share_video') : t('voice_call.stop_sharing_video') }><span className="material-icons mr-0">{(state.type == "audio" || state.screenShare == true) ? 'videocam_off' : 'videocam'}</span></button>}
                             {props.initParams.options.screenshare == true && <button className="btn btn-sm btn-outline-secondary" onClick={() => screenShare()} title={state.screenShare == true ? t('voice_call.stop_share_screen') : t('voice_call.share_your_screen')}><span className="material-icons mr-0">{state.screenShare == true ? 'stop_screen_share' : 'screen_share'}</span></button>}
+                            {props.initParams.can_record === true && <button disabled={state.busy} className={"btn btn-sm " + (state.call.recording === true ? "btn-danger" : "btn-outline-secondary")} onClick={() => toggleRecording()} title={state.call.recording === true ? t('voice_call.stop_recording') : t('voice_call.start_recording')}><span className="material-icons mr-0">{state.call.recording === true ? 'stop_circle' : 'fiber_manual_record'}</span></button>}
+                            {props.initParams.can_transfer === true && <button disabled={state.busy} className={"btn btn-sm " + (state.showTransfer ? "btn-secondary" : "btn-outline-secondary")} onClick={() => showTransfer()} title={t('voice_call.transfer')}><span className="material-icons mr-0">phone_forwarded</span></button>}
                         </React.Fragment>}
 
-                        {((isOperator && state.call.op_status == STATUS_OP_PENDING) || (props.isVisitor == true && state.call.vi_status == STATUS_VI_PENDING) || state.pendingJoin == false) && <React.Fragment>
+                        {((isOperator && state.inCall == false && (state.call.op_status == STATUS_OP_PENDING || (state.call.user_id && state.call.user_id != props.initParams.user_id))) || (props.isVisitor == true && state.call.vi_status == STATUS_VI_PENDING) || state.pendingJoin == false) && <React.Fragment>
                             {state.hasAudio === true && <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audio')}><span className="material-icons">call</span>{t('voice_call.join_with_audio')}</button>}
                             {props.initParams.options.video == true && state.hasVideo === true && <button className="btn btn-sm btn-outline-secondary" onClick={() => requestJoin('audiovideo')}><span className="material-icons">video_call</span>{t('voice_call.join_with_audio_video')}</button>}
                         </React.Fragment>}
@@ -705,6 +804,8 @@ const VoiceCall = props => {
                             {props.initParams.options.screenshare == true && <button className="btn btn-outline-secondary btn-sm" onClick={() => screenShare()} title={state.screenShare == true ? t('voice_call.stop_share_screen') : t('voice_call.share_your_screen')}><span className="material-icons mr-0">{state.screenShare == true ? 'stop_screen_share' : 'screen_share'}</span></button>}
                         </React.Fragment>}
 
+                        {props.isVisitor == true && state.inCall == false && props.initParams.recording_notice && <div className="w-100 text-muted fs13 pt-1"><span className="material-icons">fiber_manual_record</span>{props.initParams.recording_notice}</div>}
+
                         {props.isVisitor == true && state.pendingJoin === true && state.call.vi_status == STATUS_VI_REQUESTED && <button className="btn btn-outline-primary btn-sm" onClick={() => cancelJoin('cancel')} >{t('voice_call.cancel_join')}</button>}
 
                         {listenOnly === true && state.inCall == false && <React.Fragment>
@@ -713,8 +814,11 @@ const VoiceCall = props => {
                         </React.Fragment>}
 
                         {listenOnly === true && state.inCall == true && <React.Fragment>
-                            <span className="text-muted py-2 pe-2"><span className="material-icons">hearing</span>{t('voice_call.listening')}</span>
-                            <button className="btn btn-sm btn-outline-secondary" onClick={() => stopListening()}><span className="material-icons">stop</span>{t('voice_call.stop_listening')}</button>
+                            {state.barged === false && <span className="text-muted py-2 pe-2"><span className="material-icons">hearing</span>{t('voice_call.listening')}</span>}
+                            {state.barged === true && <span className="text-muted py-2 pe-2"><span className="material-icons">record_voice_over</span>{t('voice_call.speaking')}</span>}
+                            {state.barged === false && props.initParams.can_barge === true && <button disabled={state.busy} className="btn btn-sm btn-outline-primary" onClick={() => bargeIn()}><span className="material-icons">record_voice_over</span>{t('voice_call.join_conversation')}</button>}
+                            {state.barged === true && <button title={state.isMuted == true ? t('voice_call.unmute_mic') : t('voice_call.mute_mic')} className="btn btn-sm btn-outline-secondary" onClick={() => muteMicrophone()} ><span className="material-icons mr-0">{state.isMuted == true ? 'mic_off' : 'mic'}</span></button>}
+                            <button className="btn btn-sm btn-outline-secondary" onClick={() => stopListening()}><span className="material-icons">stop</span>{state.barged === true ? t('voice_call.leave_room') : t('voice_call.stop_listening')}</button>
                         </React.Fragment>}
 
                         {listenOnly === false && (state.audioDevices.length > 1 || state.videoDevices.length > 1) && <button title={t('voice_call.settings')} className={"btn btn-sm " + (state.showDevices ? "btn-secondary" : "btn-outline-secondary")} onClick={() => dispatch({type: 'update', value: {"showDevices" : !state.showDevices}})}><span className="material-icons mr-0">settings</span></button>}

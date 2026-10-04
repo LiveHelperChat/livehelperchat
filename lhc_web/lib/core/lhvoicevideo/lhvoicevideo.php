@@ -26,6 +26,13 @@ class erLhcoreClassVoiceVideo {
                 'token_ttl' => 0,
                 'ring_timeout' => 60,
                 'log_calls' => true,
+                'livekit_api_url' => '',
+                'recording_mode' => 'off',
+                'recording_audio_only' => false,
+                'recording_egress_path' => '/out',
+                'recording_storage_dir' => '',
+                'recording_retention_days' => 0,
+                'recording_notice' => '',
             ), $data);
 
             // Settings of removed cloud provider are not used anymore
@@ -127,7 +134,7 @@ class erLhcoreClassVoiceVideo {
     /**
      * Builds access token for a participant.
      */
-    public static function buildToken(erLhcoreClassModelChat $chat, $identity, $name = '', $canPublish = true)
+    public static function buildToken(erLhcoreClassModelChat $chat, $identity, $name = '', $canPublish = true, $audioOnly = false)
     {
         $settings = self::getSettings();
         $expireTs = time() + self::getTokenTTL();
@@ -141,7 +148,7 @@ class erLhcoreClassVoiceVideo {
             'video' => $settings['video'] == true,
             'screenshare' => $settings['screenshare'] == true,
             'can_publish' => $canPublish,
-        ));
+        ) + ($audioOnly === true ? array('audio_only' => true) : array()));
     }
 
     /**
@@ -156,11 +163,11 @@ class erLhcoreClassVoiceVideo {
             $sources[] = 'microphone';
         }
 
-        if (isset($options['video']) && $options['video'] == true) {
+        if (isset($options['video']) && $options['video'] == true && !isset($options['audio_only'])) {
             $sources[] = 'camera';
         }
 
-        if (isset($options['screenshare']) && $options['screenshare'] == true) {
+        if (isset($options['screenshare']) && $options['screenshare'] == true && !isset($options['audio_only'])) {
             $sources[] = 'screen_share';
             $sources[] = 'screen_share_audio';
         }
@@ -185,12 +192,17 @@ class erLhcoreClassVoiceVideo {
             ),
         );
 
+        return self::buildJWT($payload, $apiSecret);
+    }
+
+    public static function buildJWT(array $payload, $secret)
+    {
         $segments = array(
             self::base64UrlEncode(json_encode(array('alg' => 'HS256', 'typ' => 'JWT'))),
             self::base64UrlEncode(json_encode($payload)),
         );
 
-        $segments[] = self::base64UrlEncode(hash_hmac('sha256', implode('.', $segments), $apiSecret, true));
+        $segments[] = self::base64UrlEncode(hash_hmac('sha256', implode('.', $segments), $secret, true));
 
         return implode('.', $segments);
     }
@@ -219,8 +231,20 @@ class erLhcoreClassVoiceVideo {
             )
         );
 
-        if ($isVisitor === false) {
-            $params['csrf'] = erLhcoreClassUser::instance()->getCSFRToken();
+        $recordingMode = erLhcoreClassVoiceVideoRecording::isEnabled() ? erLhcoreClassVoiceVideoRecording::getMode() : erLhcoreClassVoiceVideoRecording::MODE_OFF;
+        $params['recording_mode'] = $recordingMode;
+
+        if ($isVisitor === true) {
+            if ($recordingMode != erLhcoreClassVoiceVideoRecording::MODE_OFF) {
+                $params['recording_notice'] = $settings['recording_notice'] != '' ? $settings['recording_notice'] : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/voice_video', 'This call may be recorded for quality and training purposes.');
+            }
+        } else {
+            $currentUser = erLhcoreClassUser::instance();
+            $params['csrf'] = $currentUser->getCSFRToken();
+            $params['user_id'] = (int)$currentUser->getUserID();
+            $params['can_record'] = $recordingMode == erLhcoreClassVoiceVideoRecording::MODE_MANUAL && $currentUser->hasAccessTo('lhvoicevideo', 'record');
+            $params['can_transfer'] = $currentUser->hasAccessTo('lhchat', 'allowtransfer');
+            $params['can_barge'] = $currentUser->hasAccessTo('lhvoicevideo', 'supervise');
         }
 
         return $params;
@@ -234,6 +258,7 @@ class erLhcoreClassVoiceVideo {
     {
         $state = $vvcall->getState();
         $state['token'] = $token;
+        $state['recording'] = erLhcoreClassVoiceVideoRecording::isRecording($vvcall->chat_id);
         return $state;
     }
 
@@ -271,6 +296,36 @@ class erLhcoreClassVoiceVideo {
         }
 
         return self::buildToken($chat, self::getSupervisorIdentity($userId), (string)$name, false);
+    }
+
+    /**
+     * Supervisor steps in to the conversation. Microphone only.
+     */
+    public static function getSupervisorSpeakToken(erLhcoreClassModelChat $chat, erLhcoreClassModelChatVoiceVideo $vvcall, $userId, $name = '')
+    {
+        if ($vvcall->op_status != erLhcoreClassModelChatVoiceVideo::STATUS_OP_JOINED && $vvcall->vi_status != erLhcoreClassModelChatVoiceVideo::STATUS_VI_JOINED) {
+            return '';
+        }
+
+        return self::buildToken($chat, self::getSupervisorIdentity($userId), (string)$name, true, true);
+    }
+
+    /**
+     * System message visible to visitor and operators.
+     */
+    public static function addSystemMessage(erLhcoreClassModelChat $chat, $text)
+    {
+        $msg = new erLhcoreClassModelmsg();
+        $msg->msg = $text;
+        $msg->chat_id = $chat->id;
+        $msg->user_id = -1;
+        $msg->time = time();
+        $msg->saveThis();
+
+        $chat->last_msg_id = $chat->last_msg_id < $msg->id ? $msg->id : $chat->last_msg_id;
+        $chat->updateThis(array('update' => array('last_msg_id')));
+
+        return $msg;
     }
 
     /**
@@ -411,13 +466,19 @@ class erLhcoreClassVoiceVideo {
                 $session->status = erLhcoreClassModelChatVoiceVideoSession::STATUS_ACTIVE;
                 $session->updateThis(array('update' => array('answered_at', 'status')));
             }
+
+            erLhcoreClassVoiceVideoRecording::autoStart($chat, $userId);
         } catch (Exception $e) {
 
         }
     }
 
-    public static function trackCallEnd(erLhcoreClassModelChat $chat, $reason, $logMessage = true)
+    public static function trackCallEnd(erLhcoreClassModelChat $chat, $reason, $logMessage = true, $stopRecording = true)
     {
+        if ($stopRecording === true) {
+            erLhcoreClassVoiceVideoRecording::stopByChatId($chat->id);
+        }
+
         try {
             $session = self::getActiveSession($chat->id);
 
@@ -452,6 +513,8 @@ class erLhcoreClassVoiceVideo {
 
     public static function trackCallEndByChatId($chatId, $reason)
     {
+        erLhcoreClassVoiceVideoRecording::stopByChatId($chatId);
+
         try {
             $db = ezcDbInstance::get();
             $stmt = $db->prepare('UPDATE `lh_chat_voice_video_session` SET `ended_at` = :ended_at, `end_reason` = :end_reason, `status` = IF(`answered_at` > 0, :status_ended, :status_missed), `duration` = IF(`answered_at` > 0, :ended_at_duration - `answered_at`, 0) WHERE `chat_id` = :chat_id AND `status` IN (' . erLhcoreClassModelChatVoiceVideoSession::STATUS_RINGING . ',' . erLhcoreClassModelChatVoiceVideoSession::STATUS_ACTIVE . ')');
@@ -477,15 +540,7 @@ class erLhcoreClassVoiceVideo {
             $text = $trans->getTranslation('chat/voice_video', 'Call was not answered');
         }
 
-        $msg = new erLhcoreClassModelmsg();
-        $msg->msg = $text;
-        $msg->chat_id = $chat->id;
-        $msg->user_id = -1;
-        $msg->time = time();
-        $msg->saveThis();
-
-        $chat->last_msg_id = $chat->last_msg_id < $msg->id ? $msg->id : $chat->last_msg_id;
-        $chat->updateThis(array('update' => array('last_msg_id')));
+        self::addSystemMessage($chat, $text);
     }
 
     public static function formatDuration($seconds)

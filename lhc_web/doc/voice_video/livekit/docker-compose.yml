@@ -14,6 +14,29 @@ services:
     volumes:
       - ./livekit.yaml:/etc/livekit.yaml:ro
 
+  # Required by egress (recording). LiveKit and egress communicate through it.
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --bind 127.0.0.1 --protected-mode yes
+    network_mode: host
+
+  # Call recording. Remove if recording is not used.
+  egress:
+    image: livekit/egress:v1.10
+    restart: unless-stopped
+    network_mode: host
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      - EGRESS_CONFIG_FILE=/etc/egress.yaml
+    volumes:
+      - ./egress.yaml:/etc/egress.yaml:ro
+      # Recordings. The same directory has to be available to Live Helper Chat
+      # ("Same directory on this server" in LHC recording configuration),
+      # e.g. run LHC on the same host or mount it over NFS.
+      - /var/lib/lhc-recordings:/out
+
   # TLS termination for wss://livekit.example.com -> 127.0.0.1:7880
   caddy:
     image: caddy:2

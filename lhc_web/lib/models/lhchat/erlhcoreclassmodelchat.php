@@ -148,6 +148,9 @@ class erLhcoreClassModelChat {
            $stmt->execute();
        }
 
+       // Call recordings (files as well)
+       erLhcoreClassVoiceVideoRecording::deleteByChatId($this->id);
+
        // Call history. Separate as table might not exist if database was not updated yet.
        try {
            $q = ezcDbInstance::get()->createDeleteQuery();

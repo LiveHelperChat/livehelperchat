@@ -101,6 +101,7 @@
             <th nowrap><?php echo $trans->getTranslation('chat/voice_video','Wait time');?></th>
             <th nowrap><?php echo $trans->getTranslation('chat/voice_video','Duration');?></th>
             <th nowrap><?php echo $trans->getTranslation('chat/voice_video','End reason');?></th>
+            <?php if (!empty($recordings) || erLhcoreClassUser::instance()->hasAccessTo('lhvoicevideo','recordings')) : ?><th nowrap><?php echo $trans->getTranslation('chat/voice_video','Recording');?></th><?php endif; ?>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
@@ -120,6 +121,13 @@
                 <td nowrap><?php echo $item->answered_at > 0 ? erLhcoreClassVoiceVideo::formatDuration($item->wait_time) : '-'?></td>
                 <td nowrap><?php echo $item->status == erLhcoreClassModelChatVoiceVideoSession::STATUS_ENDED ? $item->duration_front : '-'?></td>
                 <td nowrap class="text-muted fs13"><?php echo htmlspecialchars($item->end_reason)?></td>
+                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhvoicevideo','recordings')) : ?>
+                <td nowrap>
+                    <?php if (isset($recordings[$item->id])) : foreach ($recordings[$item->id] as $recording) : ?>
+                        <?php include(erLhcoreClassDesign::designtpl('lhvoicevideo/recording_item.tpl.php'));?>
+                    <?php endforeach; endif; ?>
+                </td>
+                <?php endif; ?>
             </tr>
         <?php endforeach; ?>
     </table>

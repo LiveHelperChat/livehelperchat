@@ -23,6 +23,18 @@ if (!erLhcoreClassVoiceVideo::verifyLiveKitWebhook($body, $authorization)) {
 
 $event = json_decode($body, true);
 
+// Recording status updates
+if (is_array($event) && isset($event['event']) && in_array($event['event'], array('egress_started', 'egress_updated', 'egress_ended')) && isset($event['egressInfo']) && is_array($event['egressInfo'])) {
+    $updated = false;
+    try {
+        $updated = erLhcoreClassVoiceVideoRecording::handleEgressEvent($event['egressInfo']);
+    } catch (Exception $e) {
+
+    }
+    echo json_encode(array('error' => false, 'result' => $updated ? 'recording_updated' : 'ignored'));
+    exit;
+}
+
 if (!is_array($event) || !isset($event['event']) || !isset($event['room']['name'])) {
     echo json_encode(array('error' => false, 'result' => 'ignored'));
     exit;

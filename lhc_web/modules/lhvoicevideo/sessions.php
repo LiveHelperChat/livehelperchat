@@ -107,7 +107,21 @@ try {
     $tpl->set('pages', $pages);
 
     if ($pages->items_total > 0) {
-        $tpl->set('items', erLhcoreClassModelChatVoiceVideoSession::getList(array_merge($filter, array('limit' => $pages->items_per_page, 'offset' => $pages->low))));
+        $items = erLhcoreClassModelChatVoiceVideoSession::getList(array_merge($filter, array('limit' => $pages->items_per_page, 'offset' => $pages->low)));
+        $tpl->set('items', $items);
+
+        // Recordings of listed calls
+        $recordings = array();
+        if ($currentUser->hasAccessTo('lhvoicevideo', 'recordings') && !empty($items)) {
+            try {
+                foreach (erLhcoreClassModelChatVoiceVideoRecording::getList(array('limit' => false, 'filterin' => array('session_id' => array_keys($items)))) as $recording) {
+                    $recordings[$recording->session_id][] = $recording;
+                }
+            } catch (Exception $e) {
+                // Recordings table is missing, database update is required
+            }
+        }
+        $tpl->set('recordings', $recordings);
     }
 
 } catch (Exception $e) {
