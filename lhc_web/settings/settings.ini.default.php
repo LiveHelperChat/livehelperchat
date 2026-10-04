@@ -39,7 +39,7 @@ return array (
                     'trusted_host_patterns' => [
                     ],
                     'rest_api_limit' => array(
-                        'deny_local' => false,
+                        'deny_local' => true,
                         'allow_host' => [
                             // E.g '127.0.0.1' (any port) or '127.0.0.1:990' (that port only)
                         ]
