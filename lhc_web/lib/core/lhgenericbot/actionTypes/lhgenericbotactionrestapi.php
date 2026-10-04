@@ -1465,11 +1465,12 @@ class erLhcoreClassGenericBotActionRestapi
         if (is_array($limitOptions) && isset($limitOptions['deny_local']) && $limitOptions['deny_local'] === true) {
             $host = $urlParts['host'] ?? '';
 
-            // allow_host entries are explicitly trusted and bypass local/private destination checks. Only host is compared, port is unrestricted
+            // allow_host entries are explicitly trusted and bypass local/private destination checks.
+            // Entry can be a bare host (any port allowed) or host:port (that exact port only)
             $allowHosts = (isset($limitOptions['allow_host']) && is_array($limitOptions['allow_host'])) ? array_map('strtolower', $limitOptions['allow_host']) : array();
             $port = isset($urlParts['port']) ? $urlParts['port'] : ($urlParts['scheme'] === 'https' ? 443 : 80);
 
-            if (in_array(strtolower($host), $allowHosts)) {
+            if (in_array(strtolower($host), $allowHosts) || in_array(strtolower($host) . ':' . $port, $allowHosts)) {
                 // Explicitly allowed, no need to resolve or pin
                 $resolvedIp = false;
             } else {
