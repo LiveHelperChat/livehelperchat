@@ -41,7 +41,7 @@ export default ({onChange, type}) => {
         },
         {
             'value':'command',
-            'text' : 'Update Current chat',
+            'text' : 'Update Current chat/mail',
         },
         {
             'value': 'intent',

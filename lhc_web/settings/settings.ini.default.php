@@ -38,6 +38,12 @@ return array (
                     'allow_iframe_domain' => '',
                     'trusted_host_patterns' => [
                     ],
+                    'rest_api_limit' => array(
+                        'deny_local' => false,
+                        'allow_host' => [
+                            // E.g '127.0.0.1'
+                        ]
+                    ),
                     'extensions' =>
                         array (
                             // 0 => 'customstatus',

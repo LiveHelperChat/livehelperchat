@@ -68,13 +68,13 @@ class NodeTriggerActionCommand extends Component {
                                 <optgroup label="Chat related">
                                     <option value="stopchat">Stop chat and transfer to human</option>
                                     <option value="transfertobot">Transfer chat to bot</option>
-                                    <option value="closechat">Close chat</option>
+                                    <option value="closechat">Close chat/mail</option>
                                     <option value="chatvariable">Set/Remove chat variable [not visible by operator]</option>
                                     <option value="chatfilevariable">Set file variable [not visible by operator]</option>
                                     <option value="chatattribute">Set chat additional attribute [visible by operator]</option>
                                     <option value="dispatchevent">Dispatch Event</option>
                                     <option value="setchatattribute">Update main chat attribute</option>
-                                    <option value="setdepartment">Change department</option>
+                                    <option value="setdepartment">Change department of chat/mail</option>
                                     <option value="setsubject">Set subject</option>
                                     <option value="setliveattr">Set widget live attribute</option>
                                     <option value="removeprocess">Remove any previous process</option>

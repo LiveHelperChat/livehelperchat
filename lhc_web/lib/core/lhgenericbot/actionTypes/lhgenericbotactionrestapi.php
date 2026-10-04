@@ -1456,9 +1456,97 @@ class erLhcoreClassGenericBotActionRestapi
             );
         }
 
+        $limitOptions = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'rest_api_limit', false);
+
+        // Hostname resolved IP so it can be pinned on the curl handle below (prevents DNS rebinding)
+        $pinHost = false;
+        $pinHostNames = array();
+
+        if (is_array($limitOptions) && isset($limitOptions['deny_local']) && $limitOptions['deny_local'] === true) {
+            $host = $urlParts['host'] ?? '';
+
+            // allow_host entries are explicitly trusted and bypass local/private destination checks. Only host is compared, port is unrestricted
+            $allowHosts = (isset($limitOptions['allow_host']) && is_array($limitOptions['allow_host'])) ? array_map('strtolower', $limitOptions['allow_host']) : array();
+            $port = isset($urlParts['port']) ? $urlParts['port'] : ($urlParts['scheme'] === 'https' ? 443 : 80);
+
+            if (in_array(strtolower($host), $allowHosts)) {
+                // Explicitly allowed, no need to resolve or pin
+                $resolvedIp = false;
+            } else {
+                if ($host === '' || strtolower($host) === 'localhost') {
+                    return array(
+                        'content' => 'Blocked: private destination '.$url,
+                        'content_raw' => 'Blocked: private destination '.$url,
+                        'params_request' => '',
+                        'http_code' => '500',
+                        'http_error' => '500',
+                        'http_data' => '500',
+                        'content_2' => '',
+                        'content_3' => '',
+                        'content_4' => '',
+                        'content_5' => '',
+                        'content_6' => '',
+                        'meta' => array()
+                    );
+                }
+
+                // Literal IPs are validated as-is; hostnames are resolved once and then pinned below
+                if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
+                    $resolvedIp = $host;
+                } else {
+                    $resolvedIp = gethostbyname($host);
+
+                    if ($resolvedIp === $host || filter_var($resolvedIp, FILTER_VALIDATE_IP) === false) {
+                        return array(
+                            'content' => 'Blocked: unresolvable host '.$url,
+                            'content_raw' => 'Blocked: unresolvable host '.$url,
+                            'params_request' => '',
+                            'http_code' => '500',
+                            'http_error' => '500',
+                            'http_data' => '500',
+                            'content_2' => '',
+                            'content_3' => '',
+                            'content_4' => '',
+                            'content_5' => '',
+                            'content_6' => '',
+                            'meta' => array()
+                        );
+                    }
+
+                    // Remember host:port so the resolved IP is pinned right before the request
+                    $pinHost = true;
+                    $pinHostNames[] = $host . ':' . $port . ':' . $resolvedIp;
+                }
+
+                if (filter_var($resolvedIp, FILTER_VALIDATE_IP,
+                        FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+
+                    return array(
+                        'content' => 'Blocked: private/reserved IP '.$url,
+                        'content_raw' => 'Blocked: private/reserved IP '.$url,
+                        'params_request' => '',
+                        'http_code' => '500',
+                        'http_error' => '500',
+                        'http_data' => '500',
+                        'content_2' => '',
+                        'content_3' => '',
+                        'content_4' => '',
+                        'content_5' => '',
+                        'content_6' => '',
+                        'meta' => array()
+                    );
+                }
+            }
+        }
+
         curl_setopt($ch, CURLOPT_URL, $url);
+
+        // Pin the resolved IP so the request cannot be re-resolved to a private address (DNS rebinding)
+        if ($pinHost === true && !empty($pinHostNames)) {
+            curl_setopt($ch, CURLOPT_RESOLVE, $pinHostNames);
+        }
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 
         $responseContent = [];
         $streamLines = [];
