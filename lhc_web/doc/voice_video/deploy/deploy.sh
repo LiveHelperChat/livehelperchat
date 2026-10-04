@@ -79,8 +79,9 @@ if [ -f "$STATE_FILE" ]; then
     info "Reusing generated credentials from $STATE_FILE"
     . "$STATE_FILE"
 fi
-DB_NAME="${DB_NAME:-livehelperchat}"
-DB_USER="${DB_USER:-lhc}"
+# Unique names, shared servers often already have "livehelperchat"/"lhc" for other sites
+DB_NAME="${DB_NAME:-lhc_voicevideo}"
+DB_USER="${DB_USER:-lhc_voicevideo}"
 DB_PASS="${DB_PASS:-$(rand 24)}"
 ADMIN_USER="${ADMIN_USER:-admin}"
 ADMIN_PASS="${ADMIN_PASS:-$(rand 16)}"
@@ -190,9 +191,16 @@ step "Database"
 
 MYSQL="mysql"
 $MYSQL -e "SELECT 1" >/dev/null 2>&1 || die "can not connect to MySQL/MariaDB as root. Create /root/.my.cnf with root credentials and re-run."
+# Never touch a database or user created by somebody else
+DB_MARKER="/root/.lhc-voice-deploy-db-$DB_NAME"
+if [ ! -f "$DB_MARKER" ]; then
+    [ -z "$($MYSQL -N -e "SHOW DATABASES LIKE '$DB_NAME'")" ] || die "database $DB_NAME already exists and was not created by this script. Re-run with DB_NAME=<new name>."
+    [ "$($MYSQL -N -e "SELECT COUNT(*) FROM mysql.user WHERE User='$DB_USER'")" = "0" ] || die "database user $DB_USER already exists and was not created by this script. Re-run with DB_USER=<new name>."
+fi
 $MYSQL -e "CREATE DATABASE IF NOT EXISTS \`$DB_NAME\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 $MYSQL -e "CREATE USER IF NOT EXISTS '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';"
-$MYSQL -e "ALTER USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS'; GRANT ALL PRIVILEGES ON \`$DB_NAME\`.* TO '$DB_USER'@'localhost'; FLUSH PRIVILEGES;"
+$MYSQL -e "GRANT ALL PRIVILEGES ON \`$DB_NAME\`.* TO '$DB_USER'@'localhost'; FLUSH PRIVILEGES;"
+touch "$DB_MARKER"
 info "Database $DB_NAME ready"
 
 # ---------------------------------------------------------------------------
