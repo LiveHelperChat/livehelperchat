@@ -583,7 +583,7 @@ class erLhcoreClassMailconvParser {
                                 $message->body = self::cleanupMailBody($mailInfoRaw->getHTMLBody());
                             }
 
-                            $message->alt_body = $mailInfoRaw->getTextBody();
+                            $message->alt_body = self::cleanupMailBody($mailInfoRaw->getTextBody());
 
                             // Same object
                             $mail = $mailInfoRaw;
@@ -597,7 +597,7 @@ class erLhcoreClassMailconvParser {
                             }
 
                             if ($mail->textPlain) {
-                                $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain);
+                                $message->alt_body = self::cleanupMailBody(erLhcoreClassMailconvEncoding::toUTF8($mail->textPlain));
                             }
                         }
 
@@ -1648,7 +1648,7 @@ class erLhcoreClassMailconvParser {
                 $message->body = self::cleanupMailBody($mailInfoRaw->getHTMLBody());
             }
 
-            $message->alt_body = $mailInfoRaw->getTextBody();
+            $message->alt_body = self::cleanupMailBody($mailInfoRaw->getTextBody());
 
             $mail = $mailInfoRaw;
 
@@ -1678,7 +1678,7 @@ class erLhcoreClassMailconvParser {
             }
 
             if ($mail->textPlain) {
-                $message->alt_body = erLhcoreClassMailconvEncoding::toUTF8((string)$mail->textPlain);
+                $message->alt_body = self::cleanupMailBody(erLhcoreClassMailconvEncoding::toUTF8((string)$mail->textPlain));
             }
         }
 
@@ -1732,7 +1732,10 @@ class erLhcoreClassMailconvParser {
 
     public static function cleanupMailBody($body)
     {
-        return preg_replace('/<img src="http(s?):\/\/([A-Za-z0-9\.\-]{6,})\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
+        $body = preg_replace('/<img src="http(s?):\/\/([A-Za-z0-9\.\-]{6,})\/mailconv\/tpx\/([A-Za-z0-9]{20,})" \/>/is','',$body);
+        $body = preg_replace('~\[?http(s?):\/\/([A-Za-z0-9\.\-]{6,})\/mailconv\/tpx\/([A-Za-z0-9]{20,})\]?~is','',$body);
+
+        return $body;
     }
 
     /**

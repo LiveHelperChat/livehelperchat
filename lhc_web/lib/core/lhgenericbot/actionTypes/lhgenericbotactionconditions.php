@@ -56,7 +56,7 @@ class erLhcoreClassGenericBotActionConditions {
                         isset($condition['content']['comp']) && $condition['content']['comp'] != '')
                     {
                         $attr = null;
-                        $valAttr = isset($condition['content']['val']) ? $condition['content']['val'] : null;
+                        $valAttrOrig = $valAttr = isset($condition['content']['val']) ? $condition['content']['val'] : null;
 
                         $paramsConditions = explode('.', $condition['content']['attr']);
 
@@ -258,7 +258,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $valAttr = (string)$valAttr;
                         }
 
-                        $conditionsDebug[] = $condition['content']['attr'] . ' => ' .json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . json_encode($valAttr);
+                        $conditionsDebug[] = $condition['content']['attr'] . ' => ' .json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . $valAttrOrig . ' => ' . json_encode($valAttr);
 
                         if ($condition['content']['comp'] == 'eq' && !((isset($multiAttr) && in_array($valAttr, $multiAttr)) || (!isset($multiAttr) && $attr == $valAttr))) {
                             $conditionsDebug[] = 'INVALID';
