@@ -167,6 +167,9 @@ class NodeTriggerActionConditions extends Component {
                             <p><small>Usefull in case some other process might have updated comparable variable already. E.g Chat status was update to pending while Rest APi call was going.</small></p>
                         </div>
                         <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','expose_matching_vars'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','expose_matching_vars'])} /> Expose matching variables. {'{bot_condition.variable}, {bot_condition.variable_value}, {bot_condition.variable_value_partial}, {bot_condition.variables_keyword}, {bot_condition.comp}'}</label> 
+                        </div>
+                        <div className="form-group">
                             <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','log_matched'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','log_matched'])} /> Log detailed information in the log if conditions match</label>
                         </div>
                         <div className="form-group">

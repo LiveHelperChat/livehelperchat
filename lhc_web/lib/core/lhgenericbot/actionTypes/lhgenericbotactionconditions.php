@@ -328,6 +328,16 @@ class erLhcoreClassGenericBotActionConditions {
                             $conditionsMet = false;
                             break;
                         }
+                        
+                        if (isset($action['content']['attr_options']['expose_matching_vars']) && $action['content']['attr_options']['expose_matching_vars'] === true) {
+                            // Store only latest matched condition details. Exposed in messages as {bot_condition.*} variables.
+                            \LiveHelperChat\Helpers\Bot\MatchedConditions::setLastMatchedCondition(
+                                $condition['content']['attr'],
+                                $attr,
+                                $valAttr,
+                                $condition['content']['comp']
+                            );
+                        }
                     }
                     $conditionsDebug[] = 'VALID';
 

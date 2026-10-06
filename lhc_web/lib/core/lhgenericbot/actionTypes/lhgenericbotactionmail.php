@@ -120,15 +120,28 @@ class erLhcoreClassGenericBotActionMail {
                 $mail->AddAttachment($params['file']->file_path_server, 'file.'.$params['file']->extension);
             }
 
+            $sendStatus = true;
             if (class_exists('erLhcoreClassModelMailconvMessage') && $chat instanceof erLhcoreClassModelMailconvMessage && isset($action['content']['mail_options']['copy_send']) && $action['content']['mail_options']['copy_send'] == true) {
                 $mail->MessageID = sprintf('<%s@%s>', $mail->generateId(), $mail->serverHostname());
-                $mail->Send();
+                $sendStatus = $mail->Send();
 
                 erLhcoreClassMailconvValidator::makeSendCopy($mail, $chat->mailbox);
             } else {
-                $mail->Send();
+                $sendStatus = $mail->Send();
             }
 
+            if (!$sendStatus) {
+                erLhcoreClassLog::write( $mail->ErrorInfo,
+                    ezcLog::SUCCESS_AUDIT,
+                    array(
+                        'source' => 'lhc',
+                        'category' => 'web_exception',
+                        'line' => __LINE__,
+                        'file' => __FILE__,
+                        'object_id' => $chat->id
+                    )
+                );
+            }
 
             $mail->ClearAddresses();
         }

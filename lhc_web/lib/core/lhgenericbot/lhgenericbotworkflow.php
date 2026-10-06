@@ -2815,6 +2815,13 @@ class erLhcoreClassGenericBotWorkflow {
                 '{lhc.department}' => (string)$params['chat']->department,
             );
 
+            // Latest matched condition details. The {bot_condition.*} replacements are prepared by the
+            // helper while setting. class_exists(..., false) does not trigger autoloading, so the helper
+            // is only referenced when it was already loaded (i.e. a condition with expose_matching_vars matched).
+            if (class_exists(\LiveHelperChat\Helpers\Bot\MatchedConditions::class, false) && !empty(\LiveHelperChat\Helpers\Bot\MatchedConditions::$botConditionReplace)) {
+                $replaceArray = array_merge($replaceArray, \LiveHelperChat\Helpers\Bot\MatchedConditions::$botConditionReplace);
+            }
+
             $additionalDataArray = $params['chat']->additional_data_array;
 
             if (is_array($additionalDataArray)) {
