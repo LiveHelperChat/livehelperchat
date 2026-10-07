@@ -155,10 +155,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-6">
-
-                </div>
-                <div class="col-6">
+                <div class="col-12">
                     <div class="form-group">
                         <label><input type="checkbox" name="assign_parent_user" value="on" <?php $item->assign_parent_user == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Assign follow-up e-mail to the previous thread owner');?></label>
                         <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Only applies when a new conversation is created by the timeout above. If enabled, the new conversation is assigned to the operator who owned the previous thread. If disabled, the previous owner is not carried over and the default user is used instead.');?></i></small></p>
@@ -167,7 +164,7 @@
             </div>
 
             <div class="row">
-                <div class="col-3">
+                <div class="col-6">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
@@ -180,62 +177,60 @@
                                 <div><label><input type="checkbox" name="workflow_use_in_reply" <?php isset($item->workflow_options_array['workflow_use_in_reply']) && $item->workflow_options_array['workflow_use_in_reply'] == true ? print 'checked="checked"' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Use only In-Reply value as reference to the thread. Otherwise Reference attribute also would be used.');?></label></div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
-                                <input type="number" min="1" max="96" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
+                                <div>
+                                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import');?></label>
+                                    <select class="form-control form-control-sm" name="workflow_reimport_frequency">
+                                        <option value="0" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 0) || !isset($item->workflow_options_array['workflow_reimport_frequency'])) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On a new mail arrival, default');?></option>
+                                        <option value="30" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 30)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every half hour');?></option>
+                                        <option value="60" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 60)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every hour');?></option>
+                                        <option value="120" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 120)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every two hour');?></option>
+                                        <option value="180" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 180)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every three hour');?></option>
+                                        <option value="360" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 360)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 6 hours');?></option>
+                                        <option value="720" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 720)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 12 hours');?></option>
+                                        <option value="1440" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 1440)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 24 hours');?></option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <div><label><input type="checkbox" name="workflow_import_present" <?php isset($item->workflow_options_array['workflow_import_present']) && $item->workflow_options_array['workflow_import_present'] == true ? print 'checked="checked"' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','User present time to import messages from instead of last import time.');?></label></div>
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import last N E-mails. Default 100.');?></label>
+                                <input type="number" min="0" max="500" maxlength="250" class="form-control form-control-sm" name="import_limit_last" value="<?php isset($item->workflow_options_array['import_limit_last']) ? print htmlspecialchars($item->workflow_options_array['import_limit_last']) : null; ?>" />
+                                <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Limits how many of the newest matching e-mails are fetched and imported in a single sync run. The newest N e-mails are imported and any older ones are skipped for that run. If empty or 0, the default of 100 is used.');?></i></small></p>
+                            </div>
+                            <div class="form-group">
+                                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
+                                <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
+                                <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','When a reply arrives and the previous thread\'s last response was more than this many days ago, a new conversation (issue) is created instead of appending the reply to the old one. Set to 0 to always append replies to the existing thread.');?></i></small></p>
+                            </div>
+                            <div class="form-group">
+                                <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Unassign operator on closed ticket re-open');?></label>
+                                <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Controls what happens to the assigned operator when a closed conversation is re-opened by a new reply. If enabled, the operator is unassigned and the conversation returns to the pending queue - the default user set above is not re-applied. If disabled, the previously assigned operator is kept.');?></i></small></p>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-6">
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import since this unix timestamp.');?> <button type="button" class="btn btn-xs btn-secondary" onclick="$('#id_import_since').val(Math.floor(Date.now()/1000))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set to now');?></button></label>
-                        <input type="number" maxlength="250" class="form-control form-control-sm" id="id_import_since" name="import_since" value="<?php echo htmlspecialchars($item->import_since)?>" />
-                    </div>
-                    <div class="form-group">
-                        <div>
-                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import');?></label>
-                            <select class="form-control form-control-sm" name="workflow_reimport_frequency">
-                                <option value="0" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 0) || !isset($item->workflow_options_array['workflow_reimport_frequency'])) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','On a new mail arrival, default');?></option>
-                                <option value="30" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 30)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every half hour');?></option>
-                                <option value="60" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 60)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every hour');?></option>
-                                <option value="120" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 120)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every two hour');?></option>
-                                <option value="180" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 180)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every three hour');?></option>
-                                <option value="360" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 360)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 6 hours');?></option>
-                                <option value="720" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 720)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 12 hours');?></option>
-                                <option value="1440" <?php if ((isset($item->workflow_options_array['workflow_reimport_frequency']) && $item->workflow_options_array['workflow_reimport_frequency'] == 1440)) : ?>selected="selected"<?php endif;?> ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Every 24 hours');?></option>
-                            </select>
+                    <div class="border rounded p-2">
+                        <h6 class="mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import time range');?></h6>
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import messages n hours old from present time');?></label>
+                            <input type="number" min="1" max="96" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','48 hours is default.');?>" class="form-control form-control-sm" name="workflow_older_than" value="<?php isset($item->workflow_options_array['workflow_older_than']) ? print htmlspecialchars($item->workflow_options_array['workflow_older_than']) : ''?>" />
                         </div>
+                        <div class="form-group">
+                            <div><label><input type="checkbox" name="workflow_import_present" <?php isset($item->workflow_options_array['workflow_import_present']) && $item->workflow_options_array['workflow_import_present'] == true ? print 'checked="checked"' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','User present time to import messages from instead of last import time.');?></label></div>
+                        </div>
+                        <div class="form-group">
+                            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import since this unix timestamp.');?> <button type="button" class="btn btn-xs btn-secondary" onclick="$('#id_import_since').val(Math.floor(Date.now()/1000))"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Set to now');?></button></label>
+                            <input type="number" maxlength="250" class="form-control form-control-sm" id="id_import_since" name="import_since" value="<?php echo htmlspecialchars($item->import_since)?>" />
+                        </div>
+                        <p class="text-muted mb-0"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Both settings limit how old imported e-mails can be and they work together. The hours field is relative - it looks back from the last sync time, or from present time if the checkbox is enabled (empty = 48 hours). The unix timestamp is an absolute cutoff (0 = disabled). A message is imported only if it is newer than both limits, so the more recent of the two start dates wins.');?></i></small></p>
                     </div>
                 </div>
-                <div class="col-6">
 
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Import last N E-mails. Default 100.');?></label>
-                        <input type="number" min="0" max="500" maxlength="250" class="form-control form-control-sm" name="import_limit_last" value="<?php isset($item->workflow_options_array['import_limit_last']) ? print htmlspecialchars($item->workflow_options_array['import_limit_last']) : null; ?>" />
-                    </div>
-
-                    <div class="form-group">
-                        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
-                        <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
-                        <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','When a reply arrives and the previous thread\'s last response was more than this many days ago, a new conversation (issue) is created instead of appending the reply to the old one. Set to 0 to always append replies to the existing thread.');?></i></small></p>
-                    </div>
-                    <div class="form-group">
-                        <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Unassign operator on closed ticket re-open');?></label>
-                        <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Controls what happens to the assigned operator when a closed conversation is re-opened by a new reply. If enabled, the operator is unassigned and the conversation returns to the pending queue - the default user set above is not re-applied. If disabled, the previously assigned operator is kept.');?></i></small></p>
-                    </div>
-                </div>
+                
 
                 <div class="col-6">
                     <div class="form-group">
