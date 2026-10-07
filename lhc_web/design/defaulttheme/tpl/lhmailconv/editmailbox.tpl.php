@@ -161,6 +161,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label><input type="checkbox" name="assign_parent_user" value="on" <?php $item->assign_parent_user == 1 ? print ' checked="checked" ' : ''?> > <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Assign follow-up e-mail to the previous thread owner');?></label>
+                        <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Only applies when a new conversation is created by the timeout above. If enabled, the new conversation is assigned to the operator who owned the previous thread. If disabled, the previous owner is not carried over and the default user is used instead.');?></i></small></p>
                     </div>
                 </div>
             </div>
@@ -228,9 +229,11 @@
                     <div class="form-group">
                         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Timeout in days after last response before we create a new issue');?></label>
                         <input type="number" maxlength="250" class="form-control form-control-sm" name="reopen_timeout" value="<?php echo htmlspecialchars($item->reopen_timeout)?>" />
+                        <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','When a reply arrives and the previous thread\'s last response was more than this many days ago, a new conversation (issue) is created instead of appending the reply to the old one. Set to 0 to always append replies to the existing thread.');?></i></small></p>
                     </div>
                     <div class="form-group">
                         <label><input type="checkbox" name="reopen_reset" value="on" <?php if ($item->reopen_reset == 1) : ?>checked="checked"<?php endif;?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Unassign operator on closed ticket re-open');?></label>
+                        <p class="text-muted"><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Controls what happens to the assigned operator when a closed conversation is re-opened by a new reply. If enabled, the operator is unassigned and the conversation returns to the pending queue - the default user set above is not re-applied. If disabled, the previously assigned operator is kept.');?></i></small></p>
                     </div>
                 </div>
 
@@ -257,6 +260,7 @@
                         'list_function_params' => array('limit' => 20),
                         'list_function'  => 'erLhcoreClassModelUser::getList',
                     )); ?>
+                    <p><small class="text-muted"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Default operator assigned to newly imported conversations and to internal (sent) conversations. It is applied only when a conversation is first created. Leave empty to leave new conversations unassigned.');?></i></small></p>
                 </div>
                 <div class="col-6">
                     <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
@@ -272,7 +276,7 @@
                         'list_function_params' => array('limit' => 20, 'sort' => '`name` ASC'),
                         'list_function'  => 'erLhcoreClassModelDepartament::getList',
                     )); ?>
-                    <p><small><i>Default department is only used for replaceable variables support at the moment.</i></small></p>
+                    <p><small class="text-muted"><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Default department is only used for replaceable variables support at the moment.');?></i></small></p>
                 </div>
                 <script>
                     $(function() {
