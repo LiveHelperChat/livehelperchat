@@ -30,7 +30,7 @@ try {
             $tpl->set('async_call',true);
             
             if (isset($requestPayload['theme']) && ($themeId = erLhcoreClassChat::extractTheme($requestPayload['theme'])) !== false) {
-                $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($requestPayload['theme']));
+                $tpl->set('theme',erLhAbstractModelWidgetTheme::fetch($themeId));
             }
             echo json_encode(array('id' => $msg->id, 'msg' => trim($tpl->fetch())));
         } else {
