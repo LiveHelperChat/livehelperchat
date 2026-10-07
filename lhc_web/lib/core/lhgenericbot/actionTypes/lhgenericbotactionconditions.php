@@ -258,16 +258,7 @@ class erLhcoreClassGenericBotActionConditions {
                             $valAttr = (string)$valAttr;
                         }
 
-                        $conditionDebugLine = $condition['content']['attr'] . ' => ' .json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . $valAttrOrig . ' => ' . json_encode($valAttr);
-
-                        if (in_array($condition['content']['comp'], ['like', 'notlike'])) {
-                            $matchedKeywordDebug = \LiveHelperChat\Helpers\Bot\MatchedConditions::getMatchedKeyword($attr, $valAttr);
-                            if ($matchedKeywordDebug !== '') {
-                                $conditionDebugLine .= ' [matched_keyword: ' . $matchedKeywordDebug . ']';
-                            }
-                        }
-
-                        $conditionsDebug[] = $conditionDebugLine;
+                        $conditionsDebug[] = $condition['content']['attr'] . ' => ' .json_encode($attr) . ' ' . $condition['content']['comp'] . ' ' . $valAttrOrig . ' => ' . json_encode($valAttr);
 
                         if ($condition['content']['comp'] == 'eq' && !((isset($multiAttr) && in_array($valAttr, $multiAttr)) || (!isset($multiAttr) && $attr == $valAttr))) {
                             $conditionsDebug[] = 'INVALID';
