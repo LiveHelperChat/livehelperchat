@@ -23,7 +23,7 @@ $chat = erLhcoreClassModelChat::fetch($msg->chat_id);
 
 $errorTpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error.tpl.php');
 
-if ( erLhcoreClassChat::hasAccessToRead($chat) )
+if ( erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat) )
 {
     if ($form->hasInputField('data') && $form->hasValidData('data')) {
         $errors = array();
