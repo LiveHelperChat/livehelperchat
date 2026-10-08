@@ -492,7 +492,14 @@ step "TLS certificates"
 if [ "${SKIP_TLS:-0}" = "1" ]; then
     warn "SKIP_TLS=1, browsers will block camera/microphone on http"
 else
-    certbot --nginx --non-interactive --agree-tos --redirect -m "$LE_EMAIL" -d "$LHC_DOMAIN" -d "$RTC_DOMAIN" \
+    # Servers with several Let's Encrypt accounts make certbot ask which one to use. Reuse an existing one.
+    LE_ACCOUNT_ARGS=(-m "$LE_EMAIL")
+    LE_ACCOUNT="$(ls -1t /etc/letsencrypt/accounts/acme-v02.api.letsencrypt.org/directory/ 2>/dev/null | head -1 || true)"
+    if [ -n "$LE_ACCOUNT" ]; then
+        info "Using existing Let's Encrypt account $LE_ACCOUNT"
+        LE_ACCOUNT_ARGS=(--account "$LE_ACCOUNT")
+    fi
+    certbot --nginx --non-interactive --agree-tos --redirect --keep-until-expiring "${LE_ACCOUNT_ARGS[@]}" -d "$LHC_DOMAIN" -d "$RTC_DOMAIN" \
         || die "certbot failed. Check that DNS of $LHC_DOMAIN and $RTC_DOMAIN points here and port 80 is open."
 fi
 
