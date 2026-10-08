@@ -268,7 +268,9 @@ WebhooksEnabled = 0
 WebhooksWorker = http
 DefaultConfigs = []
 EOF
-    (cd "$WEBROOT" && php cli/install-cli.php "$INI" 2>&1 | grep -v -i deprecat) || die "Live Helper Chat install failed"
+    # install-cli.php exits with 1 even on success, check the result in the database instead
+    (cd "$WEBROOT" && php cli/install-cli.php "$INI" 2>&1 | grep -v -i deprecat) || true
+    [ -n "$($MYSQL -N -e "SHOW TABLES LIKE 'lh_users'" "$DB_NAME")" ] || die "Live Helper Chat install failed"
     rm -f "$INI"
     chown -R "$WEB_USER:$WEB_GROUP" "$WEBROOT/settings" "$WEBROOT/cache" "$WEBROOT/var"
     info "Installed, admin user: $ADMIN_USER"
