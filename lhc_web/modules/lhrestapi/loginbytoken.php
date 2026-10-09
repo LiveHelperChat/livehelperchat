@@ -6,13 +6,17 @@ $modeAPI = isset($_GET['api']) && $_GET['api'] == 'true';
 
 try {
     
-    if (!isset($_GET['token'])) {
+    if (!isset($_GET['token']) || !is_string($_GET['token']) || trim($_GET['token']) === '') {
         throw new Exception('Token not found!');
     }
 
     $token = $_GET['token'];
 
-    $uSession = erLhcoreClassModelUserSession::findOne(array('filter' => array('token' => $token)));
+    $uSession = erLhcoreClassModelUserSession::findOne(array(
+        'filter' => array('token' => $token),
+        // Never authenticate against a revoked/blank token left behind by logout
+        'filternot' => array('token' => '')
+    ));
         
     if ($uSession instanceof erLhcoreClassModelUserSession)
     {
