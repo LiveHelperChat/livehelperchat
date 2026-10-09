@@ -262,7 +262,7 @@ class erLhcoreClassTemplate {
 
 			foreach ($Matches[1] as $key => $TranslateContent)
 			{
-				$contentFile = str_replace($Matches[0][$key],'\''.str_replace("'","\'",erTranslationClassLhTranslation::getInstance()->getTranslation($TranslateContent,$Matches[3][$key])).'\'',$contentFile);
+				$contentFile = str_replace($Matches[0][$key],var_export(erTranslationClassLhTranslation::getInstance()->getTranslation($TranslateContent,$Matches[3][$key]),true),$contentFile);
 			}
 
 			// Compile url addresses
@@ -488,7 +488,16 @@ class erLhcoreClassTemplate {
 	            {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
 					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
-						$contentFile = str_replace($Matches[0][$key],(string)$valueConfig,$contentFile);
+						$valueConfig = (string)$valueConfig;
+						// A value is only inlined while it cannot introduce a PHP opening tag,
+						// either by itself or where it abuts neighbouring template text: guard any
+						// "<" inside the value (covers "<?") and a leading "?" (covers a preceding
+						// "<" before the value). Otherwise it is left uncompiled, so PHP resolves and
+						// echoes the stored value at runtime as data and it can never become
+						// executable source in the compiled template.
+						if (strpos($valueConfig, '<') === false && substr($valueConfig, 0, 1) !== '?') {
+							$contentFile = str_replace($Matches[0][$key],$valueConfig,$contentFile);
+						}
 					}
 	            }			
             
@@ -499,9 +508,18 @@ class erLhcoreClassTemplate {
 	            {
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->current_value;
 	                $valueReplace = '';
-	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
 					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
-	                	$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
+						// Same guard as the whole-block pass: leave a value that could form a PHP
+						// opening tag uncompiled, so the runtime expression is preserved instead
+						// of being re-inlined here.
+						if (strpos((string)$valueConfig, '<') !== false || substr((string)$valueConfig, 0, 1) === '?') {
+							continue;
+						}
+						// var_export() escapes both quotes and backslashes, so the value cannot break
+						// out of the generated string literal (escaping quotes alone leaves a trailing
+						// backslash able to escape the closing quote).
+						$valueReplace = var_export((string)$valueConfig,true);
+						$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 					}
 	            }
             	            
@@ -525,7 +543,7 @@ class erLhcoreClassTemplate {
 	            	
 	                $valueConfig = erLhcoreClassModelChatConfig::fetch($Matches[2][$key])->data[$Matches[4][$key]];
 	                $valueReplace = '';
-	                $valueReplace = '\''.str_replace("'","\'",(string)$valueConfig).'\'';
+	                $valueReplace = var_export((string)$valueConfig,true);
 					if (erLhcoreClassLazyDatabaseConfiguration::$connectionTime !== null) {
 						$contentFile = str_replace($Matches[0][$key],$valueReplace,$contentFile);
 					}
