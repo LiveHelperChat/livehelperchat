@@ -337,6 +337,10 @@ class StartChat extends Component {
                 this.setBotPayload(this.props.botPayload);
             },10);
         }
+
+        if (this.props.chatwidget.get('shown') === true && (this.props.chatwidget.get('mode') == 'widget' || this.props.chatwidget.get('mode') == 'embed')) {
+            this.scrollBottom();
+        }
     }
 
     componentWillUnmount() {
@@ -423,7 +427,12 @@ class StartChat extends Component {
         }
 
         // Auto focus if it's show operation
-        if ((needFocus === true || (this.props.chatwidget.get('isMobile') == false && prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+        if (prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true && this.props.chatwidget.get('mode') == 'widget') {
+            this.scrollBottom();
+            if (this.props.chatwidget.get('isMobile') == false && this.textMessageRef.current) {
+                this.textMessageRef.current.focus();
+            }
+        } else if (needFocus === true && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
             this.textMessageRef.current.focus();
             this.scrollBottom();
         }
@@ -446,14 +455,14 @@ class StartChat extends Component {
     }
 
     scrollBottom() {
-        if (this.messagesAreaRef.current) {
-            this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
-            setTimeout(() => {
-                if (this.messagesAreaRef.current) {
-                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
-                }
-            },450);
-        }
+        const scrollToBottom = () => {
+            const el = this.messagesAreaRef.current || document.getElementById('messages-scroll');
+            if (el) {
+                el.scrollTop = el.scrollHeight + 1000;
+            }
+        };
+        scrollToBottom();
+        setTimeout(scrollToBottom, 450);
     }
 
     moveCaretAtEnd(e) {
