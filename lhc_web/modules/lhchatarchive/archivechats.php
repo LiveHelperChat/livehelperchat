@@ -21,6 +21,12 @@ if ( !$form->hasValidData( 'id' ) ) {
 	exit;
 } else {
 	$archiveChat = erLhcoreClassModelChatArchiveRange::fetch($form->id);
+
+	if (!is_object($archiveChat)) {
+		echo json_encode(array('error' => 'true', 'result' => 'Archive not found!' ));
+		exit;
+	}
+
 	$status = $archiveChat->process();
 
 	$tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/archivechats.tpl.php');

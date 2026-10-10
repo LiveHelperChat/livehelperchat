@@ -3,6 +3,12 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhchatarchive/process.tpl.php');
 
 $archive = erLhcoreClassModelChatArchiveRange::fetch($Params['user_parameters']['id']);
+
+if (!is_object($archive)) {
+    erLhcoreClassModule::redirect('chatarchive/list');
+    exit;
+}
+
 $tpl->set('archive', $archive);
 
 $Result['content'] = $tpl->fetch();

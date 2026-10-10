@@ -4,12 +4,18 @@
 $currentUser = erLhcoreClassUser::instance();
 $currentUser->getUserID();
 $archive = erLhcoreClassModelChatArchiveRange::fetch($Params['user_parameters']['archive_id']);
+
+if (!is_object($archive)) {
+    erLhcoreClassModule::redirect('chatarchive/list');
+    exit;
+}
+
 $archive->setTables();
 
 $chat = erLhcoreClassModelChatArchive::fetch($Params['user_parameters']['chat_id']);
 
 // Chat can be closed only by owner
-if (erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat)) {
+if (is_object($chat) && erLhcoreClassChat::hasAccessToRead($chat) && erLhcoreClassChat::hasAccessToWrite($chat)) {
 
     $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendmail.tpl.php');
     $mailTemplate = erLhAbstractModelEmailTemplate::fetch(1);

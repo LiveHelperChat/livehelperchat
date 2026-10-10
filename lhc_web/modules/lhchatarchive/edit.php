@@ -4,6 +4,11 @@ $tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/edit.tpl.php');
 
 $archive = erLhcoreClassModelChatArchiveRange::fetch($Params['user_parameters']['id']);
 
+if (!is_object($archive)) {
+    erLhcoreClassModule::redirect('chatarchive/list');
+    exit;
+}
+
 
 if (isset($_POST['Cancel_archive']) )
 {

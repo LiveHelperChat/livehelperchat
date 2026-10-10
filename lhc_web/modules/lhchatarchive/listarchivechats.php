@@ -2,7 +2,14 @@
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhchatarchive/listarchivechats.tpl.php');
 
-$archive = erLhcoreClassModelChatArchiveRange::fetch($Params['user_parameters']['id']);
+$archiveId = (int)$Params['user_parameters']['id'];
+
+$archive = erLhcoreClassModelChatArchiveRange::fetch($archiveId);
+
+if (!is_object($archive)) {
+    erLhcoreClassModule::redirect('chatarchive/list');
+    exit;
+}
 
 if (isset($_GET['doSearch'])) {
 	$filterParams = erLhcoreClassSearchHandler::getParams(array('module' => 'chat','module_file' => 'chat_search','format_filter' => true, 'use_override' => true, 'uparams' => $Params['user_parameters_unordered']));
@@ -14,21 +21,25 @@ if (isset($_GET['doSearch'])) {
 
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
-// Chat id has to be replaced to table one
-if (isset($filterParams['filter']['filter']['`lh_chat`.`id`'])) {
-    $filterParams['filter']['filter']['`lh_chat_archive_' . $Params['user_parameters']['id'] . '`.`id`'] = $filterParams['filter']['filter']['`lh_chat`.`id`'];
-    unset($filterParams['filter']['filter']['`lh_chat`.`id`']);
-}
-
 // Set correct archive tables
 $archive->setTables();
 
-$filterParams['filter']['sort'] = '`lh_chat_archive_' . $Params['user_parameters']['id'] . '` . `id` DESC';
+// Build identifiers from the table names derived from the loaded archive record, never the URL segment
+$archiveTable = erLhcoreClassModelChatArchiveRange::$archiveTable;
+$archiveChatSubjectTable = erLhcoreClassModelChatArchiveRange::$archiveChatSubjectTable;
+
+// Chat id has to be replaced to table one
+if (isset($filterParams['filter']['filter']['`lh_chat`.`id`'])) {
+    $filterParams['filter']['filter']['`' . $archiveTable . '`.`id`'] = $filterParams['filter']['filter']['`lh_chat`.`id`'];
+    unset($filterParams['filter']['filter']['`lh_chat`.`id`']);
+}
+
+$filterParams['filter']['sort'] = '`' . $archiveTable . '`.`id` DESC';
 
 if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {
     erLhcoreClassChat::validateFilterIn($filterParams['input_form']->subject_id);
-    $filterParams['filter']['innerjoin']['lh_abstract_subject_chat_'.$Params['user_parameters']['id'].''] = array('`lh_abstract_subject_chat_'.$Params['user_parameters']['id'].'`.`chat_id`','`lh_chat_archive_' . $Params['user_parameters']['id'] . '` . `id`');
-    $filterParams['filter']['filterin']['`lh_abstract_subject_chat_'.$Params['user_parameters']['id'].'`.`subject_id`'] = $filterParams['input_form']->subject_id;
+    $filterParams['filter']['innerjoin'][$archiveChatSubjectTable] = array('`' . $archiveChatSubjectTable . '`.`chat_id`','`' . $archiveTable . '`.`id`');
+    $filterParams['filter']['filterin']['`' . $archiveChatSubjectTable . '`.`subject_id`'] = $filterParams['input_form']->subject_id;
 }
 
 $pages = new lhPaginator();

@@ -5,19 +5,21 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 	exit;
 }
 
-$role = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelRole', $Params['user_parameters']['role_id']);
+$roleId = (int)$Params['user_parameters']['role_id'];
+
+$role = erLhcoreClassRole::getSession()->load( 'erLhcoreClassModelRole', $roleId);
 
 if ($role->id != 1 && erLhcoreClassRole::canDeleteRole($role->id) === true) {
 	erLhcoreClassRole::getSession()->delete($role);
 	
 	// Delete user assigned departaments
 	$q = ezcDbInstance::get()->createDeleteQuery();
-	$q->deleteFrom( 'lh_rolefunction' )->where( $q->expr->eq( 'role_id', $Params['user_parameters']['role_id'] ) );
+	$q->deleteFrom( 'lh_rolefunction' )->where( $q->expr->eq( 'role_id', $roleId ) );
 	$stmt = $q->prepare();
 	$stmt->execute();
 	
 	$q = ezcDbInstance::get()->createDeleteQuery();
-	$q->deleteFrom( 'lh_grouprole' )->where( $q->expr->eq( 'role_id', $Params['user_parameters']['role_id'] ) );
+	$q->deleteFrom( 'lh_grouprole' )->where( $q->expr->eq( 'role_id', $roleId ) );
 	$stmt = $q->prepare();
 	$stmt->execute();
 
