@@ -120,6 +120,8 @@ if ((isset($_POST['Update_account']) || isset($_POST['Save_account'])) && $can_e
 
         $UserData->updateThis();
 
+        $currentUser->refreshSessionPasswordHash($UserData);
+
         erLhcoreClassUserDep::setHideOnlineStatus($UserData);
         
         $currentUser->updateLastVisit(time(), $UserData->hide_online == 1 ? 2 : 1, $UserData->id); // Went offline OR went online
