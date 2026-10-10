@@ -77,7 +77,36 @@ if (ezcInputForm::hasPostData()) {
 			}
 			
 			try {
-				$widgetTheme->setState($data);
+				/*
+				 * Only attributes defined on the model are importable. Filesystem
+				 * paths, image names and pending upload flags are managed solely by
+				 * movePhoto()/deletePhoto() and must never come from the uploaded file.
+				 */
+				$importableAttributes = array_flip(array_keys($widgetTheme->getState()));
+
+				unset(
+					$importableAttributes['id'],
+					$importableAttributes['modified'],
+					$importableAttributes['online_image'],
+					$importableAttributes['offline_image'],
+					$importableAttributes['logo_image'],
+					$importableAttributes['need_help_image'],
+					$importableAttributes['copyright_image'],
+					$importableAttributes['operator_image'],
+					$importableAttributes['minimize_image'],
+					$importableAttributes['restore_image'],
+					$importableAttributes['close_image'],
+					$importableAttributes['popup_image'],
+					$importableAttributes['notification_icon']
+				);
+
+				foreach (array_keys($importableAttributes) as $importableAttribute) {
+					if (substr($importableAttribute, -5) === '_path') {
+						unset($importableAttributes[$importableAttribute]);
+					}
+				}
+
+				$widgetTheme->setState(array_intersect_key($data, $importableAttributes));
 				$widgetTheme->saveThis();
 	
 				foreach ($imgData as $attr => $dataImage) {
