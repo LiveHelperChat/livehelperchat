@@ -4,6 +4,9 @@ $tpl = erLhcoreClassTemplate::getInstance('lhuser/newdepartment.tpl.php');
 
 $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['user_id']);
 
+// Self editing is only allowed for the account making the request
+$canContinue = !($Params['user_parameters_unordered']['editor'] == 'self' && $Params['user_parameters']['user_id'] != $currentUser->getUserID());
+
 if ($Params['user_parameters_unordered']['mode'] == 'group') {
     $userDep = new erLhcoreClassModelDepartamentGroupUser();
 } else {
@@ -144,11 +147,12 @@ if ($Params['user_parameters_unordered']['editor'] == 'self') {
 
 $userDep->user_id = $user->id;
 
-if ($user instanceof erLhcoreClassModelUser) {
+if ($canContinue === true && $user instanceof erLhcoreClassModelUser) {
     if (ezcInputForm::hasPostData()) {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject', 'Invalid CSRF token'));
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject', 'Invalid CSRF token')));
+            exit;
         }
 
         $db = ezcDbInstance::get();
@@ -163,8 +167,6 @@ if ($user instanceof erLhcoreClassModelUser) {
         );
 
         $form = new ezcInputForm(INPUT_POST, $definition);
-
-        $Errors = [];
 
         if ($form->hasValidData('dep_ids') && !empty($form->dep_ids)) {
             if ($Params['user_parameters_unordered']['mode'] == 'group') {
@@ -183,6 +185,15 @@ if ($user instanceof erLhcoreClassModelUser) {
         } else {
             if (empty($Errors) && erLhcoreClassModelUserDep::getCount(['filterin' => ['dep_id' => $userDep->dep_ids],'filter' => ['user_id' => $user->id, 'type' => 0]]) > 0) {
                 $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'This department already have been added!');
+            }
+        }
+
+        // Only departments/department groups the current user is allowed to assign may be added
+        if (empty($Errors) && $form->hasValidData('dep_ids')) {
+            $allowedIds = $Params['user_parameters_unordered']['mode'] == 'group' ? $depGroupIds : $depIds;
+
+            if (array_diff($form->dep_ids, $allowedIds) !== array()) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/assigndepartment', 'You do not have permission to assign these departments!');
             }
         }
 

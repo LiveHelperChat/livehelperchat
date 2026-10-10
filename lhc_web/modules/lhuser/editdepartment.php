@@ -133,9 +133,9 @@ if ($Params['user_parameters_unordered']['editor'] == 'self') {
 }
 
 if ($Params['user_parameters_unordered']['mode'] == 'group') {
-    $canContinue = $departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($dep->id,$departmentEditParams['groups']['id']);
+    $canContinue = $canContinue && ($departmentEditParams['groups']['edit_all'] || $departmentEditParams['groups']['edit_personal'] && in_array($dep->id,$departmentEditParams['groups']['id']));
 } else {
-    $canContinue = $departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal'] && in_array($dep->id, $departmentEditParams['individual']['id']);
+    $canContinue = $canContinue && ($departmentEditParams['individual']['edit_all'] || $departmentEditParams['individual']['edit_personal'] && in_array($dep->id, $departmentEditParams['individual']['id']));
 }
 
 if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep instanceof erLhcoreClassModelDepartament || $dep instanceof erLhcoreClassModelDepartamentGroup))
@@ -193,11 +193,13 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
     if ($Params['user_parameters_unordered']['action'] == 'remove') {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token')));
+            exit;
         }
 
         if (!is_object($userDep)) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Assignment record was not found'));
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Assignment record was not found')));
+            exit;
         }
 
         $db = ezcDbInstance::get();
@@ -230,7 +232,13 @@ if ($canContinue === true && $user instanceof erLhcoreClassModelUser && ($dep in
     if (ezcInputForm::hasPostData()) {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token')));
+            exit;
+        }
+
+        if (!is_object($userDep)) {
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Assignment record was not found')));
+            exit;
         }
 
         $db = ezcDbInstance::get();
