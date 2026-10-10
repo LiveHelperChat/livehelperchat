@@ -1024,7 +1024,7 @@ class erLhcoreClassBBCodePlain
 
         $ret = preg_replace_callback('/\[url\="?(.*?)"?\](.*?)\[\/url\]/ms', "erLhcoreClassBBCodePlain::_make_url_embed", $ret);
 
-        if (isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) {
+        if ((isset($paramsMessage['sender']) && $paramsMessage['sender'] == 0) || (isset($paramsMessage['user_id_raw']) && $paramsMessage['user_id_raw'] == 0)) {
             $ret = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$ret);
         }
 

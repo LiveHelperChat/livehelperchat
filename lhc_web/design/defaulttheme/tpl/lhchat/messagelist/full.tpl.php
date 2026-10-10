@@ -1,7 +1,7 @@
 <?php foreach ($messages as $msg) : ?><?php if (!isset($remove_meta) || $remove_meta == false ) :?><div class="lhc-user-name">[<?php echo date(erLhcoreClassModule::$dateDateHourFormat,$msg->time);?>] [<?php echo $msg->user_id == 0 ? htmlspecialchars($chat->nick) : htmlspecialchars($msg->name_support) ?>]</div><?php endif;?>
 <div class="msg-row">
     <?php if ($msg->user_id == 0) : ?>
-        <?php $msgBody = $msg->msg; $paramsMessageRender = array('render_html' => true);?>
+        <?php $msgBody = $msg->msg; $paramsMessageRender = array('render_html' => true, 'user_id_raw' => $msg->user_id);?>
     <?php else : ?>
         <?php $msgBody = $msg->msg; $paramsMessageRender = array('render_html' => true,'sender' => $msg->user_id);?>
     <?php endif;
