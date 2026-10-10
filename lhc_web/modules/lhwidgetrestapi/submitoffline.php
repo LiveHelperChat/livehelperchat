@@ -121,8 +121,8 @@ if (empty($Errors)) {
     $chat->lsync = time();
     erLhcoreClassModelChat::detectLocation($chat, $inputData->vid);
 
-    $chat->referrer = isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '';
-    $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
+    $chat->referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($requestPayload['fields']['URLRefer']) ? $requestPayload['fields']['URLRefer'] : '');
+    $chat->session_referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '');
 
     $statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value, $inputData->vid);
 

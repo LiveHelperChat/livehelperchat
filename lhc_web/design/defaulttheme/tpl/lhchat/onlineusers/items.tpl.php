@@ -34,13 +34,13 @@
 
             <?php if ($item->page_title != '' || $item->current_page != '') : ?>
             <div class="abbr-list">
-                <i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="<?php echo htmlspecialchars($item->current_page)?>" title="<?php echo htmlspecialchars($item->current_page)?>"><?php echo htmlspecialchars($item->page_title != '' ? $item->page_title : $item->current_page)?></a>
+                <i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','Page');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="<?php echo htmlspecialchars(erLhcoreClassChatValidator::sanitizeUrl($item->current_page))?>" title="<?php echo htmlspecialchars($item->current_page)?>"><?php echo htmlspecialchars($item->page_title != '' ? $item->page_title : $item->current_page)?></a>
             </div>
             <?php endif; ?>
 
             <?php if ($item->referrer != '') : ?>
             <div class="abbr-list">
-                <i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="http:<?php echo htmlspecialchars($item->referrer)?>" title="<?php echo htmlspecialchars($item->referrer)?>"><?php echo htmlspecialchars($item->referrer)?></a>
+                <i class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/onlineusers','From');?>">&#xE8A0;</i><a target="_blank" rel="noopener" href="http:<?php echo htmlspecialchars(erLhcoreClassChatValidator::sanitizeUrl($item->referrer))?>" title="<?php echo htmlspecialchars($item->referrer)?>"><?php echo htmlspecialchars($item->referrer)?></a>
             </div>
             <?php endif; ?>
 

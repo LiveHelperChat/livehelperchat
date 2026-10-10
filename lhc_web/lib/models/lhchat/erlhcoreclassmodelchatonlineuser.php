@@ -845,9 +845,9 @@ class erLhcoreClassModelChatOnlineUser
 
     public static function getReferer(){
         if (isset($_SERVER['HTTP_REFERER']) && !empty($_SERVER['HTTP_REFERER'])) {
-            return str_replace(['https://','http://'],'//',$_SERVER['HTTP_REFERER']);
+            return erLhcoreClassChatValidator::sanitizeUrl(str_replace(['https://','http://'],'//',$_SERVER['HTTP_REFERER']));
         } elseif (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] != '') {
-            return  str_replace(['https://','http://'],'//',$_SERVER['HTTP_ORIGIN']);
+            return erLhcoreClassChatValidator::sanitizeUrl(str_replace(['https://','http://'],'//',$_SERVER['HTTP_ORIGIN']));
         }
         return '';
     }
@@ -941,7 +941,7 @@ class erLhcoreClassModelChatOnlineUser
                     $item->ip = isset($paramsHandle['ip']) ? $paramsHandle['ip'] : erLhcoreClassIPDetect::getIP();
                     $item->vid = mb_substr($paramsHandle['vid'],0,50);
                     $item->identifier = (isset($paramsHandle['identifier']) && !empty($paramsHandle['identifier'])) ? $paramsHandle['identifier'] : '';
-                    $item->referrer = isset($_GET['r']) ? rawurldecode($_GET['r']) : '';
+                    $item->referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
                     $item->total_visits = 1;
                     $item->last_visit_prev = time();
 
@@ -1068,7 +1068,7 @@ class erLhcoreClassModelChatOnlineUser
                 }
 
                 if ($newVisitor === true) {
-                    $location = isset($_POST['l']) ? (string)$_POST['l'] : (isset($_GET['l']) ? rawurldecode($_GET['l']) : '');
+                    $location = erLhcoreClassChatValidator::sanitizeUrl(isset($_POST['l']) ? (string)$_POST['l'] : (isset($_GET['l']) ? rawurldecode($_GET['l']) : ''));
                     $onlineAttr['init'] = 'NEW_VID: ' . $item->vid . (!empty($onlineAttr) ? ' | ' . json_encode($onlineAttr) : '') . ($location != '' ? ' | ' . $location : '');
                 }
 
@@ -1117,7 +1117,7 @@ class erLhcoreClassModelChatOnlineUser
                 $location = isset($_POST['l']) ? $_POST['l'] : (isset($_GET['l']) ? rawurldecode($_GET['l']) : ($item->current_page == '' ? self::getReferer() : null));
                 $locationPrevious = $item->current_page;
                 if ($location !== null) {
-                    $item->current_page = $location;
+                    $item->current_page = erLhcoreClassChatValidator::sanitizeUrl($location);
                 }
                 $item->page_title = isset($_POST['dt']) ? $_POST['dt'] : (isset($_GET['dt']) ? substr((string)rawurldecode($_GET['dt']),0,250) : $item->page_title);
                 $item->last_visit = time();

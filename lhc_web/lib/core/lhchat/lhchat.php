@@ -2635,16 +2635,16 @@ class erLhcoreClassChat {
                            }
                        }
 
-                       $chat->referrer = urldecode($_GET['r'] ?? '');
-                       $chat->session_referrer = urldecode($_GET['l'] ?? '');
+                       $chat->referrer = erLhcoreClassChatValidator::sanitizeUrl(urldecode($_GET['r'] ?? ''));
+                       $chat->session_referrer = erLhcoreClassChatValidator::sanitizeUrl(urldecode($_GET['l'] ?? ''));
 
                        if (empty($chat->referrer)) {
                            $chat->referrer = $chat->session_referrer;
                        }
 
                        if (empty($chat->referrer) && $chat->online_user_id > 0 && is_object($chat->online_user)) {
-                           $chat->referrer = $chat->online_user->referrer;
-                           $chat->session_referrer = $chat->online_user->current_page;
+                           $chat->referrer = erLhcoreClassChatValidator::sanitizeUrl($chat->online_user->referrer);
+                           $chat->session_referrer = erLhcoreClassChatValidator::sanitizeUrl($chat->online_user->current_page);
                            if (empty($chat->referrer)) {
                                $chat->referrer = $chat->session_referrer;
                            }

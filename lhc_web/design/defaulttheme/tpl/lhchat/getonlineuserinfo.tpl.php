@@ -3,7 +3,7 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <?php endif; ?>
 
-<a href="<?php echo htmlspecialchars(trim($online_user->current_page))?>" class="no-wrap fs12"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
+<a rel="noopener" target="_blank" href="<?php echo htmlspecialchars(trim(erLhcoreClassChatValidator::sanitizeUrl($online_user->current_page)))?>" class="no-wrap fs12"><?php echo htmlspecialchars(trim($online_user->referrer))?></a>
 
 <div class="online-user-info">
     <div role="tabpanel">

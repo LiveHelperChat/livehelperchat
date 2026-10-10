@@ -465,8 +465,8 @@ if (isset($_POST['askQuestion']))
        $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
        $chat->setIP();
        $chat->hash = erLhcoreClassChat::generateHash();
-       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+       $chat->referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '');
+       $chat->session_referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_POST['r']) ? $_POST['r'] : '');
 
        if (trim($chat->nick) == '') {
        		$chat->nick = 'Visitor';

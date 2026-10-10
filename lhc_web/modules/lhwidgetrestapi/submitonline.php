@@ -107,7 +107,8 @@ if (!isset($Errors)) {
         }
     }
 
-    $chat->session_referrer = isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '';
+    $chat->referrer = erLhcoreClassChatValidator::sanitizeUrl($chat->referrer);
+    $chat->session_referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($requestPayload['fields']['r']) ? $requestPayload['fields']['r'] : '');
 
     $Errors = erLhcoreClassChatValidator::validateStartChat($inputData,$startDataFields,$chat, $additionalParams);
 

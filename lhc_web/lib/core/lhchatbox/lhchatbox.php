@@ -24,7 +24,7 @@ class erLhcoreClassChatbox {
 				$chat->setIP();
 				$chat->hash = erLhcoreClassChat::generateHash();
 				$chat->nick = $data['chatbox_default_opname'];
-				$chat->referrer = isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '';
+				$chat->referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '');
 
 				// Assign default department
 				$departments = erLhcoreClassModelDepartament::getList(array('filter' => array('disabled' => 0)));
@@ -67,7 +67,7 @@ class erLhcoreClassChatbox {
     				$chat->setIP();
     				$chat->hash = erLhcoreClassChat::generateHash();
     				$chat->nick = $data['chatbox_default_opname'];
-    				$chat->referrer = isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '';
+    				$chat->referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_GET['URLReferer']) ? $_GET['URLReferer'] : '');
 
     				// Assign default department
     				$departments = erLhcoreClassModelDepartament::getList();

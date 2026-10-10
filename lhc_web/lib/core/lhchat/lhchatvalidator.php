@@ -6,6 +6,31 @@
 
 class erLhcoreClassChatValidator {
 
+    /**
+     * Rejects any URL that uses a scheme other than http/https.
+     * Relative and protocol-relative URLs (which have no scheme) are allowed through.
+     * Prevents javascript:, data:, vbscript: etc. from being rendered into a link.
+     */
+    public static function sanitizeUrl($url)
+    {
+        $url = trim((string)$url);
+
+        if ($url === '') {
+            return '';
+        }
+
+        // Remove control characters and spaces browsers ignore within a scheme (e.g. "java\tscript:")
+        $probe = preg_replace('/[\x00-\x20]+/', '', $url);
+
+        if (preg_match('/^([a-zA-Z][a-zA-Z0-9+.\-]*):/', $probe, $matches)) {
+            if (!in_array(strtolower($matches[1]), array('http', 'https'), true)) {
+                return '';
+            }
+        }
+
+        return $url;
+    }
+
     public static function validateChatModifyCore(& $chat)
     {
         $definition = array(
@@ -2192,8 +2217,8 @@ class erLhcoreClassChatValidator {
                 $params['chat']->lsync = time();
                 $params['chat']->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
                 $params['chat']->hash = erLhcoreClassChat::generateHash();
-                $params['chat']->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-                $params['chat']->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+                $params['chat']->referrer = self::sanitizeUrl(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '');
+                $params['chat']->session_referrer = self::sanitizeUrl(isset($_POST['r']) ? $_POST['r'] : '');
             }
 
             $params['chat']->status_sub = erLhcoreClassModelChat::STATUS_SUB_OFFLINE_REQUEST;
@@ -2506,12 +2531,12 @@ class erLhcoreClassChatValidator {
 
                 if (isset($_GET['URLReferer']))
                 {
-                    $chat->referrer = $_GET['URLReferer'];
+                    $chat->referrer = self::sanitizeUrl($_GET['URLReferer']);
                 }
 
                 if (isset($_GET['r']))
                 {
-                    $chat->session_referrer = $_GET['r'];
+                    $chat->session_referrer = self::sanitizeUrl($_GET['r']);
                 }
 
                 $nick = trim($chat->nick);

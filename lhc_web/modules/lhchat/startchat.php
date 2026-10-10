@@ -384,8 +384,8 @@ if (isset($_POST['StartChat']) && $disabled_department === false) {
 	       $chat->status = erLhcoreClassModelChat::STATUS_PENDING_CHAT;
 
 	       $chat->hash = erLhcoreClassChat::generateHash();
-	       $chat->referrer = isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '';
-	       $chat->session_referrer = isset($_POST['r']) ? $_POST['r'] : '';
+	       $chat->referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_POST['URLRefer']) ? $_POST['URLRefer'] : '');
+	       $chat->session_referrer = erLhcoreClassChatValidator::sanitizeUrl(isset($_POST['r']) ? $_POST['r'] : '');
 
 	       if ( empty($chat->nick) ) {
 	           $chat->nick = 'Visitor';

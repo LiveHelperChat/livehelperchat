@@ -427,7 +427,7 @@ class erLhcoreClassChatHelper
     		$new->invitation_count += $old->invitation_count;
     		$new->time_on_site += $old->time_on_site;
     		$new->tt_time_on_site += $old->tt_time_on_site;
-    		$new->referrer = $old->referrer;
+    		$new->referrer = erLhcoreClassChatValidator::sanitizeUrl($old->referrer);
     		
     		$new->saveThis();
     		    		
