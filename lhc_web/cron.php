@@ -15,6 +15,14 @@
  * limitations under the License.
  */
 
+// This is a command line only entry point. Without this guard the options would
+// be parsed from the query string when register_argc_argv is enabled, allowing an
+// anonymous HTTP request to include arbitrary files.
+if (php_sapi_name() != 'cli') {
+    echo "PHP code to execute directly on the command line\n";
+    exit(-1);
+}
+
 ini_set('error_reporting', E_ALL);
 ini_set('register_globals', 0);
 ini_set('display_errors', 1);
@@ -166,10 +174,31 @@ erLhcoreClassModule::attatchExtensionListeners();
 
 // php cron.php -s site_admin -c cron/workflow
 // php cron.php -s site_admin -e customstatus -c cron/customcron
-if ($extensionPartOption->value) {
-	include_once('extension/'.$extensionPartOption->value.'/modules/lh'.$cronjobPartOption->value.'.php');
-} else {
-	include_once('modules/lh'.$cronjobPartOption->value.'.php');
+
+// Validate job/extension names and resolve the target through realpath so the
+// include can never escape the modules directories (e.g. via "../").
+if (!preg_match('#^[a-zA-Z0-9_\\-]+(/[a-zA-Z0-9_\\-]+)*$#', (string)$cronjobPartOption->value)) {
+    die("Invalid cronjob option value\n");
 }
+
+if ($extensionPartOption->value && !preg_match('#^[a-zA-Z0-9_\\-]+$#', (string)$extensionPartOption->value)) {
+    die("Invalid extension option value\n");
+}
+
+if ($extensionPartOption->value) {
+    $cronjobFile = dirname(__FILE__) . '/extension/' . $extensionPartOption->value . '/modules/lh' . $cronjobPartOption->value . '.php';
+    $cronjobBaseDir = realpath(dirname(__FILE__) . '/extension/' . $extensionPartOption->value . '/modules');
+} else {
+    $cronjobFile = dirname(__FILE__) . '/modules/lh' . $cronjobPartOption->value . '.php';
+    $cronjobBaseDir = realpath(dirname(__FILE__) . '/modules');
+}
+
+$cronjobRealFile = realpath($cronjobFile);
+
+if ($cronjobBaseDir === false || $cronjobRealFile === false || strpos($cronjobRealFile, $cronjobBaseDir . DIRECTORY_SEPARATOR) !== 0) {
+    die("Cronjob file not found or not allowed\n");
+}
+
+include_once($cronjobRealFile);
 
 ?>
