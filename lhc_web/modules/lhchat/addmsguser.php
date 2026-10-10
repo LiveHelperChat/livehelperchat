@@ -35,7 +35,8 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	    if ($chat->hash == $Params['user_parameters']['hash'] && (in_array($chat->status,$validStatuses)) && !in_array($chat->status_sub, array(erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED, erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT, erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW, erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM))) // Allow add messages only if chat is active
 	    {
 
-	        $msgText = preg_replace('/\[html\](.*?)\[\/html\]/ms','',$form->msg);
+	        // [html] and [html_snippet] are system/operator bbcodes and must never be accepted from a visitor
+	        $msgText = preg_replace(array('/\[html\](.*?)\[\/html\]/ms','/\[html_snippet\](.*?)\[\/html_snippet\]/is'),'',$form->msg);
 
 	        $messagesToStore = explode('[[msgitm]]', trim($msgText));
 	        

@@ -979,8 +979,14 @@ class erLhcoreClassBBCodePlain
             $matches = array();
             preg_match_all('/\[html_snippet\](.*?)\[\/html_snippet\]/is',$msg,$matches);
             foreach ($matches[0] as $index => $match) {
+                // Only a canned message id is a valid html_snippet reference. Anything else
+                // (e.g. a visitor supplied message) must never be treated as a snippet.
+                $messageCanned = trim($matches[1][$index]);
+                if ($messageCanned === '' || !ctype_digit($messageCanned)) {
+                    continue;
+                }
                 $msg = str_replace($match,'',$msg);
-                $meta['html_snippet'][] = $matches[1][$index];
+                $meta['html_snippet'][] = (int)$messageCanned;
             }
         }
         return $meta;
