@@ -1297,7 +1297,14 @@ class erLhcoreClassUserValidator {
         }
 
         if ( $form->hasValidData( 'field' )) {
-            $settings['field'] = $form->field;
+            // Only attributes offered by the import form may be mapped. Without this
+            // any model property (e.g. filepath/filename) could be set from the import.
+            $importFields = array(
+                'username','password','email','name','surname','chat_nickname','disabled',
+                'hide_online','all_departments','skype','job_title','time_zone','invisible_mode',
+                'auto_accept','max_active_chats','show_all_pending'
+            );
+            $settings['field'] = array_intersect_key($form->field, array_flip($importFields));
         } else {
             $settings['field'] = array();
         }
