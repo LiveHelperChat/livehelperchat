@@ -18,7 +18,7 @@ if ($currentUser->hasAccessTo('lhsurvey','delete_collected') && is_numeric($Para
     }
 
     if (isset($_SERVER['HTTP_REFERER'])) {
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
     } else {
         erLhcoreClassModule::redirect('survey/collected','/' . $survey->id);
     }

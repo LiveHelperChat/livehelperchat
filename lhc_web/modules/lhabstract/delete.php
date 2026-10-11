@@ -7,6 +7,11 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 	exit;
 }
 
+if (!preg_match('/^[a-zA-Z0-9_]+$/', $Params['user_parameters']['identifier']) || (!empty($Params['user_parameters_unordered']['extension']) && !preg_match('/^[a-zA-Z0-9_]+$/', $Params['user_parameters_unordered']['extension']))) {
+	die('Invalid object identifier');
+	exit;
+}
+
 $objectClass = 'erLhAbstractModel'.$Params['user_parameters']['identifier'];
 $extension = '';
 

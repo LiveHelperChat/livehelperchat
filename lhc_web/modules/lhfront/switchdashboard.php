@@ -33,7 +33,7 @@ if ($identifier !== null) {
     erLhcoreClassModelUserSetting::setSetting($identifier, $oldSetting == 1 ? 0 : 1);
 }
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 ?>

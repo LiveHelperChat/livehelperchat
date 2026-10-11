@@ -25,7 +25,7 @@ if ($Params['user_parameters']['from'] == 'default') {
     }
 }
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 

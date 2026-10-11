@@ -10,7 +10,7 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 $form = erLhAbstractModelAdminTheme::fetch((int)$Params['user_parameters']['id']);
 $form->removeThis();
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 ?>

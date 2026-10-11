@@ -6,6 +6,11 @@ $tpl = erLhcoreClassTemplate::getInstance('lhabstract/copyautoresponder.tpl.php'
 
 if (isset($_POST['CopyAction'])) {
 
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        die('Invalid CSRF Token');
+        exit;
+    }
+
     $definition = array(
         'CopyDepartments' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', null, FILTER_REQUIRE_ARRAY

@@ -21,6 +21,17 @@ if (trim($form->operation) != '') {
         ));
         exit();
     }
+
+    if (!($onlineuser instanceof erLhcoreClassModelChatOnlineUser)) {
+        echo json_encode(array('error' => 'true', 'result' => 'Visitor was not found'));
+        exit();
+    }
+
+    $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+    if ($userDepartments !== true && !$currentUser->hasAccessTo('lhchat','sees_all_online_visitors') && !in_array($onlineuser->dep_id, $userDepartments)) {
+        echo json_encode(array('error' => 'true', 'result' => 'No permission to access this visitor'));
+        exit();
+    }
     
     $onlineuser->operation_chat .= $form->operation . "\n";
     $onlineuser->saveThis();

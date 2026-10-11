@@ -7,6 +7,11 @@ session_write_close();
 $startTimeRequest = microtime();
 
 $search = erLhAbstractModelSavedSearch::fetch($Params['user_parameters']['id']);
+
+if (!($search instanceof erLhAbstractModelSavedSearch) || $search->user_id != $currentUser->getUserID()) {
+    echo json_encode(array('error' => true, 'message' => 'No permission to access this saved view'));
+    exit;
+}
 $totalRecords = 0;
 $content = '';
 

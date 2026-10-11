@@ -16,7 +16,7 @@ if (!empty($item->configuration_array['restricted_access']) && !erLhcoreClassUse
 
 $item->removeThis();
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 ?>

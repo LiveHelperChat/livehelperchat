@@ -14,6 +14,8 @@ setTimeout(function(){
 
 <form action="" method="post">
 
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
+
     <?php foreach (erLhcoreClassDepartament::getDepartaments() as $departament) : ?>
 	    <label><input type="checkbox" name="CopyDepartments[]" value="<?php echo $departament['id']?>" />&nbsp; <?php echo htmlspecialchars($departament['name'])?></label><br>
 	<?php endforeach; ?>

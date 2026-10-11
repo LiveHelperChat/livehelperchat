@@ -12,6 +12,10 @@ try {
         throw new Exception('Conversation was not found!');
     }
 
+    if (!erLhcoreClassChat::hasAccessToRead($conv)) {
+        throw new Exception('No permission to read conversation!');
+    }
+
     $cfg = erConfigClassLhConfig::getInstance();
     $worker = $cfg->getSetting( 'webhooks', 'worker' );
 

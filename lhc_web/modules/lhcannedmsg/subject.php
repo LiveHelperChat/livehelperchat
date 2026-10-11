@@ -8,7 +8,9 @@ if ($canned instanceof erLhcoreClassModelCannedMsg)
     if (ezcInputForm::hasPostData()) {
 
         if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
-            $response = array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token'));
+            header('Content-type: application/json');
+            echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/subject','Invalid CSRF token')));
+            exit;
         }
 
         $db = ezcDbInstance::get();

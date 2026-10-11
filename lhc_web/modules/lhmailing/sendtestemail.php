@@ -15,7 +15,7 @@ if (!($recipient instanceof erLhcoreClassModelMailconvMailingCampaignRecipient))
 
 erLhcoreClassMailConvMailingWorker::sendEmail($recipient, erLhcoreClassModelMailconvMailingCampaign::fetch($recipient->campaign_id));
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 ?>

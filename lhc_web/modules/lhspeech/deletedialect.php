@@ -11,7 +11,7 @@ if (!$currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'
 
 $item->removeThis();
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 

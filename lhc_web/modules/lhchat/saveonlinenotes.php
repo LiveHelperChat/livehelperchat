@@ -16,6 +16,17 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 
 $onlineUser = erLhcoreClassModelChatOnlineUser::fetch($Params['user_parameters']['online_user_id']);
 
+if (!($onlineUser instanceof erLhcoreClassModelChatOnlineUser)) {
+    echo json_encode(array('error' => 'true', 'result' => 'Visitor was not found'));
+    exit;
+}
+
+$userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+if ($userDepartments !== true && !$currentUser->hasAccessTo('lhchat','sees_all_online_visitors') && !in_array($onlineUser->dep_id, $userDepartments)) {
+    echo json_encode(array('error' => 'true', 'result' => 'No permission to access this visitor'));
+    exit;
+}
+
 if ($form->hasValidData('data')) {
 	$onlineUser->notes = $form->data;
 	$onlineUser->saveThis();

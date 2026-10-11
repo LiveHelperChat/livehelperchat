@@ -43,7 +43,7 @@ try {
 	{	
 	    // Is IP blocked directly?
 	    if (erLhcoreClassModelChatBlockedUser::getCount(array('filter' => array('ip' => erLhcoreClassIPDetect::getIP()))) > 0) {
-	        header('Location: ' . $_SERVER['HTTP_REFERER']);
+	        header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 		    exit;
 	    }
 	    
@@ -53,7 +53,7 @@ try {
 	    $ignorable_ip = erLhcoreClassModelChatConfig::fetch('banned_ip_range')->current_value;
 
 	    if ( $ignorable_ip != '' && erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(),explode(',',$ignorable_ip))) {
-	        header('Location: ' . $_SERVER['HTTP_REFERER']);
+	        header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 		    exit;
 	    }	    
 	    
@@ -88,12 +88,12 @@ try {
 			exit;
 		}
 	} else {
-		header('Location: ' . $_SERVER['HTTP_REFERER']);
+		header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 		exit;
 	}
 
 } catch(Exception $e) {
-   header('Location: ' . $_SERVER['HTTP_REFERER']);
+   header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
    exit;
 }
 exit;

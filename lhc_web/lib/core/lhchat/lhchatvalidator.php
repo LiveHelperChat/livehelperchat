@@ -31,6 +31,39 @@ class erLhcoreClassChatValidator {
         return $url;
     }
 
+    /**
+     * Returns the HTTP referer only when it targets the same host as the current
+     * request, otherwise falls back to the application base URL. Prevents open
+     * redirects via a manipulated Referer header.
+     */
+    public static function getSafeReferer($fallback = null)
+    {
+        if ($fallback === null) {
+            $fallback = erLhcoreClassDesign::baseurl('/');
+        }
+
+        if (!isset($_SERVER['HTTP_REFERER']) || $_SERVER['HTTP_REFERER'] === '') {
+            return $fallback;
+        }
+
+        $referer = $_SERVER['HTTP_REFERER'];
+        $refererHost = parse_url($referer, PHP_URL_HOST);
+
+        // Relative/protocol-relative referer without a host cannot redirect off-site
+        if ($refererHost === null) {
+            return $referer;
+        }
+
+        $currentHost = isset($_SERVER['HTTP_HOST']) ? preg_replace('/:\d+$/', '', $_SERVER['HTTP_HOST']) : '';
+        $refererHost = preg_replace('/:\d+$/', '', $refererHost);
+
+        if ($currentHost !== '' && strcasecmp($currentHost, $refererHost) === 0) {
+            return $referer;
+        }
+
+        return $fallback;
+    }
+
     public static function validateChatModifyCore(& $chat)
     {
         $definition = array(

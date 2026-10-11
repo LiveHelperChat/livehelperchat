@@ -29,7 +29,7 @@ if (($chat->user_id == $currentUser->getUserID() || $currentUser->hasAccessTo('l
 
 $db->commit();
 
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
 exit;
 
 ?>

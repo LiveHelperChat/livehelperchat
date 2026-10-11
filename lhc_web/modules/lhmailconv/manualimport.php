@@ -14,7 +14,7 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
         $item->removeThis();
     }
     
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
     exit;
 }
 

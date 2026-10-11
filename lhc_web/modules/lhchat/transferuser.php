@@ -6,6 +6,10 @@ if (is_numeric($Params['user_parameters']['chat_id']) && is_numeric($Params['use
     $db->beginTransaction();
     try {
 
+        if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !erLhcoreClassUser::instance()->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+            throw new Exception('Invalid CSRF token!');
+        }
+
         $transferScope = isset($_POST['obj']) && $_POST['obj'] == 'mail' ? erLhcoreClassModelTransfer::SCOPE_MAIL : erLhcoreClassModelTransfer::SCOPE_CHAT;
 
         if ($transferScope == erLhcoreClassModelTransfer::SCOPE_CHAT) {

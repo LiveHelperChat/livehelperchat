@@ -3,12 +3,23 @@
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/changemailbox.tpl.php');
 
 $mail = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['id']);
+
+if (!($mail instanceof erLhcoreClassModelMailconvConversation) || !erLhcoreClassChat::hasAccessToRead($mail) || !erLhcoreClassChat::hasAccessToWrite($mail)) {
+    echo 'No permission to access this conversation!';
+    exit;
+}
+
 $inputData = [
     'new_mailbox_id' => $mail->mailbox_id,
     'source_mail' => [],
 ];
 
 if (ezcInputForm::hasPostData($mail)) {
+
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        echo json_encode(['error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', 'Invalid CSRF token')]);
+        exit;
+    }
 
     $definition = array(
         'new_mailbox_id' => new ezcInputFormDefinitionElement(

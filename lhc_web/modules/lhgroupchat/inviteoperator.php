@@ -13,6 +13,15 @@ try {
 
     $item = erLhcoreClassModelGroupChat::fetchAndLock($Params['user_parameters']['id']);
 
+    if (!($item instanceof erLhcoreClassModelGroupChat)) {
+        throw new Exception('Group chat was not found!');
+    }
+
+    // Only existing members may invite operators to a private group chat
+    if ($item->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $item->id, 'user_id' => $currentUser->getUserID()))) == 0) {
+        throw new Exception('You are not a member of this private group!');
+    }
+
     erLhcoreClassGroupChat::inviteOperator($item->id, $Params['user_parameters']['op_id'], ($item->type == erLhcoreClassModelGroupChat::SUPPORT_CHAT ? erLhcoreClassModelGroupChatMember::SUPPORT_CHAT : erLhcoreClassModelGroupChatMember::NORMAL_CHAT));
 
     $userInvited = erLhcoreClassModelUser::fetch($Params['user_parameters']['op_id']);

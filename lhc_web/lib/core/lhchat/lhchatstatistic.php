@@ -36,10 +36,12 @@ class erLhcoreClassChatStatistic {
     
                 $appendUsers = '';
                 if (isset($filter['filterin']['lh_chat.user_id'])){
+                    erLhcoreClassChat::validateFilterIn($filter['filterin']['lh_chat.user_id']);
                     $appendUsers .= 'AND user_id IN (' . implode(',', $filter['filterin']['lh_chat.user_id']) . ')';
                 }
                 
                 if (isset($filter['filterin']['lh_chat.dep_id'])){
+                    erLhcoreClassChat::validateFilterIn($filter['filterin']['lh_chat.dep_id']);
                     $appendUsers .= 'AND dep_id IN (' . implode(',', $filter['filterin']['lh_chat.dep_id']) . ')';
                 }
                 

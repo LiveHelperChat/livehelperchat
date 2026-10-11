@@ -15,9 +15,13 @@ try {
         }
     }
 
+    if (!is_object($item) || !erLhcoreClassChat::hasAccessToRead($item) || !erLhcoreClassChat::hasAccessToWrite($item)) {
+        throw new Exception('No permission to delete this conversation!');
+    }
+
     $item->removeThis();
 
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: ' . erLhcoreClassChatValidator::getSafeReferer());
     exit;
 
 } catch (Exception $e) {

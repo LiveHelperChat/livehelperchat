@@ -1039,6 +1039,7 @@ class erLhcoreClassChat {
 		           $stmt->bindValue(':last_activity',(time()-$isOnlineUser),PDO::PARAM_INT);
 				} elseif ( is_array($dep_id) ) {
 				    $dep_id_filter = $dep_id;
+				    erLhcoreClassChat::validateFilterIn($dep_id_filter);
 				    $sqlDepartment = '`lh_departament`.`id` IN ('. implode(',', $dep_id_filter) .') AND';
 					if (empty($dep_id_filter)) {
                         $dep_id_filter = array(-1);
@@ -1058,6 +1059,7 @@ class erLhcoreClassChat {
                 } elseif (is_array($dep_id)) {
                     $sqlDepartment = '';
                     if (!empty($dep_id)) {
+                        erLhcoreClassChat::validateFilterIn($dep_id);
                         $sqlDepartment = "AND `dep_id` IN (". implode(',', $dep_id) .")";
                     }
                     $stmt = $db->prepare("SELECT `lh_departament_custom_work_hours`.`start_hour`, `lh_departament_custom_work_hours`.`end_hour` FROM `lh_departament_custom_work_hours` INNER JOIN `lh_departament` ON `lh_departament`.`id` = `lh_departament_custom_work_hours`.`dep_id` WHERE `lh_departament`.`disabled` = 0 AND `lh_departament`.`dep_offline` = 0 AND (`lh_departament`.`pending_group_max` = 0 OR `lh_departament`.`pending_group_max` > `lh_departament`.`pending_chats_counter`) AND (`lh_departament`.`pending_max` = 0 OR `lh_departament`.`pending_max` > `lh_departament`.`pending_chats_counter`) AND `online_hours_active` = 1 AND ((`date_from` <= :date_from AND `date_to` >= :date_to AND `repetitiveness` = 0) OR (`date_from` = :date_week AND `repetitiveness` = 1)) {$sqlDepartment}");
@@ -1087,6 +1089,7 @@ class erLhcoreClassChat {
                     } elseif (is_array($dep_id)) {
                         $sqlDepartment = '';
                         if (!empty($dep_id)) {
+                            erLhcoreClassChat::validateFilterIn($dep_id);
                             $sqlDepartment = "AND id IN (". implode(',', $dep_id) .")";
                         }
 
@@ -1110,6 +1113,7 @@ class erLhcoreClassChat {
                 } elseif (is_array($dep_id)) {
                     $sqlDepartment = '';
                     if (!empty($dep_id)) {
+                        erLhcoreClassChat::validateFilterIn($dep_id);
                         $sqlDepartment = "WHERE id IN (". implode(',', $dep_id) .") AND `lh_departament`.`dep_offline` = 0";
                     }
                     $stmt = $db->prepare("SELECT bot_configuration FROM lh_departament {$sqlDepartment}");
@@ -1317,6 +1321,7 @@ class erLhcoreClassChat {
 
        if (count($UserID) > 0)
        {
+           erLhcoreClassChat::validateFilterIn($UserID);
            $NotUser = ' AND lh_users.id NOT IN ('.implode(',',$UserID).')';
        }
 
@@ -1877,6 +1882,7 @@ class erLhcoreClassChat {
        if (!key_exists($key, $group_id_by_group))
        {
            $db = ezcDbInstance::get();
+           erLhcoreClassChat::validateFilterIn($group_ids);
            $stmt = $db->prepare('SELECT dep_id FROM lh_departament_group_member WHERE dep_group_id IN (' . implode(',', $group_ids) . ')');
            $stmt->execute();
            $depIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
@@ -1905,6 +1911,7 @@ class erLhcoreClassChat {
         if (!key_exists($key, $user_id_by_group))
         {
             $db = ezcDbInstance::get();
+            erLhcoreClassChat::validateFilterIn($group_ids);
             $stmt = $db->prepare('SELECT user_id FROM lh_groupuser WHERE group_id IN ('. implode(',', $group_ids) . ')');
             $stmt->execute();
             $userIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
