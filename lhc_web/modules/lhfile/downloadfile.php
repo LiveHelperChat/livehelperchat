@@ -3,9 +3,56 @@
 try {
 
     if (isset($_GET['modal']) && $_GET['modal'] == 'external') {
+
+        // External image zoom is only used by the operator chat interface. Requiring a
+        // logged in user prevents this anonymous view from being abused to reflect an
+        // attacker supplied URL into an <img src>, which could otherwise force victims'
+        // browsers to request arbitrary/internal hosts (client side SSRF).
+        if (!erLhcoreClassUser::instance()->isLogged()) {
+            http_response_code(403);
+            exit;
+        }
+
+        // Only http/https images are allowed. This drops gopher/ftp/mailto/... and any
+        // other scheme that erLhcoreClassBBCode::esc_url() would otherwise let through.
+        $src = erLhcoreClassChatValidator::sanitizeUrl(isset($_GET['src']) ? $_GET['src'] : '');
+
+        if ($src === '') {
+            http_response_code(400);
+            exit;
+        }
+
+        // Only allow URLs pointing to an external (public) host. Resolve the host and
+        // reject loopback/private/reserved destinations so this view cannot be used to
+        // make a visitor's browser probe internal services (e.g. 169.254.169.254).
+        $srcHost = parse_url($src, PHP_URL_HOST);
+
+        if ($srcHost === null || $srcHost === false || $srcHost === '' || strtolower($srcHost) === 'localhost') {
+            http_response_code(403);
+            exit;
+        }
+
+        // Literal IPs are validated as-is; hostnames are resolved first
+        if (filter_var($srcHost, FILTER_VALIDATE_IP) !== false) {
+            $resolvedIp = $srcHost;
+        } else {
+            $resolvedIp = gethostbyname($srcHost);
+
+            if ($resolvedIp === $srcHost || filter_var($resolvedIp, FILTER_VALIDATE_IP) === false) {
+                // Host could not be resolved, do not reflect it
+                http_response_code(403);
+                exit;
+            }
+        }
+
+        if (filter_var($resolvedIp, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+            http_response_code(403);
+            exit;
+        }
+
         $tpl = erLhcoreClassTemplate::getInstance('lhchat/zoomimage.tpl.php');
         $tpl->set('externalImage', true);
-        $tpl->set('fileImage', $_GET['src']);
+        $tpl->set('fileImage', $src);
         echo $tpl->fetch();
         exit;
     }

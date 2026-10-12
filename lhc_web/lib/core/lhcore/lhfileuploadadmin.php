@@ -89,7 +89,6 @@ class erLhcoreClassFileUploadAdmin extends erLhcoreClassFileUpload
             if (function_exists('finfo_open')) {
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 $actualMime = finfo_file($finfo, $fileUpload->file_path_server);
-                finfo_close($finfo);
                 if ($actualMime !== false) {
                     $declaredMime = $fileUpload->type;
                     $mimeAliases = ['text/xml' => 'application/xml','application/x-rar' => 'application/x-rar-compressed', 'application/x-compressed' => 'application/x-rar-compressed', 'application/x-zip-compressed' => 'application/zip', 'image/jpg' => 'image/jpeg', 'image/pjpeg' => 'image/jpeg', 'image/x-png' => 'image/png'];

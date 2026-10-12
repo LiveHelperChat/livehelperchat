@@ -742,7 +742,6 @@ class rcube_mime
             if ($finfo) {
                 $func      = $is_stream ? 'finfo_buffer' : 'finfo_file';
                 $mime_type = $func($finfo, $path, FILEINFO_MIME_TYPE);
-                finfo_close($finfo);
             }
         }
 

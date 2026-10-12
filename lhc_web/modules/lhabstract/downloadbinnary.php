@@ -4,7 +4,6 @@ $ObjectData = erLhcoreClassAbstract::getSession()->load( 'erLhAbstractModel'.$Pa
 
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 $mimeType = finfo_file($finfo, $ObjectData->file_path_server) . "\n";
-finfo_close($finfo);
 
 header('Content-type: '.$mimeType);
 header('Content-Disposition: attachment; filename="'.$ObjectData->id.'_file_'.$ObjectData->extension.'"');
