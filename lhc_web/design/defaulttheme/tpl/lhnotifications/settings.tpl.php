@@ -10,7 +10,7 @@
 
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','For more information see')?> <a target="_blank" href="https://developers.google.com/web/fundamentals/push-notifications/display-a-notification">https://developers.google.com/web/fundamentals/push-notifications/display-a-notification</a></p>
 
-    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','You can generate your private and public key here')?> - <a target="_blank" href="https://web-push-codelab.glitch.me">https://web-push-codelab.glitch.me</a></p>
+    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','You can generate your private and public key here')?> - <a target="_blank" href="https://pwastack.com/tools/vapid-key-generator">https://pwastack.com/tools/vapid-key-generator</a></p>
 
     <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('notifications/notifications','Explains were taken from:')?> <a target="_blank" href="https://web-push-book.gauntface.com/demos/notification-examples/">https://web-push-book.gauntface.com/demos/notification-examples/</a></p>
 
