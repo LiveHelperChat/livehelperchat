@@ -20,6 +20,13 @@ try {
         
     if ($uSession instanceof erLhcoreClassModelUserSession)
     {
+        // Reject and revoke expired tokens so a leaked token can't be replayed forever
+        if ($uSession->isExpired()) {
+            $uSession->token = '';
+            $uSession->updateThis();
+            throw new Exception('Token expired');
+        }
+
         $currentUser = erLhcoreClassUser::instance();
         $instance = erLhcoreClassSystem::instance();
                

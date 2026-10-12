@@ -10,6 +10,10 @@ try
 
     if ($session instanceof erLhcoreClassModelUserSession) {
 
+        if ($session->isExpired()) {
+            throw new Exception('Token expired');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (isset($requestBody['status']) && $requestBody['status'] == true) {

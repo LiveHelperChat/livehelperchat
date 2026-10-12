@@ -52,6 +52,7 @@ try {
             }
             
             $uSession->updated_on = time();
+            $uSession->expires_on = time() + erLhcoreClassModelUserSession::getTokenLifetime();
             $uSession->device_type = $device;
             $uSession->saveThis();
 

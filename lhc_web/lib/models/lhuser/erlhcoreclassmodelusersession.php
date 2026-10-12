@@ -50,6 +50,31 @@ class erLhcoreClassModelUserSession
         }
     }
 
+    /**
+     * Default lifetime of a REST API session token in seconds (30 days).
+     * Can be overridden with `session_token_expire` in the [site] section of settings.ini.php
+     */
+    const DEFAULT_TOKEN_LIFETIME = 2592000;
+
+    /**
+     * Returns REST API session token lifetime in seconds
+     */
+    public static function getTokenLifetime()
+    {
+        $configured = (int)erConfigClassLhConfig::getInstance()->getSetting('site', 'session_token_expire', false);
+        return $configured > 0 ? $configured : self::DEFAULT_TOKEN_LIFETIME;
+    }
+
+    /**
+     * A token is considered expired when it has no expiry at all (legacy rows) or the expiry is in the past.
+     * Tokens without an expiry are never trusted.
+     */
+    public function isExpired()
+    {
+        $expiresOn = (int)$this->expires_on;
+        return $expiresOn <= 0 || $expiresOn < time();
+    }
+
     const DEVICE_TYPE_UNKNOWN = 0;
     const DEVICE_TYPE_ANDROID = 1;
     const DEVICE_TYPE_IOS = 2;
