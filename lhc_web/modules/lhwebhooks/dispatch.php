@@ -2,6 +2,13 @@
 
 if (ezcInputForm::hasPostData()) {
 
+    // Debug helper must not be reachable through CSRF from a third party page
+    if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
+        http_response_code(403);
+        echo 'Invalid CSRF Token';
+        exit;
+    }
+
     try {
 
         if (!isset($_POST['event_name'])) {
@@ -59,17 +66,36 @@ if (ezcInputForm::hasPostData()) {
             }
         }
 
+        /**
+         * Only classes from this allow-list may be fetched by this debug helper.
+         * Without it an attacker could instantiate any autoloadable class and inject
+         * the resulting objects into arbitrary event handlers (unsafe reflection).
+         * Names are lower cased because PHP class names are case-insensitive.
+         */
+        $allowedDispatchClasses = [
+            'erlhcoreclassmodelchat',
+            'erlhcoreclassmodelmsg',
+            'erlhcoreclassmodelmailconvconversation',
+            'erlhcoreclassmodelmailconvmessage',
+        ];
+
         $args = [];
 
         if (isset($_POST['args']) && !empty($_POST['args'])) {
             $argsRows = explode("\n", trim($_POST['args']));
 
             foreach ($argsRows as $argRow) {
-                $argRowParams = explode('||', $argRow);
+                $argRowParams = array_map('trim', explode('||', $argRow));
 
-                if (class_exists($argRowParams[1])) {
-                    $args[$argRowParams[0]] = callMethodByName($argRowParams[1],'fetch', [$argRowParams[2]]);
+                if (count($argRowParams) !== 3) {
+                    throw new Exception('Invalid argument format. Expected "argument name || class name || object id".');
                 }
+
+                if (!in_array(strtolower($argRowParams[1]), $allowedDispatchClasses, true)) {
+                    throw new Exception('Requested class is not allowed to be dispatched.');
+                }
+
+                $args[$argRowParams[0]] = callMethodByName($argRowParams[1], 'fetch', [$argRowParams[2]]);
             }
         }
 
