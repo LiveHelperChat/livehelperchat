@@ -17,4 +17,7 @@
             <?php echo htmlspecialchars($user->name_support)?>
         <?php endif; ?>
     </span>
+    <?php if ($user->job_title != '' && !(isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['hide_job_title']) && $theme->bot_configuration_array['hide_job_title'] == true)) : ?>
+        <span class="op-job-title-sep">,&nbsp;</span><span class="fst-italic op-job-title"><?php echo htmlspecialchars($user->job_title);?></span>
+    <?php endif; ?>
 </div>
