@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 278;
+            lhc.version = 279;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -858,7 +858,7 @@
                     chatEvents.sendChildEvent('subcribedEvent', [data]);
                 });
 
-                var timeoutWidget = null, originalStyleSheet = null, scrollPosition = { x: 0, y: 0 };
+                var timeoutWidget = null, originalStyleSheet = null, originalViewport = null, scrollPosition = { x: 0, y: 0 };
 
                 // Track widget status changes
                 attributesWidget.widgetStatus.subscribe((data) => {
@@ -895,7 +895,21 @@
                                     }
                                     originalStyleSheet = document.body.style.cssText;
                                     document.body.style.cssText = 'height: 100% !important; min-height: 100% !important; max-height: 100% !important; width: 100% !important; min-width: 100% !important; max-width: 100% !important; overflow: hidden !important; position: fixed !important;';
+
+                                    // Firefox for Android (132+) defaults to interactive-widget=resizes-visual, so the keyboard does not
+                                    // resize the layout viewport and the bottom address bar covers the bottom of the full screen widget (message input).
+                                    // While the widget is open resize the layout viewport instead. Pages that set interactive-widget themselves are left untouched.
+                                    var viewportMeta = document.querySelectorAll('meta[name="viewport"]');
+                                    viewportMeta = viewportMeta.length > 0 ? viewportMeta[viewportMeta.length - 1] : null;
+                                    if (originalViewport === null && viewportMeta !== null && viewportMeta.content.indexOf('interactive-widget') === -1) {
+                                        originalViewport = {'element': viewportMeta, 'content': viewportMeta.content};
+                                        viewportMeta.content = viewportMeta.content + ', interactive-widget=resizes-content';
+                                    }
                                 } else if (originalStyleSheet !== null) {
+                                    if (originalViewport !== null) {
+                                        originalViewport.element.content = originalViewport.content;
+                                        originalViewport = null;
+                                    }
                                     document.body.style.cssText = originalStyleSheet;
                                     originalStyleSheet = null;
                                     // Use scrollTo with instant behavior to avoid animation
