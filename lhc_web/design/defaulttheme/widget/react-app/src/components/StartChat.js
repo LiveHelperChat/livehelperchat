@@ -48,7 +48,7 @@ class StartChat extends Component {
         this.apiLoaded = false;
         this.customHTMLPriority = false;
 
-        this.state = {showBBCode : null, Question:'', changeLanguage: false, hasBotData : false, textAreaHidden: false, voiceMode: false};
+        this.state = {showBBCode : null, Question:'', changeLanguage: false, hasBotData : false, textAreaHidden: false, voiceMode: false, messagesReady: false};
         this.botPayload = null;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.enterKeyDown = this.enterKeyDown.bind(this);
@@ -329,6 +329,7 @@ class StartChat extends Component {
     componentDidMount() {
         helperFunctions.prefillFields(this);
         this.updateOnlineFields();
+        this.applyInitialScroll();
 
         if (this.props.botPayload !== null) {
             // This is required because prefill fields can be one of the required
@@ -423,15 +424,20 @@ class StartChat extends Component {
         }
 
         // Auto focus if it's show operation
-        if ((needFocus === true || (this.props.chatwidget.get('isMobile') == false && prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
-            this.textMessageRef.current.focus();
-            this.scrollBottom();
+        if ((needFocus === true || (/*this.props.chatwidget.get('isMobile') == false &&*/ prevProps.chatwidget.get('shown') === false && this.props.chatwidget.get('shown') === true)) && this.props.chatwidget.get('mode') == 'widget' && this.textMessageRef.current) {
+            if (this.props.chatwidget.get('isMobile') == false) {
+                this.textMessageRef.current.focus();
+            }
+             this.scrollToPreviousOrFirst();
         }
 
         // Rest API data was fetched we can scroll to bottomnow
         if (this.props.chatwidget.getIn(['onlineData','fetched']) === true && prevProps.chatwidget.getIn(['onlineData','fetched']) === false) {
             this.props.chatwidget.hasIn(['chat_ui','uprev']) && helperFunctions.emitEvent('play_sound', [{'type' : 'new_message','sound_on' : (this.props.chatwidget.getIn(['usersettings','soundOn']) === true), 'widget_open' : ((this.props.chatwidget.get('shown') && this.props.chatwidget.get('mode') == 'widget') || document.hasFocus())}]);
-            this.scrollBottom();
+            if (this.props.chatwidget.get('shown') === true){
+                this.scrollToPreviousOrFirst();
+            }
+            
         }
 
         // If parent pages changes default department we have to reload
@@ -443,16 +449,55 @@ class StartChat extends Component {
             }
             this.updateOnlineFieldsInit();
         }
+
+        this.applyInitialScroll();
+    }
+
+    // The widget lives inside an iframe which the parent page makes visible before the
+    // `widgetStatus` event reaches the chat. Our scroll adjustment therefore used to run
+    // a frame later and the visitor briefly saw the messages at the top before they were
+    // scrolled to the correct position. Keep them hidden until we positioned them once.
+    applyInitialScroll() {
+        if (this.state.messagesReady === true || !this.messagesAreaRef.current) {
+            return;
+        }
+
+        // In widget mode the iframe can already be visible before the open event reaches us.
+        if (this.props.chatwidget.get('mode') == 'widget' && this.props.chatwidget.get('shown') !== true) {
+            return;
+        }
+
+        this.scrollToPreviousOrFirst();
+        this.setState({messagesReady: true});
     }
 
     scrollBottom() {
         if (this.messagesAreaRef.current) {
             this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
-            setTimeout(() => {
-                if (this.messagesAreaRef.current) {
-                    this.messagesAreaRef.current.scrollTop = this.messagesAreaRef.current.scrollHeight + 1000;
-                }
-            },450);
+        }
+    }
+
+    scrollToPreviousOrFirst() {
+        const container = this.messagesAreaRef.current;
+
+        if (!container) {
+            return;
+        }
+
+        const previousHolder = container.querySelector('.previous-holder');
+        const targetElement = previousHolder || container.querySelector('[id="msg-"]');
+
+        if (targetElement) {
+            // Adjust the scroll position of our own messages container only.
+            // scrollIntoView() would also scroll every ancestor scroll box (including the
+            // parent page when the widget is embedded) and respects `scroll-behavior: smooth`,
+            // which caused a visible flick while the widget was opened for the first time.
+            // Direct `scrollTop` assignment is always instant and never bubbles to ancestors.
+            const containerRect = container.getBoundingClientRect();
+            const targetRect = targetElement.getBoundingClientRect();
+            container.scrollTop += (targetRect.top - containerRect.top);
+        } else {
+            this.scrollBottom();
         }
     }
 
@@ -604,7 +649,9 @@ class StartChat extends Component {
                 var classMessageInput = (!this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) || this.props.chatwidget.hasIn(['chat_ui','lng_btnh']) ? 'ps-0' : 'ps-2')+" no-outline form-control rounded-0 form-control rounded-start-0 rounded-end-0 border-0";
 
                 var msg_expand = "flex-grow-1 overflow-scroll position-relative";
-                var bottom_messages = "bottom-message px-1";
+                // Bootstrap `invisible` utility is used to hide the messages until their
+                // initial scroll position is applied - see applyInitialScroll().
+                var bottom_messages = "bottom-message px-1" + (this.state.messagesReady === true ? '' : ' invisible');
 
                 if (this.props.chatwidget.hasIn(['chat_ui','msg_expand']) && this.props.chatwidget.get('mode') == 'embed') {
                     msg_expand = "overflow-scroll position-relative";
