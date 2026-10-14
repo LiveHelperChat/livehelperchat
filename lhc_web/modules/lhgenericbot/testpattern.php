@@ -185,6 +185,22 @@ if (isset($_POST['msg'])) {
 
             $patterns = [];
 
+            // Recursively emits {args.chat.<path>} patterns for every nested key,
+            // so deeply nested structures (e.g. incoming_chat.payload_array) are listed.
+            $patternWalk = function ($prefix, $value, $depth = 0) use (&$patterns, &$patternWalk) {
+                if (is_array($value) || is_object($value)) {
+                    if ($depth > 8) {
+                        $patterns[] = '{' . $prefix . '} = ' . json_encode($value);
+                        return;
+                    }
+                    foreach ($value as $key => $val) {
+                        $patternWalk($prefix . '.' . $key, $val, $depth + 1);
+                    }
+                } else {
+                    $patterns[] = '{' . $prefix . '} = ' . (is_bool($value) ? (int)$value : $value);
+                }
+            };
+
             foreach ($chat->getState() as $stateKey => $stateAttr) {
                 $patterns[] = '{args.chat.' . $stateKey .'} = ' . $stateAttr;
             }
@@ -193,7 +209,7 @@ if (isset($_POST['msg'])) {
                 'online_user' => ['online_attr_system_array','online_attr_array','current_page_params','previous_chat','chat'],
                 'department' => ['bot_configuration_array','is_overloaded','is_online'],
                 'iwh' => ['conditions_array'],
-                'incoming_chat' => ['incoming']
+                'incoming_chat' => ['incoming','payload_array']
             ];
 
             foreach (['referrer_params','abnd','drpd','subject_ids','subject_ids_list','department','chat_variables_array','user','online_user',
@@ -227,9 +243,7 @@ if (isset($_POST['msg'])) {
                     if (isset($subAttributes[$dynamicAttr])){
                         foreach ($subAttributes[$dynamicAttr] as $subStateAttr) {
                             if (is_array($chat?->{$dynamicAttr}?->{$subStateAttr}) || is_object($chat?->{$dynamicAttr}?->{$subStateAttr})) {
-                                foreach ($chat->{$dynamicAttr}->{$subStateAttr} as $stateSubKey => $subStateAttrVal) {
-                                    $patterns[] = '{args.chat.' . $dynamicAttr .'.' . $subStateAttr . '.' . $stateSubKey . '} = ' . ((is_array($subStateAttrVal) || is_object($subStateAttrVal)) ? json_encode($subStateAttrVal) : $subStateAttrVal);
-                                }
+                                $patternWalk('args.chat.' . $dynamicAttr . '.' . $subStateAttr, $chat->{$dynamicAttr}->{$subStateAttr});
                             }
                         }
                     }
