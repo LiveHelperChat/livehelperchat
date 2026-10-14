@@ -22,6 +22,7 @@ export class msgSnippetWidget{
             height: "200px",
             position: "fixed",
             display: "none",
+            transition: "transform"
         }), {"translate":"no"}, "iframe");
 
         this.loadStatus = {main : false, theme: false, status: false};
@@ -103,6 +104,11 @@ export class msgSnippetWidget{
         this.attributes.widgetStatus.subscribe((data) => {
             data == true ? (this.widgetOpen = true, this.hide(true)) : (this.widgetOpen = false, this.show());
         });
+
+        // Slide after the dragged status widget like the need help widget does
+        if (this.attributes.animate_nh) {
+            this.cont.massRestyle({"transition-duration" : "800ms", "transition-timing-function" : "cubic-bezier(0.165, 0.84, 0.44, 1)"});
+        }
 
         // Follow the status widget when the visitor drags it, the same way the need help widget does
         this.attributes.status_position.subscribe((data) => {
