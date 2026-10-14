@@ -107,7 +107,7 @@
                 {:else if column === 'department'}
                     <i title={$t("widget.department")} class="material-icons">home</i>
                 {:else if column === 'offline_reason'}
-                    <i title="Reason for offline" class="material-icons text-danger">auto_read_pause</i>
+                    <i title={$t("widget.reason_off_on")} class="material-icons">auto_read_pause</i>
                 {:else if column === 'offline_since'}
                     <i title="Session duration" class:text-danger={$lhcList.hideOnline} class:text-success={!$lhcList.hideOnline} class="material-icons">schedule</i>
                 {/if}

@@ -149,6 +149,7 @@ $transItems = array(
     "widget.pause_widget" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Stop updating widget content'),
     "widget.resume_widget" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Resume updating widget content'),
     "widget.bot" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Bot'),
+    "widget.reason_off_on" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Reason'),
 
     // Widget options
     "widget_options.hide_disabled" => erTranslationClassLhTranslation::getInstance()->getTranslation('pagelayout/pagelayout','Hide disabled'),
