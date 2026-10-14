@@ -434,7 +434,9 @@ class erLhcoreClassChatValidator {
             } elseif ( $form->hasValidData( 'Email' ) ) {
                 $chat->email = $inputForm->email = $form->Email;
             } else {
-                $chat->email = $inputForm->email = isset($_POST['Email']) ? $_POST['Email'] : '';
+                // Invalid e-mail submitted while the field is optional. Never persist the raw
+                // value - it is later rendered into the operator's mailto: link. Keep it empty.
+                $chat->email = $inputForm->email = '';
             }
         }
 
@@ -2260,7 +2262,7 @@ class erLhcoreClassChatValidator {
                 $params['chat']->nick = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor');
             }
 
-            if ( empty($params['chat']->email) && isset($params['input_data']) && $params['input_data']->email != '') {
+            if ( empty($params['chat']->email) && isset($params['input_data']) && $params['input_data']->email != '' && filter_var($params['input_data']->email, FILTER_VALIDATE_EMAIL)) {
                 $params['chat']->email = $params['input_data']->email;
             }
 
