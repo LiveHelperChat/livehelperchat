@@ -1541,11 +1541,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $chatUpdateFields = array_merge($chatUpdateFields, ['has_unread_op_messages', 'unread_op_messages_informed', 'last_op_msg_time']);
                     }
                     $chat->updateThis(array('update' => $chatUpdateFields));
-
-                    if (empty($eChat->payload)) {
-                        $eChat->payload = json_encode($payloadAll);
-                    }
-
+                    $eChat->payload = json_encode($payloadAll);
                     $eChat->utime = time();
                     $eChat->updateThis();
 
