@@ -29,29 +29,20 @@
                 </div>
 
                 <?php if (!empty($offline_reasons)) : ?>
-                <div class="form-group" id="offline-reasons-container" style="<?php echo $user->hide_online == 1 ? '' : 'display:none;'?>">
-                    <label><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Reason for offline')?></label>
+                <div class="form-group" id="offline-reasons-container">
+                    <label><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Reason')?></label>
                     <select name="offlineReason" class="form-control form-control-sm">
                         <option value="0"><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','None')?></option>
                         <?php foreach ($offline_reasons as $offlineReason) : ?>
-                        <option value="<?php echo $offlineReason['id']?>" <?php $user->offline_reason_id == $offlineReason['id'] ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($offlineReason['name'])?></option>
+                        <option value="<?php echo $offlineReason['id']?>" <?php $user->offline_reason_id == $offlineReason['id'] ? print 'selected="selected"' : ''?>><?php echo htmlspecialchars($offlineReason['name'] . (!empty($offlineReason['mode']) ? ' [' . erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online mode') . ']' : ''))?></option>
                         <?php endforeach; ?>
                     </select>
+                    <p><small class="text-muted"><?php echo  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/dashboardwidgets','Online mode reasons keep the operator online with the selected reason applied.')?></small></p>
                 </div>
                 <?php endif; ?>
 
                 <input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Update')?>">
 
             </form>
-
-<?php if (!empty($offline_reasons)) : ?>
-<script>
-    $(document).ready(function() {
-        $('input[name="onlineStatus"]').change(function() {
-            $('#offline-reasons-container').toggle($(this).val() == '0');
-        });
-    });
-</script>
-<?php endif; ?>
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

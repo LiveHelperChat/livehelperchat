@@ -20,9 +20,22 @@ if (ezcInputForm::hasPostData()) {
     }
 
     $offlineReason = 0;
-    if ($status == 1 && $form->hasValidData('offlineReason')) {
+    if ($form->hasValidData('offlineReason')) {
         $offlineReason = (int)$form->offlineReason;
     }
+
+    $reason = \LiveHelperChat\Models\LHCAbstract\OfflineReason::getReason($offlineReason);
+    $isOnlineModeReason = ($reason !== false && $reason->isOnlineMode());
+
+    if ($isOnlineModeReason) {
+        // Online mode reason - operator stays online with the reason applied
+        $status = 0;
+    } elseif ($status == 0) {
+        // A plain online status cannot carry an offline mode reason
+        $offlineReason = 0;
+    }
+
+    $wasOnline = ((int)$user->hide_online === 0);
 
     $db = ezcDbInstance::get();
 
@@ -38,11 +51,22 @@ if (ezcInputForm::hasPostData()) {
 
         erLhcoreClassUser::getSession()->update($user);
 
+        // A reason with "Disable auto assigned" temporarily excludes the operator from auto assignment
+        \LiveHelperChat\Models\LHCAbstract\OfflineReason::syncAutoAssignStatus($user);
+
         erLhcoreClassUserDep::setHideOnlineStatus($user);
 
         erLhcoreClassChat::updateActiveChats($user->id);
 
-        $currentUser->updateLastVisit(time(), $user->hide_online == 1 ? 2 : 1, $user->id, $offlineReason); // Went offline OR went online
+        // Went offline OR went online. Any reason change while online starts a new online record.
+        $reasonForSessionOffline = $user->hide_online == 1 ? $offlineReason : 0;
+        $reasonForSessionOnline = ($user->hide_online == 0 && $isOnlineModeReason) ? $offlineReason : 0;
+        $currentUser->updateLastVisit(time(), $user->hide_online == 1 ? 2 : 1, $user->id, $reasonForSessionOffline, $reasonForSessionOnline);
+
+        if ($status == 0 && $wasOnline) {
+            // Changing reason while already online - close the previous record at the new one start (no offline gap)
+            erLhcoreClassModelUserOnlineSession::closePreviousRecord($user->id);
+        }
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.operator_status_changed',array('user' => & $user, 'reason' => 'user_action'));
 
@@ -71,7 +95,7 @@ if (($reasonsLimitation = $currentUser->hasAccessTo('lhuser', 'offlinereasons_op
     }
 
     $offlineReasons = array_values(array_map(function($r) {
-        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description];
+        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description, 'mode' => (int)$r->mode];
     }, \LiveHelperChat\Models\LHCAbstract\OfflineReason::getList($filterReasons)));
 }
 

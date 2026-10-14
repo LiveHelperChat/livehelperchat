@@ -2,7 +2,7 @@
 $modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2 ';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Statistic');
 $modalBodyClass = 'p-1';
-$modalSize = 'xl';
+$modalSize = 'xxxl';
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
     <div class="modal-body" ng-non-bindable>
@@ -83,6 +83,7 @@ $modalSize = 'xl';
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department group');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Assignment type');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Read only');?></th>
+                            <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Can be auto assigned');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Exclude from auto assign workflow');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Chat priority queue');?></th>
                             <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Standard queue priority');?></th>
@@ -133,6 +134,29 @@ $modalSize = 'xl';
                                         <span class="text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Yes');?></span>
                                     <?php else : ?>
                                         <span class="text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No');?></span>
+                                    <?php endif; ?>
+                                </td>
+                                <td nowrap="nowrap">
+                                    <?php
+                                    // Flags which prevent this department record from receiving an auto assigned chat
+                                    $autoAssignBlockedBy = array();
+                                    if ((int)$operator['hide_online'] === 1) {
+                                        $autoAssignBlockedBy[] = 'hide_online';
+                                    }
+                                    if ((int)$operator['exclude_autoasign'] === 1) {
+                                        $autoAssignBlockedBy[] = 'exclude_autoasign';
+                                    }
+                                    if ((int)$operator['exc_indv_autoasign'] === 1) {
+                                        $autoAssignBlockedBy[] = 'exc_indv_autoasign';
+                                    }
+                                    if ((int)$operator['ro'] === 1) {
+                                        $autoAssignBlockedBy[] = 'ro';
+                                    }
+                                    ?>
+                                    <?php if (empty($autoAssignBlockedBy)) : ?>
+                                        <span class="material-icons text-success" title="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Can be auto assigned'))?>">done</span>
+                                    <?php else : ?>
+                                        <span class="material-icons text-danger" title="<?php echo htmlspecialchars(erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Can not be auto assigned') . ': ' . implode(', ', $autoAssignBlockedBy))?>">block</span>
                                     <?php endif; ?>
                                 </td>
                                 <td>

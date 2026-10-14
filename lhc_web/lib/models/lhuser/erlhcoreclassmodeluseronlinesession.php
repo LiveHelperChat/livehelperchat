@@ -22,9 +22,47 @@ class erLhcoreClassModelUserOnlineSession
             'duration' => $this->duration,
             'type' => $this->type,
             'offline_reason_id' => $this->offline_reason_id,
+            'online_reason_id' => $this->online_reason_id,
             'updated_by_user_id' => $this->updated_by_user_id,
             'online_by_user_id' => $this->online_by_user_id
         );
+    }
+
+    /**
+     * When a new online session record is created while the operator was already online (e.g. online reason
+     * switched), close the previous record exactly at the start of the new record. This keeps separate
+     * records per reason but without an "offline gap" (sync timeout) between them in online hours.
+     *
+     * @return bool true when a previous record was adjusted
+     */
+    public static function closePreviousRecord($userId)
+    {
+        $userId = (int)$userId;
+
+        if ($userId <= 0) {
+            return false;
+        }
+
+        $db = ezcDbInstance::get();
+
+        $stmt = $db->prepare('SELECT `id`, `time` FROM `lh_users_online_session` WHERE `user_id` = :user_id ORDER BY `id` DESC LIMIT 2');
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        if (count($rows) < 2) {
+            return false;
+        }
+
+        // Newest record start time becomes the end of the previous record
+        $newRecordStart = (int)$rows[0]['time'];
+
+        $stmt = $db->prepare('UPDATE `lh_users_online_session` SET `lactivity` = :lactivity, `duration` = :lactivity - `time` WHERE `id` = :id AND `time` <= :lactivity');
+        $stmt->bindValue(':lactivity', $newRecordStart, PDO::PARAM_INT);
+        $stmt->bindValue(':id', (int)$rows[1]['id'], PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->rowCount() > 0;
     }
     
     public function __get($var)
@@ -76,6 +114,19 @@ class erLhcoreClassModelUserOnlineSession
                 }
                 return $this->offline_reason_name;
             break;	
+
+            case 'online_reason_name':
+                $this->online_reason_name = '';
+                if ($this->online_reason_id > 0) {
+                    try {
+                        $reason = \LiveHelperChat\Models\LHCAbstract\OfflineReason::fetch($this->online_reason_id);
+                        $this->online_reason_name = (string)$reason;
+                    } catch (Exception $e) {
+                        $this->online_reason_name = '';
+                    }
+                }
+                return $this->online_reason_name;
+            break;
 
             case 'updated_by_user_name':
                 $this->updated_by_user_name = '';
@@ -168,6 +219,7 @@ class erLhcoreClassModelUserOnlineSession
     public $duration = null;
     public $type = self::ACTIVITY;
     public $offline_reason_id = 0;
+    public $online_reason_id = 0;
     public $updated_by_user_id = 0;
     public $online_by_user_id = 0;
 

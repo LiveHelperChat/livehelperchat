@@ -41,4 +41,46 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
         )),
+    'mode' => array(
+        'type' => 'combobox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/offlinereason', 'Select reason mode'),
+        'required' => false,
+        'hide_optional' => true,
+        'name_attr' => 'name',
+        'frontend' => 'mode_frontend',
+        'source' => function () {
+            $items = [];
+
+            $item = new StdClass();
+            $item->id = \LiveHelperChat\Models\LHCAbstract\OfflineReason::MODE_OFFLINE;
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/offlinereason', 'Offline Mode');
+            $items[] = $item;
+
+            $item = new StdClass();
+            $item->id = \LiveHelperChat\Models\LHCAbstract\OfflineReason::MODE_ONLINE;
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/offlinereason', 'Online mode');
+            $items[] = $item;
+
+            return $items;
+        },
+        'params_call' => array(),
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+        )),
+    'disable_auto_assign' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/offlinereason', 'Disable auto assigned (Online mode reasons only)'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
+    'disable_transfer' => array(
+        'type' => 'checkbox',
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/offlinereason', 'Disable transferring chats/mails to me manually if I am in this mode (Online mode reasons only)'),
+        'required' => false,
+        'hidden' => true,
+        'validation_definition' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        )),
 );

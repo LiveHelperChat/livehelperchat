@@ -1955,6 +1955,18 @@ a:not([href]){
     cursor: -webkit-grabbing;
 }
 
+/* Wider modal size variations.
+   Bootstrap bundle only ships up to .modal-xl (1140px), so define
+   reusable bigger sizes here. Use via `$modalSize = 'xxl'` / `'xxxl'`
+   in templates that include lhkernel/modal_header.tpl.php. */
+.modal-xxl {
+    --bs-modal-width: 1320px;
+}
+
+.modal-xxxl {
+    --bs-modal-width: 1600px;
+}
+
 /* new dashboard options */
 .chats-column {
     flex: 0 0 30%;

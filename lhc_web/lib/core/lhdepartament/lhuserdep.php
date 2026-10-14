@@ -388,6 +388,24 @@ class erLhcoreClassUserDep
         }
     }
 
+    /**
+     * Sync the chat/mail auto assignment exclusion flags to the operator department assignments.
+     * Used when an operator switches to/from an offline reason that disables auto assignment.
+     */
+    public static function setExcludeAutoAssignStatus($user_id, $excludeAutoAssign, $excludeAutoAssignMails)
+    {
+        // Update in a such way to avoid deadlocks
+        $ids = self::getUserDepIds($user_id);
+
+        if (!empty($ids)) {
+            $db = ezcDbInstance::get();
+            $stmt = $db->prepare('UPDATE lh_userdep SET exclude_autoasign = :exclude_autoasign, exclude_autoasign_mails = :exclude_autoasign_mails WHERE id IN (' . implode(',', $ids) . ')');
+            $stmt->bindValue(':exclude_autoasign', (int)$excludeAutoAssign, PDO::PARAM_INT);
+            $stmt->bindValue(':exclude_autoasign_mails', (int)$excludeAutoAssignMails, PDO::PARAM_INT);
+            $stmt->execute();
+        }
+    }
+
     public static function updateLastActivityByUser($user_id, $lastActivity, $lda = 0)
     {
         $ids = self::getUserDepIds($user_id);

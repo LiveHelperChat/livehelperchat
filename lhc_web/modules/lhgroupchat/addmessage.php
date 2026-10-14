@@ -37,6 +37,11 @@ try {
 
     $groupChat = erLhcoreClassModelGroupChat::fetch((int)$Params['user_parameters']['id']);
 
+    // Private group chats accept messages only from their members
+    if ($groupChat instanceof erLhcoreClassModelGroupChat && $groupChat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $groupChat->id, 'user_id' => $userData->id))) == 0) {
+        throw new Exception('You are not a member of this private group!');
+    }
+
     if (!isset($payload['msg']) || trim($payload['msg']) == '') {
         throw new Exception('Please enter a message!');
     }

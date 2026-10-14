@@ -4,6 +4,11 @@ $chat = erLhcoreClassModelGroupChat::fetch($Params['user_parameters']['id']);
 
 if ($chat instanceof erLhcoreClassModelGroupChat)
 {
+    // Private group chats history is readable only by their members
+    if ($chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $chat->id, 'user_id' => $currentUser->getUserID()))) == 0) {
+        echo json_encode(array('error' => true));
+        exit;
+    }
 
     $result = erLhcoreClassGroupChat::getChatHistory($chat, $Params['user_parameters']['msg_id']);
 

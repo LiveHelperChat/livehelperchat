@@ -77,6 +77,10 @@ if (is_numeric($Params['user_parameters']['chat_id']) && is_numeric($Params['use
 
                     $user = erLhcoreClassModelUser::fetch($Params['user_parameters']['item_id']);
 
+                    if (\LiveHelperChat\Models\LHCAbstract\OfflineReason::isTransferDisabled($user instanceof erLhcoreClassModelUser ? $user->id : 0)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'This operator does not accept chat/mail transfers in the current status.'));
+                    }
+
                     if ($user instanceof erLhcoreClassModelUser)
                     {
 
@@ -210,6 +214,15 @@ if (is_numeric($Params['user_parameters']['chat_id']) && is_numeric($Params['use
                     $Transfer->transfer_to_user_id = $Params['user_parameters']['item_id']; // Transfer was made to user
 
                     $userTo = erLhcoreClassModelUser::fetch($Transfer->transfer_to_user_id);
+
+                    if (!($userTo instanceof erLhcoreClassModelUser)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'User could not be found!'));
+                    }
+
+                    if (\LiveHelperChat\Models\LHCAbstract\OfflineReason::isTransferDisabled($userTo->id)) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/transferuser', 'This operator does not accept chat/mail transfers in the current status.'));
+                    }
+
                     $msg->name_support = $userTo->name_support;
 
                     \LiveHelperChat\Models\Departments\UserDepAlias::getAlias(array('scope' => 'msg', 'msg' => & $msg, 'chat' => & $Chat, 'user_id' => $userTo->id));

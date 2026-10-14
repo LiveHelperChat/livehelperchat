@@ -1,3 +1,12 @@
+4.96v
+
+1. Notable changes since 4.95v
+   - Offline reason modes: offline reasons gained a `mode` field ("Offline Mode" by default, "Online mode"), so an operator can pick a reason such as "Training" and stay online instead of going offline. Selecting an online mode reason keeps `hide_online = 0`, stores the reason on the operator and, when the operator was offline, creates a new online record in `lh_users_online_session`; the reason is stored in the new `online_reason_id` column so the offline reason value is not overwritten, and online hours statistics show both the offline and the online reason. Switching reason while the operator is already online also starts a new online record, but the previous record is closed exactly at the new record start so online hours shows no bogus "sync timeout" gap (and a zero length gap is not rendered at all). Switching back to plain online clears the reason. The status control and the "Set online status" modal list the available reasons with their mode.
+   - Reason enforced restrictions: reasons gained "Disable auto assigned" and "Disable transferring chats/mails to me manually if I am in this mode"; both apply only to "Online mode" reasons (an offline reason already keeps the operator out of the online assignment). While an operator is online with such a reason his `exclude_autoasign` / `exclude_autoasign_mails` flags are set on the department assignments so the chat and mail auto assignment workflows skip him, and the operator's own preference is restored when he switches away; "Disable transferring..." blocks manual chat/mail transfer and owner change to that operator.
+   - Miscellaneous: updated install scripts and `structure.json` for the three new `lh_abstract_offline_reason` columns; bumped version to 4.96v.
+
+execute doc/update_db/update_361.sql for update
+
 4.95v
 
 1. Notable changes since 4.94v

@@ -8,9 +8,10 @@
     <th width="1%">ID</th>
     <th><span class="material-icons">person</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Username');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Start activity');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Online reason');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Last activity');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Duration');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Offline reason');?></th>
+    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Duration');?></th>
     <th><span class="material-icons text-danger">supervisor_account</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Set offline by');?></th>
     <th><span class="material-icons text-success">supervisor_account</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Set online by');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Chats served');?></th>
@@ -19,14 +20,15 @@
 <?php $parentItem = null;?>
 
 <?php foreach ($items as $item) : ?>
-    <?php if (isset($input->user_id) && is_array($input->user_id) && !empty($input->user_id) && is_object($parentItem)) : ?>
+    <?php $gapSeconds = is_object($parentItem) ? $parentItem->time - $item->lactivity : 0; ?>
+    <?php if (isset($input->user_id) && is_array($input->user_id) && !empty($input->user_id) && is_object($parentItem) && $gapSeconds > 0) : ?>
         <tr>
             <td colspan="4">
             </td>
             <td colspan="1">
                 <div class="text-danger" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Was offline for');?>"><b><?php echo erLhcoreClassChat::formatSeconds($parentItem->time - $item->lactivity)?></b>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Sync timeout');?><?php endif; ?></div>
             </td>
-            <td colspan="4">
+            <td colspan="5">
                 <?php if ( $item->chatsOffline > 0) : ?>
                 <a class="text-danger" href="<?php echo erLhcoreClassDesign::baseurl('chat/list')?>/(user_ids)/<?php echo $item->user_id?>/(timeto_seconds)/<?php echo date('s',$parentItem->time)?>/(timeto_minutes)/<?php echo date('i',$parentItem->time)?>/(timeto_hours)/<?php echo date('H',$parentItem->time)?>/(timeto)/<?php echo date('Y-m-d',$parentItem->time)?>/(timefrom)/<?php echo date('Y-m-d',$item->lactivity)?>/(timefrom_hours)/<?php echo date('H',$item->lactivity)?>/(timefrom_minutes)/<?php echo date('i',$item->lactivity)?>/(timefrom_seconds)/<?php echo date('s',$item->lactivity)?>" target="_blank"><span class="material-icons">open_in_new</span> <?php echo $item->chatsOffline?></a>
                 <?php endif; ?>
@@ -37,9 +39,10 @@
         <td><?php echo $item->id?></td>
         <td title="<?php echo htmlspecialchars($item->user_id)?>"><?php echo htmlspecialchars($item->user_name)?></td>
         <td><?php echo htmlspecialchars($item->time_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::ONLINE) : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went online');?><?php endif; ?></td>
+        <td><?php echo htmlspecialchars($item->online_reason_name)?></td>
         <td><?php echo htmlspecialchars($item->lactivity_front)?>&nbsp;<?php if ($item->type == erLhcoreClassModelUserOnlineSession::OFFLINE) :?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Went offline');?><?php endif; ?></td>
-        <td><?php echo $item->duration_front?></td>
         <td><?php echo htmlspecialchars($item->offline_reason_name)?></td>
+        <td><?php echo $item->duration_front?></td>
         <td title="<?php echo htmlspecialchars($item->updated_by_user_id)?>"><?php echo htmlspecialchars($item->updated_by_user_name)?></td>
         <td title="<?php echo htmlspecialchars($item->online_by_user_id)?>"><?php echo htmlspecialchars($item->online_by_user_name)?></td>
         <td>

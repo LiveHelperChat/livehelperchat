@@ -195,10 +195,9 @@ if ($canListOnlineUsers == true || $canListOnlineUsersAll == true) {
     $offlineReasons = array();
     if (in_array('offline_reason', $onlineOperatorColumns)) {
         foreach ($onlineOperators as $onlineOperator) {
-            if ($onlineOperator->hide_online == 1 && $onlineOperator->hide_online_ts > 0) {
-                if (isset($onlineOperator->user) && $onlineOperator->user->offline_reason_id > 0) {
-                    $offlineReasons[$onlineOperator->user_id] = (int)$onlineOperator->user->offline_reason_id;
-                }
+            // Also covers online mode reasons - those are stored even while the operator is online.
+            if (isset($onlineOperator->user) && $onlineOperator->user->offline_reason_id > 0) {
+                $offlineReasons[$onlineOperator->user_id] = (int)$onlineOperator->user->offline_reason_id;
             }
         }
     }

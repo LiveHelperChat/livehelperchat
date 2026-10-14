@@ -282,7 +282,7 @@ if (($reasonsLimitation = $currentUser->hasAccessTo('lhuser', 'offlinereasons_op
     }
 
     $response['offline_reasons'] = array_values(array_map(function($r) {
-        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description];
+        return ['id' => $r->id, 'name' => $r->name, 'icon' => $r->icon, 'desc' => $r->description, 'mode' => (int)$r->mode];
     }, \LiveHelperChat\Models\LHCAbstract\OfflineReason::getList($filterReasons)));
 }
 

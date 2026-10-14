@@ -15,12 +15,13 @@
        }
     }
 
-    function goOnline(e) {
+    function goOnline(e, reasonId) {
         if (e) {
             e.stopPropagation();
             e.preventDefault();
         }
-        updateSettings({store: lhcList, attr: 'hideOnline', setVal: false, url: 'user/setoffline/false', setAttrs: {offlineReasonId: 0}});
+        reasonId = reasonId || 0;
+        updateSettings({store: lhcList, attr: 'hideOnline', setVal: false, url: 'user/setoffline/false' + (reasonId > 0 ? '/(reason)/' + reasonId : ''), setAttrs: {offlineReasonId: reasonId}});
     }
 
     function goOffline(e, reasonId) {
@@ -48,7 +49,9 @@
     export let show_text = false;
     export let css_class = "nav-link";
 
-    $: offlineReasonName = $lhcList.hideOnline && $lhcList.offlineReasonId ? ($lhcList.offlineReasons.find(r => r.id === $lhcList.offlineReasonId) || {}).name || '' : '';
+    $: activeReason = $lhcList.offlineReasonId ? ($lhcList.offlineReasons.find(r => r.id === $lhcList.offlineReasonId) || null) : null;
+    $: onlineModeReasons = $lhcList.offlineReasons.filter(r => r.mode === 1);
+    $: offlineModeReasons = $lhcList.offlineReasons.filter(r => r.mode !== 1);
 
     const handleKeydown = (event) => {
         if (enable_shortcut) {
@@ -62,11 +65,11 @@
 {#if $lhcList.offlineReasons.length > 0}
     <div class="dropdown">
         <a href={'#'} class={css_class + ' dropdown-toggle'} data-bs-toggle="dropdown" aria-expanded="false">
-            <i id="online-offline-user" class={"material-icons " + ($lhcList.hideOnline === true ? 'text-danger' : 'text-success')} title={$t("homepage.change_online_status")}>
+            <i id="online-offline-user" class={"material-icons " + ($lhcList.hideOnline === true ? 'text-danger' : (activeReason ? 'text-warning' : 'text-success'))} title={$t("homepage.change_online_status")}>
                 {$lhcList.hideOnline == true ? 'flash_off' : 'flash_on'}
             </i>
-            {#if $lhcList.hideOnline && offlineReasonName}
-                <span class="ms-1 small">{offlineReasonName}</span>
+            {#if activeReason}
+                <span class="ms-1 small">{activeReason.name}</span>
             {/if}
             {#if show_text}
                 {#if $lhcList.hideOnline == true}
@@ -77,15 +80,22 @@
             {/if}
         </a>
         <ul class="dropdown-menu">
-            {#if $lhcList.hideOnline}
+            {#if $lhcList.hideOnline || activeReason}
             <li><a href={'#'} class="dropdown-item" on:click={goOnline}>
                 <i class="material-icons text-success">flash_on</i> {$t("homepage.status_online")}
             </a></li>
+            {/if}
+            {#each onlineModeReasons as reason}
+                <li><a href={'#'} class={"dropdown-item" + (!$lhcList.hideOnline && reason.id === $lhcList.offlineReasonId ? ' fw-bold' : '')} title={reason.desc || ''} on:click={(e) => goOnline(e, reason.id)}>
+                    <i class="material-icons text-success">{reason.icon || 'flash_on'}</i>{reason.name}
+                </a></li>
+            {/each}
+            {#if onlineModeReasons.length > 0 && offlineModeReasons.length > 0}
             <li><hr class="dropdown-divider"></li>
             {/if}
-            {#each $lhcList.offlineReasons as reason}
+            {#each offlineModeReasons as reason}
                 <li><a href={'#'} class={"dropdown-item" + ($lhcList.hideOnline && reason.id === $lhcList.offlineReasonId ? ' fw-bold' : '')} title={reason.desc || ''} on:click={(e) => goOffline(e, reason.id)}>
-                    <i class="material-icons">{reason.icon || 'flash_off'}</i>{reason.name}
+                    <i class="material-icons text-danger">{reason.icon || 'flash_off'}</i>{reason.name}
                 </a></li>
             {/each}
         </ul>
