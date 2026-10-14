@@ -279,6 +279,15 @@ class erLhcoreClassChatWebhookIncoming {
         $conditionsPairs = explode("||",$conditions[$field]);
 
         foreach ($conditionsPairs as $conditionsPair) {
+
+            // Negated comparison is supported as attribute!=value (for example message.chat.type!=supergroup).
+            // Negated condition is met when the attribute is missing or its value does not match.
+            $negated = false;
+            if (strpos($conditionsPair, '!=') !== false) {
+                $conditionsPair = str_replace('!=', '=', $conditionsPair);
+                $negated = true;
+            }
+
             $conditionsPairData = explode('=', $conditionsPair);
 
             if (!isset($conditionsPairData[1])) {
@@ -299,21 +308,28 @@ class erLhcoreClassChatWebhookIncoming {
             $messageData = erLhcoreClassGenericBotActionRestapi::extractAttribute($payloadMessage, $conditionsPairData[0], '.');
             $messageValue = $messageData['value'];
 
+            $pairValid = true;
+
             if ($messageData['found'] === false) {
-                $validConditions = false;
+                $pairValid = false;
             }
 
             if ($messageData['found'] === true && ((is_array($conditionsPairData[1]) && !in_array($messageValue, $conditionsPairData[1])) || (!is_array($conditionsPairData[1]) && !(isset($messageValue) && $messageValue == $conditionsPairData[1])))) {
-                $validConditions = false;
+                $pairValid = false;
             }
 
             if ($messageData['found'] !== true && $exists == true) {
-                $validConditions = false;
+                $pairValid = false;
             } elseif ($messageData['found'] === true && $exists === true) {
-                $validConditions = true;
+                $pairValid = true;
             }
 
-            if ($validConditions === false) {
+            if ($negated === true) {
+                $pairValid = !$pairValid;
+            }
+
+            if ($pairValid === false) {
+                $validConditions = false;
                 break;
             }
         }
