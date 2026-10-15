@@ -14,6 +14,7 @@ export class msgSnippetWidget{
 
         this.msop = null;   // Last operator ID who wrote a message
         this.msg = null;    // Container of the message
+        this.statusPosition = null; // Position of the dragged status widget
 
         this.cont = new UIConstructorIframe((prefix || 'lhc')+'_msgsnippet_widget_v2', helperFunctions.getAbstractStyle({
             zindex: "2147483639",
@@ -21,6 +22,7 @@ export class msgSnippetWidget{
             height: "200px",
             position: "fixed",
             display: "none",
+            transition: "transform"
         }), {"translate":"no"}, "iframe");
 
         this.loadStatus = {main : false, theme: false, status: false};
@@ -103,6 +105,19 @@ export class msgSnippetWidget{
             data == true ? (this.widgetOpen = true, this.hide(true)) : (this.widgetOpen = false, this.show());
         });
 
+        // Slide after the dragged status widget like the need help widget does
+        if (this.attributes.animate_nh) {
+            this.cont.massRestyle({"transition-duration" : "800ms", "transition-timing-function" : "cubic-bezier(0.165, 0.84, 0.44, 1)"});
+        }
+
+        // Follow the status widget when the visitor drags it, the same way the need help widget does
+        this.attributes.status_position.subscribe((data) => {
+            if (data) {
+                this.statusPosition = data;
+                this.fitContent();
+            }
+        });
+
         this.attributes.eventEmitter.addListener('reloadWidget',() => {
             this.cont.insertCssRemoteFile({onload: () => {this.loadStatus['theme'] = true; this.checkLoadStatus()}, id : "lhc-theme-msgsnippet", crossOrigin : "anonymous",  href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/theme/' + this.attributes.theme + '?v=' + Date.now()}, true);
         });
@@ -180,6 +195,21 @@ export class msgSnippetWidget{
             leftPosition = true;
         } else if (this.attributes.position_placement == 'middle_right') {
             placement = {bottom: "calc(50% + 35px)", right: (65+this.attributes.widgetDimesions.value.wright) + "px"};
+        }
+
+        // Status widget was dragged. Keep the snippet next to it, like the need help widget:
+        // 55px aside and above it, or below it if it was dragged to the top part of the screen.
+        // Bottom placement keeps the same distance between the message and the status widget
+        // as the docked placement above (it grows upwards with the message height).
+        if (this.statusPosition) {
+            const data = this.statusPosition;
+            placement = {
+                "bottom": data["bottom"],
+                "top": data["top"],
+                "left": data["left"],
+                "right": data["right"],
+                "transform": "translate3d(" + (data["left"] == "auto" ? -55 : 55) + "px," + (data["bottom"] == "auto" ? data["y"] + 70 : data["y"] - (documentHeight - 31)) + "px, 0px)!important"
+            };
         }
 
         this.cont.massRestyle(placement);
