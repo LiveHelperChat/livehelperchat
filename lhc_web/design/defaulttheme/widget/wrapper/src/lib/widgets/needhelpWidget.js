@@ -106,7 +106,7 @@ export class needhelpWidget{
         if (!settings['ap']) {
 
             if (attributes.animate_nh) {
-                this.cont.massRestyle({"transition-duration" : "800ms", "transition-timing-function" : "cubic-bezier(0.165, 0.84, 0.44, 1)"});
+                this.cont.massRestyle({"transition-duration" : "800ms"});
             }
 
             attributes.eventEmitter.addListener('showInvitation', () => {
