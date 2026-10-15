@@ -30,6 +30,14 @@ try {
             $tpl->set('async_call',true);
             $tpl->set('user', erLhcoreClassModelUser::fetch($msg->user_id));
 
+            // Theme settings used by the operator profile (custom_op_name, hide_job_title)
+            if ($chat->theme_id > 0) {
+                $theme = erLhAbstractModelWidgetTheme::fetch($chat->theme_id);
+                if ($theme instanceof erLhAbstractModelWidgetTheme) {
+                    $tpl->set('theme', $theme);
+                }
+            }
+
             $msgPlain = trim($tpl->fetch());
 
             $operator_profile = $tpl->fetch('lhchat/getmessagesnippet/operator_profile.tpl.php');
