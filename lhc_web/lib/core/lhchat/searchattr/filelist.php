@@ -87,6 +87,47 @@ $fieldsSearch['upload_name'] = array (
     )
 );
 
+// Comma separated list of file extensions, e.g. pdf,docx
+$fieldsSearch['extension'] = array (
+    'type' => 'text',
+    'trans' => 'Extension',
+    'required' => false,
+    'valid_if_filled' => false,
+    'multiple_id' => 'string',
+    'filter_type' => 'filterin',
+    'filter_table_field' => '`lh_chat_file`.`extension`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+    )
+);
+
+// Date range with hour, minute and second selection, same as in chats search
+$fieldsSearch['timefrom'] = array (
+    'type' => 'text',
+    'trans' => 'Timefrom',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'datetime',
+    'filter_type' => 'filtergte',
+    'filter_table_field' => '`lh_chat_file`.`date`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
+$fieldsSearch['timeto'] = array (
+    'type' => 'text',
+    'trans' => 'Timeto',
+    'required' => false,
+    'valid_if_filled' => false,
+    'datatype' => 'datetime',
+    'filter_type' => 'filterlte',
+    'filter_table_field' => '`lh_chat_file`.`date`',
+    'validation_definition' => new ezcInputFormDefinitionElement (
+        ezcInputFormDefinitionElement::OPTIONAL, 'string'
+    )
+);
+
 $fieldsSearch['persistent'] = array (
 	'type' => 'boolean',
 	'trans' => 'User',

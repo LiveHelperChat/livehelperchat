@@ -78,25 +78,25 @@ $ViewList['new'] = array(
 
 $ViewList['attatchfile'] = array(
 		'params' => array('chat_id'),
-		'uparams' => array('user_id'),
+		'uparams' => array('user_id','extension','timefrom','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto','timeto_hours','timeto_minutes','timeto_seconds'),
 		'functions' => array( 'use_operator' )
 );
 
 $ViewList['attatchfileimg'] = array(
 		'params' => array(),
-		'uparams' => array('persistent','user_id','visitor','upload_name','replace','file_id'),
+		'uparams' => array('persistent','user_id','visitor','upload_name','replace','file_id','extension','timefrom','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto','timeto_hours','timeto_minutes','timeto_seconds'),
 		'functions' => array( 'use_operator' )
 );
 
 $ViewList['attatchfilemail'] = array(
 		'params' => array(),
-		'uparams' => array('mode','user_id'),
+		'uparams' => array('mode','user_id','extension','timefrom','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto','timeto_hours','timeto_minutes','timeto_seconds'),
 		'functions' => array( 'use_operator' )
 );
 
 $ViewList['list'] = array(
         'params' => array(),
-        'uparams' => array('chat_id', 'user_ids', 'user_id', 'visitor', 'persistent', 'upload_name'),
+        'uparams' => array('chat_id', 'user_ids', 'user_id', 'visitor', 'persistent', 'upload_name', 'extension', 'timefrom', 'timefrom_hours', 'timefrom_minutes', 'timefrom_seconds', 'timeto', 'timeto_hours', 'timeto_minutes', 'timeto_seconds'),
         'functions' => array( 'file_list' ),
         'multiple_arguments' => array(
             'user_ids'
@@ -105,7 +105,7 @@ $ViewList['list'] = array(
 
 $ViewList['listmail'] = array(
     'params' => array(),
-    'uparams' => array('conversation_id', 'message_id', 'user_id', 'visitor', 'persistent','upload_name'),
+    'uparams' => array('conversation_id', 'message_id', 'user_id', 'visitor', 'persistent','upload_name','extension','timefrom','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto','timeto_hours','timeto_minutes','timeto_seconds'),
     'functions' => array( 'file_list_mail' )
 );
 

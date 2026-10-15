@@ -135,7 +135,7 @@ $ViewList['apifetchmails'] = array(
 
 $ViewList['attatchfile'] = array(
     'params' => array(),
-    'uparams' => array('persistent','user_id','visitor','upload_name','attachment'),
+    'uparams' => array('persistent','user_id','visitor','upload_name','attachment','extension','timefrom','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto','timeto_hours','timeto_minutes','timeto_seconds'),
     'functions' => array( 'use_admin' )
 );
 

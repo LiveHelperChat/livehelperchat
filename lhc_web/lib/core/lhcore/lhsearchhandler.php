@@ -407,6 +407,16 @@ class erLhcoreClassSearchHandler
                     } elseif ($field['filter_type'] == 'filterin') {
                         if (!empty($inputParams->$key)) {
                             $validValues = $inputParams->$key;
+
+                            // Field can accept comma separated list of string values, e.g. file extensions
+                            if (isset($field['multiple_id']) && $field['multiple_id'] === 'string' && is_string($validValues)) {
+                                $validValues = array_values(array_filter(array_map(function($part) {
+                                    return trim(preg_replace('/[^a-zA-Z0-9\.\-_]/', '', $part));
+                                }, explode(',', $validValues)), function($part) {
+                                    return $part !== '';
+                                }));
+                            }
+
                             if (isset($field['valid_options'])) {
                                 $validValues =  array_intersect($validValues, $field['valid_options']);
                             }

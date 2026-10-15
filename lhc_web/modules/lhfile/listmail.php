@@ -13,19 +13,24 @@ if (isset($_GET['doSearch'])) {
 $append = erLhcoreClassSearchHandler::getURLAppendFromInput($filterParams['input_form']);
 
 // If filtering by conversation_id, fetch message IDs and use them instead
-if (isset($filterParams['filter']['filter']['conversation_id'])) {
-    $conversationId = $filterParams['filter']['filter']['conversation_id'];
+if (isset($filterParams['filter']['filter']['`lhc_mailconv_file`.`conversation_id`'])) {
+    $conversationId = $filterParams['filter']['filter']['`lhc_mailconv_file`.`conversation_id`'];
     $messages = erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $conversationId], 'select_columns' => ['id']]);
     $messageIds = array_column($messages, 'id');
 
-    unset($filterParams['filter']['filter']['conversation_id']);
+    unset($filterParams['filter']['filter']['`lhc_mailconv_file`.`conversation_id`']);
 
     if (!empty($messageIds)) {
-        $filterParams['filter']['filterin']['message_id'] = $messageIds;
+        $filterParams['filter']['filterin']['`lhc_mailconv_file`.`message_id`'] = $messageIds;
     } else {
         // No messages found, ensure no results
-        $filterParams['filter']['filter']['message_id'] = -1;
+        $filterParams['filter']['filter']['`lhc_mailconv_file`.`message_id`'] = -1;
     }
+}
+
+// Files itself have no timestamp, so date range is applied to the message the file belongs to
+if (isset($filterParams['filter']['filtergte']['`lhc_mailconv_msg`.`ctime`']) || isset($filterParams['filter']['filterlte']['`lhc_mailconv_msg`.`ctime`'])) {
+    $filterParams['filter']['innerjoin']['lhc_mailconv_msg'] = array('`lhc_mailconv_file`.`message_id`','`lhc_mailconv_msg`.`id`');
 }
 
 $pages = new lhPaginator();
@@ -36,7 +41,7 @@ $pages->paginate();
 
 $items = array();
 if ($pages->items_total > 0) {
-    $items = erLhcoreClassModelMailconvFile::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => 'id DESC'),$filterParams['filter']));
+    $items = erLhcoreClassModelMailconvFile::getList(array_merge(array('offset' => $pages->low, 'limit' => $pages->items_per_page,'sort' => '`lhc_mailconv_file`.`id` DESC'),$filterParams['filter']));
 }
 
 $tpl->set('items',$items);
