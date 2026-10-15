@@ -2761,9 +2761,9 @@ class erLhcoreClassGenericBotWorkflow {
                                 }
 
                                 if (!empty($conditionsRefactored)) {
-                                    $replaceArray = [];
+                                    $conditionReplaceArray = [];
                                     if (isset($params['args']['replace_array']) && !empty($params['args']['replace_array'])){
-                                        $replaceArray['replace_array'] = $params['args']['replace_array'];
+                                        $conditionReplaceArray['replace_array'] = $params['args']['replace_array'];
                                     }
 
                                     $response = erLhcoreClassGenericBotActionConditions::process(
@@ -2775,7 +2775,7 @@ class erLhcoreClassGenericBotWorkflow {
                                             'current_trigger' => null
                                         ],
                                         null,
-                                        $replaceArray
+                                        $conditionReplaceArray
                                     );
                                     
                                     if (!(isset($response['status']) && $response['status'] == 'stop')) {
