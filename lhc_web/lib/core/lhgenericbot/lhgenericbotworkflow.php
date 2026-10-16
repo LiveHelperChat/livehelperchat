@@ -2625,6 +2625,100 @@ class erLhcoreClassGenericBotWorkflow {
             }
         }
 
+        // {if_condition_valid__identifier}content{/if_condition_valid__identifier}
+        // {if_condition_not_valid__identifier}content{/if_condition_not_valid__identifier}
+        // Content is printed only if condition with given identifier is valid/not valid
+        if (str_contains($message, '{if_condition_')) {
+
+            $conditionChat = (isset($params['chat']) && is_object($params['chat'])) ? $params['chat'] : null;
+
+            if ($conditionChat === null) {
+                // Caller may pass only online user, e.g. widget theme translation, so we build a dummy chat out of it
+                $onlineUser = (isset($params['online_user']) && is_object($params['online_user'])) ? $params['online_user'] : ((isset($params['ou']) && is_object($params['ou'])) ? $params['ou'] : null);
+
+                $conditionChat = new erLhcoreClassModelChat();
+
+                if ($onlineUser !== null) {
+                    $conditionChat->online_user_id = (int)$onlineUser->id;
+                    $conditionChat->online_user = $onlineUser;
+
+                    if ((int)$onlineUser->dep_id > 0) {
+                        $conditionChat->dep_id = (int)$onlineUser->dep_id;
+                    }
+
+                    // Visitor attributes which are known even without a chat
+                    $conditionChat->ip = (string)$onlineUser->ip;
+                    $conditionChat->uagent = (string)$onlineUser->user_agent;
+                    $conditionChat->device_type = (int)$onlineUser->device_type;
+                    $conditionChat->user_tz_identifier = (string)$onlineUser->visitor_tz;
+                    $conditionChat->country_code = (string)$onlineUser->user_country_code;
+                    $conditionChat->country_name = (string)$onlineUser->user_country_name;
+                    $conditionChat->city = (string)$onlineUser->city;
+                    $conditionChat->lat = (string)$onlineUser->lat;
+                    $conditionChat->lon = (string)$onlineUser->lon;
+                    $conditionChat->referrer = (string)$onlineUser->referrer;
+
+                    if ((string)$onlineUser->current_page != '') {
+                        $conditionChat->session_referrer = (string)$onlineUser->current_page;
+                    }
+
+                    // Visitor attributes collected before chat exists, so lhc.add.* and chat variable conditions work
+                    $conditionChat->additional_data = (string)$onlineUser->online_attr;
+                    $conditionChat->chat_variables = json_encode($onlineUser->online_attr_system_array);
+                }
+            }
+
+            $conditionParams = $params;
+            $conditionParams['chat'] = $conditionChat;
+
+            if (isset($params['args']['replace_array'])) {
+                $conditionParams['replace_array'] = $params['args']['replace_array'];
+            }
+
+            // All conditions are loaded with a single query
+            $conditionsFound = [];
+
+            $matchesIdentifiers = [];
+            preg_match_all('/\{if_condition_(?:valid|not_valid)__([A-Za-z0-9_\-]+)\}/is', $message, $matchesIdentifiers);
+
+            if (!empty($matchesIdentifiers[1])) {
+                foreach (\LiveHelperChat\Models\Bot\Condition::getList(array('limit' => false, 'filterin' => array('identifier' => array_unique($matchesIdentifiers[1])))) as $conditionItem) {
+                    $conditionsFound[$conditionItem->identifier][] = $conditionItem;
+                }
+            }
+
+            // Nested blocks are matched on the outer ones first, so we repeat while there are blocks left
+            for ($passCondition = 0; $passCondition < 20; $passCondition++) {
+
+                $matchesConditions = [];
+                preg_match_all('/\{if_condition_(valid|not_valid)__([A-Za-z0-9_\-]+)\}(.*?)\{\/if_condition_\1__\2\}/is', $message, $matchesConditions);
+
+                if (empty($matchesConditions[0])) {
+                    break;
+                }
+
+                foreach ($matchesConditions[0] as $indexCondition => $conditionBlock) {
+
+                    $conditionValid = false;
+
+                    if (isset($conditionsFound[$matchesConditions[2][$indexCondition]])) {
+                        foreach ($conditionsFound[$matchesConditions[2][$indexCondition]] as $conditionToValidate) {
+                            if ($conditionToValidate->isValid($conditionParams) === true) {
+                                $conditionValid = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if ($matchesConditions[1][$indexCondition] == 'not_valid') {
+                        $conditionValid = !$conditionValid;
+                    }
+
+                    $message = str_replace($conditionBlock, ($conditionValid === true ? $matchesConditions[3][$indexCondition] : ''), $message);
+                }
+            }
+        }
+
         if (strpos($message, '{rnumber_') !== false) {
             $matchesCycle = array();
             preg_match_all('/{rnumber_([0-9]+)(?:_([0-9]+))?}/is', $message, $matchesCycle);
@@ -3020,6 +3114,8 @@ class erLhcoreClassGenericBotWorkflow {
                 }
             }
         }
+
+
 
         return $message;
     }

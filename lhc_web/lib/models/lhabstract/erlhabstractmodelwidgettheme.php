@@ -553,15 +553,18 @@ class erLhAbstractModelWidgetTheme {
             }
         }
 
+        // Theme attributes are translated by the generic message translator. Online user is passed so {if_condition_*} blocks can be resolved.
+        $paramsTranslation = array('args' => $params, 'online_user' => (isset($params['ou']) && is_object($params['ou']) ? $params['ou'] : null));
+
         foreach ($attributesDirect as $attr) {
-            if (isset($this->{$attr}) && $this->{$attr} !== '' && str_contains($this->{$attr},'{args.')) {
-                $this->{$attr} = erLhcoreClassGenericBotWorkflow::translateMessage($this->{$attr}, array('args' => $params));
+            if (isset($this->{$attr}) && $this->{$attr} !== '' && (str_contains($this->{$attr},'{args.') || str_contains($this->{$attr},'{if_condition_'))) {
+                $this->{$attr} = erLhcoreClassGenericBotWorkflow::translateMessage($this->{$attr}, $paramsTranslation);
             }
         }
 
         foreach ($attributes as $keyAttribute => $valueAttribute) {
-            if (is_string($valueAttribute) && str_contains($valueAttribute,'{args.')) {
-                $attributes[$keyAttribute] = erLhcoreClassGenericBotWorkflow::translateMessage($valueAttribute, array('args' => $params));
+            if (is_string($valueAttribute) && (str_contains($valueAttribute,'{args.') || str_contains($valueAttribute,'{if_condition_'))) {
+                $attributes[$keyAttribute] = erLhcoreClassGenericBotWorkflow::translateMessage($valueAttribute, $paramsTranslation);
             }
         }
 
