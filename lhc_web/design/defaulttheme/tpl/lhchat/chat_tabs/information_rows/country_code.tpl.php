@@ -6,6 +6,6 @@
                 <a class="text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','Location on map')?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/singleaction/<?php echo $chat->id?>/map'})"><span class="material-icons">place</span></a>
             <?php endif;?>
         <?php endif;?>
-        <img src="<?php echo erLhcoreClassDesign::design('images/flags')?>/<?php echo $chat->country_code?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" />&nbsp;<?php echo htmlspecialchars($chat->chat_locale)?>
+        <img src="<?php echo erLhcoreClassDesign::design('images/flags')?>/<?php echo htmlspecialchars($chat->country_code)?>.png" alt="<?php echo htmlspecialchars($chat->country_name)?>" title="<?php echo htmlspecialchars($chat->country_name)?>" />&nbsp;<?php echo htmlspecialchars($chat->chat_locale)?>
     </div>
 <?php endif;?>

@@ -12,12 +12,12 @@
 <ip_address><?php echo htmlspecialchars($chat->ip)?></ip_address>
 <unanswered><?php echo $chat->na_cb_executed?></unanswered>
 <priority><?php echo $chat->priority?></priority>
-<country_code><?php echo $chat->country_code?></country_code>
+<country_code><?php echo htmlspecialchars($chat->country_code)?></country_code>
 <country><![CDATA[ <?php echo htmlspecialchars($chat->country_name)?> ]]></country>
 <city><![CDATA[ <?php echo htmlspecialchars($chat->city)?> ]]></city>
 <remarks><![CDATA[ <?php echo htmlspecialchars($chat->remarks)?> ]]></remarks>
-<latitude><?php echo $chat->lat?></latitude>
-<longitude><?php echo $chat->lon?></longitude>
+<latitude><?php echo htmlspecialchars($chat->lat)?></latitude>
+<longitude><?php echo htmlspecialchars($chat->lon)?></longitude>
 <additional_data><![CDATA[<?php echo htmlspecialchars($chat->additional_data)?>]]></additional_data>
 <operator_variables type="array">
 <?php if (!empty($chat->chat_variables)) : $chatVariables = json_decode($chat->chat_variables); ?>

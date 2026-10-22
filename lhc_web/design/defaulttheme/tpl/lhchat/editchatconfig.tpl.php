@@ -4,7 +4,7 @@
 	<?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>	
 <?php endif; ?>
 
-<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/<?php echo $systemconfig->identifier?>">
+<form method="post" action="<?php echo erLhcoreClassDesign::baseurl('chat/editchatconfig')?>/<?php echo htmlspecialchars($systemconfig->identifier)?>">
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 

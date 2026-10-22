@@ -1512,7 +1512,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $country_code = self::extractAttribute('country_code', $conditions, $payloadMessage, $chat->country_code);
                         
                         if (!empty($country_code)) {
-                            $chat->country_code = strtolower($country_code);
+                            $chat->country_code = substr(strtolower(preg_replace('/[^A-Za-z]/', '', $country_code)), 0, 2);
                         }
                     }
 
@@ -1769,7 +1769,7 @@ class erLhcoreClassChatWebhookIncoming {
                         $country_code = self::extractAttribute('country_code', $conditions, $payloadMessage, $chat->country_code);
 
                         if (!empty($country_code)) {
-                            $chat->country_code = strtolower($country_code);
+                            $chat->country_code = substr(strtolower(preg_replace('/[^A-Za-z]/', '', $country_code)), 0, 2);
                         }
                     }
 

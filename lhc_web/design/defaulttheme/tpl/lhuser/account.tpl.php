@@ -87,7 +87,7 @@
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?>*</label>
-            <input type="text" ng-non-bindable class="form-control" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> value="<?php echo $user->email;?>" name="Email" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your email address');?>" id="email" class="required email valid">
+            <input type="text" ng-non-bindable class="form-control" <?php if (!erLhcoreClassUser::instance()->hasAccessTo('lhuser','change_core_attributes')) : ?>disabled<?php endif?> value="<?php echo htmlspecialchars($user->email);?>" name="Email" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Your email address');?>" id="email" class="required email valid">
         </div>
 
         <div class="form-group">
@@ -146,7 +146,7 @@
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Photo');?>, (jpg,png)</label> <input type="file" name="UserPhoto" value="" />
 
                     <?php if ($user->has_photo) : ?>
-                        <div><img src="<?php echo $user->photo_path?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label></div>
+                        <div><img src="<?php echo htmlspecialchars($user->photo_path)?>" alt="" width="50" /><br /> <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label></div>
                     <?php endif;?>
                 </div>
             </div>

@@ -135,7 +135,7 @@
 <?php foreach ($items as $item) : ?>
     <tr>
         <td><?php echo $item->id?></td>
-        <td title="<?php echo $item->btype?>">
+        <td title="<?php echo (int)$item->btype?>">
 
             <?php if (isset($enabled_log)) : ?>
                 <a class="text-danger" target="_blank" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block history');?>" href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Audit/(category)/block/(source)/lhc/(object_id)/<?php echo $item->id?>"><span class="material-icons me-0">history</span></a>

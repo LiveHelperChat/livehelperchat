@@ -4,7 +4,7 @@
      			<?php include(erLhcoreClassDesign::designtpl('lhchat/part/operator_profile_name_support_img.tpl.php'));?>
         <?php elseif (isset($theme) && $theme !== false && $theme->operator_image_avatar !== false) : ?>
                 <?php if ($theme->operator_image_url !== false) : ?>
-                    <img width="48" height="48" src="<?php echo $theme->operator_image_url?>" alt="">
+                    <img width="48" height="48" src="<?php echo htmlspecialchars($theme->operator_image_url)?>" alt="">
                 <?php else : ?>
                     <img width="48" height="48" src="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('widgetrestapi/avatar')?>/<?php echo htmlspecialchars($theme->bot_configuration_array['operator_avatar'])?>" alt="" />
                 <?php endif; ?>

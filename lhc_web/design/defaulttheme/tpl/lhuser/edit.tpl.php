@@ -120,7 +120,7 @@
 
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?>*</label>
-        		<input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Email" value="<?php echo $user->email;?>"/>
+        		<input type="text" ng-non-bindable <?php if ($can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> class="form-control" name="Email" value="<?php echo htmlspecialchars($user->email);?>"/>
     		</div>
 
     		<div class="form-group">
@@ -183,7 +183,7 @@
                    <?php endif;?>
                    <?php if ($user->has_photo) : ?>
                        <div class="form-group">
-                           <img src="<?php echo $user->photo_path?>" alt="" width="50" /><br />
+                           <img src="<?php echo htmlspecialchars($user->photo_path)?>" alt="" width="50" /><br />
                            <label><input type="checkbox" name="DeletePhoto" value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Delete')?></label>
                        </div>
                    <?php endif;?>

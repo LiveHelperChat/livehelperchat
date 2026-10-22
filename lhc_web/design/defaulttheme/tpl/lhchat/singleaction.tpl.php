@@ -4,8 +4,8 @@
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <div>
     <?php $geo_location_data = erLhcoreClassModelChatConfig::fetch('geo_location_data')->data; ?>
-    <a target="_blank" href="//maps.google.com/maps?t=h&q=<?php echo $chat->lat?>,<?php echo $chat->lon?>&z=17&hl=en&z=11&t=m">
-        <img id="chat-map-img-<?php echo $chat->id?>" src="//maps.google.com/maps/api/staticmap?<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) {echo 'key=' , erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false) , '&';} elseif (isset($geo_location_data['gmaps_api_key'])) {echo 'key=' ,$geo_location_data['gmaps_api_key'], '&';}?>zoom=13&size=400x300&maptype=roadmap&center=<?php echo $chat->lat?>,<?php echo $chat->lon?>&sensor=false&markers=color:green|<?php echo $chat->lat?>,<?php echo $chat->lon?>" alt="" title="<?php echo $chat->lat?>,<?php echo $chat->lon?>" />
+    <a target="_blank" href="//maps.google.com/maps?t=h&q=<?php echo htmlspecialchars($chat->lat)?>,<?php echo htmlspecialchars($chat->lon)?>&z=17&hl=en&z=11&t=m">
+        <img id="chat-map-img-<?php echo $chat->id?>" src="//maps.google.com/maps/api/staticmap?<?php if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false)) {echo 'key=' , erConfigClassLhConfig::getInstance()->getSetting( 'site', 'maps_api_key', false) , '&';} elseif (isset($geo_location_data['gmaps_api_key'])) {echo 'key=' ,$geo_location_data['gmaps_api_key'], '&';}?>zoom=13&size=400x300&maptype=roadmap&center=<?php echo htmlspecialchars($chat->lat)?>,<?php echo htmlspecialchars($chat->lon)?>&sensor=false&markers=color:green|<?php echo htmlspecialchars($chat->lat)?>,<?php echo htmlspecialchars($chat->lon)?>" alt="" title="<?php echo htmlspecialchars($chat->lat)?>,<?php echo htmlspecialchars($chat->lon)?>" />
     </a>
 </div>
 

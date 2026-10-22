@@ -1,6 +1,6 @@
 <div class="float-end col-6">
 <p class="fs12">
-<?php if ( !empty($online_user->user_country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo $online_user->user_country_code?>.png" alt="<?php echo htmlspecialchars($online_user->user_country_name)?>" title="<?php echo htmlspecialchars($online_user->user_country_name)?>" /><?php endif; ?> (<?php
+<?php if ( !empty($online_user->user_country_code) ) : ?><img src="<?php echo erLhcoreClassDesign::design('images/flags');?>/<?php echo htmlspecialchars($online_user->user_country_code)?>.png" alt="<?php echo htmlspecialchars($online_user->user_country_name)?>" title="<?php echo htmlspecialchars($online_user->user_country_name)?>" /><?php endif; ?> (<?php
     if (erLhcoreClassUser::instance()->hasAccessTo('lhchat','seeip')) {
         echo htmlspecialchars($online_user->ip);
     } else {
