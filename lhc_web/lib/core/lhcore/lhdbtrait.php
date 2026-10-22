@@ -66,6 +66,14 @@ trait erLhcoreClassDBTrait
 
         if (is_array($data)) {
             $this->setState($data);
+
+            // Drop decoded copies (e.g. chat_variables_array) cached by __get before the lock,
+            // so they are rebuilt from the freshly locked row.
+            foreach ($data as $key => $value) {
+                if (!array_key_exists($key . '_array', $data) && property_exists($this, $key . '_array')) {
+                    unset($this->{$key . '_array'});
+                }
+            }
         }
     }
 
