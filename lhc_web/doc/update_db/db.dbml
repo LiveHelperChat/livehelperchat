@@ -106,6 +106,8 @@ Table "lhc_mailconv_file" {
   "width" int(11) [not null, default: 0, note: 'unsigned']
   "height" int(11) [not null, default: 0, note: 'unsigned']
   "meta_msg" longtext [not null]
+  "caption" text [not null]
+  "caption_ocr" text [not null]
   Indexes {
     message_id [name: "message_id"]
     conversation_id [name: "conversation_id"]
@@ -1622,6 +1624,8 @@ Table "lh_chat_file" {
   "height" int(11) [not null, default: 0, note: 'unsigned']
   "tmp" tinyint(1) [not null, default: 0, note: 'unsigned']
   "meta_msg" longtext [not null]
+  "caption" text [not null]
+  "caption_ocr" text [not null]
   Indexes {
     chat_id [name: "chat_id"]
     online_user_id [name: "online_user_id"]

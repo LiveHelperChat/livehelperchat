@@ -1,3 +1,19 @@
+4.97v
+
+✨ Add file captions/OCR attributes, file bot actions, file webhooks and login history filters
+
+- 🗄️ Add caption and caption_ocr columns to lh_chat_file and lhc_mailconv_file tables via update_362.sql, install scripts, structure.json, db.dbml and POS definitions
+- 🤖 Add fileattribute bot command to set caption/caption_ocr on chat and mail files (new attribute||value line format with legacy fallback), block setting primary key via setchatattribute
+- 🔗 Dispatch file.mail_import.file_store and file.uploadfile.file_store events, move file.storescreenshot.store dispatch after transaction commit so bot workflows act on fully saved files
+- 🐝 Support chat_file context in bot conditions, REST API actions (file_ent chat/mail), and bot worker fetching mail/chat files with fallback chat resolution
+- 🌐 Add file.uploadfile.after_save and file.mail_import.file_store to webhooks debug dispatch and allow file classes in reflection allow-list
+- 📜 Display caption/OCR/dimensions info in chat file lists, mail file lists and edit pages
+- 🔍 Add IP and date range (with hour/minute/second) filters to login history plus allowed-IP status column
+- 🔐 Require IP restrictions for REST API user-based authentication and redirect non-admin site access logins to admin login
+- 🐛 Fix PHP 8.1 null deprecation in REST API variable extraction, guard chat_id=0 in bot worker
+
+execute doc/update_db/update_362.sql for update
+
 4.96v
 
 1. Notable changes since 4.95v

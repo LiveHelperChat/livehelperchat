@@ -177,6 +177,9 @@ class erLhcoreClassGenericBotActionConditions {
                                         }
                                     }
                                 }
+                            } elseif (isset($params['chat_file']) && ($params['chat_file'] instanceof erLhcoreClassModelChatFile || $params['chat_file'] instanceof erLhcoreClassModelMailconvFile)) {
+                                // Events like file.uploadfile.after_save provides file directly
+                                $attr = $params['chat_file']->extension;
                             }
 
                         } elseif (str_starts_with($condition['content']['attr'], '{args.')) {

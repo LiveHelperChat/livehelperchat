@@ -92,6 +92,24 @@
 
 <div class="row">
     <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Caption');?></label>
+            <p><?php echo $item->caption != '' ? htmlspecialchars($item->caption) : '-'?></p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/new','Recognized text (OCR)');?></label>
+            <p><?php echo $item->caption_ocr != '' ? nl2br(htmlspecialchars($item->caption_ocr)) : '-'?></p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
         <div class="btn-group" role="group">
             <a href="<?php echo erLhcoreClassDesign::baseurl('file/listmail')?>" class="btn btn-secondary">
                 <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Back');?>

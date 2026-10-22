@@ -9,7 +9,7 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition(  'ezcPersistentNativeGenerator' );
 
-foreach (['name','upload_name','type','file_path','extension','meta_msg'] as $posAttr) {
+foreach (['name','upload_name','type','file_path','extension','meta_msg','caption','caption_ocr'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

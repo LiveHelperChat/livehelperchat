@@ -90,7 +90,6 @@ if (isset($fileData['active_user_upload']) && $fileData['active_user_upload'] ==
                     'upload_dir' => $path));
 
                 if ($upload_handler->uploadedFile instanceof erLhcoreClassModelChatFile) {
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.uploadfile.file_store', array('chat'=> $chat, 'chat_file' => $upload_handler->uploadedFile));
                     $chat->user_typing_txt = '100%';
 
                 } elseif (is_object($upload_handler->uploadedFile)) {

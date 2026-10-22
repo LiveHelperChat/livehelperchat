@@ -77,6 +77,8 @@ if (ezcInputForm::hasPostData()) {
             'erlhcoreclassmodelmsg',
             'erlhcoreclassmodelmailconvconversation',
             'erlhcoreclassmodelmailconvmessage',
+            'erlhcoreclassmodelchatfile',
+            'erlhcoreclassmodelmailconvfile',
         ];
 
         $args = [];

@@ -70,7 +70,8 @@ class NodeTriggerActionCommand extends Component {
                                     <option value="transfertobot">Transfer chat to bot</option>
                                     <option value="closechat">Close chat/mail</option>
                                     <option value="chatvariable">Set/Remove chat variable [not visible by operator]</option>
-                                    <option value="chatfilevariable">Set file variable [not visible by operator]</option>
+                                    <option value="chatfilevariable">Set file variable meta_msg,[not visible by operator]</option>
+                                    <option value="fileattribute">Set file attributes, caption/OCR</option>
                                     <option value="chatattribute">Set chat additional attribute [visible by operator]</option>
                                     <option value="dispatchevent">Dispatch Event</option>
                                     <option value="setchatattribute">Update main chat attribute</option>
@@ -238,6 +239,14 @@ class NodeTriggerActionCommand extends Component {
                         <div className="form-group">
                             <label>Message attribute value.</label>
                             <textarea className="form-control form-control-sm" type="text" placeholder="" onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
+                        </div>
+                    </div>}
+
+                {this.props.action.getIn(['content','command']) == 'fileattribute' &&
+                    <div>
+                        <div className="form-group">
+                            <label>File attributes. One per line in format <code>attribute_name||attribute value</code>. Supported attributes: <code>caption</code>, <code>caption_ocr</code></label>
+                            <textarea rows="4" className="form-control form-control-sm" placeholder={"caption||File caption\ncaption_ocr||Text recognized in the file"} onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
                         </div>
                     </div>}
 

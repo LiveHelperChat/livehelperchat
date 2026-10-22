@@ -54,9 +54,22 @@
         <?php endif; ?>
 
         <a href="<?php echo erLhcoreClassDesign::baseurl('file/downloadfile')?>/<?php echo $file->id?>/<?php echo $file->security_hash?>" class="link" target="_blank"><?php echo htmlspecialchars($file->upload_name)?></a>
+        <?php if ($file->caption != '') : ?>
+            <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Has a caption');?>">subtitles</span>
+        <?php endif; ?>
+        <?php if ($file->caption_ocr != '') : ?>
+            <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Has a recognized text (OCR)');?>">document_scanner</span>
+        <?php endif; ?>
+        <?php if (!empty($file->meta_msg)) : ?>
+            <span class="material-icons text-info" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Has metadata');?>">info</span>
+        <?php endif; ?>
     </td>
         <td nowrap><?php echo htmlspecialchars(round($file->size/1024,2))?> Kb.</td>
-        <td nowrap><?php echo htmlspecialchars($file->extension)?></td>
+        <td nowrap><span class="material-icons text-muted">insert_drive_file</span><?php echo htmlspecialchars($file->extension)?>
+            <?php if ($file->width > 0 && $file->height > 0) : ?>
+                <span class="material-icons text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Image dimensions');?>">aspect_ratio</span><?php echo htmlspecialchars($file->width)?>x<?php echo htmlspecialchars($file->height)?>
+            <?php endif; ?>
+        </td>
         <td nowrap><?php echo htmlspecialchars($file->date_front)?></td>
         <td nowrap>
             <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('file/edit')?>/<?php echo $file->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('file/list','Edit');?></a>

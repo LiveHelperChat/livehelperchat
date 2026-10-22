@@ -1109,6 +1109,8 @@ try {
                `width` int(11) unsigned NOT NULL DEFAULT '0',
                `height` int(11) unsigned NOT NULL DEFAULT '0',
                `tmp` tinyint(1) unsigned NOT NULL DEFAULT '0',
+               `caption` text NOT NULL,
+               `caption_ocr` text NOT NULL,
         	   PRIMARY KEY (`id`),
         	   KEY `chat_id` (`chat_id`),
         	   KEY `online_user_id` (`online_user_id`),
@@ -2763,6 +2765,8 @@ try {
   `meta_msg` longtext NOT NULL,
   `width` int(11) unsigned NOT NULL DEFAULT '0',
   `height` int(11) unsigned NOT NULL DEFAULT '0',
+  `caption` text NOT NULL,
+  `caption_ocr` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `message_id` (`message_id`),
   KEY `conversation_id` (`conversation_id`)

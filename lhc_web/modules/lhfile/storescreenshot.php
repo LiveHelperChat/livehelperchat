@@ -111,8 +111,6 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
                             $fileUpload->extension = 'png';
                             $fileUpload->saveThis();
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.store', array('chat_file' => & $fileUpload));
-
                             if ($chat !== false) {
 
                                 $msg = new erLhcoreClassModelmsg();
@@ -158,6 +156,7 @@ if ($Params['user_parameters_unordered']['hash'] != '' || $Params['user_paramete
 
                             $db->commit();
 
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.storescreenshot.store', array('chat_file' => & $fileUpload));
 
                             echo json_encode(array('stored' => 'true'));
                             exit;

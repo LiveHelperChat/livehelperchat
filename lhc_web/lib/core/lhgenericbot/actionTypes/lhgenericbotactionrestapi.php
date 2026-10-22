@@ -82,6 +82,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'action' => $action,
                                 'msg_id' => (isset($params['msg']) && is_object($params['msg']) ? $params['msg']->id : 0),
                                 'file_id' => (isset($params['chat_file']) && is_object($params['chat_file']) ? $params['chat_file']->id : 0),
+                                'file_ent' => (isset($params['chat_file']) && is_object($params['chat_file']) && $params['chat_file'] instanceof erLhcoreClassModelChatFile ? 'chat' : 'mail'),
                                 'msg_text' => (isset($params['msg_text']) ? $params['msg_text'] : ''),
                                 'event' => (isset($action['content']['event']) ? $action['content']['event'] : null),
                             )
@@ -356,7 +357,11 @@ class erLhcoreClassGenericBotActionRestapi
                     } elseif (isset($params['msg_text'])) {
                         $argsDefault['msg_text'] = $params['msg_text'];
                     }
-                    
+
+                    if (isset($params['chat_file'])) {
+                        $argsDefault['chat_file'] = $params['chat_file'];
+                    }
+
                     if (isset($params['replace_array']) && !empty($params['replace_array'])) {
                         $argsDefault['replace_array'] = array_merge($params['replace_array'], $argsDefault['replace_array']);
                     }
@@ -2498,6 +2503,11 @@ class erLhcoreClassGenericBotActionRestapi
 
         array_walk_recursive($methodSettings, function ($item, $key, $userData) {
 
+            // Config leaves can be null (unset JSON values). Normalise them so
+            // preg_match_all() never receives null (deprecated since PHP 8.1).
+            $item = is_scalar($item) ? (string)$item : '';
+            $key = (string)$key;
+
             $matchesValues = [];
             preg_match_all('~\{\{args\.((?:[^\{\}\}]++|(?R))*)\}\}~', $item,$matchesValues);
 
@@ -2593,6 +2603,11 @@ class erLhcoreClassGenericBotActionRestapi
          );
          
          array_walk_recursive($methodSettings, function ($item, $key, $userData) {
+
+             // Config leaves can be null (unset JSON values). Normalise them so
+             // preg_match_all()/strpos() never receive null (deprecated since PHP 8.1).
+             $item = is_scalar($item) ? (string)$item : '';
+             $key = (string)$key;
 
              // Resolve user locale / site access / content language only when any of
              // those variables is actually used.

@@ -1391,6 +1391,11 @@ class erLhcoreClassMailconvParser {
 
                 $mailAttatchement->saveThis();
 
+                erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.mail_import.file_store', array(
+                    'chat_file' => $mailAttatchement,
+                    'mail' => & $message
+                ));
+
             } catch (Exception $e) {
                 // Log the error but continue processing other attachments
                 // The attachment record is already saved, just without the file
@@ -1850,6 +1855,8 @@ class erLhcoreClassMailconvParser {
             $mail = \LiveHelperChat\Models\mailConv\Archive\Message::fetch($file->message_id);
         }
 
+        $message = $mail;
+
         $mailbox = $mail->mailbox;
 
         if ($mailbox->auth_method != erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
@@ -1871,6 +1878,8 @@ class erLhcoreClassMailconvParser {
                 $mail = $messagesCollection->shift();
             }
         }
+
+        $fileStored = false;
 
         if ($mail->hasAttachments() == true) {
             foreach ($mail->getAttachments() as $attachment) {
@@ -1991,6 +2000,8 @@ class erLhcoreClassMailconvParser {
 
                     $file->updateThis(['update' => ['file_name','file_path','size','type','extension','width','height']]);
 
+                    $fileStored = true;
+
                     // Log error for investigation
                     if (!file_exists($file->file_path_server)) {
                         \erLhcoreClassLog::write(
@@ -2007,6 +2018,13 @@ class erLhcoreClassMailconvParser {
                     }
                 }
             }
+        }
+
+        if ($fileStored === true) {
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.mail_import.file_store', array(
+                'chat_file' => $file,
+                'mail' => $message,
+            ));
         }
     }
 }

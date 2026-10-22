@@ -203,6 +203,18 @@ class erLhcoreClassRestAPIHandler
             }
 
             if ($user instanceof erLhcoreClassModelUser){
+
+                // User based authentication has to respect the same IP restrictions as a regular back office login
+                $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+                if (isset($passwordData['allow_login_from_ip']) && $passwordData['allow_login_from_ip'] != '') {
+                    $bypassIpUserIds = (isset($passwordData['bypass_ip_user_id']) && $passwordData['bypass_ip_user_id'] != '') ? explode(',', str_replace(' ', '', $passwordData['bypass_ip_user_id'])) : array();
+
+                    if (!in_array((string)$user->id, $bypassIpUserIds) && !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(), explode(',', $passwordData['allow_login_from_ip']))) {
+                        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhrestapi/validation', 'Authorization failed!'));
+                    }
+                }
+
                 self::$apiKey = new erLhAbstractModelRestAPIKey();
                 self::$apiKey->user = $user;
             } else {

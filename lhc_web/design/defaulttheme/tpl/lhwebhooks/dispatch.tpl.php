@@ -10,7 +10,7 @@ $modalBodyClass = 'p-2'
         <div class="col-12">
             <label>Event name</label>
             <input id="event-name" value="" placeholder="chat.addmsguser" type="text" input="replace_pattern" class="form-control form-control-sm">
-            <span class="badge bg-secondary action-image template-button" title="User message was added">chat.addmsguser</span> <span class="badge bg-secondary action-image template-button" title="Chat was closed">chat.close</span> <span class="badge bg-secondary action-image template-button" title="Chat started">chat.chat_started</span> <span class="badge bg-secondary action-image template-button" title="Admin messages was added to chat">chat.web_add_msg_admin</span> <span class="badge bg-secondary action-image template-button" title="New mail ticket created">mail.conversation_started</span> <span title="Reply to mail message was received" class="badge bg-secondary action-image template-button">mail.conversation_reply</span>
+            <span class="badge bg-secondary action-image template-button" title="User message was added">chat.addmsguser</span> <span class="badge bg-secondary action-image template-button" title="Chat was closed">chat.close</span> <span class="badge bg-secondary action-image template-button" title="Chat started">chat.chat_started</span> <span class="badge bg-secondary action-image template-button" title="Admin messages was added to chat">chat.web_add_msg_admin</span> <span class="badge bg-secondary action-image template-button" title="New mail ticket created">mail.conversation_started</span> <span title="Reply to mail message was received" class="badge bg-secondary action-image template-button">mail.conversation_reply</span> <span class="badge bg-secondary action-image template-button" title="Chat started">chat.chat_started</span> <span class="badge bg-secondary action-image template-button" title="Admin messages was added to chat">chat.web_add_msg_admin</span> <span class="badge bg-secondary action-image template-button" title="New mail ticket created">mail.conversation_started</span> <span title="Chat file was uploaded by visitor" class="badge bg-secondary action-image template-button">file.uploadfile.after_save</span> <span title="Mail message file was imported" class="badge bg-secondary action-image template-button">file.mail_import.file_store</span>
         </div>
 
         <div class="col-12 pb-2">
@@ -36,7 +36,9 @@ $modalBodyClass = 'p-2'
         'chat.close' : 'chat||erLhcoreClassModelChat||<id>',
         'chat.chat_started' : 'chat||erLhcoreClassModelChat||<id>'+"\n"+'msg||erLhcoreClassModelmsg||<id>',
         'mail.conversation_started' : 'conversation||erLhcoreClassModelMailconvConversation||<id>'+"\n"+'mail||erLhcoreClassModelMailconvMessage||<id>',
-        'mail.conversation_reply' : 'conversation||erLhcoreClassModelMailconvConversation||<id>'+"\n"+'mail||erLhcoreClassModelMailconvMessage||<id>'
+        'mail.conversation_reply' : 'conversation||erLhcoreClassModelMailconvConversation||<id>'+"\n"+'mail||erLhcoreClassModelMailconvMessage||<id>',
+        'file.uploadfile.after_save' : 'chat_file||erLhcoreClassModelChatFile||<id>',
+        'file.mail_import.file_store' : 'chat_file||erLhcoreClassModelMailconvFile||<id>'
     };
 
     $('.template-button').click(function (){

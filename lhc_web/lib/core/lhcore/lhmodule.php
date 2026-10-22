@@ -63,6 +63,22 @@ class erLhcoreClassModule{
                    	    }
                    	}
                 } else {
+
+                    $possibleLoginSiteAccess = array();
+
+                    $adminSiteAccess = erConfigClassLhConfig::getInstance()->getSetting('site', 'default_admin_site_access', false);
+
+                    if (is_array($adminSiteAccess)) {
+                        $possibleLoginSiteAccess = $adminSiteAccess;
+                    } else {
+                        $possibleLoginSiteAccess[] = 'site_admin';
+                    }
+
+                    if (!in_array(erLhcoreClassSystem::instance()->SiteAccess, $possibleLoginSiteAccess)) {
+                        header('Location: ' .erLhcoreClassDesign::baseurldirect('site_admin/user/login') );
+                        exit;
+                    }
+
                     $Params['user_limitation'] = $limitation;
                 }
             }

@@ -13,7 +13,7 @@ $ViewList['configuration'] = array(
 
 $ViewList['loginhistory'] = array(
     'params' => array(),
-    'uparams' => array('user_id'),
+    'uparams' => array('user_id','ip','timefrom','timefrom_hours','timefrom_minutes','timefrom_seconds','timeto','timeto_hours','timeto_minutes','timeto_seconds'),
     'functions' => array( 'use' ),
 );
 

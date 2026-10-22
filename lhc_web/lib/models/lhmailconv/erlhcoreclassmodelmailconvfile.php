@@ -31,6 +31,8 @@ class erLhcoreClassModelMailconvFile
             'width' => $this->width,
             'height' => $this->height,
             'meta_msg' => $this->meta_msg,
+            'caption' => $this->caption,
+            'caption_ocr' => $this->caption_ocr,
         );
     }
 
@@ -98,6 +100,8 @@ class erLhcoreClassModelMailconvFile
     public $width = 0;
     public $height = 0;
     public $meta_msg = '';
+    public $caption = '';
+    public $caption_ocr = '';
     public $is_archive = false;
 }
 

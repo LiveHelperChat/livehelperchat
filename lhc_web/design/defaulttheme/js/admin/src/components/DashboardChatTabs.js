@@ -111,7 +111,7 @@ function reducer(state, action) {
             state.chats[foundIndex].mn = state.chats[foundIndex].active == false ? (state.chats[foundIndex].mn ? (state.chats[foundIndex].mn + action.value.mn) : action.value.mn) : 0;
 
             // Push to very first if it's not static order
-            if (action.static_order === false) {
+            if (action.static_order !== true) {
                 // Set last appended messages as first array element
                 state.chats.splice(0, 0, state.chats.splice(foundIndex, 1)[0]);
             }
@@ -324,9 +324,9 @@ const DashboardChatTabs = props => {
         function addTabBackground(chatId, params) {
             dispatch({
                 type: 'add',
+                static_order: props.static_order,
                 value: {
                     "id" : chatId,
-                    static_order: props.static_order,
                     active: false,
                     mn : 1
                 }
@@ -416,7 +416,7 @@ const DashboardChatTabs = props => {
                         type: 'msg_received',
                         id: data.result[key].chat_id,
                         value: {msg: data.result[key].msg, mn: data.result[key].mn},
-                        order_chats: props.static_order
+                        static_order: props.static_order
                     })
                 });
             }

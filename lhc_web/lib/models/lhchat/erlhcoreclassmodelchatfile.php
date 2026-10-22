@@ -33,6 +33,8 @@ class erLhcoreClassModelChatFile
             'height' => $this->height,
             'meta_msg' => $this->meta_msg,
             'tmp' => $this->tmp,
+            'caption' => $this->caption,
+            'caption_ocr' => $this->caption_ocr,
         );
     }
 
@@ -146,6 +148,8 @@ class erLhcoreClassModelChatFile
     public $height = 0;
     public $tmp = 0;
     public $meta_msg = '';
+    public $caption = '';
+    public $caption_ocr = '';
 
 }
 

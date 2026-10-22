@@ -29,6 +29,16 @@ $tpl->set('pages',$pages);
 
 if ($pages->items_total > 0) {
     $items = erLhcoreClassModelUserLogin::getList(array_merge($filterParams['filter'],array('limit' => $pages->items_per_page,'offset' => $pages->low)));
+
+    $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+    $allowLoginFromIp = isset($passwordData['allow_login_from_ip']) ? (string)$passwordData['allow_login_from_ip'] : '';
+    $allowLoginFromIpRanges = $allowLoginFromIp != '' ? explode(',', $allowLoginFromIp) : array();
+
+    foreach ($items as $item) {
+        $item->ip_in_allowed_range = empty($allowLoginFromIpRanges) ? null : erLhcoreClassIPDetect::isIgnored($item->ip, $allowLoginFromIpRanges);
+    }
+
+    $tpl->set('allowLoginFromIp', $allowLoginFromIp);
     $tpl->set('items',$items);
 }
 

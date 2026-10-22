@@ -54,7 +54,11 @@ class erLhcoreClassLHCBotWorker
             }
         }
 
-        $chat = erLhcoreClassModelChat::fetch($event->chat_id);
+        if ($event->chat_id > 0) {
+            $chat = erLhcoreClassModelChat::fetch($event->chat_id);
+        } else {
+            $chat = new erLhcoreClassModelChat();
+        }
 
         try {
             if ($this->args['action'] == 'rest_api') {
@@ -81,8 +85,16 @@ class erLhcoreClassLHCBotWorker
 
                     if ($msgId > 0) {
                         $params['msg'] = erLhcoreClassModelmsg::fetch($msgId);
-                    } elseif ($contentArray[0]['content']['file_id'] > 0) {
+                    } elseif ($contentArray[0]['content']['file_id'] > 0 && (!isset($contentArray[0]['content']['file_ent']) || $contentArray[0]['content']['file_ent'] === 'chat')) {
                         $params['chat_file'] = erLhcoreClassModelChatFile::fetch($contentArray[0]['content']['file_id']);
+                        if ($chat->id == null && is_object($params['chat_file']) && $params['chat_file']->chat_id > 0) {
+                            $chat = erLhcoreClassModelChat::fetch($params['chat_file']->chat_id);
+                        }
+                    } elseif ($contentArray[0]['content']['file_id'] > 0 && $contentArray[0]['content']['file_ent'] === 'mail') {
+                        $params['chat_file'] = erLhcoreClassModelMailconvFile::fetch($contentArray[0]['content']['file_id']);
+                        if ($chat->id == null && is_object($params['chat_file']) && $params['chat_file']->message_id > 0) {
+                            $chat = erLhcoreClassModelMailconvMessage::fetch($params['chat_file']->message_id);
+                        }
                     } else {
                         $params['msg_text'] = $contentArray[0]['content']['msg_text'];
                         $msgId = $chat->last_msg_id;
@@ -302,6 +314,8 @@ class erLhcoreClassLHCBotWorker
 
                         if (isset($params['msg'])) {
                             $argsDefault['args']['msg'] = $params['msg'];
+                        } elseif (isset($params['chat_file'])) {
+                            $argsDefault['args']['chat_file'] = $params['chat_file'];
                         } else {
                             $argsDefault['args']['msg_text'] = $contentArray[0]['content']['msg_text'];
                         }

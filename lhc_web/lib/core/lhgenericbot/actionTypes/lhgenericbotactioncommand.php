@@ -625,6 +625,80 @@ class erLhcoreClassGenericBotActionCommand {
 
             }
 
+        } elseif ($action['content']['command'] == 'fileattribute') { // File attributes
+
+            // Attributes which can be updated from the bot
+            $allowedFileAttributes = ['caption','caption_ocr'];
+
+            $fileAttributes = array();
+
+            // New format: one attribute per line in format attribute_name||attribute value
+            $payloadArg = isset($action['content']['payload_arg']) ? $action['content']['payload_arg'] : '';
+
+            foreach (preg_split('/\r\n|\r|\n/', $payloadArg) as $payloadLine) {
+                if (strpos($payloadLine, '||') === false) {
+                    continue;
+                }
+
+                $parts = explode('||', $payloadLine, 2);
+                $attribute = trim($parts[0]);
+
+                if (!in_array($attribute, $allowedFileAttributes)) {
+                    continue;
+                }
+
+                $fileAttributes[$attribute] = trim($parts[1]);
+            }
+
+            // Legacy format: single attribute is stored in payload and value in payload_arg
+            if (empty($fileAttributes)) {
+                if (!isset($action['content']['payload']) || !in_array($action['content']['payload'], $allowedFileAttributes)) {
+                    return;
+                }
+
+                $fileAttributes[$action['content']['payload']] = $payloadArg;
+            }
+
+            if (isset($params['chat_file']) && ($params['chat_file'] instanceof erLhcoreClassModelChatFile || $params['chat_file'] instanceof erLhcoreClassModelMailconvFile)) {
+
+                $file = $params['chat_file'];
+
+                $db = ezcDbInstance::get();
+
+                try {
+                    $db->beginTransaction();
+
+                    if ($file->is_archive != true) {
+                        $file->syncAndLock();
+                    }
+
+                    $updateFields = array();
+
+                    foreach ($fileAttributes as $attribute => $attributeValue) {
+                        if (isset($params['replace_array'])) {
+                            $attributeValue = @str_replace(array_keys($params['replace_array']), array_values($params['replace_array']), $attributeValue);
+                        }
+
+                        $file->{$attribute} = erLhcoreClassGenericBotWorkflow::translateMessage($attributeValue, array('chat' => $chat, 'args' => $params));
+
+                        $updateFields[] = $attribute;
+                    }
+
+                    $file->updateThis(['update' => $updateFields]);
+
+                    $db->commit();
+
+                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch($file instanceof erLhcoreClassModelMailconvFile ? 'mail.file.main_attr_updated' : 'file.main_attr_updated', array(
+                        'chat_file' => $file,
+                        'file_type' => $file instanceof erLhcoreClassModelMailconvFile ? 'mail' : 'chat'
+                    ));
+
+                } catch (Exception $e) {
+                    $db->rollback();
+                    throw $e;
+                }
+            }
+
         } elseif ($action['content']['command'] == 'metamsg') { // Meta message attribute
 
             if (isset($params['msg']) && is_object($params['msg'])) {
@@ -825,6 +899,11 @@ class erLhcoreClassGenericBotActionCommand {
             }
 
         } elseif ($action['content']['command'] == 'setchatattribute') {
+
+                // Never allow to change primary key
+                if (isset($action['content']['payload']) && $action['content']['payload'] == 'id') {
+                    return;
+                }
 
                 $previousAttributes = [];
 
