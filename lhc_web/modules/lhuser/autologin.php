@@ -96,9 +96,33 @@ if ($data['enabled'] == 1) {
 
         if ($userToLogin instanceof erLhcoreClassModelUser) {
 
+            // Autologin has to respect the same IP restrictions as a regular back office login
+            $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+            if (isset($passwordData['allow_login_from_ip']) && $passwordData['allow_login_from_ip'] != '') {
+                $bypassIpUserIds = (isset($passwordData['bypass_ip_user_id']) && $passwordData['bypass_ip_user_id'] != '') ? explode(',', str_replace(' ', '', $passwordData['bypass_ip_user_id'])) : array();
+
+                if (!in_array((string)$userToLogin->id, $bypassIpUserIds) && !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(), explode(',', $passwordData['allow_login_from_ip']))) {
+
+                    erLhcoreClassModelUserLogin::logUserAction(array(
+                        'type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT,
+                        'user_id' => $userToLogin->id,
+                        'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Failed login. AUTOLOGIN. IP restrictions')
+                    ));
+
+                    die(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','You can not login because of IP restrictions'));
+                }
+            }
+
             $userToLogin->force_logout = 0;
             $userToLogin->llogin = time();
             $userToLogin->updateThis(['update' => ['force_logout','llogin']]);
+
+            erLhcoreClassModelUserLogin::logUserAction(array(
+                'type' => erLhcoreClassModelUserLogin::TYPE_LOGGED,
+                'user_id' => $userToLogin->id,
+                'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Logged in successfully. AUTOLOGIN')
+            ));
 
             erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
             header('Location: ' .erLhcoreClassDesign::baseurldirect('') . $instance->SiteAccess . '/'.ltrim($dataRequest['r'],'/'));
