@@ -2,6 +2,58 @@
 
 class erLhcoreClassUserUtils
 {
+    /**
+     * Validates redirect path taken from user input (e.g. login "r" parameter).
+     * Ensures the value is a relative path inside the application and can not be used
+     * as an open redirect (absolute URL, protocol relative URL, backslashes, path traversal).
+     *
+     * @param mixed $path
+     * @return bool
+     */
+    public static function isValidRedirectPath($path)
+    {
+        if (!is_string($path) || $path === '') {
+            return false;
+        }
+
+        // Browsers treat %2e%2e%2f as "../", decode a few times before validating
+        for ($i = 0; $i < 3; $i++) {
+            $decoded = rawurldecode($path);
+            if ($decoded === $path) {
+                break;
+            }
+            $path = $decoded;
+        }
+
+        // Control characters, whitespace and backslashes never belong to a valid internal path
+        if (preg_match('/[\x00-\x20\x7F\\\\]/', $path)) {
+            return false;
+        }
+
+        // Absolute URL (http://, javascript:, data:, ...) or protocol relative URL (//host)
+        if (preg_match('#^[^/?\#]*:#', $path) || strpos($path, '//') === 0) {
+            return false;
+        }
+
+        // Path traversal above the base URL
+        $depth = 0;
+        foreach (explode('/', $path) as $segment) {
+            if ($segment === '' || $segment === '.') {
+                continue;
+            }
+
+            if ($segment === '..') {
+                if (--$depth < 0) {
+                    return false;
+                }
+            } else {
+                $depth++;
+            }
+        }
+
+        return true;
+    }
+
     public static function updateStats($userlist)
     {
         $remap = array();

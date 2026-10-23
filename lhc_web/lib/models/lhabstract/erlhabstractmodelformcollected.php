@@ -49,7 +49,7 @@ class erLhAbstractModelFormCollected
             case 'content_array':
                 $content = json_decode($this->content,true);
                 if ($content === null) {
-                    $content = unserialize($this->content);
+                    $content = unserialize($this->content, array('allowed_classes' => false));
                 }
                 return $this->content_array = $content;
 
