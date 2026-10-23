@@ -248,6 +248,9 @@ class NodeTriggerActionCommand extends Component {
                             <label>File attributes. One per line in format <code>attribute_name||attribute value</code>. Supported attributes: <code>caption</code>, <code>caption_ocr</code></label>
                             <textarea rows="4" className="form-control form-control-sm" placeholder={"caption||File caption\ncaption_ocr||Text recognized in the file"} onChange={(e) => this.onchangeAttr({'path':['payload_arg'],'value':e.target.value})} defaultValue={this.props.action.getIn(['content','payload_arg'])} ></textarea>
                         </div>
+                        <div className="form-group">
+                            <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['do_not_dispatch'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','do_not_dispatch'])} /> Do not dispatch file modification event (file.main_attr_updated).</label>
+                        </div>
                     </div>}
 
                 {this.props.action.getIn(['content','command']) == 'messageaggregation' &&

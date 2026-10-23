@@ -688,10 +688,12 @@ class erLhcoreClassGenericBotActionCommand {
 
                     $db->commit();
 
-                    erLhcoreClassChatEventDispatcher::getInstance()->dispatch($file instanceof erLhcoreClassModelMailconvFile ? 'mail.file.main_attr_updated' : 'file.main_attr_updated', array(
-                        'chat_file' => $file,
-                        'file_type' => $file instanceof erLhcoreClassModelMailconvFile ? 'mail' : 'chat'
-                    ));
+                    if (!isset($action['content']['do_not_dispatch']) || $action['content']['do_not_dispatch'] != true) {
+                        erLhcoreClassChatEventDispatcher::getInstance()->dispatch($file instanceof erLhcoreClassModelMailconvFile ? 'mail.file.main_attr_updated' : 'file.main_attr_updated', array(
+                            'chat_file' => $file,
+                            'file_type' => $file instanceof erLhcoreClassModelMailconvFile ? 'mail' : 'chat'
+                        ));
+                    }
 
                 } catch (Exception $e) {
                     $db->rollback();
