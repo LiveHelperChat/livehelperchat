@@ -33,7 +33,10 @@ try {
         // There are no more unresponded messages in this conversation.
         if (erLhcoreClassModelMailconvMessage::getCount(['filternot' => ['status' => erLhcoreClassModelMailconvMessage::STATUS_RESPONDED],'filter' => ['conversation_id' => $conv->id]]) == 0) {
 
-            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+            $userIdConversation = $conv->user_id;
+            $isArchive = $conv->is_archive;
+
+            $isArchive === false && erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
 
             erLhcoreClassChat::prefillGetAttributesObject($conv,
                 erLhcoreClassMailconv::$conversationAttributes,
@@ -43,6 +46,12 @@ try {
             $message->refreshThis();
 
             $returnAttributes['conv'] = $conv;
+
+            $userData = $currentUser->getUserData();
+        
+            if ($isArchive === false) {
+                erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userIdConversation . '] [' . $userData->id.'] ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a no reply required button.'), $userData->name_support, $conv->id);
+            }
         }
 
         erLhcoreClassChat::prefillGetAttributesObject($message,

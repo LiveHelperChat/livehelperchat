@@ -22,7 +22,10 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) && erLhcoreClassChat::hasAccessToRead($conv) )
     {
-        $conv->is_archive === false && erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
+        $userIdConversation = $conv->user_id;
+        $isArchive = $conv->is_archive;
+
+        $isArchive === false && erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conv, 'user_id' => $currentUser->getUserID()]);
 
         $messages = erLhcoreClassModelMailconvMessage::getList(array('sort' => 'udate ASC', 'filter' => ['conversation_id' => $conv->id]));
 
@@ -40,8 +43,8 @@ try {
 
         $userData = $currentUser->getUserData();
 
-        if ($conv->is_archive === false) {
-            erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userData->id.'] '.erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a close button.'), $userData->name_support, $conv->id);
+        if ($isArchive === false) {
+            erLhcoreClassMailconvWorkflow::logInteraction($userData->name_support . ' [' . $userIdConversation . '] [' . $userData->id.'] ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','has closed a conversation by clicking a close button.'), $userData->name_support, $conv->id);
         }
 
         echo json_encode(['conv' => $conv, 'messages' =>  array_values($messages)],\JSON_INVALID_UTF8_IGNORE);
