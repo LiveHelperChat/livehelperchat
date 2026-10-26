@@ -1052,6 +1052,10 @@ class erLhcoreClassChatWebhookIncoming {
             $chatIdExternal = preg_replace($conditions['chat_id_preg_rule'], $conditions['chat_id_preg_value'], $chatIdExternal);
         }
 
+        if ($chatIdExternal2 == '' && !empty($conditions[$chatIdLast]) && isset($_GET[$conditions[$chatIdLast]])) {
+            $chatIdExternal2 = (string)$_GET[$conditions[$chatIdLast]]; 
+        }
+
         if ($chatIdExternal2 != '') {
             $chatIdExternal = $chatIdExternal . '__' . $chatIdExternal2;
         }
@@ -1960,6 +1964,10 @@ class erLhcoreClassChatWebhookIncoming {
 
                     if ($chatIdExternal2 == '') {
                         $chatIdExternal2 = self::extractAttribute($chatIdLast, $conditions, $payloadAll);
+                    }
+
+                    if ($chatIdExternal2 == '' && !empty($conditions[$chatIdLast]) && isset($_GET[$conditions[$chatIdLast]])) {
+                        $chatIdExternal2 = (string)$_GET[$conditions[$chatIdLast]];
                     }
 
                     if ($eChat->chat_external_id == '') {
