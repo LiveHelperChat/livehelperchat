@@ -115,7 +115,7 @@ class erLhcoreClassModelChatFile
                 return $this->meta_msg_array;
 
             case 'file_body':
-                return 'data:'.$this->type.';base64,'.base64_encode(file_get_contents($this->file_path_server));
+                return 'data:'.trim(explode(';', (string)$this->type)[0]).';base64,'.base64_encode(file_get_contents($this->file_path_server));
 
             case 'file_body_raw':
                 return base64_encode(file_get_contents($this->file_path_server));

@@ -498,7 +498,7 @@ class erLhcoreClassGenericBotActionRestapi
                 'id' => $paramsCustomer['params']['chat_file']->id,
                 'size' => $paramsCustomer['params']['chat_file']->size,
                 'upload_name' => $paramsCustomer['params']['chat_file']->name,
-                'type' => $paramsCustomer['params']['chat_file']->type,
+                'type' => trim(explode(';', (string)$paramsCustomer['params']['chat_file']->type)[0]),
                 'extension' => $paramsCustomer['params']['chat_file']->extension
             );
             $files[] = $paramsCustomer['params']['chat_file'];
@@ -561,7 +561,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'id' => $file->id,
                         'size' => $file->size,
                         'upload_name' => $file->upload_name,
-                        'type' => $file->type,
+                        'type' => trim(explode(';', (string)$file->type)[0]),
                         'extension' => $file->extension,
                         'hash' => $hash,
                         'url' => $url
@@ -656,6 +656,9 @@ class erLhcoreClassGenericBotActionRestapi
         } else if (isset($methodSettings['body_raw_file']) && $methodSettings['body_raw_file'] != '' && count($files) == 1 && (trim($msg_text_cleaned) == '' || $canSendSingleFileWithText === true)) {
             foreach ($files as $mediaFile) {
 
+                // Mime type may contain parameters e.g. "image/png; charset=binary", keep only the mime type itself
+                $mediaFileType = trim(explode(';', (string)$mediaFile->type)[0]);
+
                 $file_api = false;
                 $apiUsed = '';
 
@@ -704,7 +707,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $methodSettings['body_raw_file'] = $fileBodyRawFile;
                         $file_api = true;
 
-                    } elseif (in_array($mediaFile->type,['image/jpeg','image/png','image/gif'])) {
+                    } elseif (in_array($mediaFileType,['image/jpeg','image/png','image/gif'])) {
                         $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
                         $fileBodyRawFile = preg_replace('/\{video_api\}(.*?)\{\/video_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms', '',$fileBodyRawFile);
@@ -719,7 +722,7 @@ class erLhcoreClassGenericBotActionRestapi
                             $methodSettings['body_raw_file'] = $fileBodyRawFile;
                             $file_api = true;
                         }
-                    } elseif (in_array($mediaFile->type,['video/mp4'])) {
+                    } elseif (in_array($mediaFileType,['video/mp4'])) {
                         $fileBodyRawFile = preg_replace('/\{file_api\}(.*?)\{\/file_api\}/ms','',$methodSettings['body_raw_file']);
                         $fileBodyRawFile = preg_replace('/\{image_api\}(.*?)\{\/image_api\}/ms','',$fileBodyRawFile);
                         $fileBodyRawFile = preg_replace('/\{api_by_ext__(.*?)\}(.*?)\{\/api_by_ext\}/ms','',$fileBodyRawFile);
@@ -764,13 +767,13 @@ class erLhcoreClassGenericBotActionRestapi
                 if ($mediaFile->remote_file !== true) {
 
                     if ((isset($methodSettings['body_raw_file']) && strpos($methodSettings['body_raw_file'],'{{file_body}}') !== false) || (isset($methodSettings['body_raw_file']) && strpos($methodSettings['body_raw_file'],'{{body_raw}}') !== false)) {
-                        $file_body = 'data:'.$mediaFile->type.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
+                        $file_body = 'data:'.$mediaFileType.';base64,'.base64_encode(file_get_contents($mediaFile->file_path_server));
                     } else {
                         $file_body = '';
                     }
 
                     $file_size = $mediaFile->size;
-                    $file_mime = $mediaFile->type;
+                    $file_mime = $mediaFileType;
 
                     $URLHash = '';
                     if ($mediaFile->chat_id > 0) {
@@ -2813,7 +2816,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 try {
                                     $file = erLhcoreClassModelChatFile::fetch($fileID);
                                     if (is_object($file) && $hash == $file->security_hash) {
-                                        $fileBody = 'data:'.$file->type.';base64,'.base64_encode(file_get_contents($file->file_path_server));
+                                        $fileBody = 'data:'.trim(explode(';', (string)$file->type)[0]).';base64,'.base64_encode(file_get_contents($file->file_path_server));
                                         $message->msg = str_replace($matches[0][$index], $fileBody, $message->msg);
                                     }
                                 } catch (Exception $e) {
@@ -3064,7 +3067,7 @@ class erLhcoreClassGenericBotActionRestapi
                                      'id' => $file->id,
                                      'size' => $file->size,
                                      'upload_name' => $file->upload_name,
-                                     'type' => $file->type,
+                                     'type' => trim(explode(';', (string)$file->type)[0]),
                                      'extension' => $file->extension,
                                      'hash' => $hash,
                                      'url' => $url
