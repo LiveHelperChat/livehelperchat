@@ -825,7 +825,7 @@ class erLhcoreClassMailconvValidator {
                 }
 
                 // Generate message_id upfront
-                $mailReply->MessageID = sprintf('<%s@%s>', $mailReply->generateId(), $mailReply->serverHostname());
+                $mailReply->MessageID = self::generateMessageId($mailReply);
 
                 // Update body with pixel image if body is not empty
                 if ($mailReply->AltBody != '') {
@@ -909,7 +909,7 @@ class erLhcoreClassMailconvValidator {
             }
 
             // Generate message_id upfront
-            $mailReply->MessageID = sprintf('<%s@%s>', $mailReply->generateId(), $mailReply->serverHostname());
+            $mailReply->MessageID = self::generateMessageId($mailReply);
 
             // Update body with pixel image if body is not empty
             if ($mailReply->AltBody != '') {
@@ -929,6 +929,20 @@ class erLhcoreClassMailconvValidator {
         }
 
         return $response;
+    }
+
+    /**
+     * Message-ID in the domain of the sender address. serverHostname() is the machine name in background
+     * workers and CLI (often a short name such as "mail"), and mail providers treat such ids as a spam sign.
+     */
+    public static function generateMessageId($phpmailer) {
+        $domain = (string)substr((string)strrchr((string)$phpmailer->From, '@'), 1);
+
+        if ($domain === '' || !PHPMailer::isValidHost($domain)) {
+            $domain = $phpmailer->serverHostname();
+        }
+
+        return sprintf('<%s@%s>', $phpmailer->generateId(), $domain);
     }
 
     public static function generatePixel($body, $hash) {

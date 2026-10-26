@@ -122,7 +122,7 @@ class erLhcoreClassGenericBotActionMail {
 
             $sendStatus = true;
             if (class_exists('erLhcoreClassModelMailconvMessage') && $chat instanceof erLhcoreClassModelMailconvMessage && isset($action['content']['mail_options']['copy_send']) && $action['content']['mail_options']['copy_send'] == true) {
-                $mail->MessageID = sprintf('<%s@%s>', $mail->generateId(), $mail->serverHostname());
+                $mail->MessageID = erLhcoreClassMailconvValidator::generateMessageId($mail);
                 $sendStatus = $mail->Send();
 
                 erLhcoreClassMailconvValidator::makeSendCopy($mail, $chat->mailbox);
