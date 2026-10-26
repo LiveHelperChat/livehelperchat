@@ -794,7 +794,10 @@ class erLhcoreClassMailconvValidator {
 
                 if ($mail->message_id != '') {
                     $mailReply->addCustomHeader('In-Reply-To', $mail->message_id);
-                    $mailReply->addCustomHeader('References', $mail->message_id);
+                    // RFC 5322 3.6.4: the parent's References followed by its Message-ID, so mail clients keep the whole thread
+                    $references = preg_split('/\s+/', trim((string)$mail->references), -1, PREG_SPLIT_NO_EMPTY);
+                    $references[] = $mail->message_id;
+                    $mailReply->addCustomHeader('References', implode(' ', array_values(array_unique($references))));
                 }
 
                 // Add operator who send a message
