@@ -394,6 +394,9 @@ class StartChat extends Component {
         let forceOnlineFieldsUpdate = false;
         if (JSON.stringify(this.props.chatwidget.get('attr_prefill')) !== JSON.stringify(prevProps.chatwidget.get('attr_prefill'))) {
             forceOnlineFieldsUpdate = true;
+            // Prefill received after the form was mounted (e.g. sent right before showWidget)
+            // must reach the fields kept in state (Question, Email...), not only custom fields.
+            helperFunctions.prefillFields(this);
         }
 
         this.updateOnlineFields(forceOnlineFieldsUpdate);
