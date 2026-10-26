@@ -8,7 +8,6 @@ $ViewList = array();
 $ViewList['mcp'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array( ),
 );
 
 $ViewList['key'] = array(

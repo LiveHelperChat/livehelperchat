@@ -31,7 +31,6 @@ $ViewList['logrecord'] = array(
 $ViewList['logjserror'] = array(
     'params' => array(),
     'uparams' => array(),
-    'functions' => array(  ),
 );
 
 $ViewList['test'] = array(

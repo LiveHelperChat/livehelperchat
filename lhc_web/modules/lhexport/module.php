@@ -6,12 +6,13 @@ $ViewList = array();
 
 $ViewList['getchat'] = array(
     'params' => array('hash','chat_id'),
-	'uparams' => array('format')
+	'uparams' => array('format'),
+    'functions' => array(),
 );
 
 $ViewList['getcount'] = array(
-    'script' => 'getcount.php',
     'params' => array('hash'),
+    'functions' => array(),
 	'multiple_arguments' => array('status'),
     'uparams' => array('format','status')
 );

@@ -31,7 +31,8 @@ $ViewList['loginas'] = array(
 
 $ViewList['loginasuser'] = array(
     'params' => array('id'),
-    'uparams' => array('hash', 'ts', 'showlogin')
+    'uparams' => array('hash', 'ts', 'showlogin'),
+    'functions' => array()
 );
 
 $ViewList['account'] = array(
@@ -139,10 +140,12 @@ $ViewList['deletegroup'] = array(
 
 $ViewList['forgotpassword'] = array(
     'params' => array(),
+    'functions' => array()
 );
 
 $ViewList['remindpassword'] = array(
     'params' => array('hash'),
+    'functions' => array()
 );
 
 $ViewList['setsetting'] = array (

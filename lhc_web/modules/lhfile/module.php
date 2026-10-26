@@ -39,7 +39,6 @@ $ViewList['onlinefileslist'] = array(
 $ViewList['useronlinefileslist'] = array(
 		'params' => array('vid'),
 		'uparams' => array(),
-		'functions' => array( )
 );
 
 $ViewList['removepreview'] = array(

@@ -167,8 +167,7 @@ $ViewList['updatemsg'] = array(
 
 $ViewList['updatemessagedata'] = array(
     'params' => array('chat_id', 'hash', 'msg_id'),
-    'uparams' => array(),
-    'functions' => array(  )
+    'uparams' => array()
 );
 
 $ViewList['printchatadmin'] = array(
@@ -367,8 +366,7 @@ $ViewList['chattabs'] = array(
 
 $ViewList['chattabschrome'] = array(
     'params' => array(),
-    'uparams' => array('mode'),
-    'functions' => array( )
+    'uparams' => array('mode')
 );
 
 $ViewList['single'] = array(

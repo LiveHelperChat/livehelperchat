@@ -32,14 +32,12 @@ $ViewList['faqwidget'] = array(
 
 $ViewList['getstatus'] = array(
 		'params' => array(),
-		'functions' => array( ),
 		'uparams' => array('theme','noresponse','position','top','units')
 );
 
 $ViewList['embed'] = array(
 		'params' => array(),
-		'uparams' => array('theme'),
-		'functions' => array()
+		'uparams' => array('theme')
 );
 
 $ViewList['embedcode'] = array(

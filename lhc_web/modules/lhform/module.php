@@ -5,8 +5,7 @@ $Module = array( "name" => "Forms module");
 $ViewList = array();
 
 $ViewList['fill'] = array(
-		'params' => array('form_id'),
-		'functions' => array(  )
+		'params' => array('form_id')
 );
 
 $ViewList['collected'] = array(
@@ -58,8 +57,7 @@ $ViewList['download'] = array(
 );
 
 $ViewList['embed'] = array(	
-		'params' => array('form_id'),
-		'functions' => array()
+		'params' => array('form_id')
 );
 
 $ViewList['formwidget'] = array(

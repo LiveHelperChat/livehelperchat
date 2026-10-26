@@ -49,15 +49,13 @@ $ViewList['chatwidget'] = array(
 $ViewList['getstatus'] = array(
 		'script' => 'getstatus.php',
 		'params' => array(),
-		'functions' => array(),
 		'uparams' => array('theme','noresponse','position','top','units','width','height','chat_height','sc','scm','dmn')
 );
 
 $ViewList['embed'] = array(
 		'script' => 'embed.php',
 		'params' => array(),
-		'uparams' => array('theme','chat_height'),
-		'functions' => array()
+		'uparams' => array('theme','chat_height')
 );
 
 $ViewList['embedcode'] = array(
