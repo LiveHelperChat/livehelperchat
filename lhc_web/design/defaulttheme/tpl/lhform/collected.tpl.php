@@ -1,11 +1,18 @@
+<?php
+$isEvaluation = (int)$form->agent_evaluation === 1;
+$canEditUsers = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'edituser');
+?>
 <h1 ng-non-bindable><?php echo htmlspecialchars($form)?></h1>
 
 <div class="row pb-2">
-	<?php if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_PUBLIC) : ?>
+	<?php if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_PUBLIC || $isEvaluation) : ?>
     <div class="col-6">
         <div class="input-group">
         <span class="input-group-text"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','URL');?></span>
-        <input type="text" class="form-control" value="<?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('form/fill')?>/<?php echo $form->id?>">
+        <input type="text" class="form-control" value="<?php if ($isEvaluation) : ?><?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurl('form/fill')?>/<?php echo $form->id?><?php else : ?><?php echo erLhcoreClassSystem::getHost()?><?php echo erLhcoreClassDesign::baseurldirect('form/fill')?>/<?php echo $form->id?><?php endif; ?>">
+        <?php if ($isEvaluation && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')) : ?>
+            <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('form/fill')?>/<?php echo $form->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Fill');?></a>
+        <?php endif; ?>
         </div>
 	</div>
     <?php endif; ?>
@@ -22,8 +29,13 @@
     <?php else : ?>
         <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Identifier');?></th>
     <?php endif; ?>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Chat');?></th>
-    <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Chat Operator');?></th>
+    <?php if ($isEvaluation) : ?>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Object ID');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Agent');?></th>
+    <?php else : ?>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Chat');?></th>
+        <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Chat Operator');?></th>
+    <?php endif; ?>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Department');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Intro');?></th>
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Created at');?></th>
@@ -54,7 +66,15 @@
             <?php endif; ?>
     	</td>
         <td>
-            <?php if ($item->chat_id > 0 && is_object($item->chat)) : ?>
+            <?php if ($isEvaluation) : ?>
+                <?php if ($item->evaluated_user instanceof erLhcoreClassModelUser) : ?>
+                    <?php if ($canEditUsers) : ?><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $item->evaluated_user->id?>"><?php endif; ?><?php echo htmlspecialchars($item->evaluated_user->name_official)?><?php if ($canEditUsers) : ?></a><?php endif; ?>
+                <?php elseif ($item->evaluated_user_id > 0) : ?>
+                    <?php echo htmlspecialchars((string)$item->evaluated_user_id)?>
+                <?php else : ?>
+                    n/a
+                <?php endif; ?>
+            <?php elseif ($item->chat_id > 0 && is_object($item->chat)) : ?>
                 <?php echo htmlspecialchars($item->chat->n_official); ?>
             <?php else : ?>
                 n/a
@@ -74,6 +94,9 @@
         <?php endif; ?>
         <td nowrap>
             <div class="btn-group" role="group" aria-label="...">
+                <?php if ($isEvaluation && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')) : ?>
+                <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/fill')?>/<?php echo $form->id?>/(collected_id)/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Fill');?></a>
+                <?php endif; ?>
                 <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/viewcollected')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','View');?></a>
                 <a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('form/downloaditem')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Download');?></a>
             </div>

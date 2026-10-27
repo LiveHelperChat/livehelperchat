@@ -28,6 +28,11 @@ if (isset($object_trans['permission']) && !$currentUser->hasAccessTo($object_tra
 	exit;
 }
 
+if (isset($object_trans['permission_edit']) && !$currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function'])) {
+	erLhcoreClassModule::redirect();
+	exit;
+}
+
 if (isset($_POST['CancelAction'])) {
     erLhcoreClassModule::redirect('abstract/list','/'.$Params['user_parameters']['identifier']);
     exit;
@@ -46,6 +51,8 @@ if ( isset($_POST['SaveClient']) || isset($_POST['UpdateClient']) ) {
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassAbstract::setAuditTrail($objectData, $currentUser->getUserID());
+
         if ( method_exists($objectData,'saveThis') ) {
             $objectData->saveThis();
         } else {

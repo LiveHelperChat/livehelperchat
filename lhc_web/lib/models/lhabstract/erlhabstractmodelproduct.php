@@ -17,6 +17,9 @@ class erLhAbstractModelProduct {
 			'priority'		 => $this->priority,
 			'departament_id' => $this->departament_id,
 			'disabled'       => $this->disabled,
+			'created_at' => $this->created_at,
+			'updated_at' => $this->updated_at,
+			'muser_id' => $this->muser_id,
 		);
 
 		return $stateArray;
@@ -200,6 +203,9 @@ class erLhAbstractModelProduct {
 	public $hide_add = false;
 	public $hide_delete = false;
 
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

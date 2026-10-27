@@ -282,6 +282,27 @@ class erLhcoreClassGenericBot {
         return $Errors;
     }
 
+    /**
+     * Keeps created_at, updated_at and muser_id of bot related objects up to date.
+     **/
+    public static function setAuditTrail(& $object, $userId = null)
+    {
+        if (!property_exists($object, 'muser_id')) {
+            return;
+        }
+
+        if ($userId === null) {
+            $userId = erLhcoreClassUser::instance()->getUserID();
+        }
+
+        if ((int)$object->created_at == 0) {
+            $object->created_at = time();
+        }
+
+        $object->updated_at = time();
+        $object->muser_id = (int)$userId;
+    }
+
     public static function validateBotRestAPI(& $botRestAPI)
     {
         $definition = array(

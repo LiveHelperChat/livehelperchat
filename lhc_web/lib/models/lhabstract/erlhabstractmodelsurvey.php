@@ -114,7 +114,10 @@ class erLhAbstractModelSurvey {
 			'question_plain_5_req'     => $this->question_plain_5_req,
 		    
 			'feedback_text'            => $this->feedback_text,
-			'configuration'            => $this->configuration
+			'configuration'            => $this->configuration,
+			'created_at' => $this->created_at,
+			'updated_at' => $this->updated_at,
+			'muser_id' => $this->muser_id,
 		);
 
 		return $stateArray;
@@ -438,6 +441,9 @@ class erLhAbstractModelSurvey {
 	public $hide_add = false;
 	public $hide_delete = false;
 
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

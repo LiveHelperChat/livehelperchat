@@ -40,6 +40,9 @@ class ContentChunk
             'identifier' => $this->identifier,
             'content'    => $this->content,
             'in_active'  => $this->in_active,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
     }
 
@@ -145,4 +148,8 @@ class ContentChunk
     public $in_active  = 0;
 
     public $department_ids = [];
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

@@ -19,7 +19,10 @@ class erLhAbstractModelProactiveChatEvent
             'vid_id' => $this->vid_id,
             'ev_id' => $this->ev_id,
             'ts' => $this->ts,
-            'val' => $this->val
+            'val' => $this->val,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
         
         return $stateArray;
@@ -92,6 +95,10 @@ class erLhAbstractModelProactiveChatEvent
     public $hide_add = false;
 
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

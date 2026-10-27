@@ -28,6 +28,9 @@ class erLhAbstractModelChatVariable
             'content_field' => $this->content_field,
             'try_decrypt' => $this->try_decrypt,
             'case_insensitive' => $this->case_insensitive,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -144,6 +147,10 @@ class erLhAbstractModelChatVariable
     public $old_js_id = '';
     public $content_field = '';
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

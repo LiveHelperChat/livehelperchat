@@ -707,6 +707,7 @@ if ($tab == 'active') {
     $tpl->set('input',$filterParams['input_form']);
     $tpl->set('agentStatistic',$agentStatistic);
     $tpl->set('agentStatistic_avg',erLhcoreClassChatStatistic::getAgentStatisticSummary($agentStatistic));
+    $tpl->set('qaEvaluationForms',erLhcoreClassChatStatistic::$qaEvaluationForms);
 
     
 } else if ($tab == 'genericperf') {

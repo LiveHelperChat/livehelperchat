@@ -1,8 +1,11 @@
 <form action="<?php echo $input->form_action?>" method="get" name="SearchFormRight" ng-non-bindable autocomplete="off">
 
+    <?php $isEvaluation = (int)$form->agent_evaluation === 1; ?>
+
     <input type="hidden" name="doSearch" value="1">
 
     <div class="row mb-2">
+        <?php if (!$isEvaluation) : ?>
         <div class="col-md-3">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Department');?></label>
@@ -33,6 +36,23 @@
                 )); ?>
             </div>
         </div>
+        <?php else : ?>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Evaluated operator');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown(array(
+                    'input_name' => 'evaluated_user_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Choose operator'),
+                    'selected_id' => $input->evaluated_user_ids,
+                    'css_class' => 'form-control',
+                    'display_name' => 'name_official',
+                    'ajax' => 'users',
+                    'list_function_params' => array_merge(erLhcoreClassGroupUser::getConditionalUserFilter(), array('sort' => '`name` ASC', 'limit' => 50)),
+                    'list_function' => 'erLhcoreClassModelUser::getUserList'
+                )); ?>
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="col-md-3">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Creator operator');?></label>
@@ -125,9 +145,11 @@
                 </div>
             </div>
         </div>
+        <?php if (!$isEvaluation) : ?>
         <div class="col-md-12">
             <label class="col-form-label"><input class="form-check-input" type="checkbox" name="chat_time" <?php $input->chat_time == 1 ? print ' checked="checked" ' : ''?> value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search by chat time, not creation time.')?></label>
         </div>
+        <?php endif; ?>
         <div class="col-md-12 d-flex align-items-end">
             <div class="btn-group me-2">
                 <button type="submit" class="btn btn-primary btn-sm" name="doSearch"><span class="material-icons">search</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected','Search');?></button>

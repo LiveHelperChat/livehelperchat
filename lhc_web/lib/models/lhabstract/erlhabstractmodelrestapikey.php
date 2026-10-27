@@ -25,7 +25,10 @@ class erLhAbstractModelRestAPIKey
             'user_id' => $this->user_id,
             'api_key' => $this->api_key,
             'active' => $this->active,
-            'ip_restrictions' => $this->ip_restrictions
+            'ip_restrictions' => $this->ip_restrictions,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -82,4 +85,8 @@ class erLhAbstractModelRestAPIKey
 
     public $hide_add = false;
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

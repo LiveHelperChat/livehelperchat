@@ -61,7 +61,7 @@ if ($Params['user_parameters_unordered']['action'] === 'truncate' && method_exis
     exit;
 }
 
-if ($Params['user_parameters_unordered']['action'] === 'clone' && isset($Params['user_parameters_unordered']['object_id']) && $currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr'])) {
+if ($Params['user_parameters_unordered']['action'] === 'clone' && isset($Params['user_parameters_unordered']['object_id']) && $currentUser->validateCSFRToken($Params['user_parameters_unordered']['csfr']) && (!isset($object_trans['permission_edit']) || $currentUser->hasAccessTo($object_trans['permission_edit']['module'],$object_trans['permission_edit']['function']))) {
 
     // Check if object supports cloning
     if (property_exists($objectData, 'clone_fields') && is_array($objectData->clone_fields) && !empty($objectData->clone_fields)) {
@@ -76,8 +76,8 @@ if ($Params['user_parameters_unordered']['action'] === 'clone' && isset($Params[
                 // Get state of original object
                 $state = $originalObject->getState();
                 
-                // Remove id from state
-                unset($state['id']);
+                // Remove id and audit fields from state
+                unset($state['id'], $state['created_at'], $state['updated_at'], $state['muser_id']);
                 
                 // Add _copy suffix to clone fields
                 foreach ($objectData->clone_fields as $field) {

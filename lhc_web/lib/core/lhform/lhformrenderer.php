@@ -610,6 +610,68 @@ class erLhcoreClassFormRenderer {
     	return "<select class=\"{$cssClass}\" {$additionalAttributes} {$disabled} name=\"{$params['name']}\">".implode('', $options)."</select>";
     }
 
+    public static function renderInputTypeUser($params) {
+
+        $asAdmin = (isset($params['as_admin']) && $params['as_admin'] == true);
+
+        $value = 0;
+
+        if (ezcInputForm::hasPostData()) {
+
+            $validationFields = array();
+            $validationFields[$params['name']] = new ezcInputFormDefinitionElement( ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0) );
+
+            $form = new ezcInputForm( INPUT_POST, $validationFields );
+
+            $isRequired = (isset($params['required']) && $params['required'] == 'required');
+            $postedValue = $form->hasValidData($params['name']) ? (int)$form->{$params['name']} : 0;
+
+            if ($postedValue == 0 && $isRequired) {
+                self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is required');
+            } elseif ($postedValue > 0 && !(erLhcoreClassModelUser::fetch($postedValue) instanceof erLhcoreClassModelUser)) {
+                self::$errors[] = (isset($params['name_literal']) ? $params['name_literal'] : $params['name']).' '.erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','is invalid');
+            } elseif ($postedValue > 0) {
+                $value = $postedValue;
+                self::$collectedInfo[$params['name']] = array('definition' => $params, 'value' => $value);
+            }
+
+        } else {
+            if (isset(self::$collectedInfo[$params['name']]['value'])) {
+                $value = (int)self::$collectedInfo[$params['name']]['value'];
+            } elseif (isset($_GET['evaluated_user_id']) && is_numeric($_GET['evaluated_user_id'])) {
+                $value = (int)$_GET['evaluated_user_id'];
+            } else {
+                $value = (int)(isset($params['default']) ? $params['default'] : (isset($params['value']) ? $params['value'] : 0));
+            }
+        }
+
+        if ($asAdmin) {
+            $selectedUser = $value > 0 ? erLhcoreClassModelUser::fetch($value) : false;
+            return "<input class=\"form-control form-control-sm\" type=\"text\" readonly value=\"" . htmlspecialchars($selectedUser instanceof erLhcoreClassModelUser ? $selectedUser->name_official : ($value > 0 ? (string)$value : '')) . "\" />";
+        }
+
+        $uniqueClass = 'evaluated-user-dropdown-' . preg_replace('/[^a-zA-Z0-9_\-]/', '_', $params['name']);
+
+        $dropdown = erLhcoreClassRenderHelper::renderMultiDropdown(array(
+            'input_name' => $params['name'],
+            'optional_field' => isset($params['name_literal']) ? $params['name_literal'] : erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill', 'Choose operator'),
+            'optional_value_text' => erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill', 'None'),
+            'selected_id' => $value > 0 ? array((int)$value) : array(),
+            'type' => 'radio',
+            'data_prop' => 'data-limit="1"',
+            'css_class' => isset($params['css_class']) ? $params['css_class'] : 'form-control',
+            'display_name' => 'name_official',
+            'show_optional' => !(isset($params['required']) && $params['required'] == 'required'),
+            'no_selector' => true,
+            'ajax' => 'users',
+            'wrapper_class' => 'evaluated-user-dropdown ' . $uniqueClass,
+            'list_function_params' => array('limit' => 10, 'sort' => '`name` ASC'),
+            'list_function' => 'erLhcoreClassModelUser::getList',
+        ));
+
+        return $dropdown . '<script>jQuery(function(){var el=jQuery(".' . $uniqueClass . '");if(el.length && !el.data("evaluatedUserInit")){el.data("evaluatedUserInit",true).makeDropdown();}});</script>';
+    }
+
     public static function renderInputTypeYear($params) {    	
     	$additionalAttributes = self::renderAdditionalAtrributes($params);
     	
@@ -1020,9 +1082,9 @@ class erLhcoreClassFormRenderer {
     	}
     	unset($params);
       
-        // Handle form_attr mapping to attr_int_1/2/3
+        // Handle form_attr mapping to attr_int_1/2/3 and evaluated_user_id
         foreach ($collectedInformation as $fieldName => $params) {
-            if (isset($params['definition']['form_attr']) && in_array($params['definition']['form_attr'], ['attr_int_1', 'attr_int_2', 'attr_int_3'])) {
+            if (isset($params['definition']['form_attr']) && in_array($params['definition']['form_attr'], ['attr_int_1', 'attr_int_2', 'attr_int_3', 'evaluated_user_id'])) {
                 $formCollected->{$params['definition']['form_attr']} = (int)$params['value'];
             }
         }

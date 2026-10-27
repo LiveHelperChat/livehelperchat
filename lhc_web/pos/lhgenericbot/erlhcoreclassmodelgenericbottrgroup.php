@@ -16,10 +16,12 @@ foreach (['name','nick','filepath','filename','configuration','bot_lang'] as $po
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-$def->properties['use_translation_service'] = new ezcPersistentObjectProperty();
-$def->properties['use_translation_service']->columnName   = 'use_translation_service';
-$def->properties['use_translation_service']->propertyName = 'use_translation_service';
-$def->properties['use_translation_service']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+foreach (['use_translation_service','created_at','updated_at','muser_id'] as $posAttr) {
+    $def->properties[$posAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$posAttr]->columnName   = $posAttr;
+    $def->properties[$posAttr]->propertyName = $posAttr;
+    $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

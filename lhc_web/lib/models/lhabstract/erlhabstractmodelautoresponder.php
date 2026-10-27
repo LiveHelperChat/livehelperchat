@@ -77,6 +77,9 @@ class erLhAbstractModelAutoResponder {
             'languages'         => $this->languages,
             'bot_configuration' => $this->bot_configuration,
             'user_id' => $this->user_id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
 		);
 
 		return $stateArray;
@@ -920,6 +923,9 @@ class erLhAbstractModelAutoResponder {
     public $has_filter = true;
     public $filter_name = 'autoresponder';
 
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

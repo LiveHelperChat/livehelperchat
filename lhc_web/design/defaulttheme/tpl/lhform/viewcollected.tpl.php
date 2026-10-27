@@ -4,6 +4,26 @@
 <?php echo $content?>
 </div>
 
+<?php $canEditUsers = erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'edituser'); ?>
+
+<?php if ((int)$collected->form->agent_evaluation === 1) : ?>
+<hr>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','Agent');?></h4>
+<?php if ($collected->evaluated_user instanceof erLhcoreClassModelUser) : ?>
+    <?php if ($canEditUsers) : ?><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $collected->evaluated_user->id?>"><?php endif; ?><?php echo htmlspecialchars($collected->evaluated_user->name_official)?><?php if ($canEditUsers) : ?></a><?php endif; ?>
+<?php elseif ($collected->evaluated_user_id > 0) : ?>
+    <?php echo htmlspecialchars((string)$collected->evaluated_user_id)?>
+<?php else : ?>
+    n/a
+<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($collected->user instanceof erLhcoreClassModelUser) : ?>
+<hr>
+<h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','Filled by');?></h4>
+<?php if ($canEditUsers) : ?><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $collected->user->id?>"><?php endif; ?><?php echo htmlspecialchars($collected->user->name_official)?><?php if ($canEditUsers) : ?></a><?php endif; ?>
+<?php endif; ?>
+
 <hr>
 <h4><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('form/viewcollected','Identifier');?></h4>
 <?php echo htmlspecialchars($collected->identifier)?>

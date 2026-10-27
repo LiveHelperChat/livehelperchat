@@ -18,6 +18,7 @@ if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassGenericBot::setAuditTrail($botTranslationGroup, $currentUser->getUserID());
         $botTranslationGroup->saveThis();
 
         $userPhotoErrors = erLhcoreClassGenericBot::validateBotPhoto($botTranslationGroup);

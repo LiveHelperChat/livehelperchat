@@ -32,6 +32,9 @@ class erLhAbstractModelEmailTemplate {
 			'translations'=> $this->translations,
 			'use_chat_locale'=> $this->use_chat_locale,
 			'only_recipient'=> $this->only_recipient,
+			'created_at' => $this->created_at,
+			'updated_at' => $this->updated_at,
+			'muser_id' => $this->muser_id,
 		);
 
 		return $stateArray;
@@ -182,6 +185,9 @@ class erLhAbstractModelEmailTemplate {
 	public $hide_add = true;
 	public $hide_delete = true;
 
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

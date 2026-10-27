@@ -16,6 +16,13 @@ foreach (['name','identifier'] as $posAttr) {
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
+foreach (['created_at','updated_at','muser_id'] as $auditAttr) {
+    $def->properties[$auditAttr] = new ezcPersistentObjectProperty();
+    $def->properties[$auditAttr]->columnName   = $auditAttr;
+    $def->properties[$auditAttr]->propertyName = $auditAttr;
+    $def->properties[$auditAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
+
 return $def;
 
 ?>

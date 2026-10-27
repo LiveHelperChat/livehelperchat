@@ -34,6 +34,9 @@ class erLhAbstractModelChatColumn
             'popup_content' => $this->popup_content,
             'sort_column' => $this->sort_column,
             'sort_enabled' => $this->sort_enabled,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -135,6 +138,10 @@ class erLhAbstractModelChatColumn
     public $sort_column = '';
     public $sort_enabled = 0;
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

@@ -3,6 +3,12 @@
 class erLhcoreClassChatStatistic {
 
     /**
+     * Agent evaluation forms (agent_evaluation = 1) which have collected records within the last agent statistic request
+     * @var array form_id => erLhAbstractModelForm
+     */
+    public static $qaEvaluationForms = array();
+
+    /**
      * Gets pending chats
      */
     public static function getTopTodaysOperators($limit = 1000, $offset = 0, $filter = array())
@@ -1918,6 +1924,15 @@ class erLhcoreClassChatStatistic {
         $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow(22 + $columnCounter, 2, erTranslationClassLhTranslation::getInstance()->getTranslation('chat/chatexport','Responded by e-mail'));
 
         $lastColumn = 22 + $columnCounter;
+
+        // Agent evaluation forms columns
+        foreach (self::$qaEvaluationForms as $qaFormId => $qaFormObject) {
+            $lastColumn++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($lastColumn, 2, $qaFormObject->name . ' (score)');
+            $lastColumn++;
+            $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($lastColumn, 2, $qaFormObject->name . ' (count)');
+        }
+
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns',array(
             'xls' => & $objPHPExcel,
             'last_column' => & $lastColumn
@@ -2024,6 +2039,14 @@ class erLhcoreClassChatStatistic {
             $key++;
             $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, $item->{'mail_statistic_' . erLhcoreClassModelMailconvMessage::RESPONSE_NORMAL});
 
+            // Agent evaluation forms values
+            foreach (self::$qaEvaluationForms as $qaFormId => $qaFormObject) {
+                $key++;
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, isset($item->{'qa_score_' . $qaFormId}) ? $item->{'qa_score_' . $qaFormId} : 0);
+                $key++;
+                $objPHPExcel->getActiveSheet()->setCellValueByColumnAndRow($key, $i, isset($item->{'qa_count_' . $qaFormId}) ? $item->{'qa_count_' . $qaFormId} : 0);
+            }
+
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_export_columns_value',array(
                 'xls' => & $objPHPExcel,
                 'key' => & $key,
@@ -2116,6 +2139,12 @@ class erLhcoreClassChatStatistic {
         );
 
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatisticaveragefield',array('attr' => & $attrToAverage, 'attr_front' => & $attrFrontAverage));
+
+        // Agent evaluation forms per form averages
+        foreach (self::$qaEvaluationForms as $qaFormId => $qaForm) {
+            $attrToAverage[] = 'qa_score_' . $qaFormId;
+            $attrToAverage[] = 'qa_count_' . $qaFormId;
+        }
 
         $stats = array();
         foreach ($attrToAverage as $attr) {
@@ -2217,6 +2246,79 @@ class erLhcoreClassChatStatistic {
         }
 
         return $rowsByUserId;
+    }
+
+    /**
+     * Per agent evaluation form statistics.
+     * Score is taken from lh_abstract_form_collected.attr_int_1 and the evaluated operator from evaluated_user_id.
+     *
+     * @param array $filter Agent statistic filter (filtergte/filterlte time is used)
+     * @param array $userIds
+     * @return array user_id => array('qa_score_<form_id>' => float, 'qa_count_<form_id>' => int)
+     */
+    public static function getFormEvaluationStats($filter = array(), $userIds = array())
+    {
+        self::$qaEvaluationForms = array();
+
+        $filterForm = array(
+            'filtergt' => array('`lh_abstract_form_collected`.`evaluated_user_id`' => 0),
+            'filter' => array('`lh_abstract_form`.`agent_evaluation`' => 1),
+            'innerjoin' => array('lh_abstract_form' => array('`lh_abstract_form`.`id`', '`lh_abstract_form_collected`.`form_id`')),
+            'group' => '`lh_abstract_form_collected`.`form_id`, `lh_abstract_form_collected`.`evaluated_user_id`',
+        );
+
+        if (!empty($userIds)) {
+            $filterForm['filterin']['`lh_abstract_form_collected`.`evaluated_user_id`'] = $userIds;
+        }
+
+        if (isset($filter['filtergte']['time'])) {
+            $filterForm['filtergte']['`lh_abstract_form_collected`.`ctime`'] = (int)$filter['filtergte']['time'];
+        }
+
+        if (isset($filter['filterlte']['time'])) {
+            $filterForm['filterlte']['`lh_abstract_form_collected`.`ctime`'] = (int)$filter['filterlte']['time'];
+        }
+
+        $rows = erLhAbstractModelFormCollected::getCount(
+            $filterForm,
+            '',
+            false,
+            '`lh_abstract_form_collected`.`form_id` AS form_id, `lh_abstract_form_collected`.`evaluated_user_id` AS user_id, AVG(`lh_abstract_form_collected`.`attr_int_1`) AS qa_score, COUNT(*) AS qa_count',
+            false,
+            true
+        );
+
+        $stats = array();
+        $forms = array();
+
+        foreach ($rows as $row) {
+
+            $formId = (int)$row['form_id'];
+            $userId = (int)$row['user_id'];
+
+            if (!isset($forms[$formId])) {
+                $form = erLhAbstractModelForm::fetch($formId);
+
+                if (!($form instanceof erLhAbstractModelForm)) {
+                    continue;
+                }
+
+                $forms[$formId] = $form;
+            }
+
+            if (!isset($stats[$userId])) {
+                $stats[$userId] = array();
+            }
+
+            $stats[$userId]['qa_score_' . $formId] = round((float)$row['qa_score'], 2);
+            $stats[$userId]['qa_count_' . $formId] = (int)$row['qa_count'];
+        }
+
+        ksort($forms);
+
+        self::$qaEvaluationForms = $forms;
+
+        return $stats;
     }
 
     public static function getAgentStatistic ($days = 30, $filtergte = array(), $filterParams = array()) {
@@ -2362,6 +2464,14 @@ class erLhcoreClassChatStatistic {
         $statusExtensionsStats = [];
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_extensions', ['status_extension' => & $statusExtensionsStats, 'filter' => $filterExtension]);
 
+        // Agent evaluation forms statistics. One column set per evaluation form.
+        $qaEvaluationStats = array();
+        self::$qaEvaluationForms = array();
+
+        if ($statusWorkflow === false) {
+            $qaEvaluationStats = self::getFormEvaluationStats($filter, array_keys($userList));
+        }
+
         if ($statusWorkflow === false) {    
             foreach ($userList as $user) {
                 $userInfo = erLhcoreClassModelUser::fetch($user->id,true);
@@ -2505,6 +2615,12 @@ class erLhcoreClassChatStatistic {
                     'totalHoursOffline' => isset($offlineStats[$user->id]['toff']) ? $offlineStats[$user->id]['toff'] : 0,
                     'totalHoursOffline_front' => isset($offlineStats[$user->id]['toff']) ? erLhcoreClassChat::formatSeconds($offlineStats[$user->id]['toff']) : 'n/a'
                 );
+
+                // Agent evaluation forms score/count per form
+                foreach (self::$qaEvaluationForms as $qaFormId => $qaForm) {
+                    $itemState['qa_score_' . $qaFormId] = isset($qaEvaluationStats[$user->id]['qa_score_' . $qaFormId]) ? $qaEvaluationStats[$user->id]['qa_score_' . $qaFormId] : 0;
+                    $itemState['qa_count_' . $qaFormId] = isset($qaEvaluationStats[$user->id]['qa_count_' . $qaFormId]) ? $qaEvaluationStats[$user->id]['qa_count_' . $qaFormId] : 0;
+                }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_extensions_item',['status_extension' => $statusExtensionsStats, 'item' => & $itemState]);
 

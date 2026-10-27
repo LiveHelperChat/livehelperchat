@@ -13,6 +13,7 @@ $trigger = new erLhcoreClassModelGenericBotTrigger();
 $trigger->name = "New trigger";
 $trigger->bot_id = $group->bot_id;
 $trigger->group_id = (int)$Params['user_parameters']['id'];
+erLhcoreClassGenericBot::setAuditTrail($trigger, $currentUser->getUserID());
 $trigger->saveThis();
 
 echo json_encode(

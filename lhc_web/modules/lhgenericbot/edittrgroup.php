@@ -30,6 +30,7 @@ if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassGenericBot::setAuditTrail($bot, $currentUser->getUserID());
         $bot->saveThis();
 
         if (isset($_POST['Save_bot'])) {

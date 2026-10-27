@@ -22,7 +22,10 @@ class erLhAbstractModelSubject {
             'widgets' => $this->widgets,
             'pinned' => $this->pinned,
             'color' => $this->color,
-            'archive' => $this->archive
+            'archive' => $this->archive,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -191,4 +194,8 @@ class erLhAbstractModelSubject {
 
     public $has_filter = true;
     public $filter_name = 'subject';
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

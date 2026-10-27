@@ -18,6 +18,9 @@ class erLhAbstractModelChatAlertIcon
             'id' => $this->id,
             'name' => $this->name,
             'identifier' => $this->identifier,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -73,6 +76,10 @@ class erLhAbstractModelChatAlertIcon
     public $identifier = '';
 
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

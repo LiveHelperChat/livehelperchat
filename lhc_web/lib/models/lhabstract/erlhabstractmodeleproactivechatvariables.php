@@ -19,7 +19,10 @@ class erLhAbstractModelProactiveChatVariables{
 			'name'  		=> $this->name,
 			'identifier'  	=> $this->identifier,
 			'store_timeout' => $this->store_timeout,
-			'filter_val'    => $this->filter_val
+			'filter_val'    => $this->filter_val,
+			'created_at' => $this->created_at,
+			'updated_at' => $this->updated_at,
+			'muser_id' => $this->muser_id,
 		);
 
 		return $stateArray;
@@ -68,6 +71,10 @@ class erLhAbstractModelProactiveChatVariables{
 
 	public $hide_add = false;
 	public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

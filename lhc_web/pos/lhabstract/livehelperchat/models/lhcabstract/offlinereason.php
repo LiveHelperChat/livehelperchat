@@ -16,7 +16,7 @@ foreach (['name', 'description', 'icon', 'pos'] as $posAttr) {
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['mode', 'disable_auto_assign', 'disable_transfer'] as $posAttr) {
+foreach (['mode', 'disable_auto_assign', 'disable_transfer', 'created_at', 'updated_at', 'muser_id'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

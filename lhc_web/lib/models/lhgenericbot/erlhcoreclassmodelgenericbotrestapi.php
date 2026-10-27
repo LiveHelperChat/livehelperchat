@@ -19,6 +19,9 @@ class erLhcoreClassModelGenericBotRestAPI {
             'name' => $this->name,
             'description' => $this->description,
             'configuration' => $this->configuration,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
     }
 
@@ -44,4 +47,8 @@ class erLhcoreClassModelGenericBotRestAPI {
     public $name = '';
     public $description = '';
     public $configuration = '';
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

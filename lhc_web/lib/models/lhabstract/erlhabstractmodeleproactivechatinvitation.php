@@ -59,6 +59,9 @@ class erLhAbstractModelProactiveChatInvitation {
             'active_to' => $this->active_to,
             'repetitiveness' => $this->repetitiveness,
             'days_activity' => $this->days_activity,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
 		);
 			
 		return $stateArray;
@@ -1302,6 +1305,9 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $hide_add = false;
 	public $hide_delete = false;
 
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

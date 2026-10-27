@@ -36,6 +36,10 @@ if (!empty($errors)) : ?>
     <input type="hidden" name="custom_fields" value="<?php echo htmlspecialchars(json_encode($custom_fields))?>">
     <?php endif; ?>
 
+    <?php if (isset($collected_id)) : ?>
+    <input type="hidden" name="collected_id" value="<?php echo (int)$collected_id?>">
+    <?php endif; ?>
+
     <?php if (isset($chat_id)) : ?>
     <input type="hidden" name="chat_id" value="<?php echo htmlspecialchars($chat_id)?>">
     <?php endif; ?>

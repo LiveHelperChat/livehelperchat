@@ -510,6 +510,25 @@ class erLhcoreClassAbstract
         return $Errors;
     }
 
+    /**
+     * Keeps created_at, updated_at and muser_id of abstract objects up to date.
+     * It's done here so every object managed by abstract module gets it without
+     * changing each model.
+     **/
+    public static function setAuditTrail(& $object, $userId)
+    {
+        if (!property_exists($object, 'muser_id')) {
+            return;
+        }
+
+        if ((int)$object->created_at == 0) {
+            $object->created_at = time();
+        }
+
+        $object->updated_at = time();
+        $object->muser_id = (int)$userId;
+    }
+
     public static function getSession()
     {
         if (!isset(self::$persistentSession)) {

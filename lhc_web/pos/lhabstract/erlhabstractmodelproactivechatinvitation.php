@@ -16,7 +16,7 @@ foreach (['url_present','days_activity','design_data','tag','message_returning_n
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['repetitiveness','active_to','active_from','parent_id','campaign_id','disabled','bot_offline','trigger_id','bot_id','event_invitation','event_type','iddle_for','dynamic_invitation','show_on_mobile','show_random_operator','requires_username','inject_only_html','delay','delay_init','show_instant','pageviews','executed_times','position','dep_id','autoresponder_id','requires_email','requires_phone'] as $posAttr) {
+foreach (['repetitiveness','active_to','active_from','parent_id','campaign_id','disabled','bot_offline','trigger_id','bot_id','event_invitation','event_type','iddle_for','dynamic_invitation','show_on_mobile','show_random_operator','requires_username','inject_only_html','delay','delay_init','show_instant','pageviews','executed_times','position','dep_id','autoresponder_id','requires_email','requires_phone','created_at','updated_at','muser_id'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

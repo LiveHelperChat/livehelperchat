@@ -23,6 +23,9 @@ class erLhcoreClassModelGenericBotTrGroup {
             'filename' => $this->filename,
             'configuration' => $this->configuration,
             'bot_lang' => $this->bot_lang,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
         return $stateArray;
     }
@@ -106,4 +109,8 @@ class erLhcoreClassModelGenericBotTrGroup {
     public $use_translation_service = 0;
     public $configuration = '';
     public $bot_lang = '';
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

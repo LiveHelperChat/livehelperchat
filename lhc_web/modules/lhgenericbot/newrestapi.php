@@ -15,6 +15,7 @@ if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassGenericBot::setAuditTrail($botRestAPI, $currentUser->getUserID());
         $botRestAPI->saveThis();
 
         if (isset($_POST['Update_bot'])) {

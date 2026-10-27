@@ -27,6 +27,9 @@ class erLhcoreClassModelGenericBotTrigger {
         	'as_argument' => $this->as_argument,
         	'in_progress' => $this->in_progress,
         	'pos' => $this->pos,
+        	'created_at' => $this->created_at,
+        	'updated_at' => $this->updated_at,
+        	'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -88,4 +91,8 @@ class erLhcoreClassModelGenericBotTrigger {
     public $as_argument = 0;
     public $in_progress = 0;
     public $pos = 0;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

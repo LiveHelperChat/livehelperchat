@@ -20,6 +20,7 @@ class erLhcoreClassGenericBotValidator {
         $trigger = erLhcoreClassModelGenericBotTrigger::fetch($data['id']);
         $trigger->actions = json_encode($data['actions'], JSON_UNESCAPED_UNICODE);
         $trigger->name = $data['name'];
+        erLhcoreClassGenericBot::setAuditTrail($trigger);
         $trigger->saveThis();
 
         self::extractPayloadEvents($trigger, $data['actions']);

@@ -25,6 +25,8 @@ class erLhAbstractModelFormCollected
             'custom_fields' => $this->custom_fields,
             'chat_id' => $this->chat_id,
             'user_id' => $this->user_id,
+            'evaluated_user_id' => $this->evaluated_user_id,
+            'scope' => $this->scope,
             'attr_int_1' => $this->attr_int_1,
             'attr_int_2' => $this->attr_int_2,
             'attr_int_3' => $this->attr_int_3,
@@ -69,6 +71,17 @@ class erLhAbstractModelFormCollected
        		   		}
        		   }
        		   return $this->user;
+
+            case 'evaluated_user':
+                $this->evaluated_user = false;
+                if ($this->evaluated_user_id > 0) {
+                    try {
+                        $this->evaluated_user = erLhcoreClassModelUser::fetch($this->evaluated_user_id, true);
+                    } catch (Exception $e) {
+                        $this->evaluated_user = false;
+                    }
+                }
+                return $this->evaluated_user;
 
             case 'chat':
                 $this->chat = false;
@@ -150,6 +163,9 @@ class erLhAbstractModelFormCollected
         }
     }
 
+    const SCOPE_CHAT = 0;
+    const SCOPE_EMAIL = 1;
+
     public $id = null;
     public $form_id = null;
     public $ctime = null;
@@ -158,8 +174,11 @@ class erLhAbstractModelFormCollected
     public $identifier = '';
     public $custom_fields = '';
     public $chat_id = 0;
+    public $scope = self::SCOPE_CHAT;
     // Operator who filled a form
     public $user_id = 0;
+    // Operator who was evaluated by a form
+    public $evaluated_user_id = 0;
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;
     public $attr_int_3 = 0;

@@ -105,6 +105,9 @@ class erLhAbstractModelWidgetTheme {
 			'widget_response_width'     => $this->widget_response_width,
 			'modified'                  => $this->modified,
 			'alias'                     => $this->alias,
+			'created_at' => $this->created_at,
+			'updated_at' => $this->updated_at,
+			'muser_id' => $this->muser_id,
 		);
 
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('lhabstract.erlhabstractmodelwidgettheme.getstate',array('state' => & $stateArray, 'object' => & $this));
@@ -671,6 +674,10 @@ class erLhAbstractModelWidgetTheme {
 
 	public $hide_add = false;
 	public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

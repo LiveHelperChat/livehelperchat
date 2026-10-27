@@ -39,6 +39,9 @@ class OfflineReason
             'mode'        => $this->mode,
             'disable_auto_assign' => $this->disable_auto_assign,
             'disable_transfer'    => $this->disable_transfer,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
     }
 
@@ -166,4 +169,8 @@ class OfflineReason
     public $mode        = 0;
     public $disable_auto_assign = 0;
     public $disable_transfer    = 0;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

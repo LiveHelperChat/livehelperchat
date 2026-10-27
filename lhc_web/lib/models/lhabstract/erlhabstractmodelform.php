@@ -26,7 +26,11 @@ class erLhAbstractModelForm {
 			'pagelayout' 	=> $this->pagelayout,
 			'post_content' 	=> $this->post_content,
 			'configuration' => $this->configuration,
-			'form_type'     => $this->form_type
+			'form_type'     => $this->form_type,
+			'agent_evaluation' => $this->agent_evaluation,
+			'created_at' => $this->created_at,
+			'updated_at' => $this->updated_at,
+			'muser_id' => $this->muser_id,
 		);
 
 		return $stateArray;
@@ -79,7 +83,7 @@ class erLhAbstractModelForm {
 	{
 	    $metaData = array(
 			'path' => array(),
-				'permission_delete' => array('module' => 'lhform','function' => 'delete_fm'), 'permission' => array('module' => 'lhform','function' => 'manage_fm'),
+				'permission_delete' => array('module' => 'lhform','function' => 'delete_fm'), 'permission' => array('module' => 'lhform','function' => 'view_fm'), 'permission_edit' => array('module' => 'lhform','function' => 'manage_fm'),
 				'name' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/browserofferinvitation','Forms list')
 			);
 	    
@@ -167,9 +171,14 @@ class erLhAbstractModelForm {
 	public $post_content = '';
 	public $configuration = '';
 	public $form_type = self::FORM_TYPE_PUBLIC;
+	// Form is used to evaluate an operator
+	public $agent_evaluation = 0;
 
 	public $hide_add = false;
 
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

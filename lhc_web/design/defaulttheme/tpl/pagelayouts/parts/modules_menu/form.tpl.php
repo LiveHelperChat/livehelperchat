@@ -1,5 +1,5 @@
 <?php include(erLhcoreClassDesign::designtpl('pagelayouts/parts/modules_menu/form_pre.tpl.php'));?>
-<?php if ($pagelayouts_parts_modules_menu_form_enabled == true && $currentUser->hasAccessTo('lhform','manage_fm')) : ?>
+<?php if ($pagelayouts_parts_modules_menu_form_enabled == true && $currentUser->hasAccessTo('lhform','view_fm')) : ?>
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Forms');?></h5>
 <ul>
     <li><a href="<?php echo erLhcoreClassDesign::baseurl('abstract/list')?>/Form"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','List of forms');?></a></li>

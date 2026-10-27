@@ -29,6 +29,29 @@ if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL) {
     }
 }
 
+// Agent evaluation can be edited by passing existing collected record id as an unordered parameter
+$collectedId = 0;
+
+if (isset($Params['user_parameters_unordered']['collected_id']) && is_numeric($Params['user_parameters_unordered']['collected_id'])) {
+    $collectedId = (int)$Params['user_parameters_unordered']['collected_id'];
+} elseif (isset($_POST['collected_id']) && is_numeric($_POST['collected_id'])) {
+    $collectedId = (int)$_POST['collected_id'];
+}
+
+if ($collectedId > 0 && (int)$form->agent_evaluation === 1) {
+    $currentUser = erLhcoreClassUser::instance();
+
+    if ($currentUser->isLogged() === true && $currentUser->hasAccessTo('lhform', 'fill_private') === true) {
+        $collectedEdit = erLhAbstractModelFormCollected::fetch($collectedId);
+
+        if ($collectedEdit instanceof erLhAbstractModelFormCollected && $collectedEdit->form_id == $form->id) {
+            erLhcoreClassFormRenderer::setCollectedInformation($collectedEdit->content_array);
+            erLhcoreClassFormRenderer::setCollectedObject($collectedEdit);
+            $tpl->set('collected_id', $collectedEdit->id);
+        }
+    }
+}
+
 if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && ((($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && isset($_GET['hash']) && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
     $replace_array = array(
             '{hash}' => (isset($_GET['hash']) ? $_GET['hash'] : ''),
@@ -101,6 +124,19 @@ if (isset($_GET['jsvar']) && is_array($_GET['jsvar']) && !empty($_GET['jsvar']))
 }
 
 $Result['content'] = $tpl->fetch();
-$Result['path'] = array(array('title' => (string)$form));
+
 $Result['pagelayout'] = $form->pagelayout != '' ? $form->pagelayout : 'form';
+
+$Result['path'] = array(array('title' => (string)$form));
+
+// Rendered inside the main back office layout, add a path back to the collected records list
+if ($Result['pagelayout'] == 'main' && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'view_fm')) {
+    $object_trans = $form->getModuleTranslations();
+    $Result['path'] = array(
+        array('url' => erLhcoreClassDesign::baseurl('abstract/list') . '/Form', 'title' => $object_trans['name']),
+        array('url' => erLhcoreClassDesign::baseurl('form/collected') . '/' . $form->id, 'title' => (string)$form),
+        array('title' => erTranslationClassLhTranslation::getInstance()->getTranslation('form/collected', 'Fill'))
+    );
+}
+
 $Result['hide_close_window'] = true;

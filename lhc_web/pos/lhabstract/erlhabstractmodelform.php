@@ -16,7 +16,7 @@ foreach (['content','name','name_attr','intro_attr','xls_columns','recipient','p
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['active','form_type'] as $posAttr) {
+foreach (['active','form_type','agent_evaluation','created_at','updated_at','muser_id'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

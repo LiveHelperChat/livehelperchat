@@ -98,6 +98,8 @@ if (isset($_POST['SaveClient']) || isset($_POST['UpdateClient']))
     $Errors = erLhcoreClassAbstract::validateInput($ObjectData);
     if (count($Errors) == 0)
     {
+        erLhcoreClassAbstract::setAuditTrail($ObjectData, $currentUser->getUserID());
+
         if ( method_exists($ObjectData,'updateThis') ) {
             $ObjectData->updateThis();
         } else {

@@ -34,6 +34,9 @@ if (isset($_POST['CopyAction'])) {
   	            $autoresponderNew = clone $autoresponder;
   	            $autoresponderNew->dep_id = $depId;
   	            $autoresponderNew->id = null;
+  	            $autoresponderNew->created_at = 0;
+  	            $autoresponderNew->updated_at = 0;
+  	            $autoresponderNew->muser_id = 0;
   	            $autoresponderNew->saveThis();
   	        }
   	    }

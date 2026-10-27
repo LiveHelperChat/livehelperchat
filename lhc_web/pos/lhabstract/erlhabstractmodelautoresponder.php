@@ -26,7 +26,8 @@ foreach (['name','operator','siteaccess','languages','wait_message','timeout_mes
 foreach (['only_proactive','wait_timeout','wait_timeout_2','wait_timeout_3',
              'wait_timeout_4','wait_timeout_5',
              'dep_id','position','repeat_number','ignore_pa_chat',
-             'survey_timeout','survey_id','user_id','disabled'] as $posAttr) {
+             'survey_timeout','survey_id','user_id','disabled',
+             'created_at','updated_at','muser_id'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

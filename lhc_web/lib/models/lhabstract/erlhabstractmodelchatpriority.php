@@ -26,6 +26,9 @@ class erLhAbstractModelChatPriority
             'role_destination' => $this->role_destination,
             'present_role_is' => $this->present_role_is,
             'skip_bot' => $this->skip_bot,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -141,6 +144,10 @@ class erLhAbstractModelChatPriority
     public $present_role_is = '';
 
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

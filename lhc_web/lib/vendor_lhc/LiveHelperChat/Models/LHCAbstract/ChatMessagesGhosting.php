@@ -30,7 +30,10 @@ class ChatMessagesGhosting {
             'has_dep' => $this->has_dep,
             'dep_ids' => $this->dep_ids,
             'name'  => $this->name,
-            'languages' => $this->languages
+            'languages' => $this->languages,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -493,4 +496,8 @@ class ChatMessagesGhosting {
     public $dep_ids = '';
     public $name = '';
     public $languages = '';
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

@@ -25,7 +25,10 @@ class erLhAbstractModelRestAPIKeyRemote {
             'username'   => $this->username,
             'position'   => $this->position,
             'api_key'	 => $this->api_key,
-            'active'     => $this->active
+            'active'     => $this->active,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -71,4 +74,8 @@ class erLhAbstractModelRestAPIKeyRemote {
 
     public $hide_add = false;
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }

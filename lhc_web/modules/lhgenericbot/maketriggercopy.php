@@ -10,6 +10,10 @@ if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_S
 $trigger = erLhcoreClassModelGenericBotTrigger::fetch((int)$Params['user_parameters']['id']);
 $trigger->id = null;
 $trigger->name = 'Copy of ' . $trigger->name;
+$trigger->created_at = 0;
+$trigger->updated_at = 0;
+$trigger->muser_id = 0;
+erLhcoreClassGenericBot::setAuditTrail($trigger, $currentUser->getUserID());
 $trigger->saveThis();
 
 echo json_encode(

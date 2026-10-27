@@ -11,6 +11,13 @@ try {
         throw new Exception('Export hash to short!');
     }
 
+    // Export follows the same IP restrictions as a regular back office login
+    $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+    if (isset($passwordData['allow_login_from_ip']) && $passwordData['allow_login_from_ip'] != '' && !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(), explode(',', $passwordData['allow_login_from_ip']))) {
+        throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('lhexport/export','Access denied because of IP restrictions'));
+    }
+
 	if ( sha1('getcount'.$hashSecret) == $hash ) {
 
 		$filter = array();

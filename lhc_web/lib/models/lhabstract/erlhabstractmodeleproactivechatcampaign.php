@@ -17,7 +17,10 @@ class erLhAbstractModelProactiveChatCampaign
         $stateArray = array(
             'id' => $this->id,
             'name' => $this->name,
-            'text' => $this->text
+            'text' => $this->text,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
 
         return $stateArray;
@@ -77,6 +80,10 @@ class erLhAbstractModelProactiveChatCampaign
     public $hide_add = false;
 
     public $hide_delete = false;
+
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

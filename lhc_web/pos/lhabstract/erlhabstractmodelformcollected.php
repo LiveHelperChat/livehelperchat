@@ -9,7 +9,7 @@ $def->idProperty->columnName = 'id';
 $def->idProperty->propertyName = 'id';
 $def->idProperty->generator = new ezcPersistentGeneratorDefinition('ezcPersistentNativeGenerator');
 
-$propertiesMap = array(
+foreach (array(
     'form_id'       => ezcPersistentObjectProperty::PHP_TYPE_STRING,
     'ctime'         => ezcPersistentObjectProperty::PHP_TYPE_INT,
     'ip'            => ezcPersistentObjectProperty::PHP_TYPE_STRING,
@@ -18,12 +18,12 @@ $propertiesMap = array(
     'custom_fields' => ezcPersistentObjectProperty::PHP_TYPE_STRING,
     'chat_id'       => ezcPersistentObjectProperty::PHP_TYPE_INT,
     'user_id'       => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'evaluated_user_id' => ezcPersistentObjectProperty::PHP_TYPE_INT,
+    'scope'         => ezcPersistentObjectProperty::PHP_TYPE_INT,
     'attr_int_1'    => ezcPersistentObjectProperty::PHP_TYPE_INT,
     'attr_int_2'    => ezcPersistentObjectProperty::PHP_TYPE_INT,
     'attr_int_3'    => ezcPersistentObjectProperty::PHP_TYPE_INT,
-);
-
-foreach ($propertiesMap as $propertyName => $propertyType) {
+) as $propertyName => $propertyType) {
     $def->properties[$propertyName] = new ezcPersistentObjectProperty();
     $def->properties[$propertyName]->columnName   = $propertyName;
     $def->properties[$propertyName]->propertyName = $propertyName;

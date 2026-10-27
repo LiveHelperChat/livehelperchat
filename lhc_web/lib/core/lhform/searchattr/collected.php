@@ -38,6 +38,18 @@ $fieldsSearch['creator_user_ids'] = array(
     )
 );
 
+$fieldsSearch['evaluated_user_ids'] = array(
+    'type' => 'text',
+    'trans' => 'Evaluated operator',
+    'required' => false,
+    'valid_if_filled' => false,
+    'filter_type' => 'filter',
+    'filter_table_field' => '`lh_abstract_form_collected`.`evaluated_user_id`',
+    'validation_definition' => new ezcInputFormDefinitionElement(
+        ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0), FILTER_REQUIRE_ARRAY
+    )
+);
+
 $fieldsSearch['timefrom'] = array(
     'type' => 'text',
     'trans' => 'Time from',
