@@ -75,7 +75,7 @@ class _nodeJSChat {
             if (firstRun == true) {
                 try {
                     // We want to receive signal is widget open in any of the windows
-                    attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen', 'clientId' : sampleChannel.client.clientId});
+                    //attributes.mode != 'embed' && !attributes.widgetStatus.value && socket.transmitPublish('uo_' + vid, {op: 'ws_isopen', 'clientId' : sampleChannel.client.clientId});
 
                     // We want to publish request to receive all the vars other instances has
                     if (attributes.lhc_var !== null) {
@@ -87,7 +87,7 @@ class _nodeJSChat {
                     }
 
                     // Subscribe to widget status, just ignore initial status
-                    attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
+                    /*attributes.mode != 'embed' && attributes.widgetStatus.subscribe((data) => {
                         if (ignoreNext == true) {
                             clearTimeout(timeoutClear);
                             timeoutClear = setTimeout(() => {
@@ -96,7 +96,7 @@ class _nodeJSChat {
                             return;
                         }
                         socket.transmitPublish('uo_' + vid, {op: 'wstatus', status: data, 'clientId' : sampleChannel.client.clientId,});
-                    }, true);
+                    }, true);*/
 
                     // Listen for chat started event and dispatch to other windows
                     attributes.eventEmitter.addListener('chatStarted', function (data, mode) {
@@ -124,7 +124,7 @@ class _nodeJSChat {
                             } catch (e) {
                                 console.log(e);
                             }
-                        } else if (op.op == 'ws_isopen') {
+                        } /*else if (op.op == 'ws_isopen') {
                             try {
                                 if (attributes.mode != 'embed' && attributes.widgetStatus.value && sampleChannel.client.clientId != op.clientId) {
                                     socket.transmitPublish('uo_'+vid,{op:'wstatus', status: true});
@@ -142,7 +142,7 @@ class _nodeJSChat {
                             } catch (e) {
                                 console.log(e);
                             }
-                        } else if (op.op == 'current_vars' || op.op == 'check_vars') {
+                        }*/ else if (op.op == 'current_vars' || op.op == 'check_vars') {
                             try {
                                 if (sampleChannel.client.clientId != op.clientId){
                                     if (op.lhc_var && attributes.lhc_var !== null) {
