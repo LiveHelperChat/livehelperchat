@@ -14,6 +14,21 @@ if ($form->active == 0) {
 	exit;
 }
 
+// Private forms can be filled only by logged operators with fill_private permission
+if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL) {
+    $currentUser = erLhcoreClassUser::instance();
+
+    if ($currentUser->isLogged() === false) {
+        erLhcoreClassModule::redirect('user/login');
+        exit;
+    }
+
+    if ($currentUser->hasAccessTo('lhform', 'fill_private') === false) {
+        erLhcoreClassModule::redirect();
+        exit;
+    }
+}
+
 if (isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) && ((($chat = erLhcoreClassModelChat::fetch($_GET['chat_id'])) instanceof erLhcoreClassModelChat && isset($_GET['hash']) && $chat->hash == $_GET['hash'] && $chat->status !== erLhcoreClassModelChat::STATUS_CLOSED_CHAT) || ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL && erLhcoreClassUser::instance()->hasAccessTo('lhform', 'fill_private')))) {
     $replace_array = array(
             '{hash}' => (isset($_GET['hash']) ? $_GET['hash'] : ''),

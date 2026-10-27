@@ -15,6 +15,15 @@ if ($form->active == 0) {
 	exit;
 }
 
+// Private forms can be filled only by logged operators with fill_private permission
+if ($form->form_type == erLhAbstractModelForm::FORM_TYPE_INTERNAL) {
+    $currentUser = erLhcoreClassUser::instance();
+
+    if ($currentUser->isLogged() === false || $currentUser->hasAccessTo('lhform', 'fill_private') === false) {
+        die(erTranslationClassLhTranslation::getInstance()->getTranslation('form/fill','No permission'));
+    }
+}
+
 $tpl = erLhcoreClassTemplate::getInstance( 'lhform/fill.tpl.php');
 $content_rendered = $form->content_rendered;
 
