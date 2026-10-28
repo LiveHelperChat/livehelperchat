@@ -1581,7 +1581,6 @@ try {
 
                     $randomHash = erLhcoreClassModelForgotPassword::randomPassword(80);
                     $randomHashLength = strlen($randomHash);
-                    $exportHash = erLhcoreClassModelForgotPassword::randomPassword(80);
 
                     if (extension_loaded('bcmath')){
                         $geoRow = "('geo_data','a:5:{i:0;b:0;s:21:\"geo_detection_enabled\";i:1;s:22:\"geo_service_identifier\";s:8:\"max_mind\";s:23:\"max_mind_detection_type\";s:7:\"country\";s:22:\"max_mind_city_location\";s:37:\"var/external/geoip/GeoLite2-City.mmdb\";}',0,'',1)";
@@ -1625,7 +1624,7 @@ try {
                 ('track_footprint',	'0',	0,	'Track users footprint. For this also online visitors tracking should be enabled',	0),
                 ('pro_active_limitation',	'-1',	0,	'Pro active chats invitations limitation based on pending chats, (-1) do not limit, (0,1,n+1) number of pending chats can be for invitation to be shown.',	0),
                 ('pro_active_show_if_offline',	'0',	0,	'Should invitation logic be executed if there is no online operators',	0),
-                ('export_hash',	'{$exportHash}',	0,	'Chats export secret hash',	0),
+                ('export_hash',	'',	0,	'Chats export secret hash',	0),
                 ('do_no_track_ip', 0, 0, 'Do not track visitors IP',0),
                 ('remember_username','1','0','Should we remember username for the next time visitor starts a chat?','0'),
                 ('remember_phone_email','1','0','Should we remember E-Mail, Phone for the next time visitor starts a chat?','0'),

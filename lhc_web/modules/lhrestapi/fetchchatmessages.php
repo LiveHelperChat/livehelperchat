@@ -91,19 +91,34 @@ try {
         $lastMessageId = isset($_GET['last_message_id']) ? (int)$_GET['last_message_id'] : 0;
         
         if ($chat->archive === null) {
-            $messages = erLhcoreClassChat::getPendingMessages($chat->id, $lastMessageId);
+            $messages = erLhcoreClassChat::getPendingMessages($chat->id, $lastMessageId, isset($_GET['ignore_system_messages']) && ($_GET['ignore_system_messages'] == 'true' || $_GET['ignore_system_messages'] == '1'));
         } else {
-            $messages = erLhcoreClassChatArcive::getPendingMessages($chat->id, $lastMessageId);
+            $messages = erLhcoreClassChatArcive::getPendingMessages($chat->id, $lastMessageId, isset($_GET['ignore_system_messages']) && ($_GET['ignore_system_messages'] == 'true' || $_GET['ignore_system_messages'] == '1'));
         }
 
-        if (isset($_GET['ignore_system_messages']) && ($_GET['ignore_system_messages'] == 'true' || $_GET['ignore_system_messages'] == '1'))
-        {
-            foreach ($messages as $key => $data) {
-                if ($data['user_id'] == -1) {
+        // Ignore meta message based message types if requested
+        $ignoreTyping = isset($_GET['ignore_typing']) && ($_GET['ignore_typing'] == 'true' || $_GET['ignore_typing'] == '1');
+        $ignoreDebug = isset($_GET['ignore_debug']) && ($_GET['ignore_debug'] == 'true' || $_GET['ignore_debug'] == '1');
+        $ignoreJson = isset($_GET['ignore_json']) && ($_GET['ignore_json'] == 'true' || $_GET['ignore_json'] == '1');
+        $ignoreExecuteJs = isset($_GET['ignore_execute_js']) && ($_GET['ignore_execute_js'] == 'true' || $_GET['ignore_execute_js'] == '1');
+
+        if (($ignoreTyping || $ignoreDebug || $ignoreJson || $ignoreExecuteJs) && !empty($messages)) {
+            foreach ($messages as $key => $msg) {
+                $metaMsg = isset($msg['meta_msg']) ? (string)$msg['meta_msg'] : '';
+
+                if ($metaMsg === '') {
+                    continue;
+                }
+
+                if (($ignoreTyping && strpos($metaMsg, '"content":{"typing"') !== false) ||
+                    ($ignoreDebug && strpos($metaMsg, '"debug":true') !== false) ||
+                    ($ignoreJson && strpos($metaMsg, '"as_json":true') !== false) ||
+                    ($ignoreExecuteJs && strpos($metaMsg, '"content":{"execute_js"') !== false)) {
                     unset($messages[$key]);
                 }
-                $lastMessageId = $data['id'];
             }
+
+            $messages = array_values($messages);
         }
 
         // Extract media within message if required

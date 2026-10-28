@@ -45,9 +45,10 @@ $lhSecOk = strlen((string)erConfigClassLhConfig::getInstance()->getSetting('site
 $lhSecStatus = $lhSecBadge($lhSecOk ? 'success' : 'danger', $lhSecOk ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak'));
 $lhSecAdd($lhSecOk ? 'success' : 'danger', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong secret hash'), $lhSecStatus, $lhSecLink('https://doc.livehelperchat.com/docs/security#secret-hash', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information'), true));
 
-// Strong export hash
-$lhSecOk = strlen((string)erLhcoreClassModelChatConfig::fetch('export_hash')->current_value) >= 50;
-$lhSecStatus = $lhSecBadge($lhSecOk ? 'success' : 'danger', $lhSecOk ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak'));
+// Strong export hash. Empty hash means export is disabled, which is fine.
+$lhSecExportHash = (string)erLhcoreClassModelChatConfig::fetch('export_hash')->current_value;
+$lhSecOk = $lhSecExportHash === '' || strlen($lhSecExportHash) >= 50;
+$lhSecStatus = $lhSecExportHash === '' ? $lhSecBadge('success', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','not set')) . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Export hash is not set, chats export is not possible') : $lhSecBadge($lhSecOk ? 'success' : 'danger', $lhSecOk ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Weak'));
 $lhSecAdd($lhSecOk ? 'success' : 'danger', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Strong export hash'), $lhSecStatus, $lhSecLink('https://doc.livehelperchat.com/docs/security#export-hash', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','More information'), true));
 
 // Trusted host
@@ -109,6 +110,11 @@ $lhSecAdd($security_check['one_login_per_account'] ? 'success' : 'warning', erTr
 // Back office URL
 $lhSecStatus = $lhSecBadge($security_check['custom_admin_url'] ? 'success' : 'warning', $security_check['custom_admin_url'] ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','custom') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','default (site_admin)'));
 $lhSecAdd($security_check['custom_admin_url'] ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Back office URL'), $lhSecStatus);
+
+// Administrators count
+$lhSecAdminCount = (int)$security_check['admin_operators'];
+$lhSecStatus = $lhSecBadge($lhSecAdminCount > 0 ? 'info' : 'warning', $lhSecAdminCount . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','administrators'));
+$lhSecAdd($lhSecAdminCount > 0 ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Administrators'), $lhSecStatus, $lhSecLink(erLhcoreClassDesign::baseurl('user/userlist'), erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Configure')));
 
 // Rest API
 $lhSecStatus = $security_check['rest_api_keys'] > 0 ? $lhSecBadge('info', (int)$security_check['rest_api_keys'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','active keys')) : $lhSecBadge('success', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','no active keys'));

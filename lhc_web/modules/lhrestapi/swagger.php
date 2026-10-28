@@ -16,6 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 header('Content-Type: application/json');
 
+// Swagger documentation follows the same IP restrictions as a regular back office login
+$passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+if (isset($passwordData['allow_login_from_ip']) && $passwordData['allow_login_from_ip'] != '' && !erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(), explode(',', $passwordData['allow_login_from_ip']))) {
+    echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('lhexport/export','Access denied because of IP restrictions')));
+    exit;
+}
+
 ob_start();
 include 'modules/lhrestapi/swagger.json';
 $content = ob_get_clean();

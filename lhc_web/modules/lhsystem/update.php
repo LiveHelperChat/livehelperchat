@@ -59,6 +59,21 @@ try {
     $restApiKeys = 0;
 }
 
+try {
+    $adminGroupIds = array(1);
+
+    $adminUserIds = array();
+    if (!empty($adminGroupIds)) {
+        foreach (erLhcoreClassModelGroupUser::getList(array('limit' => false, 'sort' => false, 'filterin' => array('group_id' => $adminGroupIds))) as $adminGroupUser) {
+            $adminUserIds[(int)$adminGroupUser->user_id] = (int)$adminGroupUser->user_id;
+        }
+    }
+
+    $adminOperatorsCount = empty($adminUserIds) ? 0 : (int)erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 0), 'filterin' => array('id' => $adminUserIds)));
+} catch (Exception $e) {
+    $adminOperatorsCount = 0;
+}
+
 $tpl->set('security_check', array(
     // Signed URL login bypassing password
     'autologin_enabled' => isset($autologinData['enabled']) && $autologinData['enabled'] == 1,
@@ -82,6 +97,8 @@ $tpl->set('security_check', array(
     // Rest API accepts username/password unless disabled
     'rest_api_keys' => (int)$restApiKeys,
     'rest_api_by_user_disabled' => $configInstance->getSetting( 'site', 'disable_rest_api_by_user', false ) === true,
+    // Number of enabled operators with administrator rights
+    'admin_operators' => (int)$adminOperatorsCount,
     // Mobile application access (XML API used by the mobile app)
     'mobile_notifications' => isset($mobileData['notifications']) && $mobileData['notifications'] == 1,
 ));

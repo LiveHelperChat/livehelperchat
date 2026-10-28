@@ -33,10 +33,16 @@ class erLhcoreClassChatArcive
      * @return array
      * @throws ezcDbHandlerNotFoundException
      */
-    public static function getPendingMessages($chat_id, $message_id)
+    public static function getPendingMessages($chat_id, $message_id, $excludeSystem = false)
     {
+        $excludeFilter = '';
+
+        if ($excludeSystem == true) {
+            $excludeFilter = ' AND user_id != -1'; // It\'s a system message
+        }
+
         $db = ezcDbInstance::get();
-        $stmt = $db->prepare("SELECT " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable .".* FROM " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable ." INNER JOIN ( SELECT id FROM " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable ." WHERE chat_id = :chat_id AND id > :message_id ORDER BY id ASC) AS items ON " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable .".id = items.id");
+        $stmt = $db->prepare("SELECT " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable .".* FROM " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable ." INNER JOIN ( SELECT id FROM " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable ." WHERE chat_id = :chat_id AND id > :message_id {$excludeFilter} ORDER BY id ASC) AS items ON " . erLhcoreClassModelChatArchiveRange::$archiveMsgTable .".id = items.id");
         $stmt->bindValue( ':chat_id',$chat_id,PDO::PARAM_INT);
         $stmt->bindValue( ':message_id',$message_id,PDO::PARAM_INT);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);

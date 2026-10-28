@@ -1468,6 +1468,38 @@
             "type": "boolean"
           },
           {
+            "name": "ignore_typing",
+            "in": "query",
+            "description": "Should typing messages be ignored or not.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_debug",
+            "in": "query",
+            "description": "Should debug messages be ignored or not.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_json",
+            "in": "query",
+            "description": "Should messages with as_json option in the meta message be ignored or not.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
+            "name": "ignore_execute_js",
+            "in": "query",
+            "description": "Should messages executing JavaScript (execute_js) be ignored or not.",
+            "required": false,
+            "default": false,
+            "type": "boolean"
+          },
+          {
             "name": "extract_media",
             "in": "query",
             "description": "Should we include separate array of related files to a message?",

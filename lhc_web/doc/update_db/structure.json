@@ -11662,7 +11662,7 @@
       },
       {
         "identifier": "export_hash",
-        "value": "qlg55biu",
+        "value": "",
         "type": "0",
         "explain": "Chats export secret hash",
         "hidden": "0"
