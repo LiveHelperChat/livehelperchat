@@ -47,7 +47,32 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
 
 $tpl->set('uparams',$Params['user_parameters_unordered']);
 
-if (ezcInputForm::hasPostData()) {
+// Prefill form with the content of a previously sent e-mail
+$copyRequest = isset($_POST['copy_content']) && is_string($_POST['copy_content']);
+$copyData = null;
+
+if ($copyRequest) {
+    if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
+        $tpl->set('errors', array('Invalid CSRF token!'));
+    } else {
+        $copyData = json_decode($_POST['copy_content'], true);
+
+        if (is_array($copyData)) {
+            $item->subject = (string)($copyData['subject'] ?? '');
+            $item->from_name = (string)($copyData['from_name'] ?? '');
+            $item->to_data = (string)($copyData['to_data'] ?? '');
+            $item->reply_to_data = (string)($copyData['reply_to_data'] ?? '');
+            $item->body = (string)($copyData['body'] ?? '');
+            $item->mailbox_front = (string)($copyData['mailbox_front'] ?? '');
+
+            if (isset($copyData['from_address'])) {
+                $item->from_address = (string)$copyData['from_address'];
+            }
+        }
+    }
+}
+
+if (ezcInputForm::hasPostData() && $copyRequest === false) {
 
     $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item, $chat);
 
@@ -59,6 +84,20 @@ if (ezcInputForm::hasPostData()) {
 
         $response = array();
         $sendParams =  ['background' => true];
+
+        // Remember sent content, so operator could reuse it in a new e-mail
+        $copyParams = array(
+            'subject' => (string)$item->subject,
+            'from_name' => (string)$item->from_name,
+            'to_data' => (string)$item->to_data,
+            'reply_to_data' => (string)$item->reply_to_data,
+            'body' => (string)$item->body,
+            'mailbox_front' => (string)$item->mailbox_front,
+        );
+
+        if ($chat === null || erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) {
+            $copyParams['from_address'] = (string)$item->from_address;
+        }
 
         try {
             
@@ -94,6 +133,7 @@ if (ezcInputForm::hasPostData()) {
             $tpl->set('updated',true);
             $tpl->set('outcome',$response);
             $tpl->set('item',$item);
+            $tpl->set('copy_data', json_encode($copyParams, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT));
         } else {
             if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
                 foreach($response['errors'] as $index => $error) {
