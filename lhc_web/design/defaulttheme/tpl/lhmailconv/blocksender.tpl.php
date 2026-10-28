@@ -7,12 +7,15 @@
                 <span class="badge bg-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Sender E-mail');?></span>
             </div>
         <?php endforeach; ?>
+        <?php if ($can_block) : ?>
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Expires')?></label>
             <?php include(erLhcoreClassDesign::designtpl('lhchat/blockuser/blockoptions_expire.tpl.php'));?>
         </div>
         <button type="button" onclick="blockByChat()" class="btn btn-sm btn-secondary"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','Block')?></button>
+        <?php endif; ?>
     </form>
+    <?php if ($can_block) : ?>
     <script>
         function blockByChat(){
             $.postJSON(WWW_DIR_JAVASCRIPT + 'mailconv/blocksender/<?php echo $mail->id?>', $('#block-form').serialize(), function(data){
@@ -26,4 +29,5 @@
             });
         }
     </script>
+    <?php endif; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>

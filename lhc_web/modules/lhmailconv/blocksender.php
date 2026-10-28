@@ -4,6 +4,8 @@ $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/blocksender.tpl.php');
 
 $mail = erLhcoreClassModelMailconvConversation::fetch($Params['user_parameters']['id']);
 
+$canBlock = $currentUser->hasAccessTo('lhmailconv','block_sender');
+
 if (ezcInputForm::hasPostData()) {
 
     if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_SERVER['HTTP_X_CSRFTOKEN'])) {
@@ -13,7 +15,7 @@ if (ezcInputForm::hasPostData()) {
 
     $Errors = array();
 
-    if (!($currentUser->hasAccessTo('lhchat','allowblockusers') || $mail->user_id == $currentUser->getUserID())) {
+    if (!$canBlock) {
         $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/blockedusers','User blocking failed, perhaps you do not have permission to block users?');
     }
 
@@ -57,6 +59,7 @@ if (ezcInputForm::hasPostData()) {
 }
 
 $tpl->set('mail', $mail);
+$tpl->set('can_block', $canBlock);
 $tpl->set('input_data', $inputData);
 
 print $tpl->fetch();

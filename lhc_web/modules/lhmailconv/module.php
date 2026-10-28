@@ -441,5 +441,6 @@ $FunctionList['download_verified'] = array('explain' => 'Allow operators to down
 $FunctionList['download_restricted'] = array('explain' => 'Allow operators to download restricted file types');
 $FunctionList['reply_to_all'] = array('explain' => 'Allow operators to set `Reply To` to any mail in new mail form. Otherwise configured mailbox will be required.');
 $FunctionList['merge_cross_departments'] = array('explain' => 'Allow operators to merge mails across different departments.');
+$FunctionList['block_sender'] = array('explain' => 'Allow operator to block mail sender.');
 
 ?>

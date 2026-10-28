@@ -221,6 +221,7 @@ try {
             'moptions' => [
                 'is_archive' => $is_archive,
                 'is_blocked' => erLhcoreClassModelChatBlockedUser::isBlocked(array('email_conv' => $conv->from_address)),
+                'can_block' => $currentUser->hasAccessTo('lhmailconv','block_sender'),
                 'lang_dir' => erLhcoreClassDesign::design('images/flags'),
                 'skip_images' => ((isset($mcOptionsData['skip_images']) && $mcOptionsData['skip_images'] == 1) || !$currentUser->hasAccessTo('lhmailconv','include_images')),
                 'image_skipped_text' => ((isset($mcOptionsData['image_skipped_text']) && $mcOptionsData['image_skipped_text'] != '') ? $mcOptionsData['image_skipped_text'] : '[img]'),
