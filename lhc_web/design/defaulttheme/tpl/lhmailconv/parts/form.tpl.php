@@ -54,7 +54,10 @@
 <div class="col-6">
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Password');?></label>
-        <input type="password" maxlength="250" class="form-control form-control-sm" autocomplete="new-password" name="password_smtp" value="<?php echo htmlspecialchars($item->password_smtp)?>" />
+        <input type="password" maxlength="250" class="form-control form-control-sm" autocomplete="new-password" name="password_smtp" value="" placeholder="<?php echo $item->password_smtp != '' ? '********' : ''?>" />
+        <?php if ($item->password_smtp != '') : ?>
+        <label class="fs12"><input class="form-check-input" type="checkbox" name="password_smtp_reset" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Remove stored password');?></label>
+        <?php endif; ?>
     </div>
 </div>
 
@@ -104,7 +107,10 @@
 <div class="col-6">
     <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Password');?></label>
-        <input type="password" maxlength="250" class="form-control form-control-sm" autocomplete="new-password" name="password" value="<?php echo htmlspecialchars($item->password)?>" />
+        <input type="password" maxlength="250" class="form-control form-control-sm" autocomplete="new-password" name="password" value="" placeholder="<?php echo $item->password != '' ? '********' : ''?>" />
+        <?php if ($item->password != '') : ?>
+        <label class="fs12"><input type="checkbox" class="form-check-input" name="password_reset" value="on" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','Remove stored password');?></label>
+        <?php endif; ?>
     </div>
 </div>
 </div>

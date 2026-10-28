@@ -202,6 +202,9 @@ class erLhcoreClassMailconvValidator {
             'password' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'password_reset' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
             'host' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -216,6 +219,9 @@ class erLhcoreClassMailconvValidator {
             ),
             'password_smtp' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+            ),
+            'password_smtp_reset' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
             'imap' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
@@ -419,9 +425,12 @@ class erLhcoreClassMailconvValidator {
             $item->reopen_timeout = 0;
         }
 
-        if ( $form->hasValidData( 'password' )) {
+        // Passwords are never pre-filled in the form, so an empty value means "keep the stored one"
+        if ($form->hasValidData( 'password_reset' ) && $form->password_reset == true) {
+            $item->password = '';
+        } elseif ( $form->hasValidData( 'password' ) && $form->password != '') {
             $item->password = $form->password;
-        } else {
+        } elseif ($item->id === null) {
             $item->password = '';
         }
 
@@ -455,9 +464,12 @@ class erLhcoreClassMailconvValidator {
             $item->username_smtp = '';
         }
 
-        if ( $form->hasValidData( 'password_smtp' )) {
+        // Passwords are never pre-filled in the form, so an empty value means "keep the stored one"
+        if ($form->hasValidData( 'password_smtp_reset' ) && $form->password_smtp_reset == true) {
+            $item->password_smtp = '';
+        } elseif ( $form->hasValidData( 'password_smtp' ) && $form->password_smtp != '') {
             $item->password_smtp = $form->password_smtp;
-        } else {
+        } elseif ($item->id === null) {
             $item->password_smtp = '';
         }
 

@@ -1,3 +1,27 @@
+4.98v
+
+✨ Add audit trail metadata, agent evaluation forms and security visibility
+
+- 🧾 Add `created_at`, `updated_at` and `muser_id` audit columns to abstract objects (auto responders, widget themes, e-mail templates, chat columns, chat variables, chat priorities, chat alert icons, content chunks, offline reasons, forms, products, subjects, surveys, browse offer invitations, proactive chat campaigns/events/invitations/variables, REST API keys) and bot objects (bots, triggers, bot REST APIs, translation groups) via update_363.sql, install scripts, structure.json, db.dbml and POS definitions; the new `erLhcoreClassAbstract::setAuditTrail()` and `erLhcoreClassGenericBot::setAuditTrail()` helpers fill them automatically on create/update, and the audit fields are reset when an object is cloned/copied so a copy does not inherit the original author
+- 🧮 Add agent evaluation forms: `agent_evaluation` flag on forms, `evaluated_user_id` and `scope` on collected records, a new operator field type (`renderInputTypeUser`, mappable to `evaluated_user_id` via `form_attr`) with validation and dropdown rendering, `Fill` shortcuts to create and edit an evaluation straight from the collected records list (`form/fill/<form_id>/(collected_id)/<id>`), an evaluated operator column and filter in collected records, and per-form QA score/count columns in agent statistics including its Excel export
+- 🔐 Split `view_fm` from `manage_fm` (view forms and collected records vs. create/edit forms), require `manage_fm` for new/edit/clone (`permission_edit`) of forms, and require `fill_private` to fill private forms
+- 🛡️ Private forms can now be filled only by a logged in operator holding `lhform`/`fill_private` in both `form/fill` and `form/formwidget`, closing the direct URL bypass of the widget endpoint; an agent evaluation record can be re-filled only by an operator with that permission and only for the same form
+- 🔎 Rework the system update security overview into a sorted, full-width table with severity badges, issue counter and configure links - autologin, debug output, HTTPS, iframe embedding, password policy, login IP restriction, one login per account, custom admin siteaccess, REST API keys/by-user authentication, mobile notifications and the number of enabled administrators (with a warning when there are none)
+- 🚫 Stop generating a random `export_hash` during install (web and CLI) - export is disabled by default, an empty hash is reported as "export disabled" instead of "weak", the error message is now "Export hash is empty or too short!" and chat export endpoints (getchat/getcount/getlist) also honour the login IP restrictions
+- 📡 Support `ignore_typing`, `ignore_debug`, `ignore_json` and `ignore_execute_js` parameters in the `fetchchatmessages` REST API (meta message filtering, documented in swagger.json) and filter system messages in SQL for both live and archived chats; the swagger documentation endpoint now honours back office IP restrictions
+- 🔒 Enforce login IP restrictions (including the per-user bypass list) for autologin and the XML checklogin endpoint, log blocked and successful autologin attempts, and validate login/autologin redirect targets with the new `erLhcoreClassUserUtils::isValidRedirectPath()` to prevent open redirects; collected form content is unserialized with `allowed_classes => false`
+- 🔗 Incoming webhooks can take the second chat id part from a GET parameter when it is not present in the payload
+- 🤖 Bot: add a "Do not dispatch file modification event" option to the `fileattribute` command (skips `file.main_attr_updated` / `mail.file.main_attr_updated`) and generate the mail Message-ID in the sender's domain instead of the server hostname (server hostname stays as fallback)
+- 🐛 Mail: snapshot `user_id` and the archive state before closing a conversation in `mailconv/apicloseconversation` and `mailconv/apinoreplyrequired` (the archive check and interaction log used the already closed record), log the missing "no reply required" interaction and do not close archived conversations
+- 🐛 Files: strip MIME parameters (e.g. `; charset=binary`) before type comparisons and base64 data URI generation in REST API actions and in the `file_body` accessors, and unify chat/mail file details views with bold labels, translatable Description/MIME Type and Chat/Message ID
+- 🔐 Mailbox passwords are no longer rendered into the mailbox edit form - the stored value is shown as a placeholder and a new "Remove stored password" checkbox clears it, while an empty field keeps the current password
+- 🐝 Bump the widget wrapper to 282 and stop syncing the widget open/close state between browser tabs
+- 🧹 Remove redundant empty `functions` arrays and unused `script` entries from module view definitions and declare empty `functions` explicitly for public views (export, loginasuser, forgotpassword, remindpassword)
+
+execute doc/update_db/update_363.sql for update
+
+Roles which had only `manage_fm` have to be granted `view_fm` to keep access to the collected records list.
+
 4.97v
 
 ✨ Add file captions/OCR attributes, file bot actions, file webhooks and login history filters
