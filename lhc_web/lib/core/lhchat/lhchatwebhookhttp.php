@@ -80,6 +80,8 @@ class erLhcoreClassChatWebhookHttp {
 
     public static function isValidConditions($continuousHook, $chat, $params = []) {
 
+        $debugMode = isset($params['debug']) && $params['debug'] === true;
+
         $configurationParams = $continuousHook->conditions_array;
 
         if (empty($configurationParams)) {
@@ -132,6 +134,7 @@ class erLhcoreClassChatWebhookHttp {
             }
 
             $previousMessageId = 0;
+            $conditionsDebug = [];
 
             // We do final check here
             $isValid = true;
@@ -288,6 +291,8 @@ class erLhcoreClassChatWebhookHttp {
                         } else if ($conditionsCurrent['condition'] == 'not_in_list_lowercase' && !in_array(strtolower(trim($conditionAttr)),explode('||',strtolower(trim($valueAttr))))) {
                             $conditionItemValid = true;
                         }
+
+                        $conditionsDebug[] = ($conditionsCurrent['attr'] ?? '') . ' => ' . json_encode($conditionAttr) . ' ' . ($conditionsCurrent['condition'] ?? 'not_set') . ' ' . json_encode($valueAttr) . ' => ' . ($conditionItemValid ? 'VALID' : 'INVALID');
                     }
 
                     if ($conditionItemValid == true){
@@ -298,6 +303,11 @@ class erLhcoreClassChatWebhookHttp {
                     $isValid = false;
                     break; // No point to check anything else
                 }
+            }
+
+            if ($debugMode) {
+                erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $conditionsDebug;
+                erLhcoreClassGenericBotWorkflow::$triggerNameDebug[] = $isValid ? 'VALID' : 'INVALID';
             }
 
             // Group is valid we can execute bot and trigger against specific chat

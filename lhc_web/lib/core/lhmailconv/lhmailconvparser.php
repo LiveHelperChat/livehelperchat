@@ -601,7 +601,7 @@ class erLhcoreClassMailconvParser {
                             }
                         }
 
-                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
+                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus($head->{$attributeToUse});
 
                         if (isset($message->headers_raw_array['Auto_Submitted'])) {
                             if ($message->headers_raw_array['Auto_Submitted'] == 'auto-replied') {
@@ -907,7 +907,7 @@ class erLhcoreClassMailconvParser {
 
                         $message = self::importMessage($vars, $mailbox, $mailboxHandler, $conversation, $head, $mailInfoRaw);
 
-                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus(preg_replace('/([\w-]+:\r\n)/i','',$head->{$attributeToUse}));
+                        $message->headers_raw_array = erLhcoreClassMailconvParser::parseDeliveryStatus($head->{$attributeToUse});
 
                         if (isset($message->headers_raw_array['Auto_Submitted'])) {
                             if ($message->headers_raw_array['Auto_Submitted'] == 'auto-replied') {
@@ -1435,14 +1435,23 @@ class erLhcoreClassMailconvParser {
 
     public static function parseDeliveryStatus($text) {
 
-        $arr = preg_split('~([\w-]+: )~',$text,-1,PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
+        $res = array();
 
-        for ($res = array(), $i = 0; $i < count($arr); $i+=2) {
-            $key = strtr($arr[$i],array(': '=>'','-'=>'_'));
-            if (isset($arr[$i+1])) {
-                $res[$key] = trim($arr[$i+1]);
+        // Unfold multi line header values (continuation lines start with space or tab)
+        $text = preg_replace("~\r\n[ \t]+~", ' ', $text);
+        $text = str_replace(array("\r\n", "\r"), "\n", $text);
+
+        foreach (explode("\n", $text) as $line) {
+
+            // Header name has to be at the beginning of the line and ends with the first ":"
+            if (!preg_match('~^([A-Za-z0-9][A-Za-z0-9_\-]*)[ \t]*:(.*)$~', $line, $matches)) {
+                continue;
             }
+
+            $key = str_replace('-', '_', $matches[1]);
+            $res[$key] = trim($matches[2]);
         }
+
         return $res;
     }
     

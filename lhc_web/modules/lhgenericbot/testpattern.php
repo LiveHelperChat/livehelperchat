@@ -104,8 +104,17 @@ if (isset($_POST['msg'])) {
         } elseif (isset($_POST['webhook_id'])) {
 
             $conditionToValidate = erLhcoreClassModelChatWebhook::fetch($_POST['webhook_id']);
-            \LiveHelperChat\mailConv\Webhooks\Continous::processEventMail(['chat' => $chat, 'webhook' => $conditionToValidate, 'log' => true]);
-            $response .= json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT);
+
+            if ($conditionToValidate instanceof erLhcoreClassModelChatWebhook && $conditionToValidate->type == 2) {
+                // Continuous mail event - use continuous events debug flow
+                \LiveHelperChat\mailConv\Webhooks\Continous::processEventMail(['chat' => $chat, 'webhook' => $conditionToValidate, 'log' => true]);
+                $response .= json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT);
+            } elseif ($conditionToValidate instanceof erLhcoreClassModelChatWebhook) {
+                // Hook event - validate conditions same way as hook processing does for mail
+                $isValidMail = erLhcoreClassChatWebhookHttp::isValidConditions($conditionToValidate, $chat, ['mail' => $chat, 'chat' => $chat, 'conversation' => $conversation, 'debug' => true]) === true;
+                $response .= json_encode(erLhcoreClassGenericBotWorkflow::$triggerNameDebug, JSON_PRETTY_PRINT) . "\n" . ($isValidMail ? '✔️' : '❌');
+            }
+
             echo htmlspecialchars($response);
             exit;
 

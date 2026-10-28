@@ -90,8 +90,9 @@
 
         <?php if (is_numeric($item->id)) : ?>
             <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhgenericbot','test_pattern')) : ?>
-                <input type="text" class="form-control form-control-sm" id="test-chat-id" name="chat_id_test" value="<?php isset($_POST['chat_id_test']) ? print (int)$_POST['chat_id_test'] : '';?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>" value="">
-                <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Test');?></button>
+                <input type="text" class="form-control form-control-sm" id="test-chat-id" name="chat_id_test" value="<?php isset($_POST['chat_id_test']) ? print (int)$_POST['chat_id_test'] : '';?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Chat ID or mail message ID');?>" value="">
+                <button type="button" id="check-against-chat" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Test chat');?></button>
+                <button type="button" id="check-against-mail" class="btn btn-sm btn-secondary" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Make sure to save condition first.');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Test mail');?></button>
             <?php endif; ?>
         <?php endif; ?>
         </div>
@@ -99,18 +100,16 @@
 
     <?php if (is_numeric($item->id)) : ?>
         <script>
-            $('#check-against-chat').click(function(){
-                var webhookType = $('input[name="type"]:checked').val();
-                var payload = {'webhook_id' : <?php echo $item->id?>};
-                if (webhookType == '2') {
-                    payload['mail'] = 1;
-                }
+            var lhcTestWebhook = function(payload){
                 $.post(WWW_DIR_JAVASCRIPT + 'genericbot/testpattern/' + $('#test-chat-id').val(), payload, function(data){
                     $('#output-test').html('<pre class="fs11">'+data+'</pre>');
                 });
+            };
+            $('#check-against-chat').click(function(){
+                lhcTestWebhook({'webhook_id' : <?php echo $item->id?>});
             });
-            $('input[name="type"]').change(function(){
-                $('#test-chat-id').attr('placeholder', $(this).val() == '2' ? '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Message ID');?>' : '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Chat ID');?>');
+            $('#check-against-mail').click(function(){
+                lhcTestWebhook({'webhook_id' : <?php echo $item->id?>, 'mail' : 1});
             });
         </script>
     <?php endif; ?>
