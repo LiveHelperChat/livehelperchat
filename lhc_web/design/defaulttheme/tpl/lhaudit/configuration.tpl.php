@@ -320,7 +320,8 @@ $logFiles = array(
     'cron_6h.log' => 'cron_6h.log',
     'cron_8h.log' => 'cron_8h.log',
     'cron_30m.log' => 'cron_30m.log',
-    'cron_7h_7m_daily.log' => 'cron_7h_7m_daily.log'
+    'cron_7h_7m_daily.log' => 'cron_7h_7m_daily.log',
+    'resque.log' => 'resque.log'
 );
 
 if (erConfigClassLhConfig::getInstance()->getSetting('site','debug_view', false) === true) {
