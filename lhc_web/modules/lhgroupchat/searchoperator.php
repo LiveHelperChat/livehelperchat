@@ -5,6 +5,19 @@ header ( 'content-type: application/json; charset=utf-8' );
 $searchQuery = isset($_GET['q']) ? $_GET['q'] : '';
 $chatId = isset($_GET['id']) ? (int)$_GET['id'] : null;
 
+$groupChat = erLhcoreClassModelGroupChat::fetch((int)$Params['user_parameters']['id']);
+
+if (!($groupChat instanceof erLhcoreClassModelGroupChat)) {
+    echo json_encode(array());
+    exit;
+}
+
+// Private group chat members list is available only to its members
+if ($groupChat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $groupChat->user_id != $currentUser->getUserID() && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $groupChat->id, 'user_id' => $currentUser->getUserID()))) == 0) {
+    echo json_encode(array());
+    exit;
+}
+
 $session = erLhcoreClassUser::getSession();
 $q = $session->createFindQuery( 'erLhcoreClassModelUser' );
 
@@ -35,7 +48,7 @@ $operators = $session->find( $q, 'erLhcoreClassModelUser' );
 
 erLhcoreClassChat::prefillGetAttributes($operators, array('name_official','id'), array(), array('remove_all' => true, 'clean_ignore' => true));
 
-$presentMembers = erLhcoreClassModelGroupChatMember::getList(array('filter'=> array('group_id' => (int)$Params['user_parameters']['id'])));
+$presentMembers = erLhcoreClassModelGroupChatMember::getList(array('filter'=> array('group_id' => $groupChat->id)));
 
 foreach ($operators as & $operator) {
     foreach ($presentMembers as $presentMember) {

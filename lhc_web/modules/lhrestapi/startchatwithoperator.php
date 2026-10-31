@@ -7,9 +7,22 @@ try {
         throw new Exception('You do not have permission to use group chats.');
     }
 
+    $initiatorUserId = (int)erLhcoreClassRestAPIHandler::getUserId();
+
+    if (isset($Params['user_parameters']['initiator_user_id']) && (int)$Params['user_parameters']['initiator_user_id'] > 0) {
+
+        // Initiating a chat on behalf of another operator would allow reading or creating
+        // private group chats which the caller is not a member of
+        if ((int)$Params['user_parameters']['initiator_user_id'] != $initiatorUserId && !erLhcoreClassRestAPIHandler::hasAccessTo('lhgroupchat', 'manage')) {
+            throw new Exception('You do not have permission to initiate a private chat on behalf of another operator.');
+        }
+
+        $initiatorUserId = (int)$Params['user_parameters']['initiator_user_id'];
+    }
+
     $operators = array(
         (int)$Params['user_parameters']['id'],
-        isset($Params['user_parameters']['initiator_user_id']) && $Params['user_parameters']['initiator_user_id'] > 0 ? (int)$Params['user_parameters']['initiator_user_id'] : (int)erLhcoreClassRestAPIHandler::getUserId()
+        $initiatorUserId
     );
 
     $db = ezcDbInstance::get();

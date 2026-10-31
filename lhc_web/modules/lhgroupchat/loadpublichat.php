@@ -9,6 +9,10 @@ try {
         throw new Exception('Chat not found!');
     }
 
+    if (!erLhcoreClassChat::hasAccessToRead($publicChat)) {
+        throw new Exception('You do not have permission to read this chat!');
+    }
+
     // Try to find present chat group chat id
     $groupChat = erLhcoreClassModelGroupChat::findOne(array('filter' => array('chat_id' => $publicChat->id)));
 

@@ -13,6 +13,15 @@ try {
 
     $item = erLhcoreClassModelGroupChat::fetch($Params['user_parameters']['id']);
 
+    if (!($item instanceof erLhcoreClassModelGroupChat)) {
+        throw new Exception('Group chat was not found!');
+    }
+
+    // Only members of a private group chat may cancel invitations
+    if ($item->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $item->user_id != $currentUser->getUserID() && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $item->id, 'user_id' => $currentUser->getUserID()))) == 0) {
+        throw new Exception('You are not a member of this private group!');
+    }
+
     erLhcoreClassGroupChat::cancelInvite($item->id, $Params['user_parameters']['op_id']);
 
     $item->updateMembersCount();

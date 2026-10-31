@@ -172,6 +172,12 @@ if (is_array($Params['user_parameters_unordered']['chatgopen']) && !empty($Param
     }
 
     foreach ($chats as $chat) {
+        // Private group chats are visible only to their members
+        if ($chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $chat->user_id != $currentUser->getUserID() && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $chat->id, 'user_id' => $currentUser->getUserID()))) == 0) {
+            $chatgDel[] = (int)$chat->id;
+            continue;
+        }
+
         $chatgOpen[] = array(
             'id' => $chat->id,
             'nick' => erLhcoreClassDesign::shrt($chat->name,10,'...',30,ENT_QUOTES)

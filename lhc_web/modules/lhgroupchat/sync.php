@@ -58,6 +58,13 @@ if (is_array($payload) && count($payload) > 0)
                 continue;
             }
 
+            // Private group chats messages, status and roster are available only to their members.
+            // This check has to be done before any response branch, as lastGroupSync is client supplied
+            // and can be used to skip the status branch where the membership was previously verified.
+            if ($Chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $Chat->user_id != $currentUserId && erLhcoreClassModelGroupChatMember::getCount(array('filter' => array('group_id' => $Chat->id, 'user_id' => $currentUserId))) == 0) {
+                continue;
+            }
+
             $Chat->updateIgnoreColumns = array('last_msg_id');
 
                 $hasAccessToReadArray[$chat_id] = true;
@@ -131,21 +138,7 @@ if (is_array($payload) && count($payload) > 0)
                         'operators' => erLhcoreClassGroupChat::getGroupChatMembers($Chat->id, $currentUserId)
                     );
 
-                    if ($Chat->type == erLhcoreClassModelGroupChat::PRIVATE_CHAT && $Chat->user_id != $currentUserId) {
-                        $validUser = false;
-                        foreach ($resultStatusItem['operators'] as $operator) {
-                            if ($operator->user_id == $currentUserId) {
-                                $validUser = true;
-                                break;
-                            }
-                        }
-
-                        // As this means user tried to read private messages
-                        // Delete it's response
-                        if ($validUser === false) {
-                            $ReturnMessages = [];
-                        }
-                    }
+                    // Non members are filtered out before this point, so we never expose a private chat roster.
 
                     // It was first call we have to check does chat has older messages?
                     if ($MessageID == 0 && isset($newMessagesNumber)) {
