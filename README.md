@@ -5,7 +5,7 @@ It's an open-source powered application that brings simplicity and usability int
 
 [![Live Helper Chat](https://livehelperchat.com/design/frontendnew/images/lhc.png)](https://livehelperchat.com)
 
-[![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat) [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://marketplace.digitalocean.com/apps/live-helper-chat/?refcode=09c74421e3c2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste)
+[![Apple store](https://livehelperchat.com/design/defaulttheme/images/apps/apple.svg)](https://apps.apple.com/us/app/id1530399116) [![Google Play](https://livehelperchat.com/design/defaulttheme/images/apps/google-play.png?v=2)](https://play.google.com/store/apps/details?id=com.livehelperchat.chat) [![Deploy to DO](https://mp-assets1.sfo2.digitaloceanspaces.com/deploy-to-do/do-btn-blue.svg)](https://marketplace.digitalocean.com/apps/live-helper-chat/?refcode=09c74421e3c2&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=CopyPaste) [![Deploy on RepoCloud](https://d16t0pc4846x52.cloudfront.net/deploylobe.svg)](https://repocloud.io/details/Live%20Helper%20Chat/)
 
 [![Codemagic build status](https://api.codemagic.io/apps/5f50c50be2db272d7690ae45/5f50c50be2db272d7690ae44/status_badge.svg)](https://codemagic.io/apps/5f50c50be2db272d7690ae45/5f50c50be2db272d7690ae44/latest_build)
 
