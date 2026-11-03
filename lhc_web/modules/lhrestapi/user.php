@@ -60,6 +60,7 @@ try
     $userParams = array('payload_data' => $requestBody, 'show_all_pending' => 1, 'global_departament' => array(), 'groups_can_read' => array(), 'groups_can_edit' => ($groups_can_edit === true ? true : $groups_can_edit['groups']));
 
     $userDisabled = $user->disabled;
+    $passwordHashBefore = $user->password;
 
     $Errors = erLhcoreClassRestAPIUserValidator::validateUser($user, $userParams);
 
@@ -109,6 +110,11 @@ try
         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.user_created', array('userData' => & $user, 'password' => $user->password_front));
 
         $db->commit();
+
+        // Password rotation has to rotate the REST API tokens as well
+        if ($passwordHashBefore !== $user->password) {
+            erLhcoreClassModelUserSession::revokeForUser($user->id);
+        }
 
     }  else {
         throw new Exception(implode("\n",$Errors));

@@ -270,6 +270,32 @@ class erLhcoreClassModelMailconvConversation
                 }
                 return $this->mail_variables_array;
 
+
+            case 'has_operator_message':
+                // Auto-submitted messages (auto-replied / auto-generated) are not a real operator reply
+                $filter = [
+                    'conversation_id' => $this->id,
+                    'response_type' => erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL,
+                    'auto_submitted' => erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_NONE
+                ];
+
+                $this->has_operator_message = ($this->is_archive === false
+                    ? erLhcoreClassModelMailconvMessage::getCount(['filter' => $filter])
+                    : \LiveHelperChat\Models\mailConv\Archive\Message::getCount(['filter' => $filter])) > 0;
+                return $this->has_operator_message;
+
+            case 'has_visitor_message':
+                // Everything which was not sent by us (RESPONSE_INTERNAL) is a visitor message
+                $params = [
+                    'filter' => ['conversation_id' => $this->id],
+                    'filternotin' => ['response_type' => [erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL]]
+                ];
+
+                $this->has_visitor_message = ($this->is_archive === false
+                    ? erLhcoreClassModelMailconvMessage::getCount($params)
+                    : \LiveHelperChat\Models\mailConv\Archive\Message::getCount($params)) > 0;
+                return $this->has_visitor_message;
+
             default:
                 ;
                 break;

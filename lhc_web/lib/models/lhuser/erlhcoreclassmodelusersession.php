@@ -75,6 +75,30 @@ class erLhcoreClassModelUserSession
         return $expiresOn <= 0 || $expiresOn < time();
     }
 
+    /**
+     * Revokes every REST API session token issued for the user.
+     *
+     * A token can be exchanged into a full operator session via `loginbytoken`, so it is a
+     * credential and it has to be rotated together with the password. Tokens are blanked
+     * (the same revocation the `restapi/logout` endpoint performs) instead of deleting the
+     * rows, so the device registration (`device_token`, push notification settings) is kept
+     * and is reused by the next REST login of that device.
+     */
+    public static function revokeForUser($userId)
+    {
+        $userId = (int)$userId;
+
+        if ($userId <= 0) {
+            return;
+        }
+
+        $db = ezcDbInstance::get();
+
+        $stmt = $db->prepare("UPDATE lh_users_session SET token = '' WHERE user_id = :user_id AND token != ''");
+        $stmt->bindValue(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
     const DEVICE_TYPE_UNKNOWN = 0;
     const DEVICE_TYPE_ANDROID = 1;
     const DEVICE_TYPE_IOS = 2;

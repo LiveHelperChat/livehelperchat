@@ -1344,11 +1344,13 @@ class erLhcoreClassUserValidator {
             }
 
             $maxActiveChats = null;
+            $passwordChanged = false;
 
             foreach ($configuration['field'] as $attr => $index) {
                 if (is_numeric($index) && $index > 0 && isset($RowData[$configuration['field'][$attr]-1])) {
                     if ($attr == 'password') {
                         $user->setPassword($RowData[$index - 1]);
+                        $passwordChanged = true;
                     } elseif ($attr == 'all_departments') {
                         $allDepartments = $RowData[$index-1] == 1;
                     } elseif ($attr == 'max_active_chats') {
@@ -1362,6 +1364,11 @@ class erLhcoreClassUserValidator {
             }
 
             $user->saveThis();
+
+            // Imported password rotation has to rotate the REST API tokens as well
+            if ($passwordChanged === true) {
+                erLhcoreClassModelUserSession::revokeForUser($user->id);
+            }
 
             if (isset($show_all_pending)) {
                 erLhcoreClassModelUserSetting::setSetting('show_all_pending', (int)$show_all_pending, $user->id);

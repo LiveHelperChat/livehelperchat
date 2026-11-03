@@ -38,7 +38,14 @@ try {
         }
 
         if ($userToLogin instanceof erLhcoreClassModelUser) {
-            erLhcoreClassUser::instance()->setLoggedUser($userToLogin->id);
+
+            // Do not report a started session when the operator cannot actually be logged in
+            // (e.g. a disabled account) - setLoggedUser() returns null when the visitor is
+            // already logged in as that user, so compare strictly against false.
+            if ($currentUser->setLoggedUser($userToLogin->id) === false) {
+                throw new Exception('Session could not be started');
+            }
+
             if ($modeAPI == false) {
 
                 $configInstance = erConfigClassLhConfig::getInstance();

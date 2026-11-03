@@ -911,6 +911,11 @@ class erLhcoreClassGenericBotActionRestapi
 
         $dynamicReplaceVariables = self::extractDynamicVariables($methodSettings, $paramsCustomer['chat'], $paramsCustomer['params']);
 
+        // Mail conversations are handled outside of this action
+        if ($paramsCustomer['chat'] instanceof erLhcoreClassModelMailconvMessage) {
+            \LiveHelperChat\mailConv\RestAPI\BotRestAPI::process($methodSettings, $paramsCustomer);
+        }
+
         if (!isset($methodSettings['body_raw'])) {
             $methodSettings['body_raw'] = '';
         }

@@ -167,6 +167,8 @@ if (isset($_POST['Update'])) {
 		erLhcoreClassModule::redirect('user/account');
 		exit;
 	}
+
+	$passwordHashBefore = $UserData->password;
 	
 	$Errors = erLhcoreClassUserValidator::validateAccount($UserData);
 
@@ -185,6 +187,11 @@ if (isset($_POST['Update'])) {
     if (count($Errors) == 0) {
     	
         $UserData->updateThis();
+
+        // Password rotation has to rotate the REST API tokens as well
+        if ($passwordHashBefore !== $UserData->password) {
+            erLhcoreClassModelUserSession::revokeForUser($UserData->id);
+        }
 
         $currentUser->refreshSessionPasswordHash($UserData);
 
