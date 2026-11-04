@@ -702,9 +702,17 @@ Table "lh_abstract_form_collected" {
   "chat_id" bigint(20) [not null]
   "content" longtext [not null]
   "custom_fields" longtext [not null]
+  "user_id" bigint(20) [not null, default: 0, note: 'Creator user ID']
+  "evaluated_user_id" bigint(20) [not null, default: 0, note: 'Evaluated operator user ID']
+  "scope" tinyint(1) [not null, default: 0]
+  "attr_int_1" int(11) [not null, default: 0, note: 'Used as QA score']
+  "attr_int_2" int(11) [not null, default: 0]
+  "attr_int_3" int(11) [not null, default: 0]
 
   Indexes {
-    form_id [name: "form_id"]
+    (form_id, chat_id) [name: "form_id_chat_id"]
+    chat_id [name: "chat_id"]
+    (evaluated_user_id, ctime, form_id, attr_int_1) [name: "evaluated_user_id_ctime", note: 'Agent/chat QA aggregations']
   }
 }
 
@@ -910,8 +918,8 @@ Table "lh_abstract_rest_api_key" {
   "ip_restrictions" varchar(250) [not null]
 
   Indexes {
-    api_key [name: "api_key"]
-    user_id [name: "user_id"]
+    (user_id) [name: "user_id"]
+    (api_key, active) [name: "api_key_active"]
   }
 }
 
@@ -1584,6 +1592,7 @@ Table "lh_chat_blocked_user" {
   Indexes {
     ip [name: "ip"]
     nick [name: "nick"]
+    (nick, btype) [name: "nick_btype"]
     online_user_id [name: "online_user_id"]
   }
 }

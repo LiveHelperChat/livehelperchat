@@ -385,6 +385,7 @@ try {
                   PRIMARY KEY (`id`),
                   KEY `ip` (`ip`),
                   KEY `nick` (`nick`),
+                  KEY `nick_btype` (`nick`,`btype`),
                   KEY `online_user_id` (`online_user_id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -1341,6 +1342,7 @@ try {
 				  `attr_int_3` int(11) NOT NULL DEFAULT 0,
 				  PRIMARY KEY (`id`),
 				  KEY `form_id_chat_id` (`form_id`,`chat_id`),
+				  KEY `evaluated_user_id_ctime` (`evaluated_user_id`,`ctime`,`form_id`,`attr_int_1`),
                   KEY `chat_id` (`chat_id`)
 				) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
@@ -2454,7 +2456,7 @@ try {
                     `updated_at` int(11) NOT NULL DEFAULT 0,
                     `muser_id` int(11) NOT NULL DEFAULT 0,
                     PRIMARY KEY (`id`),
-                    KEY `api_key` (`api_key`),
+                    KEY `api_key_active` (`api_key`, `active`),
                     KEY `user_id` (`user_id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
 
