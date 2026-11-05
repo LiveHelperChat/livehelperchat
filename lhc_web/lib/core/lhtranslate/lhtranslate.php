@@ -48,17 +48,8 @@ class erLhcoreClassTranslate
             $chat->chat_locale = $data['chat_locale'] = $visitorLanguage;
         } else {
             // We take few first messages from visitor and try to detect language
-            $stmt = $db->prepare('SELECT msg FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 5 OFFSET 0');
-            $stmt->bindValue(':chat_id', $chat->id);
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
-            foreach ($rows as & $row) {
-                $row = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $row);
-            }
-            
-            $msgText = substr(implode("\n", $rows), 0, 500);
-            $languageCode = self::detectLanguage($msgText);
-            $chat->chat_locale = $data['chat_locale'] = $languageCode;
+            $languageCode = self::detectChatLanguage($chat);
+            $chat->chat_locale = $data['chat_locale'] = $languageCode !== null ? $languageCode : $visitorLanguage;
         }
         
         if (key_exists($operatorLanguage, $supportedLanguages)) {
@@ -89,6 +80,99 @@ class erLhcoreClassTranslate
         }
         
         return $data;
+    }
+
+    /**
+     * Detects chat language with translation service instead of relying on chat locale.
+     * Detected language is stored in chat variables, so translation service is called only once per chat.
+     *
+     * @param erLhcoreClassModelChat $chat
+     *
+     * @return string|null Detected language code or null if it could not be detected
+     */
+    public static function detectChatLanguage(erLhcoreClassModelChat $chat)
+    {
+        $chatVariables = $chat->chat_variables_array;
+
+        if (!is_array($chatVariables)) {
+            $chatVariables = array();
+        }
+
+        // Language is already detected, no need to call translation service again
+        if (isset($chatVariables['detected_lang']) && $chatVariables['detected_lang'] != '') {
+            $chat->chat_locale = $chatVariables['detected_lang'];
+            return $chat->chat_locale;
+        }
+
+        if (!($chat->id > 0)) {
+            return null;
+        }
+
+        $db = ezcDbInstance::get();
+
+        // Few first visitor messages are enough to detect language
+        $stmt = $db->prepare('SELECT msg FROM lh_msg WHERE chat_id = :chat_id AND user_id = 0 ORDER BY id ASC LIMIT 5 OFFSET 0');
+        $stmt->bindValue(':chat_id', $chat->id, PDO::PARAM_INT);
+        $stmt->execute();
+        $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        foreach ($rows as & $row) {
+            $row = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $row);
+        }
+
+        $messageText = trim(implode("\n", $rows));
+
+        // Visitor did not wrote anything yet
+        if ($messageText === '') {
+            return null;
+        }
+
+        $languageCode = self::detectLanguage(substr($messageText, 0, 500));
+
+        if (!is_string($languageCode) || $languageCode === '') {
+            return null;
+        }
+
+        $languageCode = strtolower($languageCode);
+
+        $supportedLanguages = self::getSupportedLanguages(true);
+
+        $detectedLanguage = null;
+
+        // Language code detected by the translation service matches supported language exactly
+        foreach ($supportedLanguages as $supportedCode => $supportedName) {
+            if (strtolower($supportedCode) === $languageCode) {
+                $detectedLanguage = $supportedCode;
+                break;
+            }
+        }
+
+        // Fallback to the first two letters match, e.g. de-DE => de
+        if ($detectedLanguage === null) {
+            $languageCodeBase = explode('-', $languageCode)[0];
+
+            foreach ($supportedLanguages as $supportedCode => $supportedName) {
+                if (strtolower(explode('-', $supportedCode)[0]) === $languageCodeBase) {
+                    $detectedLanguage = $languageCodeBase;
+                    break;
+                }
+            }
+        }
+
+        if ($detectedLanguage === null) {
+            return null;
+        }
+
+        $chatVariables['detected_lang'] = $detectedLanguage;
+
+        $chat->chat_variables = json_encode($chatVariables);
+        $chat->chat_variables_array = $chatVariables;
+        $chat->chat_locale = $detectedLanguage;
+
+        // Store detected language and chat locale, so detection is not repeated for every message
+        $chat->updateThis(['update' => ['chat_variables', 'chat_locale']]);
+
+        return $detectedLanguage;
     }
 
     /**
@@ -1286,6 +1370,13 @@ class erLhcoreClassTranslate
     
     public static function translateBotMessage(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg, erLhcoreClassModelGenericBotTrGroup $translationGroup)
     {
+        $translationGroupConfiguration = $translationGroup->configuration_array;
+
+        // Detect chat language with translation service instead of relying on chat locale
+        if (!empty($translationGroupConfiguration['detect_chat_language'])) {
+            self::detectChatLanguage($chat);
+        }
+
         $supportedLanguages = self::getSupportedLanguages(true);
 
         // Unsupported
@@ -1293,11 +1384,16 @@ class erLhcoreClassTranslate
             return;
         }
 
-        $chatLocale = explode('-',$chat->chat_locale)[0];
+        $chatLocale = $chat->chat_locale;
 
         // Unsupported
         if (!key_exists($chatLocale, $supportedLanguages)) {
-            return;
+            $chatLocale = explode('-', $chatLocale)[0];
+
+            // Unsupported
+            if (!key_exists($chatLocale, $supportedLanguages)) {
+                return;
+            }
         }
 
         try {

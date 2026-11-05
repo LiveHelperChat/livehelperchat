@@ -18,6 +18,13 @@
     <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you have configured Automatic Translations we will use it for untranslated items.');?></small></i></p>
 </div>
 
+<?php $trConfiguration = $item->configuration_array; ?>
+
+<div class="form-group">
+    <label><input type="checkbox" name="detect_chat_language" <?php !empty($trConfiguration['detect_chat_language']) ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Detect chat language with translation service instead of relying on chat locale')?></label>
+    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Detected language is stored in chat variables, so detection is executed only once per chat.');?></small></i></p>
+</div>
+
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','For automatic translations we have to know what is the main bot language. From this language we will translate bot messages.');?></label>
     <?php echo erLhcoreClassRenderHelper::renderCombobox( array (

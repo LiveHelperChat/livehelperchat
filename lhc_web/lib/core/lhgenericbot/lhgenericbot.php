@@ -356,6 +356,9 @@ class erLhcoreClassGenericBot {
             'use_translation_service' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
             ),
+            'detect_chat_language' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+            ),
         );
 
         $form = new ezcInputForm( INPUT_POST, $definition );
@@ -384,6 +387,16 @@ class erLhcoreClassGenericBot {
         } else {
             $botTranslation->use_translation_service = 0;
         }
+
+        $configuration = $botTranslation->configuration_array;
+
+        if (!is_array($configuration)) {
+            $configuration = array();
+        }
+
+        $configuration['detect_chat_language'] = ($form->hasValidData( 'detect_chat_language' ) && $form->detect_chat_language == true);
+
+        $botTranslation->configuration = json_encode($configuration);
 
         return $Errors;
     }

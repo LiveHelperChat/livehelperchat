@@ -170,7 +170,10 @@ class erLhcoreClassGenericBotActionText {
             }
         }
 
-        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('as_json' => (isset($action['content']['attr_options']['json_replace_args']) && $action['content']['attr_options']['json_replace_args'] === true), 'chat' => $chat, 'args' => $params));
+        // Automatic translations is enabled for this action
+        $autoTranslate = isset($action['content']['attr_options']['auto_translate']) && $action['content']['attr_options']['auto_translate'] == true;
+
+        $action['content']['text'] = erLhcoreClassGenericBotWorkflow::translateMessage($action['content']['text'], array('auto_translate' => $autoTranslate, 'as_json' => (isset($action['content']['attr_options']['json_replace_args']) && $action['content']['attr_options']['json_replace_args'] === true), 'chat' => $chat, 'args' => $params));
 
         $msgData = explode('|||',(isset($action['content']['text']) ? trim($action['content']['text']) : ''));
 
@@ -275,27 +278,13 @@ class erLhcoreClassGenericBotActionText {
         }
 
         if (!isset($action['content']['attr_options']['no_reparse']) || $action['content']['attr_options']['no_reparse'] !== true) {
-            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('as_json' => (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true), 'chat' => $chat, 'args' => $params));
+            $msg->msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->msg, array('auto_translate' => $autoTranslate, 'as_json' => (isset($action['content']['attr_options']['json_replace_all']) && $action['content']['attr_options']['json_replace_all'] === true), 'chat' => $chat, 'args' => $params));
         }
 
         $msg->meta_msg = !empty($metaMessage) ? json_encode($metaMessage) : (isset($params['meta_msg']) && !empty($params['meta_msg']) ? json_encode($params['meta_msg']) : '');
 
         if (!empty($msg->meta_msg) && (!isset($action['content']['attr_options']['no_reparse']) || $action['content']['attr_options']['no_reparse'] !== true)) {
-            $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('chat' => $chat, 'args' => $params));
-        }
-
-        // Automatic translations
-        if ($chat instanceof \erLhcoreClassModelChat && isset($action['content']['attr_options']['auto_translate']) && $action['content']['attr_options']['auto_translate'] == true && $chat->dep_id > 0) {
-            $department = erLhcoreClassModelDepartament::fetch($chat->dep_id,true);
-            if ($department instanceof erLhcoreClassModelDepartament) {
-                $configurationDep = $department->bot_configuration_array;
-                if (isset($configurationDep['bot_tr_id']) && $configurationDep['bot_tr_id'] > 0) {
-                    $translationGroup = erLhcoreClassModelGenericBotTrGroup::fetch($configurationDep['bot_tr_id']);
-                    if ($translationGroup instanceof erLhcoreClassModelGenericBotTrGroup && $translationGroup->use_translation_service == 1 && $translationGroup->bot_lang != '') {
-                        erLhcoreClassTranslate::translateBotMessage($chat, $msg, $translationGroup);
-                    }
-                }
-            }
+            $msg->meta_msg = erLhcoreClassGenericBotWorkflow::translateMessage($msg->meta_msg, array('auto_translate' => $autoTranslate, 'chat' => $chat, 'args' => $params));
         }
 
         // Internal mail message is linked to the conversation, not to the mail message itself

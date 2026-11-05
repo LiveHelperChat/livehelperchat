@@ -2786,10 +2786,39 @@ class erLhcoreClassGenericBotWorkflow {
                                 'group_id' => $groupsFilter
                             )
                         ));
-                        
+
+                        $identifiersTranslated = array();
+
                         foreach ($items as $item) {
                             $item->translateByChat($locale, $params);
                             $identifiers[$item->identifier]['replace'] = $item->translation_front;
+                            $identifiersTranslated[$item->identifier] = true;
+                        }
+
+                        // Identifiers which are not present in the translation group are translated with the translation service
+                        // if automatic translations are enabled for the action and for the translation group
+                        $translationGroup = (isset($params['auto_translate']) && $params['auto_translate'] == true) ? erLhcoreClassModelGenericBotTrGroup::fetch((int)$configuration['bot_tr_id'], true) : null;
+
+                        if (
+                            $translationGroup instanceof erLhcoreClassModelGenericBotTrGroup &&
+                            $translationGroup->use_translation_service == 1 &&
+                            $translationGroup->bot_lang != '' &&
+                            isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat
+                        ) {
+                            foreach ($identifiers as $identifier => $identifierData) {
+                                if (isset($identifiersTranslated[$identifier]) || trim((string)$identifierData['replace']) === '') {
+                                    continue;
+                                }
+
+                                $translationMessage = new erLhcoreClassModelmsg();
+                                $translationMessage->msg = $identifierData['replace'];
+
+                                erLhcoreClassTranslate::translateBotMessage($params['chat'], $translationMessage, $translationGroup);
+
+                                if ($translationMessage->msg != '') {
+                                    $identifiers[$identifier]['replace'] = $translationMessage->msg;
+                                }
+                            }
                         }
                     }
                 }
