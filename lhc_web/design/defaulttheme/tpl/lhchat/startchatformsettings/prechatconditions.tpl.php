@@ -14,10 +14,14 @@
     </ul>
 </p>
 <hr>
-<p>
+
+<p class="mb-1"><small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Evaluation order: maintenance mode, online conditions, offline conditions, disable conditions. Offline and disable modes take precedence over online - offline mode wins as soon as offline conditions are set. If the online conditions are not met and neither offline nor disable mode matches, the widget is hidden.')?></small><br/>
+<small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Inside each block rows are joined with AND; selecting OR in a row starts an alternative group. The preview under every block shows the resulting logic.')?></small></p>
+
+<p class="mb-1">
     <strong><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/preconditions'});" class="material-icons text-muted">help</a><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Online conditions')?>:</strong>
 <br>
-<small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','If these conditions are met widget will become online')?></small>
+<small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Checked first. The widget is shown as online when these conditions are met. With no online conditions the widget is always online. If they are not met, the widget falls through to offline conditions, then to disable conditions, and is hidden if neither of them matches.')?></small>
 </p>
 <button type="button" class="btn btn-outline-secondary btn-xs" ng-click="preconditions.addField('online')"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Add condition')?></button><span class="text-muted ps-2"><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','conditions are optional')?>.</small></span>
 
@@ -73,7 +77,9 @@
 
 
 <p class="mb-1"><strong><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/preconditions'});" class="material-icons text-muted">help</a>Offline conditions:</strong><br>
-    <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Make widget offline if widget is not in oline mode')?></small>
+    <small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Checked after the online conditions and only when offline mode is enabled. The widget switches to offline mode (leave a message form) when these conditions are met. Use them also to show the offline form to visitors who did not match the online conditions. If online and offline conditions match at the same time, offline mode wins. With no offline conditions enabled offline mode applies to every visitor who failed the online conditions.')?></small><br/>
+    <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Because offline mode wins over online as soon as offline conditions are set, use only this block to make the widget offline for specific visitors, e.g. specific countries (leave online conditions empty). Example: field {args.online_user.user_country_code}, comparator one of, value us,ca,gb - the widget is then offline for these countries only. Codes are lowercase two letter codes and require geo detection to be enabled.')?></small><br/>
+    <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Offline mode only changes the widget UI, it does not block starting a chat for these visitors. Use disable conditions with the same rule if the chat has to be blocked.')?></small>
 </p>
     <label class="d-block"><input type="checkbox" value="on" ng-model="preconditions.conditions.offline_enabled" name="prec_enable_offline" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Enable offline mode');?></label>
     <div ng-show="preconditions.conditions.offline_enabled">
@@ -128,7 +134,7 @@
 <hr>
 
 <p class="mb-1"><strong><a href="#" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/help/preconditions'});" class="material-icons text-muted">help</a>Disable conditions.</strong><br>
-<small>If widget is not in online/offline mode after online conditions check. We will show a custom message once they open a widget.</small>
+<small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Checked after the online and offline conditions, and only when disable mode is enabled. If the visitor did not match the online conditions or matches these conditions, we will show the custom message once they open the widget. Offline mode takes precedence over disable mode. Without a message the widget is hidden instead.')?></small>
 </p>
 <label class="d-block"><input type="checkbox" value="on" ng-model="preconditions.conditions.disable_enabled" name="prec_enable_disable" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchatformsettings','Enable disable mode');?></label>
     <div ng-show="preconditions.conditions.disable_enabled">
