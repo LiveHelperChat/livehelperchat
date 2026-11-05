@@ -2,6 +2,7 @@
 
 ✨ Track mail replies waiting for import, mail close event and query indexes
 
+- ✨ Support bot text messages for mail conversations
 - 🗄️ Add the `pending_import` flag to `lhc_mailconv_conversation` via update_364.sql, both install scripts, `structure.json`, `db.dbml`, the POS definition, `swagger.json` and the model `getState()`
 - 📤 Set `pending_import = 1` in `erLhcoreClassMailconvValidator::sendReply()` when the sent folder copy was stored, so an operator reply becomes visible only after the background import fetches it back; a failed copy keeps it at `0`
 - 📥 Reset `pending_import = 0` in `erLhcoreClassMailconvParser` whenever a newer message is imported for the conversation, and on merge/un-merge in `MergeHelper`
