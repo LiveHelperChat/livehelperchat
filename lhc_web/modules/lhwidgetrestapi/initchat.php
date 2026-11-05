@@ -226,6 +226,10 @@ try {
                     $outputResponse['chat_ui']['fa_direct'] = true;
                 }
 
+                if (isset($theme->bot_configuration_array['bbc_direct']) && $theme->bot_configuration_array['bbc_direct'] == true) {
+                    $outputResponse['chat_ui']['bbc_direct'] = true;
+                }
+
                 if (isset($theme->bot_configuration_array['custom_html_header']) && $theme->bot_configuration_array['custom_html_header'] != '') {
                     $outputResponse['chat_ui']['custom_html_header'] = $theme->bot_configuration_array['custom_html_header'];
                 }
