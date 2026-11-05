@@ -919,6 +919,10 @@ $('#lhc-theme-preview-chat .btn-bottom-scroll button').attr('data-preview-field'
                         </div>
 
                         <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('bbc_direct', $fields['bbc_direct'], $object)?> <?php echo $fields['bbc_direct']['trans'];?></label>
+                        </div>
+
+                        <div class="form-group">
                             <label><?php echo erLhcoreClassAbstract::renderInput('no_voice_messages', $fields['no_voice_messages'], $object)?> <?php echo $fields['no_voice_messages']['trans'];?></label>
                         </div>
 
