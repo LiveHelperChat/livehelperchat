@@ -37,7 +37,7 @@ foreach (erLhcoreClassModelMailconvMailbox::getList(['limit' => false, 'filter' 
             'filterin' => ['status' => $workflowOptions['close_status']]
         ]) as $conversation) {
             echo $conversation->id,"\n";
-            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversation]);
+            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversation, 'close_source' => 'auto_close']);
         }
     }
 }

@@ -95,6 +95,15 @@ class erLhcoreClassMailconvWorkflow {
         if ($conv->department !== false) {
             erLhcoreClassChat::updateDepartmentStats($conv->department);
         }
+
+        // mail - last conversation message, so bot actions can reply to it.
+        // close_source - operator, auto_close, import or system
+        $lastMessage = end($messages);
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_closed', array(
+            'conversation' => & $conv,
+            'mail' => $lastMessage !== false ? $lastMessage : null,
+            'close_source' => isset($params['close_source']) ? $params['close_source'] : (isset($params['user_id']) ? 'operator' : 'system')
+        ));
     }
 
     public static function getConversationDuration($messages, $attr = 'ctime') {

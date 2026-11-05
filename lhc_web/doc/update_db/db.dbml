@@ -36,6 +36,7 @@ Table "lhc_mailconv_conversation" {
   "mail_variables" longtext [not null, note: 'Mail variables']
   "has_attachment" tinyint(1) [not null, default: 0, note: 'Has attachments']
   "pending_sync" tinyint(1) [not null, default: 0, note: 'Pending sync']
+  "pending_import" tinyint(1) [not null, default: 0, note: 'Operator reply is waiting for import']
   "follow_up_id" bigint(20) [not null, default: 0, note: 'Follow up ID']
   "undelivered" tinyint(1) [not null, default: 0, note: 'Undelivered status']
 

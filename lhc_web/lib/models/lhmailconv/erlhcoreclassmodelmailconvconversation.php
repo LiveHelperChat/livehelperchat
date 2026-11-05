@@ -54,6 +54,7 @@ class erLhcoreClassModelMailconvConversation
             'follow_up_id' => $this->follow_up_id,
             'undelivered' => $this->undelivered,
             'pending_sync' => $this->pending_sync,
+            'pending_import' => $this->pending_import,
             'lang' => $this->lang,
             'opened_at' => $this->opened_at,
             'phone' => $this->phone,
@@ -349,6 +350,9 @@ class erLhcoreClassModelMailconvConversation
     public $follow_up_id = 0;
     public $undelivered = 0;
     public $pending_sync = 0;
+
+    // Set when operator sends an e-mail and we are waiting for it to be imported back
+    public $pending_import = 0;
 
     // Assignment workflow attribute
     public $tslasign = 0;       // Time when last auto assignment happened

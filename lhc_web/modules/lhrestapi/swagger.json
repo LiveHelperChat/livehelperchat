@@ -5747,6 +5747,11 @@
           "default": "",
           "required": false,
           "description": "If operator sends an e-mail and we are waiting for background process to fetch it."
+        },"pending_import": {
+          "type": "integer",
+          "default": "",
+          "required": false,
+          "description": "If operator sends an e-mail and we are waiting for it to be imported back from the sent folder. 0 - no, 1 - yes."
         }
       }
     },

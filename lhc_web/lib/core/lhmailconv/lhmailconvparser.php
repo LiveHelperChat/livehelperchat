@@ -850,7 +850,7 @@ class erLhcoreClassMailconvParser {
                             (isset($matchingRuleSelected->options_array['close_conversation']) && $matchingRuleSelected->options_array['close_conversation'] == true) ||
                             ($matchingPriorityRuleSelected instanceof erLhcoreClassModelMailconvMatchRule && isset($matchingPriorityRuleSelected->options_array['close_conversation']) && $matchingPriorityRuleSelected->options_array['close_conversation'] == true)
                         ) {
-                            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
+                            erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations, 'close_source' => 'import']);
                         }
 
                         if ($message->undelivered == 0 && $message->auto_submitted == erLhcoreClassModelMailconvMessage::AUTO_SUBMITTED_NONE && $conversations->start_type == erLhcoreClassModelMailconvConversation::START_IN && $conversations->status != erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
@@ -967,9 +967,11 @@ class erLhcoreClassMailconvParser {
 
                         if ($conversation instanceof erLhcoreClassModelMailconvConversation && $conversation->udate < $message->udate) {
                             $conversation->pending_sync = 0;
+                            // New mail was imported, so conversation is not waiting for import anymore
+                            $conversation->pending_import = 0;
                             $conversation->last_message_id = $message->id;
                             $conversation->conv_duration = erLhcoreClassChat::getCount(['filter' => ['conversation_id' => $conversation->id]],'lhc_mailconv_msg','SUM(conv_duration)');
-                            $conversation->updateThis(['update' => ['last_message_id', 'conv_duration', 'pending_sync']]);
+                            $conversation->updateThis(['update' => ['last_message_id', 'conv_duration', 'pending_sync', 'pending_import']]);
                             self::setLastConversationByMessage($conversation, $message);
                         }
 
@@ -1114,7 +1116,7 @@ class erLhcoreClassMailconvParser {
                 $message->updateThis(['update' => ['conversation_id','dep_id']]);
 
                 if (isset($matchingRuleSelected->options_array['close_conversation']) && $matchingRuleSelected->options_array['close_conversation'] == true) {
-                    erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations]);
+                    erLhcoreClassMailconvWorkflow::closeConversation(['conv' => & $conversations, 'close_source' => 'import']);
                 }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mail.conversation_started',array(

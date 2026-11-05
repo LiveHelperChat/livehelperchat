@@ -2445,6 +2445,7 @@ class Install
   `mail_variables` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `has_attachment` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `pending_sync` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `pending_import` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `follow_up_id` bigint(20) unsigned NOT NULL DEFAULT 0,
   `undelivered` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),

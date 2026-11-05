@@ -2,3 +2,4 @@ ALTER TABLE `lh_abstract_form_collected` ADD INDEX `evaluated_user_id_ctime` (`e
 ALTER TABLE `lh_abstract_rest_api_key` ADD INDEX `api_key_active` (`api_key`, `active`);
 ALTER TABLE `lh_abstract_rest_api_key` DROP INDEX `api_key`;
 ALTER TABLE `lh_chat_blocked_user` ADD INDEX `nick_btype` (`nick`, `btype`);
+ALTER TABLE `lhc_mailconv_conversation` ADD `pending_import` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

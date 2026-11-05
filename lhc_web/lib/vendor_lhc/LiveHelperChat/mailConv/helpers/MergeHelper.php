@@ -127,6 +127,7 @@ class MergeHelper
             $conversation->subject = $messageLast->subject;
             $conversation->total_messages = count($messages);
             $conversation->pending_sync = 0;
+            $conversation->pending_import = 0;
             $conversation->last_message_id = $messageLast->id;
             $conversation->message_id = $messageFirst->id;
             $conversation->conv_duration = \erLhcoreClassChat::getCount(['filter' => ['conversation_id' => $newConversationId]],'lhc_mailconv_msg','SUM(conv_duration)');

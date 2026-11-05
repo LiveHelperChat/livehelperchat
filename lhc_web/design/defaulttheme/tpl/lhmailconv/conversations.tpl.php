@@ -52,6 +52,10 @@
                                     <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Undelivered e-mail');?>" class="text-danger material-icons">sms_failed</span>
                                 <?php endif; ?>
 
+                                <?php if ($item->pending_import == 1) : ?>
+                                    <span title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvconv','Operator reply is waiting to be imported');?>" class="text-info material-icons">cloud_download</span>
+                                <?php endif; ?>
+
                                 <a id="preview-item-<?php echo $item->id?>" data-list-navigate="true" onclick="lhc.previewMail(<?php echo $item->id?>,this);" class="material-icons">info_outline</a>
 
                                 <a class="action-image material-icons" data-title="<?php echo htmlspecialchars($item->subject)?>" onclick="lhinst.startMailNewWindow(<?php echo $item->id?>,$(this).attr('data-title'))" >open_in_new</a>

@@ -867,7 +867,11 @@ class erLhcoreClassMailconvValidator {
 
                 // Reset opened indicator on new mail send from operator
                 $mail->conversation->opened_at = 0;
-                $mail->conversation->updateThis(['update' => ['opened_at']]);
+                // Operator reply becomes visible only after it's imported from the sent folder copy,
+                // so conversation is pending import till next successful import.
+                // It's reset each time new mail is imported for this conversation.
+                $mail->conversation->pending_import = (isset($response['copy']['success']) && $response['copy']['success'] == true) ? 1 : 0;
+                $mail->conversation->updateThis(['update' => ['opened_at','pending_import']]);
 
             } catch (Exception $e) {
                 $response['send'] = false;
