@@ -1,9 +1,17 @@
 4.99v
 
+✨ Track mail replies waiting for import, mail close event and query indexes
 
+- 🗄️ Add the `pending_import` flag to `lhc_mailconv_conversation` via update_364.sql, both install scripts, `structure.json`, `db.dbml`, the POS definition, `swagger.json` and the model `getState()`
+- 📤 Set `pending_import = 1` in `erLhcoreClassMailconvValidator::sendReply()` when the sent folder copy was stored, so an operator reply becomes visible only after the background import fetches it back; a failed copy keeps it at `0`
+- 📥 Reset `pending_import = 0` in `erLhcoreClassMailconvParser` whenever a newer message is imported for the conversation, and on merge/un-merge in `MergeHelper`
+- 🖥️ Show a cloud-download indicator in the mail conversation list while a reply is waiting to be imported
+- 🔗 Dispatch the `mail.conversation_closed` event from `erLhcoreClassMailconvWorkflow::closeConversation()` with a `close_source` argument (`operator`, `auto_close`, `import`, `system`) so bot workflows and webhooks can react to closes, and pass the close source from the auto-close cron and from imports
+- 🧪 Add the missing `mail.conversation_closed` event template to the webhook dispatch tool
+- 🚀 Add composite indexes to speed up frequent lookups: `evaluated_user_id_ctime` (`evaluated_user_id`, `ctime`, `form_id`, `attr_int_1`) on `lh_abstract_form_collected` for agent/chat QA aggregations, `api_key_active` (`api_key`, `active`) on `lh_abstract_rest_api_key` replacing the `api_key` index for active key lookups, and `nick_btype` (`nick`, `btype`) on `lh_chat_blocked_user` for blocked user lookups
+- 🔄 Bump `DB_VERSION` to 364 and `LHC_RELEASE` to 499
 
 execute doc/update_db/update_364.sql for update
-
 
 4.98v
 

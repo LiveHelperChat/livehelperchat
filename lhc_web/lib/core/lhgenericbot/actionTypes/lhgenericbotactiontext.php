@@ -6,10 +6,13 @@ class erLhcoreClassGenericBotActionText {
     {
         static $triggersProcessed = array();
 
-        if (!($chat instanceof \erLhcoreClassModelChat)) {
+        // Bot actions can also be executed against a mail conversation message
+        $isMailConversation = $chat instanceof \erLhcoreClassModelMailconvMessage && $chat->conversation_id > 0;
+
+        if (!($chat instanceof \erLhcoreClassModelChat) && $isMailConversation === false) {
             $params['do_not_save'] = true;
         }
-
+  
         $params['current_trigger'] = $trigger;
 
         if (!isset($params['first_trigger'])) {
@@ -39,7 +42,8 @@ class erLhcoreClassGenericBotActionText {
             $triggersProcessed[] = $trigger->id;
         }
 
-        $msg = new erLhcoreClassModelmsg();
+        // Mail conversations store such messages in a separate table
+        $msg = $isMailConversation ? new erLhcoreClassModelMailconvMessageInternal() : new erLhcoreClassModelmsg();
 
         $metaMessage = array();
 
@@ -281,7 +285,7 @@ class erLhcoreClassGenericBotActionText {
         }
 
         // Automatic translations
-        if (isset($action['content']['attr_options']['auto_translate']) && $action['content']['attr_options']['auto_translate'] == true && $chat->dep_id > 0) {
+        if ($chat instanceof \erLhcoreClassModelChat && isset($action['content']['attr_options']['auto_translate']) && $action['content']['attr_options']['auto_translate'] == true && $chat->dep_id > 0) {
             $department = erLhcoreClassModelDepartament::fetch($chat->dep_id,true);
             if ($department instanceof erLhcoreClassModelDepartament) {
                 $configurationDep = $department->bot_configuration_array;
@@ -294,10 +298,14 @@ class erLhcoreClassGenericBotActionText {
             }
         }
 
-        $msg->chat_id = $chat->id;
+        // Internal mail message is linked to the conversation, not to the mail message itself
+        $msg->chat_id = $isMailConversation ? $chat->conversation_id : $chat->id;
 
         if (isset($params['override_nick']) && !empty($params['override_nick'])) {
             $msg->name_support = (string)$params['override_nick'];
+        } elseif ($isMailConversation) {
+            $botNick = erLhcoreClassModelGenericBotBot::fetch($trigger->bot_id);
+            $msg->name_support = ($botNick instanceof erLhcoreClassModelGenericBotBot && $botNick->nick != '') ? $botNick->nick : erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
         } else {
             $msg->name_support = erLhcoreClassGenericBotWorkflow::getDefaultNick($chat);
         }
@@ -349,11 +357,15 @@ class erLhcoreClassGenericBotActionText {
             $db = ezcDbInstance::get();
             $db->beginTransaction();
             try {
-                erLhcoreClassChat::getSession()->save($msg);
+                if ($isMailConversation) {
+                    $msg->saveThis();
+                } else {
+                    erLhcoreClassChat::getSession()->save($msg);
+                }
 
                 // Keep chat locked if user want's that. In case, extensions are handling events in the background.
                 // If message arrives during streaming we want to keep lock if there is any set
-                if ((isset($action['content']['attr_options']['keep_locked']) && $action['content']['attr_options']['keep_locked'] === true) || (isset($params['stream_context']) && $params['stream_context'] === true)) {
+                if ($chat instanceof \erLhcoreClassModelChat && ((isset($action['content']['attr_options']['keep_locked']) && $action['content']['attr_options']['keep_locked'] === true) || (isset($params['stream_context']) && $params['stream_context'] === true))) {
                     $chat->syncAndLock('`chat_variables`');
 
                     $variablesArray = [];
@@ -375,7 +387,7 @@ class erLhcoreClassGenericBotActionText {
                 throw $e;
             }
 
-            if (isset($action['content']['attr_options']['process_as_visitor']) && $action['content']['attr_options']['process_as_visitor'] == true)
+            if ($chat instanceof \erLhcoreClassModelChat && isset($action['content']['attr_options']['process_as_visitor']) && $action['content']['attr_options']['process_as_visitor'] == true)
             {
                 erLhcoreClassGenericBotWorkflow::userMessageAdded($chat, $msg);
             }
