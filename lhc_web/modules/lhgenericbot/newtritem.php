@@ -14,7 +14,7 @@ $botTranslationItem->group_id = (int)$Params['user_parameters_unordered']['group
 if (isset($_POST['Save_bot']) || isset($_POST['Update_bot']))
 {
 
-    $Errors = erLhcoreClassGenericBot::validateBotTranslationItem($botTranslationItem);
+    $Errors = LiveHelperChat\Helpers\Bot\IndividualizationValidator::validate($botTranslationItem);
 
     if (count($Errors) == 0)
     {

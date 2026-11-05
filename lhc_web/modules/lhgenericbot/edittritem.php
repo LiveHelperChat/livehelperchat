@@ -16,11 +16,13 @@ if (isset($_POST['Update_bot']) || isset($_POST['Save_bot'])  )
         exit;
     }
 
-    $Errors = erLhcoreClassGenericBot::validateBotTranslationItem($item);
+    $Errors = LiveHelperChat\Helpers\Bot\IndividualizationValidator::validate($item);
 
     if (count($Errors) == 0)
     {
         $item->saveThis();
+
+        LiveHelperChat\Helpers\Bot\IndividualizationValidator::copyToGroupsFromRequest($item);
 
         if (isset($_POST['Save_bot'])) {
             erLhcoreClassModule::redirect('genericbot/listtranslationsitems','/(group_id)/' . $item->group_id);
