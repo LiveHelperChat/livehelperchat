@@ -176,7 +176,7 @@ class erLhcoreClassGenericBotActionRestapi
                         }
 
                         erLhcoreClassLog::write(
-                            json_encode([
+                            json_encode(self::truncateEncodedData([
                                 'name' => '(polling conditions failed) [' . $restAPI->name . '] [' . $i . '] tries' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
                                 'method_name' => $method['name'],
                                 'trigger' => (isset($params['current_trigger']) && is_object($params['current_trigger']) ? 'B['. $params['current_trigger']->bot_id .'] T['.$params['current_trigger']->id . '] ' . $params['current_trigger']->name : null),
@@ -192,7 +192,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'http_error' => $response['http_error'],
                                 'msg_id' => (isset($params['msg']) && is_object($params['msg'])) ? $params['msg']->id : 0,
                                 'msg_text' => '-',
-                            ], JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
+                            ]), JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
                             ezcLog::SUCCESS_AUDIT,
                             array(
                                 'source' => 'Bot',
@@ -217,7 +217,7 @@ class erLhcoreClassGenericBotActionRestapi
                         $msgLog->time = time();
                         $msgLog->meta_msg = json_encode(['content' => ['html' => [
                             'debug' => true,
-                            'content' => json_encode([
+                            'content' => json_encode(self::truncateEncodedData([
                                 'name' => '[' . $restAPI->name . '] ' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
                                 'method_name' => $method['name'],
                                 'trigger' => (isset($params['current_trigger']) && is_object($params['current_trigger']) ? 'B['. $params['current_trigger']->bot_id .'] T['.$params['current_trigger']->id . '] ' . $params['current_trigger']->name : null),
@@ -234,7 +234,7 @@ class erLhcoreClassGenericBotActionRestapi
                                 'msg_id' =>  (isset($params['msg']) && is_object($params['msg'])) ?  $params['msg']->id : 0,
                                 'msg_text' => '-',
                                 'line' => __LINE__,
-                            ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
+                            ]),JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                         $msgLog->msg = '(polling conditions failed) [' . $restAPI->name . ']  [' . $i . ' tries] [i]'.(isset($method['name']) ? $method['name'] : 'unknown_name').'[/i]';
 
                         $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.log_msg', array(
@@ -1373,7 +1373,7 @@ class erLhcoreClassGenericBotActionRestapi
 
             if (isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
                 erLhcoreClassLog::write(
-                    json_encode([
+                    json_encode(self::truncateEncodedData([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
                         'method_name' => $methodSettings['name'],
                         'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
@@ -1391,7 +1391,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_lines' => '',
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
-                    ], JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
+                    ]), JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
                     ezcLog::SUCCESS_AUDIT,
                     array(
                         'source' => 'Bot',
@@ -1410,7 +1410,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $msgLog->time = time();
                 $msgLog->meta_msg = json_encode(['content' => ['html' => [
                     'debug' => true,
-                    'content' => json_encode([
+                    'content' => json_encode(self::truncateEncodedData([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
                         'method_name' => $methodSettings['name'],
                         'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
@@ -1429,7 +1429,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
                         'line' => __LINE__,
-                    ],JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
+                    ]),JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR)]]]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
 
                 $statusWorkflow = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.log_msg', array(
