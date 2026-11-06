@@ -253,6 +253,12 @@ class OnlineChat extends Component {
             this.setState({value: txtTyping})
         }
 
+        // Files attached but not sent yet are uploaded already - keep them after a widget reload like the typed text
+        var filesAttached = this.getStoredPreviewFiles();
+        if (filesAttached.length > 0) {
+            this.setState({previewFiles: filesAttached});
+        }
+
         var defaultFontSize = helperFunctions.getLocalStorage('_dfs');
         if (defaultFontSize !== null) {
             this.setState({fontSize: parseInt(defaultFontSize)})
@@ -626,11 +632,42 @@ class OnlineChat extends Component {
         return null;
     }
 
+    getStoredPreviewFiles() {
+        try {
+            var stored = helperFunctions.getSessionStorage('_tfiles');
+            var data = stored ? JSON.parse(stored) : null;
+            if (data === null || data.chat_id != this.props.chatwidget.getIn(['chatData','id']) || !Array.isArray(data.files)) {
+                return [];
+            }
+            return data.files.filter(file => file && file.id && file.security_hash && file.security_hash !== 'preview').map(file => {
+                var fileData = {id: file.id, security_hash: file.security_hash, name: file.name, size: file.size, type: file.type};
+                if (typeof file.type === 'string' && file.type.startsWith('image/')) {
+                    fileData.previewUrl = this.props.chatwidget.get('base_url') + 'file/downloadfile/' + file.id + '/' + file.security_hash;
+                }
+                return fileData;
+            });
+        } catch (e) {
+            return [];
+        }
+    }
+
+    storePreviewFiles(files) {
+        var uploaded = files.filter(file => file.security_hash && file.security_hash !== 'preview');
+        helperFunctions.setSessionStorage('_tfiles', uploaded.length > 0 ? JSON.stringify({
+            chat_id: this.props.chatwidget.getIn(['chatData','id']),
+            files: uploaded.map(file => ({id: file.id, security_hash: file.security_hash, name: file.name, size: file.size, type: file.type}))
+        }) : '');
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
 
         // Scroll to the bottom if file preview was attached
         if (prevState.previewFiles.length != this.state.previewFiles.length){
             this.scrollBottom(false, false);
+        }
+
+        if (prevState.previewFiles !== this.state.previewFiles) {
+            this.storePreviewFiles(this.state.previewFiles);
         }
 
         // Update untill we are sure that messages can be shown
