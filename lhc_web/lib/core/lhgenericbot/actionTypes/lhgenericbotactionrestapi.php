@@ -168,6 +168,13 @@ class erLhcoreClassGenericBotActionRestapi
                 // Log if polling conditions fails
                 if (isset($method['polling_n_times']) && (int)$method['polling_n_times'] >= 1 && $method['polling_n_times'] <= 10 && ((isset($response['conditions_met']) && $response['conditions_met'] !== true) || (isset($response['as_failed_request']) && $response['as_failed_request'] == true))) {
                     if (isset($restAPI->configuration_array['log_audit']) && $restAPI->configuration_array['log_audit']) {
+
+                        if (isset($response['params_request']['headers']) && is_array($response['params_request']['headers'])) {
+                            foreach ($response['params_request']['headers'] as $keyHeader => $valueHeader) {
+                                $response['params_request']['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15,'...',30,ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401,true);
+                            }
+                        }
+
                         erLhcoreClassLog::write(
                             json_encode([
                                 'name' => '(polling conditions failed) [' . $restAPI->name . '] [' . $i . '] tries' . (isset($method['name']) ? $method['name'] : 'unknwon_name'),
@@ -2016,8 +2023,15 @@ class erLhcoreClassGenericBotActionRestapi
             }
 
             if ($validCode === true && isset($paramsCustomer['rest_api']->configuration_array['log_audit']) && $paramsCustomer['rest_api']->configuration_array['log_audit']) {
+
+                if (isset($paramsRequestDebug['headers']) && is_array($paramsRequestDebug['headers'])) {
+                    foreach ($paramsRequestDebug['headers'] as $keyHeader => $valueHeader) {
+                        $paramsRequestDebug['headers'][$keyHeader] = erLhcoreClassDesign::shrt((string)$valueHeader,15,'...',30,ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401,true);
+                    }
+                }
+
                 erLhcoreClassLog::write(
-                    json_encode([
+                    json_encode(self::truncateEncodedData([
                         'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknwon_name'),
                         'http_code' => (isset($httpcode) ? $httpcode : 'unknown'),
                         'method' => (isset($methodSettings['method']) ? $methodSettings['method'] : 'unknwon'),
@@ -2037,7 +2051,7 @@ class erLhcoreClassGenericBotActionRestapi
                         'stream_lines' => $streamLines,
                         'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ?  $paramsCustomer['params']['msg']->id : 0,
                         'msg_text' => $msg_text,
-                    ], JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
+                    ]), JSON_PRETTY_PRINT | JSON_PARTIAL_OUTPUT_ON_ERROR),
                     ezcLog::SUCCESS_AUDIT,
                     array(
                         'source' => 'Bot',
@@ -2064,7 +2078,7 @@ class erLhcoreClassGenericBotActionRestapi
                 $msgLog->user_id = -1;
                 $msgLog->chat_id = $paramsCustomer['chat']->id;
                 $msgLog->time = time();
-                $msgLog->meta_msg_array = [
+                $msgLog->meta_msg_array = self::truncateEncodedData([
                     'name' => '[' . $paramsCustomer['rest_api']->name . '] ' . (isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name'),
                     'method_name' => $methodSettings['name'],
                     'trigger' => (isset($paramsCustomer['params']['current_trigger']) && is_object($paramsCustomer['params']['current_trigger']) ? 'B['. $paramsCustomer['params']['current_trigger']->bot_id .'] T['.$paramsCustomer['params']['current_trigger']->id . '] ' . $paramsCustomer['params']['current_trigger']->name : null),
@@ -2085,7 +2099,7 @@ class erLhcoreClassGenericBotActionRestapi
                     'msg_id' => (isset($paramsCustomer['params']['msg']) && is_object($paramsCustomer['params']['msg'])) ? $paramsCustomer['params']['msg']->id : 0,
                     'msg_text' => $msg_text,
                     'line' => __LINE__,
-                ];
+                ]);
                 $msgLog->msg = '[' . $paramsCustomer['rest_api']->name . '] ' . '[i]'.(isset($methodSettings['name']) ? $methodSettings['name'] : 'unknown_name').'[/i]';
 
                 if (!empty($responseContent)) {
@@ -2157,6 +2171,73 @@ class erLhcoreClassGenericBotActionRestapi
 
         // Print the time with milliseconds
         return $timeWithMilliseconds;
+    }
+
+    /**
+     * Truncates encoded (base64) data URIs inside debug log data.
+     *
+     * Values like data:image/png;base64,iVBORw0KGgoAAAANSUhEUg... are replaced with
+     * the beginning of the URI only (default 30 chars) plus info how much was removed.
+     *
+     * @param mixed $data Data to process (string/array are processed recursively)
+     * @param int $keep How many characters of the data URI to keep
+     * @return mixed
+     */
+    public static function truncateEncodedData($data, $keep = 30)
+    {
+        if (is_string($data)) {
+
+            // Fast path, most of the strings have no data URIs at all
+            if ($data === '' || stripos($data, 'data:') === false) {
+                return $data;
+            }
+
+            return preg_replace_callback(
+                '~data:[a-z0-9.+-]+\\\\?/[a-z0-9.+-]+(?:;[a-z0-9=.+-]+)*;base64,[a-z0-9+/=\\\\\r\n]{16,}~i',
+                function ($matches) use ($keep) {
+                    $totalLength = strlen($matches[0]);
+
+                    if ($totalLength <= $keep) {
+                        return $matches[0];
+                    }
+
+                    return substr($matches[0], 0, $keep) . '...[' . self::formatBytes($totalLength - $keep) . ' truncated]';
+                },
+                $data
+            );
+        }
+
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                $data[$key] = self::truncateEncodedData($value, $keep);
+            }
+
+            return $data;
+        }
+
+        return $data;
+    }
+
+    /**
+     * Formats bytes into a human readable size, e.g. 204.9 KB or 1.2 MB.
+     *
+     * @param int|float $bytes
+     * @param int $precision
+     * @return string
+     */
+    public static function formatBytes($bytes, $precision = 1)
+    {
+        $bytes = (float)$bytes;
+
+        if ($bytes <= 0) {
+            return '0 B';
+        }
+
+        $units = array('B', 'KB', 'MB', 'GB', 'TB');
+        $power = (int)floor(log($bytes, 1024));
+        $power = min($power, count($units) - 1);
+
+        return round($bytes / pow(1024, $power), $power > 0 ? $precision : 0) . ' ' . $units[$power];
     }
 
     /**
