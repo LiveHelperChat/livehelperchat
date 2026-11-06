@@ -31,6 +31,12 @@ class VoiceMessage extends PureComponent {
         this.stopWebkitRecording = this.stopWebkitRecording.bind(this);
         this.toggleWebkitRecording = this.toggleWebkitRecording.bind(this);
 
+        // Live input level while recording (bars in .voice-message-level)
+        this.levelRef = React.createRef();
+        this.levelAnalyser = null;
+        this.levelFrame = null;
+        this.levelHistory = [];
+
         // Intervals
         this.durationInterval = null;
         this.playInterval = null;
@@ -81,7 +87,7 @@ class VoiceMessage extends PureComponent {
             await recorder.initAudio();
             await recorder.initWorker();
             recorder.startRecording();
-            this.setState({ isLoading: false, isRecording: true });
+            this.setState({ isLoading: false, isRecording: true }, () => this.startLevelMeter());
             this.durationInterval = setInterval(() => {
                 this.setState({ audioDuration: this.state.audioDuration + 1 });
 
@@ -97,7 +103,68 @@ class VoiceMessage extends PureComponent {
         }
     }
 
+    startLevelMeter() {
+        this.stopLevelMeter();
+        try {
+            if (!recorder.audioCtx || !recorder.gainNode || typeof recorder.audioCtx.createAnalyser !== 'function') {
+                return;
+            }
+            const analyser = recorder.audioCtx.createAnalyser();
+            analyser.fftSize = 512;
+            recorder.gainNode.connect(analyser);
+            this.levelAnalyser = analyser;
+        } catch (e) {
+            return;
+        }
+
+        const samples = new Uint8Array(this.levelAnalyser.fftSize);
+        let lastSample = 0;
+
+        const draw = (time) => {
+            if (this.levelAnalyser === null) {
+                return;
+            }
+            // A new bar every 80ms, like a waveform moving to the left
+            if (time - lastSample >= 80) {
+                lastSample = time;
+                this.levelAnalyser.getByteTimeDomainData(samples);
+                let sum = 0;
+                for (let i = 0; i < samples.length; i++) {
+                    const v = (samples[i] - 128) / 128;
+                    sum += v * v;
+                }
+                const level = Math.min(1, Math.sqrt(sum / samples.length) * 4);
+                const bars = this.levelRef.current ? this.levelRef.current.children : [];
+                this.levelHistory.push(level);
+                if (this.levelHistory.length > bars.length) {
+                    this.levelHistory.splice(0, this.levelHistory.length - bars.length);
+                }
+                const offset = bars.length - this.levelHistory.length;
+                for (let i = 0; i < bars.length; i++) {
+                    const value = i >= offset ? this.levelHistory[i - offset] : 0;
+                    bars[i].style.transform = 'scaleY(' + Math.max(0.12, value).toFixed(3) + ')';
+                }
+            }
+            this.levelFrame = window.requestAnimationFrame(draw);
+        };
+
+        this.levelFrame = window.requestAnimationFrame(draw);
+    }
+
+    stopLevelMeter() {
+        if (this.levelFrame !== null) {
+            window.cancelAnimationFrame(this.levelFrame);
+            this.levelFrame = null;
+        }
+        if (this.levelAnalyser !== null) {
+            try { this.levelAnalyser.disconnect(); } catch (e) {}
+            this.levelAnalyser = null;
+        }
+        this.levelHistory = [];
+    }
+
     async stopRecording(){
+        this.stopLevelMeter();
         const blob = await recorder.stopRecording();
 
         this.audio = new Audio();
@@ -336,6 +403,9 @@ class VoiceMessage extends PureComponent {
     componentDidMount() {
         if (this.props.voice_engine == 1) {
             this.startWebkitRecording();
+        } else {
+            // The visitor already pressed "Record voice message" - start right away
+            this.startRecording();
         }
     }
 
@@ -348,6 +418,7 @@ class VoiceMessage extends PureComponent {
 
         // Stop playing if anything is playing
         this.stopPlayRecord();
+        this.stopLevelMeter();
 
         // Stop recording if it's recording
         if (this.state.isRecording) {
@@ -400,6 +471,8 @@ class VoiceMessage extends PureComponent {
             {recording && isPlaying === false && <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-success me-0 fs25" title={t('voice.play_recorded')} onClick={this.playRecord}>&#xf111;</button>}
 
             {recording && isPlaying === true && <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-success me-0 fs25" title={t('voice.stop_playing_recorded')} onClick={this.stopPlayRecord}>&#xf112;</button>}
+
+            {isRecording && <span className="voice-message-level" ref={this.levelRef} aria-hidden="true">{Array.from({length: 24}, (v, i) => <i key={i}></i>)}</span>}
 
             <span className="fs12 px-1 voice-message-length">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
 
