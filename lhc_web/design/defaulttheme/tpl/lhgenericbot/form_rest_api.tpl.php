@@ -86,7 +86,8 @@
     <div role="tabpanel" class="tab-pane" ng-class="{'active': lhcrestapi.activeParam == param.id}" id="param-tab-{{param.id}}" ng-repeat="param in lhcrestapi.parameters | orderBy:'position' track by $index">
         <div class="mt-2">
 
-            <button type="button" class="btn btn-danger btn-xs mt-2" ng-click="lhcrestapi.deleteParam(lhcrestapi.parameters,param)"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Delete');?></button>
+            <button type="button" class="btn btn-danger btn-sm mt-2" ng-click="lhcrestapi.deleteParam(lhcrestapi.parameters,param)"><span class="material-icons">delete</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Delete');?></button>
+            <button type="button" class="btn btn-secondary btn-sm mt-2" ng-click="lhcrestapi.cloneParameter(param)"><span class="material-icons">content_copy</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/restapi','Clone');?></button>
 
             <div class="row">
                 <div class="col-6">

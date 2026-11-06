@@ -52,7 +52,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 		exit;
 	}
 	
-	$Errors = erLhcoreClassDepartament::validateDepartmentGroup($Departament_group);
+	$Errors = \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateGroup($Departament_group);
 	
     if (count($Errors) == 0)
     {
@@ -63,7 +63,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
             $Departament_group->updateThis();
             $Departament_group->syncAndLock('`id`');
 
-            erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
+            \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateGroupDepartments($Departament_group);
 
             erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 

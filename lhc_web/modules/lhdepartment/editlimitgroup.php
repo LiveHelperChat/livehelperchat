@@ -31,13 +31,13 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 		exit;
 	}
 	
-	$Errors = erLhcoreClassDepartament::validateDepartmentLimitGroup($Departament_group);
+	$Errors = \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateLimitGroup($Departament_group);
 	
     if (count($Errors) == 0)
     {    	
         $Departament_group->updateThis();
 
-        erLhcoreClassDepartament::validateDepartmentGroupLimitDepartments($Departament_group);
+        \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateGroupLimitDepartments($Departament_group);
         
         $Departament_group->updateDepartmentsLimits();
 

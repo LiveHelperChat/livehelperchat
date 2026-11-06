@@ -1,5 +1,37 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Incoming webhooks list')?></h1>
 
+<form action="<?php echo erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks')?>" method="get" class="mb-2" autocomplete="off">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
+                <?php echo erLhcoreClassRenderHelper::renderMultiDropdown( array (
+                    'input_name'     => 'department_ids[]',
+                    'optional_field' => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Choose department'),
+                    'selected_id'    => $input->department_ids,
+                    'ajax'           => 'deps',
+                    'css_class'      => 'form-control form-control-sm',
+                    'display_name'   => 'name',
+                    'list_function_params' => array_merge(['sort' => '`name` ASC', 'limit' => 50], erLhcoreClassUserDep::conditionalDepartmentFilter()),
+                    'list_function'  => 'erLhcoreClassModelDepartament::getList'
+                )); ?>
+            </div>
+        </div>
+        <div class="col-md-8 d-flex align-items-end">
+            <div class="form-group">
+                <input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" name="doSearch">
+                <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+$(function() {
+    $('.btn-block-department').makeDropdown();
+});
+</script>
+
 <?php if (isset($imported_rest)) : $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/import','Webhook imported'); ?>
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>

@@ -16,6 +16,7 @@
     <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Archived');?></th>
     <th width="1%">&nbsp;</th>
     <th width="1%">&nbsp;</th>
+    <th width="1%">&nbsp;</th>
 </tr>
 </thead>
 <?php foreach ($items as $departament) : ?>
@@ -35,6 +36,9 @@
         <td ng-non-bindable><?php if ($departament->dep_offline == 1) : ?><span class="material-icons">flash_off</span><?php else : ?><span class="material-icons">flash_on</span><?php endif;?></td>
         <td ng-non-bindable><?php if ($departament->archive == 1) : ?><span class="material-icons">archive</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Yes');?><?php else : ?><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','No');?><?php endif;?></td>
         <td nowrap ng-non-bindable>
+            <button type="button" data-attr-id="<?php echo $departament->id?>" class="btn btn-secondary btn-xs btn-use-cases" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Investigate places where this department is used');?>"><span class="material-icons fs12">action_key</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Use cases');?></button>
+        </td>
+        <td nowrap ng-non-bindable>
             <a class="btn btn-secondary btn-xs action-image text-white" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/edit/<?php echo htmlspecialchars($departament->id)?>/(action)/operators'})" ><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Assigned operators');?></a>
         </td>
         <td nowrap ng-non-bindable><a class="btn btn-secondary csfr-required btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('department/clone')?>/<?php echo $departament->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
@@ -51,3 +55,9 @@
 <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhdepartment','create')) : ?>
 <a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('department/new')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','New department');?></a>
 <?php endif;?>
+
+<script>
+    $('.btn-use-cases').click(function(){
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/usecases/'+$(this).data('attr-id')});
+    });
+</script>

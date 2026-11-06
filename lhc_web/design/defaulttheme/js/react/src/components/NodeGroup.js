@@ -17,10 +17,41 @@ class NodeGroup extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {position: this.props.group.get('pos')};
+        this.state = {position: this.props.group.get('pos'), searchCollapsed: null};
         this.addTriggerEvent = this.addTriggerEvent.bind(this);
         this.updateEvent = this.updateEvent.bind(this);
         this.deleteEvent = this.deleteEvent.bind(this);
+        this.groupContainer = React.createRef();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.searchGroupId !== this.props.searchGroupId) {
+            // Search selection changed (or search was reset) - drop local collapse override
+            if (this.state.searchCollapsed !== null) {
+                this.setState({searchCollapsed: null});
+            }
+
+            if (this.isSearchHighlighted() && this.groupContainer.current) {
+                this.groupContainer.current.scrollIntoView({block: 'nearest'});
+            }
+        }
+    }
+
+    isSearchHighlighted() {
+        return this.props.searchGroupId !== null && this.props.searchGroupId !== undefined && String(this.props.group.get('id')) === this.props.searchGroupId;
+    }
+
+    isCollapsed() {
+        if (this.state.searchCollapsed !== null) {
+            return this.state.searchCollapsed;
+        }
+
+        // While a search result is selected all other groups are collapsed
+        if (this.props.searchGroupId !== null && this.props.searchGroupId !== undefined) {
+            return !this.isSearchHighlighted();
+        }
+
+        return this.props.group.get('is_collapsed');
     }
 
     handleChange(e)
@@ -31,6 +62,12 @@ class NodeGroup extends Component {
 
     handleCollapse()
     {
+        // Do not persist collapse state changes made while browsing search results
+        if (this.props.searchGroupId !== null && this.props.searchGroupId !== undefined) {
+            this.setState({searchCollapsed: !this.isCollapsed()});
+            return;
+        }
+
         this.props.dispatch(updateNodeGroup(this.props.group.set('is_collapsed',!this.props.group.get('is_collapsed'))));
     }
 
@@ -88,7 +125,7 @@ class NodeGroup extends Component {
         }
 
         return (
-            <div className="row">
+            <div className="row" ref={this.groupContainer}>
                 <div className="col-12">
                     <hr className="my-2" />
 
@@ -96,7 +133,7 @@ class NodeGroup extends Component {
                         <div className="flex-grow-1">
                             <div className="input-group">
                                 <span><i className={classNameCurrent} title={'Bot Id - '+this.props.group.get('bot_id')}>home</i></span>
-                                <input className="form-control form-control-sm gbot-group-name" value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
+                                <input className={"form-control form-control-sm gbot-group-name" + (this.isSearchHighlighted() ? " fw-bold" : "")} value={this.props.group.get('name')} onChange={this.handleChange.bind(this)} />
                             </div>
                         </div>
                         <div>
@@ -106,7 +143,7 @@ class NodeGroup extends Component {
                                     <button className="btn btn-secondary" disabled={this.props.group.get('pos') == this.state.position} onClick={this.setPosition.bind(this)} type="button" id="button-addon1"><span className="material-icons me-0">done</span></button>
                                 </div>
                                 <div className="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button title="Collapse/Expand" className="btn btn-sm btn-secondary float-end" onClick={this.handleCollapse.bind(this)} ><span className="material-icons me-0">{this.props.group.get('is_collapsed') ? 'unfold_more' : 'unfold_less'}</span> <span className="fs11">{this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')) ? "["+this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).size+"]" : ""}</span></button>
+                                    <button title="Collapse/Expand" className="btn btn-sm btn-secondary float-end" onClick={this.handleCollapse.bind(this)} ><span className="material-icons me-0">{this.isCollapsed() ? 'unfold_more' : 'unfold_less'}</span> <span className="fs11">{this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')) ? "["+this.props.nodegrouptriggers.get('nodegrouptriggers').get(this.props.group.get('id')).size+"]" : ""}</span></button>
                                     <a className="btn btn-sm btn-secondary float-end" href={WWW_DIR_JAVASCRIPT + "genericbot/downloadbotgroup/" + this.props.group.get('id')}><i className="material-icons me-0">cloud_download</i></a>
                                     <button className="btn btn-sm btn-danger float-end" onClick={this.deleteGroup.bind(this)}><i className="material-icons me-0">delete</i></button>
                                 </div>
@@ -114,7 +151,7 @@ class NodeGroup extends Component {
                         </div>
                     </div>
 
-                    <div className={this.props.group.get('is_collapsed') ? "d-none" : ""}>
+                    <div className={this.isCollapsed() ? "d-none" : ""}>
 
                         <div className="row">
                             <div className="col-12">

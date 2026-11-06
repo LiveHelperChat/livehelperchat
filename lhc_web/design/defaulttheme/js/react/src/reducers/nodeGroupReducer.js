@@ -1,4 +1,4 @@
-import { DELETE_TRIGGER_GROUP, FETCH_NODE_GROUPS, FETCH_NODE_GROUPS_FULFILLED, FETCH_NODE_GROUPS_REJECTED, ADD_GROUP_FULFILLED, UPDATE_GROUP_FULFILLED } from "../constants/action-types";
+import { DELETE_TRIGGER_GROUP, FETCH_NODE_GROUPS, FETCH_NODE_GROUPS_FULFILLED, FETCH_NODE_GROUPS_REJECTED, ADD_GROUP_FULFILLED, UPDATE_GROUP_FULFILLED, SET_TRIGGER_SEARCH_GROUP, RESET_TRIGGER_SEARCH_GROUP } from "../constants/action-types";
 import {fromJS} from 'immutable';
 
 // https://github.com/learncodeacademy/react-js-tutorials/blob/master/5-redux-react/src/js/components/Layout.js
@@ -8,7 +8,8 @@ const initialState = fromJS({
     nodegroups : [],
     fetching: false,
     fetched: false,
-    error: null
+    error: null,
+    searchGroupId: null
 })
 
 const applyFn = (state, fn) => fn(state)
@@ -53,6 +54,14 @@ const nodeGroupReducer = (state = initialState, action) => {
 
         case FETCH_NODE_GROUPS_REJECTED: {
             return state.set('fetching',false).set('error',action.payload);
+        }
+
+        case SET_TRIGGER_SEARCH_GROUP: {
+            return state.set('searchGroupId', action.payload.groupId !== null && action.payload.groupId !== undefined ? String(action.payload.groupId) : null);
+        }
+
+        case RESET_TRIGGER_SEARCH_GROUP: {
+            return state.set('searchGroupId', null);
         }
 
         default:

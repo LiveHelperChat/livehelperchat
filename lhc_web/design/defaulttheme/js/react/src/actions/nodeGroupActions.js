@@ -52,9 +52,11 @@ export function updateNodeGroup(obj) {
     }
 }
 
-export function searchNodeTriggers(botId, keyword, includeTranslations = null) {
+export function searchNodeTriggers(botId, keyword, includeTranslations = null, searchDepartment = false) {
     let url = WWW_DIR_JAVASCRIPT + `/genericbot/triggersearch/${botId}/?keyword=${encodeURIComponent(keyword)}`;
-    if (includeTranslations) {
+    if (searchDepartment) {
+        url += `&dep_id=${encodeURIComponent(keyword.trim())}`;
+    } else if (includeTranslations) {
         url += `&include_translations=1`;
     }
     return axios.get(url)

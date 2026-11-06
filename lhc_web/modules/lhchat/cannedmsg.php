@@ -158,8 +158,8 @@ if ($tab == 'cannedmsg') {
     erLhcoreClassChatStatistic::formatUserFilter($filterParams);
 
     if (is_array($filterParams['input_form']->department_id) && !empty($filterParams['input_form']->department_id)) {
-        $filterParams['filter']['innerjoin']['lh_canned_msg_dep'] = array('`lh_canned_msg_dep`.`canned_id`','`lh_canned_msg` . `id`');
-        $filterParams['filter']['filterin']['`lh_canned_msg_dep`.`dep_id`'] = $filterParams['input_form']->department_id;
+        $departmentIds = implode(',', array_map('intval', $filterParams['input_form']->department_id));
+        $filterParams['filter']['customfilter'][] = '(`lh_canned_msg`.`department_id` IN (' . $departmentIds . ') OR `lh_canned_msg`.`id` IN (SELECT `canned_id` FROM `lh_canned_msg_dep` WHERE `dep_id` IN (' . $departmentIds . ')))';
     }
 
     if (is_array($filterParams['input_form']->subject_id) && !empty($filterParams['input_form']->subject_id)) {

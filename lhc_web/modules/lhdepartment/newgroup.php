@@ -10,7 +10,7 @@ if ( isset($_POST['Cancel_departament']) ) {
 
 if (isset($_POST['Save_departament']))
 {
-    $Errors = erLhcoreClassDepartament::validateDepartmentGroup($Departament_group);
+    $Errors = \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateGroup($Departament_group);
 
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         $Errors[] = 'Invalid CSRF token!';
@@ -25,7 +25,7 @@ if (isset($_POST['Save_departament']))
 
             $Departament_group->saveThis();
 
-            erLhcoreClassDepartament::validateDepartmentGroupDepartments($Departament_group);
+            \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateGroupDepartments($Departament_group);
 
             erLhcoreClassAdminChatValidatorHelper::clearUsersCache();
 

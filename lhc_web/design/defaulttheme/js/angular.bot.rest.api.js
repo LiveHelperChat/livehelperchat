@@ -31,6 +31,17 @@ lhcAppControllers.controller('BotRestAPIParameters',['$scope','$http','$location
         this.activeParam = idLast;
     };
 
+    this.cloneParameter = function(param) {
+        var clone = angular.copy(param);
+        var id = 'temp' + new Date().getTime();
+        while (that.parameters.some(function(item) { return item.id == id; })) {
+            id += '1';
+        }
+        clone.id = id;
+        that.parameters.push(clone);
+        this.activeParam = id;
+    };
+
     this.addParam = function (params) {
         params.push({
             'key' : '',

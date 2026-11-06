@@ -181,7 +181,9 @@ class erLhAbstractModelProduct {
 			$q->where( $conditions );
 		}
 
-      	$q->limit($params['limit'],$params['offset']);
+		if ($params['limit'] !== false) {
+			$q->limit($params['limit'],$params['offset']);
+		}
 
       	$q->orderBy(isset($params['sort']) ? $params['sort'] : 'id ASC' );
 

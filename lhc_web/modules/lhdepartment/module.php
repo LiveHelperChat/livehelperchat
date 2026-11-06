@@ -27,6 +27,11 @@ $ViewList['clone'] = array(
     'uparams' => array('csfr'),
 );
 
+$ViewList['usecases'] = array(
+    'params' => array('id'),
+    'functions' => array( 'list' )
+);
+
 $ViewList['index'] = array(
     'params' => array(),
     'functions' => array( 'list' )

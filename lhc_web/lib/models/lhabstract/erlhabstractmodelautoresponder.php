@@ -801,7 +801,7 @@ class erLhAbstractModelAutoResponder {
         }
     }
 
-    public function getFilter(){
+    public function getFilter($inputData = null){
 
         $filter = array();
 
@@ -823,8 +823,75 @@ class erLhAbstractModelAutoResponder {
             $filter['filter_custom'][] = '('.implode(' OR ',$conditions).')';
         }
 
+        // Department chosen in search filter
+        $departmentIds = array();
+        if (is_object($inputData) && isset($inputData->dep_id) && is_array($inputData->dep_id)) {
+            $departmentIds = array_values(array_filter(array_map('intval', $inputData->dep_id)));
+        }
+
+        if (!empty($departmentIds)) {
+            $departmentRelatedIds = self::getDepartmentRelatedIds($departmentIds);
+
+            // No related auto responders - make sure list is empty
+            $filter['filterin']['id'] = empty($departmentRelatedIds) ? array(0) : $departmentRelatedIds;
+        }
+
         return $filter;
 
+    }
+
+    /**
+     * Returns auto responder ID's which are related to any of the given departments.
+     * Department can be assigned by `dep_id` column, by `lh_abstract_auto_responder_dep`
+     * relation or by per language conditions stored in `languages` JSON.
+     *
+     * @param array $departmentIds
+     * @return array
+     */
+    public static function getDepartmentRelatedIds($departmentIds)
+    {
+        $departmentIds = array_values(array_filter(array_map('intval', (array)$departmentIds)));
+
+        if (empty($departmentIds)) {
+            return array();
+        }
+
+        $db = ezcDbInstance::get();
+        $departmentIdsSQL = implode(',', $departmentIds);
+
+        $ids = array();
+
+        $stmt = $db->prepare('SELECT `id` FROM `lh_abstract_auto_responder` WHERE `dep_id` IN (' . $departmentIdsSQL . ')');
+        $stmt->execute();
+        $ids = array_map('intval', $stmt->fetchAll(PDO::FETCH_COLUMN));
+
+        $stmt = $db->prepare('SELECT `autoresponder_id` FROM `lh_abstract_auto_responder_dep` WHERE `dep_id` IN (' . $departmentIdsSQL . ')');
+        $stmt->execute();
+        $ids = array_merge($ids, array_map('intval', $stmt->fetchAll(PDO::FETCH_COLUMN)));
+
+        $stmt = $db->prepare('SELECT `id`, `languages` FROM `lh_abstract_auto_responder` WHERE `languages` LIKE :languages');
+        $stmt->bindValue(':languages', '%dep_id%');
+        $stmt->execute();
+
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $languages = json_decode($row['languages'], true);
+
+            if (!is_array($languages)) {
+                continue;
+            }
+
+            foreach ($languages as $languageData) {
+                if (
+                    (isset($languageData['dep_id']) && in_array((int)$languageData['dep_id'], $departmentIds, true)) ||
+                    (isset($languageData['dep_ids']) && is_array($languageData['dep_ids']) && !empty(array_intersect(array_map('intval', $languageData['dep_ids']), $departmentIds)))
+                ) {
+                    $ids[] = (int)$row['id'];
+                    break;
+                }
+            }
+        }
+
+        return array_values(array_unique($ids));
     }
 
    	public $id = null;
