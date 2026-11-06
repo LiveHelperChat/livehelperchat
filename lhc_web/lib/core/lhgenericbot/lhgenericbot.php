@@ -397,6 +397,7 @@ class erLhcoreClassGenericBot {
         $configuration['detect_chat_language'] = ($form->hasValidData( 'detect_chat_language' ) && $form->detect_chat_language == true);
 
         $botTranslation->configuration = json_encode($configuration);
+        $botTranslation->configuration_array = $configuration;
 
         return $Errors;
     }

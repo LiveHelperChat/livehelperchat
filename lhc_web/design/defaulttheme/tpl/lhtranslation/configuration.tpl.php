@@ -239,6 +239,11 @@
 				<label><input <?php if (isset($translation_data['show_auto_translate']) && $translation_data['show_auto_translate'] == true) : ?>checked="checked" <?php endif; ?> type="checkbox" name="show_auto_translate" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Show start translations button'); ?> <i class="material-icons me-0">translate</i></label><br>
 			</div>
 
+			<div class="form-group">
+				<label><input <?php if (isset($translation_data['detect_chat_language']) && $translation_data['detect_chat_language'] == true) : ?>checked="checked" <?php endif; ?> type="checkbox" name="detect_chat_language" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detect chat language with translation service instead of relying on chat locale'); ?> <i class="material-icons me-0">translate</i></label>
+				<p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detected language is stored in chat variables and is detected only once per chat.'); ?></small></i></p>
+			</div>
+
 			<h6 class="ps-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Action options');?></h4>
 			<div class="form-group ps-4">
 				<label><input <?php if (isset($translation_data['translate_old_msg']) && $translation_data['translate_old_msg'] == true) : ?>checked="checked" <?php endif; ?> type="checkbox" name="translate_old_msg" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','On save automatically translate old chat messages. If not checked only new messages will be translated.');?> </label>

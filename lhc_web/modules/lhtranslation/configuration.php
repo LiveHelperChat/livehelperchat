@@ -83,6 +83,9 @@ if (isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSetting
         'translate_old_msg' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         ),
+        'detect_chat_language' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+        ),
         'aws_region' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -190,6 +193,12 @@ if (isset($_POST['StoreLanguageSettings']) || isset($_POST['StoreLanguageSetting
         $data['show_auto_translate'] = true;
     } else {
         $data['show_auto_translate'] = false;
+    }
+
+    if ( $form->hasValidData('detect_chat_language') && $form->detect_chat_language == true) {
+        $data['detect_chat_language'] = true;
+    } else {
+        $data['detect_chat_language'] = false;
     }
     
     $translationData->value = serialize($data);

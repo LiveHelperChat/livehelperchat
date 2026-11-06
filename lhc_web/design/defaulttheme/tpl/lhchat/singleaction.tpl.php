@@ -76,26 +76,9 @@
     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/chat_translation_pre.tpl.php')); ?>
     <?php if ($chat_translation_enabled == true && erLhcoreClassUser::instance()->hasAccessTo('lhtranslation','use')) : 
 
-        // Detect chat language with translation service if it's enabled for the department translation group
-        if ($chat->dep_id > 0) {
-            $translationGroup = null;
-            $department = $chat->department;
-
-            if ($department instanceof erLhcoreClassModelDepartament) {
-                $departmentConfiguration = $department->bot_configuration_array;
-
-                if (isset($departmentConfiguration['bot_tr_id']) && $departmentConfiguration['bot_tr_id'] > 0) {
-                    $translationGroup = erLhcoreClassModelGenericBotTrGroup::fetch((int)$departmentConfiguration['bot_tr_id'], true);
-                }
-            }
-
-            if ($translationGroup instanceof erLhcoreClassModelGenericBotTrGroup) {
-                $translationGroupConfiguration = $translationGroup->configuration_array;
-
-                if (!empty($translationGroupConfiguration['detect_chat_language'])) {
-                    erLhcoreClassTranslate::detectChatLanguage($chat);
-                }
-            }
+        // Detect chat language with translation service if it's enabled in automatic translations configuration
+        if (isset($dataChatTranslation['detect_chat_language']) && $dataChatTranslation['detect_chat_language'] == true) {
+            erLhcoreClassTranslate::detectChatLanguage($chat);
         }
         
         ?>

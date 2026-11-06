@@ -163,7 +163,7 @@ class erLhcoreClassTranslate
             return null;
         }
 
-        $chatVariables['detected_lang'] = $detectedLanguage;
+        $chatVariables['detected_lang'] = $chat->chat_locale != '' ? $chat->chat_locale : $detectedLanguage;
 
         $chat->chat_variables = json_encode($chatVariables);
         $chat->chat_variables_array = $chatVariables;
