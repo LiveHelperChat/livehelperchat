@@ -54,6 +54,7 @@ if (isset($_POST['Update_group']) )
             erLhcoreClassGroupRole::assignGroupMembers($Group, $form->MemberGroup);
         }
         
+        erLhcoreClassAbstract::setAuditTrail($Group, $currentUser->getUserID());
         erLhcoreClassUser::getSession()->update($Group);
 
         erLhcoreClassAdminChatValidatorHelper::clearUsersCache();

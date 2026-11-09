@@ -48,6 +48,7 @@ if (ezcInputForm::hasPostData()) {
             $restAPI->identifier = $data['identifier'];
             $restAPI->configuration = $data['configuration'];
             $restAPI->scope = $data['scope'];
+            erLhcoreClassAbstract::setAuditTrail($restAPI, $currentUser->getUserID());
             $restAPI->saveThis();
             $tpl->set('imported_rest',true);
         }

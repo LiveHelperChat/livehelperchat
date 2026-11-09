@@ -16,6 +16,9 @@ class erLhcoreClassModelChatStartSettings
     {
         return array(
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
             'data' => $this->data,
             'dep_ids' => $this->dep_ids,
             'name' => $this->name,
@@ -54,6 +57,9 @@ class erLhcoreClassModelChatStartSettings
     }
 
     public $id = null;
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 
     public $data = '';
 

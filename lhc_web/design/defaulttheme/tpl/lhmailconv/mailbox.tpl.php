@@ -20,6 +20,7 @@
                         <i class="material-icons text-danger">warning</i>
                     <?php endif; ?>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('mailconv/editmailbox')?>/<?php echo $item->id?>" ><?php echo htmlspecialchars($item->mail)?></a>
+                    <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
                 </td>
                 <td>
                     <?php if ($item->sync_status == erLhcoreClassModelMailconvMailbox::SYNC_PROGRESS) : ?>

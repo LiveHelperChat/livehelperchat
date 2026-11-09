@@ -83,7 +83,7 @@ try
     if ($rawAttributes == true){
         $Errors = [];
         foreach ($requestBody as $attr => $value) {
-            if ($attr != 'id') {
+            if (!in_array($attr, ['id', 'created_at', 'updated_at', 'muser_id'], true)) {
                 $dep->{$attr} = $value;
             }
         }
@@ -93,6 +93,7 @@ try
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassAbstract::setAuditTrail($dep, erLhcoreClassRestAPIHandler::getUserId());
         $dep->saveThis();
 
         $DepartamentCustomWorkHours = erLhcoreClassModelDepartamentCustomWorkHours::getList(array('filter' => array('dep_id' => $dep->id),'sort' => 'date_from ASC'));

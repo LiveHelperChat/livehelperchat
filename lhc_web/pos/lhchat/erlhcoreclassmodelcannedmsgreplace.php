@@ -16,8 +16,8 @@ foreach (['identifier','default','conditions','days_activity','time_zone','confi
     $def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (['active_from','active_to','repetitiveness' // Stores period and activity type
-         ] as $posAttr) {
+foreach (['active_from','active_to','repetitiveness', // Stores period and activity type
+          'created_at','updated_at','muser_id'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

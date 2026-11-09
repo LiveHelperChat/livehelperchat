@@ -1,0 +1,9 @@
+ALTER TABLE `lh_incoming_webhook` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_webhook` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_chat_start_settings` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_departament` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_departament_group` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lhc_mailconv_mailbox` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lhc_mailconv_response_template` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_group` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_canned_msg_replace` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;

@@ -21,7 +21,10 @@ class erLhcoreClassModelMailconvResponseTemplate
             'template' => $this->template,
             'template_plain' => $this->template_plain,
             'unique_id' => $this->unique_id,
-            'disabled' => $this->disabled
+            'disabled' => $this->disabled,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id
         );
     }
 
@@ -102,6 +105,9 @@ class erLhcoreClassModelMailconvResponseTemplate
     }
 
     public $id = NULL;
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
     public $name = '';
     public $dep_id = 0;
     public $template = '';

@@ -26,7 +26,7 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
         </thead>
         <?php foreach ($items as $item) : ?>
             <tr>
-                <td><?php echo htmlspecialchars($item->name)?></td>
+                <td><?php echo htmlspecialchars($item->name)?> <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?></td>
                 <td nowrap="nowrap">
                     <?php if ($item->type == 0) : ?>
                         <?php echo htmlspecialchars($item->event)?>

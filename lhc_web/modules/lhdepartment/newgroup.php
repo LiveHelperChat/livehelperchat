@@ -23,6 +23,7 @@ if (isset($_POST['Save_departament']))
 
         try {
 
+            erLhcoreClassAbstract::setAuditTrail($Departament_group, $currentUser->getUserID());
             $Departament_group->saveThis();
 
             \LiveHelperChat\Helpers\DepartmentGroup\Validator::validateGroupDepartments($Departament_group);

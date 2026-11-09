@@ -116,6 +116,9 @@ Table "lhc_mailconv_file" {
 }
 
 Table "lhc_mailconv_mailbox" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment]
   "mail" varchar(250) [not null]
   "username" varchar(250) [not null]
@@ -436,6 +439,9 @@ Table "lhc_mailconv_remarks" {
 }
 
 Table "lhc_mailconv_response_template" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" bigint(20) [pk, not null, increment]
   "name" varchar(250) [not null]
   "template" text [not null]
@@ -1372,6 +1378,9 @@ Table "lh_canned_msg_dep" {
 
 Table "lh_canned_msg_replace" {
   "id" int(11) [pk, not null, increment]
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "identifier" varchar(50) [not null]
   "default" text [not null]
   "conditions" longtext [not null]
@@ -1768,6 +1777,9 @@ Table "lh_chat_participant" {
 }
 
 Table "lh_chat_start_settings" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment]
   "name" varchar(50) [not null]
   "data" longtext [not null]
@@ -1818,6 +1830,9 @@ Table "lh_cobrowse" {
 }
 
 Table "lh_departament" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment, note: 'Department ID']
   "name" varchar(100) [not null, note: 'Department name']
   "email" varchar(100) [not null, note: 'Department e-mail']
@@ -1949,6 +1964,9 @@ Table "lh_departament_custom_work_hours" {
 }
 
 Table "lh_departament_group" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment]
   "name" varchar(50) [not null]
   "achats_cnt" int(11) [not null, default: 0]
@@ -2262,6 +2280,9 @@ Table "lh_generic_bot_tr_item" {
 }
 
 Table "lh_group" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment]
   "name" varchar(50) [not null]
   "disabled" tinyint(1) [not null]
@@ -2370,6 +2391,9 @@ Table "lh_group_work" {
 }
 
 Table "lh_incoming_webhook" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment]
   "name" varchar(50) [not null]
   "identifier" varchar(50) [not null]
@@ -2894,6 +2918,9 @@ Table "lh_users_setting_option" {
 }
 
 Table "lh_webhook" {
+  "created_at" int(11) [not null, default: 0]
+  "updated_at" int(11) [not null, default: 0]
+  "muser_id" int(11) [not null, default: 0]
   "id" int(11) [pk, not null, increment]
   "name" varchar(50) [not null]
   "event" varchar(50) [not null]

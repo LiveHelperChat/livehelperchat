@@ -60,6 +60,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
         $db->beginTransaction();
 
         try {
+            erLhcoreClassAbstract::setAuditTrail($Departament_group, $currentUser->getUserID());
             $Departament_group->updateThis();
             $Departament_group->syncAndLock('`id`');
 

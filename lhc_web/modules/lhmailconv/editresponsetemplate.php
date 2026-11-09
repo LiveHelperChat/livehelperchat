@@ -20,6 +20,7 @@ if (ezcInputForm::hasPostData()) {
 
     if (count($Errors) == 0) {
         try {
+            erLhcoreClassAbstract::setAuditTrail($item, $currentUser->getUserID());
             $item->saveThis();
 
             if (isset($_POST['Update_page'])) {

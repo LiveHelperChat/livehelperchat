@@ -24,7 +24,8 @@
     ?>
         <tr>
             <td>
-                <?php echo htmlspecialchars($item->identifier)?>
+                <?php if (!$itemNotManaged) : ?><a href="<?php echo erLhcoreClassDesign::baseurl('cannedmsg/editreplace')?>/<?php echo $item->id?>"><?php endif;?><?php echo htmlspecialchars($item->identifier)?><?php if (!$itemNotManaged) : ?></a><?php endif; ?>
+                <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
                 <?php if ($itemRestricted) : ?><span class="badge bg-danger ms-1" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Only operators with manage sensitive replaceable variables permission can manage this variable');?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/cannedmsg','Restricted');?></span><?php endif; ?>
             </td>
             <td>

@@ -20,6 +20,7 @@ if (isset($_POST['Update_action']) || isset($_POST['Save_action'])  )
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassAbstract::setAuditTrail($item, $currentUser->getUserID());
         $item->saveThis();
 
         if (isset($_POST['Save_action'])) {

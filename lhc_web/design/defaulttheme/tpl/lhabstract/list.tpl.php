@@ -88,6 +88,7 @@
 
 		<?php foreach ($items as $item) : ?>
 	    	<tr>
+			<?php $auditInfoShown = false; ?>
 	        	<?php foreach ($fields as $key => $field) : ?>
 
 	        	<?php if (!isset($field['hidden'])) : ?>
@@ -110,6 +111,10 @@
 		        <?php endif;?>
 		        
 		        <?php if (isset($field['link'])) : ?></a><?php endif;?>
+		        <?php if ($key !== 'id' && !$auditInfoShown && property_exists($item, 'created_at') && property_exists($item, 'updated_at') && property_exists($item, 'muser_id')) : ?>
+		            <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
+		            <?php $auditInfoShown = true; ?>
+		        <?php endif; ?>
 		        </td>
 	       		<?php endif;?>
 

@@ -26,6 +26,9 @@ class erLhcoreClassModelChatIncomingWebhook {
             'icon_color'    => $this->icon_color,
             'log_incoming'    => $this->log_incoming,
             'log_failed_parse'    => $this->log_failed_parse,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
     }
 
@@ -90,6 +93,9 @@ class erLhcoreClassModelChatIncomingWebhook {
     public $log_incoming = 0;
     public $log_failed_parse = 0;
     public $icon_color = '';
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 }
 
 ?>

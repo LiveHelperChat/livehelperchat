@@ -28,6 +28,7 @@ if (isset($_POST['Save_departament']) || isset($_POST['Update_departament']))
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassAbstract::setAuditTrail($Departament, $currentUser->getUserID());
         erLhcoreClassDepartament::getSession()->save($Departament);
 
         erLhcoreClassDepartament::validateDepartmentCustomWorkHours($Departament);

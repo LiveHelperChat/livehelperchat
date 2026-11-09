@@ -25,6 +25,9 @@ class erLhcoreClassModelCannedMsgReplace
             'repetitiveness' => $this->repetitiveness,
             'days_activity' => $this->days_activity,
             'time_zone' => $this->time_zone,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
         );
     }
 
@@ -403,6 +406,9 @@ class erLhcoreClassModelCannedMsgReplace
     public $default = '';
     public $conditions = '';
     public $configuration = '';
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
 
     // Activity data
     public $active_from = '';

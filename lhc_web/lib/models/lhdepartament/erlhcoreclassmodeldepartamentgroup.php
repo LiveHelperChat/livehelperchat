@@ -16,6 +16,9 @@ class erLhcoreClassModelDepartamentGroup
     {
         return array(
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
             'name' => $this->name,
             'achats_cnt' => $this->achats_cnt,
             'inachats_cnt' => $this->inachats_cnt,
@@ -70,6 +73,9 @@ class erLhcoreClassModelDepartamentGroup
     }
     
     public $id = null;
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
     public $name = '';
     public $achats_cnt = 0;
     public $inachats_cnt = 0;

@@ -18,6 +18,7 @@
                     <?php else : ?>
                          <a class="action-image<?php if ($item->disabled == 1) :?> text-muted<?php endif;?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'mailconv/previewresponsetemplate/<?php echo $item->id?>'});"><span class="material-icons">visibility</span><?php if ($item->disabled == 1) :?><i class="text-danger material-icons">block</i><?php endif;?><?php echo htmlspecialchars($item->name)?></a>
                     <?php endif; ?>
+                    <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
                 </td>
                 <?php if ($currentUser->hasAccessTo('lhmailconv','rtemplates_manage')) : ?>
                 <td>

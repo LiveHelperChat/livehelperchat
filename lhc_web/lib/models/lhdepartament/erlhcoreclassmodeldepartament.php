@@ -16,6 +16,9 @@ class erLhcoreClassModelDepartament {
     {
         return array(
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
             'name' => $this->name,
             'email' => $this->email,
             'xmpp_recipients' => $this->xmpp_recipients,
@@ -263,6 +266,9 @@ class erLhcoreClassModelDepartament {
     }
    
     public $id = null;
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
     public $name = '';
     public $email = '';
     public $priority = 0;

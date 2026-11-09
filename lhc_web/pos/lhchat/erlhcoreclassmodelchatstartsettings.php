@@ -19,15 +19,17 @@ $def->properties['dep_ids']->columnName   = 'dep_ids';
 $def->properties['dep_ids']->propertyName = 'dep_ids';
 $def->properties['dep_ids']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
-$def->properties['department_id'] = new ezcPersistentObjectProperty();
-$def->properties['department_id']->columnName   = 'department_id';
-$def->properties['department_id']->propertyName = 'department_id';
-$def->properties['department_id']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
-
 $def->properties['name'] = new ezcPersistentObjectProperty();
 $def->properties['name']->columnName   = 'name';
 $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
+
+foreach (['created_at','updated_at','muser_id','department_id'] as $posAttr) {
+	$def->properties[$posAttr] = new ezcPersistentObjectProperty();
+	$def->properties[$posAttr]->columnName = $posAttr;
+	$def->properties[$posAttr]->propertyName = $posAttr;
+	$def->properties[$posAttr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+}
 
 return $def;
 

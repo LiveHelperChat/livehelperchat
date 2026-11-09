@@ -16,6 +16,9 @@ class erLhcoreClassModelChatWebhook {
     {
         return array(
             'id'            => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
             'name'          => $this->name,
             'event'         => $this->event,
             'bot_id'        => $this->bot_id,
@@ -74,6 +77,9 @@ class erLhcoreClassModelChatWebhook {
     }
 
     public $id = null;
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
     public $event = '';
     public $name = '';
     public $bot_id = 0;

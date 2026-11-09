@@ -29,6 +29,7 @@
             <a href="#" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/syncadmininterface','See assigned departments statistic')?>" onclick="lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'department/editgroup/<?php echo htmlspecialchars($item->id)?>/(action)/depgroupstats'})">
                 <span class="material-icons">bar_chart</span>
             </a><?php echo htmlspecialchars($item->name)?>
+            <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
         </td>
         <td><?php echo htmlspecialchars($item->pchats_cnt)?></td>
         <td><?php echo htmlspecialchars($item->achats_cnt)?></td>

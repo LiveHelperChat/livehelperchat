@@ -24,6 +24,7 @@ try {
     }
 
     $webhook->disabled = $requestBody['disabled'];
+    erLhcoreClassAbstract::setAuditTrail($webhook, erLhcoreClassRestAPIHandler::getUserId());
     $webhook->updateThis();
 
     erLhcoreClassRestAPIHandler::outputResponse([

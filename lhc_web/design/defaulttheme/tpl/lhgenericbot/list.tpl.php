@@ -16,6 +16,7 @@
         <tr>
             <td>
                 <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_list_item_name.tpl.php'));?>
+                <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
             </td>
             <td>
                 <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/attr/bot_list_item_short_name.tpl.php'));?>

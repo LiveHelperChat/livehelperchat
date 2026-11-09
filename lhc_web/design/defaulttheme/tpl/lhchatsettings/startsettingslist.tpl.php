@@ -12,7 +12,7 @@
 </thead>
 <?php foreach ($items as $item) : ?>
     <tr>
-        <td><?php echo htmlspecialchars($item->name)?></td>
+        <td><?php echo htmlspecialchars($item->name)?><?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?></td>
         <td><?php echo htmlspecialchars($item->department)?></td>
         <td nowrap><a class="btn btn-secondary btn-xs csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/copyfrom')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Clone');?></a></td>
         <td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('chatsettings/editstartsettings')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/departments','Edit');?></a></td>

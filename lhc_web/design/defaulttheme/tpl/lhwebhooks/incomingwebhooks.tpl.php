@@ -52,6 +52,7 @@ $(function() {
                 <td nowrap="nowrap">
                     <a title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Download')?>" href="?id=<?php echo $item->id?>"><i class="material-icons">cloud_download</i></a>
                     <a href="<?php echo erLhcoreClassDesign::baseurl('webhooks/editincoming')?>/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a>
+                    <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
                 </td>
                 <td><?php echo htmlspecialchars($item->identifier)?></td>
                 <td nowrap="nowrap"><?php echo htmlspecialchars($item->disabled == 1 ? 'Y' : 'N')?></td>

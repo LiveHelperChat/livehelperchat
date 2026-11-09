@@ -17,6 +17,7 @@ if (ezcInputForm::hasPostData()) {
 
     if (count($Errors) == 0) {
         try {
+            erLhcoreClassAbstract::setAuditTrail($item, $currentUser->getUserID());
             $item->saveThis();
             erLhcoreClassModule::redirect('mailconv/mailbox');
             exit;

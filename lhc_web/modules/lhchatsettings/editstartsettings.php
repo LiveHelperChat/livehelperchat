@@ -38,6 +38,7 @@ if (isset($_POST['UpdateConfig']) || isset($_POST['SaveConfig'])) {
     if (count($Errors) == 0) {
         
         $startSettings->data = serialize($data);
+        erLhcoreClassAbstract::setAuditTrail($startSettings, $currentUser->getUserID());
         $startSettings->saveThis();
         
         if (isset($_POST['SaveConfig'])) {

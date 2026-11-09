@@ -14,6 +14,8 @@ if (!empty($Departament->configuration_array['restricted_access']) && !erLhcoreC
 
 $Departament->id = null;
 $Departament->identifier = 'Clone of ' . $Departament->identifier;
+$Departament->created_at = 0;
+erLhcoreClassGenericBot::setAuditTrail($Departament, $currentUser->getUserID());
 $Departament->saveThis();
 
 erLhcoreClassModule::redirect('cannedmsg/listreplace');

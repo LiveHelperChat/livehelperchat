@@ -16,7 +16,10 @@
 <?php foreach ($groups as $group) : ?>
     <tr>
         <td width="1%"><?php echo $group->id?></td>
-        <td><?php echo htmlspecialchars($group->name)?></td>
+        <td><?php echo htmlspecialchars($group->name)?>
+            <?php $item = $group;?>
+            <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
+        </td>
         <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('user/editgroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Edit group');?></a></td><?php endif;?>
         <?php if ($canEdit) : ?><td nowrap><a class="btn btn-secondary btn-xs csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('user/clonegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Clone');?></a></td><?php endif;?>
         <?php if ($canDelete) : ?><td nowrap><?php if ($group->id != 1) : ?><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('user/deletegroup')?>/<?php echo $group->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/grouplist','Delete group');?></a><?php endif;?></td><?php endif;?>

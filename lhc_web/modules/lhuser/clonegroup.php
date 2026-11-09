@@ -13,7 +13,9 @@ $workWith = erLhcoreClassModelGroupWork::getList(array('filter' => array('group_
 
 // Role copy
 $group->id = null;
+$group->created_at = 0;
 $group->name = erTranslationClassLhTranslation::getInstance()->getTranslation('permission/roles','Copy of') . ' ' . $group->name;
+erLhcoreClassAbstract::setAuditTrail($group, $currentUser->getUserID());
 $group->saveThis();
 
 // Role functions copy

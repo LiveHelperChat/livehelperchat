@@ -15,7 +15,7 @@ $def->properties['name']->propertyName = 'name';
 $def->properties['name']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 
 foreach (['achats_cnt','inachats_cnt','pchats_cnt','bchats_cnt','inopchats_cnt','acopchats_cnt','max_load','max_load_h',
-          'max_load_op','max_load_op_h'] as $posAttr) {
+          'max_load_op','max_load_op_h','created_at','updated_at','muser_id'] as $posAttr) {
     $def->properties[$posAttr] = new ezcPersistentObjectProperty();
     $def->properties[$posAttr]->columnName   = $posAttr;
     $def->properties[$posAttr]->propertyName = $posAttr;

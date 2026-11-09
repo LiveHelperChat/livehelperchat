@@ -40,6 +40,7 @@ if (isset($_POST['UploadFileAction'])) {
         $canned = array_keys((new erLhcoreClassModelMailconvResponseTemplate())->getState());
         $canned[] = 'subject';
         $canned[] = 'department_ids_front';
+        $legacyHeader = array_values(array_diff($canned, ['created_at', 'updated_at', 'muser_id']));
 
         $stats = array(
             'updated' => 0,
@@ -47,7 +48,7 @@ if (isset($_POST['UploadFileAction'])) {
             'removed' => 0,
         );
 
-        if ($canned === $header) {
+        if ($canned === $header || $legacyHeader === $header) {
 
             if (isset($_POST['remove_old']) && $_POST['remove_old'] == true) {
                 foreach (erLhcoreClassModelMailconvResponseTemplate::getList(array('limit' => false)) as $oldCanned) {
@@ -74,9 +75,10 @@ if (isset($_POST['UploadFileAction'])) {
                     $cannedMessage->department_ids = explode(',', $item['department_ids_front']);
                 }
 
-                unset($item['id']);
+                unset($item['id'], $item['created_at'], $item['updated_at'], $item['muser_id']);
 
                 $cannedMessage->setState($item);
+                erLhcoreClassAbstract::setAuditTrail($cannedMessage, $currentUser->getUserID());
                 $cannedMessage->saveThis();
 
                 // Delete any previous subjects if any

@@ -17,6 +17,9 @@ class erLhcoreClassModelMailconvMailbox
     {
         return array(
             'id' => $this->id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'muser_id' => $this->muser_id,
             'mail' => $this->mail,
             'name' => $this->name,
             'username' => $this->username,
@@ -186,6 +189,9 @@ class erLhcoreClassModelMailconvMailbox
     const DELETE_LOCAL = 1;
 
     public $id = NULL;
+    public $created_at = 0;
+    public $updated_at = 0;
+    public $muser_id = 0;
     public $mail = '';
     public $username = '';
     public $password = '';

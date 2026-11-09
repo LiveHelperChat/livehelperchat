@@ -59,7 +59,8 @@ if ($Params['user_parameters_unordered']['action'] == 'onlinehours') {
         }
 
         $Departament->ignore_op_status = isset($_POST['ignore_user_status_dep']) && $_POST['ignore_user_status_dep'] == 1 ? 1 : 0;
-        $Departament->updateThis(['update' => ['ignore_op_status']]);
+        erLhcoreClassAbstract::setAuditTrail($Departament, $currentUser->getUserID());
+        $Departament->updateThis(['update' => ['ignore_op_status', 'created_at', 'updated_at', 'muser_id']]);
 
         $tpl->set('updated', true);
     }
@@ -102,6 +103,7 @@ if (isset($_POST['Update_departament']) || isset($_POST['Save_departament'])  )
 	
     if (count($Errors) == 0)
     {    	
+        erLhcoreClassAbstract::setAuditTrail($Departament, $currentUser->getUserID());
         erLhcoreClassDepartament::getSession()->update($Departament);
 
         $DepartamentCustomWorkHours = erLhcoreClassDepartament::validateDepartmentCustomWorkHours($Departament, $DepartamentCustomWorkHours);

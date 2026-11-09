@@ -116,6 +116,7 @@ if (isset($Params['user_parameters_unordered']['action']) && $Params['user_param
     $mailBoxes = array_values($mailBoxes);
     $item->mailbox_sync_array = $mailBoxes;
     $item->mailbox_sync = json_encode($item->mailbox_sync_array);
+    erLhcoreClassAbstract::setAuditTrail($item, $currentUser->getUserID());
     $item->saveThis();
     
     echo json_encode(['success' => true]);
@@ -153,6 +154,7 @@ if (isset($_POST['Save_mailbox'])) {
 
     $item->mailbox_sync_array = $mailBoxes;
     $item->mailbox_sync = json_encode($item->mailbox_sync_array);
+    erLhcoreClassAbstract::setAuditTrail($item, $currentUser->getUserID());
     $item->saveThis();
 
 } else if (ezcInputForm::hasPostData()) {
@@ -171,6 +173,7 @@ if (isset($_POST['Save_mailbox'])) {
 
     if (count($Errors) == 0) {
         try {
+            erLhcoreClassAbstract::setAuditTrail($item, $currentUser->getUserID());
             $item->saveThis();
 
             if (

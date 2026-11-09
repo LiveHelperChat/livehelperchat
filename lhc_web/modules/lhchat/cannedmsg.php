@@ -49,6 +49,7 @@ if (isset($_POST['CopyAsEmailTemplates']) && !empty($_POST['canned_id'])) {
                     $responseTemplate->template_plain =  $cannedMessage->msg;
                     $responseTemplate->name = $cannedMessage->title;
                     $responseTemplate->dep_id = $cannedMessage->department_id; // Same department logic
+                    erLhcoreClassAbstract::setAuditTrail($responseTemplate, $currentUser->getUserID());
                     $responseTemplate->saveThis();
 
                     $stmt = $db->prepare('SELECT `dep_id` FROM `lh_canned_msg_dep` WHERE `canned_id` = :canned_id');

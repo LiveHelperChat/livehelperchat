@@ -49,6 +49,7 @@ if (isset($_POST['Save_group']) || isset($_POST['Save_group_and_assign_user']))
     {  
         $GroupData->name    = $form->Name;
 
+        erLhcoreClassAbstract::setAuditTrail($GroupData, $currentUser->getUserID());
         erLhcoreClassUser::getSession()->save($GroupData);
 
         if ($form->hasValidData('MemberGroup') && !empty($form->MemberGroup)) {

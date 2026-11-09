@@ -27,6 +27,7 @@ if (isset($_POST['Save_action']) || isset($_POST['Update_action']))
 
     if (count($Errors) == 0)
     {
+        erLhcoreClassGenericBot::setAuditTrail($item, $currentUser->getUserID());
         $item->saveThis();
 
         $currentState = $item->getState();

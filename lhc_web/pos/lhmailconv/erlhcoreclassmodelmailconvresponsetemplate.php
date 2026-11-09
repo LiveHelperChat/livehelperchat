@@ -16,7 +16,7 @@ foreach (array('name','unique_id','template','template_plain') as $attr) {
     $def->properties[$attr]->propertyType = ezcPersistentObjectProperty::PHP_TYPE_STRING;
 }
 
-foreach (array('disabled','dep_id') as $attr) {
+foreach (array('disabled','dep_id','created_at','updated_at','muser_id') as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
     $def->properties[$attr]->columnName   = $attr;
     $def->properties[$attr]->propertyName = $attr;
