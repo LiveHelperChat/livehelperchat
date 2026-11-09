@@ -17,7 +17,7 @@ if (isset($input)) {
     ?>
     <td nowrap>
         <?php if ($qaCount > 0) : ?>
-            <a href="<?php echo $qaUrl?>"><?php echo (int)round($qaScore);?> %</a>
+            <a href="<?php echo $qaUrl?>"><?php echo round($qaScore, 2);?> %</a>
         <?php else : ?>
             n/a
         <?php endif;?>

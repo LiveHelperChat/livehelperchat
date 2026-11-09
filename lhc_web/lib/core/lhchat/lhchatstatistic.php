@@ -2283,7 +2283,7 @@ class erLhcoreClassChatStatistic {
             $filterForm,
             '',
             false,
-            '`lh_abstract_form_collected`.`form_id` AS form_id, `lh_abstract_form_collected`.`evaluated_user_id` AS user_id, AVG(`lh_abstract_form_collected`.`attr_int_1`) AS qa_score, COUNT(*) AS qa_count',
+            '`lh_abstract_form_collected`.`form_id` AS form_id, `lh_abstract_form_collected`.`evaluated_user_id` AS user_id, AVG(`lh_abstract_form_collected`.`attr_int_1`) AS qa_score, SUM(`lh_abstract_form_collected`.`attr_int_1`) AS qa_sum, COUNT(*) AS qa_count',
             false,
             true
         );
@@ -2312,6 +2312,7 @@ class erLhcoreClassChatStatistic {
 
             $stats[$userId]['qa_score_' . $formId] = round((float)$row['qa_score'], 2);
             $stats[$userId]['qa_count_' . $formId] = (int)$row['qa_count'];
+            $stats[$userId]['qa_sum_' . $formId] = (float)$row['qa_sum'];
         }
 
         ksort($forms);
@@ -2620,6 +2621,7 @@ class erLhcoreClassChatStatistic {
                 foreach (self::$qaEvaluationForms as $qaFormId => $qaForm) {
                     $itemState['qa_score_' . $qaFormId] = isset($qaEvaluationStats[$user->id]['qa_score_' . $qaFormId]) ? $qaEvaluationStats[$user->id]['qa_score_' . $qaFormId] : 0;
                     $itemState['qa_count_' . $qaFormId] = isset($qaEvaluationStats[$user->id]['qa_count_' . $qaFormId]) ? $qaEvaluationStats[$user->id]['qa_count_' . $qaFormId] : 0;
+                    $itemState['qa_sum_' . $qaFormId] = isset($qaEvaluationStats[$user->id]['qa_sum_' . $qaFormId]) ? $qaEvaluationStats[$user->id]['qa_sum_' . $qaFormId] : 0;
                 }
 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('statistic.getagentstatistic_extensions_item',['status_extension' => $statusExtensionsStats, 'item' => & $itemState]);
