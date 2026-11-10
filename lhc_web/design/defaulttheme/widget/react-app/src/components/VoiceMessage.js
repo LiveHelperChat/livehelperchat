@@ -163,8 +163,10 @@ class VoiceMessage extends PureComponent {
             } catch (e) {
                 status = null;
             }
-            if (status === null || (status.error && status.error == 'true')) {
-                progress(status !== null && status.error_msg ? status.error_msg : t('file.upload_failed'));
+            const succeeded = req.status >= 200 && req.status < 300 && status !== null &&
+                (status.error === false || status.error === 'false') && status.file_id;
+            if (!succeeded) {
+                progress(status && status.error_msg ? status.error_msg : t('file.upload_failed'));
             } else {
                 progress(t('file.completed'));
                 onCompletion();
