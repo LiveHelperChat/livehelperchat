@@ -388,6 +388,26 @@ class AutoAssign
         ));
     }
 
+    /**
+     * `lh_userdep` rows of a department which can take part in the auto assignment right now.
+     *
+     * The same condition the candidate queries use - `hide_online` = 0 and `last_activity` inside
+     * the online timeout (or `always_on`), so offline operators never reach the queue at all.
+     */
+    public static function onlineDepartmentRows($depId, $timestamp = null)
+    {
+        $timestamp = $timestamp === null ? (int)time() : (int)$timestamp;
+
+        return \erLhcoreClassModelUserDep::getList(array(
+            'limit' => false,
+            'filter' => array(
+                'dep_id' => (int)$depId,
+                'hide_online' => 0,
+            ),
+            'customfilter' => array('(`lh_userdep`.`last_activity` > ' . ($timestamp - self::onlineTimeout()) . ')'),
+        ));
+    }
+
     /** All `lh_userdep` rows of one operator, across every department. */
     public static function userRows($userId)
     {
@@ -877,8 +897,14 @@ class AutoAssign
      *
      * Only the first `$pickableLimit` eligible operators are returned - past that the order stops
      * being useful. Every rejected row is always returned, they explain why the queue is short.
+     *
+     * Operators which are offline for the auto assignment are already filtered out by
+     * `onlineDepartmentRows()` - the candidate queries can never pick them, so they would only be noise.
+     *
+     * `$rows` allows the caller to hand over an already loaded set of `lh_userdep` rows, `null` loads
+     * the online ones from the department.
      */
-    public static function operatorQueue($chat, $department, $timestamp = null, $pick = null, $pickableLimit = self::QUEUE_OPERATOR_LIMIT)
+    public static function operatorQueue($chat, $department, $timestamp = null, $pick = null, $pickableLimit = self::QUEUE_OPERATOR_LIMIT, $rows = null)
     {
         $timestamp = $timestamp === null ? (int)time() : (int)$timestamp;
 
@@ -890,13 +916,17 @@ class AutoAssign
             $pick = self::pick($chat, $department, $timestamp);
         }
 
+        if ($rows === null) {
+            $rows = self::onlineDepartmentRows($department->id, $timestamp);
+        }
+
         $positions = array();
         foreach ($pick['candidates'] as $index => $candidate) {
             $positions[(int)$candidate['user_id']] = $index + 1;
         }
 
         $queue = array();
-        foreach (self::departmentRows($department->id) as $row) {
+        foreach ($rows as $row) {
             $position = isset($positions[(int)$row->user_id]) ? $positions[(int)$row->user_id] : null;
 
             // Only the first N operators the workflow would pick are listed, the rest of `lh_userdep`
@@ -957,6 +987,8 @@ class AutoAssign
                 'gates' => array('allowed' => false, 'blocked_by' => array('department_missing'), 'checks' => array()),
                 'queue' => array('variant' => null, 'picked_user_id' => 0, 'candidates' => array(), 'attempts' => array()),
                 'operators' => array(),
+                'operators_total' => 0,
+                'operators_online' => 0,
             );
         }
 
@@ -975,6 +1007,11 @@ class AutoAssign
         $referenceChat = $simulated ? self::unassignedChat($department, $timestamp) : $pendingChats[0];
         $queue = self::pick($referenceChat, $department, $timestamp);
 
+        // Offline operators are not part of the queue, but the counts are still useful to explain
+        // an empty queue (everyone offline vs. nobody assigned to the department at all).
+        $operatorsTotal = (int)\erLhcoreClassModelUserDep::getCount(array('filter' => array('dep_id' => (int)$department->id)));
+        $onlineRows = self::onlineDepartmentRows($department->id, $timestamp);
+
         return array(
             'found' => true,
             'enabled' => (int)$department->active_balancing === 1,
@@ -983,7 +1020,9 @@ class AutoAssign
             'reference_chat' => self::chatSummary($referenceChat),
             'gates' => self::gates($referenceChat, $department, $timestamp),
             'queue' => $queue,
-            'operators' => self::operatorQueue($referenceChat, $department, $timestamp, $queue),
+            'operators' => self::operatorQueue($referenceChat, $department, $timestamp, $queue, self::QUEUE_OPERATOR_LIMIT, $onlineRows),
+            'operators_total' => $operatorsTotal,
+            'operators_online' => count($onlineRows),
         );
     }
 
@@ -1125,6 +1164,48 @@ class AutoAssign
             'error' => $error,
             'rows' => array_values($rows),
         );
+    }
+
+    /**
+     * Human readable meaning of every machine readable identifier used in `blocked_by`.
+     *
+     * These are the codes the department statistic modal shows as badges, so the same texts are used
+     * as badge tooltips and as the reason legend below the queue.
+     */
+    public static function reasonTexts()
+    {
+        return array(
+            'department_missing' => 'The department of the chat was not found.',
+            'department_auto_balancing_disabled' => 'Auto assignment is disabled on the department (`active_balancing` = 0).',
+            'department_max_active_chats_reached' => 'The department active chats limit (`max_ac_dep_chats`) is reached.',
+            'chat_not_pending' => 'The chat is not pending.',
+            'chat_assigned_without_reassign_timeout' => 'The chat is already assigned and the reassignment timeout did not elapse.',
+            'auto_delay_var_missing' => 'The chat does not carry the variable required by `auto_delay_var` yet.',
+            'auto_delay_var_extension' => 'The `auto_delay_var` variable is resolved by an extension event which cannot be evaluated here.',
+            'no_recently_active_operators' => 'No operator of the department was active in the last ' . self::LOCK_ACTIVITY_WINDOW . ' seconds, so the operator lock fails before the candidates are queried.',
+            'no_matching_operator' => 'No operator matches the candidate queries.',
+            'no_department_assignment' => 'The operator has no `lh_userdep` row for the chat department.',
+            'read_only_department_assignment' => 'The operator has read only access to the department.',
+            'operator_offline' => 'The operator is offline (`hide_online` or a stale `last_activity`).',
+            'exclude_autoasign' => 'The account is excluded from auto assignment (`exclude_autoasign`).',
+            'exc_indv_autoasign' => 'The operator is excluded from auto assignment in this department (`exc_indv_autoasign`).',
+            'delay_before_assign' => 'The minimum delay between two assignments to this operator did not elapse.',
+            'operator_max_chats_reached' => 'The operator reached his chat limit (`max_chats` / department `max_active_chats`).',
+            'operator_is_current_assignee' => 'The chat is already assigned to this operator.',
+            'only_priority_opt_out' => 'The operator opted into the chat priority queue (`only_priority` = 1) while the chat is not handled by the queue.',
+            'queue_min_agent_priority' => 'The operator `assign_priority` is below the minimum agent priority of the queue.',
+            'queue_only_priority_opt_out' => 'The department queues assign priority chats to opted in operators only.',
+            'queue_chat_priority_range' => 'The chat priority is outside the `chat_min_priority` / `chat_max_priority` range of the operator.',
+            'operator_chat_priority_range_std' => 'The chat priority is outside the `chat_min_priority_std` / `chat_max_priority_std` range of the operator, which the regular auto assignment queue honours.',
+        );
+    }
+
+    /** Explanation of one `blocked_by` identifier, an empty string when it is unknown. */
+    public static function reasonText($code)
+    {
+        $texts = self::reasonTexts();
+
+        return isset($texts[$code]) ? $texts[$code] : '';
     }
 
     /** Mirrors the `== '1'` comparisons of the workflow for the department checkbox settings. */

@@ -50,8 +50,8 @@ $autoAssignQueue = \LiveHelperChat\Mcp\AutoAssign::queueOverview($department, 5)
                 </td>
                 <td><?php echo $queueChat['pick']['variant'] === null ? '-' : htmlspecialchars((string)$queueChat['pick']['variant'])?></td>
                 <td>
-                    <?php foreach ($queueChat['gates']['blocked_by'] as $queueBlockedBy) : ?><span class="badge bg-secondary me-1"><?php echo htmlspecialchars($queueBlockedBy)?></span> <?php endforeach; ?>
-                    <?php if (empty($queueChat['gates']['blocked_by']) && $queueChat['pick']['picked_user_id'] == 0) : ?><span class="badge bg-secondary">no_matching_operator</span><?php endif; ?>
+                    <?php foreach ($queueChat['gates']['blocked_by'] as $queueBlockedBy) : ?><span class="badge bg-secondary me-1" title="<?php echo htmlspecialchars(\LiveHelperChat\Mcp\AutoAssign::reasonText($queueBlockedBy) ?: $queueBlockedBy)?>"><?php echo htmlspecialchars($queueBlockedBy)?></span> <?php endforeach; ?>
+                    <?php if (empty($queueChat['gates']['blocked_by']) && $queueChat['pick']['picked_user_id'] == 0) : ?><span class="badge bg-secondary" title="<?php echo htmlspecialchars(\LiveHelperChat\Mcp\AutoAssign::reasonText('no_matching_operator'))?>">no_matching_operator</span><?php endif; ?>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -66,7 +66,11 @@ $autoAssignQueue = \LiveHelperChat\Mcp\AutoAssign::queueOverview($department, 5)
     <?php endif; ?>
 </h6>
 <?php if (empty($autoAssignQueue['operators'])) : ?>
-    <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No operator is assigned to this department. Rows with `dep_id` 0 (all departments) are not used by the auto assignment queries.');?></p>
+    <?php if ((int)$autoAssignQueue['operators_total'] === 0) : ?>
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No operator is assigned to this department. Rows with `dep_id` 0 (all departments) are not used by the auto assignment queries.');?></p>
+    <?php else : ?>
+        <p><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No operator of this department is online for the auto assignment right now, offline operators are not listed. Operators assigned to this department:');?> <?php echo (int)$autoAssignQueue['operators_total']?></p>
+    <?php endif; ?>
 <?php else : ?>
     <div class="small text-muted mb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','At most');?> <?php echo (int)\LiveHelperChat\Mcp\AutoAssign::QUEUE_OPERATOR_LIMIT?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','next operators from the queue are listed, the rest is listed with the reason they are skipped.');?></div>
     <table class="table table-sm table-striped w-100">
@@ -112,7 +116,7 @@ $autoAssignQueue = \LiveHelperChat\Mcp\AutoAssign::queueOverview($department, 5)
                     <?php if ($queueOperator['pickable']) : ?>
                         <span class="material-icons text-success" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Would receive the next chat');?>">done</span>
                     <?php else : ?>
-                        <?php foreach ($queueOperator['blocked_by'] as $queueBlockedBy) : ?><span class="badge bg-secondary me-1"><?php echo htmlspecialchars($queueBlockedBy)?></span> <?php endforeach; ?>
+                        <?php foreach ($queueOperator['blocked_by'] as $queueBlockedBy) : ?><span class="badge bg-secondary me-1" title="<?php echo htmlspecialchars(\LiveHelperChat\Mcp\AutoAssign::reasonText($queueBlockedBy) ?: $queueBlockedBy)?>"><?php echo htmlspecialchars($queueBlockedBy)?></span> <?php endforeach; ?>
                     <?php endif; ?>
                 </td>
             </tr>
@@ -131,3 +135,38 @@ $autoAssignQueue = \LiveHelperChat\Mcp\AutoAssign::queueOverview($department, 5)
         </li>
     <?php endforeach; ?>
 </ul>
+
+<?php
+// Only the codes visible in this render are explained, a full dictionary would be noise
+$queueReasonCodes = array();
+
+foreach ($autoAssignQueue['chats'] as $queueChat) {
+    foreach ($queueChat['gates']['blocked_by'] as $queueBlockedBy) {
+        $queueReasonCodes[$queueBlockedBy] = true;
+    }
+
+    if (empty($queueChat['gates']['blocked_by']) && $queueChat['pick']['picked_user_id'] == 0) {
+        $queueReasonCodes['no_matching_operator'] = true;
+    }
+}
+
+foreach ($autoAssignQueue['operators'] as $queueOperator) {
+    foreach ($queueOperator['blocked_by'] as $queueBlockedBy) {
+        $queueReasonCodes[$queueBlockedBy] = true;
+    }
+}
+?>
+<?php if (!empty($queueReasonCodes)) : ?>
+    <details class="small mt-2">
+        <summary><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','What do the badges in the verdict and blocked by columns mean?');?></summary>
+        <ul class="list-unstyled mb-0 pt-1">
+            <?php foreach (array_keys($queueReasonCodes) as $queueReasonCode) : ?>
+                <?php $queueReasonText = \LiveHelperChat\Mcp\AutoAssign::reasonText($queueReasonCode); ?>
+                <li class="pt-1">
+                    <span class="badge bg-secondary me-1"><?php echo htmlspecialchars($queueReasonCode)?></span>
+                    <?php echo htmlspecialchars($queueReasonText !== '' ? $queueReasonText : erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No description available'));?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </details>
+<?php endif; ?>
