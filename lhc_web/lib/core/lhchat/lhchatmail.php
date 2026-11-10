@@ -34,6 +34,12 @@ class erLhcoreClassChatMail {
 			$phpMailer->Host = $data['host'];
 			$phpMailer->Port = $data['port'];
 
+            // '' - plain connection, 'tls' - mandatory STARTTLS, 'ssl' - implicit SSL
+            $phpMailer->SMTPSecure = isset($data['smtp_secure']) ? $data['smtp_secure'] : '';
+
+            // Automatic STARTTLS upgrade of a plain connection. Missing key keeps legacy behaviour (enabled).
+            $phpMailer->SMTPAutoTLS = (!isset($data['smtp_auto_tls']) || $data['smtp_auto_tls'] == 1);
+
             $SMTPOptions = array(
                 'ssl' => array(
                     'verify_peer' => false,

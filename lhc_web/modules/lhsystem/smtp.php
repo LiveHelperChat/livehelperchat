@@ -43,6 +43,12 @@ if ( isset($_POST['StoreMailSettings']) || isset($_POST['StoreMailSettingsTest']
         ),
         'bindip' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'smtp_secure' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'smtp_auto_tls' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
         )
     );
     
@@ -108,6 +114,18 @@ if ( isset($_POST['StoreMailSettings']) || isset($_POST['StoreMailSettingsTest']
         $data['bindip'] = $form->bindip;
     } else {
         $data['bindip'] = '';
+    }
+
+    if ( $form->hasValidData( 'smtp_secure' ) && in_array($form->smtp_secure, array('tls','ssl')) ) {
+        $data['smtp_secure'] = $form->smtp_secure;
+    } else {
+        $data['smtp_secure'] = '';
+    }
+
+    if ( $form->hasValidData( 'smtp_auto_tls' ) && $form->smtp_auto_tls == true ) {
+        $data['smtp_auto_tls'] = 1;
+    } else {
+        $data['smtp_auto_tls'] = 0;
     }
 
     $smtpData->value = serialize($data);

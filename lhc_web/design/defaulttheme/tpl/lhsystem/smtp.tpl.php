@@ -55,11 +55,109 @@
 
 				<div class="form-group">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host');?>*</label> <input type="text" class="form-control" name="host" value="<?php (isset($smtp_data['host']) && $smtp_data['host'] != '') ? print htmlspecialchars($smtp_data['host']) : print '' ?>" />
+					<div class="alert alert-info p-2 fs12 mt-2 mb-0">
+						<div class="fw-bold mb-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host prefix overrides the encryption setting'); ?></div>
+						<div><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','If Host begins with ssl:// or tls://, PHPMailer ignores the Encryption selection and the automatic TLS upgrade - ssl://host means implicit SSL, tls://host means mandatory STARTTLS. The prefix must be lowercase, TLS://host is rejected as an invalid hostname.'); ?></div>
+					</div>
 				</div>
 
 				<div class="form-group">
 					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Port');?>*</label> <input type="text" class="form-control" name="port" value="<?php (isset($smtp_data['port']) && $smtp_data['port'] != '') ? print htmlspecialchars($smtp_data['port']) : print '25' ?>" />
 				</div>
+
+				<div class="form-group">
+					<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Encryption');?></label>
+					<select class="form-control" name="smtp_secure">
+						<option value="" <?php echo (isset($smtp_data['smtp_secure']) && $smtp_data['smtp_secure'] == '') ? 'selected="selected"' : '' ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','None - plain connection');?></option>
+						<option value="tls" <?php echo (isset($smtp_data['smtp_secure']) && $smtp_data['smtp_secure'] == 'tls') ? 'selected="selected"' : '' ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','STARTTLS, usually port 587');?></option>
+						<option value="ssl" <?php echo (isset($smtp_data['smtp_secure']) && $smtp_data['smtp_secure'] == 'ssl') ? 'selected="selected"' : '' ?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','SSL/TLS, usually port 465');?></option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label><input type="checkbox" name="smtp_auto_tls" value="1" <?php echo (!isset($smtp_data['smtp_auto_tls']) || $smtp_data['smtp_auto_tls'] == '1') ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Automatically upgrade to TLS if SMTP server supports it (SMTPAutoTLS)'); ?></label>
+					<div class="fs12 text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Uncheck for a plain local relay. Otherwise PHPMailer will attempt STARTTLS and sending will fail if the server certificate or TLS version is not acceptable. Has no effect when encryption above is set to STARTTLS or SSL/TLS, or when Host has a tls:// or ssl:// prefix.'); ?></div>
+				</div>
+
+				<details class="my-2">
+					<summary class="fs14 text-primary" style="cursor:pointer"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Recommended settings per scenario'); ?></summary>
+					<table class="table table-sm fs12 mt-2 mb-0">
+						<thead>
+							<tr>
+								<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Scenario'); ?></th>
+								<th>Host</th>
+								<th>Port</th>
+								<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Encryption'); ?></th>
+								<th>Auto TLS</th>
+								<th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Login / Password'); ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','External SMTP, submission port (Gmail, Microsoft 365, SES, Mailgun, SendGrid)'); ?></td>
+								<td>smtp.example.com</td>
+								<td>587</td>
+								<td>STARTTLS, usually port 587</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','unchecked'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','required'); ?></td>
+							</tr>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','External SMTP, implicit SSL (old providers)'); ?></td>
+								<td>smtp.example.com</td>
+								<td>465</td>
+								<td>SSL/TLS, usually port 465</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','unchecked'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','required'); ?></td>
+							</tr>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','External SMTP, STARTTLS defined by tls:// prefix in Host'); ?></td>
+								<td>tls://smtp.example.com</td>
+								<td>587</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','ignored, the prefix forces STARTTLS'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','ignored'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','required'); ?></td>
+							</tr>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','External SMTP, implicit SSL defined by ssl:// prefix in Host'); ?></td>
+								<td>ssl://smtp.example.com</td>
+								<td>465</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','ignored, the prefix forces SSL'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','ignored'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','required'); ?></td>
+							</tr>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Local relay, TLS not available (no certificate)'); ?></td>
+								<td>127.0.0.1</td>
+								<td>25</td>
+								<td>None - plain connection</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','unchecked'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','not needed'); ?></td>
+							</tr>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Local relay, TLS optional'); ?></td>
+								<td>127.0.0.1</td>
+								<td>25</td>
+								<td>None - plain connection</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','checked'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','not needed'); ?></td>
+							</tr>
+							<tr>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Local relay, STARTTLS required'); ?></td>
+								<td>127.0.0.1</td>
+								<td>587</td>
+								<td>STARTTLS, usually port 587</td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','unchecked'); ?></td>
+								<td><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','as configured'); ?></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="fs12 text-muted mt-2">
+						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','External SMTP: Login is usually the full e-mail address, for Gmail and Microsoft 365 use an application password and set Sender / Default from to the same mailbox, otherwise SPF and DKIM will reject the mail.'); ?><br>
+						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Host prefix: a lowercase tls:// or ssl:// in Host wins over the Encryption and Auto TLS columns above, so the same host can be written either way - keep only one of the two styles, do not combine a prefix with a conflicting Encryption value.'); ?><br>
+						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Local relay without TLS: choose None and leave the automatic upgrade unchecked, otherwise PHPMailer attempts STARTTLS and sending fails when the relay certificate or TLS version is not acceptable.'); ?><br>
+						<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','After saving use the Test button to verify the connection and the authentication.'); ?>
+					</div>
+				</details>
 
                 <div class="form-group">
                     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/smtp','Bind IP, multiple IP can be separated by comma. Random IP will be chosen.');?></label> <input type="text" class="form-control" name="bindip" value="<?php (isset($smtp_data['bindip']) && $smtp_data['bindip'] != '') ? print htmlspecialchars($smtp_data['bindip']) : print '' ?>" />
