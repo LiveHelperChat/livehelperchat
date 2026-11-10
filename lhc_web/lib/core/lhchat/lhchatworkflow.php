@@ -856,18 +856,23 @@ class erLhcoreClassChatWorkflow {
                     if ($user_id > 0) {
 
                         $previousMessage = '';
+                        $previousUserId = $chat->user_id;
 
-                        // Update previously assigned operator statistic
-                        if ($chat->user_id > 0) {
-                            erLhcoreClassChat::updateActiveChats($chat->user_id);
-
-                            $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
-                            $previousMessage = '[' . $chat->user_id . '] ' . $userOld->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted mail in time.') . ' ';
+                        // Prepare previous operator message. Statistics are updated only after the
+                        // owner is changed, otherwise the recount still counts this mail for him
+                        if ($previousUserId > 0) {
+                            $userOld = erLhcoreClassModelUser::fetch($previousUserId);
+                            $previousMessage = '[' . $previousUserId . '] ' . $userOld->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted mail in time.') . ' ';
                         }
 
                         $chat->tslasign = $timestamp;
                         $chat->user_id = $user_id;
                         $chat->updateThis(array('update' => array('tslasign','user_id')));
+
+                        // Update previously assigned operator statistic now, when mail no longer belongs to him
+                        if ($previousUserId > 0 && $previousUserId != $chat->user_id) {
+                            erLhcoreClassChat::updateActiveChats($previousUserId);
+                        }
 
                         erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, $timestamp, '_mail');
 
@@ -1179,15 +1184,16 @@ class erLhcoreClassChatWorkflow {
                         $msg->user_id = -1;
                         $msg->time = $timestamp;
 
-                        // Update previously assigned operator statistic
-                        if ($chat->user_id > 0) {
-                            $userOld = erLhcoreClassModelUser::fetch($chat->user_id);
+                        $previousUserId = $chat->user_id;
+
+                        // Prepare previous operator message. Statistics are updated after the owner change
+                        if ($previousUserId > 0) {
+                            $userOld = erLhcoreClassModelUser::fetch($previousUserId);
                             $msg->name_support = $userOld->name_support;
 
-                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $chat->user_id));
+                            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.before_msg_user_saved', array('msg' => & $msg, 'chat' => & $chat, 'user_id' => $previousUserId));
 
-                            $previousMessage = '[' . $chat->user_id . '] ' . $msg->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.') . ' ';
-                            erLhcoreClassChat::updateActiveChats($chat->user_id);
+                            $previousMessage = '[' . $previousUserId . '] ' . $msg->name_support . ' '.  erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat','did not accepted chat in time.') . ' ';
                         }
 
                         $userNew = erLhcoreClassModelUser::fetch($user_id);
@@ -1204,6 +1210,11 @@ class erLhcoreClassChatWorkflow {
                         $chat->user_id = $user_id;
                         $chat->last_msg_id = $msg->id;
                         $chat->updateThis(array('update' => array('last_msg_id','tslasign','user_id')));
+
+                        // Update previously assigned operator statistic now, when chat no longer belongs to him
+                        if ($previousUserId > 0 && $previousUserId != $chat->user_id) {
+                            erLhcoreClassChat::updateActiveChats($previousUserId);
+                        }
 
                         $successLastAccepted = erLhcoreClassUserDep::updateLastAcceptedByUser($user_id, $timestamp);
 
