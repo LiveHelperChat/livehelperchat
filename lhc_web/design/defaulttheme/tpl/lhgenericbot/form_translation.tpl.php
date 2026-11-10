@@ -22,7 +22,7 @@
 
 <div class="form-group">
     <label><input type="checkbox" name="detect_chat_language" <?php !empty($trConfiguration['detect_chat_language']) ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Detect chat language with translation service instead of relying on chat locale')?></label>
-    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Detected language is stored in chat variables, so detection is executed only once per chat.');?></small></i></p>
+    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Language detection is executed only when the translation service is actually used, e.g. when a translation item for a bot message is not found and the text has to be translated by the service. If a translation item is found by its identifier, the chat locale is used - to detect the language for that specific identifier instead, enable "Try detect language using AI service before translating" in the translation item itself. Detected language is stored in chat variables, so detection is executed only once per chat.');?></small></i></p>
 </div>
 
 <div class="form-group">

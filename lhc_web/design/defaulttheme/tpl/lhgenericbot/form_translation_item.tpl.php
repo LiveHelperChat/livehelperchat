@@ -63,7 +63,7 @@
 
 <div class="form-group">
     <label><input type="checkbox" name="detect_language" <?php $item->detect_language == 1 ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Try detect language using AI service before translating')?></label>
-    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Instead of using bot language as a source language we will detect the language of this translation with the translation service.');?></small></i></p>
+    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Visitor language is detected with the translation service from the first visitor messages in chat, instead of relying on chat locale. The detected language is used to choose which translation of this identifier to show to the visitor. If no translation matches the detected language and "If translation is not found use translation service" is enabled above, the text is translated into the detected language. Detection is executed only once per chat.');?></small></i></p>
 </div>
 
 <div role="tabpanel">
