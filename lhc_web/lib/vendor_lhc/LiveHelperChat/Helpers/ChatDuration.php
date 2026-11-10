@@ -215,13 +215,12 @@ class ChatDuration
 
         $chat->frt = 0;
 
-        if (isset($mainStats['response_times_total'][0])) {
-            $chat->frt = max(0,$mainStats['response_times_total'][0]);
-        }
+        if (!empty($mainStats['response_times_total'])) {
+            $responseTimes = $mainStats['response_times_total'];
 
-        if (isset($mainStats['response_times_total'])) {
-            $chat->aart = max(0,round(array_sum($mainStats['response_times_total']) / count($mainStats['response_times_total'])));
-            $chat->mart = max(0,$mainStats['response_times_total']);
+            $chat->frt = max(0, (int)$responseTimes[0]);
+            $chat->aart = max(0, (int)round(array_sum($responseTimes) / count($responseTimes)));
+            $chat->mart = max(0, (int)max($responseTimes));
         }
     }
 
