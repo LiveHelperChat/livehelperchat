@@ -537,6 +537,17 @@ $modalSize = 'xxxl';
                         <span class="badge bg-success" id="autoassign-only-valid-count" style="vertical-align: middle">0</span>
                     </span>
                 </div>
+                <details class="small mb-2">
+                    <summary><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','What do the badges in the verdict and blocked by columns mean?');?></summary>
+                    <ul class="list-unstyled mb-0 pt-1">
+                        <?php foreach (\LiveHelperChat\Mcp\AutoAssign::reasonTexts() as $queueReasonCode => $queueReasonText) : ?>
+                            <li class="pt-1">
+                                <span class="badge bg-secondary me-1"><?php echo htmlspecialchars($queueReasonCode)?></span>
+                                <?php echo htmlspecialchars($queueReasonText)?>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </details>
                 <div id="autoassign-next-live">
                     <?php include(erLhcoreClassDesign::designtpl('lhstatistic/autoassign_queue.tpl.php')); ?>
                 </div>

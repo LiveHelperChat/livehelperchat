@@ -135,38 +135,3 @@ $autoAssignQueue = \LiveHelperChat\Mcp\AutoAssign::queueOverview($department, 5)
         </li>
     <?php endforeach; ?>
 </ul>
-
-<?php
-// Only the codes visible in this render are explained, a full dictionary would be noise
-$queueReasonCodes = array();
-
-foreach ($autoAssignQueue['chats'] as $queueChat) {
-    foreach ($queueChat['gates']['blocked_by'] as $queueBlockedBy) {
-        $queueReasonCodes[$queueBlockedBy] = true;
-    }
-
-    if (empty($queueChat['gates']['blocked_by']) && $queueChat['pick']['picked_user_id'] == 0) {
-        $queueReasonCodes['no_matching_operator'] = true;
-    }
-}
-
-foreach ($autoAssignQueue['operators'] as $queueOperator) {
-    foreach ($queueOperator['blocked_by'] as $queueBlockedBy) {
-        $queueReasonCodes[$queueBlockedBy] = true;
-    }
-}
-?>
-<?php if (!empty($queueReasonCodes)) : ?>
-    <details class="small mt-2">
-        <summary><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','What do the badges in the verdict and blocked by columns mean?');?></summary>
-        <ul class="list-unstyled mb-0 pt-1">
-            <?php foreach (array_keys($queueReasonCodes) as $queueReasonCode) : ?>
-                <?php $queueReasonText = \LiveHelperChat\Mcp\AutoAssign::reasonText($queueReasonCode); ?>
-                <li class="pt-1">
-                    <span class="badge bg-secondary me-1"><?php echo htmlspecialchars($queueReasonCode)?></span>
-                    <?php echo htmlspecialchars($queueReasonText !== '' ? $queueReasonText : erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','No description available'));?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </details>
-<?php endif; ?>
