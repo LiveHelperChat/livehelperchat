@@ -2,11 +2,6 @@ import React, { PureComponent } from 'react';
 import vmsg from "vmsg";
 import { withTranslation } from 'react-i18next';
 
-const recorder = new vmsg.Recorder({
-    wasmURL: window.lhcChat['staticJS']['chunk_js']+ "/" + 'vmsg.8c4a15f2.wasm',
-    shimURL: "https://unpkg.com/wasm-polyfill.js@0.2.0/wasm-polyfill.js"
-});
-
 class VoiceMessage extends PureComponent {
 
     state = {
@@ -21,6 +16,13 @@ class VoiceMessage extends PureComponent {
 
     constructor(props) {
         super(props);
+        // A reopened panel must not share a pending microphone request with the old one.
+        this.recorder = new vmsg.Recorder({
+            wasmURL: window.lhcChat['staticJS']['chunk_js']+ "/" + 'vmsg.8c4a15f2.wasm',
+            shimURL: "https://unpkg.com/wasm-polyfill.js@0.2.0/wasm-polyfill.js"
+        });
+        this.isUnmounted = false;
+        this.recordingStarting = false;
         this.startRecording = this.startRecording.bind(this);
         this.stopRecording = this.stopRecording.bind(this);
         this.playRecord = this.playRecord.bind(this);
@@ -81,12 +83,24 @@ class VoiceMessage extends PureComponent {
     }
 
     async startRecording() {
+        if (this.isUnmounted || this.recordingStarting || this.state.isRecording) {
+            return;
+        }
+        this.recordingStarting = true;
         this.stopPlayRecord();
         this.setState({ isLoading: true, audioDuration : 0, recording: null, isPlaying: false, currentTime : 0});
         try {
-            await recorder.initAudio();
-            await recorder.initWorker();
-            recorder.startRecording();
+            await this.recorder.initAudio();
+            if (this.isUnmounted) {
+                this.closeRecorder();
+                return;
+            }
+            await this.recorder.initWorker();
+            if (this.isUnmounted) {
+                this.closeRecorder();
+                return;
+            }
+            this.recorder.startRecording();
             this.setState({ isLoading: false, isRecording: true }, () => this.startLevelMeter());
             this.durationInterval = setInterval(() => {
                 this.setState({ audioDuration: this.state.audioDuration + 1 });
@@ -98,20 +112,35 @@ class VoiceMessage extends PureComponent {
 
             }, 1000);
         } catch (e) {
+            this.closeRecorder();
+            if (this.isUnmounted) {
+                return;
+            }
             alert('Sorry but voice messages are not supported on your browser!');
             this.setState({ isLoading: false });
+        } finally {
+            this.recordingStarting = false;
         }
+    }
+
+    closeRecorder() {
+        // stopRecording() may already have closed the AudioContext.
+        if (this.recorder.audioCtx && this.recorder.audioCtx.state === 'closed') {
+            this.recorder.audioCtx = null;
+        }
+        this.recorder.close();
+        this.recorder.audioCtx = null;
     }
 
     startLevelMeter() {
         this.stopLevelMeter();
         try {
-            if (!recorder.audioCtx || !recorder.gainNode || typeof recorder.audioCtx.createAnalyser !== 'function') {
+            if (!this.recorder.audioCtx || !this.recorder.gainNode || typeof this.recorder.audioCtx.createAnalyser !== 'function') {
                 return;
             }
-            const analyser = recorder.audioCtx.createAnalyser();
+            const analyser = this.recorder.audioCtx.createAnalyser();
             analyser.fftSize = 512;
-            recorder.gainNode.connect(analyser);
+            this.recorder.gainNode.connect(analyser);
             this.levelAnalyser = analyser;
         } catch (e) {
             return;
@@ -157,6 +186,7 @@ class VoiceMessage extends PureComponent {
             this.levelFrame = null;
         }
         if (this.levelAnalyser !== null) {
+            try { this.recorder.gainNode.disconnect(this.levelAnalyser); } catch (e) {}
             try { this.levelAnalyser.disconnect(); } catch (e) {}
             this.levelAnalyser = null;
         }
@@ -164,8 +194,12 @@ class VoiceMessage extends PureComponent {
     }
 
     async stopRecording(){
+        clearInterval(this.durationInterval);
         this.stopLevelMeter();
-        const blob = await recorder.stopRecording();
+        const blob = await this.recorder.stopRecording();
+        if (this.isUnmounted) {
+            return;
+        }
 
         this.audio = new Audio();
         this.audio.src = URL.createObjectURL(blob);
@@ -410,6 +444,9 @@ class VoiceMessage extends PureComponent {
     }
 
     componentWillUnmount() {
+        this.isUnmounted = true;
+        clearInterval(this.durationInterval);
+        clearInterval(this.playInterval);
 
         // console.log('[VoiceMessage] componentWillUnmount()', {
         //     isRecording: this.state.isRecording,
@@ -420,10 +457,8 @@ class VoiceMessage extends PureComponent {
         this.stopPlayRecord();
         this.stopLevelMeter();
 
-        // Stop recording if it's recording
-        if (this.state.isRecording) {
-            recorder.stopRecording();
-        }
+        // Release microphone/worker even if initialization has not finished yet.
+        this.closeRecorder();
 
         // Stop webkit recognition if active
         if (this.recognition) {
