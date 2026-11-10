@@ -101,10 +101,48 @@ if ($Params['user_parameters']['type'] == 'restapi') {
             }
         }
 
-        if ($actionToExecute) {
-            $chat = erLhcoreClassModelChat::fetch($_POST['chat_id']);
+        if (isset($actionToExecute)) {
+
+            $chat = null;
+
+            if ((int)$_POST['chat_id'] > 0) {
+                $chat = erLhcoreClassModelChat::fetch((int)$_POST['chat_id']);
+            }
+
+            // No chat was provided, so we build a temporary chat which allows to test the action
+            // without any real chat, department or visitor.
+            if (!($chat instanceof erLhcoreClassModelChat)) {
+
+                $chat = new erLhcoreClassModelChat();
+                $chat->nick = 'Visitor';
+                $chat->time = time();
+                $chat->gbot_id = $trigger->bot_id;
+                $chat->dep_id = isset($_POST['dep_id']) ? (int)$_POST['dep_id'] : 0;
+                $chat->chat_locale = isset($_POST['chat_locale']) ? trim((string)$_POST['chat_locale']) : '';
+
+                if (isset($_POST['chat_variables']) && trim((string)$_POST['chat_variables']) != '') {
+                    $chatVariables = json_decode((string)$_POST['chat_variables'], true);
+
+                    if (!is_array($chatVariables)) {
+                        echo json_encode(array('output' => '<div class="alert alert-danger">' . erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions', 'Chat variables has to be a valid JSON object') . '</div>'));
+                        exit;
+                    }
+
+                    $chat->chat_variables = json_encode($chatVariables);
+                }
+            }
+
+            // Testing is supported only for text type actions
             $msg = erLhcoreClassGenericBotActionText::process($chat, $actionToExecute, $trigger, ['do_not_save' => true]);
-            echo json_encode(array('output' => htmlspecialchars($msg->msg)));
+
+            $output = '';
+            if ($msg instanceof erLhcoreClassModelmsg) {
+                $output = (string)$msg->msg;
+            } elseif (is_string($msg)) {
+                $output = $msg;
+            }
+
+            echo json_encode(array('output' => htmlspecialchars($output)));
             exit;
         }
 
