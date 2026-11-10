@@ -19,7 +19,8 @@ class erLhcoreClassModelGenericBotTrItem {
             'group_id' => $this->group_id,
             'identifier' => $this->identifier,
             'translation' => $this->translation,
-            'auto_translate' => $this->auto_translate
+            'auto_translate' => $this->auto_translate,
+            'detect_language' => $this->detect_language
         );
 
         return $stateArray;
@@ -103,6 +104,18 @@ class erLhcoreClassModelGenericBotTrItem {
      */
     public function translateByChat($locale, $params = []) {
 
+        // Detect chat language based on the visitor messages before choosing translation
+        if ($this->detect_language == 1 && isset($params['chat']) && $params['chat'] instanceof erLhcoreClassModelChat && $params['chat']->id > 0) {
+            try {
+                $detectedLanguage = erLhcoreClassTranslate::detectChatLanguage($params['chat']);
+                if (is_string($detectedLanguage) && $detectedLanguage != '') {
+                    $locale = $detectedLanguage;
+                }
+            } catch (Exception $e) {
+                // Detection is optional, keep locale provided by the caller
+            }
+        }
+
         $this->translation_front = $this->translation_array['default'];
         $this->afterParse($params);
 
@@ -158,5 +171,6 @@ class erLhcoreClassModelGenericBotTrItem {
     public $translation = '';
     public $group_id = 0;
     public $auto_translate = 0;
+    public $detect_language = 0;
     public $translation_front = '';
 }

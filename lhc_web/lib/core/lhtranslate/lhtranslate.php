@@ -84,7 +84,7 @@ class erLhcoreClassTranslate
 
     /**
      * Detects chat language with translation service instead of relying on chat locale.
-     * Detected language is stored in chat variables, so translation service is called only once per chat.
+     * Detected language is stored in chat locale, so translation service is called only once per chat.
      *
      * @param erLhcoreClassModelChat $chat
      *
@@ -98,9 +98,9 @@ class erLhcoreClassTranslate
             $chatVariables = array();
         }
 
-        // Language is already detected, no need to call translation service again
+        // Language is already detected, chat locale already holds detected language
+        // detected_lang keeps legacy chat locale value and marks that detection was executed
         if (isset($chatVariables['detected_lang']) && $chatVariables['detected_lang'] != '') {
-            $chat->chat_locale = $chatVariables['detected_lang'];
             return $chat->chat_locale;
         }
 
@@ -163,6 +163,7 @@ class erLhcoreClassTranslate
             return null;
         }
 
+        // Keep legacy chat locale value, chat locale itself holds detected language
         $chatVariables['detected_lang'] = $chat->chat_locale != '' ? $chat->chat_locale : $detectedLanguage;
 
         $chat->chat_variables = json_encode($chatVariables);

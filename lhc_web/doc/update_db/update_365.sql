@@ -7,3 +7,4 @@ ALTER TABLE `lhc_mailconv_mailbox` ADD `created_at` int(11) NOT NULL DEFAULT 0, 
 ALTER TABLE `lhc_mailconv_response_template` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
 ALTER TABLE `lh_group` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
 ALTER TABLE `lh_canned_msg_replace` ADD `created_at` int(11) NOT NULL DEFAULT 0, ADD `updated_at` int(11) NOT NULL DEFAULT 0, ADD `muser_id` int(11) NOT NULL DEFAULT 0;
+ALTER TABLE `lh_generic_bot_tr_item` ADD `detect_language` tinyint(1) unsigned NOT NULL DEFAULT '0', COMMENT='';

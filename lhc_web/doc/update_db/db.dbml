@@ -2270,6 +2270,7 @@ Table "lh_generic_bot_tr_item" {
   "id" int(11) [pk, not null, increment]
   "group_id" int(11) [not null]
   "auto_translate" tinyint(1) [not null, default: 0]
+  "detect_language" tinyint(1) [not null, default: 0]
   "identifier" varchar(50) [not null]
   "translation" text [not null]
 

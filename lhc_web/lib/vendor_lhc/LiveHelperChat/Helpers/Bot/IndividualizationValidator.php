@@ -20,7 +20,8 @@ class IndividualizationValidator
             'message_item' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY ),
             'languages' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw',null,FILTER_REQUIRE_ARRAY),
             'group_id' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)),
-            'auto_translate' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
+            'auto_translate' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'boolean'),
+            'detect_language' => new \ezcInputFormDefinitionElement(\ezcInputFormDefinitionElement::OPTIONAL, 'boolean')
         );
 
         $form = new \ezcInputForm( INPUT_POST, $definition );
@@ -64,6 +65,12 @@ class IndividualizationValidator
             $trItem->auto_translate = 1;
         } else {
             $trItem->auto_translate = 0;
+        }
+
+        if ( $form->hasValidData( 'detect_language' ) ) {
+            $trItem->detect_language = 1;
+        } else {
+            $trItem->detect_language = 0;
         }
 
         return $Errors;
@@ -115,6 +122,7 @@ class IndividualizationValidator
                 if ($updateExisting == true) {
                     $trItemExisting->translation = $trItem->translation;
                     $trItemExisting->auto_translate = $trItem->auto_translate;
+                    $trItemExisting->detect_language = $trItem->detect_language;
                     $trItemExisting->updateThis();
                 }
                 continue;
@@ -125,6 +133,7 @@ class IndividualizationValidator
             $trItemCopy->identifier = $trItem->identifier;
             $trItemCopy->translation = $trItem->translation;
             $trItemCopy->auto_translate = $trItem->auto_translate;
+            $trItemCopy->detect_language = $trItem->detect_language;
             $trItemCopy->saveThis();
         }
     }

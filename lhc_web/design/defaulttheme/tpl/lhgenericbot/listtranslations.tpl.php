@@ -13,6 +13,12 @@
             <tr>
                 <td>
                     <a title="<?php echo $item->id?>" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/listtranslationsitems')?>/(group_id)/<?php echo $item->id?>"><?php echo htmlspecialchars($item->name)?></a>
+                    <?php if ($item->use_translation_service == 1) : ?>
+                        <span class="badge bg-info" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Automatic translation enabled')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Auto translate')?></span>
+                    <?php endif; ?>
+                    <?php if (!empty($item->configuration_array['detect_chat_language'])) : ?>
+                        <span class="badge bg-warning" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Chat language detection enabled')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Detect language')?></span>
+                    <?php endif; ?>
                     <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
                 </td>
                 <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/edittrgroup')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
@@ -29,4 +35,4 @@
 
 <?php endif; ?>
 
-<a class="btn btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/newtrgroup')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','New')?></a>
+<a class="btn btn-sm btn-secondary" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/newtrgroup')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','New')?></a>

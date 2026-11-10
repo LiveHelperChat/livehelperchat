@@ -61,6 +61,11 @@
     <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','If you have configured Automatic Translations we will use it for untranslated items.');?></small></i></p>
 </div>
 
+<div class="form-group">
+    <label><input type="checkbox" name="detect_language" <?php $item->detect_language == 1 ? print 'checked="checked"' : ''?> value="1" /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Try detect language using AI service before translating')?></label>
+    <p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('department/edit','Instead of using bot language as a source language we will detect the language of this translation with the translation service.');?></small></i></p>
+</div>
+
 <div role="tabpanel">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs mb-2" role="tablist" data-remember="true" id="autoresponder-tabs">

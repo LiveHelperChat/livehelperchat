@@ -19,6 +19,11 @@ $def->properties['auto_translate']->columnName   = 'auto_translate';
 $def->properties['auto_translate']->propertyName = 'auto_translate';
 $def->properties['auto_translate']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
 
+$def->properties['detect_language'] = new ezcPersistentObjectProperty();
+$def->properties['detect_language']->columnName   = 'detect_language';
+$def->properties['detect_language']->propertyName = 'detect_language';
+$def->properties['detect_language']->propertyType = ezcPersistentObjectProperty::PHP_TYPE_INT;
+
 $def->properties['identifier'] = new ezcPersistentObjectProperty();
 $def->properties['identifier']->columnName   = 'identifier';
 $def->properties['identifier']->propertyName = 'identifier';
