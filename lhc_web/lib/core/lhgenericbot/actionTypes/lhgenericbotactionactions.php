@@ -10,9 +10,14 @@ class erLhcoreClassGenericBotActionActions {
             $params['first_trigger'] = $params['current_trigger'];
         }
 
+
+        // Automatic translations is enabled for this action
+        $autoTranslate = isset($action['content']['attr_options']['auto_translate']) && $action['content']['attr_options']['auto_translate'] == true;
+
+
         if (isset($action['content']['success_message']) && $action['content']['success_message'] != '') {
 
-            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']), array('chat' => $chat, 'args' => $params)));
+            $msgData = explode('|||',erLhcoreClassGenericBotWorkflow::translateMessage(trim($action['content']['success_message']), array('auto_translate' => $autoTranslate, 'chat' => $chat, 'args' => $params)));
 
             $item = $msgData[0];
             if (count($msgData) > 0){

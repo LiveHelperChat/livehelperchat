@@ -151,6 +151,10 @@ class NodeTriggerActionActions extends Component {
                     <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','check_default'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','check_default'])} /> On failure check for default match trigger first.</label>
                 </div>
 
+                <div className="form-group">
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['attr_options','auto_translate'],'value' : e.target.checked})} defaultChecked={this.props.action.getIn(['content','attr_options','auto_translate'])} /> Automatic translations.</label> <i className="material-icons" title="Only translation syntax placeholders like {identifier__Default text} are translated with the translation service, plain text is left as it is. It also requires automatic translations (use translation service) to be enabled in the bot individualization group of the department, and the placeholder must not have a manual translation for the visitor language.">info</i>
+                </div>
+
                 <div className="row">
                     <div className="col-6">
                         <div className="form-group">
