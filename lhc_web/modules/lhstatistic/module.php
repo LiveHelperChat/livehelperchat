@@ -132,7 +132,7 @@ $ViewList['abstatistic'] = array(
 
 $ViewList['departmentstats'] = array(
     'params' => array('id'),
-    'uparams' => array('type','tab'),
+    'uparams' => array('type','tab','action'),
     'functions' => array( 'statisticdep' )
 );
 

@@ -1,7 +1,9 @@
 <?php
 $modalHeaderClass = 'pt-1 pb-1 ps-2 pe-2';
 $modalHeaderTitle = erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Statistic') . ' - ' . (isset($department) ? htmlspecialchars($department) : htmlspecialchars($department_group));
-$modalBodyClass = 'p-1'
+$modalBodyClass = 'p-1';
+$modalSize = 'xxxl';
+
 ?>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_header.tpl.php'));?>
 <div class="modal-body" ng-non-bindable>
@@ -13,6 +15,7 @@ $modalBodyClass = 'p-1'
             <?php if (isset($department)) : ?>
             <li role="presentation" class="nav-item"><a href="#online-status" class="nav-link" aria-controls="online-status" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online status');?></a></li>
             <li role="presentation" class="nav-item"><a href="#depgroups-stat" class="nav-link" aria-controls="depgroups-stat" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Department groups');?></a></li>
+            <li role="presentation" class="nav-item"><a href="#autoassign-next" class="nav-link<?php if ($tab == 'autoassign') : ?> active<?php endif;?>" aria-controls="autoassign-next" role="tab" data-bs-toggle="tab"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Next auto assignment');?></a></li>
             <?php endif; ?>
         </ul>
         <div class="tab-content">
@@ -518,6 +521,130 @@ $modalBodyClass = 'p-1'
                         ))) : ?><span class="ms-1 badge fs16 bg-light text-success"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Online');?></span><?php else : ?><span class="ms-1 badge fs16 bg-light text-danger"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Offline');?></span><?php endif; ?><span class="badge bg-secondary ms-1">online_department_hours</span>
                     </li>
                 </ul>
+            </div>
+
+            <div role="tabpanel" class="tab-pane<?php if ($tab == 'autoassign') : ?> active<?php endif;?>" id="autoassign-next" data-refresh-url="<?php echo htmlspecialchars(erLhcoreClassDesign::baseurl('statistic/departmentstats') . '/' . (int)$department->id . '/(action)/autoassign')?>">
+                <style>
+                    /* Eligibility filter is a class on the refreshed container, so the checkbox state survives the auto refresh */
+                    #autoassign-next-live.autoassign-eligible-only tr[data-autoassign-valid="0"] {display: none;}
+                </style>
+                <div class="mb-2">
+                    <input class="form-check-input me-1" type="checkbox" id="autoassign-auto-refresh" value="1" style="vertical-align: middle">
+                    <label class="form-check-label me-3" for="autoassign-auto-refresh" style="vertical-align: middle"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Auto refresh every');?> <span id="autoassign-auto-refresh-interval">2</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','seconds');?></label>
+                    <span id="autoassign-only-valid-wrapper">
+                        <input class="form-check-input me-1" type="checkbox" id="autoassign-only-valid" value="1" style="vertical-align: middle">
+                        <label class="form-check-label me-1" for="autoassign-only-valid" style="vertical-align: middle"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('statistic/departmentstats','Show only operators eligible for auto assignment');?></label>
+                        <span class="badge bg-success" id="autoassign-only-valid-count" style="vertical-align: middle">0</span>
+                    </span>
+                </div>
+                <div id="autoassign-next-live">
+                    <?php include(erLhcoreClassDesign::designtpl('lhstatistic/autoassign_queue.tpl.php')); ?>
+                </div>
+                <script>
+                (function () {
+                    'use strict';
+
+                    var panel = document.getElementById('autoassign-next');
+                    if (!panel) {
+                        return;
+                    }
+
+                    // Reopening the modal must not stack timers
+                    if (window.autoAssignRefreshTimer) {
+                        clearInterval(window.autoAssignRefreshTimer);
+                        window.autoAssignRefreshTimer = null;
+                    }
+
+                    var checkbox = document.getElementById('autoassign-auto-refresh');
+                    var live = document.getElementById('autoassign-next-live');
+                    var refreshUrl = panel.getAttribute('data-refresh-url') || '';
+
+                    // Eligibility filter sits outside of the refreshed part, so it survives the auto refresh
+                    var onlyValid = document.getElementById('autoassign-only-valid');
+                    var onlyValidCount = document.getElementById('autoassign-only-valid-count');
+
+                    if (!checkbox || !live || refreshUrl === '') {
+                        return;
+                    }
+
+                    var interval = 2000;
+
+                    function applyEligibilityFilter() {
+                        if (onlyValid) {
+                            live.classList.toggle('autoassign-eligible-only', onlyValid.checked);
+                        }
+                    }
+
+                    // Count comes from the refreshed markup, the checkbox itself is never replaced
+                    function syncEligibility() {
+                        var eligible = live.querySelectorAll('tr[data-autoassign-valid="1"]').length;
+
+                        if (onlyValidCount) {
+                            onlyValidCount.textContent = eligible;
+                            onlyValidCount.className = 'badge ' + (eligible > 0 ? 'bg-success' : 'bg-secondary');
+                        }
+
+                        applyEligibilityFilter();
+                    }
+
+                    function stop() {
+                        if (window.autoAssignRefreshTimer) {
+                            clearInterval(window.autoAssignRefreshTimer);
+                            window.autoAssignRefreshTimer = null;
+                        }
+                    }
+
+                    function refresh() {
+                        // Modal was closed (or the tab content was replaced) - nothing left to refresh
+                        if (!document.body.contains(live)) {
+                            stop();
+                            return;
+                        }
+
+                        // Another tab of the modal is opened - keep the timer, just skip the request
+                        if (panel.offsetParent === null) {
+                            return;
+                        }
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', refreshUrl + (refreshUrl.indexOf('?') === -1 ? '?' : '&') + 't=' + new Date().getTime(), true);
+                        xhr.onreadystatechange = function () {
+                            if (xhr.readyState !== 4 || xhr.status !== 200 || xhr.responseText === '') {
+                                return;
+                            }
+
+                            // `statistic/departmentstats/(action)/autoassign` returns only the queue markup
+                            live.innerHTML = xhr.responseText;
+                            syncEligibility();
+                        };
+                        xhr.send();
+                    }
+
+                    function start() {
+                        stop();
+                        refresh();
+                        window.autoAssignRefreshTimer = setInterval(refresh, interval);
+                    }
+
+                    if (onlyValid) {
+                        onlyValid.onchange = applyEligibilityFilter;
+                    }
+
+                    syncEligibility();
+
+                    checkbox.onchange = function () {
+                        if (checkbox.checked) {
+                            start();
+                        } else {
+                            stop();
+                        }
+                    };
+
+                    if (checkbox.checked) {
+                        start();
+                    }
+                })();
+                </script>
             </div>
             <?php endif;?>
         </div>

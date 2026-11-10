@@ -34,6 +34,13 @@ class AutoAssign
      */
     const CANDIDATE_LIMIT = 20;
 
+    /**
+     * How many eligible operators the operator queue of the department statistic modal lists.
+     * Operators which would not take part in the auto assignment are always listed - they explain
+     * why the queue is short.
+     */
+    const QUEUE_OPERATOR_LIMIT = 30;
+
     /** Human readable chat status, the workflow only processes `pending` chats. */
     public static function statusLabel($status)
     {
@@ -811,6 +818,172 @@ class AutoAssign
             'attempts' => $attempts,
             'sql' => $usedAttempt === null ? '' : $usedAttempt['sql'],
             'order_by' => $usedAttempt === null ? '' : $usedAttempt['order_by'],
+        );
+    }
+
+    /**
+     * Pending chats of the department in the order `cron/workflow` processes them
+     * (`priority DESC, id ASC`).
+     */
+    public static function nextPendingChats($department, $limit = 5)
+    {
+        if (!is_object($department) || (int)$department->id <= 0) {
+            return array();
+        }
+
+        return \erLhcoreClassModelChat::getList(array(
+            'sort' => 'priority DESC, id ASC',
+            'limit' => (int)$limit,
+            'filter' => array(
+                'status' => \erLhcoreClassModelChat::STATUS_PENDING_CHAT,
+                'dep_id' => (int)$department->id,
+            ),
+        ));
+    }
+
+    /**
+     * A "just arrived" pending chat of the department.
+     *
+     * Used by the queue replay when the department has nothing pending, so a manager can still see
+     * who would receive the next chat. It is never saved, it only carries the values the candidate
+     * queries and the gates read.
+     */
+    public static function unassignedChat($department, $timestamp = null)
+    {
+        $timestamp = $timestamp === null ? (int)time() : (int)$timestamp;
+
+        $chat = new \erLhcoreClassModelChat();
+        $chat->id = 0;
+        $chat->status = \erLhcoreClassModelChat::STATUS_PENDING_CHAT;
+        $chat->dep_id = is_object($department) ? (int)$department->id : 0;
+        $chat->user_id = 0;
+        $chat->priority = 0;
+        $chat->chat_locale = '';
+        $chat->time = $timestamp;
+        $chat->pnd_time = $timestamp;
+        $chat->wait_time = 0;
+        $chat->tslasign = 0;
+
+        return $chat;
+    }
+
+    /**
+     * Operator queue of a department for one chat - every `lh_userdep` row with its verdict and,
+     * for the rows the workflow would pick, the position in the candidate list.
+     *
+     * The pickable rows are returned first in exactly the order the candidate query sorts them
+     * (`position` 1 is who the workflow assigns the chat to), the rejected rows follow sorted by
+     * `last_accepted` so the "closest" operator comes first.
+     *
+     * Only the first `$pickableLimit` eligible operators are returned - past that the order stops
+     * being useful. Every rejected row is always returned, they explain why the queue is short.
+     */
+    public static function operatorQueue($chat, $department, $timestamp = null, $pick = null, $pickableLimit = self::QUEUE_OPERATOR_LIMIT)
+    {
+        $timestamp = $timestamp === null ? (int)time() : (int)$timestamp;
+
+        if (!is_object($department)) {
+            return array();
+        }
+
+        if ($pick === null) {
+            $pick = self::pick($chat, $department, $timestamp);
+        }
+
+        $positions = array();
+        foreach ($pick['candidates'] as $index => $candidate) {
+            $positions[(int)$candidate['user_id']] = $index + 1;
+        }
+
+        $queue = array();
+        foreach (self::departmentRows($department->id) as $row) {
+            $position = isset($positions[(int)$row->user_id]) ? $positions[(int)$row->user_id] : null;
+
+            // Only the first N operators the workflow would pick are listed, the rest of `lh_userdep`
+            // rows follow with the reason they are skipped.
+            if ($position !== null && $pickableLimit > 0 && $position > $pickableLimit) {
+                continue;
+            }
+
+            $checks = self::operatorChecks($chat, $department, $row, $timestamp);
+            $summary = self::rowSummary($row, $timestamp);
+
+            $queue[] = array(
+                'user_dep_id' => (int)$row->id,
+                'user_id' => (int)$row->user_id,
+                'position' => $position,
+                'pickable' => $checks['pickable'],
+                'online' => self::operatorOnline($row, $timestamp),
+                'blocked_by' => $checks['blocked_by'],
+                'paths' => $checks['paths'],
+                'language_preferred' => $checks['language_preferred'],
+                'checks' => $checks['checks'],
+                'operator' => $summary,
+            );
+        }
+
+        usort($queue, function ($a, $b) {
+            $aPosition = $a['position'] === null ? PHP_INT_MAX : $a['position'];
+            $bPosition = $b['position'] === null ? PHP_INT_MAX : $b['position'];
+
+            if ($aPosition == $bPosition) {
+                return $a['operator']['last_accepted'] - $b['operator']['last_accepted'];
+            }
+
+            return $aPosition < $bPosition ? -1 : 1;
+        });
+
+        return $queue;
+    }
+
+    /**
+     * Everything the "Next auto assignment" tab of the department statistic modal shows.
+     *
+     * `chats` replays the next pending chats of the department, `operators` is the queue for the
+     * first of them (or for a simulated chat when nothing is pending) and `gates` explains whether
+     * the department accepts auto assignment at all right now.
+     */
+    public static function queueOverview($department, $limit = 5, $timestamp = null)
+    {
+        $timestamp = $timestamp === null ? (int)time() : (int)$timestamp;
+
+        if (!is_object($department)) {
+            return array(
+                'found' => false,
+                'enabled' => false,
+                'simulated' => false,
+                'chats' => array(),
+                'reference_chat' => null,
+                'gates' => array('allowed' => false, 'blocked_by' => array('department_missing'), 'checks' => array()),
+                'queue' => array('variant' => null, 'picked_user_id' => 0, 'candidates' => array(), 'attempts' => array()),
+                'operators' => array(),
+            );
+        }
+
+        $pendingChats = self::nextPendingChats($department, $limit);
+
+        $chats = array();
+        foreach ($pendingChats as $pendingChat) {
+            $chats[] = array(
+                'chat' => self::chatSummary($pendingChat),
+                'gates' => self::gates($pendingChat, $department, $timestamp),
+                'pick' => self::pick($pendingChat, $department, $timestamp),
+            );
+        }
+
+        $simulated = empty($pendingChats);
+        $referenceChat = $simulated ? self::unassignedChat($department, $timestamp) : $pendingChats[0];
+        $queue = self::pick($referenceChat, $department, $timestamp);
+
+        return array(
+            'found' => true,
+            'enabled' => (int)$department->active_balancing === 1,
+            'simulated' => $simulated,
+            'chats' => $chats,
+            'reference_chat' => self::chatSummary($referenceChat),
+            'gates' => self::gates($referenceChat, $department, $timestamp),
+            'queue' => $queue,
+            'operators' => self::operatorQueue($referenceChat, $department, $timestamp, $queue),
         );
     }
 
