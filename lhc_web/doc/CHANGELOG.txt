@@ -1,3 +1,21 @@
+5.01v
+
+✨ Restrict passwordless logins, add REST API key only accounts and improve widget voice/file previews
+
+- 🗄️ Add `api_key_login_only` and `disable_autologin` flags to `lh_users` via update_366.sql, both install scripts, `structure.json` and the POS definition; the user model, `getState()` and the new/edit user windows expose them (new user form checkboxes and an access summary alert in the account edit window showing whether the operator can log in with a password and whether they can be logged in without one)
+- 🔐 `erLhcoreClassUserUtils` gained the account level login rules `isLoginIpAllowed()`, `isApiKeyLoginOnly()`, `isPasswordLoginAllowed()`, `isAutologinAllowed()` and `fetchAutologinUser()`, which every passwordless login path now has to use - `api_key_login_only` accounts can no longer log in with a username and password (checked in the login form and in `erLhcoreClassUser::loginUser()`) and `disable_autologin` accounts can no longer be logged in without credentials
+- 🚪 Block passwordless login for such accounts in `user/autologin`, `user/autologinuser`, `user/loginasuser`, `restapi/loginbytoken`, the chat accept e-mail link and the saved report "verified" login, returning a clear "not allowed for this user" error instead of logging the operator in; the login IP restrictions are now also applied by these paths through the same shared helper
+- 🏠 Serve autologin style endpoints only from a back office site access - the new `getLoginSiteAccess()` / `validateLoginSiteAccess()` helpers follow the same rules as `user/login` (including the `user.login_site_access` event) and reject requests made on a non-admin site access in `chat/accept`, `user/autologinuser`, `user/loginasuser`, `user/updatepassword` and the browser mode of `restapi/loginbytoken`
+- 🧾 Chat accept e-mail links now generate and verify their verification hash through `erLhcoreClassModelChatAccept::generateEmailVerificationHash()` / `validateEmailVerificationHash()` with a timing safe `hash_equals()` comparison, and the mail and XMP senders use the same helper so the link and its validation can not drift apart
+- 🔎 The system update security overview reports administrators who can still be logged in with an autologin link and operators behind an active REST API key which are not limited to API key login with autologin disabled, both turning the check into a warning with a counter badge
+- 🎙️ Widget voice messages: recording starts immediately and shows the microphone input level, the upload result is shown in the status area and cleared afterwards, pending recorder initialization is cancelled and panel resources are released, the upload validates the HTTP status and the explicit server success flag, and the recorder WASM paths were fixed with a local polyfill fallback instead of an external CDN
+- 🖼️ Unsent file previews are restored after a page refresh - `lhwidgetrestapi/initchat` returns the temporary preview files of the chat with short lived download links and the widget file preview handlers are lazy-loaded
+- 🙂 New widget theme option "Show BB code (emoji) button next to settings" (`bbc_direct`) exposes the BB code button in the widget toolbar
+- 🌐 `erLhcoreClassTranslate::detectChatLanguage()` skips language detection for very short texts (three words or fewer and at most 20 characters) because the result is unreliable, so the chat keeps its configured language
+- 🔄 Bump `DB_VERSION` to 366 and `LHC_RELEASE` to 501, and raise the widget React app version to 429
+
+execute doc/update_db/update_366.sql for update
+
 5.00v
 
 Track configuration object creation and changes
