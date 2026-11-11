@@ -2129,6 +2129,7 @@ class Install
                   `team_lead_user_id` int(11) unsigned NOT NULL DEFAULT 0,
                   `api_key_login_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `disable_autologin` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `passwordless_login` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT '0',
                   `max_active_mails` int(11) NOT NULL DEFAULT '0',
                   PRIMARY KEY (`id`),

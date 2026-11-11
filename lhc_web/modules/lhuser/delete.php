@@ -20,6 +20,9 @@ if ($userId == 1) {
 $departament = erLhcoreClassUser::getSession()->load( 'erLhcoreClassModelUser', $userId);
 erLhcoreClassUser::getSession()->delete($departament);
 
+// Passkeys
+erLhcoreClassModelUserPasskey::removeForUser($userId);
+
 // Transfered chats to user
 $q = ezcDbInstance::get()->createDeleteQuery();
 $q->deleteFrom( 'lh_transfer' )->where( $q->expr->eq( 'transfer_user_id', $userId ) );

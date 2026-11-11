@@ -245,6 +245,9 @@ class erLhcoreClassUserValidator {
 			),
 			'disable_autologin' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+			'passwordless_login' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
 		);
 		
@@ -411,6 +414,18 @@ class erLhcoreClassUserValidator {
 		        $userData->disable_autologin = 1;
 		    } else {
 		        $userData->disable_autologin = 0;
+		    }
+
+		    if ( $form->hasValidData( 'passwordless_login' ) && $form->passwordless_login == true )	{
+		        $userData->passwordless_login = 1;
+		    } else {
+		        $userData->passwordless_login = 0;
+		    }
+
+		    // Without a passkey this user would not be able to login at all
+		    if ( $userData->passwordless_login == 1 && count(erLhcoreClassUserPasskey::getPasskeyList($userData->id)) == 0 ) {
+		        $userData->passwordless_login = 0;
+		        $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator','Add at least one passkey for this user before disabling password login');
 		    }
 
             if ($form->hasInputField('team_lead_user_id')) {
@@ -1108,6 +1123,9 @@ class erLhcoreClassUserValidator {
             ),
 			'ReceivePermissionRequest' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+			'passwordless_login' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
 		);
 		
@@ -1233,6 +1251,17 @@ class erLhcoreClassUserValidator {
 			$userData->xmpp_username = '';
 		}
 		
+		// Users can enable passwordless login only when they have at least one passkey
+		if ( $form->hasValidData( 'passwordless_login' ) && $form->passwordless_login == true ) {
+			if ( count(erLhcoreClassUserPasskey::getPasskeyList($userData->id)) > 0 ) {
+				$userData->passwordless_login = 1;
+			} else {
+				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Add a passkey before enabling passwordless login');
+			}
+		} else {
+			$userData->passwordless_login = 0;
+		}
+
 		// new event for save additional account fields
 		erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.account.update', array('userData' => & $userData, 'errors' => & $Errors));
 		

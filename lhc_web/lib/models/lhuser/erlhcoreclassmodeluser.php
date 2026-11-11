@@ -54,7 +54,8 @@ class erLhcoreClassModelUser {
             'offline_reason_id' => $this->offline_reason_id,
             'team_lead_user_id' => $this->team_lead_user_id,
             'api_key_login_only' => $this->api_key_login_only,
-            'disable_autologin' => $this->disable_autologin
+            'disable_autologin' => $this->disable_autologin,
+            'passwordless_login' => $this->passwordless_login
         );
    }
 
@@ -273,6 +274,7 @@ class erLhcoreClassModelUser {
     public $team_lead_user_id = 0;
     public $api_key_login_only = 0;
     public $disable_autologin = 0;
+    public $passwordless_login = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

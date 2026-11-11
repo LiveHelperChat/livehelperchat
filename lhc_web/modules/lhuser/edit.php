@@ -320,6 +320,8 @@ $tpl->set('force_reset_password', erLhcoreClassModelUserLogin::getCount(array('f
 
 $tpl->set('user',$UserData);
 
+$tpl->set('passkeys', erLhcoreClassUserPasskey::getPasskeyList($UserData->id));
+
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.edit_user_window',array('userData' => & $UserData, 'tpl' => & $tpl, 'params' => $Params));
 
 $Result['content'] = $tpl->fetch();

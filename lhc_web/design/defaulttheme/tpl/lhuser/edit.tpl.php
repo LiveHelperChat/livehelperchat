@@ -84,6 +84,8 @@
 	       <div>
 	           <?php if (erLhcoreClassUserUtils::isPasswordLoginAllowed($user)) : ?>
 	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can login directly using username and password');?>
+	           <?php elseif ($user->passwordless_login == 1) : ?>
+	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can not login directly using username and password, because password login is disabled (passkey only)');?>
 	           <?php else : ?>
 	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can not login directly using username and password, because account is restricted to REST API usage');?>
 	           <?php endif;?>
@@ -143,6 +145,11 @@
                        <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Autologin, login as user and login by token are not allowed for this user')?>"><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="disable_autologin" <?php echo $user->disable_autologin == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disable autologin')?></label>
                    </div>
                </div>
+               <div class="col-4">
+                   <div class="form-group">
+                       <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Username and password login is not allowed for this user. Login is possible only with a passkey')?>"><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="passwordless_login" <?php echo $user->passwordless_login == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Passwordless login (passkey only)')?></label>
+                   </div>
+               </div>
 
 
 
@@ -153,6 +160,34 @@
                <?php endif; ?>
 
            </div>
+
+	   <?php if (isset($passkeys)) : ?>
+	   <div class="form-group" ng-non-bindable>
+	       <label><span class="material-icons">passkey</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Passkeys of this user');?></label>
+	       <?php if (empty($passkeys)) : ?>
+	           <div class="text-muted small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','This user has no passkeys yet. Passkeys are added by the user from his account page.');?></div>
+	       <?php else : ?>
+	           <table class="table table-sm table-hover mb-0">
+	               <thead>
+	                   <tr>
+	                       <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Name');?></th>
+	                       <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Added');?></th>
+	                       <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Last used');?></th>
+	                   </tr>
+	               </thead>
+	               <tbody>
+	                   <?php foreach ($passkeys as $passkey) : ?>
+	                   <tr>
+	                       <td><?php echo htmlspecialchars($passkey->name)?></td>
+	                       <td><?php echo htmlspecialchars($passkey->created_at_front)?></td>
+	                       <td><?php echo $passkey->last_used_at_front != '' ? htmlspecialchars($passkey->last_used_at_front) : erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Never');?></td>
+	                   </tr>
+	                   <?php endforeach;?>
+	               </tbody>
+	           </table>
+	       <?php endif;?>
+	   </div>
+	   <?php endif;?>
 
     		<div class="form-group">
         		<label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','E-mail');?>*</label>

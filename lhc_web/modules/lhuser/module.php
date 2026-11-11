@@ -41,6 +41,19 @@ $ViewList['account'] = array(
     'functions' => array( 'selfedit' )
 );
 
+// Passkeys management of the logged user
+$ViewList['passkey'] = array(
+    'params' => array('action'),
+    'uparams' => array('id'),
+    'functions' => array( 'selfedit' )
+);
+
+// Passkey login. Available for not logged users as regular login
+$ViewList['passkeylogin'] = array(
+    'params' => array('action'),
+    'uparams' => array()
+);
+
 $ViewList['editdepartment'] = array(
     'params' => array('user_id','dep_id'),
     'uparams' => array('csfr','action','mode','editor'),

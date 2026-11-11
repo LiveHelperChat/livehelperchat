@@ -46,7 +46,9 @@
     <?php endif;?>
 
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/notifications_tab.tpl.php'));?>
-	
+
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/passkeys_tab.tpl.php'));?>
+
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs/custom_multiinclude_tab.tpl.php'));?>
 
 </ul>
@@ -84,6 +86,15 @@
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat password');?></label> <input autocomplete="new-password" ng-non-bindable type="password" class="form-control" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Repeat the new password');?>" name="Password1" value="<?php echo htmlspecialchars(isset($user->password_temp_2) ? $user->password_temp_2 : '');?>" />
         </div>
          <?php endif; ?>
+
+        <?php if ((isset($passkeys) && !empty($passkeys)) || $user->passwordless_login == 1) : ?>
+        <div class="form-group">
+            <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','When enabled username and password login is disabled and you can login only with a passkey');?>">
+                <input type="checkbox" value="on" name="passwordless_login" <?php echo $user->passwordless_login == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Passwordless login (passkey only)');?>
+            </label>
+            <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Available because you have a passkey added. Your username and password login will not work while this option is enabled.');?></div>
+        </div>
+        <?php endif; ?>
 
         <div class="form-group">
             <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Email');?>*</label>
@@ -382,7 +393,9 @@
 	<?php endif;?>
 	
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/notifications_tab.tpl.php'));?>
-	
+
+	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/passkeys_tab.tpl.php'));?>
+
 	<?php include(erLhcoreClassDesign::designtpl('lhuser/menu_tabs_content/custom_multiinclude_tab.tpl.php'));?>
 	
 </div>

@@ -9,11 +9,16 @@ $UserData = $currentUser->getUserData();
 $validTabs = array(
     'canned' => 'tab_canned',
     'autoresponder' => 'tab_autoresponder',
-    'notifications' => 'tab_notifications'
+    'notifications' => 'tab_notifications',
+    'passkeys' => 'tab_passkeys'
 );
 
 $tpl->set('tab',key_exists((string)$Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
 $tpl->set('paramsRequest',$Params);
+
+if (erLhcoreClassUserPasskey::isEnabled()) {
+    $tpl->set('passkeys', erLhcoreClassUserPasskey::getPasskeyList($UserData->id));
+}
 
 if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','allowtochoosependingmode') && isset($_POST['UpdatePending_account'])) {
 

@@ -1,3 +1,4 @@
+<?php $passkeyLoginAvailable = erLhcoreClassUserPasskey::isEnabled() && erLhcoreClassUserUtils::validateLoginSiteAccess(); ?>
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Please login');?></h1>
 
 <?php if (isset($errors)) : ?>
@@ -37,15 +38,24 @@
 
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
-
-    <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group btn-group-sm" role="group" aria-label="Login">
-            <input type="submit" class="btn btn-primary" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?>" name="Login" />
-            <a class="btn btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
+    <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+        <div class="btn-group btn-group-sm text-nowrap" role="group" aria-label="Login">
+            <button type="submit" class="btn btn-primary" name="Login" value="Login"><span class="material-icons me-1">login</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?></button>
+            <?php if ($passkeyLoginAvailable) : ?>
+            <button type="button" class="btn btn-outline-secondary" data-lh-passkey-login
+                    data-options-url="<?php echo erLhcoreClassDesign::baseurl('user/passkeylogin')?>/options"
+                    data-verify-url="<?php echo erLhcoreClassDesign::baseurl('user/passkeylogin')?>/verify"><span class="material-icons me-1">passkey</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login with a passkey');?></button>
+            <?php endif;?>
+            <a class="btn btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><span class="material-icons me-1">lock_reset</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
         </div>
         <div class="text-muted small fs11"><em title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Taken time');?> - <?php echo round((microtime(true) - erLhcoreClassLazyDatabaseConfiguration::$connectionStartTime) * 1000, 2)?> ms"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your IP');?>: <?php echo htmlspecialchars(erLhcoreClassIPDetect::getIP());?></em>
         <div class="hide"><br><em>Server: <?php echo time();?> / User: <script>document.write(Math.round((new Date()).getTime()/1000));</script></em></div></div>
     </div>
+
+<?php if ($passkeyLoginAvailable) : ?>
+<div class="text-danger small mt-1" id="lh-passkey-login-error"></div>
+<script src="<?php echo erLhcoreClassDesign::designJSStatic('js/lhpasskeys.js')?>"></script>
+<?php endif;?>
 
 
 

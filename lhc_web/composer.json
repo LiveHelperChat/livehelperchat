@@ -120,6 +120,7 @@
     "symfony/event-dispatcher": "^7.1",
     "symfony/finder": "^7.4",
     "tgallice/fb-messenger-sdk": "dev-master#a0d103f38473891432965c0f5b38b142b5dbfc3c",
+    "web-auth/webauthn-lib": "^5.3",
     "webklex/php-imap": "^5.1.0"
   },
   "type": "project"

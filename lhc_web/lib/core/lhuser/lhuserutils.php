@@ -114,14 +114,15 @@ class erLhcoreClassUserUtils
     }
 
     /**
-     * Direct username/password login is not allowed for API key only accounts.
+     * Direct username/password login is not allowed for API key only accounts and
+     * for accounts which are restricted to passwordless (passkey) login.
      *
      * @param erLhcoreClassModelUser $user
      * @return bool
      */
     public static function isPasswordLoginAllowed($user)
     {
-        return !self::isApiKeyLoginOnly($user);
+        return !self::isApiKeyLoginOnly($user) && $user->passwordless_login != 1;
     }
 
     /**
