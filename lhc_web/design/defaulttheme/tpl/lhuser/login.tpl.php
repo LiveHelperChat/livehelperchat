@@ -22,7 +22,7 @@
 
 <div class="form-group">
     <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Username OR E-mail');?></label>
-    <input class="form-control" type="text" name="Username" value="" />
+    <input class="form-control" type="text" name="Username" value="" autocomplete="<?php echo $passkeyLoginAvailable ? 'username webauthn' : 'username'?>" />
 </div>
 
 <div class="form-group">

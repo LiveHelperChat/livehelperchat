@@ -196,6 +196,37 @@
         });
     }
 
+    var conditionalController = null;
+    var conditionalSettled = null;
+
+    function pause(milliseconds) {
+        return new Promise(function (resolve) {
+            window.setTimeout(resolve, milliseconds);
+        });
+    }
+
+    /**
+     * Modal (non autofill) assertion. Browser allows only one WebAuthn request at a time,
+     * so if the autofill ceremony is still being cancelled we retry once.
+     */
+    function getAssertion(publicKey, attempt) {
+        attempt = attempt || 0;
+
+        return navigator.credentials.get({
+            publicKey: publicKey
+        }).catch(function (exception) {
+            var isPending = exception && (exception.name === 'InvalidStateError' || /already pending/i.test(exception.message || ''));
+
+            if (attempt === 0 && isPending) {
+                return pause(300).then(function () {
+                    return getAssertion(publicKey, attempt + 1);
+                });
+            }
+
+            throw exception;
+        });
+    }
+
     function initLogin(button) {
         var errorBox = document.getElementById('lh-passkey-login-error');
         var redirectInput = document.querySelector('input[name="redirect"]');
@@ -209,16 +240,19 @@
             button.disabled = true;
             showError(errorBox, '');
 
-            postJson(button.getAttribute('data-options-url'), {
-                username: usernameInput ? usernameInput.value : ''
+            // Autofill (conditional) request has to be cancelled and settled before a new request is allowed
+            abortConditional().then(function () {
+                return pause(50);
+            }).then(function () {
+                return postJson(button.getAttribute('data-options-url'), {
+                    username: usernameInput ? usernameInput.value : ''
+                });
             }).then(function (optionsResponse) {
                 if (optionsResponse.error) {
                     throw new Error(optionsResponse.message);
                 }
 
-                return navigator.credentials.get({
-                    publicKey: prepareRequestOptions(optionsResponse.options)
-                });
+                return getAssertion(prepareRequestOptions(optionsResponse.options));
             }).then(function (credential) {
                 return postJson(button.getAttribute('data-verify-url'), {
                     credential: publicKeyCredentialToJSON(credential),
@@ -233,6 +267,9 @@
             }).catch(function (exception) {
                 button.disabled = false;
                 showError(errorBox, errorMessage(exception));
+
+                // Offer passkey autofill again, it was cancelled by the button click
+                initConditionalLogin(button);
             });
         });
     }
@@ -241,6 +278,106 @@
         document.querySelectorAll('[data-lh-passkey-container]').forEach(initRegistration);
 
         document.querySelectorAll('[data-lh-passkey-login]').forEach(initLogin);
+
+        var loginButton = document.querySelector('[data-lh-passkey-login]');
+
+        if (loginButton) {
+            initConditionalLogin(loginButton);
+        }
+    }
+
+    function abortConditional() {
+        var controller = conditionalController;
+        var settled = conditionalSettled;
+
+        conditionalController = null;
+        conditionalSettled = null;
+
+        if (controller) {
+            try {
+                controller.abort();
+            } catch (exception) {
+                // Already aborted
+            }
+        }
+
+        return settled || Promise.resolve();
+    }
+
+    /**
+     * Passkey autofill (conditional mediation).
+     *
+     * Passkey is offered as one of the options in the username field autocomplete list,
+     * nothing is shown until the user picks it. Modal flow stays on the login button.
+     */
+    function initConditionalLogin(button) {
+        if (typeof window.PublicKeyCredential === 'undefined' || typeof PublicKeyCredential.isConditionalMediationAvailable !== 'function') {
+            return;
+        }
+
+        var errorBox = document.getElementById('lh-passkey-login-error');
+        var redirectInput = document.querySelector('input[name="redirect"]');
+        var usernameInput = document.querySelector('input[name="Username"]');
+
+        PublicKeyCredential.isConditionalMediationAvailable().then(function (available) {
+            if (available !== true || !button.isConnected) {
+                return;
+            }
+
+            abortConditional();
+
+            var controller = new AbortController();
+            conditionalController = controller;
+
+            conditionalSettled = postJson(button.getAttribute('data-options-url'), {
+                username: usernameInput ? usernameInput.value : ''
+            }).then(function (optionsResponse) {
+                if (optionsResponse.error || controller.signal.aborted) {
+                    return null;
+                }
+
+                // `signal` must be next to `publicKey`, otherwise the request can not be cancelled
+                return navigator.credentials.get({
+                    publicKey: prepareRequestOptions(optionsResponse.options),
+                    mediation: 'conditional',
+                    signal: controller.signal
+                });
+            }).then(function (credential) {
+                if (!credential) {
+                    return null;
+                }
+
+                if (conditionalController === controller) {
+                    conditionalController = null;
+                }
+
+                return postJson(button.getAttribute('data-verify-url'), {
+                    credential: publicKeyCredentialToJSON(credential),
+                    redirect: redirectInput ? redirectInput.value : ''
+                });
+            }).then(function (result) {
+                if (!result) {
+                    return;
+                }
+
+                if (result.error) {
+                    throw new Error(result.message);
+                }
+
+                window.location.href = result.redirect;
+            }).catch(function (exception) {
+                if (exception && (exception.name === 'AbortError' || exception.name === 'NotAllowedError')) {
+                    return;
+                }
+
+                showError(errorBox, errorMessage(exception));
+            }).then(function () {
+                if (conditionalController === controller) {
+                    conditionalController = null;
+                    conditionalSettled = null;
+                }
+            });
+        });
     }
 
     if (document.readyState === 'loading') {
