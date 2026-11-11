@@ -255,6 +255,12 @@
                     <input type="text" class="form-control form-control-sm" ng-model="webhookincomingsctl.conditions.add_field_2_value" value="" />
                 </div>
             </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/webhooks','Header conditions. General conditions for messages being processed based on HTTP request headers.');?></label>
+                    <input type="text" class="form-control form-control-sm" placeholder="X-Webhook-Secret=mysecret||Content-Type=application/json" ng-model="webhookincomingsctl.conditions.header_cond" value="" />
+                </div>
+            </div>
         </div>
 
         <hr>

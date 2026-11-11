@@ -14,6 +14,13 @@ class erLhcoreClassChatWebhookIncoming {
             }
         }
 
+        if (isset($conditions['header_cond']) && $conditions['header_cond'] != "") {
+            // HTTP request headers are matched with the standard condition matcher
+            if (!self::isValidCondition('header_cond', array('header_cond' => self::normalizeHeaderCondition($conditions['header_cond'])), self::getRequestHeadersPayload())) {
+                throw new Exception('Header conditions does not met!');
+            }
+        }
+
         $messages = isset($conditions['messages']) && $conditions['messages'] != '' ? $payload[$conditions['messages']] : [$payload];
 
         if (isset($conditions['messages']) && $conditions['messages'] != '' &&  isset($conditions['message_direct']) && $conditions['message_direct'] == true) {
@@ -335,6 +342,82 @@ class erLhcoreClassChatWebhookIncoming {
         }
 
         return $validConditions;
+    }
+
+    /**
+     * Current request headers as a flat payload so webhook "Header conditions" can be
+     * matched with the standard condition matcher (isValidCondition()).
+     *
+     * E.g. "X-Webhook-Secret=s3cr3t||Content-Type=application/json" checks two headers.
+     * Keys are lower cased and normalizeHeaderCondition() lower cases attribute names,
+     * so header names are matched case insensitively.
+     */
+    public static function getRequestHeadersPayload()
+    {
+        $headers = array();
+
+        foreach ($_SERVER as $key => $value) {
+            if (strpos($key, 'HTTP_') === 0) {
+                $headers[strtolower(str_replace('_', '-', substr($key, 5)))] = $value;
+            } elseif (in_array($key, array('CONTENT_TYPE', 'CONTENT_LENGTH'))) {
+                $headers[strtolower(str_replace('_', '-', $key))] = $value;
+            }
+        }
+
+        if (function_exists('getallheaders')) {
+            $requestHeaders = getallheaders();
+            if (is_array($requestHeaders)) {
+                foreach ($requestHeaders as $name => $value) {
+                    $headers[strtolower($name)] = $value;
+                }
+            }
+        }
+
+        return $headers;
+    }
+
+    /**
+     * Lower cases header names in "Header conditions" so they match lower cased keys
+     * returned by getRequestHeadersPayload(). Values are untouched.
+     */
+    public static function normalizeHeaderCondition($condition)
+    {
+        $conditionsPairs = array();
+
+        foreach (explode('||', $condition) as $conditionsPair) {
+            $equalsPosition = strpos($conditionsPair, '=');
+
+            if ($equalsPosition === false) {
+                $conditionsPairs[] = strtolower(trim($conditionsPair));
+            } else {
+                $conditionsPairs[] = strtolower(trim(substr($conditionsPair, 0, $equalsPosition))) . substr($conditionsPair, $equalsPosition);
+            }
+        }
+
+        return implode('||', $conditionsPairs);
+    }
+
+    /**
+     * Removes [html]...[/html] BBCode wrapper from every value of the incoming payload.
+     *
+     * That BBCode is rendered as raw HTML in the back office, so an external system must
+     * never be able to deliver HTML/JavaScript into an operator session.
+     */
+    public static function stripHtmlBBCode($payload)
+    {
+        if (is_array($payload)) {
+            foreach ($payload as $key => $value) {
+                $payload[$key] = self::stripHtmlBBCode($value);
+            }
+
+            return $payload;
+        }
+
+        if (is_string($payload)) {
+            return str_ireplace(array('[html]', '[/html]'), '', $payload);
+        }
+
+        return $payload;
     }
 
     public static function processMessage($incomingWebhook, $payloadMessage, $payloadAll, $returnDeterminedData = false) {
