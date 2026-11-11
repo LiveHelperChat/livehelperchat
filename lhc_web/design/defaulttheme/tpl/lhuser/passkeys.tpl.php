@@ -59,6 +59,7 @@
             <tr>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','User')?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Name')?></th>
+                <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Type')?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Added')?></th>
                 <th><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Last used')?></th>
                 <th class="text-end" width="1%">&nbsp;</th>
@@ -79,6 +80,7 @@
                     <?php endif;?>
                 </td>
                 <td><?php echo htmlspecialchars($passkey->name)?></td>
+                <td title="<?php echo htmlspecialchars($passkey->aaguid)?>"><?php echo htmlspecialchars($passkey->type_front)?></td>
                 <td><?php echo htmlspecialchars($passkey->created_at_front)?></td>
                 <td><?php echo $passkey->last_used_at_front != '' ? htmlspecialchars($passkey->last_used_at_front) : erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Never')?></td>
                 <td nowrap="">

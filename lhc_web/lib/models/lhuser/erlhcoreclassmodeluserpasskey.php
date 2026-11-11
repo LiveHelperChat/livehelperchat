@@ -66,6 +66,10 @@ class erLhcoreClassModelUserPasskey
                 $this->{$var} = $this->{$varReplaced} > 0 ? date(erLhcoreClassModule::$dateDateHourFormat, $this->{$varReplaced}) : '';
                 return $this->{$var};
 
+            case 'type_front':
+                $this->type_front = erLhcoreClassUserPasskey::getAuthenticatorType($this->credential, $this->aaguid);
+                return $this->type_front;
+
             default:
                 break;
         }
