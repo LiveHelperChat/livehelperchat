@@ -103,7 +103,8 @@ $translations = array(
         "stop_playing_recorded" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Stop playing recorded audio'),
         "send" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Send voice message'),
         "dictate" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Dictate'),
-        "stop_dictate" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Stop')
+        "stop_dictate" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Stop'),
+        "up_to" => erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat', 'Up to {{time}}')
     ]
 );
 

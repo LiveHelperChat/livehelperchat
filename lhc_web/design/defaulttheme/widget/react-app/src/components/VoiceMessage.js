@@ -515,6 +515,11 @@ class VoiceMessage extends PureComponent {
         return (n < 10) ? ("0" + n) : n;
     }
 
+    formatTime(seconds) {
+        seconds = Math.max(0, parseInt(seconds, 10) || 0);
+        return Math.floor(seconds / 60) + ':' + this.pad(seconds % 60);
+    }
+
     render() {
 
         const {isLoading, isRecording, recording, isPlaying, isTranscribing } = this.state;
@@ -540,7 +545,7 @@ class VoiceMessage extends PureComponent {
 
             {isRecording && <span className="voice-message-level" ref={this.levelRef} aria-hidden="true">{Array.from({length: 24}, (v, i) => <i key={i}></i>)}</span>}
 
-            <span className="fs12 px-1 voice-message-length">{isRecording ? '' : (isPlaying ? this.pad(this.state.currentTime) + ':' : '')}{isRecording || !recording ? (this.props.maxSeconds - this.state.audioDuration) + " s." : this.pad(this.state.audioDuration) + (!isPlaying ? 's.' : '')}</span>
+            <span className="fs12 px-1 voice-message-length">{isRecording ? this.formatTime(this.state.audioDuration) + ' / ' + this.formatTime(this.props.maxSeconds) : (recording ? (isPlaying ? this.formatTime(this.state.currentTime) + ' / ' : '') + this.formatTime(this.state.audioDuration) : t('voice.up_to', {time: this.formatTime(this.props.maxSeconds)}))}</span>
 
             {recording && <button type="button" tabIndex="0" className="material-icons material-icons-button pointer text-success me-0 fs25" title={t('voice.send')} onClick={this.sendRecord}>&#xf107;</button>}
 
