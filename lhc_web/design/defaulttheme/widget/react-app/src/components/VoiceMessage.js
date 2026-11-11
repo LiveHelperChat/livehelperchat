@@ -19,7 +19,9 @@ class VoiceMessage extends PureComponent {
         // A reopened panel must not share a pending microphone request with the old one.
         this.recorder = new vmsg.Recorder({
             wasmURL: window.lhcChat['staticJS']['chunk_js']+ "/" + 'vmsg.8c4a15f2.wasm',
-            shimURL: "https://unpkg.com/wasm-polyfill.js@0.2.0/wasm-polyfill.js"
+            // No external WebAssembly polyfill. Without usable WebAssembly the worker
+            // fails to initialize and the "not supported" message is shown.
+            shimURL: "data:text/javascript,"
         });
         this.isUnmounted = false;
         this.recordingStarting = false;
