@@ -213,6 +213,12 @@ $ViewList['passwordrequirements'] = array(
     'functions' => array( 'pswdsecurity' )
 );
 
+$ViewList['passkeys'] = array(
+    'params' => array(),
+    'uparams' => array('action','id','csfr','error'),
+    'functions' => array( 'pswdsecurity' )
+);
+
 $ViewList['updatepassword'] = array(
     'params' => array('user_id','ts','hash'),
     'uparams' => array('csfr'),
@@ -286,6 +292,7 @@ $FunctionList['change_core_attributes'] = array('explain' => 'Allow user to chan
 $FunctionList['change_name_surname'] = array('explain' => 'Allow user to change their own name/surname');
 $FunctionList['change_password'] = array('explain' => 'Allow user to change their password');
 $FunctionList['pswdsecurity'] = array('explain' => 'Allow user to manage password requirements');
+$FunctionList['use_passkey'] = array('explain' => 'Allow user to configure passkey options (manage own passkeys and passwordless login) in their account');
 $FunctionList['largeactivitytimeout'] = array('explain' => 'Allow user to choose a large inactivity timeout');
 $FunctionList['ignoreactivityglobal'] = array('explain' => 'Allow user to personally track or not track activity');
 $FunctionList['clone'] = array('explain' => 'Allow user to clone other user and his settings');

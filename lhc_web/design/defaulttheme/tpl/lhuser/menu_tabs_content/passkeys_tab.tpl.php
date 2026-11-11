@@ -1,4 +1,4 @@
-<?php if (erLhcoreClassUserPasskey::isEnabled()) : ?>
+<?php if (erLhcoreClassUserPasskey::isEnabled() && erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'use_passkey')) : ?>
 <div role="tabpanel" class="tab-pane <?php if ($tab == 'tab_passkeys') : ?>active<?php endif;?>" id="passkeys">
 
     <div class="explain mb-3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Passkeys let you login without a password by using your fingerprint, face, a PIN or a hardware security key.');?></div>

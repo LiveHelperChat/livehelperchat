@@ -1252,14 +1252,16 @@ class erLhcoreClassUserValidator {
 		}
 		
 		// Users can enable passwordless login only when they have at least one passkey
-		if ( $form->hasValidData( 'passwordless_login' ) && $form->passwordless_login == true ) {
-			if ( count(erLhcoreClassUserPasskey::getPasskeyList($userData->id)) > 0 ) {
-				$userData->passwordless_login = 1;
+		if ( erLhcoreClassUserPasskey::isEnabled() && erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'use_passkey') ) {
+			if ( $form->hasValidData( 'passwordless_login' ) && $form->passwordless_login == true ) {
+				if ( count(erLhcoreClassUserPasskey::getPasskeyList($userData->id)) > 0 ) {
+					$userData->passwordless_login = 1;
+				} else {
+					$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Add a passkey before enabling passwordless login');
+				}
 			} else {
-				$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/validator', 'Add a passkey before enabling passwordless login');
+				$userData->passwordless_login = 0;
 			}
-		} else {
-			$userData->passwordless_login = 0;
 		}
 
 		// new event for save additional account fields

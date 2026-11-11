@@ -16,7 +16,7 @@ $validTabs = array(
 $tpl->set('tab',key_exists((string)$Params['user_parameters_unordered']['tab'], $validTabs) ? $validTabs[$Params['user_parameters_unordered']['tab']] : '');
 $tpl->set('paramsRequest',$Params);
 
-if (erLhcoreClassUserPasskey::isEnabled()) {
+if (erLhcoreClassUserPasskey::isEnabled() && $currentUser->hasAccessTo('lhuser', 'use_passkey')) {
     $tpl->set('passkeys', erLhcoreClassUserPasskey::getPasskeyList($UserData->id));
 }
 

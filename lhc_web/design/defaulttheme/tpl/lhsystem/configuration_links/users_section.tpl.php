@@ -30,8 +30,8 @@
 
 		    <?php if ($currentUser->hasAccessTo('lhuser','pswdsecurity')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/passwordrequirements')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Password requirements');?></a></li>
+                    <li><a href="<?php echo erLhcoreClassDesign::baseurl('user/passkeys')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Passkey options');?></a></li>
 		    <?php endif; ?>
-
 		    <?php if ($currentUser->hasAccessTo('lhstatistic','viewstatistic')) : ?>
 		    <li><a href="<?php echo erLhcoreClassDesign::baseurl('statistic/onlinehours')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Online hours');?></a></li>
 		    <?php endif; ?>

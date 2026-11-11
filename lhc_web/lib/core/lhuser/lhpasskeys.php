@@ -69,7 +69,7 @@ class erLhcoreClassUserPasskey
 
         $configuration = self::getConfiguration();
 
-        return !isset($configuration['enabled']) || $configuration['enabled'] == 1;
+        return isset($configuration['enabled']) && $configuration['enabled'] == 1;
     }
 
     /**
@@ -102,6 +102,14 @@ class erLhcoreClassUserPasskey
             return trim($configuration['rp_id']);
         }
 
+        return self::getDetectedHost();
+    }
+
+    /**
+     * Host name of the current request. Used as a default relying party ID and name
+     */
+    public static function getDetectedHost()
+    {
         $host = parse_url((string)erLhcoreClassSystem::getHost(), PHP_URL_HOST);
 
         return $host != '' && $host !== false ? $host : 'localhost';
@@ -140,6 +148,18 @@ class erLhcoreClassUserPasskey
         if (isset($configuration['secured_rp_ids']) && $configuration['secured_rp_ids'] != '') {
             foreach (explode(',', $configuration['secured_rp_ids']) as $securedId) {
                 $securedId = trim($securedId);
+
+                if ($securedId == '') {
+                    continue;
+                }
+
+                // Only relying party ID is expected, but tolerate a full origin or a port being entered
+                if (strpos($securedId, '://') !== false) {
+                    $securedId = (string)parse_url($securedId, PHP_URL_HOST);
+                } else {
+                    $securedId = preg_replace('/:\d+$/', '', $securedId);
+                }
+
                 if ($securedId != '') {
                     $securedIds[] = $securedId;
                 }

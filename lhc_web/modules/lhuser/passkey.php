@@ -14,6 +14,11 @@ if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_S
     exit;
 }
 
+if (!erLhcoreClassUserPasskey::isEnabled() || !$currentUser->hasAccessTo('lhuser', 'use_passkey')) {
+    echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'You do not have permission to manage passkeys')));
+    exit;
+}
+
 $action = (string)$Params['user_parameters']['action'];
 
 $userData = $currentUser->getUserData();

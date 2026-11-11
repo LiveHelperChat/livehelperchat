@@ -87,7 +87,7 @@
         </div>
          <?php endif; ?>
 
-        <?php if ((isset($passkeys) && !empty($passkeys)) || $user->passwordless_login == 1) : ?>
+        <?php if (erLhcoreClassUserPasskey::isEnabled() && erLhcoreClassUser::instance()->hasAccessTo('lhuser', 'use_passkey') && ((isset($passkeys) && !empty($passkeys)) || $user->passwordless_login == 1)) : ?>
         <div class="form-group">
             <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','When enabled username and password login is disabled and you can login only with a passkey');?>">
                 <input type="checkbox" value="on" name="passwordless_login" <?php echo $user->passwordless_login == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/account','Passwordless login (passkey only)');?>

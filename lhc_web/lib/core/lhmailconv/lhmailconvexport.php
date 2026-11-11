@@ -118,6 +118,7 @@ class erLhcoreClassMailconvExport {
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Phone'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mail subject'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Priority'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Status'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Started by'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Opened At'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Undelivered'),
@@ -162,6 +163,12 @@ class erLhcoreClassMailconvExport {
             'subject',
             'priority'
         );
+
+        $statusLabels = [
+            erLhcoreClassModelMailconvConversation::STATUS_PENDING => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','New'),
+            erLhcoreClassModelMailconvConversation::STATUS_ACTIVE => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Active'),
+            erLhcoreClassModelMailconvConversation::STATUS_CLOSED => erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Closed'),
+        ];
 
         if (isset($params['conversation_id'])) {
             $chunks = ceil( count($params['conversation_id'])/300);
@@ -233,6 +240,8 @@ class erLhcoreClassMailconvExport {
                     }
 
                 }
+
+                $itemCSV[] = isset($statusLabels[$item->status]) ? $statusLabels[$item->status] : (string)$item->status;
 
                 $itemCSV[] = $item->start_type == erLhcoreClassModelMailconvConversation::START_OUT ? 'OPERATOR' : 'VISITOR';
                 $itemCSV[] = $item->opened_at > 0 ? $item->opened_at_front : 0;
