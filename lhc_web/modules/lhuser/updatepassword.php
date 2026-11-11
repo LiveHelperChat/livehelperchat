@@ -6,7 +6,10 @@ $userId = (int)$Params['user_parameters']['user_id'];
 $ts = (int)$Params['user_parameters']['ts'];
 $hash = $Params['user_parameters']['hash'];
 
-if ($ts > time()) {
+// Password update logs the user in without a permission check, so it's allowed only on a back office site access
+if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
+    $tpl->set('errors', array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Invalid back office URL')));
+} elseif ($ts > time()) {
 
     $secretHash = erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' );
     $hashToVerify = hash_hmac('sha256', implode(',', array($userId,$ts)), $secretHash);

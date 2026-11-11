@@ -6,6 +6,11 @@ $modeAPI = isset($_GET['api']) && $_GET['api'] == 'true';
 
 try {
     
+    // Browser login starts a session without a permission check, so it's allowed only on a back office site access
+    if ($modeAPI == false && erLhcoreClassUserUtils::validateLoginSiteAccess() == false) {
+        throw new Exception('Invalid back office URL');
+    }
+
     if (!isset($_GET['token']) || !is_string($_GET['token']) || trim($_GET['token']) === '') {
         throw new Exception('Token not found!');
     }

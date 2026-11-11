@@ -54,6 +54,34 @@ class erLhcoreClassUserUtils
         return true;
     }
 
+    /**
+     * Site accesses from which an operator (back office) login is allowed.
+     * Same rules as user/login applies.
+     *
+     * @return array
+     */
+    public static function getLoginSiteAccess()
+    {
+        $adminSiteAccess = erConfigClassLhConfig::getInstance()->getSetting('site', 'default_admin_site_access', false);
+
+        $possibleLoginSiteAccess = is_array($adminSiteAccess) ? $adminSiteAccess : array('site_admin');
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_site_access', array('loginSiteAccess' => & $possibleLoginSiteAccess));
+
+        return $possibleLoginSiteAccess;
+    }
+
+    /**
+     * Endpoints which log an operator in without a permission check (hash/token based links)
+     * have to be served from a back office site access only, just like user/login does.
+     *
+     * @return bool
+     */
+    public static function validateLoginSiteAccess()
+    {
+        return in_array(erLhcoreClassSystem::instance()->SiteAccess, self::getLoginSiteAccess(), true);
+    }
+
     public static function updateStats($userlist)
     {
         $remap = array();

@@ -1,5 +1,11 @@
 <?php 
 
+// Accepting a chat logs an operator in without a permission check, so it's allowed only on a back office site access
+if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
+	erLhcoreClassModule::redirect('user/login');
+	exit;
+}
+
 $cfgSite = erConfigClassLhConfig::getInstance();
 $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
 

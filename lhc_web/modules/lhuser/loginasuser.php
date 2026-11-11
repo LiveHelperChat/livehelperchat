@@ -1,5 +1,14 @@
 <?php
 
+// Login as user logs an operator in without a permission check, so it's allowed only on a back office site access
+if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
+    $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Invalid back office URL')));
+    $Result['content'] = $tpl->fetch();
+    $Result['pagelayout'] = 'login';
+    return;
+}
+
 $user = erLhcoreClassModelUser::fetch((int)$Params['user_parameters']['id']);
 
 $hash = $Params['user_parameters_unordered']['hash'];

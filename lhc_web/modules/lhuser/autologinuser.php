@@ -3,6 +3,15 @@
 // Just extra security
 header('X-Robots-Tag: noindex,nofollow');
 
+// Autologin logs an operator in without a permission check, so it's allowed only on a back office site access
+if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
+    $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Invalid back office URL')));
+    $Result['content'] = $tpl->fetch();
+    $Result['pagelayout'] = 'login';
+    return;
+}
+
 $currentUser = erLhcoreClassUser::instance();
 $instance = erLhcoreClassSystem::instance();
 
