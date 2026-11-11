@@ -90,4 +90,10 @@
             <?php endforeach;?>
         </tbody>
     </table>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhkernel/secure_links.tpl.php')); ?>
+
+    <?php if (isset($pages)) : ?>
+        <?php include(erLhcoreClassDesign::designtpl('lhkernel/paginator.tpl.php')); ?>
+    <?php endif;?>
 <?php endif;?>

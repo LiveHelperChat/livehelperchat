@@ -91,10 +91,18 @@ if ($deleteError === 'passwordless') {
     $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Passkey not found');
 }
 
-$passkeys = erLhcoreClassModelUserPasskey::getList(array(
-    'limit' => false,
+$pages = new lhPaginator();
+$pages->items_total = erLhcoreClassModelUserPasskey::getCount();
+$pages->translationContext = 'chat/pendingchats';
+$pages->serverURL = erLhcoreClassDesign::baseurl('user/passkeys');
+$pages->paginate();
+$tpl->set('pages', $pages);
+
+$passkeys = $pages->items_total > 0 ? erLhcoreClassModelUserPasskey::getList(array(
+    'limit' => $pages->items_per_page,
+    'offset' => $pages->low,
     'sort' => 'id DESC'
-));
+)) : array();
 
 $userIds = array();
 
