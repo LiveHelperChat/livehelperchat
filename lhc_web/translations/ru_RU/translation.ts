@@ -9211,6 +9211,10 @@
       <translation>Отмена голосового сообщения</translation>
     </message>
     <message>
+      <source>Up to {{time}}</source>
+      <translation>До {{time}}</translation>
+    </message>
+    <message>
       <source>Play recorded message</source>
       <translation>Воспроизвести записанное сообщение</translation>
     </message>
