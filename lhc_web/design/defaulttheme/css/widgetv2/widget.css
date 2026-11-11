@@ -1194,6 +1194,26 @@ a.btn-link.visited{
     padding-bottom: 8px;
 }
 
+/* Voice message: live input level while recording (VoiceMessage.js moves the bars) */
+.voice-message-level{
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    height: 20px;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.voice-message-level i{
+    display: block;
+    width: 3px;
+    height: 100%;
+    border-radius: 2px;
+    background-color: currentColor;
+    transform: scaleY(0.12);
+    transition: transform .08s linear;
+}
+
  .content-loader {
      background: url(../images/icons/loading.png) no-repeat center center;
  }
