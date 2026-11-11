@@ -110,6 +110,7 @@ class erLhcoreClassMailconvExport {
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Minutes'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Department'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Department ID'),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Mailbox'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Operator'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Operator ID'),
             erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Lang'),
@@ -154,6 +155,7 @@ class erLhcoreClassMailconvExport {
         $attributes = array(
             'department',
             'dep_id',
+            'mailbox',
             'user',
             'user_id',
             'lang',
@@ -233,6 +235,8 @@ class erLhcoreClassMailconvExport {
                         } else {
                             $itemCSV[] = 'N/A';
                         }
+                    } else if ($attr == 'mailbox') {
+                        $itemCSV[] = $item->mailbox_front['mail'];
                     } else if ($attr == 'phone' || $attr == 'from_address') {
                         $itemCSV[] = ($attr == 'phone' && $phoneVisible) || ($attr == 'from_address' && $emailVisible) ? (string)$item->{$attr} : '';
                     } else {
