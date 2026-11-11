@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import parse from 'html-react-parser';
-import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage, cancelPresurvey, removeFilePreview} from "../actions/chatActions"
+import { initChatUI, fetchMessages, addMessage, checkChatStatus, endChat, userTyping, minimizeWidget, setSiteAccess, updateMessage, cancelPresurvey} from "../actions/chatActions"
 import { STATUS_CLOSED_CHAT, STATUS_BOT_CHAT, STATUS_SUB_SURVEY_SHOW, STATUS_SUB_USER_CLOSED_CHAT } from "../constants/chat-status";
 import ChatMessage from './ChatMessage';
 import ChatModal from './ChatModal';
@@ -53,7 +53,8 @@ class OnlineChat extends Component {
         reactToMsgId: 0,
         otm: 0, // New operator messages
         messages_ui: true, // Is visitor in messages UI, in case extension has overlay and messages was received
-        previewFiles: [] // File previews before sending
+        previewFiles: [], // File previews before sending
+        filePreviewReady: false // File preview handlers are loaded lazily
     };
 
     constructor(props) {
@@ -94,8 +95,6 @@ class OnlineChat extends Component {
         this.changeFontAction = this.changeFontAction.bind(this);
         this.setLanguageAction = this.setLanguageAction.bind(this);
         this.changeLanguage = this.changeLanguage.bind(this);
-        this.onFilePreview = this.onFilePreview.bind(this);
-        this.removeFilePreview = this.removeFilePreview.bind(this);
         this.onTextareaResize = this.onTextareaResize.bind(this);
 
         // Messages Area
@@ -119,6 +118,8 @@ class OnlineChat extends Component {
         this.timeoutNewMessage = null;
         this.timeoutScroll = null;
         this.widgetWasOpened = false;
+        this.previewFilesRestored = false;
+        this.filePreviewHandlersPending = false;
 
         this.isTyping = false;
         this.typingStopped = null;
@@ -633,6 +634,29 @@ class OnlineChat extends Component {
             this.scrollBottom(false, false);
         }
 
+        // Restore temporary files uploaded before page refresh
+        if (this.previewFilesRestored === false && this.state.previewFiles.length === 0 && this.props.chatwidget.hasIn(['chat_ui','preview_files'])) {
+            const previewFiles = this.props.chatwidget.getIn(['chat_ui','preview_files']);
+            if (previewFiles.size > 0) {
+                this.previewFilesRestored = true;
+                this.setState({previewFiles: previewFiles.toJS()});
+            }
+        }
+
+        // File preview handlers are loaded only when file preview is enabled
+        if (this.filePreviewHandlersPending === false && this.state.filePreviewReady === false && this.props.chatwidget.getIn(['chat_ui','file_options','file_preview']) === true) {
+            this.filePreviewHandlersPending = true;
+
+            import('../lib/filePreview').then((filePreview) => {
+                this.onFilePreview = filePreview.onFilePreview.bind(this);
+                this.removeFilePreview = filePreview.removeFilePreview.bind(this);
+                this.setState({filePreviewReady: true});
+            }).catch((error) => {
+                this.filePreviewHandlersPending = false;
+                console.warn('Failed to load file preview module:', error);
+            });
+        }
+
         // Update untill we are sure that messages can be shown
         if (
             this.state.showMessages === false ||
@@ -968,65 +992,6 @@ class OnlineChat extends Component {
         this.setState({value: (this.state.value.substring(0, caretPos) + text + this.state.value.substring(caretPos))});
     }
 
-    onFilePreview(fileData) {
-        this.setState(prevState => {
-            // If one_file_upload is enabled, replace existing files instead of adding
-            if (this.props.chatwidget.getIn(['chat_ui', 'file_options', 'one_file_upload']) === true) {
-                // Remove existing files first
-                prevState.previewFiles.forEach(file => {
-                    this.handleFileRemoval(file);
-                });
-                return {
-                    previewFiles: [fileData]
-                };
-            }
-            // Otherwise, add to existing files but limit to 4 files maximum
-            if (prevState.previewFiles.length >= 4) {
-                // Remove the oldest file (first in array) and add the new one
-                const oldestFile = prevState.previewFiles[0];
-                this.handleFileRemoval(oldestFile);
-                return {
-                    previewFiles: [...prevState.previewFiles.slice(1), fileData]
-                };
-            }
-            return {
-                previewFiles: [...prevState.previewFiles, fileData]
-            };
-        });
-    }
-
-    handleFileRemoval(file) {
-        // Clean up blob URLs to prevent memory leaks
-        if (file.previewUrl && file.previewUrl.startsWith('blob:')) {
-            URL.revokeObjectURL(file.previewUrl);
-        }
-        
-        // If file has been uploaded to server (has security_hash), remove it from server
-        if (file.security_hash && file.security_hash !== 'preview') {
-            this.props.dispatch(removeFilePreview({
-                'file_id': file.id,
-                'security_hash': file.security_hash
-            })).then(() => {
-                
-            }).catch((error) => {
-                console.warn('Failed to remove file from server:', error);
-                // Continue with local removal even if server removal fails
-            });
-        }
-    }
-
-    removeFilePreview(fileId) {
-        this.setState(prevState => {
-            const fileToRemove = prevState.previewFiles.find(file => file.id === fileId);
-            if (fileToRemove) {
-                this.handleFileRemoval(fileToRemove);
-            }
-            return {
-                previewFiles: prevState.previewFiles.filter(file => file.id !== fileId)
-            };
-        });
-    }
-
     onTextareaResize() {
         if (this.messagesAreaRef.current) {
             let scrollValue = this.messagesAreaRef.current.scrollHeight - this.messagesAreaRef.current.scrollTop;
@@ -1038,6 +1003,9 @@ class OnlineChat extends Component {
 
     render() {
         const { t } = this.props;
+
+        // Upload/preview UI waits until the lazily loaded handlers are ready
+        const previewHandlersReady = this.props.chatwidget.getIn(['chat_ui','file_options','file_preview']) !== true || this.state.filePreviewReady === true;
 
         if (this.props.chatwidget.get('initLoaded') === false || this.props.chatwidget.get('msgLoaded') === false) {
 
@@ -1241,7 +1209,7 @@ class OnlineChat extends Component {
                     }
                 
                     {/* File Preview Section */}
-                    {this.state.previewFiles.length > 0 && (
+                    {previewHandlersReady && this.state.previewFiles.length > 0 && (
                         <Suspense fallback="">
                             <FilePreview
                                 previewFiles={this.state.previewFiles}
@@ -1266,7 +1234,7 @@ class OnlineChat extends Component {
                                         <a tabIndex="0" onKeyPress={(e) => { e.key === "Enter" ? this.toggleSound() : '' }} onClick={this.toggleSound} title={t('chat.option_sound')}><i className={"material-icons chat-setting-item text-muted "+(this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? 'sound-on-ico' : 'sound-off-ico')}>{this.props.chatwidget.getIn(['usersettings','soundOn']) === true ? <React.Fragment>&#xf102;</React.Fragment> : <React.Fragment>&#xf101;</React.Fragment>}</i></a>
                                         {this.props.chatwidget.hasIn(['chat_ui','print']) && <a tabIndex="0" target="_blank" href={this.props.chatwidget.get('base_url') + "chat/printchat/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.print')}><i className="material-icons chat-setting-item text-muted print-ico">&#xf10c;</i></a>}
                                         {this.props.chatwidget.hasIn(['chat_ui','dwntxt']) && <a tabIndex="0" target="_blank" href={this.props.chatwidget.get('base_url') + "chat/downloadtxt/" +this.props.chatwidget.getIn(['chatData','id']) + "/" + this.props.chatwidget.getIn(['chatData','hash'])} title={t('button.dwntxt')}><i className="material-icons chat-setting-item text-muted download-ico">&#xf119;</i></a>}
-                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.hasIn(['chat_ui','fa_direct']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} onFilePreview={this.onFilePreview} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} is_bot={this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
+                                        {!this.props.chatwidget.getIn(['chatLiveData','closed']) && !this.props.chatwidget.hasIn(['chat_ui','fa_direct']) && this.props.chatwidget.hasIn(['chat_ui','file']) && previewHandlersReady && <ChatFileUploader fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} onFilePreview={this.onFilePreview} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} is_bot={this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
 
                                         {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.getIn(['chatLiveData','status']) == 1 && this.props.chatwidget.hasIn(['chat_ui','voice']) && this.props.chatwidget.getIn(['chat_ui','voice']) === true && <a tabIndex="0" onClick={this.voiceCall} title={t('button.voice')}><i className="material-icons chat-setting-item text-muted voice-ico">&#xf117;</i></a>}
                                         
@@ -1282,7 +1250,7 @@ class OnlineChat extends Component {
 
                             {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','bbc_direct']) && !this.props.chatwidget.hasIn(['chat_ui','bbc_btnh']) && <a tabIndex="0" role="button" className="direct-action-icon bbcode-direct d-flex flex-column justify-content-end align-items-stretch" onKeyPress={(e) => { e.key === "Enter" ? this.toggleModal() : '' }} onClick={this.toggleModal} title={t('button.bb_code')}><i className="material-icons settings text-muted direct-icon bbcode-ico">&#xf104;</i></a>}
 
-                            {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','fa_direct']) && this.props.chatwidget.hasIn(['chat_ui','file']) && <ChatFileUploader iClassName="direct-icon" linkClassName="direct-action-icon d-flex flex-column justify-content-end align-items-stretch" fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} onFilePreview={this.onFilePreview} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} is_bot={this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
+                            {!this.props.chatwidget.getIn(['chatLiveData','closed']) && this.props.chatwidget.hasIn(['chat_ui','fa_direct']) && this.props.chatwidget.hasIn(['chat_ui','file']) && previewHandlersReady && <ChatFileUploader iClassName="direct-icon" linkClassName="direct-action-icon d-flex flex-column justify-content-end align-items-stretch" fileOptions={this.props.chatwidget.getIn(['chat_ui','file_options'])} onDrag={this.dragging} dropArea={this.textMessageRef} onCompletion={this.updateMessages} onFilePreview={this.onFilePreview} progress={this.setStatusText} base_url={this.props.chatwidget.get('base_url')} is_bot={this.props.chatwidget.getIn(['chatLiveData','status']) === STATUS_BOT_CHAT} chat_id={this.props.chatwidget.getIn(['chatData','id'])} hash={this.props.chatwidget.getIn(['chatData','hash'])} link={true}/>}
 
                         </ChatOptions>
 

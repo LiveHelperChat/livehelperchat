@@ -366,8 +366,37 @@ try {
                 $outputResponse['chat_ui']['file_options']['one_file_upload'] = true;
             }
 
+            // Restore temporary files uploaded as previews but not sent yet (e.g. after page refresh)
             if (isset($fileData['file_preview']) && $fileData['file_preview'] == true) {
                 $outputResponse['chat_ui']['file_options']['file_preview'] = true;
+                $outputResponse['chat_ui']['preview_files'] = array();
+
+                if ($chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT) {
+                    $tmpFiles = erLhcoreClassModelChatFile::getList(array(
+                        'filter' => array('chat_id' => $chat->id, 'user_id' => 0, 'tmp' => 1),
+                        'sort' => 'id ASC',
+                        'limit' => false
+                    ));
+
+                    foreach ($tmpFiles as $tmpFile) {
+                        $previewFile = array(
+                            'id' => (int)$tmpFile->id,
+                            'security_hash' => $tmpFile->security_hash,
+                            'name' => $tmpFile->upload_name != '' ? $tmpFile->upload_name : $tmpFile->name,
+                            'size' => (int)$tmpFile->size,
+                            'type' => $tmpFile->type,
+                        );
+
+                        if (strpos((string)$tmpFile->type, 'image/') === 0) {
+                            $tsHash = time();
+                            $temporaryHash = sha1($tmpFile->id . '_' . $tmpFile->hash . '_' . $tsHash . '_' . erConfigClassLhConfig::getInstance()->getSetting('site', 'secrethash'));
+
+                            $previewFile['previewUrl'] = erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('file/downloadfile') . '/' . $tmpFile->id . '/' . $tmpFile->security_hash . '/(vhash)/' . $temporaryHash . '/(vts)/' . $tsHash;
+                        }
+
+                        $outputResponse['chat_ui']['preview_files'][] = $previewFile;
+                    }
+                }
             }
 
             if (!empty($fileData['ft_us_bot'])) {
