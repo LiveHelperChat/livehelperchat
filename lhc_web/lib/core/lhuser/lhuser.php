@@ -229,12 +229,13 @@ class erLhcoreClassUser{
    		return $this->getCSFRToken() == $token;
    }
 
-   function setLoggedUser($user_id, $remember = false)
+   function setLoggedUser($user_id, $remember = false, $credentialsVerified = false)
    {
 	   	if ($user_id != $this->userid) {
 
-            // Login without credentials is not allowed for this user
-            if (erLhcoreClassUserUtils::fetchAutologinUser($user_id) === false) {
+            // Login without credentials is not allowed for this user.
+            // $credentialsVerified is set by logins where the identity was already proven (e.g. passkey)
+            if ($credentialsVerified !== true && erLhcoreClassUserUtils::fetchAutologinUser($user_id) === false) {
                 return false;
             }
 

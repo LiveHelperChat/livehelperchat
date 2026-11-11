@@ -137,7 +137,7 @@
 
                <div class="col-4">
                    <div class="form-group">
-                       <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','While an active REST API key exists direct login and autologin are not allowed')?>"><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="api_key_login_only" <?php echo $user->api_key_login_only == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','API key login only')?></label>
+                       <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Direct login and autologin are not allowed for this account. Use it for accounts which are used only through a REST API key')?>"><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="api_key_login_only" <?php echo $user->api_key_login_only == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','API key login only')?></label>
                    </div>
                </div>
                <div class="col-4">

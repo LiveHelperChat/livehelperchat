@@ -65,8 +65,13 @@ try {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Please log out first to login with a passkey'));
             }
 
-            // Login without credentials is not allowed for this account
-            if ($currentUser->setLoggedUser($user->id) !== true) {
+            // A passkey is a credential, so the autologin restriction does not apply,
+            // but the account level login IP restriction still has to be respected
+            if (erLhcoreClassUserUtils::isLoginIpAllowed($user) == false) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Login is not allowed from your IP address'));
+            }
+
+            if ($currentUser->setLoggedUser($user->id, false, true) !== true) {
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Passkey login is not allowed for this account'));
             }
         }

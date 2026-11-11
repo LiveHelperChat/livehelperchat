@@ -42,6 +42,18 @@
                 </a>
             <?php endif; ?>
 
+            <?php if ($user->api_key_login_only == 1) : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','API key login only. Direct login and autologin are not allowed for this account');?>">vpn_key</span>
+            <?php endif; ?>
+
+            <?php if ($user->disable_autologin == 1) : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Autologin is disabled for this user');?>">link_off</span>
+            <?php endif; ?>
+
+            <?php if ($user->passwordless_login == 1) : ?>
+                <span class="material-icons" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Passwordless login (passkey only)');?>">passkey</span>
+            <?php endif; ?>
+
             <?php if ($canEdit) : ?><a href="<?php echo erLhcoreClassDesign::baseurl('user/edit')?>/<?php echo $user->id?>"><?php endif; ?><?php echo htmlspecialchars($user->username)?><?php echo htmlspecialchars($user->chat_nickname !== '' ? ' ('. $user->chat_nickname .')' : '')?><?php if ($canEdit) : ?></a><?php endif; ?>
         </td>
         <td><?php echo htmlspecialchars($user->email)?></td>
