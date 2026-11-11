@@ -139,18 +139,47 @@ class VoiceMessage extends PureComponent {
     sendRecord() {
         const { t } = this.props;
 
-        this.props.progress(t('file.uploading'));
+        // The panel closes before the answer comes, so keep the callbacks
+        const { progress, onCompletion, cancel } = this.props;
+
+        progress(t('file.uploading'));
 
         const req = new XMLHttpRequest();
         const formData = new FormData();
         formData.append("files", this.state.recording, "record.mp3");
         req.open("POST", this.props.base_url + '/file/uploadfile/' + this.props.chat_id + '/' + this.props.hash);
-        req.upload.addEventListener("load", event => {
-            this.props.progress('100%');
-            this.props.onCompletion();
-            this.props.cancel();
+        req.upload.addEventListener("progress", event => {
+            if (event.lengthComputable) {
+                progress(t('file.uploading') + ' ' + Math.round((event.loaded / event.total) * 100) + '%');
+            }
         });
+        req.upload.addEventListener("load", event => {
+            progress(t('file.processing'));
+        });
+        req.onload = () => {
+            let status = null;
+            try {
+                status = JSON.parse(req.response);
+            } catch (e) {
+                status = null;
+            }
+            const succeeded = req.status >= 200 && req.status < 300 && status !== null &&
+                (status.error === false || status.error === 'false') && status.file_id;
+            if (!succeeded) {
+                progress(status && status.error_msg ? status.error_msg : t('file.upload_failed'));
+            } else {
+                progress(t('file.completed'));
+                onCompletion();
+                setTimeout(() => {
+                    progress('');
+                }, 500);
+            }
+        };
+        req.onerror = () => {
+            progress(t('file.upload_failed'));
+        };
         req.send(formData);
+        cancel();
     }
 
     startWebkitRecording() {
