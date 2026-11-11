@@ -172,7 +172,12 @@ if (isset($_POST['Login']))
                 }
             } else {
 
-                if (empty($Error) && erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 1,'username' => $_POST['Username']))) > 0) {
+                if (empty($Error) && ($userLoginCheck = erLhcoreClassModelUser::findOne(array('filterlor' => array(
+                        'username' => array($_POST['Username']),
+                        'email' => array($_POST['Username'])
+                    )))) instanceof erLhcoreClassModelUser && erLhcoreClassUserUtils::isPasswordLoginAllowed($userLoginCheck) == false) {
+                    $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login with username and password is not allowed for this account');
+                } else if (empty($Error) && erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 1,'username' => $_POST['Username']))) > 0) {
                     $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Your account is disabled!');
                 } else if (empty($Error)) {
                     $Error = erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Incorrect username or password');

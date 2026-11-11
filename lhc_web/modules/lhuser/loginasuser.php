@@ -16,6 +16,14 @@ $ts = $Params['user_parameters_unordered']['ts'];
 
 if ($user instanceof erLhcoreClassModelUser && is_string($hash) && hash_equals(sha1($user->id . '_' . $user->password . '_' . erConfigClassLhConfig::getInstance()->getSetting('site','secrethash') . '_' . $ts), $hash) && $ts > time() - 120) {
 
+    if (erLhcoreClassUserUtils::fetchAutologinUser($user) === false) {
+        $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
+        $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Login as user is not allowed for this user')));
+        $Result['content'] = $tpl->fetch();
+        $Result['pagelayout'] = 'login';
+        return;
+    }
+
     if (empty($Params['user_parameters_unordered']['showlogin'])) {
 
         // Reset force logout option

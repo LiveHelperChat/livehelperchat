@@ -38,6 +38,14 @@ if (is_array($autologinConfiguration)) {
 
     if ($userToLogin instanceof erLhcoreClassModelUser) {
 
+        if (($userToLogin = erLhcoreClassUserUtils::fetchAutologinUser($userToLogin)) === false) {
+            $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/validation_error_autologin_user.tpl.php');
+            $tpl->set('errors',array(erTranslationClassLhTranslation::getInstance()->getTranslation('users/autologin','Autologin is not allowed for this user')));
+            $Result['content'] = $tpl->fetch();
+            $Result['pagelayout'] = 'login';
+            return $Result;
+        }
+
         $userToLogin->force_logout = 0;
         $userToLogin->llogin = time();
         $userToLogin->updateThis(['update' => ['force_logout','llogin']]);

@@ -111,15 +111,23 @@ $lhSecAdd($security_check['one_login_per_account'] ? 'success' : 'warning', erTr
 $lhSecStatus = $lhSecBadge($security_check['custom_admin_url'] ? 'success' : 'warning', $security_check['custom_admin_url'] ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','custom') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','default (site_admin)'));
 $lhSecAdd($security_check['custom_admin_url'] ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Back office URL'), $lhSecStatus);
 
-// Administrators count
+// Administrators count. An administrator reachable by an autologin link is a risk, the check fails in that case.
 $lhSecAdminCount = (int)$security_check['admin_operators'];
+$lhSecAdminAutologin = isset($security_check['admin_autologin_allowed']) ? (int)$security_check['admin_autologin_allowed'] : 0;
 $lhSecStatus = $lhSecBadge($lhSecAdminCount > 0 ? 'info' : 'warning', $lhSecAdminCount . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','administrators'));
-$lhSecAdd($lhSecAdminCount > 0 ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Administrators'), $lhSecStatus, $lhSecLink(erLhcoreClassDesign::baseurl('user/userlist'), erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Configure')));
+if ($lhSecAdminAutologin > 0) {
+    $lhSecStatus .= $lhSecBadge('warning', $lhSecAdminAutologin . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','with autologin enabled'));
+}
+$lhSecAdd($lhSecAdminCount > 0 && $lhSecAdminAutologin == 0 ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Administrators'), $lhSecStatus, $lhSecLink(erLhcoreClassDesign::baseurl('user/userlist'), erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Configure')));
 
-// Rest API
+// Rest API. Users behind an active key have to be limited to API key login with autologin disabled, otherwise the check fails.
+$lhSecRestApiKeyUsersUnrestricted = isset($security_check['rest_api_key_users_unrestricted']) ? (int)$security_check['rest_api_key_users_unrestricted'] : 0;
 $lhSecStatus = $security_check['rest_api_keys'] > 0 ? $lhSecBadge('info', (int)$security_check['rest_api_keys'] . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','active keys')) : $lhSecBadge('success', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','no active keys'));
 $lhSecStatus .= $lhSecBadge($security_check['rest_api_by_user_disabled'] ? 'success' : 'warning', $security_check['rest_api_by_user_disabled'] ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','API keys only') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','username/password login allowed'));
-$lhSecAdd($security_check['rest_api_by_user_disabled'] ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Rest API'), $lhSecStatus, $lhSecLink(erLhcoreClassDesign::baseurl('abstract/list') . '/RestAPIKey', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Configure')));
+if ($lhSecRestApiKeyUsersUnrestricted > 0) {
+    $lhSecStatus .= $lhSecBadge('warning', $lhSecRestApiKeyUsersUnrestricted . ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','API key users can still login with password or autologin'));
+}
+$lhSecAdd($security_check['rest_api_by_user_disabled'] && $lhSecRestApiKeyUsersUnrestricted == 0 ? 'success' : 'warning', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Rest API'), $lhSecStatus, $lhSecLink(erLhcoreClassDesign::baseurl('abstract/list') . '/RestAPIKey', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Configure')));
 
 // Mobile app notifications
 $lhSecStatus = $lhSecBadge($security_check['mobile_notifications'] ? 'warning' : 'success', $security_check['mobile_notifications'] ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Enabled') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Disabled'));

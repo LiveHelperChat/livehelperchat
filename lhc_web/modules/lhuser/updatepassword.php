@@ -65,8 +65,10 @@ if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
                     erLhcoreClassModelUserSession::revokeForUser($user->id);
                                         
                     // Login user instantly as during password change they verified their logins
-                    erLhcoreClassUser::instance()->setLoggedUser($user->id);
-                    erLhcoreClassUser::instance()->refreshSessionPasswordHash($user);
+                    if (erLhcoreClassUserUtils::fetchAutologinUser($user->id) !== false) {
+                        erLhcoreClassUser::instance()->setLoggedUser($user->id);
+                        erLhcoreClassUser::instance()->refreshSessionPasswordHash($user);
+                    }
 
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.2fa_intercept', array('current_user' => erLhcoreClassUser::instance()));
                     

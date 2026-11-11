@@ -10534,6 +10534,22 @@
         "extra": ""
       },
       {
+        "field": "api_key_login_only",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
+        "field": "disable_autologin",
+        "type": "tinyint(1) unsigned",
+        "null": "NO",
+        "key": "",
+        "default": "0",
+        "extra": ""
+      },
+      {
         "field": "llogin",
         "type": "bigint(20) unsigned",
         "null": "NO",

@@ -246,14 +246,14 @@ class erLhcoreClassXMP {
 					$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
 					
 					foreach ($emailRecipient as $email) {			
-						$veryfyEmail = 	sha1(sha1($email.$secretHash).$secretHash);
+						$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($email, $secretHash);
 						$messagesParsed = str_replace(array('{messages}','{url_accept}','{chat_id}','{user_name}','{department}'), array($messagesContent,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email,$chat->id,$chat->user_name,(string)$chat->department),$data[$templateMessage]);
 						$conn->message($email,$messagesParsed);
 					}
 					
 					foreach ($groupRecipients as $email) {
 						list($emailGroup) = explode('/',$email);
-						$veryfyEmail = 	sha1(sha1($emailGroup.$secretHash).$secretHash);
+						$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($emailGroup, $secretHash);
 						$messagesParsed = str_replace(array('{messages}','{url_accept}','{chat_id}','{user_name}','{department}'), array($messagesContent,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$emailGroup,$chat->id,$chat->user_name,(string)$chat->department),$data[$templateMessage]);
 						$conn->message($emailGroup,$messagesParsed,'groupchat');						
 					}
@@ -319,7 +319,7 @@ class erLhcoreClassXMP {
 						$secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
 						
 						foreach ($emailRecipient as $email) {
-							$veryfyEmail = 	sha1(sha1($email.$secretHash).$secretHash);
+							$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($email, $secretHash);
 							$conn->message($email,str_replace(array('{messages}','{url_accept}','{chat_id}','{user_name}','{department}'), array($messagesContent,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$email, $chat->id,$chat->user_name,(string)$chat->department),$data[$templateMessage]));
 						}
 

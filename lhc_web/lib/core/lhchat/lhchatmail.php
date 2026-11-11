@@ -513,7 +513,7 @@ class erLhcoreClassChatMail {
     	$surveyContent = self::getSurveyContent($chat);
     	    	
     	foreach ($emailRecipient as $receiver) {   
-    		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+    		$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($receiver, $secretHash);
     		$mail->Body = str_replace(array('{survey}','{chat_duration}','{waited}','{created}','{user_left}','{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($surveyContent, ($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department, erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
     		$mail->AddAddress( $receiver );
             if (!$mail->Send()) {
@@ -535,7 +535,7 @@ class erLhcoreClassChatMail {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
     		foreach ($recipientsBCC as $receiver) {
     			$receiver = trim($receiver);
-    			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+    			$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($receiver, $secretHash);
     			$mail->Body = str_replace(array('{survey}','{chat_duration}','{waited}','{created}','{user_left}','{user_name}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{country}','{city}'), array($surveyContent, ($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->user_name,$chat->id,$chat->phone,$chat->nick,$chat->email,$messagesContent,$additional_data,$chat->referrer,erLhcoreClassIPDetect::getIP(),(string)$chat->department, erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('chat/accept').'/'.erLhcoreClassModelChatAccept::generateAcceptLink($chat).'/'.$veryfyEmail.'/'.$receiver,$chat->country_name,$chat->city), $sendMail->content);
     			$mail->AddAddress( $receiver );
                 if (!$mail->Send()) {
@@ -831,7 +831,7 @@ class erLhcoreClassChatMail {
         $debug = debug_backtrace(2);
 
     	foreach ($emailRecipient as $receiver) {   
-    		$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+    		$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($receiver, $secretHash);
             if (isset($extractedData['params']['head_html']) && $extractedData['params']['head_html'] != '') {
                 $mail->Body = $extractedData['params']['head_html'] . str_replace(array(
                         '{debug}','{survey}','{chat_duration}','{waited}','{created}','{user_left}','{chat_id}','{phone}','{name}','{email}','{message}','{additional_data}','{url_request}','{ip}','{department}','{url_accept}','{operator}','{country}','{city}'), array(print_r($debug,true),$surveyContent,($chat->chat_duration > 0 ? $chat->chat_duration_front : '-'), ($chat->wait_time > 0 ? $chat->wait_time_front : '-'), $chat->time_created_front, ($chat->user_closed_ts > 0 && $chat->user_status == 1 ? $chat->user_closed_ts_front : '-'),$chat->id,$chat->phone,$chat->nick,$chat->email,
@@ -865,7 +865,7 @@ class erLhcoreClassChatMail {
     		$recipientsBCC = explode(',',$sendMail->bcc_recipients);
     		foreach ($recipientsBCC as $receiver) {    			
     			$receiver = trim($receiver);
-    			$veryfyEmail = 	sha1(sha1($receiver.$secretHash).$secretHash);
+    			$veryfyEmail = 	erLhcoreClassModelChatAccept::generateEmailVerificationHash($receiver, $secretHash);
 
                 if (isset($extractedData['params']['head_html']) && $extractedData['params']['head_html'] != '') {
                     $mail->Body = $extractedData['params']['head_html'] . str_replace(array(

@@ -9,18 +9,20 @@ if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
 $cfgSite = erConfigClassLhConfig::getInstance();
 $secretHash = $cfgSite->getSetting( 'site', 'secrethash' );
 
-if ($Params['user_parameters']['validation_hash'] == sha1(sha1($Params['user_parameters']['email'].$secretHash).$secretHash)) {
+if (erLhcoreClassModelChatAccept::validateEmailVerificationHash($Params['user_parameters']['email'], $secretHash, $Params['user_parameters']['validation_hash'])) {
 	$accept = erLhcoreClassModelChatAccept::fetchByHash($Params['user_parameters']['hash']);
 	if ($accept !== false) {						
 		$chat_id = $accept->chat_id;			
 		if ($accept->wused == 0) {
 			$userID = erLhcoreClassModelUser::fetchUserByEmail($Params['user_parameters']['email'],(trim($Params['user_parameters']['email']) != '' ? trim($Params['user_parameters']['email']) : false));	
 						
-			if ( $userID !== false && $accept->ctime > (time() - erLhcoreClassModelChatConfig::fetch('accept_chat_link_timeout')->current_value ) ) {
+			$userAccept = erLhcoreClassUserUtils::fetchAutologinUser($userID);
+
+			if ( $userAccept !== false && $accept->ctime > (time() - erLhcoreClassModelChatConfig::fetch('accept_chat_link_timeout')->current_value ) ) {
 				$accept->wused = 1;
 				$accept->saveThis();
 				
-				erLhcoreClassUser::instance()->setLoggedUser($userID);
+				erLhcoreClassUser::instance()->setLoggedUser($userAccept->id);
 				erLhcoreClassModule::redirect('chat/single','/'.$chat_id);
 				exit;
 			} else {				

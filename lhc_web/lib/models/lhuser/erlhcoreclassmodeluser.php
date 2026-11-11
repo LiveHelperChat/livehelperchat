@@ -52,7 +52,9 @@ class erLhcoreClassModelUser {
             'llogin' => $this->llogin,
             'force_logout' => $this->force_logout,
             'offline_reason_id' => $this->offline_reason_id,
-            'team_lead_user_id' => $this->team_lead_user_id
+            'team_lead_user_id' => $this->team_lead_user_id,
+            'api_key_login_only' => $this->api_key_login_only,
+            'disable_autologin' => $this->disable_autologin
         );
    }
 
@@ -269,6 +271,8 @@ class erLhcoreClassModelUser {
     public $force_logout = 0;
     public $offline_reason_id = 0;
     public $team_lead_user_id = 0;
+    public $api_key_login_only = 0;
+    public $disable_autologin = 0;
 
     public $attr_int_1 = 0;
     public $attr_int_2 = 0;

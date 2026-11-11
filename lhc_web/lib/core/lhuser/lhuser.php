@@ -129,6 +129,11 @@ class erLhcoreClassUser{
     		$passwordVerify = $user->password;
 	   }
 
+       // Accounts restricted to REST API usage can not be used for a direct login
+       if (erLhcoreClassUserUtils::isPasswordLoginAllowed($user) == false) {
+           return false;
+       }
+
        $this->credentials = new ezcAuthenticationPasswordCredentials( $username, $passwordVerify );
 
        $database = new ezcAuthenticationDatabaseInfo( ezcDbInstance::get(), 'lh_users', array( $fieldAuthentificated, 'password' ) );
@@ -228,8 +233,12 @@ class erLhcoreClassUser{
    {
 	   	if ($user_id != $this->userid) {
 
-            session_regenerate_id(true);
+            // Login without credentials is not allowed for this user
+            if (erLhcoreClassUserUtils::fetchAutologinUser($user_id) === false) {
+                return false;
+            }
 
+            session_regenerate_id(true);
 	   		$this->credentials = new ezcAuthenticationIdCredentials( $user_id );
 	   		$this->authentication = new ezcAuthentication( $this->credentials );
 

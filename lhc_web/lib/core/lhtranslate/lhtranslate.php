@@ -127,14 +127,6 @@ class erLhcoreClassTranslate
             return null;
         }
 
-        // Too short text is not reliable for language detection.
-        // Proceed only if there are more than 3 words or the text is longer than 20 characters.
-        $wordCount = count(preg_split('/\s+/u', $messageText, -1, PREG_SPLIT_NO_EMPTY));
-
-        if ($wordCount <= 3 && mb_strlen($messageText) <= 20) {
-            return null;
-        }
-
         $languageCode = self::detectLanguage(substr($messageText, 0, 500));
 
         if (!is_string($languageCode) || $languageCode === '') {

@@ -2178,6 +2178,8 @@ try {
                   `force_logout` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `offline_reason_id` int(11) unsigned NOT NULL DEFAULT '0',
                   `team_lead_user_id` int(11) unsigned NOT NULL DEFAULT '0',
+                  `api_key_login_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
+                  `disable_autologin` tinyint(1) unsigned NOT NULL DEFAULT '0',
                   `llogin` bigint(20) unsigned NOT NULL DEFAULT '0',
                   `always_on` tinyint(1) NOT NULL DEFAULT '0',
                   `exclude_autoasign_mails` tinyint(1) NOT NULL DEFAULT '0',

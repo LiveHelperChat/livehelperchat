@@ -239,6 +239,12 @@ class erLhcoreClassUserValidator {
 			),
 			'team_lead_user_id' => new ezcInputFormDefinitionElement(
 				ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0)
+			),
+			'api_key_login_only' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
+			),
+			'disable_autologin' => new ezcInputFormDefinitionElement(
+				ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
 			)
 		);
 		
@@ -393,6 +399,18 @@ class erLhcoreClassUserValidator {
 		        $userData->disabled = 1;
 		    } else {
 		        $userData->disabled = 0;
+		    }
+
+		    if ( $form->hasValidData( 'api_key_login_only' ) && $form->api_key_login_only == true )	{
+		        $userData->api_key_login_only = 1;
+		    } else {
+		        $userData->api_key_login_only = 0;
+		    }
+
+		    if ( $form->hasValidData( 'disable_autologin' ) && $form->disable_autologin == true )	{
+		        $userData->disable_autologin = 1;
+		    } else {
+		        $userData->disable_autologin = 0;
 		    }
 
             if ($form->hasInputField('team_lead_user_id')) {

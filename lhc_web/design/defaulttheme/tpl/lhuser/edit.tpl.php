@@ -76,6 +76,29 @@
 
 	   <?php include(erLhcoreClassDesign::designtpl('lhuser/account/above_account_edit_multiinclude.tpl.php'));?>
 
+	   <?php if ($user->disabled == 1) : ?>
+	   <div class="alert alert-danger p-2 mb-2" ng-non-bindable><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User is disabled and can not login at all');?></div>
+	   <?php endif;?>
+
+	   <div class="alert alert-<?php echo erLhcoreClassUserUtils::isPasswordLoginAllowed($user) ? 'info' : 'warning'; ?> p-2 mb-2" ng-non-bindable>
+	       <div>
+	           <?php if (erLhcoreClassUserUtils::isPasswordLoginAllowed($user)) : ?>
+	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can login directly using username and password');?>
+	           <?php else : ?>
+	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can not login directly using username and password, because account is restricted to REST API usage');?>
+	           <?php endif;?>
+	       </div>
+	       <div>
+	           <?php if (erLhcoreClassUserUtils::isAutologinAllowed($user)) : ?>
+	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can be logged in without a password (autologin, login as user, login by token, chat accept link)');?>
+	           <?php elseif ($user->disable_autologin == 1) : ?>
+	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can not be logged in without a password, because autologin is disabled for this user');?>
+	           <?php else : ?>
+	               <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','User can not be logged in without a password, because account is restricted to REST API usage');?>
+	           <?php endif;?>
+	       </div>
+	   </div>
+
 	   <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/edit','Do not enter a password unless you want to change it');?></div>
 	   <br />
 
@@ -109,6 +132,19 @@
                        <label><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="force_logout" <?php echo $user->force_logout == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Force logout')?></label>
                    </div>
                </div>
+
+               <div class="col-4">
+                   <div class="form-group">
+                       <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','While an active REST API key exists direct login and autologin are not allowed')?>"><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="api_key_login_only" <?php echo $user->api_key_login_only == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','API key login only')?></label>
+                   </div>
+               </div>
+               <div class="col-4">
+                   <div class="form-group">
+                       <label title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Autologin, login as user and login by token are not allowed for this user')?>"><input type="checkbox" <?php if (isset($can_edit_groups) && $can_edit_groups === false) : ?>disabled="disabled"<?php endif;?> value="on" name="disable_autologin" <?php echo $user->disable_autologin == 1 ? 'checked="checked"' : '' ?> /> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disable autologin')?></label>
+                   </div>
+               </div>
+
+
 
                <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhuser','loginas')) : ?>
                <div class="col-4">

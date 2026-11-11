@@ -82,6 +82,81 @@ class erLhcoreClassUserUtils
         return in_array(erLhcoreClassSystem::instance()->SiteAccess, self::getLoginSiteAccess(), true);
     }
 
+    /**
+     * Checks whether the current IP is allowed to log this user in.
+     * Same rules as user/login and user/autologin apply.
+     *
+     * @param erLhcoreClassModelUser $user
+     * @return bool
+     */
+    public static function isLoginIpAllowed($user)
+    {
+        $passwordData = (array)erLhcoreClassModelChatConfig::fetch('password_data')->data;
+
+        if (!isset($passwordData['allow_login_from_ip']) || $passwordData['allow_login_from_ip'] == '') {
+            return true;
+        }
+
+        $bypassIpUserIds = (isset($passwordData['bypass_ip_user_id']) && $passwordData['bypass_ip_user_id'] != '') ? explode(',', str_replace(' ', '', $passwordData['bypass_ip_user_id'])) : array();
+
+        return in_array((string)$user->id, $bypassIpUserIds) || erLhcoreClassIPDetect::isIgnored(erLhcoreClassIPDetect::getIP(), explode(',', $passwordData['allow_login_from_ip']));
+    }
+
+    /**
+     * Account is restricted to REST API usage while it has an active API key.
+     *
+     * @param erLhcoreClassModelUser $user
+     * @return bool
+     */
+    public static function isApiKeyLoginOnly($user)
+    {
+        return $user->api_key_login_only == 1;
+    }
+
+    /**
+     * Direct username/password login is not allowed for API key only accounts.
+     *
+     * @param erLhcoreClassModelUser $user
+     * @return bool
+     */
+    public static function isPasswordLoginAllowed($user)
+    {
+        return !self::isApiKeyLoginOnly($user);
+    }
+
+    /**
+     * Login without credentials (autologin, login as user, login by token, chat accept link)
+     * is not allowed for this user. Used by fetchAutologinUser and erLhcoreClassUser::setLoggedUser
+     *
+     * @param erLhcoreClassModelUser $user
+     * @return bool
+     */
+    public static function isAutologinAllowed($user)
+    {
+        return $user->disable_autologin != 1 && !self::isApiKeyLoginOnly($user);
+    }
+
+    /**
+     * Resolves the user who is allowed to be logged in without credentials
+     * (autologin, login as user, login by token, chat accept link).
+     * Must be used by every endpoint which calls erLhcoreClassUser::setLoggedUser
+     *
+     * @param mixed $user user model or user ID (false/non numeric values are not resolved)
+     * @return erLhcoreClassModelUser|false
+     */
+    public static function fetchAutologinUser($user)
+    {
+        if (!($user instanceof erLhcoreClassModelUser)) {
+            $user = is_numeric($user) ? erLhcoreClassModelUser::fetch((int)$user) : false;
+        }
+
+        if (!($user instanceof erLhcoreClassModelUser) || self::isAutologinAllowed($user) == false || self::isLoginIpAllowed($user) == false) {
+            return false;
+        }
+
+        return $user;
+    }
+
     public static function updateStats($userlist)
     {
         $remap = array();

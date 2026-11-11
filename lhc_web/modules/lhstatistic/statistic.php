@@ -27,13 +27,17 @@ if (!$currentUser->isLogged() || !$currentUser->hasAccessTo('lhstatistic','views
 
         if (isset($Params['user_parameters_unordered']['reportverified']) && $Params['user_parameters_unordered']['reportverified'] == 1) {
 
-            $user = erLhcoreClassModelUser::fetch($report->user_id);
+            $user = erLhcoreClassUserUtils::fetchAutologinUser($report->user_id);
+
+            if ($user === false) {
+                die('Report owner can not be logged in!');
+            }
 
             if ($currentUser->isLogged() == true/* && !$currentUser->hasAccessTo('lhstatistic','viewstatistic')*/) {
                 $currentUser->logout();
             }
 
-            $currentUser->setLoggedUser($report->user_id);
+            $currentUser->setLoggedUser($user->id);
             $user->hide_online = 1;
 
             erLhcoreClassUser::getSession()->update($user, ['session_id']);

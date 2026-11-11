@@ -53,6 +53,25 @@ class erLhcoreClassModelChatAccept {
    		$accept->saveThis();
    		return $accept->hash;
    }
+
+   /**
+    * Email verification hash used in chat accept links.
+    * Always generate it through this method so accept link and validation stay in sync.
+    */
+   public static function generateEmailVerificationHash($email, $secretHash) {
+   		return sha1(sha1((string)$email . (string)$secretHash) . (string)$secretHash);
+   }
+
+   /**
+    * Timing safe validation of email verification hash.
+    */
+   public static function validateEmailVerificationHash($email, $secretHash, $providedHash) {
+   		if (!is_scalar($providedHash) || (string)$providedHash === '') {
+   			return false;
+   		}
+
+   		return hash_equals(self::generateEmailVerificationHash($email, $secretHash), (string)$providedHash);
+   }
    
    public $id = null;
    public $chat_id = 0;

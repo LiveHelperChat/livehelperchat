@@ -173,6 +173,8 @@
 
         <hr>
 		<label>&nbsp;<input type="checkbox" value="on" name="UserDisabled" <?php echo $user->disabled == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disabled')?></label><br>
+		<label>&nbsp;<input type="checkbox" value="on" name="api_key_login_only" <?php echo $user->api_key_login_only == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','API key login only')?></label><br>
+		<label>&nbsp;<input type="checkbox" value="on" name="disable_autologin" <?php echo $user->disable_autologin == 1 ? 'checked="checked"' : '' ?> />&nbsp;<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/new','Disable autologin')?></label><br>
 						
 		<?php include(erLhcoreClassDesign::designtpl('lhuser/account/below_new_account_multiinclude.tpl.php'));?>
 

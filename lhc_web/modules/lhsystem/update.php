@@ -59,6 +59,9 @@ try {
     $restApiKeys = 0;
 }
 
+$adminOperatorsCount = 0;
+$adminAutologinAllowedCount = 0;
+
 try {
     $adminGroupIds = array(1);
 
@@ -69,9 +72,39 @@ try {
         }
     }
 
-    $adminOperatorsCount = empty($adminUserIds) ? 0 : (int)erLhcoreClassModelUser::getCount(array('filter' => array('disabled' => 0), 'filterin' => array('id' => $adminUserIds)));
+    $adminUsers = empty($adminUserIds) ? array() : erLhcoreClassModelUser::getList(array('limit' => false, 'sort' => false, 'filter' => array('disabled' => 0), 'filterin' => array('id' => $adminUserIds)));
+    $adminOperatorsCount = count($adminUsers);
+
+    // Administrator accounts which can still be logged in with an autologin link
+    foreach ($adminUsers as $adminUser) {
+        if ($adminUser->disable_autologin != 1) {
+            $adminAutologinAllowedCount++;
+        }
+    }
 } catch (Exception $e) {
     $adminOperatorsCount = 0;
+    $adminAutologinAllowedCount = 0;
+}
+
+$restApiKeyUsersUnrestricted = 0;
+
+try {
+    $restApiKeyUserIds = array();
+
+    foreach (erLhAbstractModelRestAPIKey::getList(array('limit' => false, 'sort' => false, 'filter' => array('active' => 1), 'filtergt' => array('user_id' => 0))) as $restApiKey) {
+        $restApiKeyUserIds[(int)$restApiKey->user_id] = (int)$restApiKey->user_id;
+    }
+
+    if (!empty($restApiKeyUserIds)) {
+        // Users behind an active API key have to be limited to API key login and to have autologin disabled
+        foreach (erLhcoreClassModelUser::getList(array('limit' => false, 'sort' => false, 'filterin' => array('id' => $restApiKeyUserIds))) as $restApiKeyUser) {
+            if ($restApiKeyUser->api_key_login_only != 1 || $restApiKeyUser->disable_autologin != 1) {
+                $restApiKeyUsersUnrestricted++;
+            }
+        }
+    }
+} catch (Exception $e) {
+    $restApiKeyUsersUnrestricted = 0;
 }
 
 $tpl->set('security_check', array(
@@ -99,6 +132,10 @@ $tpl->set('security_check', array(
     'rest_api_by_user_disabled' => $configInstance->getSetting( 'site', 'disable_rest_api_by_user', false ) === true,
     // Number of enabled operators with administrator rights
     'admin_operators' => (int)$adminOperatorsCount,
+    // Administrators who can still be logged in with an autologin link
+    'admin_autologin_allowed' => (int)$adminAutologinAllowedCount,
+    // Users behind an active API key which are not limited to API key login and autologin disabled
+    'rest_api_key_users_unrestricted' => (int)$restApiKeyUsersUnrestricted,
     // Mobile application access (XML API used by the mobile app)
     'mobile_notifications' => isset($mobileData['notifications']) && $mobileData['notifications'] == 1,
 ));
