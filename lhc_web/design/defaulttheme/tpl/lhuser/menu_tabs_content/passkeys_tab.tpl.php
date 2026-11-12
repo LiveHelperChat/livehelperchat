@@ -45,6 +45,5 @@
         <div class="text-danger small mt-2" data-lh-passkey-error></div>
     </div>
 
-    <script src="<?php echo erLhcoreClassDesign::designJSStatic('js/lhpasskeys.js')?>"></script>
 </div>
 <?php endif; ?>

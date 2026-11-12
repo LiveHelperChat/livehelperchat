@@ -1,4 +1,3 @@
-<?php $passkeyLoginAvailable = erLhcoreClassUserPasskey::isEnabled() && erLhcoreClassUserUtils::validateLoginSiteAccess(); ?>
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Please login');?></h1>
 
 <?php if (isset($errors)) : ?>
@@ -54,10 +53,7 @@
 
 <?php if ($passkeyLoginAvailable) : ?>
 <div class="text-danger small mt-1" id="lh-passkey-login-error"></div>
-<script src="<?php echo erLhcoreClassDesign::designJSStatic('js/lhpasskeys.js')?>"></script>
 <?php endif;?>
-
-
 
 <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect_url);?>" />
 

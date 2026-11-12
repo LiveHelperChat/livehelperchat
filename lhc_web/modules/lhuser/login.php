@@ -81,6 +81,8 @@ if (!in_array($instance->SiteAccess, $possibleLoginSiteAccess)) {
 
 $tpl = erLhcoreClassTemplate::getInstance( 'lhuser/login.tpl.php');
 $tpl->set('crossdomain',$crossDomainCookie);
+$passkeyLoginAvailable = erLhcoreClassUserPasskey::isEnabled();
+$tpl->set('passkeyLoginAvailable',$passkeyLoginAvailable);
 
 $redirect = '';
 if (isset($_POST['redirect'])){
@@ -276,3 +278,7 @@ if ($pagelayout != null)
     $Result['pagelayout'] = 'login';
 
 $Result['content'] = $tpl->fetch();
+
+if ($passkeyLoginAvailable === true){
+    $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJS('js/lhpasskeys.js').'"></script>';
+}
