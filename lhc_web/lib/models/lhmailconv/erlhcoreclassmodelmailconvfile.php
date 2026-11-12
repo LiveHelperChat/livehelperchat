@@ -78,6 +78,9 @@ class erLhcoreClassModelMailconvFile
             case 'file_body_embed':
                 return '[mailfilebody='.$this->id . '_' . $this->security_hash . ']';
 
+            case 'upload_name':
+                return $this->name;
+
             default:
                 ;
                 break;
