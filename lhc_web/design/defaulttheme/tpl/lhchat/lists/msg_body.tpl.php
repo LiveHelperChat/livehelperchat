@@ -38,7 +38,7 @@
         <?php endif; ?>
 
 
-        <?php echo $subMessage['body']?>
+        <?php echo (isset($paramsMessageRender['keyword']) && !empty($paramsMessageRender['keyword'])) ? \LiveHelperChat\Helpers\BBCode\Highlight::render($subMessage['body'], $paramsMessageRender['keyword']) : $subMessage['body']; ?>
         <?php if (isset($visitorRender) && $visitorRender == true && isset($metaMessageData)) : ?>
             <?php include(erLhcoreClassDesign::designtpl('lhgenericbot/message/meta_render_msg_body.tpl.php'));?>
         <?php elseif (isset($metaMessageData)): ?>

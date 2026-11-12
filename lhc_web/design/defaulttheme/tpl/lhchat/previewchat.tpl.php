@@ -41,15 +41,6 @@
 
 <div id="preview-messages-<?php echo $chat->id?>" class="msgBlock-preview overflow-x-hidden mx550 fs13">
     <?php $messages = array_reverse(erLhcoreClassModelmsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>
-    <?php if (isset($keyword) && !empty($keyword)) : ?>
-        <?php foreach ($messages as $message) : ?>
-            <?php if (is_array($keyword)) : ?>
-                <?php foreach ($keyword as $keywordItem) { $message->msg = preg_replace_callback('/(\[[^\]]*\])|(\b' . preg_quote($keywordItem, '/') . '\b)/is', function($matches) { if (!empty($matches[1])) { return $matches[1]; } return '[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $matches[2] . '[/fs][/b][/i][/level]'; }, $message->msg); } ?>
-            <?php else : ?>
-                <?php $message->msg = preg_replace_callback('/(\[[^\]]*\])|(\b' . preg_quote($keyword, '/') . '\b)/is', function($matches) { if (!empty($matches[1])) { return $matches[1]; } return '[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $matches[2] . '[/fs][/b][/i][/level]'; }, $message->msg); ?>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    <?php endif; ?>
     <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
 </small>
 

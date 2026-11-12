@@ -38,11 +38,6 @@
 <h6><strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/previewchat','Last 100 messages rows');?></strong></h6>
 <br/>
 <?php $messages = array_reverse(erLhcoreClassModelChatArchiveMsg::getList(array('limit' => 100,'sort' => 'id DESC','filter' => array('chat_id' => $chat->id)))); ?>
-<?php if (isset($keyword) && !empty($keyword)) : ?>
-    <?php foreach ($messages as $message) : ?>
-        <?php $message->msg = preg_replace('/\b(' . preg_quote($keyword,'/') . ')\b/is','[level=bg-warning text-dark rounded p-1 d-inline-block][i][b][fs14]' . $keyword . '[/fs][/b][/i][/level]', $message->msg); ?>
-    <?php endforeach; ?>
-<?php endif; ?>
 <?php include(erLhcoreClassDesign::designtpl('lhchat/lists/msg_obj_list_admin.tpl.php'));?>
 </div>
 <?php include(erLhcoreClassDesign::designtpl('lhkernel/modal_footer.tpl.php'));?>
