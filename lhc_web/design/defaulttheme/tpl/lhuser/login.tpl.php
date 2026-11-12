@@ -41,9 +41,7 @@
         <div class="btn-group btn-group-sm text-nowrap" role="group" aria-label="Login">
             <button type="submit" class="btn btn-primary" name="Login" value="Login"><span class="material-icons me-1">login</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login');?></button>
             <?php if ($passkeyLoginAvailable) : ?>
-            <button type="button" class="btn btn-outline-secondary" data-lh-passkey-login
-                    data-options-url="<?php echo erLhcoreClassDesign::baseurl('user/passkeylogin')?>/options"
-                    data-verify-url="<?php echo erLhcoreClassDesign::baseurl('user/passkeylogin')?>/verify"><span class="material-icons me-1">passkey</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login with a passkey');?></button>
+            <button type="button" class="btn btn-outline-secondary" data-lh-passkey-login data-options-url="<?php echo erLhcoreClassDesign::baseurl('user/passkeylogin')?>/options" data-verify-url="<?php echo erLhcoreClassDesign::baseurl('user/passkeylogin')?>/verify"><span class="material-icons me-1">passkey</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Login with a passkey');?></button>
             <?php endif;?>
             <a class="btn btn-outline-secondary" href="<?php echo erLhcoreClassDesign::baseurl('user/forgotpassword')?>"><span class="material-icons me-1">lock_reset</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/login','Password reminder')?></a>
         </div>

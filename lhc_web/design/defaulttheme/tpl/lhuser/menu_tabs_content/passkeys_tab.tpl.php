@@ -3,14 +3,7 @@
 
     <div class="explain mb-3"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Passkeys let you login without a password by using your fingerprint, face, a PIN or a hardware security key.');?></div>
 
-    <div data-lh-passkey-container
-         data-url-register-options="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/register_options"
-            data-url-reauth-options="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/reauth_options"
-            data-url-reauth="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/reauth"
-            data-has-passkeys="<?php echo !empty($passkeys) ? '1' : '0'?>"
-         data-url-register="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/register"
-         data-url-delete="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/delete">
-
+    <div data-lh-passkey-container data-url-register-options="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/register_options" data-url-reauth-options="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/reauth_options" data-url-reauth="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/reauth" data-has-passkeys="<?php echo !empty($passkeys) ? '1' : '0'?>" data-url-register="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/register" data-url-delete="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/delete">
         <table class="table table-sm table-hover">
             <thead>
                 <tr>
