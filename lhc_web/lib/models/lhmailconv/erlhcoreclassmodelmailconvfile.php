@@ -81,6 +81,15 @@ class erLhcoreClassModelMailconvFile
             case 'upload_name':
                 return $this->name;
 
+            case 'remote_file':
+                // Bot REST API checks it to decide does file exists on server
+                return false;
+
+            case 'chat_id':
+                // Mail attachment has no chat, so it's never a chat file
+                return 0;
+
+
             default:
                 ;
                 break;
