@@ -49,7 +49,7 @@ if (isset($_POST['StorePasskeyOptions'])) {
         try {
             erLhcoreClassUserPasskey::getAllowedOrigins($data['allowed_origins'], $data);
         } catch (Exception $exception) {
-            $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', $exception->getMessage());
+            $errors[] = $exception->getMessage();
         }
     }
 
