@@ -35,6 +35,7 @@ return array_merge(array (
 
         // Core clases models
         'erLhcoreClassUser'         => 'lib/core/lhuser/lhuser.php',
+        'erLhcoreClassUserPasskey'  => 'lib/core/lhuser/lhpasskeys.php',
         'erLhcoreClassGroup'        => 'lib/core/lhuser/lhgroup.php',
         'erLhcoreClassChat'         => 'lib/core/lhchat/lhchat.php',
 		'erLhcoreClassChatWorkflow' => 'lib/core/lhchat/lhchatworkflow.php',
