@@ -26,6 +26,9 @@ if (isset($_POST['StorePasskeyOptions'])) {
         ),
         'secured_rp_ids' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'allowed_origins' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -40,15 +43,26 @@ if (isset($_POST['StorePasskeyOptions'])) {
     $data['rp_id'] = $form->hasValidData('rp_id') ? trim($form->rp_id) : '';
     $data['rp_name'] = $form->hasValidData('rp_name') ? trim($form->rp_name) : '';
     $data['secured_rp_ids'] = $form->hasValidData('secured_rp_ids') ? trim($form->secured_rp_ids) : '';
+    $data['allowed_origins'] = $form->hasValidData('allowed_origins') ? trim($form->allowed_origins) : '';
 
-    $options->explain = '';
-    $options->type = 0;
-    $options->hidden = 1;
-    $options->identifier = 'passkey_options';
-    $options->value = serialize($data);
-    $options->saveThis();
+    if ($data['enabled'] == 1 || $data['allowed_origins'] !== '') {
+        try {
+            erLhcoreClassUserPasskey::getAllowedOrigins($data['allowed_origins'], $data);
+        } catch (Exception $exception) {
+            $errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', $exception->getMessage());
+        }
+    }
 
-    $tpl->set('updated', 'done');
+    if (empty($errors)) {
+        $options->explain = '';
+        $options->type = 0;
+        $options->hidden = 1;
+        $options->identifier = 'passkey_options';
+        $options->value = serialize($data);
+        $options->saveThis();
+
+        $tpl->set('updated', 'done');
+    }
 }
 
 if ((string)$Params['user_parameters_unordered']['action'] === 'delete') {

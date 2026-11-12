@@ -35,8 +35,44 @@ try {
 
     switch ($action) {
 
+        case 'reauth_options':
+            if (count(erLhcoreClassUserPasskey::getPasskeyList($userData->id)) == 0) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'No passkeys are available'));
+            }
+            echo json_encode(array('error' => false, 'options' => erLhcoreClassUserPasskey::createAuthenticationOptions($userData)));
+            break;
+
+        case 'reauth':
+            $body = $requestBody();
+            unset($_SESSION['lhc_passkey_registration_reauth']);
+            if (!isset($body['credential']) || !is_array($body['credential'])) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Invalid request'));
+            }
+            $verifiedUser = erLhcoreClassUserPasskey::verifyAuthentication($body['credential']);
+            if ((int)$verifiedUser->id !== (int)$userData->id) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Authentication failed'));
+            }
+            $_SESSION['lhc_passkey_registration_reauth'] = array('user_id' => (int)$userData->id, 'time' => time());
+            echo json_encode(array('error' => false));
+            break;
+
         case 'register_options':
             $body = $requestBody();
+            $reauth = isset($_SESSION['lhc_passkey_registration_reauth']) ? $_SESSION['lhc_passkey_registration_reauth'] : null;
+            unset($_SESSION['lhc_passkey_registration_reauth']);
+            $verified = is_array($reauth) && $reauth['user_id'] === (int)$userData->id && $reauth['time'] >= time() - erLhcoreClassUserPasskey::OPTIONS_TTL;
+            if (!$verified && erLhcoreClassUserUtils::isPasswordLoginAllowed($userData) && isset($body['password']) && is_string($body['password']) && $body['password'] !== '') {
+                $verified = strlen($userData->password) == 40
+                    ? hash_equals($userData->password, sha1($body['password'] . erConfigClassLhConfig::getInstance()->getSetting('site', 'secrethash') . sha1($body['password'])))
+                    : password_verify($body['password'], $userData->password);
+                if (!$verified) {
+                    erLhcoreClassModelUserLogin::logUserAction(array('type' => erLhcoreClassModelUserLogin::TYPE_LOGIN_ATTEMPT, 'user_id' => $userData->id, 'msg' => 'Failed passkey enrollment authentication'));
+                    erLhcoreClassModelUserLogin::disableIfRequired($userData);
+                }
+            }
+            if (!$verified) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Authentication failed'));
+            }
             echo json_encode(array(
                 'error' => false,
                 'options' => erLhcoreClassUserPasskey::createRegistrationOptions($userData, isset($body['name']) ? $body['name'] : '')

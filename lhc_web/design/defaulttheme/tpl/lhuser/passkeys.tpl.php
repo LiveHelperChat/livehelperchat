@@ -43,6 +43,12 @@
         <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Comma separated list of relying party IDs (host names) which are allowed to use passkeys without HTTPS, for example example.com. No https:// and no port.')?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Localhost is always allowed, HTTPS origins never have to be listed. Current origin')?>: <strong><?php echo htmlspecialchars($current_origin)?></strong></div>
     </div>
 
+    <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Allowed origins')?></label>
+        <input class="form-control form-control-sm" type="text" name="allowed_origins" value="<?php echo htmlspecialchars(isset($data['allowed_origins']) ? $data['allowed_origins'] : '')?>" placeholder="https://example.com" />
+        <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Required when passkeys are enabled. Enter comma separated exact origins including scheme and optional port, for example https://example.com:8443. Subdomains must be listed separately.')?></div>
+    </div>
+
     <input type="submit" class="btn btn-secondary btn-sm" name="StorePasskeyOptions" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Save')?>" />
 
 </form>

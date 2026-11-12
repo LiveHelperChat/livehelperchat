@@ -2725,6 +2725,9 @@ Table "lh_users" {
   "exclude_autoasign_mails" tinyint(1) [not null, default: 0]
   "max_active_mails" int(11) [not null, default: 0]
   "team_lead_user_id" int(11) [not null, default: 0, note: 'Team lead user ID']
+  "api_key_login_only" tinyint(1) [not null, default: 0, note: 'Login is possible only using REST API key']
+  "disable_autologin" tinyint(1) [not null, default: 0, note: 'Autologin, login as user and login by token are not allowed']
+  "passwordless_login" tinyint(1) [not null, default: 0, note: 'Username and password login is not allowed, passkey only']
 
   Indexes {
     hide_online [name: "hide_online"]
@@ -2734,6 +2737,23 @@ Table "lh_users" {
     xmpp_username [name: "xmpp_username"]
     username [name: "username"]
     team_lead_user_id [name: "team_lead_user_id"]
+  }
+}
+
+Table "lh_users_passkey" {
+  "id" bigint(20) [pk, not null, increment, note: 'unsigned']
+  "user_id" int(11) [not null]
+  "credential_id" varbinary(1364) [not null, note: 'Raw WebAuthn credential ID, full length']
+  "credential" longtext [not null, note: 'Serialized CredentialRecord (JSON)']
+  "name" varchar(100) [not null, note: 'User defined passkey name']
+  "aaguid" varchar(36) [not null, note: 'Authenticator AAGUID']
+  "counter" bigint(20) [not null, default: 0, note: 'unsigned']
+  "created_at" int(11) [not null, default: 0]
+  "last_used_at" int(11) [not null, default: 0]
+
+  Indexes {
+    (credential_id) [unique, name: "credential_id_full"]
+    user_id [name: "user_id"]
   }
 }
 
@@ -3029,6 +3049,9 @@ Ref: "lh_users"."id" < "lh_users_online_session"."user_id"
 
 // lh_users_login
 Ref: "lh_users"."id" < "lh_users_login"."user_id"
+
+// lh_users_passkey
+Ref: "lh_users"."id" < "lh_users_passkey"."user_id"
 
 // lh_userdep_alias
 Ref: "lh_departament"."id" < "lh_userdep_alias"."dep_id"

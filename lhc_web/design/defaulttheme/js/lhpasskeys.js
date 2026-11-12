@@ -135,6 +135,7 @@
     function initRegistration(container) {
         var errorBox = container.querySelector('[data-lh-passkey-error]');
         var nameInput = container.querySelector('[data-lh-passkey-name]');
+        var passwordInput = container.querySelector('[data-lh-passkey-password]');
         var addButton = container.querySelector('[data-lh-passkey-add]');
 
         if (addButton) {
@@ -146,8 +147,28 @@
                 addButton.disabled = true;
                 showError(errorBox, '');
 
-                postJson(container.getAttribute('data-url-register-options'), {
-                    name: nameInput ? nameInput.value : ''
+                var password = passwordInput ? passwordInput.value : '';
+                var reauth = Promise.resolve();
+                if (!password && container.getAttribute('data-has-passkeys') === '1') {
+                    reauth = postJson(container.getAttribute('data-url-reauth-options'), {}).then(function (result) {
+                        if (result.error) {
+                            throw new Error(result.message);
+                        }
+                        return navigator.credentials.get({ publicKey: prepareRequestOptions(result.options) });
+                    }).then(function (credential) {
+                        return postJson(container.getAttribute('data-url-reauth'), { credential: publicKeyCredentialToJSON(credential) });
+                    }).then(function (result) {
+                        if (result.error) {
+                            throw new Error(result.message);
+                        }
+                    });
+                }
+
+                reauth.then(function () {
+                    return postJson(container.getAttribute('data-url-register-options'), {
+                        name: nameInput ? nameInput.value : '',
+                        password: password
+                    });
                 }).then(function (optionsResponse) {
                     if (optionsResponse.error) {
                         throw new Error(optionsResponse.message);

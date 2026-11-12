@@ -133,17 +133,16 @@ class erLhcoreClassUserPasskey
      * Origins which are allowed to be used without HTTPS.
      * Local development hosts are always allowed, additional ones can be defined in configuration
      */
-    public static function getSecuredRelyingPartyIds()
+    public static function getSecuredRelyingPartyIds($configuration = null)
     {
         $securedIds = array();
 
-        $rpId = self::getRpId();
+        $configuration = $configuration === null ? self::getConfiguration() : $configuration;
+        $rpId = isset($configuration['rp_id']) && trim($configuration['rp_id']) != '' ? trim($configuration['rp_id']) : self::getDetectedHost();
 
         if (in_array($rpId, array('localhost', '127.0.0.1', '::1'), true)) {
             $securedIds[] = $rpId;
         }
-
-        $configuration = self::getConfiguration();
 
         if (isset($configuration['secured_rp_ids']) && $configuration['secured_rp_ids'] != '') {
             foreach (explode(',', $configuration['secured_rp_ids']) as $securedId) {
@@ -207,18 +206,48 @@ class erLhcoreClassUserPasskey
         return $serializer;
     }
 
+    public static function getAllowedOrigins($value, $configuration = null)
+    {
+        $origins = array_filter(array_map('trim', explode(',', (string)$value)), 'strlen');
+
+        if (empty($origins)) {
+            throw new Exception('At least one passkey origin must be configured.');
+        }
+
+        foreach ($origins as $origin) {
+            $parts = parse_url($origin);
+            if ($parts === false || filter_var($origin, FILTER_VALIDATE_URL) === false || !isset($parts['scheme'], $parts['host']) || !in_array($parts['scheme'], array('http', 'https'), true) || $parts['host'] === '' || isset($parts['user']) || isset($parts['pass']) || isset($parts['path']) || isset($parts['query']) || isset($parts['fragment'])) {
+                throw new Exception('Passkey origins must include only the scheme, host and optional port.');
+            }
+
+            if ($parts['scheme'] === 'http') {
+                $configuration = $configuration === null ? self::getConfiguration() : $configuration;
+                $rpId = isset($configuration['rp_id']) && trim($configuration['rp_id']) != '' ? trim($configuration['rp_id']) : self::getDetectedHost();
+                if (!in_array($rpId, self::getSecuredRelyingPartyIds($configuration), true)) {
+                    throw new Exception('HTTP passkey origins require the relying party ID to be allowed over HTTP.');
+                }
+            }
+        }
+
+        return array_values(array_unique($origins));
+    }
+
     public static function getCeremonyStepManagerFactory()
     {
         static $ceremonyStepManagerFactory = null;
 
         if ($ceremonyStepManagerFactory === null) {
-            $ceremonyStepManagerFactory = new CeremonyStepManagerFactory();
+            $configuration = self::getConfiguration();
+            $allowedOrigins = self::getAllowedOrigins(isset($configuration['allowed_origins']) ? $configuration['allowed_origins'] : '', $configuration);
+            $factory = new CeremonyStepManagerFactory();
+            $factory->setAllowedOrigins($allowedOrigins);
 
             $securedRelyingPartyIds = self::getSecuredRelyingPartyIds();
 
             if (!empty($securedRelyingPartyIds)) {
-                $ceremonyStepManagerFactory->setSecuredRelyingPartyId($securedRelyingPartyIds);
+                $factory->setSecuredRelyingPartyId($securedRelyingPartyIds);
             }
+            $ceremonyStepManagerFactory = $factory;
         }
 
         return $ceremonyStepManagerFactory;
@@ -483,27 +512,37 @@ class erLhcoreClassUserPasskey
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Invalid authenticator response'));
         }
 
-        $passkey = erLhcoreClassModelUserPasskey::findOne(array(
-            'filter' => array('credential_id' => self::base64UrlEncode($publicKeyCredential->rawId))
-        ));
+        $db = ezcDbInstance::get();
+        $db->beginTransaction();
 
-        if (!($passkey instanceof erLhcoreClassModelUserPasskey)) {
-            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Unknown passkey'));
+        try {
+            $passkey = erLhcoreClassModelUserPasskey::findOne(array(
+                'filter' => array('credential_id' => self::base64UrlEncode($publicKeyCredential->rawId)),
+                'lock' => true
+            ));
+
+            if (!($passkey instanceof erLhcoreClassModelUserPasskey)) {
+                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Unknown passkey'));
+            }
+
+            $updatedCredentialRecord = AuthenticatorAssertionResponseValidator::create(
+                self::getCeremonyStepManagerFactory()->requestCeremony()
+            )->check(
+                $passkey->getCredentialRecord(),
+                $publicKeyCredential->response,
+                $options,
+                self::getRpId(),
+                $publicKeyCredential->response->userHandle
+            );
+
+            $passkey->setFromCredentialRecord($updatedCredentialRecord);
+            $passkey->last_used_at = time();
+            $passkey->updateThis();
+            $db->commit();
+        } catch (Throwable $e) {
+            $db->rollBack();
+            throw $e;
         }
-
-        $updatedCredentialRecord = AuthenticatorAssertionResponseValidator::create(
-            self::getCeremonyStepManagerFactory()->requestCeremony()
-        )->check(
-            $passkey->getCredentialRecord(),
-            $publicKeyCredential->response,
-            $options,
-            self::getRpId(),
-            $publicKeyCredential->response->userHandle
-        );
-
-        $passkey->setFromCredentialRecord($updatedCredentialRecord);
-        $passkey->last_used_at = time();
-        $passkey->updateThis();
 
         $user = erLhcoreClassModelUser::fetch($passkey->user_id);
 

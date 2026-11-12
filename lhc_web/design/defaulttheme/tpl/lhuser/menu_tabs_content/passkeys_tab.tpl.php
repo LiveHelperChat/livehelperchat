@@ -5,6 +5,9 @@
 
     <div data-lh-passkey-container
          data-url-register-options="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/register_options"
+            data-url-reauth-options="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/reauth_options"
+            data-url-reauth="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/reauth"
+            data-has-passkeys="<?php echo !empty($passkeys) ? '1' : '0'?>"
          data-url-register="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/register"
          data-url-delete="<?php echo erLhcoreClassDesign::baseurl('user/passkey')?>/delete">
 
@@ -37,6 +40,12 @@
             </tbody>
         </table>
 
+        <?php if ($user->passwordless_login != 1) : ?>
+        <div class="form-group mb-2">
+            <label for="passkey-current-password"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Current password');?></label>
+            <input id="passkey-current-password" type="password" class="form-control form-control-sm" autocomplete="current-password" data-lh-passkey-password />
+        </div>
+        <?php endif; ?>
         <div class="input-group input-group-sm col-6 ps-0">
             <input type="text" class="form-control" maxlength="100" data-lh-passkey-name placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Passkey name, e.g. Work laptop');?>" />
             <button class="btn btn-secondary" type="button" data-lh-passkey-add><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Add a passkey');?></button>

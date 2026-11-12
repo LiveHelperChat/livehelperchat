@@ -1,8 +1,63 @@
 <?php
 
-header('Content-type: application/json');
-
 $currentUser = erLhcoreClassUser::instance();
+$action = (string)$Params['user_parameters']['action'];
+
+if ($action === 'complete') {
+    $pending = isset($_SESSION['lhc_passkey_login_pending']) ? $_SESSION['lhc_passkey_login_pending'] : null;
+    unset($_SESSION['lhc_passkey_login_pending']);
+
+    if (!erLhcoreClassUserUtils::validateLoginSiteAccess() || !erLhcoreClassUserPasskey::isEnabled() || !is_array($pending) || $pending['time'] < time() - erLhcoreClassUserPasskey::OPTIONS_TTL) {
+        erLhcoreClassModule::redirect('user/login');
+        exit;
+    }
+
+    $user = erLhcoreClassModelUser::fetch($pending['user_id'], false);
+    if (!($user instanceof erLhcoreClassModelUser) || erLhcoreClassUserUtils::isApiKeyLoginOnly($user) || !erLhcoreClassUserUtils::isLoginIpAllowed($user) || ($currentUser->isLogged() && (int)$currentUser->getUserID() !== (int)$user->id)) {
+        erLhcoreClassModule::redirect('user/login');
+        exit;
+    }
+
+    $tpl = erLhcoreClassTemplate::getInstance('lhuser/login.tpl.php');
+    $errors = array();
+    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_before_authenticate', array('errors' => & $errors, 'tpl' => & $tpl));
+    if (!empty($errors)) {
+        erLhcoreClassModule::redirect('user/login');
+        exit;
+    }
+
+    if (!$currentUser->isLogged() && $currentUser->setLoggedUser($user->id, false, true) !== true) {
+        erLhcoreClassModule::redirect('user/login');
+        exit;
+    }
+
+    try {
+        $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.login_after_success_authenticate', array('current_user' => & $currentUser, 'tpl' => & $tpl));
+        if ($response !== false) {
+            $currentUser->logout();
+            erLhcoreClassModule::redirect('user/login');
+            exit;
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('user.2fa_intercept', array('remember' => false, 'is_external' => false, 'current_user' => $currentUser));
+    } catch (Throwable $e) {
+        $currentUser->logout();
+        throw $e;
+    }
+
+    erLhcoreClassModelUserLogin::logUserAction(array(
+        'type' => erLhcoreClassModelUserLogin::TYPE_LOGGED,
+        'user_id' => $user->id,
+        'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Logged in successfully. WEB. Passkey')
+    ));
+    $user->llogin = time();
+    $user->force_logout = 0;
+    $user->updateThis(array('update' => array('llogin', 'force_logout')));
+    erLhcoreClassModule::redirect($pending['redirect']);
+    exit;
+}
+
+header('Content-type: application/json');
 
 // Passwordless login logs an operator in, so it's allowed only on a back office site access
 if (!erLhcoreClassUserUtils::validateLoginSiteAccess()) {
@@ -15,33 +70,13 @@ if (!isset($_SERVER['HTTP_X_CSRFTOKEN']) || !$currentUser->validateCSFRToken($_S
     exit;
 }
 
-$action = (string)$Params['user_parameters']['action'];
-
 try {
 
     if ($action === 'options') {
 
-        $body = json_decode(file_get_contents('php://input'), true);
-
-        $optionsUser = null;
-
-        // When username is provided only passkeys of that user are allowed. Otherwise discoverable credentials are used
-        if (is_array($body) && isset($body['username']) && trim((string)$body['username']) != '') {
-            $optionsUser = erLhcoreClassModelUser::findOne(array(
-                'filterlor' => array(
-                    'username' => array(trim((string)$body['username'])),
-                    'email' => array(trim((string)$body['username']))
-                )
-            ));
-
-            if (!($optionsUser instanceof erLhcoreClassModelUser)) {
-                $optionsUser = null;
-            }
-        }
-
         echo json_encode(array(
             'error' => false,
-            'options' => erLhcoreClassUserPasskey::createAuthenticationOptions($optionsUser)
+            'options' => erLhcoreClassUserPasskey::createAuthenticationOptions()
         ));
         exit;
     }
@@ -56,47 +91,21 @@ try {
 
         $user = erLhcoreClassUserPasskey::verifyAuthentication($body['credential']);
 
-        // Login page is available also for already logged users
-        $isPasskeyOwnerLoggedIn = $currentUser->isLogged() && (int)$currentUser->getUserID() === (int)$user->id;
-
-        if ($isPasskeyOwnerLoggedIn == false) {
-
-            if ($currentUser->isLogged()) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Please log out first to login with a passkey'));
-            }
-
-            // A passkey is a credential, so the autologin restriction does not apply,
-            // but the account level login IP restriction still has to be respected
-            if (erLhcoreClassUserUtils::isLoginIpAllowed($user) == false) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Login is not allowed from your IP address'));
-            }
-
-            if ($currentUser->setLoggedUser($user->id, false, true) !== true) {
-                throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Passkey login is not allowed for this account'));
-            }
+        if (erLhcoreClassUserUtils::isApiKeyLoginOnly($user)) {
+            throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Passkey login is not allowed for this account'));
         }
 
-        erLhcoreClassModelUserLogin::logUserAction(array(
-            'type' => erLhcoreClassModelUserLogin::TYPE_LOGGED,
-            'user_id' => $user->id,
-            'msg' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Logged in successfully. WEB. Passkey')
-        ));
-
-        $user->llogin = time();
-        $user->force_logout = 0;
-        $user->updateThis(array('update' => array('llogin', 'force_logout')));
-
-        $redirectUrl = erLhcoreClassDesign::baseurl('/');
+        $redirectPath = '';
 
         if (!empty($body['redirect'])) {
-            $redirectPath = base64_decode(rawurldecode($body['redirect']));
-
-            if (erLhcoreClassUserUtils::isValidRedirectPath($redirectPath)) {
-                $redirectUrl = erLhcoreClassDesign::baseurl($redirectPath);
+            $requestedPath = base64_decode(rawurldecode($body['redirect']));
+            if (erLhcoreClassUserUtils::isValidRedirectPath($requestedPath)) {
+                $redirectPath = $requestedPath;
             }
         }
 
-        echo json_encode(array('error' => false, 'redirect' => $redirectUrl));
+        $_SESSION['lhc_passkey_login_pending'] = array('user_id' => (int)$user->id, 'time' => time(), 'redirect' => $redirectPath);
+        echo json_encode(array('error' => false, 'redirect' => erLhcoreClassDesign::baseurl('user/passkeylogin/complete')));
         exit;
     }
 
@@ -104,7 +113,7 @@ try {
 
 } catch (Throwable $e) {
     erLhcoreClassLog::write('Passkey login action "' . $action . '" failed - ' . $e->getMessage());
-    echo json_encode(array('error' => true, 'message' => $e->getMessage()));
+    echo json_encode(array('error' => true, 'message' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey', 'Passkey login failed')));
 }
 
 exit;
