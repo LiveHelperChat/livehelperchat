@@ -38,6 +38,8 @@
             <label for="passkey-current-password"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Current password');?></label>
             <input id="passkey-current-password" type="password" class="form-control form-control-sm" autocomplete="current-password" data-lh-passkey-password />
         </div>
+        <?php else : ?>
+        <div class="alert alert-info mb-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Passwordless login is enabled for this account, so the current password is not accepted. A new passkey has to be confirmed with one of your existing passkeys, and the last passkey can not be deleted while passwordless login is enabled.');?></div>
         <?php endif; ?>
         <div class="input-group input-group-sm col-6 ps-0">
             <input type="text" class="form-control" maxlength="100" data-lh-passkey-name placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Passkey name, e.g. Work laptop');?>" />
