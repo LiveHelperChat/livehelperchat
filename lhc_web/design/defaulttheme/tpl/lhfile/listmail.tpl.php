@@ -23,9 +23,9 @@
             <?php $conversations_id = 0;if ($file->message_id > 0) : 
                 $message = erLhcoreClassModelMailconvMessage::fetch($file->message_id);
                 if ($message instanceof erLhcoreClassModelMailconvMessage) : $conversations_id = $message->conversation_id;?>
-                   <a id="preview-item-<?php echo $message->conversation_id?>" data-list-navigate="true" onclick="lhc.previewMail(<?php echo $message->conversation_id?>,this);" class="material-icons">info_outline</a> 
-                   <a class="action-image material-icons" data-title="<?php echo htmlspecialchars($message->subject)?>" onclick="lhinst.startMailNewWindow(<?php echo $message->conversation_id?>,$(this).attr('data-title'))">open_in_new</a>
-                   <?php echo $message->conversation_id; ?>&nbsp;<?php echo erLhcoreClassDesign::shrt($message->subject,50)?>
+                   <a id="preview-item-<?php echo $message->conversation_id?>" data-list-navigate="true" onclick="lhc.previewMail(<?php echo $message->conversation_id?>,this);" class="disable-select material-icons">info_outline</a> 
+                   <a class="action-image material-icons disable-select" data-title="<?php echo htmlspecialchars($message->subject)?>" onclick="lhinst.startMailNewWindow(<?php echo $message->conversation_id?>,$(this).attr('data-title'))">open_in_new</a>
+                   <?php echo $message->conversation_id; ?>.&nbsp;<?php echo erLhcoreClassDesign::shrt($message->subject,50)?>
            <?php endif; endif; ?>
         </td>
         <td>
