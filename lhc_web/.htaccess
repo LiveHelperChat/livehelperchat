@@ -1,13 +1,13 @@
 AddType application/wasm .wasm
 
-<Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
+<Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|ogg|wasm|wav|pdf|ico|txt)$">
   Header always Set Access-Control-Allow-Origin "*"
   Header always Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
   Header always Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
 </Files>
 
 # If above section does not work, try this one
-# <Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
+# <Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|ogg|wasm|wav|pdf|ico|txt)$">
 #  Header Set Access-Control-Allow-Origin "*"
 #  Header Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
 #  Header Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
@@ -29,7 +29,7 @@ Options -Indexes
 
 # 1. Static files: design/*, extension/<ext>/design/*,
 #    cache/compiledtemplates/*.css|js and uploads in var/*
-RewriteRule \.(gif|jpe?g|png|bmp|css|js|svg|otf|eot|ttf|woff|woff2|mp3|map|ogg|wasm|wav|pdf|ico|txt)$ - [L]
+RewriteRule \.(gif|jpe?g|png|bmp|css|js|svg|otf|eot|ttf|woff|woff2|mp3|ogg|wasm|wav|pdf|ico|txt)$ - [L]
 
 # 2. Private folders (nginx: albums|bin|var|lib|cache|doc|settings|pos|modules)
 #    plus the remaining app sources. Never execute/disclose anything from them.

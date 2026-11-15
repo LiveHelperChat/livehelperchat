@@ -35,7 +35,7 @@
 
     # The widget is embedded into third party sites, so css/js/images/fonts
     # have to be loadable cross origin.
-    <FilesMatch "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
+    <FilesMatch "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|mp3|ogg|wasm|wav|pdf|ico|txt)$">
         Header always set Access-Control-Allow-Origin "*"
         Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
         Header always set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
@@ -58,7 +58,7 @@
 
         # 1. Static files: design/*, extension/<ext>/design/<ext>theme/*,
         #    cache/compiledtemplates/*.css|js and uploads in var/*
-        RewriteRule \.(gif|jpe?g|png|bmp|css|js|svg|otf|eot|ttf|woff|woff2|mp3|map|ogg|wasm|wav|pdf|ico|txt)$ - [L]
+        RewriteRule \.(gif|jpe?g|png|bmp|css|js|svg|otf|eot|ttf|woff|woff2|mp3|ogg|wasm|wav|pdf|ico|txt)$ - [L]
 
         # 2. Private folders (nginx: albums|bin|var|lib|cache|doc|settings|pos|modules)
         #    plus the remaining application sources. Never execute or disclose
