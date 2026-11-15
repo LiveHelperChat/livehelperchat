@@ -1,0 +1,75 @@
+#
+# Apache virtual host example for Live Helper Chat.
+#
+# Same behaviour as the recommended nginx config and as .htaccess.example
+# in this folder:
+#   1) static assets are served from disk
+#   2) private folders are never reachable directly
+#   3) everything else goes to the index.php front controller
+#
+# Required modules: rewrite headers mime
+#   Debian/Ubuntu: a2enmod rewrite headers mime
+#
+# Copy to /etc/apache2/sites-available/livehelperchat.conf (Debian/Ubuntu) or
+# /etc/httpd/conf.d/livehelperchat.conf (RHEL/Fedora), adjust ServerName,
+# DocumentRoot and the log paths, then reload Apache.
+#
+# The rules live inside <Directory>, so - exactly like in .htaccess - they are
+# matched against the request path relative to DocumentRoot (no leading "/").
+# That is why they keep working when the application sits in a sub-directory
+# (DocumentRoot /var/www/html + <Directory /var/www/html/lhc_web>).
+# If you prefer them in the virtual host scope instead, prefix the patterns with
+# "/" and rewrite to "/index.php" (the substitution must be an absolute
+# URL-path).
+#
+
+<VirtualHost *:80>
+    ServerName  chat.example.com
+    # ServerAlias www.chat.example.com
+
+    DocumentRoot    /var/www/html/lhc_web
+    DirectoryIndex  index.php
+
+    # Tesseract OCR and the voice message recorder ship wasm binaries
+    AddType application/wasm .wasm
+
+    # The widget is embedded into third party sites, so css/js/images/fonts
+    # have to be loadable cross origin.
+    <FilesMatch "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
+        Header always set Access-Control-Allow-Origin "*"
+        Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+        Header always set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
+        Header always set Access-Control-Expose-Headers "Content-Length, Content-Range"
+        Header always set Access-Control-Max-Age "1728000"
+    </FilesMatch>
+
+    <Directory /var/www/html/lhc_web>
+        Require all granted
+        Options -Indexes +FollowSymLinks
+
+        # The rules below replace .htaccess, keep overrides disabled for speed.
+        AllowOverride None
+
+        RewriteEngine On
+
+        # Pass the Authorization header to PHP (REST API keys, Basic auth)
+        RewriteCond %{HTTP:Authorization} ^(.*)
+        RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+        # 1. Static files: design/*, extension/<ext>/design/<ext>theme/*,
+        #    cache/compiledtemplates/*.css|js and uploads in var/*
+        RewriteRule \.(gif|jpe?g|png|bmp|css|js|svg|otf|eot|ttf|woff|woff2|mp3|map|ogg|wasm|wav|pdf|ico|txt)$ - [L]
+
+        # 2. Private folders (nginx: albums|bin|var|lib|cache|doc|settings|pos|modules)
+        #    plus the remaining application sources. Never execute or disclose
+        #    anything from them.
+        RewriteRule ^(albums|bin|var|lib|cache|doc|settings|pos|modules|translations|cli|tests|ezcomponents|node_modules)(/|$) - [F,L]
+
+        # 3. Front controller: site_admin/, chat/, file/, restapi/, mailconv/ ...
+        RewriteRule ^ index.php [L]
+    </Directory>
+
+    # RHEL/Fedora: use logs/livehelperchat-*.log instead
+    ErrorLog  ${APACHE_LOG_DIR}/livehelperchat-error.log
+    CustomLog ${APACHE_LOG_DIR}/livehelperchat-access.log combined
+</VirtualHost>

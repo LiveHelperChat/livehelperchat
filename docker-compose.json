@@ -1,0 +1,46 @@
+{
+  "name": "livehelperchat-apache",
+  "services": {
+    "web": {
+      "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile",
+        "target": "runtime"
+      },
+      "image": "remdex/livehelperchat-apache:latest",
+      "ulimits": {
+        "nofile": {
+          "soft": 65535,
+          "hard": 65535
+        }
+      },
+      "logging": {
+        "driver": "json-file",
+        "options": {
+          "max-size": "50m",
+          "max-file": "5"
+        }
+      },
+      "ports": [
+        "${LHC_PUBLIC_PORT:-8080}:80"
+      ],
+      "volumes": [
+        "./lhc_web:/var/www/html"
+      ],
+      "environment": {
+      },
+      "extra_hosts": [
+        "host.docker.internal:host-gateway"
+      ],
+      "networks": [
+        "code-network"
+      ],
+      "restart": "always"
+    }
+  },
+  "networks": {
+    "code-network": {
+      "driver": "bridge"
+    }
+  }
+}

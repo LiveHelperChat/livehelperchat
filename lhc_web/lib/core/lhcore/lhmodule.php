@@ -245,8 +245,9 @@ class erLhcoreClassModule{
 
     public static function defaultExceptionHandler($e)
     {
+        $config = file_exists('settings/settings.ini.php') ? include('settings/settings.ini.php') : array();
 
-        if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'debug_output' ) == true) {
+        if (isset($config['settings']['site']['debug_output']) && $config['settings']['site']['debug_output'] == true) {
             echo "<pre>";
             print_r($e);
             echo "</pre>";
@@ -259,25 +260,32 @@ class erLhcoreClassModule{
         header('Status: 503 Service Temporarily Unavailable');
         header('Retry-After: 300');
 
-
         include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
 
-        $requestUrl = isset($_SERVER['REQUEST_URI']) ? ' [URL: ' . $_SERVER['REQUEST_URI'] . ']' : '';
+        if (isset($config['settings']['site']['log_errors']) && $config['settings']['site']['log_errors'] == true) {
+            $requestUrl = isset($_SERVER['REQUEST_URI']) ? ' [URL: ' . $_SERVER['REQUEST_URI'] . ']' : '';
 
-        if (file_exists('cache/default.log') && (filesize('cache/default.log')/1000) > 200) {
-            file_put_contents('cache/default.log', date('M j H:i:s') . ' [Warning] [default] [default]' . $requestUrl . ' '. print_r($e,true));
-        } else {
-            file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default]' . $requestUrl . ' '. print_r($e,true), FILE_APPEND);
+            if (file_exists('cache/default.log') && (filesize('cache/default.log')/1000) > 200) {
+                file_put_contents('cache/default.log', date('M j H:i:s') . ' [Warning] [default] [default]' . $requestUrl . ' '. print_r($e,true));
+            } else {
+                file_put_contents('cache/default.log',date('M j H:i:s') . ' [Warning] [default] [default]' . $requestUrl . ' '. print_r($e,true), FILE_APPEND);
+            }
         }
 
         self::logException($e);
     }
 
     public static function logException($e, $category = 'web_exception', $object_id = 0) {
+
+        if (!file_exists('settings/settings.ini.php')) {
+            return;
+        }
+
+        $config = include('settings/settings.ini.php');
+
         // Try to store to DB directly error
         try {
-            $cfg = erConfigClassLhConfig::getInstance();
-            $conn = new PDO("mysql:host=".$cfg->getSetting( 'db', 'host' ).";dbname=".$cfg->getSetting( 'db', 'database' ), $cfg->getSetting( 'db', 'user' ), $cfg->getSetting( 'db', 'password' ));
+            $conn = new PDO("mysql:host=".$config['settings']['db']['host'].";dbname=".$config['settings']['db']['database'], $config['settings']['db']['user'], $config['settings']['db']['password']);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $conn->prepare("INSERT INTO `lh_audits` (`category`, `source`, `line`, `file`, `object_id`, `message`, `severity`, `time`) VALUES (:category, 'lhc',:line,:file, :object_id, :message,:severity,now())");

@@ -11,6 +11,7 @@ return array (
                     'installed' => false,
                     'secrethash' => '',
                     'debug_output' => false,
+                    'log_errors' => false,
                     'debug_view' => false,
                     'static_version' => 0,
                     'log_slow_request' => false,

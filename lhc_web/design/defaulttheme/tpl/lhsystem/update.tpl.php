@@ -36,8 +36,8 @@ $lhSecLink = function ($url, $text, $external = false) {
 };
 
 $securityRows = array();
-$lhSecAdd = function ($level, $name, $status, $actions = '') use (&$securityRows) {
-    $securityRows[] = array('level' => $level, 'name' => $name, 'status' => $status, 'actions' => $actions);
+$lhSecAdd = function ($level, $name, $status, $actions = '', $rowId = '') use (&$securityRows) {
+    $securityRows[] = array('level' => $level, 'name' => $name, 'status' => $status, 'actions' => $actions, 'id' => $rowId);
 };
 
 // Strong secret hash
@@ -133,6 +133,18 @@ $lhSecAdd($security_check['rest_api_by_user_disabled'] && $lhSecRestApiKeyUsersU
 $lhSecStatus = $lhSecBadge($security_check['mobile_notifications'] ? 'warning' : 'success', $security_check['mobile_notifications'] ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Enabled') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Disabled'));
 $lhSecAdd($security_check['mobile_notifications'] ? 'warning' : 'success', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Mobile app notifications'), $lhSecStatus, $lhSecLink(erLhcoreClassDesign::baseurl('mobile/settings'), erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Configure')));
 
+// Cache log files write & browser reachability check
+$lhSecLogWritable = !empty($security_check['default_log_writable']);
+$lhSecLogInitialLevel = $lhSecLogWritable ? 'success' : 'warning';
+$lhSecStatus = '<span id="lh-sec-log-reachability-summary">' . $lhSecBadge('secondary', erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Checking...')) . '</span>';
+$lhSecStatus .= $lhSecBadge($lhSecLogWritable ? 'success' : 'warning', $lhSecLogWritable ? erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','default.log writable') : erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','default.log not writable'));
+if (!$lhSecLogWritable && !empty($security_check['default_log_write_error'])) {
+    $lhSecStatus .= '<span class="text-muted small me-1">(' . htmlspecialchars($security_check['default_log_write_error']) . ')</span>';
+}
+$lhSecStatus .= '<div id="lh-sec-log-files-details" class="mt-1"></div>';
+$lhSecLogAction = '<button type="button" class="btn btn-xs btn-outline-secondary" onclick="checkLogFilesReachability()">' . erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Re-check') . '</button>';
+$lhSecAdd($lhSecLogInitialLevel, erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Log files public access'), $lhSecStatus, $lhSecLogAction, 'lh-sec-log-row');
+
 // Items which require attention are listed first
 $lhSecOrder = array('danger' => 0, 'warning' => 1, 'success' => 2);
 usort($securityRows, function ($a, $b) use ($lhSecOrder) {
@@ -151,9 +163,9 @@ $lhSecHasDanger = in_array('danger', array_column($securityRows, 'level'), true)
         <h5 class="d-flex align-items-center mb-2">
             <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Status/security checks')?>
             <?php if ($lhSecIssues == 0) : ?>
-                <span class="badge bg-success ms-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','All good')?></span>
+                <span id="lh-sec-summary-badge" data-issues="0" data-has-danger="0" class="badge bg-success ms-2"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','All good')?></span>
             <?php else : ?>
-                <span class="badge <?php echo $lhSecHasDanger ? 'bg-danger' : 'bg-warning'?> ms-2"><?php echo (int)$lhSecIssues?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','issues found')?></span>
+                <span id="lh-sec-summary-badge" data-issues="<?php echo (int)$lhSecIssues?>" data-has-danger="<?php echo $lhSecHasDanger ? '1' : '0'?>" class="badge <?php echo $lhSecHasDanger ? 'bg-danger' : 'bg-warning'?> ms-2"><?php echo (int)$lhSecIssues?> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','issues found')?></span>
             <?php endif;?>
         </h5>
         <div class="table-responsive">
@@ -166,10 +178,10 @@ $lhSecHasDanger = in_array('danger', array_column($securityRows, 'level'), true)
                 <th width="1%">&nbsp;</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="lh-sec-tbody">
             <?php foreach ($securityRows as $lhSecRow) : ?>
-                <tr>
-                    <td><span class="material-icons fs18 text-<?php echo $lhSecRow['level']?>"><?php echo $lhSecIcons[$lhSecRow['level']]?></span></td>
+                <tr<?php if (!empty($lhSecRow['id'])) : ?> id="<?php echo htmlspecialchars($lhSecRow['id'])?>" data-initial-level="<?php echo $lhSecRow['level']?>"<?php endif;?>>
+                    <td><span class="material-icons fs18 text-<?php echo $lhSecRow['level']?> lh-sec-icon"><?php echo $lhSecIcons[$lhSecRow['level']]?></span></td>
                     <td><?php echo htmlspecialchars($lhSecRow['name'])?></td>
                     <td><?php echo $lhSecRow['status']?></td>
                     <td class="text-end text-nowrap"><?php echo $lhSecRow['actions']?></td>
@@ -196,6 +208,128 @@ function compareLocal() {
     });
 }
 
+var lhSecLogConfig = {
+    files: <?php echo json_encode(isset($security_check['log_files']) ? $security_check['log_files'] : array()); ?>,
+    writable: <?php echo $lhSecLogWritable ? 'true' : 'false'; ?>,
+    labels: {
+        checking: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Checking...')); ?>,
+        majorIssue: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Major security issue: log file(s) publicly reachable')); ?>,
+        notReachable: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Not reachable')); ?>,
+        checkIncomplete: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Check incomplete')); ?>,
+        reachable: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Reachable')); ?>,
+        blocked: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Blocked')); ?>,
+        notFound: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Not found')); ?>,
+        redirected: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Redirected')); ?>,
+        failed: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','Check failed')); ?>,
+        allGood: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','All good')); ?>,
+        issuesFound: <?php echo json_encode(erTranslationClassLhTranslation::getInstance()->getTranslation('system/update','issues found')); ?>
+    }
+};
+
+function lhSecEscapeHtml(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function checkLogFilesReachability() {
+    var summaryEl = document.getElementById('lh-sec-log-reachability-summary');
+    var detailsEl = document.getElementById('lh-sec-log-files-details');
+    var rowEl = document.getElementById('lh-sec-log-row');
+    var badgeEl = document.getElementById('lh-sec-summary-badge');
+
+    if (!summaryEl || !detailsEl || !rowEl) {
+        return;
+    }
+
+    summaryEl.innerHTML = '<span class="badge bg-secondary me-1">' + lhSecEscapeHtml(lhSecLogConfig.labels.checking) + '</span>';
+    detailsEl.innerHTML = '';
+
+    Promise.all(lhSecLogConfig.files.map(function (file) {
+        var separator = file.url.indexOf('?') === -1 ? '?' : '&';
+        return fetch(file.url + separator + '_=' + Date.now(), {
+            method: 'GET',
+            cache: 'no-store',
+            redirect: 'manual',
+            credentials: 'same-origin'
+        }).then(function (resp) {
+            if (resp.type === 'opaqueredirect' || (resp.status >= 300 && resp.status < 400)) {
+                return { file: file, state: 'safe', text: lhSecLogConfig.labels.redirected };
+            }
+            var contentType = (resp.headers.get('content-type') || '').toLowerCase();
+            if (resp.status >= 200 && resp.status < 300) {
+                if (file.exists || contentType.indexOf('text/html') === -1) {
+                    return { file: file, state: 'reachable', text: lhSecLogConfig.labels.reachable + ' (HTTP ' + resp.status + ')' };
+                }
+                return { file: file, state: 'safe', text: lhSecLogConfig.labels.notFound };
+            }
+            if (resp.status === 403) {
+                return { file: file, state: 'safe', text: lhSecLogConfig.labels.blocked + ' (HTTP 403)' };
+            }
+            if (resp.status === 404) {
+                return { file: file, state: 'safe', text: lhSecLogConfig.labels.notFound + ' (HTTP 404)' };
+            }
+            return { file: file, state: 'safe', text: 'HTTP ' + resp.status };
+        }).catch(function () {
+            return { file: file, state: 'error', text: lhSecLogConfig.labels.failed };
+        });
+    })).then(function (results) {
+        var hasReachable = results.some(function (r) { return r.state === 'reachable'; });
+        var hasError = results.some(function (r) { return r.state === 'error'; });
+
+        var level = 'success';
+        var iconName = 'check';
+        if (hasReachable) {
+            level = 'danger';
+            iconName = 'close';
+            summaryEl.innerHTML = '<span class="badge bg-danger me-1">' + lhSecEscapeHtml(lhSecLogConfig.labels.majorIssue) + '</span>';
+        } else if (hasError || !lhSecLogConfig.writable) {
+            level = 'warning';
+            iconName = 'warning';
+            if (hasError) {
+                summaryEl.innerHTML = '<span class="badge bg-warning me-1">' + lhSecEscapeHtml(lhSecLogConfig.labels.checkIncomplete) + '</span>';
+            } else {
+                summaryEl.innerHTML = '<span class="badge bg-success me-1">' + lhSecEscapeHtml(lhSecLogConfig.labels.notReachable) + '</span>';
+            }
+        } else {
+            summaryEl.innerHTML = '<span class="badge bg-success me-1">' + lhSecEscapeHtml(lhSecLogConfig.labels.notReachable) + '</span>';
+        }
+
+        detailsEl.innerHTML = results.map(function (r) {
+            var badgeClass = r.state === 'reachable' ? 'bg-danger' : (r.state === 'error' ? 'bg-warning' : 'bg-secondary');
+            return '<span class="badge ' + badgeClass + ' me-1 mb-1">' + lhSecEscapeHtml(r.file.path + ': ' + r.text) + '</span>';
+        }).join('');
+
+        var iconEl = rowEl.querySelector('.lh-sec-icon');
+        if (iconEl) {
+            iconEl.className = 'material-icons fs18 text-' + level + ' lh-sec-icon';
+            iconEl.textContent = iconName;
+        }
+
+        if (level === 'danger') {
+            var tbodyEl = document.getElementById('lh-sec-tbody');
+            if (tbodyEl && tbodyEl.firstChild !== rowEl) {
+                tbodyEl.insertBefore(rowEl, tbodyEl.firstChild);
+            }
+        }
+
+        if (badgeEl) {
+            var initialIssues = parseInt(badgeEl.getAttribute('data-issues') || '0', 10);
+            var initialHasDanger = badgeEl.getAttribute('data-has-danger') === '1';
+            var initialLevel = rowEl.getAttribute('data-initial-level') || 'success';
+            var delta = (level !== 'success' ? 1 : 0) - (initialLevel !== 'success' ? 1 : 0);
+            var finalIssues = Math.max(0, initialIssues + delta);
+            var finalHasDanger = initialHasDanger || level === 'danger';
+
+            if (finalIssues === 0) {
+                badgeEl.className = 'badge bg-success ms-2';
+                badgeEl.textContent = lhSecLogConfig.labels.allGood;
+            } else {
+                badgeEl.className = 'badge ' + (finalHasDanger ? 'bg-danger' : 'bg-warning') + ' ms-2';
+                badgeEl.textContent = finalIssues + ' ' + lhSecLogConfig.labels.issuesFound;
+            }
+        }
+    });
+}
+
 (function() {
 	
   $.ajax({
@@ -211,6 +345,8 @@ function compareLocal() {
   $.postJSON('<?php echo erLhcoreClassDesign::baseurl('system/update')?>/(action)/statusdb',function(data){
       $('#status-db').html(data.result);            
   });
+
+  checkLogFilesReachability();
     
 })();
 </script>

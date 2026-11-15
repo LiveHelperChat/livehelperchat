@@ -107,6 +107,35 @@ try {
     $restApiKeyUsersUnrestricted = 0;
 }
 
+$defaultLogWritable = false;
+$defaultLogWriteError = '';
+
+try {
+    erLhcoreClassLog::write('TESTING_LOG');
+    $defaultLogWritable = file_exists('cache/default.log') && is_writable('cache/default.log');
+} catch (Exception $e) {
+    $defaultLogWriteError = $e->getMessage();
+}
+
+$logFiles = array(
+    'cache/default.log',
+    'cache/default.log.1',
+    'cache/default.log.2',
+    'cache/default.log.3',
+    'cache/default.log.4',
+    'cache/default.log.5',
+);
+
+$logReachabilityFiles = array();
+$wwwDir = erLhcoreClassSystem::instance()->wwwDir();
+foreach ($logFiles as $logFile) {
+    $logReachabilityFiles[] = array(
+        'path' => $logFile,
+        'url' => $wwwDir . '/' . $logFile,
+        'exists' => file_exists($logFile),
+    );
+}
+
 $tpl->set('security_check', array(
     // Signed URL login bypassing password
     'autologin_enabled' => isset($autologinData['enabled']) && $autologinData['enabled'] == 1,
@@ -138,6 +167,10 @@ $tpl->set('security_check', array(
     'rest_api_key_users_unrestricted' => (int)$restApiKeyUsersUnrestricted,
     // Mobile application access (XML API used by the mobile app)
     'mobile_notifications' => isset($mobileData['notifications']) && $mobileData['notifications'] == 1,
+    // Log files write & reachability check
+    'default_log_writable' => $defaultLogWritable,
+    'default_log_write_error' => $defaultLogWriteError,
+    'log_files' => $logReachabilityFiles,
 ));
 
 $Result['content'] = $tpl->fetch();

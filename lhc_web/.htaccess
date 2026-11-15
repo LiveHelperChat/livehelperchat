@@ -1,7 +1,41 @@
 AddType application/wasm .wasm
 
-<Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|ogg|wasm|wav|pdf|ico|txt)$">
+<Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
   Header always Set Access-Control-Allow-Origin "*"
   Header always Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
   Header always Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
 </Files>
+
+# If above section does not work, try this one
+# <Files ~ "\.(gif|jpe?g?|png|bmp|swf|css|js|svg|otf|eot|ttf|woff|woff2|swf|mp3|map|ogg|wasm|wav|pdf|ico|txt)$">
+#  Header Set Access-Control-Allow-Origin "*"
+#  Header Set Access-Control-Allow-Methods: "GET, POST, OPTIONS, PUT, DELETE"
+#  Header Set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, API-Key, Authorization"
+# </Files>
+
+RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
+# No directory listings
+Options -Indexes
+
+# Apache port of the recommended nginx config, same evaluation order:
+#   1) static assets are served from disk
+#   2) private folders are never reachable directly
+#   3) everything else goes to the index.php front controller
+# Paths are relative to this .htaccess folder (never start them with "/"),
+# so the rules also work if the app is deployed into a sub-directory.
+
+# 1. Static files: design/*, extension/<ext>/design/*,
+#    cache/compiledtemplates/*.css|js and uploads in var/*
+RewriteRule \.(gif|jpe?g|png|bmp|css|js|svg|otf|eot|ttf|woff|woff2|mp3|map|ogg|wasm|wav|pdf|ico|txt)$ - [L]
+
+# 2. Private folders (nginx: albums|bin|var|lib|cache|doc|settings|pos|modules)
+#    plus the remaining app sources. Never execute/disclose anything from them.
+RewriteRule ^(albums|bin|var|lib|cache|doc|settings|pos|modules|translations|cli|tests|ezcomponents|node_modules)(/|$) - [F,L]
+
+# 3. Front controller: site_admin/, chat/, file/, restapi/, mailconv/ ...
+RewriteRule ^ index.php [L]
+
+DirectoryIndex index.php
