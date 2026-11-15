@@ -63,7 +63,7 @@
         # 2. Private folders (nginx: albums|bin|var|lib|cache|doc|settings|pos|modules)
         #    plus the remaining application sources. Never execute or disclose
         #    anything from them.
-        RewriteRule ^(albums|bin|var|lib|cache|doc|settings|pos|modules|translations|cli|tests|ezcomponents|node_modules)(/|$) - [F,L]
+        RewriteRule ^(albums|bin|var|lib|cache|doc|settings|pos|modules|extension|translations|cli|tests|ezcomponents|node_modules)(/|$) - [F,L]
 
         # 3. Front controller: site_admin/, chat/, file/, restapi/, mailconv/ ...
         RewriteRule ^ index.php [L]
