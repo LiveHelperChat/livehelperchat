@@ -183,7 +183,11 @@ class erLhcoreClassModule{
                     echo json_encode(array('error' => true, 'message' => $e->getMessage()));
                 } else {
                     include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
-                    erLhcoreClassLog::write(print_r($e,true));
+
+                    if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'log_errors', false ) === true) {
+                        erLhcoreClassLog::write(print_r($e, true));
+                    }
+
                     // Try to store to DB directly error
                     self::logException($e);
                 }

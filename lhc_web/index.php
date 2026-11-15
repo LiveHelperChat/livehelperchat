@@ -73,7 +73,9 @@ try {
 
     include_once('design/defaulttheme/tpl/lhkernel/fatal_error.tpl.php');
 
-    erLhcoreClassLog::write(print_r($e,true));
+    if (erConfigClassLhConfig::getInstance()->getSetting( 'site', 'log_errors', false ) === true) {
+        erLhcoreClassLog::write(print_r($e,true));
+    }
 
     erLhcoreClassModule::logException($e);
 }
