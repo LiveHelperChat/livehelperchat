@@ -8,6 +8,19 @@ class ChatMessagesGhosting {
 
     private static $maskRulesByType = [];
 
+    /**
+     * Entities matched by the last HTML masking call, e.g. EMAIL_ADDRESS or URL_NOT_IN_ALLOW_LIST
+     */
+    private static $matchedEntities = [];
+
+    /**
+     * Returns entities masked by the last maskMessage()/maskMessageHtml() call
+     */
+    public static function getMatchedEntities()
+    {
+        return array_values(array_unique(self::$matchedEntities));
+    }
+
     public static $dbTable = 'lh_abstract_msg_protection';
 
     public static $dbTableId = 'id';
@@ -157,6 +170,8 @@ class ChatMessagesGhosting {
     
     public static function maskMessage($message, $params = array())
     {
+        self::$matchedEntities = [];
+
         $dep_id = isset($params['dep_id']) ? (int)$params['dep_id'] : 0;
         $type = isset($params['type']) ? $params['type'] : self::MSG_TYPE_VISITOR_TO_OPERATOR;
         $returnArray = isset($params['return_array']) && $params['return_array'] === true;
@@ -189,7 +204,9 @@ class ChatMessagesGhosting {
             return $message;
         }
 
-        $maskedMessage = $maskRule->getMasked($message);
+        $maskedMessage = !empty($params['is_html'])
+            ? self::maskHtmlWithRule($message, $maskRule)
+            : $maskRule->getMasked($message);
         
         if ($returnArray) {
             return [
@@ -199,6 +216,177 @@ class ChatMessagesGhosting {
         }
         
         return $maskedMessage;
+    }
+
+    /**
+     * Masks HTML content, e.g. rendered mail bodies.
+     *
+     * Mask rules are applied only to text outside tags. When a rule matches an
+     * image source or a link target, the whole attribute is neutralized instead
+     * of inserting [mask]...[/mask] markers into the markup, which would break
+     * the HTML. Remaining markers in visible text are rendered as text.
+     */
+    public static function maskMessageHtml($message, $params = array())
+    {
+        $params['is_html'] = true;
+
+        return self::maskMessage($message, $params);
+    }
+
+    /**
+     * Applies a mask rule to HTML while keeping the markup intact.
+     * Text nodes are masked, tags are not touched except for img src and a href
+     * attributes which are neutralized when the rule matches their value.
+     */
+    private static function maskHtmlWithRule($html, $maskRule)
+    {
+        if (!is_string($html) || $html === '') {
+            return $html;
+        }
+
+        $parts = preg_split('~(<(?:"[^"]*"|\'[^\']*\'|[^\'">])*>)~i', $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+        if ($parts === false) {
+            return $html;
+        }
+
+        $maskedHtml = '';
+
+        foreach ($parts as $index => $part) {
+            $maskedHtml .= $index % 2 === 1
+                ? self::maskHtmlTag($part, $maskRule)
+                : self::maskHtmlText($part, $maskRule);
+        }
+
+        return $maskedHtml;
+    }
+
+    /**
+     * Masks a single HTML tag. Only img src and a href are neutralized, all
+     * other tags and attributes are returned untouched.
+     */
+    private static function maskHtmlTag($tag, $maskRule)
+    {
+        if (!preg_match('~^<\s*(img|a)\b~i', $tag, $tagMatches)) {
+            return $tag;
+        }
+
+        $attribute = strtolower($tagMatches[1]) === 'img' ? 'src' : 'href';
+        $attributePattern = '~\b' . $attribute . '\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))~i';
+
+        if (!preg_match($attributePattern, $tag, $valueMatches)) {
+            return $tag;
+        }
+
+        $value = '';
+        foreach (array(1, 2, 3) as $index) {
+            if (isset($valueMatches[$index]) && $valueMatches[$index] !== '') {
+                $value = $valueMatches[$index];
+                break;
+            }
+        }
+
+        $maskedValue = $maskRule->getMasked($value);
+
+        if ($maskedValue === $value) {
+            return $tag;
+        }
+
+        // Remember what was masked, markers carry the entity name
+        self::$matchedEntities[] = preg_match('~\[mask\](.*?)\[\\\\?/mask\]~s', $maskedValue, $entityMatch) ? $entityMatch[1] : 'URL';
+
+        if ($attribute === 'src') {
+            $replacement = 'src="' . htmlspecialchars(\erLhcoreClassDesign::design('images/general/denied.png'), ENT_QUOTES, 'UTF-8') . '"';
+        } else {
+            $reason = preg_match('~\[mask\](.*?)\[\\\\?/mask\]~s', $maskedValue, $reasonMatches) ? html_entity_decode($reasonMatches[1], ENT_QUOTES | ENT_HTML5, 'UTF-8') : 'URL';
+            $url = \erLhcoreClassDesign::baseurl('mailconv/maskedlink') . '?reason=' . rawurlencode($reason);
+            $replacement = 'href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" data-lhc-masked-link="1"';
+        }
+
+        return preg_replace_callback('~\b' . $attribute . '\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s>]+)~i', function () use ($replacement) {
+            return $replacement;
+        }, $tag, 1);
+    }
+
+    /**
+     * Masks a single HTML text node and renders markers left in the text.
+     */
+    private static function maskHtmlText($text, $maskRule)
+    {
+        if ($text === '') {
+            return $text;
+        }
+
+        $text = $maskRule->getMasked($text);
+
+        // Remember what was masked, markers carry the entity name
+        if (preg_match_all('~\[mask\]([^<]*?)\[\\\\?/mask\]~s', $text, $entityMatches)) {
+            foreach ($entityMatches[1] as $entity) {
+                self::$matchedEntities[] = $entity;
+            }
+        }
+
+        return preg_replace_callback('~\[mask\]([^<]*?)\[\\\\?/mask\]~s', function ($matches) {
+            return \LiveHelperChat\Helpers\BBCode\Mask::render($matches[1]);
+        }, $text);
+    }
+
+    /**
+     * Masks a rendered HTML body (body_front) of a mail message.
+     *
+     * Message type is detected from response_type, so operator replies and
+     * visitor messages are masked with their respective mask rules.
+     */
+    public static function maskBodyFront($message, $dep_id = null)
+    {
+        $maskParams = [
+            'dep_id' => $dep_id !== null ? (int)$dep_id : (isset($message->dep_id) ? (int)$message->dep_id : 0),
+            'type' => (isset($message->response_type) && $message->response_type == \erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL)
+                ? self::MSG_TYPE_OPERATOR_EMAIL
+                : self::MSG_TYPE_VISITOR_EMAIL,
+        ];
+
+        $message->body_front = self::maskMessageHtml($message->body_front, $maskParams);
+
+        return $message->body_front;
+    }
+
+    /**
+     * Neutralizes masked markup inside already rendered HTML.
+     *
+     * Masked images get a placeholder source, masked links point to the
+     * explanation page and the remaining [mask]...[/mask] markers are rendered
+     * as text, so the masked values cannot be recovered from the HTML.
+     */
+    public static function maskHtml($message)
+    {
+        if (!is_string($message) || strpos($message, '[mask]') === false) {
+            return $message;
+        }
+
+        // Masked image sources are replaced with a placeholder image
+        $message = preg_replace_callback('~<img\b(?:"[^"]*"|\'[^\']*\'|[^\'">])*>~i', function ($image) {
+            return preg_replace_callback('~(?:"[^"]*"|\'[^\']*\')(*SKIP)(*F)|(\s+src\s*=\s*)(?:"\[mask\][^"]*"|\'\[mask\][^\']*\'|\[mask\][^\s>]*)~i', function ($source) {
+                return $source[1] . '"' . htmlspecialchars(\erLhcoreClassDesign::design('images/general/denied.png'), ENT_QUOTES, 'UTF-8') . '"';
+            }, $image[0]);
+        }, $message);
+
+        // Masked links point to an explanation page instead of the original URL
+        $message = preg_replace_callback('~<a\b(?:"[^"]*"|\'[^\']*\'|[^\'">])*>~i', function ($link) {
+            return preg_replace_callback('~(?:"[^"]*"|\'[^\']*\')(*SKIP)(*F)|(\s+href\s*=\s*)(?:"(\[mask\][^"]*)"|\'(\[mask\][^\']*)\'|(\[mask\][^\s>]*))~i', function ($href) {
+                $value = $href[2] ?: ($href[3] ?: $href[4]);
+                $reason = preg_match('~^\[mask\](.*?)\[/mask\]~s', $value, $match) ? html_entity_decode($match[1], ENT_QUOTES | ENT_HTML5, 'UTF-8') : 'URL';
+                $url = \erLhcoreClassDesign::baseurl('mailconv/maskedlink') . '?reason=' . rawurlencode($reason);
+                return $href[1] . '"' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') . '" data-lhc-masked-link="1"';
+            }, $link[0]);
+        }, $message);
+
+        // Remaining mask markers in the text itself
+        $message = preg_replace_callback('~<(?:"[^"]*"|\'[^\']*\'|[^\'">])*> (*SKIP)(*F)|\[mask\]([^<]*?)\[/mask\]~sx', function ($matches) {
+            return \LiveHelperChat\Helpers\BBCode\Mask::render($matches[1]);
+        }, $message);
+
+        return $message;
     }
 
     public function getMasked($message)
@@ -407,6 +595,25 @@ class ChatMessagesGhosting {
     {
         switch ($var) {
 
+            case 'material_icon':
+                switch ($this->rule_type) {
+                    case self::MSG_TYPE_OPERATOR_TO_VISITOR:
+                        return 'support_agent';
+
+                    case self::MSG_TYPE_REST:
+                        return 'api';
+
+                    case self::MSG_TYPE_VISITOR_EMAIL:
+                        return 'mail';
+
+                    case self::MSG_TYPE_OPERATOR_EMAIL:
+                        return 'forward_to_inbox';
+
+                    case self::MSG_TYPE_VISITOR_TO_OPERATOR:
+                    default:
+                        return 'person';
+                }
+
             default:
                 ;
                 break;
@@ -485,6 +692,8 @@ class ChatMessagesGhosting {
     const MSG_TYPE_VISITOR_TO_OPERATOR = 0;
     const MSG_TYPE_OPERATOR_TO_VISITOR = 1;
     const MSG_TYPE_REST = 2;
+    const MSG_TYPE_VISITOR_EMAIL = 3;
+    const MSG_TYPE_OPERATOR_EMAIL = 4;
 
     public $id = null;
     public $pattern = '';

@@ -8,20 +8,13 @@ header('Cache-Control: no-store, no-cache, must-revalidate' );
 header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
+// This script is included with a <script> tag from the customer site, and such
+// requests never send an Origin header. Validation is therefore only possible
+// when the browser does provide one.
 if (isset($_SERVER['HTTP_ORIGIN']) && !empty($_SERVER['HTTP_ORIGIN'])) {
     $validDomains = (string)erLhcoreClassModelChatConfig::fetch('valid_domains')->current_value;
-    if (!empty($validDomains)) {
-        $validDomainsList = explode(',',$validDomains);
-        $validDomain = false;
-        foreach ($validDomainsList as $validDomainItem) {
-            if (strpos($_SERVER['HTTP_ORIGIN'],trim($validDomainItem)) !== false) {
-                $validDomain = true;
-            }
-        }
-
-        if ($validDomain == false) {
-            exit;
-        }
+    if (trim($validDomains) !== '' && !erLhcoreClassChatValidator::isAllowedWidgetOrigin($_SERVER['HTTP_ORIGIN'], $validDomains)) {
+        exit;
     }
 }
 

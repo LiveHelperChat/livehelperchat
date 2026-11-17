@@ -59,6 +59,10 @@ try {
             erLhcoreClassMailconv::$messagesAttributesRemove
         );
 
+        if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !$currentUser->hasAccessTo('lhmailconv', 'see_sensitive_information')) {
+            \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskBodyFront($message, $conv->dep_id);
+        }
+
         $returnAttributes['message'] = $message;
 
         $db->commit();

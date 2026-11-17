@@ -905,6 +905,18 @@ class erLhcoreClassMailconvValidator {
 
             $mailReply->AddAddress($params['raw_email'] ?? $item->from_address, $item->from_name);
 
+            foreach ($item->cc_data_array as $recipient) {
+                if ($recipient['email'] != '') {
+                    $mailReply->addCC($recipient['email'], (string)$recipient['name']);
+                }
+            }
+
+            foreach ($item->bcc_data_array as $recipient) {
+                if ($recipient['email'] != '') {
+                    $mailReply->addBCC($recipient['email'], (string)$recipient['name']);
+                }
+            }
+
             $item->body = self::prepareMailContent($item->body, $mailReply);
 
             $mailReply->Body = $item->body;
@@ -1049,6 +1061,12 @@ class erLhcoreClassMailconvValidator {
             'from_name' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
+            'cc' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
+            'bcc' => new ezcInputFormDefinitionElement(
+                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw', null, FILTER_REQUIRE_ARRAY
+            ),
             'to_data' => new ezcInputFormDefinitionElement(
                 ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
             ),
@@ -1092,6 +1110,10 @@ class erLhcoreClassMailconvValidator {
             $item->from_name = '';
         }
 
+        // Optional Cc/Bcc recipients
+        $item->cc_data = self::validateAdditionalRecipients($form, 'cc', 'Cc', $Errors);
+        $item->bcc_data = self::validateAdditionalRecipients($form, 'bcc', 'Bcc', $Errors);
+
         // Reply e-mail
         if ( $form->hasValidData( 'to_data' )) {
             $item->to_data = $form->to_data;
@@ -1133,6 +1155,38 @@ class erLhcoreClassMailconvValidator {
 
         return $Errors;
 
+    }
+
+    /**
+     * Validates optional Cc/Bcc recipients posted as an array.
+     * Returns them as JSON keyed by e-mail, the same format cc_data/bcc_data is stored in.
+     */
+    private static function validateAdditionalRecipients($form, $field, $label, & $Errors)
+    {
+        $recipients = [];
+
+        if (!$form->hasValidData($field)) {
+            return json_encode($recipients);
+        }
+
+        $recipientEmails = $form->$field;
+
+        foreach ($recipientEmails as $recipientEmail) {
+            $recipientEmail = trim($recipientEmail);
+
+            if ($recipientEmail === '') {
+                continue;
+            }
+
+            if (!filter_var($recipientEmail, FILTER_VALIDATE_EMAIL)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv', $label . ': Invalid e-mail recipient!');
+                continue;
+            }
+
+            $recipients[$recipientEmail] = '';
+        }
+
+        return json_encode($recipients);
     }
 }
 

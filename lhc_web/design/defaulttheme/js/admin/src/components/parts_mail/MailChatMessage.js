@@ -13,6 +13,7 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
     const [expandHeader, setExpandHeader] = useState(false);
     const [expandBody, setExpandBody] = useState(false);
     const [plainBody, setPlainBody] = useState(!!message.undelivered);
+    const [plainRaw, setPlainRaw] = useState(false);
     const [replyMode, setReplyMode] = useState(false);
     const [forwardMode, setForwardMode] = useState(false);
     const [expandDeliveryInformation, setExpandDeliveryInformation] = useState(false);
@@ -85,6 +86,11 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
 
             });
         }
+    }
+
+    const handleMaskedLink = event => {
+        event.preventDefault();
+        lhc.revealModal({url: WWW_DIR_JAVASCRIPT + 'mailconv/maskedlink' + new URL(event.currentTarget.href, window.location.href).search});
     }
 
     if (index + 1 == totalMessages && expandBody === false && expandingBody === false || (expandingBody === false && expandBody === true && typeof message.body_front === 'undefined' && typeof message.alt_body === 'undefined')) {
@@ -208,8 +214,11 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
             </div>}
         </div>}
 
-        {expandBody && plainBody && message.alt_body && <div className="col-12 mail-message-body pt-2 pb-2">
-            <pre className="fs12">{message.alt_body}</pre>
+        {expandBody && plainBody && (message.alt_body || plainRaw) && <div className="col-12 mail-message-body pt-2 pb-2">
+            {mode !== 'preview' && <div className="mb-2">
+                <button type="button" className="btn btn-sm py-0 px-2 fs12 btn-outline-secondary" onClick={(e) => {e.preventDefault(); if (!plainRaw) { loadAndExpand(true); } setPlainRaw(!plainRaw);}}>{plainRaw ? t('msg.view_plain') : t('msg.view_raw')}</button>
+            </div>}
+            {plainRaw ? <pre className="fs12">{expandingBody ? t('msg.loading') : (message.body_front || t('msg.no_html_body'))}</pre> : <pre className="fs12">{message.alt_body}</pre>}
         </div>}
 
         {expandBody && message.body_front && !plainBody && <div className="col-12 mail-message-body pt-2 pb-2">
@@ -222,6 +231,13 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                     if (domNode.attribs.class) {
                         domNode.attribs.className = domNode.attribs.class;
                         delete domNode.attribs.class;
+                    }
+
+                    if (domNode.name === 'a' && domNode.attribs['data-lhc-masked-link'] === '1') {
+                        if (domNode.attribs.style) {
+                            domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
+                        }
+                        return <a {...domNode.attribs} onClick={handleMaskedLink}>{domToReact(domNode.children)}</a>;
                     }
 
                     if (domNode.name && domNode.name === 'img') {
@@ -251,6 +267,13 @@ const MailChatMessage = ({message, index, totalMessages, noReplyRequired, mode, 
                                     if (domNode.attribs.class) {
                                         domNode.attribs.className = domNode.attribs.class;
                                         delete domNode.attribs.class;
+                                    }
+
+                                    if (domNode.name === 'a' && domNode.attribs['data-lhc-masked-link'] === '1') {
+                                        if (domNode.attribs.style) {
+                                            domNode.attribs.style = getStyleObjectFromString(domNode.attribs.style);
+                                        }
+                                        return <a {...domNode.attribs} onClick={handleMaskedLink}>{domToReact(domNode.children)}</a>;
                                     }
 
                                     if (domNode.name && domNode.name === 'img') {

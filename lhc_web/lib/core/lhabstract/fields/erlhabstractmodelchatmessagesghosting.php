@@ -10,6 +10,17 @@ return array(
         'validation_definition' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )),
+    'type_icon' => array(
+        'type' => 'text',
+        'trans' => '',
+        'required' => false,
+        'width' => 1,
+        'no_wrap' => true,
+        'frontend' => 'material_icon',
+        'wrap_start' => '<span class="material-icons align-middle text-muted" aria-hidden="true">',
+        'wrap_end' => '</span>',
+        'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
+    ),
     'name' => array(
         'type' => 'text',
         'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Name for personal reference'),
@@ -50,11 +61,21 @@ return array(
             $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Applies to rest API calls');
             $items[] = $item;
 
+            $item = new stdClass();
+            $item->id = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_EMAIL;
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'E-mail messages from visitors');
+            $items[] = $item;
+
+            $item = new stdClass();
+            $item->id = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL;
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'E-mail messages from agents');
+            $items[] = $item;
+
             return $items;
         },
         'params_call' => array(),
         'validation_definition' => new ezcInputFormDefinitionElement(
-            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 2)
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 0, 'max_range' => 4)
         )),
     'pattern' => array(
         'type' => 'textarea',

@@ -83,6 +83,11 @@ $ViewList['inlinedownloadmodal'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['maskedlink'] = array(
+    'params' => array(),
+    'functions' => array( 'use_admin' )
+);
+
 $ViewList['verifyaccess'] = array(
     'params' => array('id','id_conv'),
     'functions' => array( 'use_admin' )
@@ -410,13 +415,14 @@ $FunctionList['use_alarms'] = array('explain' => 'Permission to use alarm widget
 $FunctionList['delete_conversation'] = array('explain' => 'Permission to delete conversation');
 $FunctionList['close_all_conversation'] = array('explain' => 'Permission to close conversation even if operator is not an owner of it');
 $FunctionList['send_mail'] = array('explain' => 'Allow operator to send an e-mail');
+$FunctionList['send_mail_bcc_cc'] = array('explain' => 'Allow operator to add CC and BCC recipients to new e-mail');
 $FunctionList['allow_attach_files'] = array('explain' => 'Allow operator to attach files');
 $FunctionList['manage_reply_recipients'] = array('explain' => 'Allow operator to change recipient');
 $FunctionList['changedepartment'] = array('explain' => 'Allow operator to change department');
 $FunctionList['changeowner'] = array('explain' => 'Allow operator to change owner of the e-mail');
 $FunctionList['allowtransfer'] = array('explain' =>'Allow user to transfer chat to another user/department');
 $FunctionList['use_import'] = array('explain' =>'Allow user import response templates');
-$FunctionList['send_as_new'] = array('explain' =>'Allow user to reply an email as SEnd as New');
+$FunctionList['send_as_new'] = array('explain' =>'Allow user to reply an email as Send as New');
 $FunctionList['export_mails'] = array('explain' => 'Allow operator to export filtered mails');
 $FunctionList['quick_actions'] = array('explain' => 'Allow operator to user quick actions module');
 $FunctionList['change_mailbox'] = array('explain' => 'Allow operator to change mail mailbox');
@@ -442,5 +448,6 @@ $FunctionList['download_restricted'] = array('explain' => 'Allow operators to do
 $FunctionList['reply_to_all'] = array('explain' => 'Allow operators to set `Reply To` to any mail in new mail form. Otherwise configured mailbox will be required.');
 $FunctionList['merge_cross_departments'] = array('explain' => 'Allow operators to merge mails across different departments.');
 $FunctionList['block_sender'] = array('explain' => 'Allow operator to block mail sender.');
+$FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see/send sensitive information in the messages');
 
 ?>

@@ -18,6 +18,47 @@ try {
 
     if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) && erLhcoreClassChat::hasAccessToRead($conv) ) {
         $requestPayload = json_decode(file_get_contents('php://input'),true);
+
+        // Do not send a reply if it contains sensitive information
+        if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && isset($requestPayload['content']) && $requestPayload['content'] != '') {
+
+            $maskResult = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessageHtml($requestPayload['content'], [
+                'dep_id' => $conv->dep_id,
+                'type' => \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL,
+                'return_array' => true
+            ]);
+
+            if ($maskResult['message'] !== $requestPayload['content']) {
+
+                $matchedRules = array_map(function($entityType) {
+                    $entityName = \LiveHelperChat\Helpers\BBCode\Mask::getEntityName($entityType);
+
+                    return $entityName !== '' ? $entityName : \LiveHelperChat\Helpers\BBCode\Mask::getCategory($entityType);
+                }, \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::getMatchedEntities());
+
+                $matchedRules = array_values(array_unique($matchedRules));
+
+                $errorMessage = !empty($maskResult['warning'])
+                    ? $maskResult['warning']
+                    : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply contains sensitive information and was not sent!');
+
+                if (!empty($matchedRules)) {
+                    $errorMessage .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Matched rules:') . ' ' . implode(', ', $matchedRules);
+                }
+
+                http_response_code(400);
+                echo json_encode([
+                    'send' => false,
+                    'send_tried' => true,
+                    'masked' => $maskResult['message'],
+                    'errors' => [
+                        'content' => $errorMessage
+                    ]
+                ], \JSON_INVALID_UTF8_IGNORE);
+                exit;
+            }
+        }
+
         erLhcoreClassMailconvValidator::sendReply($requestPayload, $response, $message, $currentUser->getUserID());
     }
 
@@ -56,7 +97,7 @@ try {
     $errorMessage = $e->getMessage();
 
     if (is_object($message) && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
-        $errorMessage = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($errorMessage, array('dep_id' => $message->dep_id));
+        $errorMessage = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($errorMessage, array('dep_id' => $message->dep_id, 'type' => \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL));
     }
     
     echo json_encode(['send_tried' => true, 'errors' => ['general' => $errorMessage]]);

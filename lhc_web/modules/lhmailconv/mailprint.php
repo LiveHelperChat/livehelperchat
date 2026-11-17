@@ -22,6 +22,10 @@ if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_
     }
 }
 
+if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'see_sensitive_information')) {
+    \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskBodyFront($mail);
+}
+
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/mailprint.tpl.php');
 $tpl->set('chat',$mail);
 

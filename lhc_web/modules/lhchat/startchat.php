@@ -1,5 +1,15 @@
 <?php
 
+// Only form submissions are checked. Top level GET requests (popup links) carry no
+// Origin header, so they cannot be validated here.
+if (isset($_POST['StartChat'])) {
+	$validDomains = (string)erLhcoreClassModelChatConfig::fetch('valid_domains')->current_value;
+	if (trim($validDomains) !== '' && !erLhcoreClassChatValidator::isAllowedWidgetOrigin(erLhcoreClassChatValidator::getWidgetOrigin(), $validDomains)) {
+		http_response_code(403);
+		exit;
+	}
+}
+
 if ($Params['user_parameters_unordered']['sound'] !== null && is_numeric($Params['user_parameters_unordered']['sound'])) {
 	erLhcoreClassModelUserSetting::setSetting('chat_message',(int)$Params['user_parameters_unordered']['sound'] == 1 ? 1 : 0);
 }

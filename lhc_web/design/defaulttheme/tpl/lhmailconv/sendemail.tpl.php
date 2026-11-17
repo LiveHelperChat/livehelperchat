@@ -77,7 +77,10 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form class="d-flex flex-column flex-grow-1 overflow-scroll position-relative" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password">
+<form class="d-flex flex-column flex-grow-1 overflow-scroll position-relative" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password"
+      data-msg-mailbox-required="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Please select a mailbox first');?>"
+      data-msg-signature-failed="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Failed to fetch signature');?>"
+      data-msg-signature-error="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Error fetching signature');?>">
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
 
@@ -104,11 +107,24 @@
         <div class="col-6 ps-0">
             <div class="form-group">
                 <label><?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/recipient_email_title.tpl.php')); ?> </label>
-                <?php if (isset($chat) && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
-                    <input type="text" readonly="readonly" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?>" />
-                <?php else : ?>
-                    <input type="text" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars($item->from_address)?>" />
-                <?php endif; ?>
+                <div class="input-group input-group-sm">
+                    <?php if (isset($chat) && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
+                        <input type="text" readonly="readonly" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?>" />
+                    <?php else : ?>
+                        <input type="text" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars($item->from_address)?>" />
+                    <?php endif; ?>
+                    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','send_mail_bcc_cc')) : ?>
+                        <button type="button" class="btn btn-outline-secondary border-secondary-control btn-add-recipient" data-target="#cc-container"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Add CC');?></button>
+                        <button type="button" class="btn btn-outline-secondary border-secondary-control btn-add-recipient" data-target="#bcc-container"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Add BCC');?></button>
+                    <?php else : ?>
+                        <span class="d-inline-block" tabindex="0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','You do not have permission to add custom CC/BCC recipients');?>">
+                            <button type="button" class="btn btn-outline-secondary border-secondary-control" style="pointer-events:none" disabled><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Add CC');?></button>
+                        </span>
+                        <span class="d-inline-block" tabindex="0" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','You do not have permission to add custom CC/BCC recipients');?>">
+                            <button type="button" class="btn btn-outline-secondary border-secondary-control" style="pointer-events:none" disabled><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Add BCC');?></button>
+                        </span>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
         <div class="col-6 pe-0">
@@ -134,6 +150,39 @@
         </div>
     </div>
 
+    <?php if (erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','send_mail_bcc_cc')) : ?>
+    <div class="row me-0 ms-0">
+        <div class="col-6 ps-0">
+            <?php $ccRecipients = $item->cc_data_array; ?>
+            <div class="form-group recipient-section<?php if (empty($ccRecipients)) : ?> d-none<?php endif; ?>">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Cc');?></label>
+                <div id="cc-container" data-field="cc">
+                    <?php foreach ($ccRecipients as $recipient) : ?>
+                        <div class="input-group input-group-sm mb-1 recipient-row">
+                            <input type="text" class="form-control form-control-sm" name="cc[]" value="<?php echo htmlspecialchars($recipient['email'])?>" />
+                            <button type="button" class="btn btn-remove-recipient" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Remove recipient');?>"><span class="material-icons me-0">delete</span></button>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 pe-0">
+            <?php $bccRecipients = $item->bcc_data_array; ?>
+            <div class="form-group recipient-section<?php if (empty($bccRecipients)) : ?> d-none<?php endif; ?>">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Bcc');?></label>
+                <div id="bcc-container" data-field="bcc">
+                    <?php foreach ($bccRecipients as $recipient) : ?>
+                        <div class="input-group input-group-sm mb-1 recipient-row">
+                            <input type="text" class="form-control form-control-sm" name="bcc[]" value="<?php echo htmlspecialchars($recipient['email'])?>" />
+                            <button type="button" class="btn btn-remove-recipient" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Remove recipient');?>"><span class="material-icons me-0">delete</span></button>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <div class="flex-grow-1 position-relative">
         <?php $tinyMceOptions = ['hide_form_group' => true,'height' => '\'100%\'']; ?>
         <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/body.tpl.php'));?>
@@ -149,55 +198,12 @@
 
 </form>
 
-<script>
-$(document).ready(function() {
-    $('#append-signature-btn').on('click', function() {
-        var mailboxEmail = $('#new-mailbox-id').val();
-        var $btn = $(this);
-        
-        if (!mailboxEmail) {
-            alert('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Please select a mailbox first');?>');
-            return;
-        }
-        
-        // Disable button and show loading state
-        $btn.prop('disabled', true);
-        var originalHtml = $btn.html();
-        $btn.html('<span class="material-icons lhc-spin">cached</span>');
-        
-        $.ajax({
-            url: WWW_DIR_JAVASCRIPT + 'mailconv/getsignature',
-            type: 'POST',
-            dataType: 'json',
-            data: {
-                mailbox_email: mailboxEmail,
-                csrf_token: confLH.csrf_token
-            },
-            success: function(response) {
-                if (response.error === false && response.signature) {
-                    // Get TinyMCE editor instance
-                    var editor = tinymce.get('response-template');
-                    if (editor) {
-                        // Append signature to existing content
-                        var currentContent = editor.getContent();
-                        editor.setContent(currentContent + response.signature);
-                    }
-                } else {
-                    alert(response.msg || '<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Failed to fetch signature');?>');
-                }
-            },
-            error: function() {
-                alert('<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Error fetching signature');?>');
-            },
-            complete: function() {
-                // Re-enable button and restore original state
-                $btn.prop('disabled', false);
-                $btn.html(originalHtml);
-            }
-        });
-    });
-});
-</script>
+<div class="d-none" id="recipient-row-prototype">
+    <div class="input-group input-group-sm mb-1 recipient-row">
+        <input type="text" class="form-control form-control-sm" name="cc[]" value="" />
+        <button type="button" class="btn btn-remove-recipient" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Remove recipient');?>"><span class="material-icons me-0">delete</span></button>
+    </div>
+</div>
 
 <?php endif; ?>
 </div>

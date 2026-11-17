@@ -8,6 +8,12 @@ header('Cache-Control: no-store, no-cache, must-revalidate' );
 header('Cache-Control: post-check=0, pre-check=0', false );
 header('Pragma: no-cache' );
 
+$validDomains = (string)erLhcoreClassModelChatConfig::fetch('valid_domains')->current_value;
+if (trim($validDomains) !== '' && !erLhcoreClassChatValidator::isAllowedWidgetOrigin(erLhcoreClassChatValidator::getWidgetOrigin(), $validDomains)) {
+	echo json_encode(array('result' => 'false'));
+	exit;
+}
+
 $hash =  hash('sha256',erLhcoreClassIPDetect::getFingerprint() . $Params['user_parameters']['timets'] . erConfigClassLhConfig::getInstance()->getSetting( 'site', 'secrethash' ));
 
 if ( (time()-$Params['user_parameters']['timets']) > 600 || (time()-($Params['user_parameters']['timets'] - 600)) < 0) {

@@ -130,6 +130,7 @@
 
                 <?php $attribute = 'valid_domains'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
+				<p class="text-muted small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig', 'Use exact hostnames, including each subdomain. Include the chat server hostname for hosted popups and legacy widgets. Origin headers can be forged and are not an authentication mechanism.');?></p>
     		    		    		    
     		    <?php $attribute = 'explicit_http_mode'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>

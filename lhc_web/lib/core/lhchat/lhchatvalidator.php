@@ -6,6 +6,52 @@
 
 class erLhcoreClassChatValidator {
 
+    public static function isAllowedWidgetOrigin($origin, $validDomains)
+    {
+        if (trim((string)$validDomains) === '') {
+            return true;
+        }
+
+        if (!is_string($origin) || !preg_match('/^https?:\/\/(?:\[[a-f0-9:.]+\]|[a-z0-9.-]+)(?::[0-9]{1,5})?$/i', $origin)) {
+            return false;
+        }
+
+        $host = parse_url($origin, PHP_URL_HOST);
+        if ($host === false || $host === null || parse_url($origin) === false) {
+            return false;
+        }
+
+        foreach (explode(',', $validDomains) as $domain) {
+            $domain = trim($domain);
+            if ($domain !== '' && strcasecmp(rtrim($host, '.'), rtrim($domain, '.')) === 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Resolves the request origin for widget endpoints.
+     *
+     * Same-origin GET requests do not carry an Origin header in most browsers, so
+     * they are reconstructed from the request host using fetch metadata.
+     * An empty string means the origin could not be determined and is rejected
+     * whenever a domain list is configured.
+     */
+    public static function getWidgetOrigin()
+    {
+        if (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] !== '') {
+            return $_SERVER['HTTP_ORIGIN'];
+        }
+
+        if (isset($_SERVER['HTTP_SEC_FETCH_SITE'], $_SERVER['HTTP_HOST']) && $_SERVER['HTTP_SEC_FETCH_SITE'] === 'same-origin') {
+            return 'http://' . $_SERVER['HTTP_HOST'];
+        }
+
+        return '';
+    }
+
     /**
      * Rejects any URL that uses a scheme other than http/https.
      * Relative and protocol-relative URLs (which have no scheme) are allowed through.

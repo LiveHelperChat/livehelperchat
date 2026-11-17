@@ -1,5 +1,13 @@
 <?php
 
+if (isset($_POST['StartChat'])) {
+	$validDomains = (string)erLhcoreClassModelChatConfig::fetch('valid_domains')->current_value;
+	if (trim($validDomains) !== '' && !erLhcoreClassChatValidator::isAllowedWidgetOrigin(erLhcoreClassChatValidator::getWidgetOrigin(), $validDomains)) {
+		http_response_code(403);
+		exit;
+	}
+}
+
 // For IE to support headers if chat is installed on different domain
 header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 
@@ -175,6 +183,16 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
 	// Start chat field options
 	$startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
 	$startDataFields = (array)$startData->data;
+}
+
+if (isset($startDataFields['disable_start_chat']) && $startDataFields['disable_start_chat'] == true) {
+    $Result['pagelayout'] = 'userchat';
+    $tpl = erLhcoreClassTemplate::getInstance( 'lhkernel/alert_info.tpl.php');
+    $tpl->set('msg',erTranslationClassLhTranslation::getInstance()->getTranslation('chat/start','Disabled!'));
+    $tpl->set('hide_close_icon',true);
+    $Result['hide_close_window'] = true;
+    $Result['content'] = $tpl->fetch();
+    return $Result;
 }
 
 // Allow extension override start chat fields

@@ -55,6 +55,13 @@ try {
             }
         }
 
+        $maskVisitorEmail = (int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !$currentUser->hasAccessTo('lhmailconv', 'see_sensitive_information');
+        $maskParams = ['dep_id' => $conv->dep_id, 'type' => $conv->start_type == erLhcoreClassModelMailconvConversation::START_OUT ? \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL : \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_EMAIL];
+        if ($maskVisitorEmail) {
+            $conv->subject = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($conv->subject, $maskParams);
+            $conv->body = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($conv->body, $maskParams);
+        }
+
         $returnAttributes['conv'] = $conv;
 
         if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
@@ -90,6 +97,15 @@ try {
             $message->alt_body = "";
         }
 
+        if ($maskVisitorEmail) {
+            $maskParams['type'] = $message->response_type == erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL ? \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL : \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_EMAIL;
+            $message->subject = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($message->subject, $maskParams);
+            $message->body_front = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessageHtml($message->body_front, $maskParams);
+            $message->body = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($message->body, $maskParams);
+            $message->alt_body = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($message->alt_body, $maskParams);
+            $message->rfc822_body = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($message->rfc822_body, $maskParams);
+        }
+
         if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
             if (!isset($message->response_type) || $message->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
                 $message->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($message->from_address);
@@ -104,9 +120,6 @@ try {
                 $message->subject = str_ireplace($keyword,'🔍'.$keyword.'🔍',$message->subject);
             }
         }
-
-
-        
 
         $returnAttributes['message'] = $message;
 

@@ -65,6 +65,14 @@ if ($copyRequest) {
             $item->body = (string)($copyData['body'] ?? '');
             $item->mailbox_front = (string)($copyData['mailbox_front'] ?? '');
 
+            if ($currentUser->hasAccessTo('lhmailconv','send_mail_bcc_cc') && isset($copyData['cc']) && is_array($copyData['cc'])) {
+                $item->cc_data = json_encode(array_fill_keys($copyData['cc'], ''));
+            }
+
+            if ($currentUser->hasAccessTo('lhmailconv','send_mail_bcc_cc') && isset($copyData['bcc']) && is_array($copyData['bcc'])) {
+                $item->bcc_data = json_encode(array_fill_keys($copyData['bcc'], ''));
+            }
+
             if (isset($copyData['from_address'])) {
                 $item->from_address = (string)$copyData['from_address'];
             }
@@ -76,8 +84,55 @@ if (ezcInputForm::hasPostData() && $copyRequest === false) {
 
     $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item, $chat);
 
+    // Custom CC/BCC recipients require a separate permission
+    if (!$currentUser->hasAccessTo('lhmailconv','send_mail_bcc_cc')) {
+        $item->cc_data = '';
+        $item->bcc_data = '';
+    }
+
     if (!isset($_POST['csfr_token']) || !$currentUser->validateCSFRToken($_POST['csfr_token'])) {
         $Errors[] = 'Invalid CSRF token!';
+    }
+
+    // Do not send an e-mail if it contains sensitive information
+    if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && $item->body != '') {
+
+        $depId = 0;
+        if ($chat instanceof erLhcoreClassModelChat) {
+            $depId = $chat->dep_id;
+        } elseif ($item->mailbox instanceof erLhcoreClassModelMailconvMailbox) {
+            $depId = $item->mailbox->dep_id;
+        }
+
+        $maskResult = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessageHtml($item->body, [
+            'dep_id' => $depId,
+            'type' => \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL,
+            'return_array' => true
+        ]);
+
+        if ($maskResult['message'] !== $item->body) {
+
+            $matchedRules = array_map(function($entityType) {
+                $entityName = \LiveHelperChat\Helpers\BBCode\Mask::getEntityName($entityType);
+
+                return $entityName !== '' ? $entityName : \LiveHelperChat\Helpers\BBCode\Mask::getCategory($entityType);
+            }, \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::getMatchedEntities());
+
+            $matchedRules = array_values(array_unique($matchedRules));
+
+            $errorMessage = !empty($maskResult['warning'])
+                ? $maskResult['warning']
+                : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply contains sensitive information and was not sent!');
+
+            if (!empty($matchedRules)) {
+                $errorMessage .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Matched rules:') . ' ' . implode(', ', $matchedRules);
+            }
+
+            $Errors[] = $errorMessage;
+
+            // Show masked content in the form, so operator could adjust it
+            $item->body = $item->body;
+        }
     }
 
     if (empty($Errors)) {
@@ -91,6 +146,8 @@ if (ezcInputForm::hasPostData() && $copyRequest === false) {
             'from_name' => (string)$item->from_name,
             'to_data' => (string)$item->to_data,
             'reply_to_data' => (string)$item->reply_to_data,
+            'cc' => array_column($item->cc_data_array, 'email'),
+            'bcc' => array_column($item->bcc_data_array, 'email'),
             'body' => (string)$item->body,
             'mailbox_front' => (string)$item->mailbox_front,
         );
@@ -170,5 +227,6 @@ $tpl->set('Result',['popup' => isset($Result['pagelayout']), 'path' => array(
 
 $Result['content'] = $tpl->fetch();
 $Result['additional_footer_js'] = '<script src="'.erLhcoreClassDesign::designJSStatic('js/tinymce/js/tinymce/tinymce.min.js').'"></script>';
+$Result['additional_footer_js'] .= '<script src="'.erLhcoreClassDesign::designJS('js/sendemail.js').'"></script>';
 
 ?>

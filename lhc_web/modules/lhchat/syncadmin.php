@@ -140,7 +140,7 @@ if (isset($_POST['chats']) && is_array($_POST['chats']) && count($_POST['chats']
                                 $userOwner = 'false';
                                 $msgText = $msg['msg'];
                                 if ((int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && $see_sensitive_information === false) {
-                                    $msgText = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgText, array('dep_id' => $Chat->dep_id));
+                                    $msgText = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($msgText, array('dep_id' => $Chat->dep_id, 'type' => $msg['user_id'] == 0 ? \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_TO_OPERATOR : \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_TO_VISITOR));
                                 }
                                 break;
                             }

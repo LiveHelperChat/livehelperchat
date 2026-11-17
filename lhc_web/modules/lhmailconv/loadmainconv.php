@@ -130,6 +130,9 @@ try {
 
         $requestPayload = json_decode(file_get_contents('php://input'),true);
 
+        $maskVisitorEmail = (int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !$currentUser->hasAccessTo('lhmailconv', 'see_sensitive_information');
+        $maskParams = ['dep_id' => $conv->dep_id, 'type' => $conv->start_type == erLhcoreClassModelMailconvConversation::START_OUT ? \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL : \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_EMAIL];
+
         foreach ($messages as $indexMessage => $messageItem) {
             if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
                 $messages[$indexMessage]->setSensitive(true);
@@ -144,11 +147,23 @@ try {
                 ]);
             }
 
+            if ($maskVisitorEmail) {
+                $messageMaskParams = ['dep_id' => $conv->dep_id, 'type' => $messageItem->response_type == erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL ? \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL : \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_EMAIL];
+                $messageItem->subject = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($messageItem->subject, $messageMaskParams);
+                $messageItem->rfc822_body = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($messageItem->rfc822_body, $messageMaskParams);
+            }
+
             if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {
                 foreach ($requestPayload['keyword'] as $keyword) {
                     $messages[$indexMessage]->subject = str_ireplace($keyword,'🔍'.$keyword.'🔍',$messages[$indexMessage]->subject);
                 }
             }
+
+        }
+
+        if ($maskVisitorEmail) {
+            $conv->subject = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($conv->subject, $maskParams);
+            $conv->body = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($conv->body, $maskParams);
         }
 
         if (isset($requestPayload['keyword']) && !empty($requestPayload['keyword']) && is_array($requestPayload['keyword'])) {

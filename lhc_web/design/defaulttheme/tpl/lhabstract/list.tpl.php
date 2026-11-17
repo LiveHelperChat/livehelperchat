@@ -111,7 +111,7 @@
 		        <?php endif;?>
 		        
 		        <?php if (isset($field['link'])) : ?></a><?php endif;?>
-		        <?php if ($key !== 'id' && !$auditInfoShown && property_exists($item, 'created_at') && property_exists($item, 'updated_at') && property_exists($item, 'muser_id')) : ?>
+		        <?php if ($key !== 'id' && $key !== 'type_icon' && !$auditInfoShown && property_exists($item, 'created_at') && property_exists($item, 'updated_at') && property_exists($item, 'muser_id')) : ?>
 		            <?php include(erLhcoreClassDesign::designtpl('lhaudit/modifyinfo.tpl.php')); ?>
 		            <?php $auditInfoShown = true; ?>
 		        <?php endif; ?>

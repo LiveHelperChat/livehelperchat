@@ -1,3 +1,4 @@
+<?php $maskVisitorEmail = (int)erLhcoreClassModelChatConfig::fetch('guardrails_enabled')->current_value == 1 && !erLhcoreClassUser::instance()->hasAccessTo('lhmailconv', 'see_sensitive_information'); ?>
 <?php foreach (erLhcoreClassModelMailconvMessage::getList(['filter' => ['conversation_id' => $chat->id]]) as $message) :
 
     if (!erLhcoreClassUser::instance()->hasAccessTo('lhmailconv','mail_see_unhidden_email')) {
@@ -6,6 +7,10 @@
         if ($message->response_type !== erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL) {
             $message->from_address = \LiveHelperChat\Helpers\Anonymizer::maskEmail($message->from_address);
         }
+    }
+
+    if ($maskVisitorEmail) {
+        \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskBodyFront($message, $chat->dep_id);
     }
 
     ?>

@@ -2,6 +2,12 @@
 
 erLhcoreClassRestAPIHandler::setHeaders('Content-Type: application/json', (isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : (isset($requestPayload['host']) && $requestPayload['host'] != '' ? $requestPayload['host'] : "*")));
 
+$validDomains = (string)erLhcoreClassModelChatConfig::fetch('valid_domains')->current_value;
+if (trim($validDomains) !== '' && !erLhcoreClassChatValidator::isAllowedWidgetOrigin(erLhcoreClassChatValidator::getWidgetOrigin(), $validDomains)) {
+    erLhcoreClassRestAPIHandler::outputResponse(array('success' => false, 'errors' => array('blocked_user' => 'Chat is not available from this domain.')));
+    exit;
+}
+
 erTranslationClassLhTranslation::$htmlEscape = false;
 
 if (isset($_POST['document'])) {
