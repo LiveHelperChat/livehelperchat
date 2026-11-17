@@ -19,6 +19,9 @@ if ( isset($_POST['saveSettings']) ) {
         ),
         'offline_message' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'subject_id' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
         )
     );
 
@@ -54,6 +57,12 @@ if ( isset($_POST['saveSettings']) ) {
         $data['close_offline'] = 1;
     } else {
         $data['close_offline'] = 0;
+    }
+
+    if ( $form->hasValidData( 'subject_id' ) && erLhAbstractModelSubject::getCount(array('filter' => array('id' => (int)$form->subject_id)) ) > 0) {
+        $data['subject_id'] = (int)$form->subject_id;
+    } else {
+        $data['subject_id'] = 0;
     }
 
     $offlineData->explain = '';

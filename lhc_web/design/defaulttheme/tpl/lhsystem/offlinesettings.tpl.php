@@ -22,6 +22,12 @@
     </div>
 
     <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/offlinesettings','Subject ID');?></label>
+        <input type="number" min="0" class="form-control form-control-sm" name="subject_id" value="<?php echo isset($settings['subject_id']) ? (int)$settings['subject_id'] : 0;?>">
+        <p><small><i><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/offlinesettings','Subject which will be assigned to the chat when offline request is saved. Leave 0 to not assign any subject.');?></i></small></p>
+    </div>
+
+    <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/timezone','Offline message which will be saved within a chat');?> <button type="button" class="btn btn-xs btn-outline-secondary mb-1" onclick="document.querySelector('textarea[name=&quot;offline_message&quot;]').value = '[b]Visitor query[/b]:\n{args.question}\n\n[b]Phone[/b]: {args.chat.phone}\n[b]E-mail[/b]: {args.chat.email}\n[b]Nick[/b]: {args.chat.nick}\n[b]Additional data[/b]: {args.chat.additional_data}'"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons','Set default');?></button></label>
         <textarea rows="5" class="form-control form-control-sm" name="offline_message"><?php echo isset($settings['offline_message']) ? htmlspecialchars($settings['offline_message']) : '[b]Visitor query[/b]:
 {args.question}

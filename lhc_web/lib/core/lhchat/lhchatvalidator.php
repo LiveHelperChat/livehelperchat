@@ -2314,6 +2314,18 @@ class erLhcoreClassChatValidator {
 
             $params['chat']->saveThis();
 
+            // Assign subject configured in offline settings
+            if (isset($data['subject_id']) && (int)$data['subject_id'] > 0) {
+                $subjectChat = erLhAbstractModelSubjectChat::findOne(array('filter' => array('chat_id' => $params['chat']->id, 'subject_id' => (int)$data['subject_id'])));
+
+                if (!($subjectChat instanceof erLhAbstractModelSubjectChat)) {
+                    $subjectChat = new erLhAbstractModelSubjectChat();
+                    $subjectChat->subject_id = (int)$data['subject_id'];
+                    $subjectChat->chat_id = $params['chat']->id;
+                    $subjectChat->saveThis();
+                }
+            }
+
             if ( $params['question'] != '' ) {
                 // Store question as message
                 $msg = new erLhcoreClassModelmsg();
