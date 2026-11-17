@@ -1319,8 +1319,15 @@ class erLhcoreClassBBCode
 
         $makeLinksClickable = true;
 
-        if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false && $paramsMessage['sender'] == 0) {
-           $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret, array('dep_id' => (isset($paramsMessage['dep_id']) ? $paramsMessage['dep_id'] : 0)));
+        if (isset($paramsMessage['see_sensitive_information']) && $paramsMessage['see_sensitive_information'] === false) {
+            if ($paramsMessage['sender'] == 0) {
+                $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret, array('dep_id' => (isset($paramsMessage['dep_id']) ? $paramsMessage['dep_id'] : 0)));
+            } elseif (isset($paramsMessage['operator_render']) && $paramsMessage['operator_render'] === true && $paramsMessage['sender'] > 0) {
+                /* Need discussion
+                $ret = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::maskMessage($ret, array(
+                    'type' => \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_TO_VISITOR, 
+                    'dep_id' => (isset($paramsMessage['dep_id']) ? $paramsMessage['dep_id'] : 0)));*/
+            }
         }
 
         if (self::isBBCodeTagSupported('[code]',$paramsMessage)) {
