@@ -484,6 +484,38 @@ class erLhcoreClassModelChatOnlineUser
         }
     }
 
+    private static function validateRequestUrl($url)
+    {
+        $urlParts = parse_url($url);
+
+        if (!is_array($urlParts) || !isset($urlParts['scheme']) || !in_array(strtolower($urlParts['scheme']), ['http','https'])) {
+            throw new \Exception('Only HTTP/HTTPS are supported!');
+        }
+
+        $host = $urlParts['host'] ?? '';
+        $port = isset($urlParts['port']) ? (int)$urlParts['port'] : (strtolower($urlParts['scheme']) === 'https' ? 443 : 80);
+
+        if ($host === '' || strtolower($host) === 'localhost') {
+            throw new \Exception('Blocked: private destination');
+        }
+
+        // Literal IPs are validated as-is; hostnames are resolved once
+        if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
+            $resolvedIp = $host;
+        } else {
+            $resolvedIp = gethostbyname($host);
+
+            if ($resolvedIp === $host || filter_var($resolvedIp, FILTER_VALIDATE_IP) === false) {
+                throw new \Exception('Blocked: unresolvable host');
+            }
+        }
+
+        if (filter_var($resolvedIp, FILTER_VALIDATE_IP,
+                FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+            throw new \Exception('Blocked: private/reserved IP');
+        }
+    }
+
     public static function executeRequest($url, $headers = [], $paramsExecution = [])
     {
         $urlParts = parse_url($url);
@@ -496,28 +528,10 @@ class erLhcoreClassModelChatOnlineUser
 
         // Resolve hostname and reject private/loopback destinations
         if ($denyLocal === true) {
+            self::validateRequestUrl($url);
             $host = $urlParts['host'] ?? '';
             $port = isset($urlParts['port']) ? (int)$urlParts['port'] : (strtolower($urlParts['scheme']) === 'https' ? 443 : 80);
-
-            if ($host === '' || strtolower($host) === 'localhost') {
-                throw new \Exception('Blocked: private destination');
-            }
-
-            // Literal IPs are validated as-is; hostnames are resolved once and then pinned below
-            if (filter_var($host, FILTER_VALIDATE_IP) !== false) {
-                $resolvedIp = $host;
-            } else {
-                $resolvedIp = gethostbyname($host);
-
-                if ($resolvedIp === $host || filter_var($resolvedIp, FILTER_VALIDATE_IP) === false) {
-                    throw new \Exception('Blocked: unresolvable host');
-                }
-            }
-
-            if (filter_var($resolvedIp, FILTER_VALIDATE_IP,
-                    FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
-                throw new \Exception('Blocked: private/reserved IP');
-            }
+            $resolvedIp = filter_var($host, FILTER_VALIDATE_IP) !== false ? $host : gethostbyname($host);
         }
 
         $ch = curl_init();
@@ -534,13 +548,43 @@ class erLhcoreClassModelChatOnlineUser
             curl_setopt($ch, CURLOPT_RESOLVE, [$host . ':' . $port . ':' . $resolvedIp]);
         }
 
-        // Redirects would bypass the validated destination
-        @curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false); // Some hostings produces warning...
+        // Disable automatic follow to prevent SSRF via redirects
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 0);
         
         if (!empty($headers)) {
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         }
+
         $content = curl_exec($ch);
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        // Manually handle redirects with SSRF validation
+        $maxRedirects = 5;
+        $redirectCount = 0;
+        while (in_array($statusCode, [301, 302, 303, 307, 308]) && $redirectCount < $maxRedirects) {
+            $redirectUrl = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
+            
+            if (empty($redirectUrl)) {
+                break;
+            }
+
+            // Re-validate redirect URL to prevent SSRF
+            if ($denyLocal === true) {
+                try {
+                    self::validateRequestUrl($redirectUrl);
+                } catch (\Exception $e) {
+                    throw $e;
+                }
+            }
+
+            // Clear headers on redirect to avoid conflicts (e.g., with S3 presigned URLs)
+            curl_setopt($ch, CURLOPT_HTTPHEADER, []);
+            curl_setopt($ch, CURLOPT_URL, $redirectUrl);
+            $content = curl_exec($ch);
+            $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $redirectCount++;
+        }
 
         return $content;
     }
