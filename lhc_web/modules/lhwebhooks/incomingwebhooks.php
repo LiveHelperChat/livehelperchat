@@ -72,7 +72,7 @@ if ($pages->items_total > 0) {
     $tpl->set('items',$items);
 }
 
-$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('webhooks/configuration');
+$filterParams['input_form']->form_action = erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks');
 $tpl->set('input',$filterParams['input_form']);
 $tpl->set('inputAppend',$append);
 

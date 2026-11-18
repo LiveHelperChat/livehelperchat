@@ -54,7 +54,7 @@ $ViewList['deleteincoming'] = [
 
 $ViewList['incomingwebhooks'] = [
     'params' => [],
-    'uparams' => ['department_ids'],
+    'uparams' => ['name','department_ids'],
     'multiple_arguments' => ['department_ids'],
     'functions' => ['configuration']
 ];

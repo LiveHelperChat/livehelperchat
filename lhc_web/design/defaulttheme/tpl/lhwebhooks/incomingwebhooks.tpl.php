@@ -1,7 +1,14 @@
 <h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Incoming webhooks list')?></h1>
 
-<form action="<?php echo erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks')?>" method="get" class="mb-2" autocomplete="off">
+<form action="<?php echo erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks')?>" method="get" class="mb-2" autocomplete="off" ng-non-bindable>
+    <input type="hidden" name="doSearch" value="1">
     <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Name');?></label>
+                <input type="text" class="form-control form-control-sm" name="name" value="<?php echo htmlspecialchars((string)$input->name)?>" />
+            </div>
+        </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Department');?></label>
@@ -17,7 +24,7 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-md-8 d-flex align-items-end">
+        <div class="col-md-4 d-flex align-items-end">
             <div class="form-group">
                 <input type="submit" class="btn btn-secondary btn-sm" value="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Search');?>" name="doSearch">
                 <a class="btn btn-secondary btn-sm" href="<?php echo erLhcoreClassDesign::baseurl('webhooks/incomingwebhooks')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/lists/search_panel','Reset');?></a>
