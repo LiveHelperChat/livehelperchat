@@ -47,6 +47,12 @@ $ViewList['usecases'] = array(
     'functions' => array( 'use_cases' )
 );
 
+$ViewList['triggermodifications'] = array(
+    'params' => array('id'),
+    'uparams' => array(),
+    'functions' => array( 'use' )
+);
+
 $ViewList['editcommand'] = array(
     'params' => array('id'),
     'uparams' => array(),

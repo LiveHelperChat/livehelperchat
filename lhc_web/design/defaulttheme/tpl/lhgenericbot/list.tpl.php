@@ -10,6 +10,7 @@
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
         <th width="1%">&nbsp;</th>
+        <th width="1%">&nbsp;</th>
     </tr>
     </thead>
     <?php foreach ($items as $item) : ?>
@@ -23,6 +24,9 @@
             </td>
             <td nowrap>
                 <button type="button" data-attr-id="<?php echo $item->id?>" class="btn btn-secondary btn-xs btn-use-cases" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Investigate places where this bot is used');?>"><span class="material-icons fs12">action_key</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('bot/conditions','Use cases');?></button>
+            </td>
+            <td nowrap>
+                <button type="button" data-attr-id="<?php echo $item->id?>" class="btn btn-secondary btn-xs btn-trigger-modifications" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Trigger modification history');?>"><span class="material-icons fs12">history</span><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('genericbot/list','Trigger modification history');?></button>
             </td>
             <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('genericbot/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Edit');?></a></td>
             <td>
@@ -47,5 +51,9 @@
 <script>
     $('.btn-use-cases').click(function(){
         lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/usecases/bot/'+$(this).data('attr-id')});
+    });
+
+    $('.btn-trigger-modifications').click(function(){
+        lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'genericbot/triggermodifications/'+$(this).data('attr-id')});
     });
 </script>
