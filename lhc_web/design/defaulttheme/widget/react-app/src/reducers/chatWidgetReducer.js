@@ -412,7 +412,10 @@ const chatWidgetReducer = (state = initialState, action) => {
                 state = state.setIn(['chatLiveData','otm'], action.data.otm)
             }
 
-            if (!state.get('overrides').contains('typing')) {
+            if (action.data.otm > 0) {
+                // Operator message was received, hide operator typing text instantly
+                state = state.setIn(['chatLiveData','ott'], '');
+            } else if (!state.get('overrides').contains('typing')) {
                 state = state.setIn(['chatLiveData','ott'], action.data.ott);
             }
 
