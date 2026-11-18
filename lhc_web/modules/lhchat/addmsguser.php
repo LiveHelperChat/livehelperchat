@@ -138,6 +138,8 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
 	    
 	} catch (ezcPersistentQueryException $e) {
 
+        $statusString = isset($chat->status, $chat->status_sub) ? ' | ' . $chat->status . '_' . $chat->status_sub : '';
+
         erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
             ezcLog::SUCCESS_AUDIT,
             array(
@@ -145,7 +147,7 @@ if ($form->hasValidData( 'msg' ) && trim($form->msg) != '' && trim(str_replace('
                 'category' => 'store',
                 'line' => $e->getLine(),
                 'file' => 'addmsguser.php',
-                'object_id' => $payload['id']
+                'object_id' => (int)$Params['user_parameters']['chat_id']
             )
         );
 
