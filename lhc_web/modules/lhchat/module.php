@@ -496,11 +496,6 @@ $ViewList['transfertohuman'] = array(
 	'uparams' => array()
 );
 
-$ViewList['editnick'] = array(
-    'params' => array('chat_id','hash'),
-	'uparams' => array()
-);
-
 $ViewList['usertyping'] = array(
     'params' => array('chat_id','hash','status'),
 	'uparams' => array()

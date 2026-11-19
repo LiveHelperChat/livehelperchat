@@ -15346,17 +15346,6 @@
     </message>
   </context>
   <context>
-    <name>chat/editnick</name>
-    <message>
-      <source>Your information</source>
-      <translation>Jūsu informācija</translation>
-    </message>
-    <message>
-      <source>Updated!</source>
-      <translation>Atjaunināts!</translation>
-    </message>
-  </context>
-  <context>
     <name>chat/errors/adminchatnopermission</name>
     <message>
       <source>You do not have permission to access the current chat or chat was merged/deleted!</source>

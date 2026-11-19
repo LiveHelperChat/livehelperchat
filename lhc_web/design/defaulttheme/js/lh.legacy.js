@@ -494,10 +494,6 @@ lhinst.addFileUploadOnlineUser = function(data_config, callbackUploaded) {
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
 };
 
-lhinst.eNick = function() {
-    lhc.revealModal({'url':WWW_DIR_JAVASCRIPT+'chat/editnick/'+this.chat_id+'/'+this.hash})
-}
-
 lhinst.enableVisitorEditor = function()
 {
     $('#ChatMessageContainer').removeClass('hide');

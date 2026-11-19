@@ -2169,48 +2169,6 @@ class erLhcoreClassChatValidator {
         return $valueStore;
     }
 
-    public static function validateNickChange(& $chat)
-    {
-        $definition = array(
-            'Email' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'validate_email'
-            ),
-            'UserNick' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            ),
-            'UserPhone' => new ezcInputFormDefinitionElement(
-                ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-            )
-        );
-    
-        $form = new ezcInputForm( INPUT_POST, $definition );
-        $Errors = array();
-     
-        if ( !$form->hasValidData( 'Email' ) && $_POST['Email'] != '' ) {
-            $Errors['email'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter a valid email address');
-        } elseif ($form->hasValidData( 'Email' )) {
-            $chat->email = $form->Email;
-        }
-    
-        if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '' && mb_strlen($form->UserNick) > 100)
-        {
-            $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 50 characters');
-        }
-    
-        if ($form->hasValidData( 'UserPhone' )) {
-            $chat->phone = $form->UserPhone;
-        }
-    
-        if ($form->hasValidData( 'UserNick' ) && $form->UserNick != '')
-        {
-            $chat->nick = $form->UserNick;
-        } else {
-            $Errors['nick'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
-        }
-    
-        return $Errors;
-    }
-    
     public static function validateUpdateAttribute($chat, $dataUpdate)
     {
     	if (is_array($dataUpdate)) {
