@@ -10,7 +10,12 @@ const MailSendStatus = props => {
             <ul className="mb-0">
                 {props.status.errors.general && <li>{props.status.errors.general}</li>}
                 {props.status.errors.reply && <li>{props.status.errors.reply}</li>}
-                {props.status.errors.content && <li>{props.status.errors.content}</li>}
+                {props.status.errors.content && <li>
+                    {props.status.guardrails ? <React.Fragment>
+                        {props.status.guardrails.warning}{' '}
+                        {props.status.guardrails.badges.map((badge, index) => <span key={index} dangerouslySetInnerHTML={{__html: badge}} />)}
+                    </React.Fragment> : props.status.errors.content}
+                </li>}
             </ul>
             {props.status.errors.raw_error &&
                 <div>

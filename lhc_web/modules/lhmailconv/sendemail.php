@@ -112,26 +112,13 @@ if (ezcInputForm::hasPostData() && $copyRequest === false) {
 
         if ($maskResult['message'] !== $item->body) {
 
-            $matchedRules = array_map(function($entityType) {
-                $entityName = \LiveHelperChat\Helpers\BBCode\Mask::getEntityName($entityType);
-
-                return $entityName !== '' ? $entityName : \LiveHelperChat\Helpers\BBCode\Mask::getCategory($entityType);
-            }, \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::getMatchedEntities());
-
-            $matchedRules = array_values(array_unique($matchedRules));
+            $matchedRules = array_map(['\\LiveHelperChat\\Helpers\\BBCode\\Mask', 'render'], \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::getMatchedEntities());
 
             $errorMessage = !empty($maskResult['warning'])
-                ? $maskResult['warning']
-                : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply contains sensitive information and was not sent!');
+                ? htmlspecialchars($maskResult['warning'], ENT_QUOTES, 'UTF-8')
+                : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','For privacy protection, the message was not sent because it contains sensitive information (PII).');
 
-            if (!empty($matchedRules)) {
-                $errorMessage .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Matched rules:') . ' ' . implode(', ', $matchedRules);
-            }
-
-            $Errors[] = $errorMessage;
-
-            // Show masked content in the form, so operator could adjust it
-            $item->body = $item->body;
+            $Errors[] = $errorMessage . (!empty($matchedRules) ? ' ' . implode(' ', $matchedRules) : '');
         }
     }
 

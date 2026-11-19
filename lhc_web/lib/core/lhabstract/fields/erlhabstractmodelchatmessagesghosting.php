@@ -48,12 +48,12 @@ return array(
             $items = [];
             $item = new stdClass();
             $item->id = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_TO_OPERATOR;
-            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Messages from visitors to agents');
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Chat message from visitor to operator');
             $items[] = $item;
 
             $item = new stdClass();
             $item->id = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_TO_VISITOR;
-            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Messages from agents to visitors');
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'Chat message from operator to visitor');
             $items[] = $item;
 
             $item = new stdClass();
@@ -63,12 +63,12 @@ return array(
 
             $item = new stdClass();
             $item->id = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_VISITOR_EMAIL;
-            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'E-mail messages from visitors');
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'E-mail message from visitor to operator');
             $items[] = $item;
 
             $item = new stdClass();
             $item->id = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::MSG_TYPE_OPERATOR_EMAIL;
-            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'E-mail messages from agents');
+            $item->name = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/proactivechatinvitation', 'E-mail message from operator to visitor');
             $items[] = $item;
 
             return $items;

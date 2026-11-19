@@ -46,6 +46,12 @@ $ViewList['delete'] = [
     'functions' => ['configuration']
 ];
 
+$ViewList['clone'] = [
+    'params' => ['id'],
+    'uparams' => ['csfr'],
+    'functions' => ['configuration']
+];
+
 $ViewList['deleteincoming'] = [
     'params' => ['id'],
     'uparams' => ['csfr'],

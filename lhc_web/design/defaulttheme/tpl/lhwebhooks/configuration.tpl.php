@@ -22,6 +22,7 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
             <th nowrap="nowrap"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Enabled');?></th>
             <th width="1%">&nbsp;</th>
             <th width="1%">&nbsp;</th>
+            <th width="1%">&nbsp;</th>
         </tr>
         </thead>
         <?php foreach ($items as $item) : ?>
@@ -42,6 +43,7 @@ $webhooksEnabled = $cfg->getSetting( 'webhooks', 'enabled', false );
                     <?php echo htmlspecialchars($item->disabled == 1 ? 'N' : 'Y')?>
                 </td>
                 <td><a class="btn btn-secondary btn-xs" href="<?php echo erLhcoreClassDesign::baseurl('webhooks/edit')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Edit');?></a></td>
+                <td><a class="btn btn-secondary btn-xs csfr-required" href="<?php echo erLhcoreClassDesign::baseurl('webhooks/clone')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('webhooks/module','Clone');?></a></td>
                 <td><a class="btn btn-danger btn-xs csfr-post csfr-required" data-trans="delete_confirm" href="<?php echo erLhcoreClassDesign::baseurl('webhooks/delete')?>/<?php echo $item->id?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/userlist','Delete');?></a></td>
             </tr>
         <?php endforeach; ?>

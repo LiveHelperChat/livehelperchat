@@ -695,6 +695,8 @@ class ChatMessagesGhosting {
     const MSG_TYPE_VISITOR_EMAIL = 3;
     const MSG_TYPE_OPERATOR_EMAIL = 4;
 
+    public $clone_fields = ['name'];
+
     public $id = null;
     public $pattern = '';
     public $v_warning = '';

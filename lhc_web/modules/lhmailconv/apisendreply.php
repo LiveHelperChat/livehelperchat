@@ -30,20 +30,26 @@ try {
 
             if ($maskResult['message'] !== $requestPayload['content']) {
 
+                $matchedEntities = \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::getMatchedEntities();
                 $matchedRules = array_map(function($entityType) {
                     $entityName = \LiveHelperChat\Helpers\BBCode\Mask::getEntityName($entityType);
 
                     return $entityName !== '' ? $entityName : \LiveHelperChat\Helpers\BBCode\Mask::getCategory($entityType);
-                }, \LiveHelperChat\Models\LHCAbstract\ChatMessagesGhosting::getMatchedEntities());
+                }, $matchedEntities);
 
                 $matchedRules = array_values(array_unique($matchedRules));
 
                 $errorMessage = !empty($maskResult['warning'])
                     ? $maskResult['warning']
-                    : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Reply contains sensitive information and was not sent!');
+                    : erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','For privacy protection, the message was not sent because it contains sensitive information (PII).');
+
+                $guardrails = [
+                    'warning' => $errorMessage,
+                    'badges' => array_map(['\\LiveHelperChat\\Helpers\\BBCode\\Mask', 'render'], $matchedEntities)
+                ];
 
                 if (!empty($matchedRules)) {
-                    $errorMessage .= ' ' . erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Matched rules:') . ' ' . implode(', ', $matchedRules);
+                    $errorMessage .= ' ' . implode(', ', $matchedRules);
                 }
 
                 http_response_code(400);
@@ -51,6 +57,7 @@ try {
                     'send' => false,
                     'send_tried' => true,
                     'masked' => $maskResult['message'],
+                    'guardrails' => $guardrails,
                     'errors' => [
                         'content' => $errorMessage
                     ]
