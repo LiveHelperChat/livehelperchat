@@ -26,11 +26,11 @@ class erLhcoreClassGenericBotActionCommand {
             $isOnlineUser = true;
 
             // Do nothing as visitor left a chat already
-            if (
-                $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT || 
+            if (!empty($action['content']['skip_if_visitor_left']) && (
+                $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT ||
                 $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_COMPLETED ||
                 $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_SURVEY_SHOW ||
-                $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM) {
+                $chat->status_sub == erLhcoreClassModelChat::STATUS_SUB_CONTACT_FORM)) {
                 return;
             }
 

@@ -100,7 +100,8 @@ class NodeTriggerActionCommand extends Component {
 
                 {this.props.action.getIn(['content','command']) == 'stopchat' &&
                 <div>
-                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_status'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_status'])} /> Ignore department status and always transfer to operator.</label>
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['skip_if_visitor_left'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','skip_if_visitor_left'])} /> Do nothing if visitor left a chat already.</label><br />
+                    <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_status'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_status'])} /> Ignore department status and always transfer to operator.</label><br />
                     <label><input type="checkbox" onChange={(e) => this.onchangeAttr({'path' : ['payload_ignore_dep_hours'], 'value' :e.target.checked})} defaultChecked={this.props.action.getIn(['content','payload_ignore_dep_hours'])} /> Ignore department online hours. This will force chat to be transfered to operator only if there is logged operators.</label>
 
                     <div className="row">
