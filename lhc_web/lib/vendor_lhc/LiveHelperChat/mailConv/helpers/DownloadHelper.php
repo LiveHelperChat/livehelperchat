@@ -4,8 +4,9 @@ namespace LiveHelperChat\mailConv\helpers;
 
 class DownloadHelper
 {
-    public static function download($mail)
+    public static function download($mail, &$built = false)
     {
+        $built = false;
         $mailbox = \erLhcoreClassModelMailconvMailbox::fetch($mail->mailbox_id);
 
         if ($mailbox->auth_method == \erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
@@ -118,6 +119,7 @@ class DownloadHelper
 
             $mailReply->preSend();
 
+            $built = true;
             return $mailReply->getSentMIMEMessage();
         } else {
             return $bodyRaw;

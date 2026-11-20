@@ -11,10 +11,13 @@ if (!($mail instanceof \erLhcoreClassModelMailconvMessage)) {
 
 try {
 
-    header('Content-Disposition: attachment; filename="'.$mail->id.'.eml"');
+    $built = false;
+    $bodyRaw = \LiveHelperChat\mailConv\helpers\DownloadHelper::download($mail, $built);
+
+    header('Content-Disposition: attachment; filename="'.$mail->id.($built ? '-build' : '').'.eml"');
     header('Content-type: text/plain');
 
-    echo \LiveHelperChat\mailConv\helpers\DownloadHelper::download($mail);
+    echo $bodyRaw;
 
     exit;
 
