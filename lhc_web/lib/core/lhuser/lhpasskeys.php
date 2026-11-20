@@ -51,6 +51,25 @@ class erLhcoreClassUserPasskey
     const MAX_PASSKEYS_PER_USER = 10;
 
     /**
+     * User verification requirements which can be passed to the browser
+     */
+    const USER_VERIFICATION_OPTIONS = array(
+        PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_REQUIRED,
+        PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_PREFERRED,
+        PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
+    );
+
+    /**
+     * Default user verification requirement for the authentication ceremony
+     */
+    const DEFAULT_USER_VERIFICATION = PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_REQUIRED;
+
+    /**
+     * Default user verification requirement for the registration ceremony
+     */
+    const DEFAULT_REGISTRATION_USER_VERIFICATION = PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_REQUIRED;
+
+    /**
      * Passkeys requires webauthn library to be installed via composer
      */
     public static function isAvailable()
@@ -79,6 +98,8 @@ class erLhcoreClassUserPasskey
      * - rp_id - relying party ID, default is current host name
      * - rp_name - relying party name shown by the browser, default is current host name
      * - secured_rp_ids - comma separated list of RP IDs allowed to work over plain HTTP
+     * - user_verification - required|preferred|discouraged, user verification asked on login, default required
+     * - registration_user_verification - required|preferred|discouraged, user verification asked when a passkey is created, default required
      */
     public static function getConfiguration()
     {
@@ -127,6 +148,44 @@ class erLhcoreClassUserPasskey
         }
 
         return self::getRpId();
+    }
+
+    /**
+     * User verification requirement for the authentication ceremony.
+     *
+     * `required` - the browser always asks for the PIN or biometrics.
+     * `preferred` - user verification is asked when the authenticator supports it.
+     * `discouraged` - only user presence (touch) is requested, but the authenticator,
+     * the browser or an organisation policy may still ask for the PIN.
+     */
+    public static function getUserVerification()
+    {
+        return self::sanitizeUserVerification(self::getConfiguration(), 'user_verification');
+    }
+
+    /**
+     * User verification requirement for the registration ceremony
+     */
+    public static function getRegistrationUserVerification()
+    {
+        return self::sanitizeUserVerification(self::getConfiguration(), 'registration_user_verification');
+    }
+
+    /**
+     * @param array $configuration
+     * @param string $key
+     * @param string $default
+     * @return string
+     */
+    public static function sanitizeUserVerification($configuration, $key, $default = null)
+    {
+        $default = $default === null ? self::DEFAULT_USER_VERIFICATION : $default;
+
+        if (isset($configuration[$key]) && in_array($configuration[$key], self::USER_VERIFICATION_OPTIONS, true)) {
+            return $configuration[$key];
+        }
+
+        return $default;
     }
 
     /**
@@ -392,7 +451,7 @@ class erLhcoreClassUserPasskey
             ),
             AuthenticatorSelectionCriteria::create(
                 null,
-                AuthenticatorSelectionCriteria::USER_VERIFICATION_REQUIREMENT_REQUIRED,
+                self::getRegistrationUserVerification(),
                 AuthenticatorSelectionCriteria::RESIDENT_KEY_REQUIREMENT_REQUIRED
             ),
             'none',
@@ -476,7 +535,7 @@ class erLhcoreClassUserPasskey
             random_bytes(32),
             self::getRpId(),
             $allowCredentials,
-            PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_REQUIRED,
+            self::getUserVerification(),
             self::CEREMONY_TIMEOUT
         );
 

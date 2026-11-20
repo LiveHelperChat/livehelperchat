@@ -29,6 +29,12 @@ if (isset($_POST['StorePasskeyOptions'])) {
         ),
         'allowed_origins' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'user_verification' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
+        ),
+        'registration_user_verification' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         )
     );
 
@@ -44,6 +50,14 @@ if (isset($_POST['StorePasskeyOptions'])) {
     $data['rp_name'] = $form->hasValidData('rp_name') ? trim($form->rp_name) : '';
     $data['secured_rp_ids'] = $form->hasValidData('secured_rp_ids') ? trim($form->secured_rp_ids) : '';
     $data['allowed_origins'] = $form->hasValidData('allowed_origins') ? trim($form->allowed_origins) : '';
+
+    $data['user_verification'] = erLhcoreClassUserPasskey::sanitizeUserVerification(array(
+        'user_verification' => $form->hasValidData('user_verification') ? trim($form->user_verification) : ''
+    ), 'user_verification');
+
+    $data['registration_user_verification'] = erLhcoreClassUserPasskey::sanitizeUserVerification(array(
+        'registration_user_verification' => $form->hasValidData('registration_user_verification') ? trim($form->registration_user_verification) : ''
+    ), 'registration_user_verification', erLhcoreClassUserPasskey::DEFAULT_REGISTRATION_USER_VERIFICATION);
 
     if ($data['enabled'] == 1 || $data['allowed_origins'] !== '') {
         try {

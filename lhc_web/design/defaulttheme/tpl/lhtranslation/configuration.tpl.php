@@ -241,7 +241,7 @@
 
 			<div class="form-group">
 				<label><input <?php if (isset($translation_data['detect_chat_language']) && $translation_data['detect_chat_language'] == true) : ?>checked="checked" <?php endif; ?> type="checkbox" name="detect_chat_language" value="on"> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detect chat language with translation service instead of relying on chat locale'); ?> <i class="material-icons me-0">translate</i></label>
-				<p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detected language is stored in chat variables and is detected only once per chat.'); ?></small></i></p>
+				<p><i><small><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detection is performed from the first visitor messages and only when their text has more than 3 words or is longer than 20 characters, otherwise chat locale is used. Detected language is stored in chat variables and is detected only once per chat. Detected language replaces chat locale, so all translations and bot conditions (trigger events, bot translations) which rely on chat locale are then processed using the detected language.'); ?></small></i></p>
 			</div>
 
 			<h6 class="ps-4"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation','Action options');?></h4>

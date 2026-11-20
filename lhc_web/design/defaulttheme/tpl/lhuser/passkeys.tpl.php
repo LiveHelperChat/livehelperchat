@@ -8,6 +8,12 @@
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/alert_success.tpl.php'));?>
 <?php endif; ?>
 
+<?php $userVerificationOptions = array(
+    'required' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Required - PIN or biometrics are always asked'),
+    'preferred' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Preferred - asked when the authenticator supports it'),
+    'discouraged' => erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Discouraged - only a touch is requested'),
+); ?>
+
 <form action="" method="post" autocomplete="off" ng-non-bindable>
 
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
@@ -33,6 +39,31 @@
                 <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Relying party name')?></label>
                 <input class="form-control form-control-sm" type="text" name="rp_name" value="<?php echo htmlspecialchars(isset($data['rp_name']) ? $data['rp_name'] : '')?>" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Current host name')?>" />
                 <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Name shown to the user by the browser or the operating system. Defaults to the current host name')?>: <strong><?php echo htmlspecialchars($detected_host)?></strong></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','User verification on login')?></label>
+                <select class="form-control form-control-sm" name="user_verification">
+                    <?php foreach ($userVerificationOptions as $verificationValue => $verificationLabel) : ?>
+                        <option value="<?php echo $verificationValue?>" <?php echo (isset($data['user_verification']) ? $data['user_verification'] : erLhcoreClassUserPasskey::DEFAULT_USER_VERIFICATION) == $verificationValue ? 'selected="selected"' : ''?>><?php echo htmlspecialchars($verificationLabel)?></option>
+                    <?php endforeach;?>
+                </select>
+                <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','Requested user verification when signing in. It is a request, not a guarantee - the browser, the authenticator or an organisation policy may still ask for the PIN, for example when the passkey was created with required verification or the security key has a PIN set.')?></div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','User verification on registration')?></label>
+                <select class="form-control form-control-sm" name="registration_user_verification">
+                    <?php foreach ($userVerificationOptions as $verificationValue => $verificationLabel) : ?>
+                        <option value="<?php echo $verificationValue?>" <?php echo (isset($data['registration_user_verification']) ? $data['registration_user_verification'] : erLhcoreClassUserPasskey::DEFAULT_REGISTRATION_USER_VERIFICATION) == $verificationValue ? 'selected="selected"' : ''?>><?php echo htmlspecialchars($verificationLabel)?></option>
+                    <?php endforeach;?>
+                </select>
+                <div class="explain"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('user/passkey','User verification requested when a new passkey is created. Passkeys created with required verification keep asking for the PIN on every login.')?></div>
             </div>
         </div>
     </div>
