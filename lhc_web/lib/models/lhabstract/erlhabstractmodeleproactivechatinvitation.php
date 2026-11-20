@@ -95,9 +95,21 @@ class erLhAbstractModelProactiveChatInvitation {
         }
     }
 
-	public static function getFilter(){
-        // Global filters
-        return erLhcoreClassUserDep::conditionalDepartmentFilter(false,'dep_id');
+	public static function getFilter($inputData = null){
+        $filter = erLhcoreClassUserDep::conditionalDepartmentFilter(false,'dep_id');
+
+        if (is_object($inputData) && isset($inputData->dep_id) && is_array($inputData->dep_id)) {
+            $departmentIds = array_filter(array_map('intval', $inputData->dep_id), function ($id) {
+                return $id > 0;
+            });
+
+            if (!empty($departmentIds)) {
+                $ids = implode(',', $departmentIds);
+                $filter['filter_custom'][] = '(`lh_abstract_proactive_chat_invitation`.`dep_id` IN (' . $ids . ') OR `lh_abstract_proactive_chat_invitation`.`id` IN (SELECT `invitation_id` FROM `lh_abstract_proactive_chat_invitation_dep` WHERE `dep_id` IN (' . $ids . ')))';
+            }
+        }
+
+        return $filter;
 	}
 
 	public function getFields()
@@ -233,6 +245,20 @@ class erLhAbstractModelProactiveChatInvitation {
                $this->dep_ids_front = $stmt->fetchAll(PDO::FETCH_COLUMN);
            }
            return $this->dep_ids_front;
+
+       case 'list_department':
+           if ($this->dep_id == 0) {
+               $this->list_department = '∞';
+           } else {
+               $departmentIds = $this->dep_ids_front;
+               if ($this->dep_id > 0) {
+                   $departmentIds[] = $this->dep_id;
+               }
+               $this->list_department = !empty($departmentIds)
+                   ? implode(', ', erLhcoreClassModelDepartament::getList(['filterin' => ['id' => array_unique($departmentIds)], 'sort' => '`name` ASC', 'limit' => false]))
+                   : '-';
+           }
+           return $this->list_department;
 
 	   	default:
 	   		break;
@@ -1304,6 +1330,8 @@ class erLhAbstractModelProactiveChatInvitation {
 	public $next_reschedule = 0;
 	public $hide_add = false;
 	public $hide_delete = false;
+    public $has_filter = true;
+    public $filter_name = 'proactivechatinvitation';
 
     public $created_at = 0;
     public $updated_at = 0;

@@ -25,6 +25,12 @@ $proactiveAttr = array(
         'required' => true,
         'validation_definition' => new ezcInputFormDefinitionElement(ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw')
     ),
+    'list_department' => array(
+        'type' => 'none',
+        'hide_edit' => true,
+        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Departments'),
+        'required' => false
+    ),
     'operator_name' => array(
         'type' => 'text',
         'translatable' => true,

@@ -16,6 +16,11 @@
             <?php ;
             break;
 
+        case 'proactivechatinvitation': ?>
+            <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/proactivechatinvitation.tpl.php')); ?>
+            <?php ;
+            break;
+
         case 'subject': ?>
             <?php include(erLhcoreClassDesign::designtpl('lhabstract/filter/subject.tpl.php')); ?>
             <?php ;
