@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 282;
+            lhc.version = 283;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -81,6 +81,7 @@
                 var chatNotifications = require('./lib/chatNotifications').chatNotifications;
                 var chatEventsHandler = require('./util/chatEventsHandler').chatEventsHandler;
                 var policyStore = require('./util/policyStore').policyStore;
+                var preserveMessageScroll = require('./util/messageScroll').preserveMessageScroll;
 
                 LHC_API.args = LHC_API.args || {};
 
@@ -1073,24 +1074,25 @@
 
                 attributesWidget.eventEmitter.addListener('widgetHeight', (data) => {
 
-                    if (data.position_placement) {
-                        attributesWidget.position_placement = data.position_placement;
-                        attributesWidget.widgetDimesions.nextProperty('position_placement', attributesWidget.position_placement);
-                        storageHandler.setSessionStorage(prefixStorage + '_pos_placement',attributesWidget.position_placement);
-                        return;
-                    }
-
-                    if (typeof data.expand_mode !== 'undefined') {
-                        attributesWidget.widgetDimesions.nextProperty('expand_mode', data.expand_mode);
-                        if (data.expand_mode === true) {
-                            attributesWidget.widgetDimesions.nextPropertySilent('height_override', attributesWidget.widgetDimesions.value['expandh'] > 2 ? (attributesWidget.widgetDimesions.value['height'] + attributesWidget.widgetDimesions.value['expandh']) : (attributesWidget.widgetDimesions.value['height'] * attributesWidget.widgetDimesions.value['expandh']));
-                            attributesWidget.widgetDimesions.nextPropertySilent('width_override', attributesWidget.widgetDimesions.value['expandw'] > 2 ? (attributesWidget.widgetDimesions.value['width'] + attributesWidget.widgetDimesions.value['expandw']) : (attributesWidget.widgetDimesions.value['width'] *  attributesWidget.widgetDimesions.value['expandw']) );
-                        } else {
-                            attributesWidget.widgetDimesions.nextPropertySilent('height_override', null);
-                            attributesWidget.widgetDimesions.nextPropertySilent('width_override', null);
-                        }
-                        attributesWidget.widgetDimesions.callListeners();
-                        attributesWidget.mainWidget.resizeTrigger();
+                    if (data.position_placement || typeof data.expand_mode !== 'undefined') {
+                        preserveMessageScroll(attributesWidget.mainWidget.cont.elmDomDoc, () => {
+                            if (data.position_placement) {
+                                attributesWidget.position_placement = data.position_placement;
+                                attributesWidget.widgetDimesions.nextProperty('position_placement', attributesWidget.position_placement);
+                                storageHandler.setSessionStorage(prefixStorage + '_pos_placement',attributesWidget.position_placement);
+                                return;
+                            }
+                            attributesWidget.widgetDimesions.nextProperty('expand_mode', data.expand_mode);
+                            if (data.expand_mode === true) {
+                                attributesWidget.widgetDimesions.nextPropertySilent('height_override', attributesWidget.widgetDimesions.value['expandh'] > 2 ? (attributesWidget.widgetDimesions.value['height'] + attributesWidget.widgetDimesions.value['expandh']) : (attributesWidget.widgetDimesions.value['height'] * attributesWidget.widgetDimesions.value['expandh']));
+                                attributesWidget.widgetDimesions.nextPropertySilent('width_override', attributesWidget.widgetDimesions.value['expandw'] > 2 ? (attributesWidget.widgetDimesions.value['width'] + attributesWidget.widgetDimesions.value['expandw']) : (attributesWidget.widgetDimesions.value['width'] *  attributesWidget.widgetDimesions.value['expandw']) );
+                            } else {
+                                attributesWidget.widgetDimesions.nextPropertySilent('height_override', null);
+                                attributesWidget.widgetDimesions.nextPropertySilent('width_override', null);
+                            }
+                            attributesWidget.widgetDimesions.callListeners();
+                            attributesWidget.mainWidget.resizeTrigger();
+                        });
                         return;
                     }
 
