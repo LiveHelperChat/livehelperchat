@@ -52,8 +52,64 @@ try
             throw new Exception('You do not have permission. Please check that current user has permission to write to selected department.');
         }
 
+        // Attributes an operator may update through the API. Everything else (id, hash, ip,
+        // time, counters, last_msg_id, ...) is ignored, so a full chat object can be posted back.
+        $editableAttributes = array(
+            'nick', 'email', 'phone', 'city', 'country_code', 'country_name', 'lat', 'lon',
+            'remarks', 'additional_data', 'chat_variables', 'product_id', 'unanswered_chat',
+            'status_sub', 'status_sub_arg', 'status_sub_sub'
+        );
+
+        $restApiUser = erLhcoreClassRestAPIHandler::getUser();
+
         foreach ($requestBody as $attr => $value) {
-            if ($attr != 'id') { // we never update ID
+            if ($attr == 'id') {
+                continue;
+            }
+
+            if ($attr == 'status') {
+                erLhcoreClassChatHelper::changeStatus(array(
+                    'user' => $restApiUser,
+                    'chat' => $chat,
+                    'status' => (int)$value,
+                    'allow_close_remote' => erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'allowcloseremote')
+                ));
+                continue;
+            }
+
+            if ($attr == 'dep_id') {
+                $newDepartmentId = (int)$value;
+
+                if ($newDepartmentId != (int)$chat->dep_id) {
+                    if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'modifychatcore')) {
+                        throw new Exception('You do not have permission to change the chat department. `lhchat`, `modifychatcore` is required.');
+                    }
+
+                    $readOnlyDepartments = erLhcoreClassUserDep::getUserReadDepartments($restApiUser->id, $restApiUser->cache_version);
+
+                    if (in_array($newDepartmentId, $readOnlyDepartments) ||
+                        ($restApiUser->all_departments == 0 && !in_array($newDepartmentId, erLhcoreClassUserDep::getUserDepartaments($restApiUser->id, $restApiUser->cache_version)))) {
+                        throw new Exception('You do not have permission to change the chat to the selected department.');
+                    }
+
+                    $chat->dep_id = $newDepartmentId;
+                }
+
+                continue;
+            }
+
+            if ($attr == 'user_id') {
+                $newUserId = (int)$value;
+
+                if ($newUserId != (int)$chat->user_id && $newUserId != 0 && $newUserId != erLhcoreClassRestAPIHandler::getUserId() && !erLhcoreClassRestAPIHandler::hasAccessTo('lhchat', 'modifychatcore')) {
+                    throw new Exception('You do not have permission to assign the chat to another operator. `lhchat`, `modifychatcore` is required.');
+                }
+
+                $chat->user_id = $newUserId;
+                continue;
+            }
+
+            if (in_array($attr, $editableAttributes, true)) {
                 $chat->{$attr} = $value;
             }
         }

@@ -2230,7 +2230,7 @@
           "file"
         ],
         "summary": "Update file meta data",
-        "description": "Required permissions - `lhfile`, `use_operator`",
+        "description": "Required permissions - `lhfile`, `use_operator` and the chat the file belongs to has to be readable. A file can be assigned only to the calling user and moved only to a readable chat.",
         "produces": [
           "application/json"
         ],
@@ -3843,7 +3843,7 @@
           "chat"
         ],
         "summary": "Update a chat",
-        "description": "Required permissions - `lhchat`,`use` and assigned department in write mode.",
+        "description": "Required permissions - `lhchat`,`use` and assigned department in write mode. Changing `dep_id` or assigning the chat to another operator requires `lhchat`, `modifychatcore`; `status` is changed through the regular chat status workflow.",
         "produces": [
           "application/json"
         ],

@@ -25,7 +25,18 @@ try {
     if (! ($userData instanceof erLhcoreClassModelUser)) {
         throw new Exception('User could not be found!');
     }
-    
+
+    // Changing own status requires `lhuser/changeonlinestatus`.
+    // Changing another operator status requires `lhuser/setopstatus` or
+    // `lhuser/edituser` with access to all of the target user groups.
+    if ($userData->id == erLhcoreClassRestAPIHandler::getUserId()) {
+        if (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'changeonlinestatus')) {
+            throw new Exception('You do not have permission. `lhuser`, `changeonlinestatus` is required.');
+        }
+    } elseif (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'setopstatus') && (!erLhcoreClassRestAPIHandler::hasAccessTo('lhuser', 'edituser') || !erLhcoreClassGroupRole::canEditUserGroups(erLhcoreClassRestAPIHandler::getUser(), $userData))) {
+        throw new Exception('You do not have permission. `lhuser`, `setopstatus` is required to change another user status.');
+    }
+
     if ($_GET['status'] == 'true') {
         $userData->hide_online = 0;
         $text = 'flash_on';
