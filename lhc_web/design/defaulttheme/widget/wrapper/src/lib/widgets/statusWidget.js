@@ -303,6 +303,7 @@ class LHCStatusWidget extends HTMLElement {
             // Drag and drop action performed by visitor
             if (moveAction === true) {
                 moveAction = false;
+                e.preventDefault();
                 this.dispatchEventStatus('click',{'status': false}, e);
             } else {
                 this.dispatchEventStatus('click',{'status': true}, e);
