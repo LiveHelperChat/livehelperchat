@@ -8,15 +8,17 @@ function conversation() {
     let height = 414;
     let rowHeight = 136;
     let scrollTop = 0;
-    const rows = Array.from({length: 5}, (_, index) => ({
+    const makeRow = index => ({
         getBoundingClientRect() {
             const top = index * rowHeight - scrollTop;
             return {top, bottom: top + rowHeight, height: rowHeight};
         }
-    }));
+    });
+    const rows = Array.from({length: 5}, (_, index) => makeRow(index));
     const list = {
         get clientHeight() { return Math.min(height, this.scrollHeight); },
         get scrollHeight() { return rows.length * rowHeight; },
+        get lastElementChild() { return rows.at(-1); },
         get scrollTop() { return scrollTop; },
         set scrollTop(value) {
             scrollTop = Math.max(0, Math.min(value, this.scrollHeight - this.clientHeight));
@@ -33,7 +35,7 @@ function conversation() {
             list.scrollTop = scrollTop;
         });
     }
-    return {list, resize};
+    return {list, resize, append: () => rows.push(makeRow(rows.length))};
 }
 
 test('latest message stays visible after the entire conversation fits', () => {
@@ -76,6 +78,16 @@ test('width reflow keeps the visible message and respects scrolling in the large
     list.scrollTop = 8; // The visitor reads a different message in the larger view.
     resize(414, 136);
     assert.equal(list.scrollTop, 8);
+});
+
+test('a changed conversation uses its current position instead of a clamped anchor', () => {
+    const {list, resize, append} = conversation();
+    list.scrollTop = 149;
+    resize(560);
+    assert.equal(list.scrollTop, 120);
+    append();
+    resize(414);
+    assert.equal(list.scrollTop, 120);
 });
 
 test('a view without messages can still resize', () => {
