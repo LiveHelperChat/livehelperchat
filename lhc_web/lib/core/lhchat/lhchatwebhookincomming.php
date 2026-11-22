@@ -2667,6 +2667,7 @@ class erLhcoreClassChatWebhookIncoming {
             'swf' => 'application/x-shockwave-flash',
             'flv' => 'video/x-flv',
             'ogg' => 'audio/ogg',
+            'oga' => 'audio/ogg',
             'webm' => 'video/x-matroska',
 
             // images
