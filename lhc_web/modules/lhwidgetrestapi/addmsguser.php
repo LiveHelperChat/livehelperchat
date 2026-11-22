@@ -29,7 +29,7 @@ try {
             'category' => 'store',
             'line' => $e->getLine(),
             'file' => 'addmsguser.php',
-            'object_id' => $payload['id']
+            'object_id' => (int)($payload['id'] ?? 0)
         )
     );
 }
@@ -238,6 +238,8 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
 
     } catch (ezcPersistentQueryException $e) {
 
+        $statusString = isset($chat->status, $chat->status_sub) ? ' | ' . $chat->status . '_' . $chat->status_sub : '';
+
         erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
             ezcLog::SUCCESS_AUDIT,
             array(
@@ -245,7 +247,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
                 'category' => 'store',
                 'line' => $e->getLine(),
                 'file' => 'addmsguser.php',
-                'object_id' => $payload['id']
+                'object_id' => (int)($payload['id'] ?? 0)
             )
         );
 
@@ -263,8 +265,8 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
         if ($e->getCode() !== 100) {
             $statusString = '';
 
-            if (isset($chat)) {
-                $statusString = ' | '. $chat->status . '_' . $chat->satus_sub;
+            if (isset($chat->status, $chat->status_sub)) {
+                $statusString = ' | '. $chat->status . '_' . $chat->status_sub;
             }
 
             erLhcoreClassLog::write($e->getMessage() . ' - ' . $e->getTraceAsString() . $statusString,
@@ -274,7 +276,7 @@ if (isset($payload['msg']) && trim($payload['msg']) != '' && mb_strlen($payload[
                     'category' => 'store',
                     'line' => $e->getLine(),
                     'file' => 'addmsguser.php',
-                    'object_id' => $payload['id']
+                    'object_id' => (int)($payload['id'] ?? 0)
                 )
             );
         }
