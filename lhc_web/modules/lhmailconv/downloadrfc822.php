@@ -9,10 +9,17 @@ if (!($mail instanceof \erLhcoreClassModelMailconvMessage)) {
     }
 }
 
-header('Content-Disposition: attachment; filename="'.$mail->id.'.eml"');
-header('Content-type: text/plain');
+if ($mail instanceof \erLhcoreClassModelMailconvMessage && ($conv = $mail->conversation) instanceof \erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv)) {
+    header('Content-Disposition: attachment; filename="'.$mail->id.'.eml"');
+    header('Content-type: text/plain');
 
-echo $mail->rfc822_body;
+    echo $mail->rfc822_body;
 
-exit;
+    exit;
+} else {
+    http_response_code(403);
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/errors/adminchatnopermission.tpl.php');
+    $Result['content'] = $tpl->fetch();
+}
+
 ?>

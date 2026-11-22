@@ -9,29 +9,35 @@ if (!($mail instanceof \erLhcoreClassModelMailconvMessage)) {
     }
 }
 
-try {
+if ($mail instanceof \erLhcoreClassModelMailconvMessage && ($conv = $mail->conversation) instanceof \erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv)) {
+    try {
 
-    $built = false;
-    $bodyRaw = \LiveHelperChat\mailConv\helpers\DownloadHelper::download($mail, $built);
+        $built = false;
+        $bodyRaw = \LiveHelperChat\mailConv\helpers\DownloadHelper::download($mail, $built);
 
-    header('Content-Disposition: attachment; filename="'.$mail->id.($built ? '-build' : '').'.eml"');
-    header('Content-type: text/plain');
+        header('Content-Disposition: attachment; filename="'.$mail->id.($built ? '-build' : '').'.eml"');
+        header('Content-type: text/plain');
 
-    echo $bodyRaw;
+        echo $bodyRaw;
 
-    exit;
+        exit;
 
-} catch (Exception $e) {
+    } catch (Exception $e) {
 
-    $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
+        $tpl = erLhcoreClassTemplate::getInstance('lhkernel/validation_error.tpl.php');
 
-    $tpl->set('errors',[
-        erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message with specified ID could not be found anymore in provided IMAP folder'),
-        htmlspecialchars($e->getMessage()),
-        erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message ID').' - '.$mail->uid.' '.$mail->message_id,
-        $mail->mb_folder
-    ]);
+        $tpl->set('errors',[
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message with specified ID could not be found anymore in provided IMAP folder'),
+            htmlspecialchars($e->getMessage()),
+            erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconv','Message ID').' - '.$mail->uid.' '.$mail->message_id,
+            $mail->mb_folder
+        ]);
 
+        $Result['content'] = $tpl->fetch();
+    }
+} else {
+    http_response_code(403);
+    $tpl = erLhcoreClassTemplate::getInstance('lhchat/errors/adminchatnopermission.tpl.php');
     $Result['content'] = $tpl->fetch();
 }
 
