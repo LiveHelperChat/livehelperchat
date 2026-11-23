@@ -106,7 +106,12 @@ body {
     visibility: hidden
 }
 
+:host {
+    pointer-events: none;
+}
+
 #unread-msg-number {
+    pointer-events: auto;
     float: left;
     color: #ffffff;
     font-size: 12px;
@@ -138,6 +143,7 @@ body {
 }
 
 #lhc_status_container #status-icon {
+    pointer-events: auto;
     background-color: #0c8fc4;
     border: 2px solid #e3e3e3;
     -webkit-border-radius: 47px;
