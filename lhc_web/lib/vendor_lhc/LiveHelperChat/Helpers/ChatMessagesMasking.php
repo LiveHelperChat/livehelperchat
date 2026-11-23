@@ -26,6 +26,9 @@ class ChatMessagesMasking
         $diagnostics = array(
             'masked' => false,
             'output' => (string)$testMessage,
+            'visitor_message' => (string)$testMessage,
+            'visitor_warning' => '',
+            'operator_message' => (string)$testMessage,
             'steps' => array(),
         );
 
@@ -108,6 +111,8 @@ class ChatMessagesMasking
         $masked = $maskRule->getMasked((string)$testMessage);
         $diagnostics['masked'] = $masked !== (string)$testMessage;
         $diagnostics['output'] = $masked;
+        $diagnostics['operator_message'] = $masked;
+        $diagnostics['visitor_warning'] = ($diagnostics['masked'] && $maskRule->v_warning != '') ? $maskRule->v_warning : '';
         $addStep($translate('Masking applied'), $diagnostics['masked'], $diagnostics['masked'] ? $translate('Message content matched a pattern and was masked') : $translate('Message content did not match any pattern in the rule, nothing was masked'));
 
         return $diagnostics;

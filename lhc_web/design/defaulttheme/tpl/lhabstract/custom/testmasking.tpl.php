@@ -11,7 +11,7 @@
                             <div class="col-6">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Chat ID');?></h6>
                                 <input type="number" name="chat_id" min="0" value="<?php echo (int)$chat_id?>" class="form-control form-control-sm" placeholder="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Optional');?>" />
-                                <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Simulates the visitor side - checks if this message would be masked for the visitor. Department, assigned operator and its permissions are taken from the chat. Leave empty to test a pattern directly.');?></small>
+                                <small class="text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','When a Chat ID is entered, this always tests the "Chat message from visitor to operator" rule, which applies to visitor messages only (seen by the operator). Department, assigned operator, and operator permissions are taken from the chat. Leave empty to test a pattern directly.');?></small>
                             </div>
                             <div class="col-6">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Message to test against');?></h6>
@@ -25,7 +25,34 @@
                             </div>
                             <div class="col-6">
                                 <h6><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Output');?></h6>
-                                <textarea readonly="readonly" rows="4" class="form-control form-control-sm"><?php echo htmlspecialchars($output)?></textarea>
+                                <?php if (is_array($diagnostics)) : ?>
+                                    <ul class="nav nav-tabs mb-2" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link active py-1 px-2" href="#testmasking-visitor" aria-controls="testmasking-visitor" role="tab" data-bs-toggle="tab" aria-selected="true"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Visitor sees');?></a>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <a class="nav-link py-1 px-2" href="#testmasking-operator" aria-controls="testmasking-operator" role="tab" data-bs-toggle="tab" aria-selected="false"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Operator sees');?></a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="testmasking-visitor">
+                                            <textarea readonly="readonly" rows="4" class="form-control form-control-sm"><?php echo htmlspecialchars($diagnostics['visitor_message'])?></textarea>
+                                            <small class="text-muted d-block mt-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Visitor always sees their original message.');?></small>
+                                            <?php if ($diagnostics['visitor_warning'] != '') : ?>
+                                                <div class="alert alert-warning p-2 mt-1 mb-0 small">
+                                                    <strong><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Auto-reply warning');?>:</strong>
+                                                    <div><?php echo htmlspecialchars($diagnostics['visitor_warning'])?></div>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="testmasking-operator">
+                                            <textarea readonly="readonly" rows="4" class="form-control form-control-sm"><?php echo htmlspecialchars($diagnostics['operator_message'])?></textarea>
+                                            <small class="text-muted d-block mt-1"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Tests the "Chat message from visitor to operator" rule, which applies to visitor messages only.');?></small>
+                                        </div>
+                                    </div>
+                                <?php else : ?>
+                                    <textarea readonly="readonly" rows="4" class="form-control form-control-sm"><?php echo htmlspecialchars($output)?></textarea>
+                                <?php endif; ?>
                             </div>
                             <div class="col-12 pt-1">
                                 <button type="submit" class="btn btn-primary btn-sm"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection','Test');?></button>
