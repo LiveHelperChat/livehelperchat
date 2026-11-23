@@ -1,3 +1,16 @@
+5.02v
+
+✨ Link e-mails sent from chats back to their originating chat, improve mail escalation and security
+
+- 🗄️ Add `follow_up_chat_id` column to `lhc_mailconv_conversation` via update_367.sql, both install scripts, `structure.json`, `db.dbml`, POS definition, `swagger.json`, `MergeHelper` and the conversation model `getState()`
+- 📤 Attach the `X-LHC-CID` custom header when sending an e-mail from a chat (`mailconv/sendemail/(chat_id)/<id>` and `chat/sendmail`) so back-imported conversations (including undelivered bounces) store the originating `follow_up_chat_id` in `erLhcoreClassMailconvParser`
+- 💬 Show a clickable related chat link (`lhc.previewChat`) next to the follow-up link in `MailChat.js` when a mail conversation has a `follow_up_chat_id`
+- ✉️ Improve mail sending and escalation UI with TinyMCE file and template plugins, Cc/Bcc recipients, HTML mail guardrails, sensitive content masking, and restricted mail download permissions
+- 🔐 Harden security across modules: enforce REST API permissions and validation order, prevent SSRF via URL validation, restrict log files/extension folders, add configurable WebAuthn user verification for passkeys, and add dual-view masking diagnostics
+- 🔄 Bump `DB_VERSION` to 367 and `LHC_RELEASE` to 502
+
+execute doc/update_db/update_367.sql for update
+
 5.01v
 
 ✨ Restrict passwordless logins, add REST API key only accounts and improve widget voice/file previews

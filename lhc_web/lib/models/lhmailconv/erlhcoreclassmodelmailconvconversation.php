@@ -52,6 +52,7 @@ class erLhcoreClassModelMailconvConversation
             'mail_variables' => $this->mail_variables,
             'has_attachment' => $this->has_attachment,
             'follow_up_id' => $this->follow_up_id,
+            'follow_up_chat_id' => $this->follow_up_chat_id,
             'undelivered' => $this->undelivered,
             'pending_sync' => $this->pending_sync,
             'pending_import' => $this->pending_import,
@@ -348,6 +349,7 @@ class erLhcoreClassModelMailconvConversation
     public $total_messages = 0;
     public $match_rule_id = 0;
     public $follow_up_id = 0;
+    public $follow_up_chat_id = 0;
     public $undelivered = 0;
     public $pending_sync = 0;
 

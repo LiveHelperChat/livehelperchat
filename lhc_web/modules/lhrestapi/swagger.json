@@ -5732,6 +5732,11 @@
           "default": "name",
           "required": false,
           "description": "Previous conversation id. If conversation is closed and can't be reopened. This holds parent conversation id."
+        },"follow_up_chat_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Related chat id if e-mail was sent from a chat."
         },"has_attachment": {
           "type": "integer",
           "default": "",
@@ -5841,6 +5846,11 @@
           "default": null,
           "required": false,
           "description": "Covnersation follow_up_id attribute"
+        },"follow_up_chat_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Conversation follow_up_chat_id attribute"
         },"subject_id": {
           "type": "array",
           "default": null,

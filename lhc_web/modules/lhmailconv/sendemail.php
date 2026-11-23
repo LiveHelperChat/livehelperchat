@@ -149,7 +149,13 @@ if (ezcInputForm::hasPostData() && $copyRequest === false) {
         }
 
         try {
-            
+            if ($chat instanceof erLhcoreClassModelChat && $chat->id > 0) {
+                if (!isset($item->custom_headers) || !is_array($item->custom_headers)) {
+                    $item->custom_headers = [];
+                }
+                $item->custom_headers['X-LHC-CID'] = $chat->id;
+            }
+
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.before_send', array(
                 'uparams' => $Params['user_parameters_unordered'],
                 'msg' => & $item,

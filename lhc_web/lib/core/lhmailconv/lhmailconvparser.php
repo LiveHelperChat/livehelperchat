@@ -536,6 +536,7 @@ class erLhcoreClassMailconvParser {
 
                         $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
+                        $chat_id = (\preg_match("/X-LHC-CID\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
                         if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
@@ -680,6 +681,9 @@ class erLhcoreClassMailconvParser {
                             // Set recipient_id if it exists
                             $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : $recipient_id;
 
+                            // Set chat_id if it exists
+                            $chat_id = (\preg_match("/X-LHC-CID\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : $chat_id;
+
                             if (isset($head->to)) {
                                 foreach ($head->to as $to) {
                                     $to_parsed = $mailboxHandlerHelper->possiblyGetEmailAndNameFromRecipient($to);
@@ -776,6 +780,7 @@ class erLhcoreClassMailconvParser {
                         $conversations->pnd_time = time();
                         $conversations->user_id = $message->user_id;
                         $conversations->follow_up_id = $followUpConversationId;
+                        $conversations->follow_up_chat_id = $chat_id;
 
                         if ($conversations->user_id == 0 && $followUpUserId > 0) {
                             $conversations->user_id = $followUpUserId;

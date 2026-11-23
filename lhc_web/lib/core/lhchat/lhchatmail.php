@@ -218,6 +218,10 @@ class erLhcoreClassChatMail {
     	$mail->Body = $sendMail->content;
     	$mail->AddAddress( $sendMail->recipient );
 
+    	if ($chat instanceof erLhcoreClassModelChat && $chat->id > 0) {
+    		$mail->addCustomHeader('X-LHC-CID', $chat->id);
+    	}
+
     	self::setupSMTP($mail);
     	
     	if ($sendMail->bcc_recipients != '') {

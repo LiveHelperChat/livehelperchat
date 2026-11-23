@@ -38,6 +38,7 @@ Table "lhc_mailconv_conversation" {
   "pending_sync" tinyint(1) [not null, default: 0, note: 'Pending sync']
   "pending_import" tinyint(1) [not null, default: 0, note: 'Operator reply is waiting for import']
   "follow_up_id" bigint(20) [not null, default: 0, note: 'Follow up ID']
+  "follow_up_chat_id" bigint(20) [not null, default: 0, note: 'Related chat ID']
   "undelivered" tinyint(1) [not null, default: 0, note: 'Undelivered status']
 
   Indexes {

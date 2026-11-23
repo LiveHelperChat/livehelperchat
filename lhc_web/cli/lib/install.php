@@ -2455,6 +2455,7 @@ class Install
   `pending_sync` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `pending_import` tinyint(1) unsigned NOT NULL DEFAULT 0,
   `follow_up_id` bigint(20) unsigned NOT NULL DEFAULT 0,
+  `follow_up_chat_id` bigint(20) unsigned NOT NULL DEFAULT 0,
   `undelivered` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `lang` (`lang`),

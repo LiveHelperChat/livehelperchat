@@ -22,7 +22,7 @@ foreach (array(
 foreach (array(
              'transfer_uid','start_type','lr_time','dep_id','ctime','user_id','status','last_message_id','mailbox_id','message_id',
              'priority','priority_asc','udate','total_messages','match_rule_id','cls_time','pnd_time','wait_time',
-             'accept_time','response_time','interaction_time','tslasign','conv_duration','follow_up_id',
+             'accept_time','response_time','interaction_time','tslasign','conv_duration','follow_up_id','follow_up_chat_id',
              'has_attachment','undelivered','pending_sync','opened_at','pending_import'
          ) as $attr) {
     $def->properties[$attr] = new ezcPersistentObjectProperty();
