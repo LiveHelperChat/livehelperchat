@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 283;
+            lhc.version = 284;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -81,6 +81,7 @@
                 var chatNotifications = require('./lib/chatNotifications').chatNotifications;
                 var chatEventsHandler = require('./util/chatEventsHandler').chatEventsHandler;
                 var policyStore = require('./util/policyStore').policyStore;
+                var preserveMessageScroll = require('./util/messageScroll').preserveMessageScroll;
 
                 LHC_API.args = LHC_API.args || {};
 
@@ -1074,9 +1075,11 @@
                 attributesWidget.eventEmitter.addListener('widgetHeight', (data) => {
 
                     if (data.position_placement) {
-                        attributesWidget.position_placement = data.position_placement;
-                        attributesWidget.widgetDimesions.nextProperty('position_placement', attributesWidget.position_placement);
-                        storageHandler.setSessionStorage(prefixStorage + '_pos_placement',attributesWidget.position_placement);
+                        preserveMessageScroll(attributesWidget.mainWidget.cont.elmDomDoc, () => {
+                            attributesWidget.position_placement = data.position_placement;
+                            attributesWidget.widgetDimesions.nextProperty('position_placement', attributesWidget.position_placement);
+                            storageHandler.setSessionStorage(prefixStorage + '_pos_placement',attributesWidget.position_placement);
+                        });
                         return;
                     }
 
