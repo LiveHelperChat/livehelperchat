@@ -36,7 +36,7 @@ try {
                 foreach ($relatedItems['closemailconfirm'] as $relatedConversationId) {
                     $conv = erLhcoreClassModelMailconvConversation::fetchAndLock($relatedConversationId);
 
-                    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv))
+                    if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToWrite($conv) && erLhcoreClassChat::hasAccessToRead($conv))
                     {
                         if ($conv->status !== erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
 
