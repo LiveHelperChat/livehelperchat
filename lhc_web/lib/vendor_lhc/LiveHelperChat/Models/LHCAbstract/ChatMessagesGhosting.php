@@ -391,6 +391,10 @@ class ChatMessagesGhosting {
 
     public function getMasked($message)
     {
+        if (!is_string($message) || $message === '') {
+            return $message;
+        }
+
         $patterns = trim($this->pattern);
 
         if (empty($patterns)) {

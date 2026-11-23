@@ -12,7 +12,16 @@
         <?php endif; ?>
     <?php endif;?>
 
-<h1><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?></h1>
+
+<div>
+    <?php if (isset($department) && $department instanceof erLhcoreClassModelDepartament) : ?>
+        <span class="float-end badge mt-2 border border-secondary text-muted" title="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Active department used for default mailbox selection, guardrails (PII) checks, and response templates.');?>"><span class="material-icons">home</span><?php echo htmlspecialchars($department->name)?></span>
+    <?php endif; ?>
+<h1>
+    <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send an e-mail');?>
+</h1>
+
+</div>
 
 <?php if (isset($updated)) :
     $msg = erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvmb','E-mail was sent.');
@@ -39,9 +48,9 @@
 
 <?php if (isset($updated)) : ?>
 <div class="d-flex flex-wrap align-items-center">
-<a class="btn btn-sm btn-outline-secondary me-2" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>?new=1"><span class="material-icons">mail</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send a new e-mail');?></a>
+<a class="btn btn-sm btn-outline-secondary me-2" href="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?><?php if (isset($is_escalate) && $is_escalate === true) : ?>/(escalate)/1<?php endif;?>?new=1"><span class="material-icons">mail</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send a new e-mail');?></a>
 <?php if (isset($copy_data)) : ?>
-<form class="m-0" method="post" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>">
+<form class="m-0" method="post" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?><?php if (isset($is_escalate) && $is_escalate === true) : ?>/(escalate)/1<?php endif;?>">
     <?php include(erLhcoreClassDesign::designtpl('lhkernel/csfr_token.tpl.php'));?>
     <input type="hidden" name="copy_content" value="<?php echo htmlspecialchars($copy_data)?>" />
     <button type="submit" class="btn btn-sm btn-outline-secondary"><span class="material-icons">content_copy</span> <?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Send a new e-mail, copy content');?></button>
@@ -77,7 +86,7 @@
 
 <?php if (!isset($updated)) : ?>
 
-<form class="d-flex flex-column flex-grow-1 overflow-scroll position-relative" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password"
+<form class="d-flex flex-column flex-grow-1 overflow-scroll position-relative" action="<?php echo erLhcoreClassDesign::baseurl('mailconv/sendemail')?><?php if (isset($uparams['var1'])) :?>/(var1)/<?php echo htmlspecialchars($uparams['var1'])?><?php endif;?><?php if (isset($uparams['var1'])) :?>/(var2)/<?php echo htmlspecialchars($uparams['var2'])?><?php endif;?><?php if (isset($chat) && $chat->id > 0) : ?>/(chat_id)/<?php echo $chat->id;?><?php endif; ?><?php if (isset($Result['popup']) && $Result['popup'] === true) : ?>/(layout)/popup<?php endif;?><?php if (isset($is_escalate) && $is_escalate === true) : ?>/(escalate)/1<?php endif;?>" id="sendemail-form" ng-non-bindable method="post" autocomplete="new-password"
       data-msg-mailbox-required="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Please select a mailbox first');?>"
       data-msg-signature-failed="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Failed to fetch signature');?>"
       data-msg-signature-error="<?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvrt','Error fetching signature');?>">
@@ -108,7 +117,7 @@
             <div class="form-group">
                 <label><?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/recipient_email_title.tpl.php')); ?> </label>
                 <div class="input-group input-group-sm">
-                    <?php if (isset($chat) && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
+                    <?php if (isset($chat) && (!isset($is_escalate) || $is_escalate === false) && !erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) : ?>
                         <input type="text" readonly="readonly" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars(\LiveHelperChat\Helpers\Anonymizer::maskEmail($item->from_address))?>" />
                     <?php else : ?>
                         <input type="text" class="form-control form-control-sm" name="from_address" value="<?php echo htmlspecialchars($item->from_address)?>" />
@@ -184,7 +193,7 @@
     <?php endif; ?>
 
     <div class="flex-grow-1 position-relative">
-        <?php $tinyMceOptions = ['hide_form_group' => true,'height' => '\'100%\'']; ?>
+        <?php $tinyMceOptions = ['hide_form_group' => true,'height' => '\'100%\'']; if (isset($chat) && $chat->id > 0) { $tinyMceOptions['chat_id'] = (int)$chat->id; } ?>
         <?php include(erLhcoreClassDesign::designtpl('lhmailconv/parts/body.tpl.php'));?>
     </div>
 

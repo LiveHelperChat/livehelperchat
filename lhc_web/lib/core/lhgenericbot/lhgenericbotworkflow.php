@@ -3051,7 +3051,7 @@ class erLhcoreClassGenericBotWorkflow {
                     }
 
                     if (isset($dateFormat[1]) && $valueAttribute['found'] === true) {
-                        $valueAttribute['value'] = date($dateFormat[1], $valueAttribute['value']);
+                        $valueAttribute['value'] = date($dateFormat[1], (int)$valueAttribute['value']);
                     }
 
                     if (!empty($notEmpty[1]) && $valueAttribute['found'] === true && !empty($valueAttribute['value'])) {
