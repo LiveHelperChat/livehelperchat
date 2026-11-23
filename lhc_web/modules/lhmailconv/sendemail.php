@@ -216,6 +216,58 @@ if ($chat instanceof erLhcoreClassModelChat && $chat->department instanceof erLh
     }
 }
 
+if ($isEscalate && !ezcInputForm::hasPostData() && $item->body == '') {
+    $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+    $mcOptionsData = (array)$mcOptions->data;
+
+    if (isset($mcOptionsData['escalation_template_id']) && (int)$mcOptionsData['escalation_template_id'] > 0) {
+        $escalationTemplate = erLhcoreClassModelMailconvResponseTemplate::fetch((int)$mcOptionsData['escalation_template_id']);
+
+        if ($escalationTemplate instanceof erLhcoreClassModelMailconvResponseTemplate && $escalationTemplate->disabled == 0) {
+            $depId = $department instanceof erLhcoreClassModelDepartament ? (int)$department->id : 0;
+            $depName = $department instanceof erLhcoreClassModelDepartament ? (string)$department : '';
+
+            $searchArray = [
+                '{{operator}}',
+                '{operator}',
+                '{{department}}',
+                '{department}'
+            ];
+
+            $replaceArray = [
+                $currentUser->getUserData()->name_official,
+                $currentUser->getUserData()->name_official,
+                $depName,
+                $depName
+            ];
+
+            $escalationTemplate->template = str_replace($searchArray, $replaceArray, $escalationTemplate->template);
+            $escalationTemplate->template_plain = str_replace($searchArray, $replaceArray, $escalationTemplate->template_plain);
+
+            if ($chat instanceof erLhcoreClassModelChat) {
+                $escalationTemplate->template = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template, array('chat' => $chat, 'args' => ['current_user' => $currentUser->getUserData(), 'chat' => $chat]));
+                $escalationTemplate->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template_plain, array('chat' => $chat, 'args' => ['current_user' => $currentUser->getUserData(), 'chat' => $chat]));
+            } else {
+                $conv = new erLhcoreClassModelMailconvConversation();
+                if ($depId > 0) {
+                    $conv->dep_id = $depId;
+                }
+                $escalationTemplate->template = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template, array('chat' => $conv, 'args' => ['mail' => $conv, 'current_user' => $currentUser->getUserData()]));
+                $escalationTemplate->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template_plain, array('chat' => $conv, 'args' => ['mail' => $conv, 'current_user' => $currentUser->getUserData()]));
+            }
+
+            $templateItems = [$escalationTemplate];
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.replace_variables', array(
+                'items' => & $templateItems,
+                'dep_id' => $depId,
+                'chat' => $chat
+            ));
+
+            $item->body = $escalationTemplate->template_html;
+        }
+    }
+}
+
 $tpl->setArray(array(
     'item' => $item,
     'department' => $department,

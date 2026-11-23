@@ -59,6 +59,12 @@
     </div>
 
     <div class="form-group">
+        <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Escalation template ID')?></label>
+        <input type="number" min="0" class="form-control form-control-sm" name="escalation_template_id" value="<?php isset($mc_options['escalation_template_id']) && $mc_options['escalation_template_id'] > 0 ? print (int)$mc_options['escalation_template_id'] : ''?>" placeholder="0"/>
+        <small class="form-text text-muted"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Response template ID to prefill automatically when sending an escalation e-mail')?></small>
+    </div>
+
+    <div class="form-group">
         <label><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Download view mode')?></label>
         <select class="form-control" name="download_view_mode">
             <option value="0" <?php if (!isset($mc_options['download_view_mode']) || $mc_options['download_view_mode'] == 0) : ?>selected="selected"<?php endif;?>><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('module/mailconvfile','Default (download file)')?></option>

@@ -25,6 +25,9 @@ if ( isset($_POST['StoreOptions']) ) {
         'forward_to_tmp' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
+        'escalation_template_id' => new ezcInputFormDefinitionElement(
+            ezcInputFormDefinitionElement::OPTIONAL, 'int', array('min_range' => 1)
+        ),
         'image_skipped_text' => new ezcInputFormDefinitionElement(
             ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
         ),
@@ -85,6 +88,12 @@ if ( isset($_POST['StoreOptions']) ) {
         $data['forward_to_tmp'] = $form->forward_to_tmp ;
     } else {
         $data['forward_to_tmp'] = '';
+    }
+
+    if ( $form->hasValidData( 'escalation_template_id' )) {
+        $data['escalation_template_id'] = $form->escalation_template_id;
+    } else {
+        $data['escalation_template_id'] = 0;
     }
 
     if ( $form->hasValidData( 'mce_toolbar' )) {
