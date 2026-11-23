@@ -479,7 +479,8 @@ class ChatMessagesGhosting {
                             foreach ($result['info']['maskEntities'] as $entity => $matches) {
                                 foreach ($matches as $match) {
                                     if ($replacement !== null) {
-                                        $message = str_replace($match, str_repeat($replacement, mb_strlen($match)), $message);
+                                        $masked = mb_strlen($replacement) === 1 ? str_repeat($replacement, mb_strlen($match)) : $replacement;
+                                        $message = str_replace($match, $masked, $message);
                                     } else {
                                         $message = str_replace($match, '[mask]'.$entity.'[/mask]', $message);
                                     }
@@ -493,7 +494,8 @@ class ChatMessagesGhosting {
                             foreach ($result['info']['maskEntities'] as $entity => $matches) {
                                 foreach ($matches as $match) {
                                     if ($replacement !== null) {
-                                        $message = str_replace($match, str_repeat($replacement, mb_strlen($match)), $message);
+                                        $masked = mb_strlen($replacement) === 1 ? str_repeat($replacement, mb_strlen($match)) : $replacement;
+                                        $message = str_replace($match, $masked, $message);
                                     } else {
                                         $message = str_replace($match, '[mask]'.$entity.'[/mask]', $message);
                                     }
@@ -506,7 +508,8 @@ class ChatMessagesGhosting {
                             $replacement = isset($rule['replacement']) && $rule['replacement'] !== '' ? $rule['replacement'] : null;
                             foreach ($result['info']['blocked'] as $indexURL => $url) {
                                 if ($replacement !== null) {
-                                    $message = str_replace($url, str_repeat($replacement, mb_strlen($url)), $message);
+                                    $masked = mb_strlen($replacement) === 1 ? str_repeat($replacement, mb_strlen($url)) : $replacement;
+                                    $message = str_replace($url, $masked, $message);
                                 } else {
                                     $message = str_replace($url, '[mask]'.($result['info']['blockedReasons'][$indexURL] ?? 'URL').'[/mask]', $message);
                                 }
