@@ -6,9 +6,9 @@ class erLhcoreClassTranslate
     /**
      * Fetches bing access token
      */
-    public static function getBingAccessToken(& $translationConfig, & $translationData)
+    public static function getBingAccessToken(&$translationConfig, &$translationData)
     {
-        if (! isset($translationData['bing_access_token']) || $translationData['bing_access_token_expire'] < time() + 10) {
+        if (!isset($translationData['bing_access_token']) || $translationData['bing_access_token_expire'] < time() + 10) {
             $accessTokenData = erLhcoreClassTranslateBing::getAccessToken($translationData['bing_client_secret'], $translationData['bing_region']);
             $translationData['bing_access_token'] = $accessTokenData['at'];
             $translationData['bing_access_token_expire'] = time() + $accessTokenData['exp'];
@@ -39,11 +39,11 @@ class erLhcoreClassTranslate
             'chat_locale' => $chat->chat_locale,
             'chat_locale_to' => $chat->chat_locale_to
         );
-        
+
         $supportedLanguages = self::getSupportedLanguages(true);
         $db = ezcDbInstance::get();
         $data = array();
-        
+
         if (key_exists($visitorLanguage, $supportedLanguages)) {
             $chat->chat_locale = $data['chat_locale'] = $visitorLanguage;
         } else {
@@ -51,7 +51,7 @@ class erLhcoreClassTranslate
             $languageCode = self::detectChatLanguage($chat);
             $chat->chat_locale = $data['chat_locale'] = $languageCode !== null ? $languageCode : $visitorLanguage;
         }
-        
+
         if (key_exists($operatorLanguage, $supportedLanguages)) {
             $chat->chat_locale_to = $data['chat_locale_to'] = $operatorLanguage;
         } else { // We need to detect opetator language, basically we just take back office language and try to find a match
@@ -62,23 +62,23 @@ class erLhcoreClassTranslate
                 throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'We could not detect operator language'));
             }
         }
-        
+
         if ($chat->chat_locale == $chat->chat_locale_to) {
             throw new Exception(erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Detected operator and visitor languages matches, please choose languages manually'));
         }
-        
+
         // Because chat data can be already be changed we modify just required fields
         $stmt = $db->prepare('UPDATE lh_chat SET chat_locale_to = :chat_locale_to, chat_locale =:chat_locale WHERE id = :chat_id');
         $stmt->bindValue(':chat_id', $chat->id, PDO::PARAM_INT);
         $stmt->bindValue(':chat_locale_to', $data['chat_locale_to'], PDO::PARAM_STR);
         $stmt->bindValue(':chat_locale', $data['chat_locale'], PDO::PARAM_STR);
         $stmt->execute();
-        
+
         // We have to translate only if our languages are different
-        if ($chat->chat_locale != '' &&  $chat->chat_locale_to != '' && isset($params['translate_old']) && $params['translate_old'] === true) {
+        if ($chat->chat_locale != '' && $chat->chat_locale_to != '' && isset($params['translate_old']) && $params['translate_old'] === true) {
             self::translateChatMessages($chat);
         }
-        
+
         return $data;
     }
 
@@ -116,7 +116,7 @@ class erLhcoreClassTranslate
         $stmt->execute();
         $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        foreach ($rows as & $row) {
+        foreach ($rows as &$row) {
             $row = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $row);
         }
 
@@ -194,7 +194,7 @@ class erLhcoreClassTranslate
      */
     public static function translateChatMessages(erLhcoreClassModelChat $chat)
     {
-        
+
         // Allow callback provide translation config first
         $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
         if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
@@ -203,21 +203,21 @@ class erLhcoreClassTranslate
             $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
             $translationData = $translationConfig->data;
         }
-        
+
         if (isset($translationData['translation_handler'])) {
 
-            if($translationData['translation_handler'] == 'bing') {
-            
+            if ($translationData['translation_handler'] == 'bing') {
+
                 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
-                    'translation_config' => & $translationConfig,
-                    'translation_data' => & $translationData
+                    'translation_config' => &$translationConfig,
+                    'translation_data' => &$translationData
                 ));
                 if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
                     // Do nothing
                 } else {
                     self::getBingAccessToken($translationConfig, $translationData);
                 }
-                
+
                 // Only last 10 messages are translated
                 $msgs = erLhcoreClassModelmsg::getList(array(
                     'filter' => array(
@@ -226,23 +226,23 @@ class erLhcoreClassTranslate
                     'limit' => 10,
                     'sort' => 'id DESC'
                 ));
-                
+
                 foreach ($msgs as $msg) {
-                    
-                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
+
+                    if ($msg->user_id != -1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
-                        
+
                         if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
                         }
-                        
+
                         // If translation was successfull store it
-                        if (! empty($msgTranslated)) {
-                            
+                        if (!empty($msgTranslated)) {
+
                             $msgTranslated = str_ireplace(array(
                                 '[/ ',
                                 'Url = http: //',
@@ -260,7 +260,7 @@ class erLhcoreClassTranslate
                                 '[/i]',
                                 '[img]'
                             ), $msgTranslated);
-                            
+
                             $msg->msg .= "[translation]{$msgTranslated}[/translation]";
                             $msg->saveThis();
                         }
@@ -275,26 +275,26 @@ class erLhcoreClassTranslate
                     'limit' => 10,
                     'sort' => 'id DESC'
                 ));
-                
+
                 $length = 0;
-                
+
                 foreach ($msgs as $msg) {
-                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
+                    if ($msg->user_id != -1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
-                        
+
                         if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateGoogle::translate($translationData['google_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
                         }
-                        
+
                         $length += mb_strlen($msgTranslated);
-                        
+
                         // If translation was successfull store it
-                        if (! empty($msgTranslated)) {
-                            
+                        if (!empty($msgTranslated)) {
+
                             $msgTranslated = str_ireplace(array(
                                 '[/ ',
                                 'Url = http: //',
@@ -312,17 +312,17 @@ class erLhcoreClassTranslate
                                 '[/i]',
                                 '[img]'
                             ), $msgTranslated);
-                            
+
                             $msg->msg .= "[translation]{$msgTranslated}[/translation]";
                             $msg->saveThis();
                         }
                     }
                 }
-                
+
                 if ($length > 0) {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
                         'length' => $length,
-                        'chat' => & $chat
+                        'chat' => &$chat
                     ));
                 }
             } elseif ($translationData['translation_handler'] == 'aws') {
@@ -339,7 +339,7 @@ class erLhcoreClassTranslate
                 $length = 0;
 
                 foreach ($msgs as $msg) {
-                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
+                    if ($msg->user_id != -1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
@@ -361,7 +361,7 @@ class erLhcoreClassTranslate
                         $length += mb_strlen($msgTranslated);
 
                         // If translation was successfull store it
-                        if (! empty($msgTranslated)) {
+                        if (!empty($msgTranslated)) {
 
                             $msgTranslated = str_ireplace(array(
                                 '[/ ',
@@ -390,7 +390,7 @@ class erLhcoreClassTranslate
                 if ($length > 0) {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
                         'length' => $length,
-                        'chat' => & $chat
+                        'chat' => &$chat
                     ));
                 }
 
@@ -403,26 +403,26 @@ class erLhcoreClassTranslate
                     'limit' => 10,
                     'sort' => 'id DESC'
                 ));
-                
+
                 $length = 0;
-                
+
                 foreach ($msgs as $msg) {
-                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
+                    if ($msg->user_id != -1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
-                        
+
                         if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to);
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale);
                         }
-                        
+
                         $length += mb_strlen($msgTranslated);
-                        
+
                         // If translation was successfull store it
-                        if (! empty($msgTranslated)) {
-                            
+                        if (!empty($msgTranslated)) {
+
                             $msgTranslated = str_ireplace(array(
                                 '[/ ',
                                 'Url = http: //',
@@ -440,17 +440,17 @@ class erLhcoreClassTranslate
                                 '[/i]',
                                 '[img]'
                             ), $msgTranslated);
-                            
+
                             $msg->msg .= "[translation]{$msgTranslated}[/translation]";
                             $msg->saveThis();
                         }
                     }
                 }
-                
+
                 if ($length > 0) {
                     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translate.messagetranslated', array(
                         'length' => $length,
-                        'chat' => & $chat
+                        'chat' => &$chat
                     ));
                 }
             } elseif ($translationData['translation_handler'] == 'deepl') {
@@ -463,23 +463,23 @@ class erLhcoreClassTranslate
                     'limit' => 10,
                     'sort' => 'id DESC'
                 ));
-                
+
                 foreach ($msgs as $msg) {
-                    
-                    if ($msg->user_id != - 1 && !empty($msg->msg)) {
+
+                    if ($msg->user_id != -1 && !empty($msg->msg)) {
                         // Visitor message
                         // Remove old Translation
                         $msg->msg = preg_replace('#\[translation\](.*?)\[/translation\]#is', '', $msg->msg);
-                        
+
                         if ($msg->user_id == 0 || $msg->user_id == -2) {
                             $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale, $chat->chat_locale_to, $translationData['deepl_formality'] ?? 'default', $translationData['deepl_model_type'] ?? 'default');
                         } else { // Operator message
                             $msgTranslated = erLhcoreClassTranslateDeepL::translate($translationData['deepl_api_key'], $msg->msg, $chat->chat_locale_to, $chat->chat_locale, $translationData['deepl_formality'] ?? 'default', $translationData['deepl_model_type'] ?? 'default');
                         }
-                        
+
                         // If translation was successfull store it
-                        if (! empty($msgTranslated)) {
-                            
+                        if (!empty($msgTranslated)) {
+
                             $msgTranslated = str_ireplace(array(
                                 '[/ ',
                                 'Url = http: //',
@@ -497,7 +497,7 @@ class erLhcoreClassTranslate
                                 '[/i]',
                                 '[img]'
                             ), $msgTranslated);
-                            
+
                             $msg->msg .= "[translation]{$msgTranslated}[/translation]";
                             $msg->saveThis();
                         }
@@ -513,7 +513,7 @@ class erLhcoreClassTranslate
     public static function getTranslationConfig()
     {
         static $config = null;
-        
+
         if ($config === null) {
             $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_config', array());
             if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
@@ -523,7 +523,7 @@ class erLhcoreClassTranslate
                 $config = $translationConfig->data;
             }
         }
-        
+
         return $config;
     }
 
@@ -534,11 +534,11 @@ class erLhcoreClassTranslate
     {
         $translationData = self::getTranslationConfig();
         $options = array();
-        
+
         if (isset($translationData['translation_handler'])) {
 
             if ($translationData['translation_handler'] == 'bing') {
-            
+
                 $options['ar'] = 'Arabic';
                 $options['bg'] = 'Bulgarian';
                 $options['ca'] = 'Catalan';
@@ -587,77 +587,77 @@ class erLhcoreClassTranslate
 
             } elseif ($translationData['translation_handler'] == 'aws') {
 
-                    $options['af'] = 'Afrikaans';
-                	$options['sq'] = 'Albanian';
-                	$options['am'] ='Amharic';
-                	$options['ar'] ='Arabic';
-                	$options['hy'] ='Armenian';
-                	$options['az'] ='Azerbaijani';
-                	$options['bn'] ='Bengali';
-                	$options['bs'] ='Bosnian';
-                	$options['bg'] ='Bulgarian';
-                	$options['ca'] ='Catalan';
-                	$options['zh'] ='Chinese (Simplified)';
-                 	$options['zh-TW'] = 'Chinese (Traditional)';
-                	$options['hr'] ='Croatian';
-                	$options['cs'] ='Czech';
-                	$options['da'] ='Danish';
-                	$options['fa-AF'] ='Dari';
-                	$options['nl'] ='Dutch';
-                	$options['en'] ='English';
-                	$options['et'] ='Estonian';
-                	$options['fa'] ='Farsi (Persian)';
-                	$options['tl'] ='Filipino, Tagalog';
-                	$options['fi'] ='Finnish';
-                	$options['fr'] ='French';
-                	$options['fr-CA'] ='French (Canada)';
-                	$options['ka'] ='Georgian';
-                	$options['de'] ='German';
-                	$options['el'] ='Greek';
-                	$options['gu'] ='Gujarati';
-               	    $options['ht'] = 'Haitian Creole';
-                	$options['ha'] ='Hausa';
-                	$options['he'] ='Hebrew';
-                	$options['hi'] ='Hindi';
-                	$options['hu'] ='Hungarian';
-                	$options['is'] ='Icelandic';
-                	$options['id'] ='Indonesian';
-                	$options['it'] ='Italian';
-                	$options['ja'] ='Japanese';
-                	$options['kn'] ='Kannada';
-                	$options['kk'] ='Kazakh';
-                	$options['ko'] ='Korean';
-                	$options['lv'] ='Latvian';
-                	$options['lt'] ='Lithuanian';
-                	$options['mk'] ='Macedonian';
-                	$options['ms'] = 'Malay';
-                	$options['ml'] ='Malayalam';
-                	$options['mt'] ='Maltese';
-                	$options['mn'] ='Mongolian';
-                	$options['no'] ='Norwegian';
-                	$options['ps'] ='Pashto';
-                	$options['pl'] ='Polish';
-                	$options['pt'] ='Portuguese';
-                	$options['ro'] ='Romanian';
-                	$options['ru'] ='Russian';
-                	$options['sr'] ='Serbian';
-                	$options['si'] ='Sinhala';
-                	$options['sk'] ='Slovak';
-                	$options['sl'] ='Slovenian';
-                	$options['so'] ='Somali';
-                	$options['es'] ='Spanish';
-                	$options['es-MX'] = 'Spanish (Mexico)';
-                	$options['sw'] ='Swahili';
-                	$options['sv'] ='Swedish';
-                	$options['ta'] ='Tamil';
-                	$options['te'] ='Telugu';
-                	$options['th'] ='Thai';
-                	$options['tr'] ='Turkish';
-                	$options['uk'] ='Ukrainian';
-                	$options['ur'] ='Urdu';
-                	$options['uz'] ='Uzbek';
-                	$options['vi'] ='Vietnamese';
-                	$options['cy'] ='Welsh';
+                $options['af'] = 'Afrikaans';
+                $options['sq'] = 'Albanian';
+                $options['am'] = 'Amharic';
+                $options['ar'] = 'Arabic';
+                $options['hy'] = 'Armenian';
+                $options['az'] = 'Azerbaijani';
+                $options['bn'] = 'Bengali';
+                $options['bs'] = 'Bosnian';
+                $options['bg'] = 'Bulgarian';
+                $options['ca'] = 'Catalan';
+                $options['zh'] = 'Chinese (Simplified)';
+                $options['zh-TW'] = 'Chinese (Traditional)';
+                $options['hr'] = 'Croatian';
+                $options['cs'] = 'Czech';
+                $options['da'] = 'Danish';
+                $options['fa-AF'] = 'Dari';
+                $options['nl'] = 'Dutch';
+                $options['en'] = 'English';
+                $options['et'] = 'Estonian';
+                $options['fa'] = 'Farsi (Persian)';
+                $options['tl'] = 'Filipino, Tagalog';
+                $options['fi'] = 'Finnish';
+                $options['fr'] = 'French';
+                $options['fr-CA'] = 'French (Canada)';
+                $options['ka'] = 'Georgian';
+                $options['de'] = 'German';
+                $options['el'] = 'Greek';
+                $options['gu'] = 'Gujarati';
+                $options['ht'] = 'Haitian Creole';
+                $options['ha'] = 'Hausa';
+                $options['he'] = 'Hebrew';
+                $options['hi'] = 'Hindi';
+                $options['hu'] = 'Hungarian';
+                $options['is'] = 'Icelandic';
+                $options['id'] = 'Indonesian';
+                $options['it'] = 'Italian';
+                $options['ja'] = 'Japanese';
+                $options['kn'] = 'Kannada';
+                $options['kk'] = 'Kazakh';
+                $options['ko'] = 'Korean';
+                $options['lv'] = 'Latvian';
+                $options['lt'] = 'Lithuanian';
+                $options['mk'] = 'Macedonian';
+                $options['ms'] = 'Malay';
+                $options['ml'] = 'Malayalam';
+                $options['mt'] = 'Maltese';
+                $options['mn'] = 'Mongolian';
+                $options['no'] = 'Norwegian';
+                $options['ps'] = 'Pashto';
+                $options['pl'] = 'Polish';
+                $options['pt'] = 'Portuguese';
+                $options['ro'] = 'Romanian';
+                $options['ru'] = 'Russian';
+                $options['sr'] = 'Serbian';
+                $options['si'] = 'Sinhala';
+                $options['sk'] = 'Slovak';
+                $options['sl'] = 'Slovenian';
+                $options['so'] = 'Somali';
+                $options['es'] = 'Spanish';
+                $options['es-MX'] = 'Spanish (Mexico)';
+                $options['sw'] = 'Swahili';
+                $options['sv'] = 'Swedish';
+                $options['ta'] = 'Tamil';
+                $options['te'] = 'Telugu';
+                $options['th'] = 'Thai';
+                $options['tr'] = 'Turkish';
+                $options['uk'] = 'Ukrainian';
+                $options['ur'] = 'Urdu';
+                $options['uz'] = 'Uzbek';
+                $options['vi'] = 'Vietnamese';
+                $options['cy'] = 'Welsh';
 
             } elseif ($translationData['translation_handler'] == 'google') {
 
@@ -821,7 +821,7 @@ class erLhcoreClassTranslate
                 $options['eo'] = 'Esperanto';
                 $options['jv'] = 'Javanese';
                 $options['ja'] = 'Japanese';
-                
+
             } elseif ($translationData['translation_handler'] == 'deepl') {
                 $options['ace'] = 'Acehnese';
                 $options['af'] = 'Afrikaans';
@@ -941,11 +941,11 @@ class erLhcoreClassTranslate
                 $options['zu'] = 'Zulu';
             }
         }
-        
+
         if ($returnOptions == true) {
             return $options;
         }
-        
+
         $optionsObjects = array();
         foreach ($options as $key => $option) {
             $std = new stdClass();
@@ -953,7 +953,7 @@ class erLhcoreClassTranslate
             $std->name = $option;
             $optionsObjects[] = $std;
         }
-        
+
         return $optionsObjects;
     }
 
@@ -981,32 +981,32 @@ class erLhcoreClassTranslate
             $translationConfig = erLhcoreClassModelChatConfig::fetch('translation_data');
             $translationData = $translationConfig->data;
         }
-        
+
         if (isset($translationData['translation_handler'])) {
-            if($translationData['translation_handler'] == 'bing') {
-            
+            if ($translationData['translation_handler'] == 'bing') {
+
                 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
-                    'translation_config' => & $translationConfig,
-                    'translation_data' => & $translationData
+                    'translation_config' => &$translationConfig,
+                    'translation_data' => &$translationData
                 ));
                 if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
                     // Do nothing
                 } else {
                     self::getBingAccessToken($translationConfig, $translationData);
                 }
-                
+
                 return erLhcoreClassTranslateBing::detectLanguage($translationData['bing_access_token'], $text);
             } elseif ($translationData['translation_handler'] == 'google') {
                 return erLhcoreClassTranslateGoogle::detectLanguage($translationData['google_api_key'], $text, (isset($translationData['google_referrer']) ? $translationData['google_referrer'] : ''));
-            } elseif($translationData['translation_handler'] == 'yandex') {
+            } elseif ($translationData['translation_handler'] == 'yandex') {
                 return erLhcoreClassTranslateYandex::detectLanguage($translationData['yandex_api_key'], $text);
-            } elseif($translationData['translation_handler'] == 'aws') {
-               return erLhcoreClassTranslateAWS::detectLanguage([
+            } elseif ($translationData['translation_handler'] == 'aws') {
+                return erLhcoreClassTranslateAWS::detectLanguage([
                     'aws_region' => $translationData['aws_region'],
                     'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
                     'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
                 ], $text);
-            } elseif($translationData['translation_handler'] == 'deepl') {
+            } elseif ($translationData['translation_handler'] == 'deepl') {
                 return erLhcoreClassTranslateDeepL::detectLanguage($translationData['deepl_api_key'], $text);
             }
         }
@@ -1048,10 +1048,10 @@ class erLhcoreClassTranslate
             $translatedItem = null;
 
             if ($translationData['translation_handler'] == 'bing') {
-            
+
                 $response = erLhcoreClassChatEventDispatcher::getInstance()->dispatch('translation.get_bing_token', array(
-                    'translation_config' => & $translationConfig,
-                    'translation_data' => & $translationData
+                    'translation_config' => &$translationConfig,
+                    'translation_data' => &$translationData
                 ));
                 if ($response !== false && isset($response['status']) && $response['status'] == erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
                     // Do nothing
@@ -1083,12 +1083,16 @@ class erLhcoreClassTranslate
                     }
                 }
 
+                if ($translateFrom == $translateTo) {
+                    return $text;
+                }
+
                 if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
                     return $cached;
                 }
 
                 $translatedItem = erLhcoreClassTranslateBing::translate($translationData['bing_access_token'], $text, $translateFrom, $translateTo);
-                
+
             } elseif ($translationData['translation_handler'] == 'google') {
 
                 $supportedLanguages = self::getSupportedLanguages(true);
@@ -1113,6 +1117,10 @@ class erLhcoreClassTranslate
                     } else {
                         throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
+                }
+
+                if ($translateFrom == $translateTo) {
+                    return $text;
                 }
 
                 if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
@@ -1147,11 +1155,15 @@ class erLhcoreClassTranslate
                     }
                 }
 
+                if ($translateFrom == $translateTo) {
+                    return $text;
+                }
+
                 if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
                     return $cached;
                 }
 
-                $translatedItem =  erLhcoreClassTranslateAWS::translate([
+                $translatedItem = erLhcoreClassTranslateAWS::translate([
                     'aws_region' => $translationData['aws_region'],
                     'aws_access_key' => (isset($translationData['aws_access_key']) ? $translationData['aws_access_key'] : ''),
                     'aws_secret_key' => (isset($translationData['aws_secret_key']) ? $translationData['aws_secret_key'] : ''),
@@ -1183,11 +1195,15 @@ class erLhcoreClassTranslate
                     }
                 }
 
+                if ($translateFrom == $translateTo) {
+                    return $text;
+                }
+
                 if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
                     return $cached;
                 }
 
-                $translatedItem =  erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
+                $translatedItem = erLhcoreClassTranslateYandex::translate($translationData['yandex_api_key'], $text, $translateFrom, $translateTo);
 
             } elseif ($translationData['translation_handler'] == 'deepl') {
 
@@ -1213,6 +1229,10 @@ class erLhcoreClassTranslate
                     } else {
                         throw new Exception(self::generateErrorMessage($translateFrom, $translateTo, $messageOwner));
                     }
+                }
+
+                if ($translateFrom == $translateTo) {
+                    return $text;
                 }
 
                 if (($cached = self::getCachedTranslation($useCache, $text, $translateFrom, $translateTo)) !== null) {
@@ -1255,7 +1275,8 @@ class erLhcoreClassTranslate
         $translationCache->saveThis();
     }
 
-    protected static function generateErrorMessage($translateFrom, $translateTo, $messageOwner = self::MESSAGE_OPERATOR) {
+    protected static function generateErrorMessage($translateFrom, $translateTo, $messageOwner = self::MESSAGE_OPERATOR)
+    {
         if ($messageOwner === self::MESSAGE_VISITOR) {
             return erTranslationClassLhTranslation::getInstance()->getTranslation('chat/translation', 'Translation to operator language failed') . ' [' . $translateFrom . ' -> ' . $translateTo . ']';
         }
@@ -1271,7 +1292,7 @@ class erLhcoreClassTranslate
      *
      *
      */
-    public static function translateChatMsgOperator(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg)
+    public static function translateChatMsgOperator(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg &$msg)
     {
         try {
 
@@ -1286,12 +1307,12 @@ class erLhcoreClassTranslate
             if (trim(preg_replace('#\[img[^\]]*\].*?\[/img\]#is', '', $msg->msg)) === '') {
                 return;
             }
-            
+
             $translation = self::translateTo($msg->msg, $chat->chat_locale_to, $chat->chat_locale);
-            
+
             // If translation was successfull store it
-            if (! empty($translation)) {
-                
+            if (!empty($translation)) {
+
                 $translation = str_ireplace(array(
                     '[/ ',
                     'Url = http: //',
@@ -1309,7 +1330,7 @@ class erLhcoreClassTranslate
                     '[/i]',
                     '[img]'
                 ), $translation);
-                
+
                 $msg->msg .= "[translation]{$translation}[/translation]";
             }
         } catch (Exception $e) {
@@ -1329,7 +1350,7 @@ class erLhcoreClassTranslate
      *            
      *            
      */
-    public static function translateChatMsgVisitor(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg)
+    public static function translateChatMsgVisitor(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg &$msg)
     {
         try {
 
@@ -1344,12 +1365,12 @@ class erLhcoreClassTranslate
             if (trim(preg_replace('#\[img[^\]]*\].*?\[/img\]#is', '', $msg->msg)) === '') {
                 return;
             }
-            
+
             $translation = self::translateTo($msg->msg, $chat->chat_locale, $chat->chat_locale_to);
-            
+
             // If translation was successfull store it
-            if (! empty($translation)) {
-                
+            if (!empty($translation)) {
+
                 $translation = str_ireplace(array(
                     '[/ ',
                     'Url = http: //',
@@ -1367,7 +1388,7 @@ class erLhcoreClassTranslate
                     '[/i]',
                     '[img]'
                 ), $translation);
-                
+
                 $msg->msg .= "[translation]{$translation}[/translation]";
             }
         } catch (Exception $e) {
@@ -1376,8 +1397,8 @@ class erLhcoreClassTranslate
             $msg->meta_msg = json_encode($metaExisting);
         }
     }
-    
-    public static function translateBotMessage(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg & $msg, erLhcoreClassModelGenericBotTrGroup $translationGroup)
+
+    public static function translateBotMessage(erLhcoreClassModelChat $chat, erLhcoreClassModelmsg &$msg, erLhcoreClassModelGenericBotTrGroup $translationGroup)
     {
         $translationGroupConfiguration = $translationGroup->configuration_array;
 
@@ -1405,6 +1426,10 @@ class erLhcoreClassTranslate
             }
         }
 
+        if ($translationGroup->bot_lang == $chatLocale) {
+            return;
+        }
+
         try {
 
             if ($msg->meta_msg != '') {
@@ -1416,14 +1441,15 @@ class erLhcoreClassTranslate
             }
 
         } catch (Exception $e) {
-            erLhcoreClassLog::write( $e->getMessage() . "\n" . $e->getTraceAsString(),
+            erLhcoreClassLog::write(
+                $e->getMessage() . "\n" . $e->getTraceAsString(),
                 ezcLog::SUCCESS_AUDIT,
                 array(
                     'source' => 'lhc',
                     'category' => 'translation',
                     'line' => $e->getLine(),
                     'file' => $e->getFile(),
-                    'object_id' => (int)$chat->id
+                    'object_id' => (int) $chat->id
                 )
             );
         }
@@ -1457,7 +1483,7 @@ class erLhcoreClassTranslate
 
         $pathsTranslate = [];
 
-        if (isset($elements['content']['quick_replies']) && is_array($elements['content']['quick_replies']) &&!empty($elements['content']['quick_replies'])) {
+        if (isset($elements['content']['quick_replies']) && is_array($elements['content']['quick_replies']) && !empty($elements['content']['quick_replies'])) {
             foreach ($elements['content']['quick_replies'] as $index => $item) {
                 if (isset($item['content']['name']) && !empty($item['content']['name'])) {
                     $pathsTranslate[] = [
@@ -1469,7 +1495,7 @@ class erLhcoreClassTranslate
             }
         }
 
-        if (isset($elements['content']['buttons_generic']) && is_array($elements['content']['buttons_generic']) &&!empty($elements['content']['buttons_generic'])) {
+        if (isset($elements['content']['buttons_generic']) && is_array($elements['content']['buttons_generic']) && !empty($elements['content']['buttons_generic'])) {
             foreach ($elements['content']['buttons_generic'] as $index => $item) {
                 if (isset($item['content']['name']) && !empty($item['content']['name'])) {
                     $pathsTranslate[] = [
@@ -1481,7 +1507,7 @@ class erLhcoreClassTranslate
             }
         }
 
-        if (isset($elements['content']['list']['items']) && is_array($elements['content']['list']['items']) &&!empty($elements['content']['list']['items'])) {
+        if (isset($elements['content']['list']['items']) && is_array($elements['content']['list']['items']) && !empty($elements['content']['list']['items'])) {
             foreach ($elements['content']['list']['items'] as $index => $item) {
                 if (isset($item['content']['title']) && !empty($item['content']['title'])) {
                     $pathsTranslate[] = [
@@ -1500,7 +1526,7 @@ class erLhcoreClassTranslate
             }
         }
 
-        if (isset($elements['content']['list']['list_quick_replies']) && is_array($elements['content']['list']['list_quick_replies']) &&!empty($elements['content']['list']['list_quick_replies'])) {
+        if (isset($elements['content']['list']['list_quick_replies']) && is_array($elements['content']['list']['list_quick_replies']) && !empty($elements['content']['list']['list_quick_replies'])) {
             foreach ($elements['content']['list']['list_quick_replies'] as $index => $item) {
                 if (isset($item['content']['name']) && !empty($item['content']['name'])) {
                     $pathsTranslate[] = [
@@ -1512,7 +1538,7 @@ class erLhcoreClassTranslate
             }
         }
 
-        if (isset($elements['content']['generic']['items']) && is_array($elements['content']['generic']['items']) &&!empty($elements['content']['generic']['items'])) {
+        if (isset($elements['content']['generic']['items']) && is_array($elements['content']['generic']['items']) && !empty($elements['content']['generic']['items'])) {
             foreach ($elements['content']['generic']['items'] as $index => $item) {
 
                 if (isset($item['content']['title']) && !empty($item['content']['title'])) {
@@ -1568,7 +1594,7 @@ class erLhcoreClassTranslate
         $translatedItems = self::translateTo($pathsTranslate, $fromLanguage, $toLanguage);
 
         foreach ($translatedItems as $translatedItem) {
-            self::arrayPath($elements, explode('.',$translatedItem['path']), $translatedItem['target']);
+            self::arrayPath($elements, explode('.', $translatedItem['path']), $translatedItem['target']);
         }
 
         $msg->meta_msg = json_encode($elements);
