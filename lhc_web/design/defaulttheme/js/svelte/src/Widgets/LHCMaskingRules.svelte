@@ -105,6 +105,15 @@
         updateInput();
     }
 
+    function moveRule(index, direction) {
+        const targetIndex = index + direction;
+        if (targetIndex < 0 || targetIndex >= rules.length) return;
+        const updated = [...rules];
+        [updated[index], updated[targetIndex]] = [updated[targetIndex], updated[index]];
+        rules = updated;
+        updateInput();
+    }
+
     function updateRule(index, key, value) {
         rules[index][key] = value;
         rules = [...rules];
@@ -194,7 +203,15 @@
             <div class="card-body p-2">
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <strong>{typeLabels[rule.type] || rule.type.toUpperCase()}</strong>
-                    <button type="button" class="btn btn-sm btn-danger" on:click={() => deleteRule(index)}>{$t('masking.delete')}</button>
+                    <div class="btn-group btn-group-sm" role="group">
+                        {#if index > 0}
+                            <button type="button" class="btn btn-secondary" on:click={() => moveRule(index, -1)} title={$t('masking.move_up')}><i class="material-icons me-0">keyboard_arrow_up</i></button>
+                        {/if}
+                        {#if index < rules.length - 1}
+                            <button type="button" class="btn btn-secondary" on:click={() => moveRule(index, 1)} title={$t('masking.move_down')}><i class="material-icons me-0">keyboard_arrow_down</i></button>
+                        {/if}
+                        <button type="button" class="btn btn-danger" on:click={() => deleteRule(index)}>{$t('masking.delete')}</button>
+                    </div>
                 </div>
 
                 <div>

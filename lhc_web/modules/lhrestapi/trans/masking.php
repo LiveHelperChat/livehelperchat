@@ -11,6 +11,8 @@ $transItems = array(
 
     // Common labels
     "masking.delete" => erTranslationClassLhTranslation::getInstance()->getTranslation('system/buttons', 'Delete'),
+    "masking.move_up" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Move up'),
+    "masking.move_down" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Move down'),
     "masking.add_rule" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Add Rule'),
     "masking.pattern" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Pattern'),
     "masking.replacement" => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/message_protection', 'Replacement'),
