@@ -86,7 +86,7 @@ try {
     		        $name_support = $userInstance->operator_user->name_support;
     		    }
     		    
-    		    echo json_encode(array('error' => false, 'result' => array('vid' => $userInstance->vid, 'action' => 'read_message', 'args' => array('name_support' => $name_support, 'message' => $userInstance->operator_message, 'url_append' => $urlAppend))));
+    		    echo json_encode(array('error' => false, 'result' => array('vid' => $userInstance->vid, 'action' => 'read_message', 'args' => array('name_support' => $name_support, 'message' => $userInstance->operator_message_front, 'url_append' => $urlAppend))));
     		    exit;
     		}
     		
