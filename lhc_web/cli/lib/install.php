@@ -1517,7 +1517,6 @@ class Install
                 ('autoclose_timeout_active','0', 0, 'Automatic active chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed', '0'),
                 ('autoclose_timeout_bot','0', 0, 'Automatic bot chats closing. 0 - disabled, n > 0 time in minutes before chat is automatically closed', '0'),
                 ('autopurge_timeout','0', 0, 'Automatic chats purging. 0 - disabled, n > 0 time in minutes before chat is automatically deleted', '0'),
-                ('update_ip',	'127.0.0.1',	0,	'Which ip should be allowed to update DB by executing http request, separate by comma?',0),
                 ('track_if_offline',	'0',	0,	'Track online visitors even if there is no online operators',0),
                 ('min_phone_length','8',0,'Minimum phone number length',0),
                 ('mheight','',0,'Messages box height',0),

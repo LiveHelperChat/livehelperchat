@@ -12027,13 +12027,6 @@
         "hidden": "0"
       },
       {
-        "identifier": "update_ip",
-        "value": "127.0.0.1",
-        "type": "0",
-        "explain": "Which ip should be allowed to update DB by executing http request, separate by comma?",
-        "hidden": "0"
-      },
-      {
         "identifier": "track_if_offline",
         "value": "0",
         "type": "0",

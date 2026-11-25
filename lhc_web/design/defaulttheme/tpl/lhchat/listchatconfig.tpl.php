@@ -195,9 +195,6 @@
     		    <?php $attribute = 'export_hash'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    
-    		    <?php $attribute = 'update_ip'?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    
     		    <?php $attribute = 'accept_chat_link_timeout'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 

@@ -79,11 +79,6 @@ $ViewList['transferconfiguration'] = array(
     'functions' => array( 'transferconfiguration' )
 );
 
-$ViewList['autodbupdate'] = array(
-    'params' => array('hash'),
-    'uparams' => array()
-);
-
 $ViewList['singlesetting'] = array(
     'params' => array('identifier'),
     'uparams' => array(),

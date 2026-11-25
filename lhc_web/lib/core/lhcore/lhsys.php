@@ -343,6 +343,10 @@ class erLhcoreClassSystem{
         $lhcForceVirtualHost = $cfg->getSetting( 'site', 'force_virtual_host', false);
         
         self::$proxyMode = $cfg->getSetting( 'site', 'proxy_mode', false);
+        $trustedProxies = $cfg->getSetting( 'site', 'trusted_proxies', false);
+        self::$trustedProxies = is_array($trustedProxies) ? $trustedProxies : array();
+        $proxyHeader = $cfg->getSetting( 'site', 'proxy_header', false);
+        self::$proxyHeader = is_string($proxyHeader) && $proxyHeader !== '' ? $proxyHeader : 'HTTP_X_FORWARDED_FOR';
 
         // see if we can use phpSelf to determin wwwdir
         $tempwwwDir = self::getValidwwwDir( $phpSelf, $scriptFileName, $index );
@@ -536,6 +540,10 @@ class erLhcoreClassSystem{
     public static $httpsMode = false;
 
     public static $proxyMode = false;
+
+    public static $trustedProxies = array();
+
+    public static $proxyHeader = 'HTTP_X_FORWARDED_FOR';
 
     public $backgroundMode = false;
 
