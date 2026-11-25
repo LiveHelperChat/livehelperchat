@@ -16,7 +16,7 @@ class erLhcoreClassIPDetect
 
         $trustedProxies = is_array(erLhcoreClassSystem::$trustedProxies) ? erLhcoreClassSystem::$trustedProxies : array();
 
-        if (!self::isTrustedProxy($remoteAddr, $trustedProxies)) {
+        if (!self::isTrustedProxy($remoteAddr, $trustedProxies) && !empty($trustedProxies)) {
             return $remoteAddr;
         }
 
