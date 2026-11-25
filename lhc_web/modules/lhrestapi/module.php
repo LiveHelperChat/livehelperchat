@@ -11,7 +11,6 @@ $ViewList['index'] = array(
 
 $ViewList['ip'] = array(
     'params' => array(),
-    'functions' => array( )
 );
 
 $ViewList['chat'] = array(
