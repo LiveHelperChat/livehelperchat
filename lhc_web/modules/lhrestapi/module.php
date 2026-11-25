@@ -9,6 +9,11 @@ $ViewList['index'] = array(
     'functions' => array( 'use_admin' )
 );
 
+$ViewList['ip'] = array(
+    'params' => array(),
+    'functions' => array( )
+);
+
 $ViewList['chat'] = array(
     'params' => array('id')
 );
