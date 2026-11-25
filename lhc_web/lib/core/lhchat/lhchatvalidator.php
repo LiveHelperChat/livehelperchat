@@ -6,7 +6,7 @@
 
 class erLhcoreClassChatValidator {
 
-    public static function isAllowedWidgetOrigin($origin, $validDomains)
+        public static function isAllowedWidgetOrigin($origin, $validDomains)
     {
         if (trim((string)$validDomains) === '') {
             return true;
@@ -21,9 +21,26 @@ class erLhcoreClassChatValidator {
             return false;
         }
 
+        // Normalizziamo l'host in minuscolo e rimuoviamo il punto finale se presente
+        $cleanHost = rtrim(strtolower($host), '.');
+
         foreach (explode(',', $validDomains) as $domain) {
-            $domain = trim($domain);
-            if ($domain !== '' && strcasecmp(rtrim($host, '.'), rtrim($domain, '.')) === 0) {
+            $cleanDomain = rtrim(strtolower(trim($domain)), '.');
+            
+            if ($cleanDomain === '') {
+                continue;
+            }
+
+            // 1. Match esatto (es. example.com == example.com)
+            if ($cleanHost === $cleanDomain) {
+                return true;
+            }
+
+            // 2. Match ignorando il prefisso 'www.' (es. www.example.com == example.com)
+            $hostNoWww = preg_replace('/^www\./i', '', $cleanHost);
+            $domainNoWww = preg_replace('/^www\./i', '', $cleanDomain);
+
+            if ($hostNoWww === $domainNoWww) {
                 return true;
             }
         }
