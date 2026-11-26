@@ -12,11 +12,18 @@ $tr = erTranslationClassLhTranslation::getInstance();
         <?php foreach ($launcherRows ?: [[]] as $index => $row) : ?>
             <div class="row align-items-end mb-2">
                 <?php foreach (['label' => $tr->getTranslation('abstract/widgettheme', 'Label'), 'url' => $tr->getTranslation('abstract/widgettheme', 'HTTPS URL'), 'icon' => $tr->getTranslation('abstract/widgettheme', 'Icon URL (optional)')] as $key => $caption) : ?>
-                    <label class="col-md-3"><?php echo $caption?>
+                    <label class="<?php echo $key === 'label' ? 'col-md-2' : 'col-md-3'?>"><?php echo $caption?>
                         <input class="form-control form-control-sm" type="<?php echo $key === 'label' ? 'text' : 'url'?>" name="LauncherLinks[<?php echo $index?>][<?php echo $key?>]" data-field="<?php echo $key?>" value="<?php echo htmlspecialchars(is_array($row) && is_string($row[$key] ?? null) ? $row[$key] : '', ENT_QUOTES)?>">
                     </label>
                 <?php endforeach; ?>
-                <div class="col-md-3"><button type="button" class="btn btn-sm btn-outline-secondary" data-remove><?php echo $tr->getTranslation('abstract/widgettheme', 'Remove link')?></button></div>
+                <label class="col-md-2"><?php echo $tr->getTranslation('abstract/widgettheme', 'Show link')?>
+                    <select class="form-select form-select-sm" name="LauncherLinks[<?php echo $index?>][visibility]" data-field="visibility">
+                        <?php foreach (['always' => $tr->getTranslation('abstract/widgettheme', 'Always'), 'online' => $tr->getTranslation('abstract/widgettheme', 'When online'), 'offline' => $tr->getTranslation('abstract/widgettheme', 'When offline')] as $value => $caption) : ?>
+                            <option value="<?php echo $value?>"<?php if ($value === ($row['visibility'] ?? 'always')) : ?> selected<?php endif; ?>><?php echo $caption?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </label>
+                <div class="col-md-auto"><button type="button" class="btn btn-sm btn-outline-secondary" data-remove><?php echo $tr->getTranslation('abstract/widgettheme', 'Remove link')?></button></div>
             </div>
         <?php endforeach; ?>
     </div>
@@ -34,9 +41,9 @@ $tr = erTranslationClassLhTranslation::getInstance();
     let nextIndex = rows.children.length;
     add.addEventListener('click', () => {
         const row = template.cloneNode(true);
-        row.querySelectorAll('input').forEach(input => {
-            input.name = 'LauncherLinks[' + nextIndex + '][' + input.dataset.field + ']';
-            input.value = '';
+        row.querySelectorAll('[data-field]').forEach(field => {
+            field.name = 'LauncherLinks[' + nextIndex + '][' + field.dataset.field + ']';
+            field.value = field.dataset.field === 'visibility' ? 'always' : '';
         });
         nextIndex++;
         rows.append(row);

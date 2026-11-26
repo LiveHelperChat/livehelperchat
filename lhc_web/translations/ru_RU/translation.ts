@@ -2318,6 +2318,22 @@
       <translation>HTTPS-адрес</translation>
     </message>
     <message>
+      <source>Show link</source>
+      <translation>Показывать ссылку</translation>
+    </message>
+    <message>
+      <source>Always</source>
+      <translation>Всегда</translation>
+    </message>
+    <message>
+      <source>When online</source>
+      <translation>Когда специалисты на связи</translation>
+    </message>
+    <message>
+      <source>When offline</source>
+      <translation>Когда специалистов нет на связи</translation>
+    </message>
+    <message>
       <source>Icon URL (optional)</source>
       <translation>Ссылка на значок (необязательно)</translation>
     </message>
@@ -2334,8 +2350,8 @@
       <translation>Ссылка на дополнительную информацию (необязательно)</translation>
     </message>
     <message>
-      <source>Each contact link needs a label and an HTTPS URL. An icon URL must also use HTTPS.</source>
-      <translation>Для каждого способа связи укажите название и HTTPS-адрес. Ссылка на значок тоже должна использовать HTTPS.</translation>
+      <source>Each contact link needs a label, an HTTPS URL and a valid visibility option. An icon URL must also use HTTPS.</source>
+      <translation>Для каждого способа связи укажите название, HTTPS-адрес и условие показа. Ссылка на значок тоже должна использовать HTTPS.</translation>
     </message>
     <message>
       <source>The information URL must be an HTTPS URL.</source>

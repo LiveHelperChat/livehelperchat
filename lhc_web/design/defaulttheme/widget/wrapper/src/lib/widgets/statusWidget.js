@@ -422,7 +422,7 @@ export class statusWidget{
     refreshLauncherMenu(chatUI) {
         if (this.cont.launcherMenu) this.cont.launcherMenu.destroy();
         this.cont.launcherMenu = this.attributes.mode === 'widget' && this.attributes.position !== 'api'
-            ? createLauncherMenu(this.cont, chatUI, e => this.activateChat(e)) : null;
+            ? createLauncherMenu(this.cont, chatUI, e => this.activateChat(e), this.attributes.onlineStatus.value) : null;
     }
 
     init(attributes, lload, chatUI) {
@@ -499,7 +499,7 @@ export class statusWidget{
         });
         this.cont.ee = (event, data, e) => {
             if (event == "click" && data.status == true) {
-                if (!this.cont.launcherMenu || this.controlMode || attributes.widgetStatus.value) return this.activateChat(e);
+                if (!this.cont.launcherMenu || !this.cont.launcherMenu.hasLinks || this.controlMode || attributes.widgetStatus.value) return this.activateChat(e);
                 const activeChat = attributes.userSession.getSessionAttributes();
                 const unread = this.cont.shadowRoot.getElementById('lhc_status_container').classList.contains('has-uread-message');
                 if (!(activeChat.id && activeChat.hash) && !unread) {
@@ -552,7 +552,10 @@ export class statusWidget{
             helperFunctions.insertCssRemoteFile({crossOrigin : "anonymous", id: "lhc-theme-page", href : this.attributes.LHC_API.args.lhc_base_url + '/widgetrestapi/themepage/' + this.attributes.theme + '?v=' + this.attributes.theme_v});
         }
 
-        attributes.onlineStatus.subscribe((data) => this.toggleOfflineIcon(data));
+        attributes.onlineStatus.subscribe((data) => {
+            this.toggleOfflineIcon(data);
+            if (this.cont.launcherMenu) this.cont.launcherMenu.updateVisibility(data);
+        });
 
         attributes.widgetStatus.subscribe((data) => {
             if (this.attributes.mode !== 'popup') {

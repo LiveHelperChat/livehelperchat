@@ -2320,6 +2320,22 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Show link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Always</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When online</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>When offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Icon URL (optional)</source>
       <translation type="unfinished"/>
     </message>
@@ -2336,7 +2352,7 @@
       <translation type="unfinished"/>
     </message>
     <message>
-      <source>Each contact link needs a label and an HTTPS URL. An icon URL must also use HTTPS.</source>
+      <source>Each contact link needs a label, an HTTPS URL and a valid visibility option. An icon URL must also use HTTPS.</source>
       <translation type="unfinished"/>
     </message>
     <message>

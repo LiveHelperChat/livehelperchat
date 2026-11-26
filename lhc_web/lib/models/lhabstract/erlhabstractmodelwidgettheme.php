@@ -451,13 +451,17 @@ class erLhAbstractModelWidgetTheme {
             if ($label === '' && $url === '' && $icon === '') {
                 continue;
             }
-            if ($label === '' || !self::isLauncherUrl($url) || ($icon !== '' && !self::isLauncherUrl($icon))) {
+            $visibility = $row['visibility'] ?? 'always';
+            if (!in_array($visibility, ['always', 'online', 'offline'], true) || $label === '' || !self::isLauncherUrl($url) || ($icon !== '' && !self::isLauncherUrl($icon))) {
                 $invalid = true;
                 continue;
             }
             $link = ['label' => $label, 'url' => $url];
             if ($icon !== '') {
                 $link['icon'] = $icon;
+            }
+            if ($visibility !== 'always') {
+                $link['visibility'] = $visibility;
             }
             $links[] = $link;
         }
@@ -476,7 +480,7 @@ class erLhAbstractModelWidgetTheme {
         $this->bot_configuration_array = $configuration;
         $this->getLauncherLinks($invalid);
         if ($invalid) {
-            $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Each contact link needs a label and an HTTPS URL. An icon URL must also use HTTPS.');
+            $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Each contact link needs a label, an HTTPS URL and a valid visibility option. An icon URL must also use HTTPS.');
         }
         if ($configuration['launcher_info_url'] !== '' && $this->getLauncherInfoUrl() === '') {
             $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'The information URL must be an HTTPS URL.');

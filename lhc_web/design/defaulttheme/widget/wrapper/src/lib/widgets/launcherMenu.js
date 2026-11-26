@@ -12,16 +12,20 @@ function httpsUrl(value) {
 
 // This panel shares the status button's shadow root and stacking context, so
 // hiding the widget behind a site dialog also hides its contact options.
-export function createLauncherMenu(host, ui, openChat) {
+export function createLauncherMenu(host, ui, openChat, onlineStatus) {
     if (!ui || !Array.isArray(ui.launcher_links)) return null;
     const menu = document.createElement('section');
     menu.id = 'lhc-launcher-menu';
     menu.hidden = true;
 
+    const links = [];
     ui.launcher_links.forEach(link => {
         const url = link && httpsUrl(link.url);
         if (!url || typeof link.label !== 'string' || !link.label.trim()) return;
         const anchor = document.createElement('a');
+        const visibility = link.visibility === undefined ? 'always' : link.visibility;
+        if (!['always', 'online', 'offline'].includes(visibility)) return;
+        links.push({anchor, visibility});
         anchor.href = url;
         anchor.target = '_blank';
         anchor.rel = 'noopener noreferrer';
@@ -72,7 +76,7 @@ export function createLauncherMenu(host, ui, openChat) {
             overflow:auto;overscroll-behavior:contain;pointer-events:auto;cursor:auto;padding:8px;
             background:#fff;color:#23262b;border:1px solid #d8dadd;border-radius:16px;
             box-shadow:0 8px 28px rgba(0,0,0,.18);font:normal 15px/1.4 system-ui,sans-serif;text-align:start}
-        #lhc-launcher-menu[hidden] {display:none}
+        #lhc-launcher-menu[hidden], #lhc-launcher-menu > a[hidden] {display:none}
         #lhc-launcher-menu header {display:flex;align-items:center;justify-content:space-between;gap:4px}
         #lhc-launcher-menu h2 {margin:4px 8px 8px;font:600 16px/1.4 system-ui,sans-serif;overflow-wrap:anywhere}
         #lhc-launcher-menu .lhc-launcher-info {display:grid;place-items:center;width:44px;height:44px;flex:none;
@@ -96,11 +100,9 @@ export function createLauncherMenu(host, ui, openChat) {
 
     const trigger = host.shadowRoot.getElementById('status-icon');
     const previousRole = trigger.getAttribute('role');
-    trigger.setAttribute('role', 'button');
-    trigger.setAttribute('aria-controls', menu.id);
-    trigger.setAttribute('aria-expanded', 'false');
+    let hasLinks = false;
     const onTriggerKeydown = event => {
-        if (event.key === ' ') {
+        if (hasLinks && event.key === ' ') {
             event.preventDefault();
             trigger.click();
         }
@@ -160,15 +162,42 @@ export function createLauncherMenu(host, ui, openChat) {
         close(true);
         if (chat.contains(event.target)) openChat(event);
     });
-    function destroy() {
-        close(false);
-        trigger.removeEventListener('keydown', onTriggerKeydown);
-        style.remove();
-        menu.remove();
+    function resetTrigger() {
         if (previousRole === null) trigger.removeAttribute('role');
         else trigger.setAttribute('role', previousRole);
         trigger.removeAttribute('aria-controls');
         trigger.removeAttribute('aria-expanded');
     }
-    return {toggle, close, destroy};
+    function updateVisibility(online) {
+        const status = online === true ? 'online' : online === false ? 'offline' : null;
+        const focused = host.shadowRoot.activeElement;
+        let count = 0;
+        links.forEach(({anchor, visibility}) => {
+            anchor.hidden = visibility !== 'always' && visibility !== status;
+            if (!anchor.hidden) count++;
+        });
+        hasLinks = count > 0;
+        if (hasLinks) {
+            trigger.setAttribute('role', 'button');
+            trigger.setAttribute('aria-controls', menu.id);
+            trigger.setAttribute('aria-expanded', String(!menu.hidden));
+            if (!menu.hidden) {
+                if (focused && focused.hidden) chat.focus();
+                place();
+            }
+        } else {
+            close(true);
+            resetTrigger();
+        }
+    }
+    updateVisibility(onlineStatus);
+
+    function destroy() {
+        close(false);
+        trigger.removeEventListener('keydown', onTriggerKeydown);
+        style.remove();
+        menu.remove();
+        resetTrigger();
+    }
+    return {toggle, close, destroy, updateVisibility, get hasLinks() { return hasLinks; }};
 }
