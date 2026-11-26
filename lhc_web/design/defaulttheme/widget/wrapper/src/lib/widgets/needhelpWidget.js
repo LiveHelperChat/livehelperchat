@@ -89,7 +89,7 @@ export class needhelpWidget{
             attributes.eventEmitter.emitEvent('nhClosed', [{'sender' : 'closeButton'}]);
             a.stopPropagation();
             _that.hide(true);
-            if (_that.onClick) {
+            if (_that.onClick && a.detail === 0) {
                 _that.launcher.focus();
             }
         });
@@ -311,6 +311,8 @@ export class needhelpWidget{
         if (!this.canToggle()) return false;
 
         event.preventDefault();
+        // Dragging cancels the launcher's native mousedown focus handling.
+        if (event.detail > 0) this.launcher.blur();
         if (this.nhOpen) {
             this.hide();
         } else {
