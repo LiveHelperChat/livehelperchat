@@ -414,6 +414,7 @@ class erLhcoreClassChatMail {
             $mailbox->active == 1
         ) {
             erLhcoreClassMailconvValidator::setSendParameters($mailbox, $mail);
+            $mail->addCustomHeader('X-LHC-ST', erLhcoreClassModelMailconvConversation::STATUS_PENDING);
         } else {
             self::setupSMTP($mail);
         }
