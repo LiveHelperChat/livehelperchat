@@ -56,6 +56,14 @@ class erLhcoreClassCoBrowse {
 			$jsonDatas = json_decode($data);
 			
 			if (is_array($jsonDatas)) {
+				$disableJs = true;
+				if (class_exists('erLhcoreClassModelChatConfig')) {
+					$config = erLhcoreClassModelChatConfig::fetch('disable_js_execution');
+					if (is_object($config) && isset($config->current_value)) {
+						$disableJs = ((int)$config->current_value === 1);
+					}
+				}
+				self::sanitizeData($jsonDatas, $disableJs);
 				
 				if ($coBrowseSession->modifications == '') {
 					$changes = array();
@@ -120,6 +128,72 @@ class erLhcoreClassCoBrowse {
     	}
 	}
 	
+	/**
+	 * Recursively strips dangerous tags, event-handler attributes, and unsafe URL schemes from cobrowse DOM payloads.
+	 */
+	public static function sanitizeData(&$data, $disableJs = true) {
+		if (is_array($data)) {
+			foreach ($data as &$item) {
+				self::sanitizeData($item, $disableJs);
+			}
+			unset($item);
+		} elseif (is_object($data)) {
+			$tagName = (isset($data->tagName) && is_string($data->tagName)) ? strtoupper($data->tagName) : '';
+
+			if ($disableJs && $tagName === 'SCRIPT') {
+				$data->tagName = 'NO-SCRIPT';
+				if (isset($data->childNodes)) {
+					$data->childNodes = array();
+				}
+				if (isset($data->textContent)) {
+					$data->textContent = '';
+				}
+			} elseif (in_array($tagName, array('OBJECT', 'EMBED', 'APPLET'), true)) {
+				$data->tagName = 'NO-EMBED';
+				if (isset($data->childNodes)) {
+					$data->childNodes = array();
+				}
+			}
+
+			if (isset($data->attributes) && is_object($data->attributes)) {
+				$urlAttrs = array('href', 'src', 'xlink:href', 'action', 'formaction', 'data', 'poster', 'background', 'codebase', 'cite', 'ping');
+				foreach (get_object_vars($data->attributes) as $attrKey => $attrVal) {
+					$attrLower = strtolower(trim((string)$attrKey));
+					if (strpos($attrLower, 'on') === 0 || $attrLower === 'srcdoc' || ($tagName === 'META' && $attrLower === 'http-equiv')) {
+						unset($data->attributes->$attrKey);
+						continue;
+					}
+					if (in_array($attrLower, $urlAttrs, true) && is_string($attrVal) && self::isUnsafeUrl($tagName, $attrVal)) {
+						unset($data->attributes->$attrKey);
+					}
+				}
+			}
+
+			foreach (get_object_vars($data) as $prop => $val) {
+				if ($prop === 'attributes') {
+					continue;
+				}
+				if (is_array($val) || is_object($val)) {
+					self::sanitizeData($data->$prop, $disableJs);
+				}
+			}
+		}
+	}
+
+	private static function isUnsafeUrl($tagName, $val) {
+		$normalized = strtolower(preg_replace('/[\x00-\x20\s]+/', '', $val));
+		if (strpos($normalized, 'javascript:') === 0 || strpos($normalized, 'vbscript:') === 0) {
+			return true;
+		}
+		if (strpos($normalized, 'data:') === 0) {
+			if ($tagName === 'IMG' || $tagName === 'SOURCE' || $tagName === '') {
+				return !preg_match('/^data:image\/(png|jpe?g|gif|webp|bmp|x-icon|avif);/i', $normalized);
+			}
+			return true;
+		}
+		return false;
+	}
+
 	private static $persistentSession;
 }
 

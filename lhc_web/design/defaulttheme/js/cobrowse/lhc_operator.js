@@ -119,15 +119,52 @@ var LHCCoBrowserOperator = (function() {
 			_this.mouseEventListener(e);
 		};
 
+		var dangerousUrlAttrs = {
+			'href': true,
+			'src': true,
+			'xlink:href': true,
+			'action': true,
+			'formaction': true,
+			'data': true,
+			'poster': true,
+			'background': true,
+			'codebase': true,
+			'cite': true,
+			'ping': true
+		};
+
+		var safeDataImageRe = /^data:image\/(png|jpe?g|gif|webp|bmp|x-icon|avif);/i;
+
+		function isUnsafeUrl(nodeName, val) {
+			var normalized = String(val).replace(/[\u0000-\u0020]+/g, '').toLowerCase();
+			if (normalized.indexOf('javascript:') === 0 || normalized.indexOf('vbscript:') === 0) {
+				return true;
+			}
+			if (normalized.indexOf('data:') === 0) {
+				if (nodeName === 'IMG' || nodeName === 'SOURCE') {
+					return !safeDataImageRe.test(normalized);
+				}
+				return true;
+			}
+			return false;
+		}
+
 		this.treeMirrorParams = {
 			createElement : function(tagName) {
-				if (_this.disablejs == true && tagName == 'SCRIPT') {
+				var upperTag = (typeof tagName === 'string') ? tagName.toUpperCase() : '';
+				if (_this.disablejs == true && upperTag == 'SCRIPT') {
 					var node = document.createElement('NO-SCRIPT');
 					node.style.display = 'none';
 					return node;
 				}
+
+				if (upperTag == 'OBJECT' || upperTag == 'EMBED' || upperTag == 'APPLET') {
+					var node = document.createElement('NO-EMBED');
+					node.style.display = 'none';
+					return node;
+				}
 				
-				if (tagName == 'SELECT') {
+				if (upperTag == 'SELECT') {
 					var node = document.createElement('SELECT');
 
 					if (_this.formsenabled == false) {
@@ -141,8 +178,8 @@ var LHCCoBrowserOperator = (function() {
 					return node;
 				}
 				
-				if (tagName == 'INPUT' || tagName == 'TEXTAREA') {
-					var node = document.createElement(tagName);
+				if (upperTag == 'INPUT' || upperTag == 'TEXTAREA') {
+					var node = document.createElement(upperTag);
 					
 					if (_this.formsenabled == false) {
 						node.setAttribute('readonly','readonly');	
@@ -155,7 +192,7 @@ var LHCCoBrowserOperator = (function() {
 					return node;
 				}				
 				
-				if (tagName == 'HEAD') {
+				if (upperTag == 'HEAD') {
 					var node = document.createElement('HEAD');
 					node.appendChild(document.createElement('BASE'));
 					node.firstChild.href = _this.base;
@@ -164,14 +201,26 @@ var LHCCoBrowserOperator = (function() {
 				}
 			},
 			setAttribute : function(node, attr, val) {
+				var attrName = String(attr).trim().toLowerCase();
+				var nodeName = node && node.nodeName ? node.nodeName.toUpperCase() : '';
+
+				// Block all inline event handler attributes (on*)
+				if (attrName.indexOf('on') === 0) {
+					return true;
+				}
+
+				// Block srcdoc on iframes/frames and http-equiv on meta
+				if (attrName === 'srcdoc' || (nodeName === 'META' && attrName === 'http-equiv')) {
+					return true;
+				}
 				
-				if (_this.disableiframe == true && node.nodeName == 'IFRAME' && attr == 'src') {
-					node.setAttribute(attr,"javascript:void(0)"); // By settings this we will know we can't use href link
+				if (_this.disableiframe == true && (nodeName == 'IFRAME' || nodeName == 'FRAME') && attrName == 'src') {
+					node.setAttribute('src',"javascript:void(0)"); // By settings this we will know we can't use href link
 					return true;
 				}
 				
 				// don't mess with our helper iframe, strange things starts to happen without this :) 
-				if (node.nodeName == 'IFRAME' && attr == 'id' && val == 'lhc_iframe') {
+				if (nodeName == 'IFRAME' && attrName == 'id' && val == 'lhc_iframe') {
 					// Remove iframe after tree mirror has done it's job
 					setTimeout(function(){
 						$(_this.iFrameDocument).find('#lhc_container').hide().attr('id','lhc_container_dummy').find('#lhc_iframe_container').remove();	
@@ -180,32 +229,38 @@ var LHCCoBrowserOperator = (function() {
 				}
 				
 				// There exists original base so remove our own detected.
-				if (node.nodeName == 'BASE') {
+				if (nodeName == 'BASE') {
 					$(_this.iFrameDocument).find('#lhc-co-browse-base-id').remove();
-					if (node.attr == 'href') {
+					if (attrName == 'href') {
+						if (isUnsafeUrl(nodeName, val)) {
+							return true;
+						}
 						_this.base = val;
 					}
 				}
 				
-				if (node.nodeName == 'SCRIPT' && attr == 'src') {
+				if (nodeName == 'SCRIPT' && attrName == 'src') {
 					if (val.indexOf('google') > -1){ // Skip all google scripts
 						node.setAttribute('src',"");						
 						return true;
 					}
 				}
 				
-				if (node.nodeName == 'LINK' && ( (attr == 'type' && val == 'text/css') || (attr == 'rel' && val == 'stylesheet' ))) {
+				if (nodeName == 'LINK' && ( (attrName == 'type' && val == 'text/css') || (attrName == 'rel' && val == 'stylesheet' ))) {
 					if (node.getAttribute('lhc-css') === null)
 					{
 						node.setAttribute('lhc-css','true');	
 						// Perhaps href was already set for particular node
-						if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('href') != "") {
+						if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('href') != "" && node.getAttribute('href') !== null) {
 							node.setAttribute('href',_this.lhcbase+'/'+_this.chat_id+_this.mode_co_browse+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(node.getAttribute('href')));						
 						}
 					}
 				}
 								
-				if (node.nodeName == 'LINK' && attr == 'href') {					
+				if (nodeName == 'LINK' && attrName == 'href') {					
+					if (isUnsafeUrl(nodeName, val)) {
+						return true;
+					}
 					// We have to proxy CSS request because LHC is in HTTPS and user site in HTTP
 					if (_this.httpsmode == true && _this.sitehttps == false && node.getAttribute('lhc-css') !== null) {
 						node.setAttribute('href',_this.lhcbase +'/'+_this.chat_id+_this.mode_co_browse+'/?base='+encodeURIComponent(_this.base)+'&css='+encodeURIComponent(val));
@@ -215,21 +270,14 @@ var LHCCoBrowserOperator = (function() {
 				
 				// We don't need href links
 				// This way it's also more secure like operator would have to type link directly to test
-				if (node.nodeName == 'A' && attr == 'href') {
-					node.setAttribute(attr,"javascript:void(0)");
+				if (nodeName == 'A' && attrName == 'href') {
+					node.setAttribute('href',"javascript:void(0)");
 					node.setAttribute('title',val);
 					return true;
 				}
-				
-				// remove anchors's onclick dom0-style handlers so they
-				// don't mess with our click handler and don't produce errors	
-				if (node.nodeName == 'A' && attr == 'onclick') {
-					if (val != ''){
-						node.setAttribute(attr,"javascript:void(0)"); // By settings this we will know we can't use href link
-						return true;
-					} else {
-						return true;
-					}					
+
+				if (dangerousUrlAttrs[attrName] && isUnsafeUrl(nodeName, val)) {
+					return true;
 				}
 			}
 		};
@@ -609,7 +657,7 @@ var LHCCoBrowserOperator = (function() {
 			}
 		} else if (msg.err) {
 			this.iFrameDocument.getElementById('loading').style.display = 'none';
-			this.iFrameDocument.getElementById('error').innerHTML = msg.err;
+			this.iFrameDocument.getElementById('error').textContent = msg.err;
 			this.iFrameDocument.getElementById('error').style.display = 'block';
 		} else if (msg.lmsg) {
 			this.$lastmessage.innerHTML = msg.lmsg;
@@ -665,7 +713,7 @@ var LHCCoBrowserOperator = (function() {
 		} else if (msg.f && msg.f == 'chkval') {
 			this.changeCheckboxValueFromUser(msg);
 		} else if (msg.f) {
-			if (typeof this.mirror != "undefined") {
+			if (typeof this.mirror != "undefined" && (msg.f === 'applyChanged' || msg.f === 'initialize')) {
 				this.mirror[msg.f].apply(this.mirror, msg.args);
 			}
 		} else if (msg instanceof Array) {
