@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 283;
+            lhc.version = 284;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -309,12 +309,49 @@
                     };
                 }
 
-                function showNeedHelp(nh) {
-                    import('./lib/widgets/needhelpWidget').then((module) => {
-                        var needhelpWidget = new module.needhelpWidget(attributesWidget.prefixLowercase);
-                        containerChatObj.cont.elmDom.appendChild(needhelpWidget.cont.constructUI(), !0);
-                        needhelpWidget.init(attributesWidget, nh);
-                    });
+                let needHelpWidget;
+                let needHelpRevision = 0;
+                const needHelpContext = () => JSON.stringify([attributesWidget.theme, attributesWidget.department,
+                    attributesWidget.lang, attributesWidget.position, attributesWidget.mode]);
+                const hasNeedHelpLauncher = () => attributesWidget.viewHandler && !attributesWidget.fresh &&
+                    attributesWidget.position !== 'api' && (attributesWidget.mode === 'widget' || attributesWidget.mode === 'popup');
+
+                function setNeedHelp(nh, initial) {
+                    const revision = ++needHelpRevision;
+                    const status = attributesWidget.viewHandler;
+                    if (!status) return;
+                    if (needHelpWidget) needHelpWidget.destroy();
+                    needHelpWidget = status.needHelp = null;
+                    attributesWidget.nh = hasNeedHelpLauncher() ? nh || null : null;
+                    const wasWaiting = status.waitForNeedHelp;
+                    status.waitForNeedHelp = !!(initial && attributesWidget.nh && nh.on_click &&
+                        !attributesWidget.userSession.id && !storageHandler.getSessionStorage(prefixStorage + '_unr'));
+                    if (wasWaiting && !status.waitForNeedHelp) status.checkLoadStatus();
+
+                    if (!initial && !attributesWidget.onlineStatus.value && !attributesWidget.leaveMessage &&
+                        !attributesWidget.userSession.id && !attributesWidget.widgetStatus.value) {
+                        status.toggleOfflineIcon(false);
+                    }
+
+                    if (!attributesWidget.nh || (!nh.ap && !nh.on_click && attributesWidget.userSession.id !== null)) {
+                        return;
+                    }
+
+                    const releaseStatus = () => {
+                        if (revision === needHelpRevision && status.waitForNeedHelp) {
+                            status.waitForNeedHelp = false;
+                            status.checkLoadStatus();
+                        }
+                    };
+                    // The first visible click must use the configured action even with a slow chunk.
+                    import('./lib/widgets/needhelpWidget').then(module => {
+                        if (revision !== needHelpRevision || attributesWidget.terminated) return;
+                        needHelpWidget = new module.needhelpWidget(attributesWidget.prefixLowercase);
+                        containerChatObj.cont.elmDom.appendChild(needHelpWidget.cont.constructUI());
+                        if (needHelpWidget.init(attributesWidget, nh) !== null && nh.on_click) {
+                            status.needHelp = needHelpWidget;
+                        }
+                    }).then(releaseStatus, releaseStatus);
                 }
 
                 function showProactive(){
@@ -528,13 +565,27 @@
                         attributesWidget.position_placement = storageHandler.getSessionStorage(prefixStorage + '_pos_placement');
                     }
 
-                    if (data.nh && attributesWidget.fresh === false && attributesWidget['position'] != 'api') {
-                        attributesWidget.nh = data.nh;
-                        if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                            if (data.nh.ap || attributesWidget.userSession.id === null) {
-                                showNeedHelp(data.nh);
+                    setNeedHelp(data.nh, true);
+                    if (attributesWidget.viewHandler) {
+                        let context = needHelpContext();
+                        attributesWidget.eventEmitter.addListener('reloadWidget', () => {
+                            const nextContext = needHelpContext();
+                            if (nextContext === context) {
+                                if (needHelpWidget) needHelpWidget.reloadTheme();
+                                return;
                             }
-                        }
+                            context = nextContext;
+                            setNeedHelp(null, false);
+                            if (!hasNeedHelpLauncher()) return;
+                            const revision = needHelpRevision;
+                            // Reload theme content without registering another visitor page view.
+                            const params = Object.assign(getArguments(), {cd: 1});
+                            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {params}, result => {
+                                if (revision === needHelpRevision && context === needHelpContext() && !attributesWidget.terminated) {
+                                    setNeedHelp(result.terminate || result.hideOffline ? null : result.nh, false);
+                                }
+                            });
+                        });
                     }
 
                     if (data.js_vars) {
@@ -685,8 +736,8 @@
                                 attributesWidget.eventEmitter.emitEvent('sendChildEvent',[{'cmd' : 'attr_set', 'arg' : {'type':'attr_set','attr': ['mode'], data : attributesWidget.mode}}]);
 
                                 // Show need help widget if it's required
-                                if (attributesWidget.mode == 'widget' && attributesWidget.nh !== null) {
-                                    showNeedHelp(attributesWidget.nh);
+                                if (attributesWidget.mode == 'widget') {
+                                    setNeedHelp(data.nh, false);
                                 }
 
                                 // Enable proactive if it's required
@@ -955,6 +1006,7 @@
 
                 attributesWidget.eventEmitter.addListener('terminated', (data) => {
                     attributesWidget.terminated = true;
+                    if (needHelpWidget) needHelpWidget.destroy();
                     // Remove legacy dom
                     helperFunctions.removeById(attributesWidget.prefixLowercase+'_container_v2');
                     helperFunctions.removeById(attributesWidget.prefixLowercase+'_status_widget_v2');

@@ -1460,6 +1460,14 @@
       <translation type="unfinished"/>
     </message>
     <message>
+      <source>Open Need Help when the visitor clicks the status icon</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Show Need Help when the chat is offline</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
       <source>Hide need help widget for mobile devices.</source>
       <translation type="unfinished"/>
     </message>
