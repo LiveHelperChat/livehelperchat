@@ -446,17 +446,19 @@ if (isset($_POST['StartChat']) && $disabled_department === false)
     	                $userInstance->message_seen = 1;
     	                $userInstance->message_seen_ts = time();
 
-    	                if ($chat->nick != 'Visitor') {
-    	                    $onlineAttr = $userInstance->online_attr_system_array;
-    	                    if (!isset($onlineAttr['username'])){
-                                $onlineAttr['username'] = $chat->nick;
-                                $userInstance->online_attr_system = json_encode($onlineAttr);
-                            }
-                        } elseif ($chat->nick == 'Visitor'){
-                            if ($userInstance->nick && $userInstance->has_nick) {
-                                $chat->nick = $userInstance->nick;
-                                if (empty($chat->nick)) {
-                                    $chat->nick = 'Visitor';
+    	                if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
+    	                    if ($chat->nick != 'Visitor') {
+    	                        $onlineAttr = $userInstance->online_attr_system_array;
+    	                        if (!isset($onlineAttr['username'])){
+                                    $onlineAttr['username'] = $chat->nick;
+                                    $userInstance->online_attr_system = json_encode($onlineAttr);
+                                }
+                            } elseif ($chat->nick == 'Visitor'){
+                                if ($userInstance->nick && $userInstance->has_nick) {
+                                    $chat->nick = $userInstance->nick;
+                                    if (empty($chat->nick)) {
+                                        $chat->nick = 'Visitor';
+                                    }
                                 }
                             }
                         }

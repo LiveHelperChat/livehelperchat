@@ -115,11 +115,11 @@ try {
 
             $chat->user_status = erLhcoreClassModelChat::USER_STATUS_JOINED_CHAT;
 
-            $nick = isset($_GET['prefill']['username']) ? trim($_GET['prefill']['username']) : '';
+            $nick = isset($_GET['prefill']['username']) ? trim((string)$_GET['prefill']['username']) : '';
 
-            // Update nick if required
-            if (isset($_GET['prefill']['username']) && $chat->nick != $_GET['prefill']['username'] && !empty($nick) && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor')) {
-                $chat->nick = $_GET['prefill']['username'];
+            // Update nick if required and allowed by start chat settings
+            if (isset($_GET['prefill']['username']) && $chat->nick != $nick && !empty($nick) && mb_strlen($nick) <= 100 && $chat->nick == erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Visitor') && erLhcoreClassChatValidator::isVisitorNickAllowed((int)$chat->dep_id, 'widget')) {
+                $chat->nick = $nick;
                 $chat->operation_admin .= "lhinst.updateVoteStatus(".$chat->id.");";
                 
                 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.nickchanged', array('chat' => & $chat));

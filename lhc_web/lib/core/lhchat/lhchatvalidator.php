@@ -237,6 +237,33 @@ class erLhcoreClassChatValidator {
         return $fieldName;
     }
 
+    public static function isVisitorNickAllowed($depId = 0, $mode = null)
+    {
+        $startDataFields = null;
+
+        if (is_numeric($depId) && (int)$depId > 0) {
+            $startDataDepartment = erLhcoreClassModelChatStartSettings::findOne(array('customfilter' => array("((`dep_ids` != '' AND JSON_CONTAINS(`dep_ids`,'" . (int)$depId . "','$')) OR department_id = " . (int)$depId . ")")));
+            if ($startDataDepartment instanceof erLhcoreClassModelChatStartSettings) {
+                $startDataFields = $startDataDepartment->data_array;
+            }
+        }
+
+        if ($startDataFields === null) {
+            $startData = erLhcoreClassModelChatConfig::fetch('start_chat_data');
+            $startDataFields = (array)$startData->data;
+        }
+
+        if ($mode === 'popup') {
+            return !empty($startDataFields['name_visible_in_popup']);
+        }
+
+        if ($mode === 'widget') {
+            return !empty($startDataFields['name_visible_in_page_widget']);
+        }
+
+        return !empty($startDataFields['name_visible_in_popup']) || !empty($startDataFields['name_visible_in_page_widget']);
+    }
+
     /**
      * Custom form fields validation
      */
@@ -1583,11 +1610,38 @@ class erLhcoreClassChatValidator {
                 if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','',$jsVar->var_identifier);
+                        $val = $form->jsvar[$jsVar->id];
+                        $encryptFailed = false;
+                        $secure = false;
+
+                        if ($jsVar->try_decrypt == 1 && strlen($val) > 40) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
+                            } catch (Exception $e) {
+                                // Do nothing and ignore just
+                            }
+                        }
+
+                        if ($jsVar->type == 3) {
+                            try {
+                                if ($secure === false) {
+                                    $val = self::decryptAdditionalField($val, $chat);
+                                }
+                                $secure = true;
+                            } catch (Exception $e) {
+                                $encryptFailed = true;
+                            }
+                        }
+
                         if (
-                            ($jsVar->case_insensitive == 0 && $chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') ||
-                            ($jsVar->case_insensitive == 1 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($form->jsvar[$jsVar->id]) && $form->jsvar[$jsVar->id] != '')
+                            $encryptFailed === false &&
+                            (
+                                ($jsVar->case_insensitive == 0 && $chat->{$lhcVar} != $val && $val != '') ||
+                                ($jsVar->case_insensitive == 1 && mb_strtolower($chat->{$lhcVar}) != mb_strtolower($val) && $val != '')
+                            )
                         ) {
-                            $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
+                            $chat->{$lhcVar} = $val;
                             $updateColumns[] = $lhcVar;
                         }
                     } else {
@@ -2071,8 +2125,32 @@ class erLhcoreClassChatValidator {
 
                     if (strpos($jsVar->var_identifier,'lhc.') !== false) {
                         $lhcVar = str_replace('lhc.','', $jsVar->var_identifier);
-                        if ($chat->{$lhcVar} != $form->jsvar[$jsVar->id] && $form->jsvar[$jsVar->id] != '') {
-                            $chat->{$lhcVar} = $form->jsvar[$jsVar->id];
+                        $val = $form->jsvar[$jsVar->id];
+                        $encryptFailed = false;
+                        $secure = false;
+
+                        if ($jsVar->try_decrypt == 1 && strlen($val) > 40) {
+                            try {
+                                $val = self::decryptAdditionalField($val, $chat);
+                                $secure = true;
+                            } catch (Exception $e) {
+                                // Do nothing and ignore just
+                            }
+                        }
+
+                        if ($jsVar->type == 3) {
+                            try {
+                                if ($secure === false) {
+                                    $val = self::decryptAdditionalField($val, $chat);
+                                }
+                                $secure = true;
+                            } catch (Exception $e) {
+                                $encryptFailed = true;
+                            }
+                        }
+
+                        if ($encryptFailed === false && $chat->{$lhcVar} != $val && $val != '') {
+                            $chat->{$lhcVar} = $val;
                         }
                     } else {
                         $val = $form->jsvar[$jsVar->id];

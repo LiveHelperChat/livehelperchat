@@ -102,7 +102,7 @@ if (is_numeric($inputData->departament_id) && $inputData->departament_id > 0 && 
 	$startDataFields = (array)$startData->data;
 }
 
-if (isset($startDataFields['name_hidden']) && $startDataFields['name_hidden'] == 1) {
+if (isset($startDataFields['name_visible_in_page_widget']) && $startDataFields['name_visible_in_page_widget'] == 1 && isset($startDataFields['name_hidden']) && $startDataFields['name_hidden'] == 1) {
     $inputData->hattr[] = 'username';
     $userInstance->requires_username = true;
 }
@@ -227,12 +227,18 @@ if (isset($_POST['askQuestion']))
         $inputData->question = $form->Question;
     }
     
-    if ( (!$form->hasValidData( 'Username' ) || trim($form->Username) == '') && $userInstance->requires_username == 1) {
-    	if (!in_array('username', $inputData->hattr)) {
-        	$Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
-    	}
-    } elseif ( $form->hasValidData( 'Username' ) ) {
-        $inputData->username = $chat->nick = $form->Username;
+    if ($userInstance->requires_username == 1) {
+        if (!$form->hasValidData( 'Username' ) || trim($form->Username) == '') {
+            if (!in_array('username', $inputData->hattr)) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Please enter your name');
+            }
+        } else {
+            if (mb_strlen($form->Username) > 100) {
+                $Errors[] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Maximum 100 characters');
+            } else {
+                $inputData->username = $chat->nick = $form->Username;
+            }
+        }
     }
 
     if ( (!$form->hasValidData( 'Phone' ) || ($form->Phone == '' || mb_strlen($form->Phone) < erLhcoreClassModelChatConfig::fetch('min_phone_length')->current_value)) && ($userInstance->requires_phone == 1)) {
@@ -375,7 +381,33 @@ if (isset($_POST['askQuestion']))
         foreach (erLhAbstractModelChatVariable::getList(array('customfilter' => array('dep_id = 0 OR dep_id = ' . (int)$chat->dep_id))) as $jsVar) {
             if (isset($form->jsvar[$jsVar->id]) && !empty($form->jsvar[$jsVar->id])) {
                 if ($jsVar->var_identifier == 'lhc.nick') {
-                    $chat->nick = $form->jsvar[$jsVar->id];
+                    $val = $form->jsvar[$jsVar->id];
+                    $encryptFailed = false;
+                    $secure = false;
+
+                    if ($jsVar->try_decrypt == 1 && strlen($val) > 40) {
+                        try {
+                            $val = erLhcoreClassChatValidator::decryptAdditionalField($val, $chat);
+                            $secure = true;
+                        } catch (Exception $e) {
+                            // Do nothing and ignore just
+                        }
+                    }
+
+                    if ($jsVar->type == 3) {
+                        try {
+                            if ($secure === false) {
+                                $val = erLhcoreClassChatValidator::decryptAdditionalField($val, $chat);
+                            }
+                            $secure = true;
+                        } catch (Exception $e) {
+                            $encryptFailed = true;
+                        }
+                    }
+
+                    if ($encryptFailed === false && $val != '') {
+                        $chat->nick = $val;
+                    }
                 } else {
 
                     $val = $form->jsvar[$jsVar->id];
@@ -519,15 +551,17 @@ if (isset($_POST['askQuestion']))
        $userInstance->chat_id = $chat->id;
        $userInstance->conversion_id = 0;
 
-        if ($chat->nick != 'Visitor') {
-            $onlineAttr = $userInstance->online_attr_system_array;
-            if (!isset($onlineAttr['username'])){
-                $onlineAttr['username'] = $chat->nick;
-                $userInstance->online_attr_system = json_encode($onlineAttr);
-            }
-        } elseif ($chat->nick == 'Visitor'){
-            if ($userInstance->nick && $userInstance->has_nick) {
-                $chat->nick = $userInstance->nick;
+        if (erLhcoreClassModelChatConfig::fetch('remember_username')->current_value == 1) {
+            if ($chat->nick != 'Visitor') {
+                $onlineAttr = $userInstance->online_attr_system_array;
+                if (!isset($onlineAttr['username'])){
+                    $onlineAttr['username'] = $chat->nick;
+                    $userInstance->online_attr_system = json_encode($onlineAttr);
+                }
+            } elseif ($chat->nick == 'Visitor'){
+                if ($userInstance->nick && $userInstance->has_nick) {
+                    $chat->nick = $userInstance->nick;
+                }
             }
         }
 
