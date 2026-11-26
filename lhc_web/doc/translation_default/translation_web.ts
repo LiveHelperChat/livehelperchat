@@ -2303,6 +2303,46 @@
       <source>Widget themes</source>
       <translation type="unfinished"/>
     </message>
+    <message>
+      <source>Contact links in the status widget</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add links to offer visitors a choice alongside live chat. With no links the status widget opens chat directly.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Label</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>HTTPS URL</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Icon URL (optional)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Remove link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Add link</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Information URL (optional)</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Each contact link needs a label and an HTTPS URL. An icon URL must also use HTTPS.</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>The information URL must be an HTTPS URL.</source>
+      <translation type="unfinished"/>
+    </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
@@ -11575,6 +11615,18 @@
     </message>
     <message>
       <source>Screen shared, click to finish</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Live chat</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>Contact us</source>
+      <translation type="unfinished"/>
+    </message>
+    <message>
+      <source>More information</source>
       <translation type="unfinished"/>
     </message>
   </context>

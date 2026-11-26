@@ -2301,6 +2301,46 @@
       <source>Widget themes</source>
       <translation>Темы виджетов</translation>
     </message>
+    <message>
+      <source>Contact links in the status widget</source>
+      <translation>Способы связи в виджете статуса</translation>
+    </message>
+    <message>
+      <source>Add links to offer visitors a choice alongside live chat. With no links the status widget opens chat directly.</source>
+      <translation>Добавьте ссылки, чтобы посетители могли выбрать способ связи. Если оставить список пустым, виджет сразу откроет чат на сайте.</translation>
+    </message>
+    <message>
+      <source>Label</source>
+      <translation>Название</translation>
+    </message>
+    <message>
+      <source>HTTPS URL</source>
+      <translation>HTTPS-адрес</translation>
+    </message>
+    <message>
+      <source>Icon URL (optional)</source>
+      <translation>Ссылка на значок (необязательно)</translation>
+    </message>
+    <message>
+      <source>Remove link</source>
+      <translation>Удалить ссылку</translation>
+    </message>
+    <message>
+      <source>Add link</source>
+      <translation>Добавить ссылку</translation>
+    </message>
+    <message>
+      <source>Information URL (optional)</source>
+      <translation>Ссылка на дополнительную информацию (необязательно)</translation>
+    </message>
+    <message>
+      <source>Each contact link needs a label and an HTTPS URL. An icon URL must also use HTTPS.</source>
+      <translation>Для каждого способа связи укажите название и HTTPS-адрес. Ссылка на значок тоже должна использовать HTTPS.</translation>
+    </message>
+    <message>
+      <source>The information URL must be an HTTPS URL.</source>
+      <translation>Ссылка на дополнительную информацию должна использовать HTTPS.</translation>
+    </message>
   </context>
   <context>
     <name>abstract/proactivechatinvitation</name>
@@ -11579,6 +11619,18 @@
     <message>
       <source>Screen shared, click to finish</source>
       <translation>Просмотр экрана, нажмите для завершения</translation>
+    </message>
+    <message>
+      <source>Live chat</source>
+      <translation>Чат на сайте</translation>
+    </message>
+    <message>
+      <source>Contact us</source>
+      <translation>Связаться с нами</translation>
+    </message>
+    <message>
+      <source>More information</source>
+      <translation>Подробнее</translation>
     </message>
   </context>
   <context>

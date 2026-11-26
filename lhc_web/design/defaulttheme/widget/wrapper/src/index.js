@@ -55,7 +55,7 @@
             lhc.loaded = false;
             lhc.connected = false;
             lhc.ready = false;
-            lhc.version = 283;
+            lhc.version = 284;
 
             const isMobileItem = require('ismobilejs');
             var isMobile = isMobileItem.default(global.navigator.userAgent).phone;
@@ -553,7 +553,28 @@
 
                     // Init main widgets
                     if (attributesWidget.mode == 'widget' || attributesWidget.mode == 'popup') {
-                        attributesWidget.viewHandler.init(attributesWidget, data.ll);
+                        attributesWidget.viewHandler.init(attributesWidget, data.ll, data.chat_ui);
+                        const launcherContext = () => JSON.stringify([
+                            attributesWidget.theme, attributesWidget.department, attributesWidget.lang,
+                            attributesWidget.mode, attributesWidget.position
+                        ]);
+                        let appliedContext = launcherContext();
+                        let requestVersion = 0;
+                        attributesWidget.eventEmitter.addListener('reloadWidget', () => {
+                            const nextContext = launcherContext();
+                            if (nextContext === appliedContext) return;
+                            appliedContext = nextContext;
+                            const version = ++requestVersion;
+                            attributesWidget.viewHandler.refreshLauncherMenu(null);
+                            if (attributesWidget.mode !== 'widget' || attributesWidget.position === 'api') return;
+                            // Refresh only the menu; a theme switch is not another visitor page view.
+                            const params = Object.assign(getArguments(), {cd: 1});
+                            helperFunctions.makeRequest(LHC_API.args.lhc_base_url + attributesWidget.lang + 'widgetrestapi/settings', {params}, result => {
+                                if (version === requestVersion && nextContext === launcherContext() && !attributesWidget.terminated) {
+                                    attributesWidget.viewHandler.refreshLauncherMenu(result.chat_ui);
+                                }
+                            });
+                        });
                     }
 
                     if (!(attributesWidget.position == 'api' && attributesWidget.mode == 'embed')) {

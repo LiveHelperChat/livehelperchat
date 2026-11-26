@@ -191,6 +191,7 @@
 						<?php echo erLhcoreClassAbstract::renderInput('show_status_delay', $fields['show_status_delay'], $object)?>
 						</div>
 
+                        <?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/launcher_links.tpl.php'));?>
 						<?php include(erLhcoreClassDesign::designtpl('lhabstract/custom/theme/widget_theme_status.tpl.php'));?>
 						
         		</div>        		

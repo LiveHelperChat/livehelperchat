@@ -1,6 +1,7 @@
 import {settings} from '../settings.js';
 import {helperFunctions} from '../helperFunctions';
 import {policyStore} from '../../util/policyStore';
+import {createLauncherMenu} from './launcherMenu';
 
 class LHCStatusWidget extends HTMLElement {
     constructor() {
@@ -28,7 +29,12 @@ class LHCStatusWidget extends HTMLElement {
     }
 
     hide() {
+        if (this.launcherMenu) this.launcherMenu.close();
         this.style.setProperty("display","none","important");
+    }
+
+    disconnectedCallback() {
+        if (this.launcherMenu) this.launcherMenu.close();
     }
 
     connectedCallback() {
@@ -398,7 +404,28 @@ export class statusWidget{
         }
     }
 
-    init(attributes, lload) {
+    activateChat(e) {
+        const attributes = this.attributes;
+        attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
+        if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null) {
+            document.location = attributes.offline_redirect;
+            e.preventDefault();
+        } else if (this.controlMode) {
+            attributes.eventEmitter.emitEvent('closeWidget', [{'sender': 'closeButton', 'mode': 'control'}]);
+            e.preventDefault();
+        } else {
+            attributes.eventEmitter.emitEvent('showWidget', [{'event': e}]);
+            attributes.eventEmitter.emitEvent('clickAction');
+        }
+    }
+
+    refreshLauncherMenu(chatUI) {
+        if (this.cont.launcherMenu) this.cont.launcherMenu.destroy();
+        this.cont.launcherMenu = this.attributes.mode === 'widget' && this.attributes.position !== 'api'
+            ? createLauncherMenu(this.cont, chatUI, e => this.activateChat(e)) : null;
+    }
+
+    init(attributes, lload, chatUI) {
 
         this.attributes = attributes;
 
@@ -442,8 +469,6 @@ export class statusWidget{
 
         this.cont.attachEvents();
 
-        var _inst = this;
-
         this.lload = !(!lload);
 
         // If it's lazy load we have always to consider widget as loaded
@@ -468,23 +493,23 @@ export class statusWidget{
             }
         });
 
-        this.cont.ee = function(event, data, e) {
+        this.refreshLauncherMenu(chatUI);
+        ['showWidget', 'hideParent', 'reloadWidget'].forEach(event => {
+            attributes.eventEmitter.addListener(event, () => this.cont.launcherMenu && this.cont.launcherMenu.close());
+        });
+        this.cont.ee = (event, data, e) => {
             if (event == "click" && data.status == true) {
-                attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
-
-                if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
-                    document.location = attributes.offline_redirect;
+                if (!this.cont.launcherMenu || this.controlMode || attributes.widgetStatus.value) return this.activateChat(e);
+                const activeChat = attributes.userSession.getSessionAttributes();
+                const unread = this.cont.shadowRoot.getElementById('lhc_status_container').classList.contains('has-uread-message');
+                if (!(activeChat.id && activeChat.hash) && !unread) {
                     e.preventDefault();
+                    this.cont.launcherMenu.toggle();
                 } else {
-                    if (_inst.controlMode == true) {
-                        attributes.eventEmitter.emitEvent('closeWidget', [{'sender' : 'closeButton', 'mode' : 'control'}]);
-                        e.preventDefault();
-                    } else {
-                        attributes.eventEmitter.emitEvent('showWidget', [{'event':e}]);
-                        attributes.eventEmitter.emitEvent('clickAction');
-                    }
+                    this.activateChat(e);
                 }
             } else if (event == "move_finish") {
+                if (this.cont.launcherMenu) this.cont.launcherMenu.close();
                 attributes.storageHandler.setSessionStorage(attributes['prefixStorage']+'_pos',JSON.stringify(data));
                 attributes.status_position.next(data);
             }
@@ -569,6 +594,7 @@ export class statusWidget{
 
     hide () {
 
+        if (this.cont.launcherMenu) this.cont.launcherMenu.close();
         this.removeUnreadIndicator();
 
         if (this.attributes.clinst === true && this.attributes.isMobile == false) {

@@ -342,6 +342,19 @@ if (isset($outputResponse['theme'])) {
             $outputResponse['chat_ui']['hhtml'] = $theme->bot_configuration_array['header_html'];
         }
 
+        $launcherLinks = $theme->getLauncherLinks();
+        if ($launcherLinks) {
+            $translation = erTranslationClassLhTranslation::getInstance();
+            $outputResponse['chat_ui']['launcher_links'] = $launcherLinks;
+            $outputResponse['chat_ui']['launcher_chat_label'] = htmlspecialchars_decode($translation->getTranslation('chat/getstatus', 'Live chat'), ENT_QUOTES);
+            $outputResponse['chat_ui']['launcher_menu_label'] = htmlspecialchars_decode($translation->getTranslation('chat/getstatus', 'Contact us'), ENT_QUOTES);
+            $infoUrl = $theme->getLauncherInfoUrl();
+            if ($infoUrl !== '') {
+                $outputResponse['chat_ui']['launcher_info_url'] = $infoUrl;
+                $outputResponse['chat_ui']['launcher_info_label'] = htmlspecialchars_decode($translation->getTranslation('chat/getstatus', 'More information'), ENT_QUOTES);
+            }
+        }
+
         if (isset($theme->bot_configuration_array['close_in_status']) && $theme->bot_configuration_array['close_in_status'] == true) {
             $outputResponse['chat_ui']['clinst'] = true;
         }
@@ -566,7 +579,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 283;
+$outputResponse['wv'] = 284;
  
 // React APP versions
 $outputResponse['v'] = 430;

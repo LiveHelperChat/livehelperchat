@@ -410,16 +410,106 @@ class erLhAbstractModelWidgetTheme {
         }
     }
 
+    private static function isLauncherUrl($url)
+    {
+        if (preg_match('/[\x00-\x20\x7f\\\\]/', $url)) {
+            return false;
+        }
+        $parts = parse_url($url);
+        if (strtolower($parts['scheme'] ?? '') !== 'https' || empty($parts['host']) || isset($parts['user']) || isset($parts['pass'])) {
+            return false;
+        }
+        $host = $parts['host'];
+        if ($host[0] === '[' && substr($host, -1) === ']') {
+            return filter_var(substr($host, 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
+        }
+        if (preg_match('/[^\x00-\x7f]/', $host) && function_exists('idn_to_ascii')) {
+            $host = idn_to_ascii($host);
+        }
+        return $host !== false && filter_var($host, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME) !== false;
+    }
+
+    public function getLauncherInfoUrl()
+    {
+        $url = $this->bot_configuration_array['launcher_info_url'] ?? '';
+        return is_string($url) && self::isLauncherUrl(trim($url)) ? trim($url) : '';
+    }
+
+    public function getLauncherLinks(&$invalid = false)
+    {
+        $rows = $this->bot_configuration_array['launcher_links'] ?? [];
+        $invalid = !is_array($rows);
+        $links = [];
+        foreach (is_array($rows) ? $rows : [] as $row) {
+            if (!is_array($row) || !is_string($row['label'] ?? '') || !is_string($row['url'] ?? '') || !is_string($row['icon'] ?? '')) {
+                $invalid = true;
+                continue;
+            }
+            $label = trim($row['label'] ?? '');
+            $url = trim($row['url'] ?? '');
+            $icon = trim($row['icon'] ?? '');
+            if ($label === '' && $url === '' && $icon === '') {
+                continue;
+            }
+            if ($label === '' || !self::isLauncherUrl($url) || ($icon !== '' && !self::isLauncherUrl($icon))) {
+                $invalid = true;
+                continue;
+            }
+            $link = ['label' => $label, 'url' => $url];
+            if ($icon !== '') {
+                $link['icon'] = $icon;
+            }
+            $links[] = $link;
+        }
+        return $links;
+    }
+
+    public function validateInput($params)
+    {
+        if (!isset($_POST['LauncherLinksPresent'])) {
+            return;
+        }
+        $configuration = $this->bot_configuration_array;
+        $configuration['launcher_links'] = $_POST['LauncherLinks'] ?? [];
+        $infoUrl = $_POST['LauncherInfoUrl'] ?? '';
+        $configuration['launcher_info_url'] = is_string($infoUrl) ? trim($infoUrl) : $infoUrl;
+        $this->bot_configuration_array = $configuration;
+        $this->getLauncherLinks($invalid);
+        if ($invalid) {
+            $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'Each contact link needs a label and an HTTPS URL. An icon URL must also use HTTPS.');
+        }
+        if ($configuration['launcher_info_url'] !== '' && $this->getLauncherInfoUrl() === '') {
+            $params['errors'][] = erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme', 'The information URL must be an HTTPS URL.');
+        }
+    }
+
     public function beforeUpdate()
     {
-        $this->bot_configuration = json_encode($this->bot_configuration_array);
-        $this->notification_configuration = json_encode($this->notification_configuration_array);
-        $this->modified = time();
+        $this->beforeSave();
     }
 
     public function beforeSave()
     {
-        $this->bot_configuration = json_encode($this->bot_configuration_array);
+        // Imports bypass the editor. Apply the same rules before persisting a theme.
+        $configuration = $this->bot_configuration_array;
+        if (is_array($configuration) && array_key_exists('launcher_links', $configuration)) {
+            $links = $this->getLauncherLinks();
+            if ($links) {
+                $configuration['launcher_links'] = $links;
+            } else {
+                unset($configuration['launcher_links']);
+            }
+        }
+        if (is_array($configuration) && array_key_exists('launcher_info_url', $configuration)) {
+            $url = $this->getLauncherInfoUrl();
+            if ($url !== '') {
+                $configuration['launcher_info_url'] = $url;
+            } else {
+                unset($configuration['launcher_info_url']);
+            }
+        }
+        $this->bot_configuration_array = $configuration;
+        $this->bot_configuration = json_encode($configuration);
         $this->notification_configuration = json_encode($this->notification_configuration_array);
         $this->modified = time();
     }
