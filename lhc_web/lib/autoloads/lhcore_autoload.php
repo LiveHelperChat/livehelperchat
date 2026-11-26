@@ -379,6 +379,9 @@ return array_merge(array (
         // Voice Video
         'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php',
 
+        // Jitsi
+        'erLhcoreClassJitsi'                        => 'lib/core/lhjitsi/lhjitsi.php',
+
         // Views
         'erLhAbstractModelSavedSearch'          => 'lib/models/lhabstract/erlhabstractmodelsavedsearch.php',
         'erLhcoreClassViewResque'               => 'lib/core/lhchat/lhchatviewresque.php',

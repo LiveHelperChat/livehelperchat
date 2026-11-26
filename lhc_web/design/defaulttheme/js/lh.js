@@ -3264,6 +3264,95 @@ function lh(){
 		});
     };
 
+    this.jitsiInvite = function(chat_id, mode, inst) {
+        if (inst) {
+            var confirmMsg = inst.getAttribute('data-confirm');
+            if (confirmMsg && !confirm(confirmMsg)) {
+                return false;
+            }
+        }
+        $.postJSON(this.wwwDir + 'jitsi/invite/' + chat_id, {'mode': mode || 'video'}, function(data) {
+            if (data && data.error) {
+                alert(data.message || 'Failed to start Jitsi call.');
+            } else if (data) {
+                lhinst.syncadmincall();
+                if (data.auto_join && data.msg_id) {
+                    lhinst.jitsiJoinOperator(chat_id, data.msg_id);
+                }
+            }
+        }).fail(function(xhr) {
+            var msg = (xhr.responseJSON && xhr.responseJSON.message) ? xhr.responseJSON.message : 'Failed to start Jitsi call.';
+            alert(msg);
+        });
+        return false;
+    };
+
+    this.jitsiCancel = function(chat_id, msg_id, action) {
+        var suffix = (action === 'end') ? '/(action)/end' : '';
+        $.postJSON(this.wwwDir + 'jitsi/cancel/' + chat_id + '/' + msg_id + suffix, {}, function(data) {
+            if (data && data.error) {
+                alert(data.message || 'Failed to update Jitsi call.');
+            } else {
+                lhinst.updateMessageRowAdmin(chat_id, msg_id);
+            }
+        }).fail(function(xhr) {
+            var msg = (xhr.responseJSON && xhr.responseJSON.message) ? xhr.responseJSON.message : 'Failed to update Jitsi call.';
+            alert(msg);
+        });
+        return false;
+    };
+
+    this.jitsiJoinOperator = function(chat_id, msg_id) {
+        var url = this.wwwDir + 'jitsi/joinoperator/' + chat_id + '/' + msg_id;
+        var isMobile = (window.innerWidth && window.innerWidth <= 768) || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '');
+        if (isMobile) {
+            window.open(url, '_blank');
+        } else {
+            window.open(url, 'lhc_jitsi_call_' + chat_id, 'scrollbars=yes,menubar=0,resizable=1,width=960,height=680');
+        }
+        return false;
+    };
+
+    this.jitsiAdminMonitors = {};
+
+    this.jitsiMonitorAdmin = function(chat_id, msg_id, state_key) {
+        var self = this;
+        if (self.jitsiAdminMonitors[msg_id]) {
+            clearTimeout(self.jitsiAdminMonitors[msg_id]);
+            delete self.jitsiAdminMonitors[msg_id];
+        }
+
+        self.jitsiAdminMonitors[msg_id] = setTimeout(function() {
+            delete self.jitsiAdminMonitors[msg_id];
+
+            var el = document.getElementById('jitsi-admin-status-' + msg_id);
+            if (!el) {
+                return;
+            }
+
+            var currentKey = el.getAttribute('data-state-key') || state_key || '';
+
+            $.getJSON(self.wwwDir + 'jitsi/statusop/' + chat_id + '/' + msg_id + '/(action)/poll', function(data) {
+                if (!document.getElementById('jitsi-admin-status-' + msg_id)) {
+                    return;
+                }
+                if (data && !data.error) {
+                    if (data.state_key && data.state_key !== currentKey) {
+                        self.updateMessageRowAdmin(chat_id, msg_id);
+                        return;
+                    }
+                    if (!data.terminal) {
+                        self.jitsiMonitorAdmin(chat_id, msg_id, currentKey);
+                    }
+                }
+            }).fail(function() {
+                if (document.getElementById('jitsi-admin-status-' + msg_id)) {
+                    self.jitsiMonitorAdmin(chat_id, msg_id, currentKey);
+                }
+            });
+        }, 2000);
+    };
+
     this.startSyncAdmin = function()
     {
         if (this.isSinchronizing == false)
