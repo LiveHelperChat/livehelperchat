@@ -3,7 +3,6 @@
 <div role="tabpanel" class="tab-pane" id="chatconfiguration">
     <div class="row">
         <div class="col-md-6">
-            <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_embed.tpl.php'));?>
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat.tpl.php'));?>
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/archive.tpl.php'));?>
             <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/blocking.tpl.php'));?>

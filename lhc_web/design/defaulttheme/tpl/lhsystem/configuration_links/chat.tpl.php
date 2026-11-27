@@ -1,8 +1,11 @@
 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Chat');?></h5>
 <ul>
+    
     <?php if ($currentUser->hasAccessTo('lhdepartment','list')) : ?>
         <li><a href="<?php echo erLhcoreClassDesign::baseurl('department/index')?>"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration','Departments');?></a></li>
     <?php endif; ?>
+
+    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/chat_embed.tpl.php'));?>
 
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_links/subject.tpl.php'));?>
 
