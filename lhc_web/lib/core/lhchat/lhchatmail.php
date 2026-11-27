@@ -407,12 +407,15 @@ class erLhcoreClassChatMail {
     		$mail->AddAddress( $receiver );
     	}
 
+        $mailboxUsed = false;
+
         if (is_object($chat->department) &&
             isset($chat->department->bot_configuration_array['mailbox_id']) &&
             $chat->department->bot_configuration_array['mailbox_id'] > 0 &&
             ($mailbox = erLhcoreClassModelMailconvMailbox::fetch($chat->department->bot_configuration_array['mailbox_id'])) &&
             $mailbox->active == 1
         ) {
+            $mailboxUsed = true;
             erLhcoreClassMailconvValidator::setSendParameters($mailbox, $mail);
             $mail->addCustomHeader('X-LHC-ST', erLhcoreClassModelMailconvConversation::STATUS_PENDING);
         } else {
@@ -426,10 +429,25 @@ class erLhcoreClassChatMail {
     		}
     	}
     	
-    	if ($sendMail->user_mail_as_sender == 1 && $chat->email != '') {    	       	 
+    	if ($mailboxUsed === false && $sendMail->user_mail_as_sender == 1 && $chat->email != '') {    	       	 
     	   $mail->From = $chat->email;
     	   $mail->FromName = $chat->nick;    	  
     	}
+
+        if ($mailboxUsed === true) {
+            $mail->MessageID = erLhcoreClassMailconvValidator::generateMessageId($mail);
+        }
+
+        $cid = 0;
+        if ($chat->id > 0) {
+            $cid = $chat->id;
+        } elseif (isset($params['chatprefill']) && $params['chatprefill'] instanceof erLhcoreClassModelChat && $params['chatprefill']->id > 0) {
+            $cid = $params['chatprefill']->id;
+        }
+
+        if ($cid > 0) {
+            $mail->addCustomHeader('X-LHC-CID', $cid);
+        }
 
         if (!$mail->Send()) {
             erLhcoreClassLog::write( $mail->ErrorInfo,
@@ -443,6 +461,10 @@ class erLhcoreClassChatMail {
                 )
             );
             throw new Exception($mail->ErrorInfo);
+        }
+
+        if ($mailboxUsed === true && $mailbox->create_a_copy == true) {
+            erLhcoreClassMailconvValidator::makeSendCopy($mail, $mailbox, ['background' => true]);
         }
 
     	$mail->ClearAddresses();

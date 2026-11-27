@@ -1,1 +1,0 @@
-<?php $system_configuration_links_browse_offers_embed_enabled = true;?>

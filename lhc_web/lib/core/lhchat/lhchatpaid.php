@@ -86,28 +86,6 @@ class erLhcoreClassChatPaid {
             $paidChat->saveThis();
         }
     }
-
-    /**
-     * Opening chat widget
-     * */
-    public static function openChatWidget($params)
-    {
-        try {
-            $chatPaid = erLhcoreClassModelChatPaid::fetch($params['pchat']);
-
-            $paidchatData = erLhcoreClassModelChatConfig::fetch('paidchat_data');
-            $data = (array)$paidchatData->data;
-
-            if ((!isset($data['paidchat_read_denied']) || $data['paidchat_read_denied'] == 0) && $chatPaid->chat_id == $params['chat']->id) {
-                $params['tpl']->set('paid_chat_params', array(
-                    'allow_read' => true
-                ));
-            }
-
-        } catch (Exception $e) {
-
-        }
-    }
 }
 
 ?>

@@ -157,11 +157,6 @@ $ViewList['proactiveonclick'] = array(
     'uparams' => array()
 );
 
-$ViewList['screensharesettings'] = array(
-    'params' => array(),
-    'uparams' => array()
-);
-
 $ViewList['executejs'] = array(
     'params' => array(),
     'uparams' => array('id','hash','ext','dep'),

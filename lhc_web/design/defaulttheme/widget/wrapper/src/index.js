@@ -943,12 +943,6 @@
                     helperFunctions.makeScreenshot(attributesWidget.staticJS['screenshot'], data);
                 });
 
-                attributesWidget.eventEmitter.addListener('screenshare', (data) => {
-                    import('./util/screenShare').then((module) => {
-                        module.screenShare.setParams((data || {}), attributesWidget, chatEvents);
-                    });
-                });
-
                 attributesWidget.eventEmitter.addListener('location', (data) => {
                     document.location = data;
                 });
@@ -1199,10 +1193,6 @@
                     if (parts[1] == 'ready') {
 
                         chatEvents.sendReadyEvent(parts[2] == 'true');
-
-                        if (attributesWidget.storageHandler.getSessionStorage(prefixStorage + '_screenshare')) {
-                            attributesWidget.eventEmitter.emitEvent('screenshare', [{'auto_start': true}]);
-                        }
 
                         const focusChangeCb = (e) => {
                             const focused = e.type === "focus";

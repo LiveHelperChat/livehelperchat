@@ -28,12 +28,14 @@ class URLs
      */
     private static function detectUrls($text)
     {
+        $detectSchemelessDomains = true;
+
         // Pattern for cleaning trailing punctuation (] must be escaped)
         $PUNCTUATION_CLEANUP = '/[.,;:!?)\\]]+$/';
 
         $detectedUrls = [];
 
-        // Pattern 1: URLs with schemes (highest priority)
+        // Pattern 1: URLs with explicit schemes (ignore scheme-less strings)
         $schemePatterns = [
             '/https?:\/\/[^\s<>"{}|\\\\^`\[\]]+/i',
             '/ftp:\/\/[^\s<>"{}|\\\\^`\[\]]+/i',
@@ -51,7 +53,7 @@ class URLs
                 $match = preg_replace($PUNCTUATION_CLEANUP, '', $match);
                 if ($match) {
                     $detectedUrls[] = $match;
-                    // Track the domain part to avoid duplicates
+                    // Track the domain/IP part to avoid duplicates
                     if (strpos($match, '://') !== false) {
                         $parts = explode('://', $match, 2);
                         $domainPart = explode('/', $parts[1])[0];
@@ -63,30 +65,34 @@ class URLs
             }
         }
 
-        // Pattern 2: Domain-like patterns without schemes (exclude already found)
-        $domainPattern = '/\b(?:www\.)?[a-zA-Z0-9][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}(?:\/[^\s]*)?/i';
-        preg_match_all($domainPattern, $text, $domainMatches, PREG_OFFSET_CAPTURE);
 
-        foreach ($domainMatches[0] as $matchInfo) {
-            $match = $matchInfo[0];
-            $offset = $matchInfo[1];
 
-            // Check if preceded by @
-            if ($offset > 0 && $text[$offset - 1] === '@') {
-                continue;
-            }
+        if ($detectSchemelessDomains) {
+            // Pattern 2: Domain-like patterns without schemes (exclude already found)
+            $domainPattern = '/\b(?:www\.)?[a-zA-Z0-9][a-zA-Z0-9.-]*\.[a-zA-Z]{2,}(?:\/[^\s]*)?/i';
+            preg_match_all($domainPattern, $text, $domainMatches, PREG_OFFSET_CAPTURE);
 
-            // Clean trailing punctuation
-            $match = preg_replace($PUNCTUATION_CLEANUP, '', $match);
-            if ($match) {
-                // Extract just the domain part for comparison
-                $domainPart = explode('/', $match)[0];
-                $domainPart = explode('?', $domainPart)[0];
-                $domainPart = explode('#', $domainPart)[0];
-                $domainPart = strtolower($domainPart);
-                // Only add if we haven't already found this domain with a scheme
-                if (!isset($schemeUrls[$domainPart])) {
-                    $detectedUrls[] = $match;
+            foreach ($domainMatches[0] as $matchInfo) {
+                $match = $matchInfo[0];
+                $offset = $matchInfo[1];
+
+                // Check if preceded by @
+                if ($offset > 0 && $text[$offset - 1] === '@') {
+                    continue;
+                }
+
+                // Clean trailing punctuation
+                $match = preg_replace($PUNCTUATION_CLEANUP, '', $match);
+                if ($match) {
+                    // Extract just the domain part for comparison
+                    $domainPart = explode('/', $match)[0];
+                    $domainPart = explode('?', $domainPart)[0];
+                    $domainPart = explode('#', $domainPart)[0];
+                    $domainPart = strtolower($domainPart);
+                    // Only add if we haven't already found this domain with a scheme
+                    if (!isset($schemeUrls[$domainPart])) {
+                        $detectedUrls[] = $match;
+                    }
                 }
             }
         }
@@ -110,41 +116,46 @@ class URLs
             }
         }
 
-        // Advanced deduplication: Remove domains that are already part of full URLs
-        $finalUrls = [];
-        $schemeUrlDomains = [];
+        if ($detectSchemelessDomains) {
+            // Advanced deduplication: Remove domains that are already part of full URLs
+            $finalUrls = [];
+            $schemeUrlDomains = [];
 
-        // First pass: collect all domains from scheme-ful URLs
-        foreach ($detectedUrls as $url) {
-            if (strpos($url, '://') !== false) {
-                try {
-                    $parsed = parse_url($url);
-                    if (isset($parsed['host'])) {
-                        $schemeUrlDomains[strtolower($parsed['host'])] = true;
-                        // Also add www-stripped version
-                        $bareDomain = preg_replace('/^www\./', '', strtolower($parsed['host']));
-                        $schemeUrlDomains[$bareDomain] = true;
+            // First pass: collect all domains from scheme-ful URLs
+            foreach ($detectedUrls as $url) {
+                if (strpos($url, '://') !== false) {
+                    try {
+                        $parsed = parse_url($url);
+                        if (isset($parsed['host'])) {
+                            $schemeUrlDomains[strtolower($parsed['host'])] = true;
+                            // Also add www-stripped version
+                            $bareDomain = preg_replace('/^www\./', '', strtolower($parsed['host']));
+                            $schemeUrlDomains[$bareDomain] = true;
+                        }
+                    } catch (\Exception $error) {
+                        // Skip URLs with parsing errors
                     }
-                } catch (\Exception $error) {
-                    // Skip URLs with parsing errors
-                }
-                $finalUrls[] = $url;
-            }
-        }
-
-        // Second pass: only add scheme-less URLs if their domain isn't already covered
-        foreach ($detectedUrls as $url) {
-            if (strpos($url, '://') === false) {
-                // Check if this domain is already covered by a full URL
-                $urlLower = preg_replace('/^www\./', '', strtolower($url));
-                if (!isset($schemeUrlDomains[$urlLower])) {
                     $finalUrls[] = $url;
                 }
             }
+
+            // Second pass: only add scheme-less URLs if their domain isn't already covered
+            foreach ($detectedUrls as $url) {
+                if (strpos($url, '://') === false) {
+                    // Check if this domain is already covered by a full URL
+                    $urlLower = preg_replace('/^www\./', '', strtolower($url));
+                    if (!isset($schemeUrlDomains[$urlLower])) {
+                        $finalUrls[] = $url;
+                    }
+                }
+            }
+
+            // Remove empty URLs and return unique list
+            return array_values(array_unique(array_filter($finalUrls)));
         }
 
         // Remove empty URLs and return unique list
-        return array_values(array_unique(array_filter($finalUrls)));
+        return array_values(array_unique(array_filter($detectedUrls)));
     }
 
     /**

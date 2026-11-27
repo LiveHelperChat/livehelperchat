@@ -1,1 +1,0 @@
-<?php $system_configuration_tabs_content_chat_embed_js_enabled = true; ?>

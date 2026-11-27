@@ -4,17 +4,7 @@ $Module = array( "name" => "System configuration");
 
 $ViewList = array();
 
-$ViewList['htmlcode'] = array(
-    'params' => array(),
-    'functions' => array( 'generatejs' )
-);
-
 $ViewList['htmlcodebeta'] = array(
-    'params' => array(),
-    'functions' => array( 'generatejs' )
-);
-
-$ViewList['embedcode'] = array(
     'params' => array(),
     'functions' => array( 'generatejs' )
 );
@@ -111,7 +101,6 @@ $FunctionList['changelanguage'] = array('explain' => 'Allow user to change their
 $FunctionList['timezone'] = array('explain' => 'Allow user to change global time zone');
 $FunctionList['performupdate'] = array('explain' => 'Allow user to update Live Helper Chat');
 $FunctionList['changetemplates'] = array('explain' => 'Allow user to change e-mail templates');
-$FunctionList['generate_js_tab'] = array('explain' => 'User can see embed code tab');
 $FunctionList['transferconfiguration'] = array('explain' => 'User can configure transfer options');
 $FunctionList['offlinesettings'] = array('explain' => 'Allow user to change offline settings');
 $FunctionList['configurerecaptcha'] = array('explain' => 'Allow user to configure recaptcha');

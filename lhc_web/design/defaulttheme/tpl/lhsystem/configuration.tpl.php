@@ -22,8 +22,6 @@
 	<ul class="nav nav-tabs mb-3" role="tablist" data-remember="true" >
 		<li role="presentation" class="nav-item"><a href="#system" class="nav-link active" aria-controls="system" role="tab" data-bs-toggle="tab"><?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_titles/system_title.tpl.php'));?></a></li>
         
-        <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/generate_js.tpl.php'));?>
-        
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/chat.tpl.php'));?>
          
         <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs/speech.tpl.php'));?>
@@ -89,8 +87,6 @@
 		</div>
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/chat.tpl.php'));?>
-    
-    <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/chat_embed_js.tpl.php'));?>
     
     <?php include(erLhcoreClassDesign::designtpl('lhsystem/configuration_tabs_content/speech.tpl.php'));?>
 

@@ -49,8 +49,6 @@
 
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/speech.tpl.php'));?>
 
-                    <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/cobrowse.tpl.php'));?>
-
                     <?php include(erLhcoreClassDesign::designtpl('lhchat/chat_tabs/actions/escalations.tpl.php'));?>
 
                 <?php endif; ?>

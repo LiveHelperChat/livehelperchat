@@ -73,25 +73,7 @@
                     </div>
 
                         <div class="form-group">
-						<label><?php echo erLhcoreClassAbstract::renderInput('modern_look', $fields['modern_look'], $object)?> <?php echo $fields['modern_look']['trans'];?></label>
-						</div>
-
-                        <div class="form-group">
 						<label><?php echo erLhcoreClassAbstract::renderInput('drag_enabled', $fields['drag_enabled'], $object)?> <?php echo $fields['drag_enabled']['trans'];?></label>
-						</div>
-                    
-                        <div class="form-group">
-						<label><?php echo erLhcoreClassAbstract::renderInput('load_w2', $fields['load_w2'], $object)?> <?php echo $fields['load_w2']['trans'];?></label>
-						</div>
-
-						<div class="form-group">		
-						<label><?php echo $fields['online_text']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('online_text', $fields['online_text'], $object)?>
-						</div>
-						
-						<div class="form-group">
-						<label><?php echo $fields['offline_text']['trans'];?></label>
-						<?php echo erLhcoreClassAbstract::renderInput('offline_text', $fields['offline_text'], $object)?>
 						</div>
 
                         <?php $translatableItem = array('identifier' => 'intro_operator_text'); ?>

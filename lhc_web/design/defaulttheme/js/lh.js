@@ -137,17 +137,6 @@ function lh(){
         this.underMessageAdd = status;
     };
 
-    this.startCoBrowse = function(chat_id)
-    {
-        popupWindow = window.open(this.wwwDir + 'cobrowse/browse/'+chat_id,'chatwindow-cobrowse-chat-id-'+chat_id,"menubar=1,resizable=1,width=800,height=650");
-
-        if (popupWindow !== null) {
-            popupWindow.focus();
-        }
-
-        return false;
-    };
-
     this.tabIconContent = 'face';
     this.tabIconClass = 'icon-user-status material-icons icon-user-online';
     
@@ -1956,7 +1945,6 @@ function lh(){
 		var url = prompt(trans, "");
 		if (url != null) {
 			lhinst.addRemoteOnlineCommand(online_user_id,'lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));
-			lhinst.addExecutionCommand(online_user_id,'lhc_cobrowse_multi_command__lhc_chat_redirect:'+url.replace(new RegExp(':','g'),'__SPLIT__'));
 		}
 	};
 

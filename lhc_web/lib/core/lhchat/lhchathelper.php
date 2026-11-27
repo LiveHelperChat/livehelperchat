@@ -101,23 +101,6 @@ class erLhcoreClassChatHelper
         }
     }
     
-    public static function getSubStatusArguments( $chat )
-    {
-        if ($chat->status_sub_arg != '') {
-            $args = json_decode($chat->status_sub_arg, true);            
-            reset($args);
-            $string = array();
-
-            foreach ($args as $key => $value) {
-                $string [] = $key . ':' . $value ;
-            }
-
-	        return implode(':', $string);
-        }
-        
-        return '';
-    }
-    
     public static function cleanupOnClose($chatId) {
         $db = ezcDbInstance::get();
 
@@ -404,11 +387,6 @@ class erLhcoreClassChatHelper
     		$stmt->execute();
 
     		$stmt = $db->prepare('UPDATE lh_chat SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
-    		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
-    		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
-    		$stmt->execute();
-
-    		$stmt = $db->prepare('UPDATE lh_cobrowse SET online_user_id = :new_online_user_id WHERE online_user_id = :old_online_user_id');
     		$stmt->bindValue(':new_online_user_id',$new->id,PDO::PARAM_INT);
     		$stmt->bindValue(':old_online_user_id',$old->id,PDO::PARAM_INT);
     		$stmt->execute();

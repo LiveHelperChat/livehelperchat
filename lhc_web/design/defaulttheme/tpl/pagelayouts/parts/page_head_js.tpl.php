@@ -66,7 +66,7 @@ confLH.static_version = <?php echo (int)erConfigClassLhConfig::getInstance()->ge
 <script src="<?php echo erLhcoreClassDesign::designJS('js/bluebird.min.js');?>"></script>
 <?php endif; ?>
 
-<script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/lh.legacy.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js');?>"></script>
+<script src="<?php echo erLhcoreClassDesign::designJS('vendor/jquery/jquery.min.js;vendor/bootstrap/js/bootstrap.min.js;js/modernizr.js;js/lh.min.js;js/jquery.hotkeys.min.js;js/fileupload/jquery.fileupload.min.js;js/lh/dist/common.js;js/lh/dist/bundle.js;js/EventEmitter.min.js;js/events.js;js/notifiations.js');?>"></script>
 <?php endif; ?>
 
 <?php echo isset($Result['additional_header_js']) ? $Result['additional_header_js'] : ''?>

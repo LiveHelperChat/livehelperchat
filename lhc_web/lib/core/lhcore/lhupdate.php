@@ -316,6 +316,28 @@ class erLhcoreClassUpdate
 			}
 		}
 
+		if (isset($definition['tables_drop']) && is_array($definition['tables_drop'])) {
+			foreach ($definition['tables_drop'] as $table) {
+				if (!isset($tablesStatus[$table])) {
+					$tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
+				}
+				try {
+					$stmt = $db->prepare("SHOW TABLES LIKE :table");
+					$stmt->bindValue(':table', $table);
+					$stmt->execute();
+					$tableData = $stmt->fetch(PDO::FETCH_NUM);
+
+					if (!empty($tableData)) {
+						$tablesStatus[$table]['queries'][] = "DROP TABLE IF EXISTS `{$table}`;";
+						$tablesStatus[$table]['error'] = true;
+						$tablesStatus[$table]['status'] = "legacy table will be dropped";
+					}
+				} catch (Exception $e) {
+					// Ignore
+				}
+			}
+		}
+
         erLhcoreClassModelChatConfig::$disableCache = true;
 
         $versionOption = erLhcoreClassModelChatConfig::fetch('version_updates');
