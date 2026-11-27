@@ -1,3 +1,16 @@
+5.03v
+
+✨ Add Jitsi video/voice call integration, harden IP/proxy & permission checks, and remove legacy modules
+
+- 📹 Add Jitsi video and voice call integration (`lhjitsi` module with `erLhcoreClassJitsi`): operator call invitations from chat info (`jitsi_call.tpl.php`), configuration (`jitsi/configuration`), visitor/operator join, accept, deny, cancel, status polling, and widget JS execution (`jitsi_executejs.tpl.php`)
+- 🔐 Harden IP detection and proxy handling in `erLhcoreClassIPDetect`: trust forwarded headers (`proxy_header`, defaulting to `HTTP_X_FORWARDED_FOR`) only from configured `trusted_proxies` (or private/reserved ranges when `trusted_proxies` is empty and `proxy_mode` is enabled), walk `X-Forwarded-For` right-to-left, and remove `system/autodbupdate` and `update_ip`
+- 🌐 Add `restapi/ip` endpoint (`lhrestapi/ip.php`, documented in `swagger.json`) returning detected client `ip` and `remote_addr`, enforcing `allow_login_from_ip` restrictions
+- 🛡️ Restrict online visitor info (`chat/getonlineuserinfo`), notice sending (`chat/sendnotice`), and operator file upload (`file/uploadfileadminonlineuser`) by department permissions (`sees_all_online_visitors` / user departments)
+- ✉️ Support pending conversation status via `X-LHC-ST` custom email header in `erLhcoreClassChatMail` and `erLhcoreClassMailconvParser`
+- 💬 Add `erLhcoreClassChatValidator::isVisitorNickAllowed()` and support decrypted custom fields (`try_decrypt` / encrypted `type == 3`) in `erLhcoreClassChatValidator`; add move up/down rule reordering controls in `LHCMaskingRules.svelte`
+- 🧹 Remove legacy modules and templates: `lhcobrowse`, `lhchatbox`, `lhfaq`, `lhquestionary`, `lhbrowseoffer`, legacy chat widget/screenshare endpoints and templates, and online user screenshot templates
+- 🔄 Bump `LHC_RELEASE` to 503
+
 5.02v
 
 ✨ Link e-mails sent from chats back to their originating chat, improve mail escalation and security
