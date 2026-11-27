@@ -98,5 +98,5 @@ $tpl->set('voice_data', $data);
 $Result['content'] = $tpl->fetch();
 $Result['path'] = [
     ['url' => erLhcoreClassDesign::baseurl('system/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'System configuration')],
-    ['url' => erLhcoreClassDesign::baseurl('file/configuration'), 'title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'Voice & Video & ScreenShare')]
+    ['title' => erTranslationClassLhTranslation::getInstance()->getTranslation('system/configuration', 'Agora Calls')]
 ];
