@@ -49,7 +49,7 @@ try {
     	
     	erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chatcheckoperatormessage', array('proactive_active' => & $proactiveInviteActive));
     
-    	$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('ip' => $ip, 'tag' => isset($_POST['tag']) ? $_POST['tag'] : false, 'uactiv' => (int)$Params['user_parameters_unordered']['uactiv'], 'wopen' => (int)$Params['user_parameters_unordered']['wopen'], 'tz' => $Params['user_parameters_unordered']['tz'], 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' => $department, 'identifier' => (string)$Params['user_parameters_unordered']['identifier'], 'pages_count' => ((int)$Params['user_parameters_unordered']['count_page'] == 1 ? true : false), 'vid' => (string)$vid, 'check_message_operator' => true, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => $proactiveInviteActive));
+    	$userInstance = erLhcoreClassModelChatOnlineUser::handleRequest(array('rest_api' => true, 'ip' => $ip, 'tag' => isset($_POST['tag']) ? $_POST['tag'] : false, 'uactiv' => (int)$Params['user_parameters_unordered']['uactiv'], 'wopen' => (int)$Params['user_parameters_unordered']['wopen'], 'tz' => $Params['user_parameters_unordered']['tz'], 'message_seen_timeout' => erLhcoreClassModelChatConfig::fetch('message_seen_timeout')->current_value, 'department' => $department, 'identifier' => (string)$Params['user_parameters_unordered']['identifier'], 'pages_count' => ((int)$Params['user_parameters_unordered']['count_page'] == 1 ? true : false), 'vid' => (string)$vid, 'check_message_operator' => true, 'pro_active_limitation' =>  erLhcoreClassModelChatConfig::fetch('pro_active_limitation')->current_value, 'pro_active_invite' => $proactiveInviteActive));
     	
     	// Exit if not required
     	$statusGeoAdjustment = erLhcoreClassChat::getAdjustment(erLhcoreClassModelChatConfig::fetch('geoadjustment_data')->data_value,'',false,$userInstance);
@@ -86,7 +86,7 @@ try {
     		        $name_support = $userInstance->operator_user->name_support;
     		    }
     		    
-    		    echo json_encode(array('error' => false, 'result' => array('vid' => $userInstance->vid, 'action' => 'read_message', 'args' => array('name_support' => $name_support, 'message' => $userInstance->operator_message, 'url_append' => $urlAppend))));
+    		    echo json_encode(array('error' => false, 'result' => array('vid' => $userInstance->vid, 'action' => 'read_message', 'args' => array('name_support' => $name_support, 'message' => $userInstance->operator_message_front, 'url_append' => $urlAppend))));
     		    exit;
     		}
     		

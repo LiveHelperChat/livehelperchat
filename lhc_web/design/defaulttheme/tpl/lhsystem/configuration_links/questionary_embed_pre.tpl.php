@@ -1,1 +1,0 @@
-<?php $system_configuration_links_questionary_embed_enabled = true;?>

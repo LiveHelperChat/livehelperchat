@@ -103,17 +103,6 @@ return array_merge(array (
         'erLhcoreClassModelDepartamentCustomWorkHours' => 'lib/models/lhdepartament/erlhcoreclassmodeldepartamentcustomworkhours.php',
         'erLhcoreClassModelUserDep' 	=> 'lib/models/lhdepartament/erlhcoreclassmodeluserdep.php',
 
-		// Questionary module
-		'erLhcoreClassModelQuestion'			=> 'lib/models/lhquestionary/erlhcoreclassmodelquestion.php',
-		'erLhcoreClassQuestionary'				=> 'lib/core/lhquestionary/lhquestionary.php',
-		'erLhcoreClassModelQuestionAnswer'		=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionanswer.php',
-		'erLhcoreClassModelQuestionOption'		=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionoption.php',
-		'erLhcoreClassModelQuestionOptionAnswer'=> 'lib/models/lhquestionary/erlhcoreclassmodelquestionoptionanswer.php',
-
-		// FAQ
-		'erLhcoreClassFaq' 			=> 'lib/core/lhfaq/lhfaq.php',
-		'erLhcoreClassModelFaq' 	=> 'lib/models/lhfaq/erlhcoreclassmodelfaq.php',
-
 		// Abstract module
 		'erLhAbstractModelEmailTemplate' 			      => 'lib/models/lhabstract/erlhabstractmodelemailtemplate.php',
 		'erLhAbstractModelProactiveChatInvitation'        => 'lib/models/lhabstract/erlhabstractmodeleproactivechatinvitation.php',
@@ -136,7 +125,6 @@ return array_merge(array (
 		'erLhAbstractModelSurveyItem'  			    => 'lib/models/lhabstract/erlhabstractmodelsurveyitem.php',
 		'erLhcoreClassSurveyValidator'  			=> 'lib/core/lhsurvey/lhsurveyvalidator.php',
 		'erLhcoreClassSurveyExporter'  			    => 'lib/core/lhsurvey/lhsurveyexporter.php',
-		'erLhAbstractModelBrowseOfferInvitation'  	=> 'lib/models/lhabstract/erlhabstractmodelbrowseofferinvitation.php',
 		'erLhAbstractModelForm'  					=> 'lib/models/lhabstract/erlhabstractmodelform.php',
 		'erLhAbstractModelFormCollected'  			=> 'lib/models/lhabstract/erlhabstractmodelformcollected.php',
 		'erLhAbstractModelWidgetTheme'  			=> 'lib/models/lhabstract/erlhabstractmodelwidgettheme.php',
@@ -158,10 +146,6 @@ return array_merge(array (
 	    'erLhAbstractModelSubjectChat'      => 'lib/models/lhabstract/erlhabstractmodelsubjectchat.php',
 	    'erLhcoreClassModelCannedMsgSubject'=> 'lib/models/lhchat/erlhcoreclassmodelcannedmsgsubject.php',
 	    'erLhAbstractModelAudit'            => 'lib/models/lhabstract/erlhabstractmodelaudit.php',
-
-		// Chatbox
-		'erLhcoreClassChatbox'				=> 'lib/core/lhchatbox/lhchatbox.php',
-		'erLhcoreClassModelChatbox'			=> 'lib/models/lhchatbox/erlhcoreclassmodelchatbox.php',
 
 		 // Siteaccess generator
 		'erLhcoreClassSiteaccessGenerator'	=> 'lib/core/lhcore/lhsiteaccessgenerator.php',
@@ -242,10 +226,6 @@ return array_merge(array (
         'erLhcoreClassModelSpeechLanguageDialect'   => 'lib/models/lhspeech/erlhcoreclassmodelspeechlanguagedialect.php',
         'erLhcoreClassModelSpeechChatLanguage'      => 'lib/models/lhspeech/erlhcoreclassmodelspeechchatlanguage.php',
         'erLhcoreClassModelSpeechUserLanguage'      => 'lib/models/lhspeech/erlhcoreclassmodelspeechuserlanguage.php',
-
-		// Co browse
-		'erLhcoreClassCoBrowse' 					=> 'lib/core/lhcobrowse/lhcobrowse.php',
-		'erLhcoreClassModelCoBrowse' 				=> 'lib/models/lhcobrowse/erlhcoreclassmodelcobrowse.php',
 
         // Translations
         'erLhcoreClassTranslate'                    => 'lib/core/lhtranslate/lhtranslate.php',
@@ -378,6 +358,9 @@ return array_merge(array (
 
         // Voice Video
         'erLhcoreClassModelChatVoiceVideo'          => 'lib/models/lhchat/erlhcoreclassmodelchatvoicevideo.php',
+
+        // Jitsi
+        'erLhcoreClassJitsi'                        => 'lib/core/lhjitsi/lhjitsi.php',
 
         // Views
         'erLhAbstractModelSavedSearch'          => 'lib/models/lhabstract/erlhabstractmodelsavedsearch.php',

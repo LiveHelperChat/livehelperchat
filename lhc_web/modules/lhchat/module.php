@@ -109,11 +109,6 @@ $ViewList['copymessages'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['updateattribute'] = array(
-		'params' => array(),
-		'uparams' => array('hash','hash_resume','vid'),
-);
-
 $ViewList['updatejsvars'] = array(
 		'params' => array(),
 		'uparams' => array('hash','hash_resume','vid','userinit','encrypted'),
@@ -122,11 +117,6 @@ $ViewList['updatejsvars'] = array(
 $ViewList['logevent'] = array(
 		'params' => array(),
 		'uparams' => array('hash','hash_resume','vid'),
-);
-
-$ViewList['setnewvid'] = array(
-		'params' => array(),
-		'uparams' => array(),
 );
 
 $ViewList['redirectcontact'] = array(
@@ -424,11 +414,6 @@ $ViewList['addoperation'] = array(
     'functions' => array( 'use' )
 );
 
-$ViewList['refreshcustomfields'] = array(
-    'params' => array(),
-    'uparams' => array('vid','hash','hash_resume'),
-);
-
 $ViewList['addonlineoperation'] = array(
     'params' => array('online_user_id'),
     'functions' => array( 'use' )
@@ -455,26 +440,6 @@ $ViewList['saveonlinenotes'] = array(
 );
 
 /* Anonymous functions */
-$ViewList['addmsguser'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode'),
-);
-
-$ViewList['editprevioususer'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array(),
-);
-
-$ViewList['updatemsguser'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode'),
-);
-
-$ViewList['getmessage'] = array(
-    'params' => array('chat_id','hash','msgid'),
-    'uparams' => array('mode'),
-);
-
 $ViewList['getmessageadmin'] = array(
     'params' => array('chat_id','msgid'),
     'uparams' => array(),
@@ -486,11 +451,6 @@ $ViewList['voteaction'] = array(
     'uparams' => array(),
 );
 
-$ViewList['syncuser'] = array(
-    'params' => array('chat_id','message_id','hash'),
-	'uparams' => array('mode','ot','theme','modeembed')
-);
-
 $ViewList['transfertohuman'] = array(
     'params' => array('chat_id','hash'),
 	'uparams' => array()
@@ -499,11 +459,6 @@ $ViewList['transfertohuman'] = array(
 $ViewList['usertyping'] = array(
     'params' => array('chat_id','hash','status'),
 	'uparams' => array()
-);
-
-$ViewList['checkchatstatus'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode','theme','dot')
 );
 
 $ViewList['transferuser'] = array(
@@ -534,22 +489,10 @@ $ViewList['htmlsnippet'] = array(
 	'multiple_arguments' => array ( 'department', 'ua' )
 );
 
-$ViewList['chatcheckstatus'] = array(
-    'params' => array(),
-    'uparams' => array('status','department','vid','uactiv','wopen','uaction','hash','hash_resume','dot','hide_offline','isproactive'),
-	'multiple_arguments' => array ( 'department' )
-);
-
 $ViewList['getstatusembed'] = array (
     'params' => array(),
     'uparams' => array('fresh','ua','operator','theme','hide_offline','leaveamessage','department','priority','survey','bot_id'),
 	'multiple_arguments' => array ( 'department','ua' )
-);
-
-$ViewList['startchat'] = array (
-    'params' => array(),
-    'uparams' => array('ua','switchform','operator','theme','er','vid','hash_resume','sound','hash','offline','leaveamessage','department','priority','chatprefill','survey','prod','phash','pvhash','ajaxmode'),
-	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
 );
 
 $ViewList['start'] = array (
@@ -576,48 +519,9 @@ $ViewList['demo'] = array (
 	'multiple_arguments' => array('department'),
 );
 
-$ViewList['chatwidget'] = array (
-    'params' => array(),
-    'uparams' => array('mobile','bot_id','ua','switchform','operator','theme','vid','sound','hash','hash_resume','mode','offline','leaveamessage','department','priority','chatprefill','survey','sdemo','prod','phash','pvhash','fullheight','ajaxmode'),
-	'multiple_arguments' => array ( 'department', 'ua', 'prod' )
-);
-
-$ViewList['reopen'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('mode','embedmode','theme','fullheight'),
-);
-
-$ViewList['readoperatormessage'] = array(
-    'params' => array(),
-    'uparams' => array('operator','theme','priority','vid','department','playsound','ua','survey','fullheight','inv','tag'),
-	'multiple_arguments' => array ( 'department', 'ua' )
-);
-
-$ViewList['chatcheckoperatormessage'] = array(
-    'params' => array(),
-    'uparams' => array('tz','operator','theme','priority','vid','count_page','identifier','department','ua','survey','uactiv','wopen','fullheight','dyn'),
-	'multiple_arguments' => array ( 'department','ua','dyn' )
-);
-
-$ViewList['extendcookie'] = array(
-    'params' => array('vid'),
-    'uparams' => array()
-);
-
-$ViewList['logpageview'] = array(
-    'params' => array(),
-    'uparams' => array('tz','vid','identifier','department','ua','uactiv','wopen'),
-	'multiple_arguments' => array ( 'department','ua' )
-);
-
 $ViewList['chatwidgetclosed'] = array(
     'params' => array(),
     'uparams' => array('vid','hash','eclose','close','conversion'),
-);
-
-$ViewList['chat'] = array(
-    'params' => array('chat_id','hash'),
-    'uparams' => array('theme','er','survey','cstarted')
 );
 
 $ViewList['printchat'] = array(
@@ -639,11 +543,6 @@ $ViewList['chatpreview'] = array(
 $ViewList['bbcodeinsert'] = array(
 	'params' => array('chat_id'),
 	'uparams' => array('mode')
-);
-
-$ViewList['chatwidgetchat'] = array(
-    'params' => array('chat_id','hash'),
-	'uparams' => array('mobile','sound','mode','theme','cstarted','survey','pchat','fullheight')
 );
 
 $ViewList['userclosechat'] = array(
@@ -751,10 +650,6 @@ $ViewList['confirmleave'] = array(
 $ViewList['reacttomessagemodal'] = array(
     'params' => array('message_id'),
     'uparams' => array('theme')
-);
-
-$ViewList['sendchat'] = array(
-		'params' => array('chat_id','hash')
 );
 
 $ViewList['transferchatrefilter'] = array(

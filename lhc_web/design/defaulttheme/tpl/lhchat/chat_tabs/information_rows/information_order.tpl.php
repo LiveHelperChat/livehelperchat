@@ -20,6 +20,10 @@ $orderInformation = array(
         'item' => 'voice_call',
         'enabled' => true
     ),
+    'jitsi_call' => array(
+        'item' => 'jitsi_call',
+        'enabled' => true
+    ),
     'uagent' => array(
         'item' => 'uagent',
         'enabled' => true

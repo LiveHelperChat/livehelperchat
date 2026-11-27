@@ -8,6 +8,9 @@ $item = new erLhcoreClassModelMailconvMessage();
 
 $chat = null;
 
+$isEscalate = isset($Params['user_parameters_unordered']['escalate']) && $Params['user_parameters_unordered']['escalate'] == 1 && $currentUser->hasAccessTo('lhmailconv','email_escalation');
+$tpl->set('is_escalate', $isEscalate);
+
 if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
 
     $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['chat_id']);
@@ -25,8 +28,10 @@ if (is_numeric($Params['user_parameters_unordered']['chat_id'])) {
         $item->mailbox_front = $mailbox->mail;
     }
 
-    $item->from_address = $chat->email;
-    $item->from_name = $chat->nick;
+    if (!$isEscalate) {
+        $item->from_address = $chat->email;
+        $item->from_name = $chat->nick;
+    }
 
     erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.new_mail_from_chat', array(
         'uparams' => $Params['user_parameters_unordered'],
@@ -82,7 +87,7 @@ if ($copyRequest) {
 
 if (ezcInputForm::hasPostData() && $copyRequest === false) {
 
-    $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item, $chat);
+    $Errors = erLhcoreClassMailconvValidator::validateNewEmail($item, $chat, ['escalate' => $isEscalate]);
 
     // Custom CC/BCC recipients require a separate permission
     if (!$currentUser->hasAccessTo('lhmailconv','send_mail_bcc_cc')) {
@@ -139,12 +144,18 @@ if (ezcInputForm::hasPostData() && $copyRequest === false) {
             'mailbox_front' => (string)$item->mailbox_front,
         );
 
-        if ($chat === null || erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) {
+        if ($chat === null || $isEscalate || erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email')) {
             $copyParams['from_address'] = (string)$item->from_address;
         }
 
         try {
-            
+            if ($chat instanceof erLhcoreClassModelChat && $chat->id > 0) {
+                if (!isset($item->custom_headers) || !is_array($item->custom_headers)) {
+                    $item->custom_headers = [];
+                }
+                $item->custom_headers['X-LHC-CID'] = $chat->id;
+            }
+
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.before_send', array(
                 'uparams' => $Params['user_parameters_unordered'],
                 'msg' => & $item,
@@ -193,8 +204,73 @@ if (ezcInputForm::hasPostData() && $copyRequest === false) {
 
 }
 
+$department = null;
+if ($chat instanceof erLhcoreClassModelChat && $chat->department instanceof erLhcoreClassModelDepartament) {
+    $department = $chat->department;
+} elseif ($item->dep_id > 0 && $item->department instanceof erLhcoreClassModelDepartament) {
+    $department = $item->department;
+} elseif ($item->mailbox instanceof erLhcoreClassModelMailconvMailbox && $item->mailbox->dep_id > 0) {
+    $dep = erLhcoreClassModelDepartament::fetch($item->mailbox->dep_id, true);
+    if ($dep instanceof erLhcoreClassModelDepartament) {
+        $department = $dep;
+    }
+}
+
+if ($isEscalate && !ezcInputForm::hasPostData() && $item->body == '') {
+    $mcOptions = erLhcoreClassModelChatConfig::fetch('mailconv_options');
+    $mcOptionsData = (array)$mcOptions->data;
+
+    if (isset($mcOptionsData['escalation_template_id']) && (int)$mcOptionsData['escalation_template_id'] > 0) {
+        $escalationTemplate = erLhcoreClassModelMailconvResponseTemplate::fetch((int)$mcOptionsData['escalation_template_id']);
+
+        if ($escalationTemplate instanceof erLhcoreClassModelMailconvResponseTemplate && $escalationTemplate->disabled == 0) {
+            $depId = $department instanceof erLhcoreClassModelDepartament ? (int)$department->id : 0;
+            $depName = $department instanceof erLhcoreClassModelDepartament ? (string)$department : '';
+
+            $searchArray = [
+                '{{operator}}',
+                '{operator}',
+                '{{department}}',
+                '{department}'
+            ];
+
+            $replaceArray = [
+                $currentUser->getUserData()->name_official,
+                $currentUser->getUserData()->name_official,
+                $depName,
+                $depName
+            ];
+
+            $escalationTemplate->template = str_replace($searchArray, $replaceArray, $escalationTemplate->template);
+            $escalationTemplate->template_plain = str_replace($searchArray, $replaceArray, $escalationTemplate->template_plain);
+
+            if ($chat instanceof erLhcoreClassModelChat) {
+                $escalationTemplate->template = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template, array('chat' => $chat, 'args' => ['current_user' => $currentUser->getUserData(), 'chat' => $chat]));
+                $escalationTemplate->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template_plain, array('chat' => $chat, 'args' => ['current_user' => $currentUser->getUserData(), 'chat' => $chat]));
+            } else {
+                $conv = new erLhcoreClassModelMailconvConversation();
+                if ($depId > 0) {
+                    $conv->dep_id = $depId;
+                }
+                $escalationTemplate->template = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template, array('chat' => $conv, 'args' => ['mail' => $conv, 'current_user' => $currentUser->getUserData()]));
+                $escalationTemplate->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($escalationTemplate->template_plain, array('chat' => $conv, 'args' => ['mail' => $conv, 'current_user' => $currentUser->getUserData()]));
+            }
+
+            $templateItems = [$escalationTemplate];
+            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.replace_variables', array(
+                'items' => & $templateItems,
+                'dep_id' => $depId,
+                'chat' => $chat
+            ));
+
+            $item->body = $escalationTemplate->template_html;
+        }
+    }
+}
+
 $tpl->setArray(array(
     'item' => $item,
+    'department' => $department,
 ));
 
 if (isset($Params['user_parameters_unordered']['layout']) && $Params['user_parameters_unordered']['layout'] == 'popup') {

@@ -116,7 +116,7 @@ class MergeHelper
                 $conversation->{$matchAttribute} = $messageFirst->{$matchAttribute};
             }
 
-            $matchAttributesConversation = ['phone','mail_variables','match_rule_id','priority','start_type','opened_at','follow_up_id'];
+            $matchAttributesConversation = ['phone','mail_variables','match_rule_id','priority','start_type','opened_at','follow_up_id','follow_up_chat_id'];
             foreach ($matchAttributesConversation as $matchAttribute) {
                 $conversation->{$matchAttribute} = $conversationOld->{$matchAttribute};
             }

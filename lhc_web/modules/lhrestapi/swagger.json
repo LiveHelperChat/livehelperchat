@@ -3635,6 +3635,62 @@
         ]
       }
     },
+    "/restapi/ip": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Get detected IP and REMOTE_ADDR",
+        "description": "Returns detected client IP and raw REMOTE_ADDR. Restricted to IPs allowed to login in back office.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Returns detected IP and REMOTE_ADDR",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "result": {
+                  "type": "object",
+                  "properties": {
+                    "ip": {
+                      "type": "string",
+                      "example": "203.0.113.10"
+                    },
+                    "remote_addr": {
+                      "type": "string",
+                      "example": "203.0.113.10"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Access denied because of IP restrictions",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "result": {
+                  "type": "string",
+                  "example": "Access denied because of IP restrictions"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/restapi/department": {
       "post": {
         "tags": [
@@ -5732,6 +5788,11 @@
           "default": "name",
           "required": false,
           "description": "Previous conversation id. If conversation is closed and can't be reopened. This holds parent conversation id."
+        },"follow_up_chat_id": {
+          "type": "integer",
+          "default": 0,
+          "required": false,
+          "description": "Related chat id if e-mail was sent from a chat."
         },"has_attachment": {
           "type": "integer",
           "default": "",
@@ -5841,6 +5902,11 @@
           "default": null,
           "required": false,
           "description": "Covnersation follow_up_id attribute"
+        },"follow_up_chat_id": {
+          "type": "integer",
+          "default": null,
+          "required": false,
+          "description": "Conversation follow_up_chat_id attribute"
         },"subject_id": {
           "type": "array",
           "default": null,

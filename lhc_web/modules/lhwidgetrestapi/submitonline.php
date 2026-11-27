@@ -297,12 +297,22 @@ if (empty($Errors)) {
 
                     $userInstance->conversion_id = 0;
 
+                    if ($userInstance->dep_id == 0 && $chat->dep_id > 0) {
+                        $userInstance->dep_id = $chat->dep_id;
+                    }
+
                     // Store Message from operator
                     $msg = new erLhcoreClassModelmsg();
                     $msg->msg = trim($userInstance->operator_message_front);
 
                     if ($msg->msg == '') {
                         $inv = erLhAbstractModelProactiveChatInvitation::fetch($requestPayload['invitation_id']);
+                        if (isset($onlineAttrSystem['lhc_inv_var_id'])) {
+                            $invVariation = erLhAbstractModelProactiveChatInvitation::fetch($onlineAttrSystem['lhc_inv_var_id']);
+                            if ($invVariation instanceof erLhAbstractModelProactiveChatInvitation) {
+                                $inv = $invVariation;
+                            }
+                        }
                         if ($inv instanceof erLhAbstractModelProactiveChatInvitation){
                             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.process_invitation',array(
                                 'invitation' => & $inv,
@@ -310,7 +320,7 @@ if (empty($Errors)) {
                                 'ou' => $userInstance
                             ));
                             $inv->translateByLocale();
-                            $msg->msg = $inv->message;
+                            $msg->msg = trim($userInstance->processOperatorMessage($inv->message));
                         }
                     } else {
                         erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.process_invitation_ou',array(
@@ -327,6 +337,17 @@ if (empty($Errors)) {
                         $msg->name_support = trim($userOperator->name_support);
                     } else {
                         $msg->name_support = !empty($userInstance->operator_user_proactive) ? $userInstance->operator_user_proactive : erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','Live Support');
+                    }
+
+                    if (
+                        strpos($msg->msg, '{operator}') !== false ||
+                        strpos($msg->msg, '{operator_name}') !== false
+                    ) {
+                        $msg->msg = str_replace(
+                            ['{operator}', '{operator_name}'],
+                            [$msg->name_support, ($userOperator !== false ? $userOperator->name : '')],
+                            $msg->msg
+                        );
                     }
 
                     $msg->user_id = $userInstance->operator_user_id > 0 ? $userInstance->operator_user_id : -2;

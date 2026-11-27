@@ -20,6 +20,8 @@ return array (
                     'modulecompile' => false,
                     'force_virtual_host' => false,
                     'proxy_mode' => false,
+                    'trusted_proxies' => [],
+                    'proxy_header' => 'HTTP_X_FORWARDED_FOR',
                     'disable_mobile' => false,
                     'disable_rest_api_by_user' => false,
                     'one_login_per_account' => false,

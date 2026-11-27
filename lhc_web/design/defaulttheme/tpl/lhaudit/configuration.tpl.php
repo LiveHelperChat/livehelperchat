@@ -151,6 +151,7 @@
         ]</b></li>
         <li>Sever Unix Timestamp: <?php echo time();?></li>
         <li>User Timestamp: <b><script>document.write(Math.round((new Date()).getTime()/1000));</script></b></li>
+        <li>Your public IP address: <b><?php echo erLhcoreClassIPDetect::getIP()?></b></li>
 </ul>
 
 <?php if (!class_exists('erLhcoreClassInstance') && erLhcoreClassUser::instance()->hasAccessTo('lhaudit','see_system')) : ?>

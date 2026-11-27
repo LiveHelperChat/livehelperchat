@@ -513,10 +513,6 @@ function processResponseCheckStatus(response, getState, dispatch) {
                 }
 
                 helperFunctions.sendMessageParent('screenshot',[window.lhcChat['base_url'] + 'file/storescreenshot' + append]);
-            } else if (action == 'lhc_cobrowse') {
-                helperFunctions.sendMessageParent('screenshare',[]);
-            } else if (action == 'lhc_cobrowse_cmd') {
-                helperFunctions.sendMessageParent('screenshareCommand',[op]);
             } else if (action == 'lhc_ui_refresh') {
                 const state = getState();
                 updateUISettings({'id' : state.chatwidget.getIn(['chatData','id']), 'hash' : state.chatwidget.getIn(['chatData','hash'])})(dispatch, getState);

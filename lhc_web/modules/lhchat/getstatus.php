@@ -36,15 +36,6 @@ if (erLhcoreClassModelChatConfig::fetch('hide_disabled_department')->current_val
 	}
 }
 
-$tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus.tpl.php');
-
-if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 ) {
-    $str = bin2hex(random_bytes(16));
-	$tpl->set('vid', $str);
-}
-
-$validUnits = array('pixels' => 'px','percents' => '%');
-
 $theme = false;
 if (isset($Params['user_parameters_unordered']['theme']) && ($themeId = erLhcoreClassChat::extractTheme($Params['user_parameters_unordered']['theme'])) !== false) {
 	try {
@@ -67,62 +58,13 @@ if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configur
     erLhcoreClassChatValidator::setLanguageByBrowser();
 }
 
-if ($theme instanceof erLhAbstractModelWidgetTheme && isset($theme->bot_configuration_array['load_w2']) && $theme->bot_configuration_array['load_w2'] == true) {
-    $tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus/getstatus_migrate.tpl.php');
-    $tpl->set('uparams',$Params['user_parameters_unordered']);
-    $tpl->set('depId',$Params['user_parameters_unordered']['department']);
-    $tpl->set('mode','widget');
-    $tpl->set('position',$Params['user_parameters_unordered']['position']);
-    $tpl->set('click',$Params['user_parameters_unordered']['click']);
-    $tpl->set('leaveamessage',$Params['user_parameters_unordered']['leaveamessage'] == 'true');
-    $tpl->set('disable_pro_active',$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
-    echo $tpl->fetch();
-    exit;
-}
-
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus_old',array(
-    'params' => & $Params,
-));
-
-$tpl->set('referrer',isset($_GET['r']) ? rawurldecode($_GET['r']) : '');
-$tpl->set('track_online_users',erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && (string)$Params['user_parameters_unordered']['dot'] != 'true');
-$tpl->set('disable_online_tracking',(string)$Params['user_parameters_unordered']['dot'] == 'true');
-$tpl->set('click',$Params['user_parameters_unordered']['click']);
+$tpl = erLhcoreClassTemplate::getInstance('lhchat/getstatus/getstatus_migrate.tpl.php');
+$tpl->set('uparams',$Params['user_parameters_unordered']);
+$tpl->set('depId',$Params['user_parameters_unordered']['department']);
+$tpl->set('mode','widget');
 $tpl->set('position',$Params['user_parameters_unordered']['position']);
-$tpl->set('minimize_action',$Params['user_parameters_unordered']['ma']);
-$tpl->set('identifier',(!is_null($Params['user_parameters_unordered']['identifier']) && !empty($Params['user_parameters_unordered']['identifier'])) ? (string)$Params['user_parameters_unordered']['identifier'] : false);
-$tpl->set('leaveamessage',(string)$Params['user_parameters_unordered']['leaveamessage'] == 'true');
-$tpl->set('hide_offline',$Params['user_parameters_unordered']['hide_offline']);
-$tpl->set('bot_id',is_numeric($Params['user_parameters_unordered']['bot_id']) ? $Params['user_parameters_unordered']['bot_id'] : null);
-$tpl->set('fresh',is_numeric($Params['user_parameters_unordered']['fresh']) ? true : false);
-
-if (is_array($Params['user_parameters_unordered']['department'])) {
-    $parametersDepartment = erLhcoreClassChat::extractDepartment($Params['user_parameters_unordered']['department']);
-    $Params['user_parameters_unordered']['department'] = $parametersDepartment['system'];
-	$tpl->set('department',implode('/', $Params['user_parameters_unordered']['department']));
-	$tpl->set('department_array',$Params['user_parameters_unordered']['department']);	
-} else {
-	$tpl->set('department',false);
-	$tpl->set('department_array',false);
-}
-
-// Pass user arguments
-if (is_array($Params['user_parameters_unordered']['ua'])){
-	$tpl->set('uarguments',implode('/', $Params['user_parameters_unordered']['ua']));
-} else {
-	$tpl->set('uarguments',false);
-}
-
-$tpl->set('check_operator_messages',true /*$Params['user_parameters_unordered']['check_operator_messages']*/);
-$tpl->set('top_pos',(!is_null($Params['user_parameters_unordered']['top']) && (int)$Params['user_parameters_unordered']['top'] >= 0) ? (int)$Params['user_parameters_unordered']['top'] : 350);
-$tpl->set('units',key_exists((string)$Params['user_parameters_unordered']['units'], $validUnits) ? $validUnits[(string)$Params['user_parameters_unordered']['units']] : 'px');
-$tpl->set('disable_pro_active',(string)$Params['user_parameters_unordered']['disable_pro_active'] == 'true' || (string)$Params['user_parameters_unordered']['dot'] == 'true');
-$tpl->set('priority',is_numeric($Params['user_parameters_unordered']['priority']) ? (int)$Params['user_parameters_unordered']['priority'] : false);
-$tpl->set('theme',$theme);
-$tpl->set('operator',is_numeric($Params['user_parameters_unordered']['operator']) ? (int)$Params['user_parameters_unordered']['operator'] : false);
-$tpl->set('survey',is_numeric($Params['user_parameters_unordered']['survey']) ? (int)$Params['user_parameters_unordered']['survey'] : false);
-
-erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.getstatus',array('tpl' => & $tpl, 'theme' => $theme, 'validUnits' => $validUnits));
-
+$tpl->set('click',$Params['user_parameters_unordered']['click']);
+$tpl->set('leaveamessage',$Params['user_parameters_unordered']['leaveamessage'] == 'true');
+$tpl->set('disable_pro_active',$Params['user_parameters_unordered']['disable_pro_active'] == 'true');
 echo $tpl->fetch();
 exit;

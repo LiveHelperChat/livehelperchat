@@ -49,6 +49,7 @@
             contextmenu: false,
             menubar: false,
             plugins: <?php echo json_encode($mcePlugins)?>,
+            <?php if (isset($tinyMceOptions['chat_id']) && $tinyMceOptions['chat_id'] > 0) : ?>lhc_chat_id: <?php echo (int)$tinyMceOptions['chat_id']?>,<?php endif; ?>
             toolbar_mode: 'wrap',
             toolbar: <?php echo json_encode($mceToolbar)?>
         });

@@ -60,10 +60,6 @@
             'item' => 'speech',
             'enabled' => !isset($hideActionBlock)
         ),
-        'cobrowse' => array(
-            'item' => 'cobrowse',
-            'enabled' => !isset($hideActionBlock)
-        ),
         'print_archive' => array(
             'item' => 'print_archive',
             'enabled' => isset($hideActionBlock)

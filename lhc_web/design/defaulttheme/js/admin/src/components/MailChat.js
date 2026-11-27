@@ -592,6 +592,7 @@ const MailChat = props => {
                                             </button>
                                             {state.conv.id}
                                             {state.conv.follow_up_id && <a target="_blank" href={WWW_DIR_JAVASCRIPT  + "mailconv/view/" + state.conv.follow_up_id}><span className="material-icons">launch</span>{t('mail.follow_up')} {state.conv.follow_up_id}</a>}
+                                            {state.conv.follow_up_chat_id > 0 && <a className="ms-1 action-image" onClick={() => lhc.previewChat(state.conv.follow_up_chat_id)}><span className="material-icons">chat</span>{t('mail.related_chat')} {state.conv.follow_up_chat_id}</a>}
                                         </td>
                                     </tr>
                                     {state.conv.accept_time && <tr>

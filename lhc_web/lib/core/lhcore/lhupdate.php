@@ -2,8 +2,8 @@
 
 class erLhcoreClassUpdate
 {
-	const DB_VERSION = 366;
-    const LHC_RELEASE = 501;
+	const DB_VERSION = 367;
+    const LHC_RELEASE = 503;
 
 	public static function doTablesUpdate($definition){
 		$updateInformation = self::getTablesStatus($definition);
@@ -313,6 +313,28 @@ class erLhcoreClassUpdate
 			if (!empty($status)){
 				$tablesStatus[$table]['status'] .= implode(", ", $status);
 				$tablesStatus[$table]['error'] = true;
+			}
+		}
+
+		if (isset($definition['tables_drop']) && is_array($definition['tables_drop'])) {
+			foreach ($definition['tables_drop'] as $table) {
+				if (!isset($tablesStatus[$table])) {
+					$tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
+				}
+				try {
+					$stmt = $db->prepare("SHOW TABLES LIKE :table");
+					$stmt->bindValue(':table', $table);
+					$stmt->execute();
+					$tableData = $stmt->fetch(PDO::FETCH_NUM);
+
+					if (!empty($tableData)) {
+						$tablesStatus[$table]['queries'][] = "DROP TABLE IF EXISTS `{$table}`;";
+						$tablesStatus[$table]['error'] = true;
+						$tablesStatus[$table]['status'] = "legacy table will be dropped";
+					}
+				} catch (Exception $e) {
+					// Ignore
+				}
 			}
 		}
 

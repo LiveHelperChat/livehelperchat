@@ -38,6 +38,7 @@ Table "lhc_mailconv_conversation" {
   "pending_sync" tinyint(1) [not null, default: 0, note: 'Pending sync']
   "pending_import" tinyint(1) [not null, default: 0, note: 'Operator reply is waiting for import']
   "follow_up_id" bigint(20) [not null, default: 0, note: 'Follow up ID']
+  "follow_up_chat_id" bigint(20) [not null, default: 0, note: 'Related chat ID']
   "undelivered" tinyint(1) [not null, default: 0, note: 'Undelivered status']
 
   Indexes {
@@ -565,34 +566,6 @@ Table "lh_abstract_auto_responder_dep" {
   Indexes {
     autoresponder_id [name: "autoresponder_id"]
     dep_id [name: "dep_id"]
-  }
-}
-
-Table "lh_abstract_browse_offer_invitation" {
-  "id" int(11) [pk, not null, increment]
-  "siteaccess" varchar(10) [not null]
-  "time_on_site" int(11) [not null]
-  "content" longtext [not null]
-  "callback_content" longtext [not null]
-  "lhc_iframe_content" tinyint(4) [not null]
-  "custom_iframe_url" varchar(250) [not null]
-  "name" varchar(250) [not null]
-  "identifier" varchar(50) [not null]
-  "executed_times" int(11) [not null]
-  "url" varchar(250) [not null]
-  "active" int(11) [not null]
-  "has_url" int(11) [not null]
-  "is_wildcard" int(11) [not null]
-  "referrer" varchar(250) [not null]
-  "priority" varchar(250) [not null]
-  "hash" varchar(40) [not null]
-  "width" int(11) [not null]
-  "height" int(11) [not null]
-  "unit" varchar(10) [not null]
-
-  Indexes {
-    active [name: "active"]
-    identifier [name: "identifier"]
   }
 }
 
@@ -1540,19 +1513,6 @@ Table "lh_chat" {
   }
 }
 
-
-Table "lh_chatbox" {
-  "id" int(11) [pk, not null, increment]
-  "identifier" varchar(50) [not null]
-  "name" varchar(100) [not null]
-  "chat_id" int(11) [not null]
-  "active" int(11) [not null]
-
-  Indexes {
-    identifier [name: "identifier"]
-  }
-}
-
 Table "lh_chat_accept" {
   "id" int(11) [pk, not null, increment]
   "chat_id" bigint(20) [not null]
@@ -1809,26 +1769,6 @@ Table "lh_chat_voice_video" {
   }
 }
 
-Table "lh_cobrowse" {
-  "id" int(11) [pk, not null, increment]
-  "chat_id" int(11) [not null]
-  "online_user_id" int(11) [not null]
-  "mtime" int(11) [not null]
-  "url" varchar(250) [not null]
-  "initialize" longtext [not null]
-  "modifications" longtext [not null]
-  "finished" tinyint(1) [not null]
-  "w" int(11) [not null]
-  "wh" int(11) [not null]
-  "x" int(11) [not null]
-  "y" int(11) [not null]
-
-  Indexes {
-    chat_id [name: "chat_id"]
-    online_user_id [name: "online_user_id"]
-  }
-}
-
 Table "lh_departament" {
   "created_at" int(11) [not null, default: 0]
   "updated_at" int(11) [not null, default: 0]
@@ -2022,26 +1962,6 @@ Table "lh_departament_limit_group_member" {
 
   Indexes {
     dep_limit_group_id [name: "dep_limit_group_id"]
-  }
-}
-
-Table "lh_faq" {
-  "id" int(11) [pk, not null, increment]
-  "question" varchar(250) [not null]
-  "answer" text [not null]
-  "url" varchar(250) [not null]
-  "email" varchar(50) [not null]
-  "identifier" varchar(10) [not null]
-  "active" int(11) [not null]
-  "has_url" tinyint(1) [not null]
-  "is_wildcard" tinyint(1) [not null]
-
-  Indexes {
-    active [name: "active"]
-    (active, url) [name: "active_url_2"]
-    has_url [name: "has_url"]
-    identifier [name: "identifier"]
-    is_wildcard [name: "is_wildcard"]
   }
 }
 
@@ -2472,59 +2392,6 @@ Table "lh_notification_subscriber" {
     dep_id [name: "dep_id"]
     online_user_id [name: "online_user_id"]
     subscriber_hash [name: "subscriber_hash"]
-  }
-}
-
-Table "lh_question" {
-  "id" int(11) [pk, not null, increment]
-  "question" varchar(250) [not null]
-  "location" varchar(250) [not null]
-  "active" int(11) [not null]
-  "priority" int(11) [not null]
-  "is_voting" int(11) [not null]
-  "question_intro" text [not null]
-  "revote" int(11) [not null, default: 0]
-
-  Indexes {
-    priority [name: "priority"]
-    (active, priority) [name: "active_priority"]
-  }
-}
-
-Table "lh_question_answer" {
-  "id" int(11) [pk, not null, increment]
-  "ip" bigint(20) [not null]
-  "question_id" int(11) [not null]
-  "answer" text [not null]
-  "ctime" int(11) [not null]
-
-  Indexes {
-    ip [name: "ip"]
-    question_id [name: "question_id"]
-  }
-}
-
-Table "lh_question_option" {
-  "id" int(11) [pk, not null, increment]
-  "question_id" int(11) [not null]
-  "option_name" varchar(250) [not null]
-  "priority" tinyint(4) [not null]
-
-  Indexes {
-    question_id [name: "question_id"]
-  }
-}
-
-Table "lh_question_option_answer" {
-  "id" int(11) [pk, not null, increment]
-  "question_id" int(11) [not null]
-  "option_id" int(11) [not null]
-  "ctime" int(11) [not null]
-  "ip" bigint(20) [not null]
-
-  Indexes {
-    question_id [name: "question_id"]
-    ip [name: "ip"]
   }
 }
 
@@ -3089,16 +2956,6 @@ Ref: "lh_speech_language"."id" < "lh_speech_language_dialect"."language_id"
 Ref: "lh_chat"."id" < "lh_speech_chat_language"."chat_id"
 Ref: "lh_speech_language"."id" < "lh_speech_chat_language"."language_id"
 
-// lh_question_option_answer
-Ref: "lh_chat"."id" < "lh_question_option_answer"."question_id"
-Ref: "lh_question_option"."id" < "lh_question_option_answer"."option_id"
-
-// lh_question_option
-Ref: "lh_question"."id" < "lh_question_option"."question_id"
-
-// lh_question_answer
-Ref: "lh_question"."id" < "lh_question_answer"."question_id"
-
 // lh_notification_subscriber
 Ref: "lh_chat_online_user"."id" < "lh_notification_subscriber"."online_user_id"
 Ref: "lh_chat"."id" < "lh_notification_subscriber"."chat_id"
@@ -3177,9 +3034,6 @@ Ref: "lh_departament"."id" < "lh_departament_custom_work_hours"."dep_id"
 // lh_departament_availability
 Ref: "lh_departament"."id" < "lh_departament_availability"."dep_id"
 
-// lh_cobrowse
-Ref: "lh_chat"."id" < "lh_cobrowse"."chat_id"
-
 // lh_chat_voice_video
 Ref: "lh_chat"."id" < "lh_chat_voice_video"."chat_id"
 Ref: "lh_users"."id" < "lh_chat_voice_video"."user_id"
@@ -3229,9 +3083,6 @@ Ref: "lh_chat"."id" < "lh_chat_action"."chat_id"
 
 // lh_chat_accept
 Ref: "lh_chat"."id" < "lh_chat_accept"."chat_id"
-
-// lh_chatbox
-Ref: "lh_chat"."id" < "lh_chatbox"."chat_id"
 
 // lh_canned_msg_use
 Ref: "lh_canned_msg"."id" < "lh_canned_msg_use"."canned_id"

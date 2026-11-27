@@ -313,7 +313,6 @@ Example: `pos/lhchat/erlhcoreclassmodelchat.php`
 - `util/chatEventsHandler.js` - Chat events
 - `util/proactiveChat.js` - Proactive invitations
 - `util/storageHandler.js` - Local storage
-- `util/screenShare.js` - Screen sharing
 
 ---
 

@@ -1,1 +1,0 @@
-<?php $faqOptionsVariable = 'LHCFAQOptions';$chatCSSPrefix = 'lhc';?>

@@ -21,7 +21,7 @@ $ViewList['tpx'] = array(
 
 $ViewList['sendemail'] = array(
     'params' => array(),
-    'uparams' => array('chat_id','layout','var1','var2','var3','var4'),
+    'uparams' => array('chat_id','layout','var1','var2','var3','var4','escalate'),
     'functions' => array( 'send_mail' )
 );
 
@@ -152,12 +152,13 @@ $ViewList['insertfile'] = array(
 
 $ViewList['searchtemplate'] = array(
     'params' => array('id'),
-    'uparams' => array(),
+    'uparams' => array('chat_id'),
     'functions' => array( 'use_admin' )
 );
 
 $ViewList['attachtemplate'] = array(
     'params' => array('id'),
+    'uparams' => array('chat_id'),
     'functions' => array( 'use_admin' )
 );
 
@@ -449,5 +450,6 @@ $FunctionList['reply_to_all'] = array('explain' => 'Allow operators to set `Repl
 $FunctionList['merge_cross_departments'] = array('explain' => 'Allow operators to merge mails across different departments.');
 $FunctionList['block_sender'] = array('explain' => 'Allow operator to block mail sender.');
 $FunctionList['see_sensitive_information'] = array('explain' => 'Allow operator to see/send sensitive information in the messages');
+$FunctionList['email_escalation'] = array('explain' => 'Allow operator to escalate chat ticket and send e-mail based on the chat.');
 
 ?>

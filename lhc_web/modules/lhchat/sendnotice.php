@@ -5,6 +5,15 @@ $tpl = erLhcoreClassTemplate::getInstance('lhchat/sendnotice.tpl.php');
 $visitor = erLhcoreClassModelChatOnlineUser::fetch((int)$Params['user_parameters']['online_id']);
 
 $userDepartments = erLhcoreClassUserDep::parseUserDepartmetnsForFilter($currentUser->getUserID(), $currentUser->cache_version);
+
+if (!($visitor instanceof erLhcoreClassModelChatOnlineUser) || ($userDepartments !== true && !$currentUser->hasAccessTo('lhchat','sees_all_online_visitors') && !in_array($visitor->dep_id, $userDepartments))) {
+    $tpl->setFile('lhchat/errors/adminchatnopermission.tpl.php');
+    $Result['content'] = $tpl->fetch();
+    $Result['modal_header_title'] = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/adminchat', 'No permission');
+    $Result['pagelayout'] = 'modal';
+    return;
+}
+
 $tpl->set('visitor',$visitor);
 $tpl->set('limitDepartments',$userDepartments !== true ? array('filterin' => array('id' => $userDepartments)) : array());
 

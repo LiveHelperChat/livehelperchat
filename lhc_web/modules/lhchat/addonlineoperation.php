@@ -14,17 +14,10 @@ $form = new ezcInputForm( INPUT_POST, $definition );
 if (trim($form->operation) != '')
 {
 	$validOperations = array(
-		'lhc_screenshot' => 'lh_inst.makeScreenshot();',
-		'lhc_cobrowse_ou' => 'lh_inst.startCoBrowse(\'{online_user_id}_{online_user_hash}\',\'onlineuser\');',
-	    'lhc_cobrowse_multi_command__' => 'lh_inst.handleMessage()'
+		'lhc_screenshot' => 'lh_inst.makeScreenshot();'
 	);
 	
 	$operation = $form->operation;
-		
-	if (strpos($operation, 'lhc_cobrowse_multi_command__') !== false) {
-	    $validOperations['lhc_cobrowse_multi_command__'] = 'lh_inst.handleMessage('.json_encode(array('data' => str_replace('lhc_cobrowse_multi_command__', '', $operation))).');';
-	    $operation = 'lhc_cobrowse_multi_command__';
-	}
 	
 	if (array_key_exists($operation,$validOperations)) {	
 		$onlineuser = erLhcoreClassModelChatOnlineUser::fetch($Params['user_parameters']['online_user_id']);    

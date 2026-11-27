@@ -536,6 +536,7 @@ class erLhcoreClassMailconvParser {
 
                         $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
+                        $chat_id = (\preg_match("/X-LHC-CID\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
 
                         if ($mailbox->auth_method == erLhcoreClassModelMailconvMailbox::AUTH_OAUTH2) {
 
@@ -680,6 +681,9 @@ class erLhcoreClassMailconvParser {
                             // Set recipient_id if it exists
                             $recipient_id = (\preg_match("/X-LHC-RCP\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : $recipient_id;
 
+                            // Set chat_id if it exists
+                            $chat_id = (\preg_match("/X-LHC-CID\:(.*)/i", $message->rfc822_body, $matches)) ? (int)\trim($matches[1]) : $chat_id;
+
                             if (isset($head->to)) {
                                 foreach ($head->to as $to) {
                                     $to_parsed = $mailboxHandlerHelper->possiblyGetEmailAndNameFromRecipient($to);
@@ -776,6 +780,7 @@ class erLhcoreClassMailconvParser {
                         $conversations->pnd_time = time();
                         $conversations->user_id = $message->user_id;
                         $conversations->follow_up_id = $followUpConversationId;
+                        $conversations->follow_up_chat_id = $chat_id;
 
                         if ($conversations->user_id == 0 && $followUpUserId > 0) {
                             $conversations->user_id = $followUpUserId;
@@ -794,9 +799,18 @@ class erLhcoreClassMailconvParser {
                         if ($internalInit == true) {
 
                             // Operator send a message as closed
-                            $statusMessage = (\preg_match("/X-LHC-ST\:(.*)/i", $head->{$attributeToUse}, $matches)) ? (int)\trim($matches[1]) : 0;
-
-                            $conversations->status = $statusMessage == erLhcoreClassModelMailconvMessage::STATUS_ACTIVE ? erLhcoreClassModelMailconvMessage::STATUS_ACTIVE : erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+                            if (\preg_match("/X-LHC-ST\:(.*)/i", $head->{$attributeToUse}, $matches)) {
+                                $statusMessage = (int)\trim($matches[1]);
+                                if ($statusMessage == erLhcoreClassModelMailconvConversation::STATUS_ACTIVE) {
+                                    $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_ACTIVE;
+                                } elseif ($statusMessage == erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+                                    $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_PENDING;
+                                } else {
+                                    $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+                                }
+                            } else {
+                                $conversations->status = erLhcoreClassModelMailconvConversation::STATUS_CLOSED;
+                            }
 
                             if ($conversations->status == erLhcoreClassModelMailconvConversation::STATUS_CLOSED) {
                                 $conversations->cls_time = time();
@@ -804,12 +818,14 @@ class erLhcoreClassMailconvParser {
 
                             $conversations->start_type = erLhcoreClassModelMailconvConversation::START_OUT;
 
-                            // It was just a send messages we can set all required attributes as this messages was processed
-                            $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL;
-                            $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
-                            $message->lr_time = time();
-                            $message->accept_time = time();
-                            $message->cls_time = time();
+                            if ($conversations->status != erLhcoreClassModelMailconvConversation::STATUS_PENDING) {
+                                // It was just a send messages we can set all required attributes as this messages was processed
+                                $message->response_type = erLhcoreClassModelMailconvMessage::RESPONSE_INTERNAL;
+                                $message->status = erLhcoreClassModelMailconvMessage::STATUS_RESPONDED;
+                                $message->lr_time = time();
+                                $message->accept_time = time();
+                                $message->cls_time = time();
+                            }
                         }
 
                         if ($conversations->user_id > 0 && erLhcoreClassModelUser::getCount(['filter' => ['id' => $conversations->user_id, 'disabled' => 1]]) == 1) {

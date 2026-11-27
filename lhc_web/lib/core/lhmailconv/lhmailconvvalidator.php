@@ -1049,7 +1049,7 @@ class erLhcoreClassMailconvValidator {
         return ['success' => true, 'message_id' => $messageId];
     }
 
-    public static function validateNewEmail(& $item, $chat = null) {
+    public static function validateNewEmail(& $item, $chat = null, $params = []) {
 
         $definition = array(
             'subject' => new ezcInputFormDefinitionElement(
@@ -1095,7 +1095,7 @@ class erLhcoreClassMailconvValidator {
         }
 
         // Does it has full control over e-mail
-        if ($chat === null || erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email'))
+        if ($chat === null || (isset($params['escalate']) && $params['escalate'] === true) || erLhcoreClassUser::instance()->hasAccessTo('lhchat','chat_see_unhidden_email'))
         {
             if ( $form->hasValidData( 'from_address' ) && $form->from_address != '') {
                 $item->from_address = $form->from_address;

@@ -1933,26 +1933,6 @@ class erLhcoreClassChat {
    		return false;
    }
 
-   public static function canReopenDirectly($params = array()) {
-	   	if (($chatPart = CSCacheAPC::getMem()->getSession('chat_hash_widget_resume',true)) !== false) {
-	   		try {
-		   		$parts = explode('_', $chatPart);
-		   		$chat = erLhcoreClassModelChat::fetch($parts[0]);
-		   		
-		   		if ($chat instanceof erLhcoreClassModelChat && ($chat->status_sub != erLhcoreClassModelChat::STATUS_SUB_USER_CLOSED_CHAT) && ($chat->last_user_msg_time > time()-600 || $chat->last_user_msg_time == 0) && (!isset($params['reopen_closed']) || $params['reopen_closed'] == 1 || ($params['reopen_closed'] == 0 && $chat->status != erLhcoreClassModelChat::STATUS_CLOSED_CHAT))) {
-		   			return array('id' => $parts[0],'hash' => $parts[1]);
-		   		} else {
-					return false;
-				}
-
-	   		} catch (Exception $e) {
-	   			return false;
-	   		}
-	   	}
-
-	   	return false;
-   }
-
    public static function reopenChatWidgetV2($onlineUser, $chat, $params) {
         if ($onlineUser->chat_id > 0) {
             $chatOld = erLhcoreClassModelChat::fetch($onlineUser->chat_id);

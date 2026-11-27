@@ -170,12 +170,6 @@ class erLhcoreClassModelChatArchiveRange
                 $stmt = $q->prepare();
                 $stmt->execute();
 
-                // Delete screen sharing
-                $q = $db->createDeleteQuery();
-                $q->deleteFrom( 'lh_cobrowse' )->where( $q->expr->eq( 'chat_id', $item->id ) );
-                $stmt = $q->prepare();
-                $stmt->execute();
-
                 // Delete auto responder
                 $q = $db->createDeleteQuery();
                 $q->deleteFrom( 'lh_abstract_auto_responder_chat' )->where( $q->expr->eq( 'chat_id', $item->id ) );

@@ -64,7 +64,19 @@ $replaceArray = [
 ];
 
 $conv = isset($_GET['c']) && is_numeric($_GET['c']) ? erLhcoreClassModelMailconvConversation::fetch((int)$_GET['c']) : null;
+if ($conv instanceof erLhcoreClassModelMailconvConversation && !erLhcoreClassChat::hasAccessToRead($conv)) {
+    $conv = null;
+}
+
 $message = isset($_GET['m']) && is_numeric($_GET['m']) ? erLhcoreClassModelMailconvMessage::fetch((int)$_GET['m']) : null;
+if ($message instanceof erLhcoreClassModelMailconvMessage && (!($message->conversation instanceof erLhcoreClassModelMailconvConversation) || !erLhcoreClassChat::hasAccessToRead($message->conversation))) {
+    $message = null;
+}
+
+$chat = isset($_GET['chat_id']) && is_numeric($_GET['chat_id']) ? erLhcoreClassModelChat::fetch((int)$_GET['chat_id']) : null;
+if ($chat instanceof erLhcoreClassModelChat && !erLhcoreClassChat::hasAccessToRead($chat)) {
+    $chat = null;
+}
 
 foreach ($items as $item) {
     $item->template = str_replace($searchArray,$replaceArray, $item->template);
@@ -73,6 +85,9 @@ foreach ($items as $item) {
     if ($conv instanceof erLhcoreClassModelMailconvConversation) {
         $item->template = erLhcoreClassGenericBotWorkflow::translateMessage($item->template, array('chat' => $conv, 'args' => ['current_user' => $currentUser->getUserData(), 'mail' => $conv, 'msg' => $message, 'chat' => $conv]));
         $item->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($item->template_plain, array('chat' => $conv, 'args' => ['current_user' => $currentUser->getUserData(), 'mail' => $conv, 'msg' => $message, 'chat' => $conv]));
+    } elseif ($chat instanceof erLhcoreClassModelChat) {
+        $item->template = erLhcoreClassGenericBotWorkflow::translateMessage($item->template, array('chat' => $chat, 'args' => ['current_user' => $currentUser->getUserData(), 'chat' => $chat]));
+        $item->template_plain = erLhcoreClassGenericBotWorkflow::translateMessage($item->template_plain, array('chat' => $chat, 'args' => ['current_user' => $currentUser->getUserData(), 'chat' => $chat]));
     } else {
         $conv = new erLhcoreClassModelMailconvConversation();
         if ((int) $Params['user_parameters']['id'] > 0) {
@@ -85,7 +100,8 @@ foreach ($items as $item) {
 
 erLhcoreClassChatEventDispatcher::getInstance()->dispatch('mailconv.replace_variables', array(
     'items' => & $items,
-    'dep_id' => $Params['user_parameters']['id']
+    'dep_id' => $Params['user_parameters']['id'],
+    'chat' => $chat
 ));
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/searchtemplate.tpl.php');

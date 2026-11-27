@@ -2,7 +2,7 @@
 
 $tpl = erLhcoreClassTemplate::getInstance('lhmailconv/attatchtemplate.tpl.php');
 
-$tpl->set('dep_id', 0);
+$depId = 0;
 
 if (is_numeric($Params['user_parameters']['id'])) {
     $message = erLhcoreClassModelMailconvMessage::fetch($Params['user_parameters']['id']);
@@ -10,7 +10,7 @@ if (is_numeric($Params['user_parameters']['id'])) {
         $conv = $message->conversation;
         if ($conv instanceof erLhcoreClassModelMailconvConversation && erLhcoreClassChat::hasAccessToRead($conv) )
         {
-            $tpl->set('dep_id', $conv->dep_id);
+            $depId = $conv->dep_id;
             $tpl->set('conversation_id',$conv->id);
             $tpl->set('message_id',$message->id);
         }
@@ -18,9 +18,21 @@ if (is_numeric($Params['user_parameters']['id'])) {
 } else {
     $mailbox = erLhcoreClassModelMailconvMailbox::findOne(['filter' => ['mail' => $Params['user_parameters']['id']]]);
     if ($mailbox instanceof erLhcoreClassModelMailconvMailbox && $mailbox->dep_id > 0) {
-        $tpl->set('dep_id', $mailbox->dep_id);
+        $depId = $mailbox->dep_id;
     }
 }
+
+if (isset($Params['user_parameters_unordered']['chat_id']) && is_numeric($Params['user_parameters_unordered']['chat_id'])) {
+    $chat = erLhcoreClassModelChat::fetch($Params['user_parameters_unordered']['chat_id']);
+    if ($chat instanceof erLhcoreClassModelChat && erLhcoreClassChat::hasAccessToRead($chat)) {
+        $tpl->set('chat_id', $chat->id);
+        if ($depId == 0 && $chat->dep_id > 0) {
+            $depId = $chat->dep_id;
+        }
+    }
+}
+
+$tpl->set('dep_id', $depId);
 
 $Result['content'] = $tpl->fetch();
 $Result['pagelayout'] = 'popup';

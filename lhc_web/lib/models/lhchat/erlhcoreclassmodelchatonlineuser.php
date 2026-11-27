@@ -226,84 +226,8 @@ class erLhcoreClassModelChatOnlineUser
                 break;
 
             case 'operator_message_front':
-                    $this->operator_message_front = $this->operator_message;
-                    $replaceArray = array();
-                    foreach ($this->chat_variables_array as $keyItem => $addItem) {
-                        $replaceArray['{lhc.var.' . $keyItem . '}'] = $addItem;
-
-                        // If variable holds JSON (string or array) also expose its keys as {lhc.var.variable.key}
-                        // Do it only if message actually references this variable and value looks like JSON
-                        if (strpos($this->operator_message_front, '{lhc.var.' . $keyItem . '.') !== false) {
-
-                            $addItemJson = false;
-                            if (is_array($addItem)) {
-                                $addItemJson = $addItem;
-                            } elseif (is_string($addItem) && $addItem !== '' && ($addItem[0] === '{' || $addItem[0] === '[')) {
-                                $addItemJson = json_decode($addItem, true);
-                            }
-
-                            if (is_array($addItemJson)) {
-                                foreach ($addItemJson as $subKey => $subValue) {
-                                    if (is_scalar($subValue) || is_null($subValue)) {
-                                        $replaceArray['{lhc.var.' . $keyItem . '.' . $subKey . '}'] = (string)$subValue;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    foreach ($this->online_attr_array as $keyItem => $addItem) {
-                        if (!is_string($addItem) || (is_string($addItem) && ($addItem != ''))) {
-                            if (isset($addItem['identifier'])) {
-                                $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = $addItem['value'];
-                            } else if (isset($addItem['key'])) {
-                                $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = $addItem['value'];
-                            }
-                        }
-                    }
-
-                    $replaceCustomArgs = [];
-
-                    $matchesMessage = [];
-                    preg_match_all('/\{[A-Za-z0-9\_]+\}/is',$this->operator_message_front, $matchesMessage);
-                    if (isset($matchesMessage[0]) && !empty($matchesMessage[0])) {
-                        foreach ($matchesMessage[0] as $replaceItem) {
-                            if (key_exists($replaceItem,$replaceArray) == false) {
-                                $replaceCustomArgs[] = $replaceItem;
-                            }
-                        }
-                    }
-
-                    $replaceCustomArgs = array_unique($replaceCustomArgs);
-
-                    if (!empty($replaceCustomArgs)) {
-                        $identifiers = [];
-                        $identifiersApplied = [];
-                        foreach ($replaceCustomArgs as $replaceArg) {
-                            $identifiers[] = str_replace(['{','}'],'', $replaceArg);
-                        }
-
-                        $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
-                                'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
-                                'limit' => false,
-                                'filterin' => array('identifier' => $identifiers))
-                        );
-
-                        foreach ($replaceRules as $replaceRule) {
-                            if ($replaceRule->is_active && !in_array($replaceRule->identifier,$identifiersApplied)) {
-                                $replaceArray['{' . $replaceRule->identifier . '}'] = $replaceRule->getValueReplace(['chat' => $this]);
-                                $identifiersApplied[] = $replaceRule->identifier;
-                            }
-                        }
-                    }
-
-                    if (!empty($replaceArray)){
-                        $this->operator_message_front = str_replace(array_keys($replaceArray), array_values($replaceArray), $this->operator_message_front);
-                    }
-                    
-                    $this->operator_message_front = preg_replace('/{lhc.add.(.*)}/','',$this->operator_message_front);
-
-                    return $this->operator_message_front;
+                $this->operator_message_front = $this->processOperatorMessage($this->operator_message);
+                return $this->operator_message_front;
                 break;
 
             case 'can_view_chat':
@@ -482,6 +406,109 @@ class erLhcoreClassModelChatOnlineUser
             default:
                 break;
         }
+    }
+
+    public function processOperatorMessage($message)
+    {
+        if ($message === '' || $message === null) {
+            return '';
+        }
+
+        $replaceArray = array();
+
+        if (is_array($this->chat_variables_array)) {
+            foreach ($this->chat_variables_array as $keyItem => $addItem) {
+                if (is_scalar($addItem) || is_null($addItem)) {
+                    $replaceArray['{lhc.var.' . $keyItem . '}'] = (string)$addItem;
+                }
+
+                // If variable holds JSON (string or array) also expose its keys as {lhc.var.variable.key}
+                // Do it only if message actually references this variable and value looks like JSON
+                if (strpos($message, '{lhc.var.' . $keyItem . '.') !== false) {
+
+                    $addItemJson = false;
+                    if (is_array($addItem)) {
+                        $addItemJson = $addItem;
+                    } elseif (is_string($addItem) && $addItem !== '' && ($addItem[0] === '{' || $addItem[0] === '[')) {
+                        $addItemJson = json_decode($addItem, true);
+                    }
+
+                    if (is_array($addItemJson)) {
+                        foreach ($addItemJson as $subKey => $subValue) {
+                            if (is_scalar($subValue) || is_null($subValue)) {
+                                $replaceArray['{lhc.var.' . $keyItem . '.' . $subKey . '}'] = (string)$subValue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (is_array($this->online_attr_array)) {
+            foreach ($this->online_attr_array as $keyItem => $addItem) {
+                if (is_array($addItem) && array_key_exists('value', $addItem) && (is_scalar($addItem['value']) || is_null($addItem['value']))) {
+                    if (isset($addItem['identifier'])) {
+                        $replaceArray['{lhc.add.' . $addItem['identifier'] . '}'] = (string)$addItem['value'];
+                    } else if (isset($addItem['key'])) {
+                        $replaceArray['{lhc.add.' . $addItem['key'] . '}'] = (string)$addItem['value'];
+                    }
+                }
+            }
+        }
+
+        $replaceCustomArgs = [];
+
+        $matchesMessage = [];
+        preg_match_all('/\{[A-Za-z0-9\_]+\}/is', $message, $matchesMessage);
+        if (isset($matchesMessage[0]) && !empty($matchesMessage[0])) {
+            foreach ($matchesMessage[0] as $replaceItem) {
+                if (key_exists($replaceItem, $replaceArray) == false) {
+                    $replaceCustomArgs[] = $replaceItem;
+                }
+            }
+        }
+
+        $replaceCustomArgs = array_unique($replaceCustomArgs);
+
+        if (!empty($replaceCustomArgs)) {
+            $identifiers = [];
+            $identifiersMap = [];
+            $identifiersApplied = [];
+            foreach ($replaceCustomArgs as $replaceArg) {
+                $identifier = str_replace(['{','}'], '', $replaceArg);
+                $identifiers[] = $identifier;
+                $identifiersMap[strtolower($identifier)][] = $replaceArg;
+            }
+
+            $replaceRules = erLhcoreClassModelCannedMsgReplace::getList(array(
+                    'sort' => 'repetitiveness DESC', // Default translation will be the last one if more than one same identifier is found
+                    'limit' => false,
+                    'filterin' => array('identifier' => $identifiers))
+            );
+
+            foreach ($replaceRules as $replaceRule) {
+                $identifierLower = strtolower($replaceRule->identifier);
+                if ($replaceRule->is_active && !in_array($identifierLower, $identifiersApplied)) {
+                    $replacedValue = $replaceRule->getValueReplace(['chat' => $this]);
+                    if (isset($identifiersMap[$identifierLower])) {
+                        foreach ($identifiersMap[$identifierLower] as $matchedPlaceholder) {
+                            $replaceArray[$matchedPlaceholder] = $replacedValue;
+                        }
+                    } else {
+                        $replaceArray['{' . $replaceRule->identifier . '}'] = $replacedValue;
+                    }
+                    $identifiersApplied[] = $identifierLower;
+                }
+            }
+        }
+
+        if (!empty($replaceArray)) {
+            $message = str_replace(array_keys($replaceArray), array_values($replaceArray), $message);
+        }
+
+        $message = preg_replace('/{lhc.add.(.*)}/', '', $message);
+
+        return $message;
     }
 
     private static function validateRequestUrl($url)
@@ -1031,8 +1058,22 @@ class erLhcoreClassModelChatOnlineUser
             }
             
             if (isset($_POST['onattr']) && !empty($_POST['onattr']) && $item->online_attr != $_POST['onattr']) {
-            	$item->online_attr = $_POST['onattr'];
-            	$item->store_chat = true;
+                if (isset($paramsHandle['rest_api']) && $paramsHandle['rest_api'] === true) {
+                    $item->online_attr = $_POST['onattr'];
+                    $item->store_chat = true;
+                } else {
+                    $decodedOnAttr = json_decode($_POST['onattr'], true);
+                    if (is_array($decodedOnAttr)) {
+                        if (isset($decodedOnAttr['username']) && !erLhcoreClassChatValidator::isVisitorNickAllowed((int)$item->dep_id)) {
+                            unset($decodedOnAttr['username']);
+                        }
+                        $encodedOnAttr = json_encode($decodedOnAttr);
+                        if ($item->online_attr != $encodedOnAttr) {
+                            $item->online_attr = $encodedOnAttr;
+                            $item->store_chat = true;
+                        }
+                    }
+                }
             }
             	
             if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
@@ -1044,8 +1085,13 @@ class erLhcoreClassModelChatOnlineUser
                     $onlineAttr = array();
                 }
 
+                $visitorNickAllowed = (isset($paramsHandle['rest_api']) && $paramsHandle['rest_api'] === true) || erLhcoreClassChatValidator::isVisitorNickAllowed((int)$item->dep_id);
+
                 if (isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr']))) {
                     $onlineAttr = $_GET['onattr'];
+                    if ($visitorNickAllowed === false && isset($onlineAttr['username'])) {
+                        unset($onlineAttr['username']);
+                    }
                 }
 
                 if ($item->has_message_from_operator == true) {
@@ -1101,8 +1147,11 @@ class erLhcoreClassModelChatOnlineUser
                     }
                 }
 
-                if (isset($_GET['prefill'])) {
+                if (isset($_GET['prefill']) && is_array($_GET['prefill'])) {
                     foreach ($_GET['prefill'] as $key => $value) {
+                        if ($key === 'username' && $visitorNickAllowed === false) {
+                            continue;
+                        }
                         $onlineAttr[$key] = $value;
                     }
                 }
