@@ -67,7 +67,6 @@ try {
     		if ($department !== false) {
     			$delay = time()-$department->delay_lm;
     			if ($department->delay_lm > 0 && $chat->pnd_time < $delay) {
-    				$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
                     $responseArray['offline_mode'] = true;
     				$msg = new erLhcoreClassModelmsg();
     				$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form  [because of chat pending time]');
@@ -131,7 +130,6 @@ try {
 	    	$activated = 'false';
 	    	$department = $chat->department;
 	    	if ($department !== false) {
-	    		$baseURL = (isset($Params['user_parameters_unordered']['mode']) && $Params['user_parameters_unordered']['mode'] == 'widget') ? 'chat/chatwidget' : 'chat/startchat';
                 $responseArray['offline_mode'] = true;
 	    		/*$msg = new erLhcoreClassModelmsg();
 	    		$msg->msg = erTranslationClassLhTranslation::getInstance()->getTranslation('chat/checkchatstatus','Visitor has been redirected to contact form [because of chat status]');

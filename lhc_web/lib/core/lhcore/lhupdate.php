@@ -316,6 +316,76 @@ class erLhcoreClassUpdate
 			}
 		}
 
+		if (isset($definition['tables_drop_data']) && is_array($definition['tables_drop_data'])) {
+			foreach ($definition['tables_drop_data'] as $table => $recordsToDrop) {
+				if (!is_array($recordsToDrop)) {
+					continue;
+				}
+				if (!isset($tablesStatus[$table])) {
+					$tablesStatus[$table] = array('error' => false, 'status' => '', 'queries' => array());
+				}
+
+				$status = array();
+
+				foreach ($recordsToDrop as $record) {
+					try {
+						if (is_array($record)) {
+							if (empty($record)) {
+								continue;
+							}
+							$whereParts = array();
+							$whereSqlParts = array();
+							$descParts = array();
+							$bindParams = array();
+							$idx = 0;
+							foreach ($record as $column => $value) {
+								$paramName = ':param_' . $idx++;
+								$whereParts[] = "`{$column}` = {$paramName}";
+								$whereSqlParts[] = "`{$column}` = " . $db->quote($value);
+								$descParts[] = "{$column} = {$value}";
+								$bindParams[$paramName] = $value;
+							}
+
+							$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE " . implode(' AND ', $whereParts);
+							$stmt = $db->prepare($sql);
+							foreach ($bindParams as $paramName => $value) {
+								$stmt->bindValue($paramName, $value);
+							}
+							$stmt->execute();
+							$totalRecords = (int)$stmt->fetchColumn();
+
+							if ($totalRecords > 0) {
+								$status[] = "Legacy record (" . implode(', ', $descParts) . ") will be deleted";
+								$tablesStatus[$table]['queries'][] = "DELETE FROM `{$table}` WHERE " . implode(' AND ', $whereSqlParts) . ";";
+							}
+						} elseif (isset($definition['tables_data_identifier'][$table])) {
+							$tableIdentifier = $definition['tables_data_identifier'][$table];
+							$sql = "SELECT COUNT(*) as total_records FROM `{$table}` WHERE `{$tableIdentifier}` = :identifier_value";
+							$stmt = $db->prepare($sql);
+							$stmt->bindValue(':identifier_value', $record);
+							$stmt->execute();
+							$totalRecords = (int)$stmt->fetchColumn();
+
+							if ($totalRecords > 0) {
+								$status[] = "Legacy record with identifier {$tableIdentifier} = {$record} will be deleted";
+								$tablesStatus[$table]['queries'][] = "DELETE FROM `{$table}` WHERE `{$tableIdentifier}` = " . $db->quote($record) . ";";
+							}
+						}
+					} catch (Exception $e) {
+						// Perhaps table does not exist
+					}
+				}
+
+				if (!empty($status)) {
+					if (!empty($tablesStatus[$table]['status'])) {
+						$tablesStatus[$table]['status'] .= ', ';
+					}
+					$tablesStatus[$table]['status'] .= implode(", ", $status);
+					$tablesStatus[$table]['error'] = true;
+				}
+			}
+		}
+
 		if (isset($definition['tables_drop']) && is_array($definition['tables_drop'])) {
 			foreach ($definition['tables_drop'] as $table) {
 				if (!isset($tablesStatus[$table])) {

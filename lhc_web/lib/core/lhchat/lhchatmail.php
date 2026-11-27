@@ -247,56 +247,6 @@ class erLhcoreClassChatMail {
     	$mail->ClearAddresses();
     }
 
-    public static function sendMailFAQ($faq) {
-
-    	$sendMail = erLhAbstractModelEmailTemplate::fetch(6);
-        $sendMail->translate();
-
-    	$mail = new PHPMailer();
-    	$mail->CharSet = "UTF-8";
-
-    	$mail->FromName = $sendMail->from_name;
-    	
-    	if ($sendMail->from_email != '') {
-    		$mail->From = $mail->Sender = $sendMail->from_email;
-    	}
-
-    	if ($faq->email != ''){    
-    		$mail->AddReplyTo($faq->email);
-    	}
-
-    	$mail->Subject = $sendMail->subject;
-    	
-    	$mail->Body = str_replace(array('{email}','{question}','{url_request}','{url_question}'), array($faq->email,$faq->question,erLhcoreClassSystem::getHost() . erLhcoreClassDesign::baseurl('user/login').'/(r)/'.rawurlencode(base64_encode('faq/view/'.$faq->id)),$faq->url), $sendMail->content);
-    	
-    	if ($sendMail->recipient != '') { // Perhaps template has default recipient
-    		$emailRecipient = explode(',',$sendMail->recipient);
-    	} else { // Lets find first user and send them an e-mail
-    		$list = erLhcoreClassModelUser::getUserList(array('limit' => 1,'sort' => 'id ASC'));
-    		$user = array_pop($list);
-    		$emailRecipient = array($user->email);
-    	}
-    	
-    	foreach ($emailRecipient as $receiver) {
-    		$mail->AddAddress( $receiver );
-    	}
-    	
-    	self::setupSMTP($mail);
-
-        if (!$mail->Send()) {
-            erLhcoreClassLog::write( $mail->ErrorInfo,
-                ezcLog::SUCCESS_AUDIT,
-                array(
-                    'source' => 'lhc',
-                    'category' => 'web_exception',
-                    'line' => __LINE__,
-                    'file' => __FILE__,
-                    'object_id' => 0
-                )
-            );
-        }
-    }
-    
     public static function sendMailRequestPermission(erLhcoreClassModelUser $recipient, erLhcoreClassModelUser $sender, $requestedPermissions) {
         $sendMail = erLhAbstractModelEmailTemplate::fetch(10);
         $sendMail->translate();

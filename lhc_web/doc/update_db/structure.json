@@ -11025,13 +11025,6 @@
         "hidden": "0"
       },
       {
-        "identifier": "preload_iframes",
-        "value": "0",
-        "type": "0",
-        "explain": "Preload widget. It will avoid loading delay after clicking widget",
-        "hidden": "0"
-      },
-      {
         "identifier": "min_phone_length",
         "value": "8",
         "type": "0",
@@ -11109,13 +11102,6 @@
         "hidden": "0"
       },
       {
-        "identifier": "automatically_reopen_chat",
-        "value": "1",
-        "type": "0",
-        "explain": "Automatically reopen chat on widget open",
-        "hidden": "0"
-      },
-      {
         "identifier": "autopurge_timeout",
         "value": "0",
         "type": "0",
@@ -11158,13 +11144,6 @@
         "hidden": "0"
       },
       {
-        "identifier": "on_close_exit_chat",
-        "value": "0",
-        "type": "0",
-        "explain": "On chat close exit chat",
-        "hidden": "0"
-      },
-      {
         "identifier": "bbc_button_visible",
         "value": "1",
         "type": "0",
@@ -11193,13 +11172,6 @@
         "hidden": "0"
       },
       {
-        "identifier": "chatbox_data",
-        "value": "a:6:{i:0;b:0;s:20:\"chatbox_auto_enabled\";i:0;s:19:\"chatbox_secret_hash\";s:9:\"9e2e125yq\";s:20:\"chatbox_default_name\";s:7:\"Chatbox\";s:17:\"chatbox_msg_limit\";i:50;s:22:\"chatbox_default_opname\";s:7:\"Manager\";}",
-        "type": "0",
-        "explain": "Chatbox configuration",
-        "hidden": "1"
-      },
-      {
         "identifier": "customer_company_name",
         "value": "Live Helper Chat",
         "type": "0",
@@ -11226,20 +11198,6 @@
         "type": "0",
         "explain": "Default theme ID.",
         "hidden": "1"
-      },
-      {
-        "identifier": "disable_html5_storage",
-        "value": "1",
-        "type": "0",
-        "explain": "Disable HMTL5 storage, check it if your site is switching between http and https",
-        "hidden": "0"
-      },
-      {
-        "identifier": "disable_popup_restore",
-        "value": "0",
-        "type": "0",
-        "explain": "Disable option in widget to open new window. Restore icon will be hidden",
-        "hidden": "0"
       },
       {
         "identifier": "disable_print",
@@ -11281,13 +11239,6 @@
         "value": "",
         "type": "0",
         "explain": "Chats export secret hash",
-        "hidden": "0"
-      },
-      {
-        "identifier": "faq_email_required",
-        "value": "0",
-        "type": "0",
-        "explain": "Is visitor e-mail required for FAQ",
         "hidden": "0"
       },
       {
@@ -11358,13 +11309,6 @@
         "value": "",
         "type": "0",
         "explain": "Which ip should not be allowed to be blocked",
-        "hidden": "0"
-      },
-      {
-        "identifier": "track_if_offline",
-        "value": "0",
-        "type": "0",
-        "explain": "Track online visitors even if there is no online operators",
         "hidden": "0"
       },
       {
@@ -11459,25 +11403,11 @@
         "hidden": "0"
       },
       {
-        "identifier": "pro_active_show_if_offline",
-        "value": "0",
-        "type": "0",
-        "explain": "Should invitation logic be executed if there is no online operators",
-        "hidden": "0"
-      },
-      {
         "identifier": "notice_message",
         "value": "",
         "type": "0",
         "explain": "",
         "hidden": "1"
-      },
-      {
-        "identifier": "reopen_as_new",
-        "value": "1",
-        "type": "0",
-        "explain": "Reopen closed chat as new? Otherwise it will be reopened as active.",
-        "hidden": "0"
       },
       {
         "identifier": "reopen_chat_enabled",
@@ -11634,20 +11564,6 @@
         "hidden": "1"
       },
       {
-        "identifier": "suggest_leave_msg",
-        "value": "1",
-        "type": "0",
-        "explain": "Suggest user to leave a message then user chooses offline department",
-        "hidden": "0"
-      },
-      {
-        "identifier": "no_wildcard_cookie",
-        "value": "0",
-        "type": "0",
-        "explain": "Cookie should be valid only for domain where Javascript is embedded (excludes subdomains)",
-        "hidden": "0"
-      },
-      {
         "identifier": "checkstatus_timeout",
         "value": "0",
         "type": "0",
@@ -11716,13 +11632,6 @@
         "type": "0",
         "explain": "Translation data",
         "hidden": "1"
-      },
-      {
-        "identifier": "voting_days_limit",
-        "value": "7",
-        "type": "0",
-        "explain": "How many days voting widget should not be expanded after last show",
-        "hidden": "0"
       },
       {
         "identifier": "guardrails_enabled",
@@ -12365,23 +12274,6 @@
         "translations": ""
       },
       {
-        "id": "6",
-        "name": "New FAQ question",
-        "from_name": "Live Helper Chat",
-        "from_name_ac": "0",
-        "from_email": "",
-        "from_email_ac": "0",
-        "content": "Hello,\r\n\r\nNew FAQ question\r\nEmail: {email}\r\n\r\nQuestion:\r\n{question}\r\n\r\nQuestion URL:\r\n{url_question}\r\n\r\nURL to answer a question:\r\n{url_request}\r\n\r\nSincerely,\r\nLive Support Team",
-        "subject": "New FAQ question",
-        "bcc_recipients": "",
-        "subject_ac": "0",
-        "reply_to": "",
-        "reply_to_ac": "0",
-        "recipient": "",
-        "user_mail_as_sender": "0",
-        "translations": ""
-      },
-      {
         "id": "7",
         "name": "New unread message",
         "from_name": "Live Helper Chat",
@@ -12534,6 +12426,42 @@
     "lh_question_option",
     "lh_question_option_answer"
   ],
+  "tables_drop_data" : {
+    "lh_chat_config" : [
+      "automatically_reopen_chat",
+      "chatbox_data",
+      "disable_html5_storage",
+      "disable_iframe_sharing",
+      "disable_js_execution",
+      "disable_popup_restore",
+      "faq_email_required",
+      "no_wildcard_cookie",
+      "on_close_exit_chat",
+      "preload_iframes",
+      "pro_active_show_if_offline",
+      "reopen_as_new",
+      "sharing_auto_allow",
+      "sharing_nodejs_enabled",
+      "sharing_nodejs_path",
+      "sharing_nodejs_secure",
+      "sharing_nodejs_sllocation",
+      "sharing_nodejs_socket_host",
+      "suggest_leave_msg",
+      "track_if_offline",
+      "voting_days_limit"
+    ],
+    "lh_abstract_email_template" : [
+      "6"
+    ],
+    "lh_rolefunction" : [
+      {"module" : "lhbrowseoffer"},
+      {"module" : "lhchatbox"},
+      {"module" : "lhcobrowse"},
+      {"module" : "lhfaq"},
+      {"module" : "lhquestionary"},
+      {"module" : "lhsystem", "function" : "generate_js_tab"}
+    ]
+  },
   "tables_collation" : {
     "lh_abstract_auto_responder" : "utf8mb4_unicode_ci",
     "lh_abstract_auto_responder_chat" : "utf8mb4_unicode_ci",
