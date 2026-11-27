@@ -21,29 +21,6 @@ gulp.task('js-hotkeys', function () {
 		.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
-gulp.task('js-cobrowse-operator', function () {
-	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
-		'design/defaulttheme/js/cobrowse/tree-mirror.js',
-		'design/defaulttheme/js/cobrowse/jquery.selector.js',
-		'design/defaulttheme/js/cobrowse/lhc_operator.js'];
-
-	return gulp.src(stylePath)
-		.pipe(concat('cobrowse.operator.min.js'))
-		.pipe(terser())
-		.pipe(gulp.dest('design/defaulttheme/js/cobrowse/compiled'));
-});
-
-gulp.task('js-cobrowse-visitor', function () {
-	var stylePath = ['design/defaulttheme/js/cobrowse/mutation-summary.js',
-		'design/defaulttheme/js/cobrowse/tree-mirror.js',
-		'design/defaulttheme/js/cobrowse/lhc.js'];
-
-	return gulp.src(stylePath)
-		.pipe(concat('cobrowse.visitor.min.js'))
-		.pipe(terser())
-		.pipe(gulp.dest('design/defaulttheme/js/cobrowse/compiled'));
-});
-
 gulp.task('js-angular-main', function () {
 	var stylePath = ['design/defaulttheme/js/angular.lhc.js'];
 
@@ -120,13 +97,13 @@ gulp.task('js-lh', function () {
 		.pipe(gulp.dest('design/defaulttheme/js'));
 });
 
-gulp.task('js-lh-legacy', function () {
+/*gulp.task('js-lh-legacy', function () {
 	var stylePath = ['design/defaulttheme/js/lh.legacy.js'];
 	return gulp.src(stylePath)
 		.pipe(concat('lh.legacy.min.js'))
 		.pipe(terser())
 		.pipe(gulp.dest('design/defaulttheme/js'));
-});
+});*/
 
 gulp.task('js-lh-plugin', function () {
 	var stylePath = ['design/defaulttheme/js/lhc.dropdown.plugin.js'];
@@ -191,10 +168,6 @@ gulp.task('js-lh-npm', function (done) {
 	}); done();
 });
 
-gulp.task('js-cobrowse', gulp.series('js-cobrowse-operator', 'js-cobrowse-visitor', function () {
-
-}));
-
-gulp.task('default', gulp.series('js-lh-notifications', 'js-lh-dashboard', 'js-cobrowse-operator', 'js-cobrowse-visitor', 'js-modal-ext', 'js-angular-main', 'js-main-fileupload', 'js-datepicker', 'js-colorpicker', 'js-lhc-speak-js', 'js-lh', 'js-lh-legacy', 'js-lh-plugin', 'js-lh-canned', 'js-angular-checkmodel', 'js-angular-online', 'js-lh-npm'));
+gulp.task('default', gulp.series('js-lh-notifications', 'js-lh-dashboard', 'js-modal-ext', 'js-angular-main', 'js-main-fileupload', 'js-datepicker', 'js-colorpicker', 'js-lhc-speak-js', 'js-lh', 'js-lh-plugin', 'js-lh-canned', 'js-angular-checkmodel', 'js-angular-online', 'js-lh-npm'));
 
 gulp.task('webpack', gulp.series('js-lh-npm'));

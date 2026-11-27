@@ -1058,8 +1058,22 @@ class erLhcoreClassModelChatOnlineUser
             }
             
             if (isset($_POST['onattr']) && !empty($_POST['onattr']) && $item->online_attr != $_POST['onattr']) {
-            	$item->online_attr = $_POST['onattr'];
-            	$item->store_chat = true;
+                if (isset($paramsHandle['rest_api']) && $paramsHandle['rest_api'] === true) {
+                    $item->online_attr = $_POST['onattr'];
+                    $item->store_chat = true;
+                } else {
+                    $decodedOnAttr = json_decode($_POST['onattr'], true);
+                    if (is_array($decodedOnAttr)) {
+                        if (isset($decodedOnAttr['username']) && !erLhcoreClassChatValidator::isVisitorNickAllowed((int)$item->dep_id)) {
+                            unset($decodedOnAttr['username']);
+                        }
+                        $encodedOnAttr = json_encode($decodedOnAttr);
+                        if ($item->online_attr != $encodedOnAttr) {
+                            $item->online_attr = $encodedOnAttr;
+                            $item->store_chat = true;
+                        }
+                    }
+                }
             }
             	
             if (isset($paramsHandle['pages_count']) && $paramsHandle['pages_count'] == true) {
@@ -1071,8 +1085,13 @@ class erLhcoreClassModelChatOnlineUser
                     $onlineAttr = array();
                 }
 
+                $visitorNickAllowed = (isset($paramsHandle['rest_api']) && $paramsHandle['rest_api'] === true) || erLhcoreClassChatValidator::isVisitorNickAllowed((int)$item->dep_id);
+
                 if (isset($_GET['onattr']) && is_array($_GET['onattr']) && !(empty($_GET['onattr']))) {
                     $onlineAttr = $_GET['onattr'];
+                    if ($visitorNickAllowed === false && isset($onlineAttr['username'])) {
+                        unset($onlineAttr['username']);
+                    }
                 }
 
                 if ($item->has_message_from_operator == true) {
@@ -1128,8 +1147,11 @@ class erLhcoreClassModelChatOnlineUser
                     }
                 }
 
-                if (isset($_GET['prefill'])) {
+                if (isset($_GET['prefill']) && is_array($_GET['prefill'])) {
                     foreach ($_GET['prefill'] as $key => $value) {
+                        if ($key === 'username' && $visitorNickAllowed === false) {
+                            continue;
+                        }
                         $onlineAttr[$key] = $value;
                     }
                 }

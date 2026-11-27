@@ -152,36 +152,37 @@ if (empty($Errors)) {
         'chat' => $chat,
         'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
-    if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
-        try {
-            $offlineData = erLhcoreClassModelChatConfig::fetch('offline_settings');
-            $data = (array)$offlineData->data;
-
-            if (!isset($data['do_not_send']) || $data['do_not_send'] == 0) {
-                erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
-            }
-
-        } catch (Exception $e) {
-            $optionsJson = JSON_FORCE_OBJECT;
-            $outputResponse = array(
-                'success' => false,
-                'errors' => [erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was a problem sending your request. Please try again later!')]
-            );
-            erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
-            exit;
-        }
-    }
-
-    erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request', array(
-        'input_data' => $inputData,
-        'chat' => $chat,
-        'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
-
     try {
         $db = ezcDbInstance::get();
         $db->beginTransaction();
 
         $requestSaved = erLhcoreClassChatValidator::saveOfflineRequest(array('chatprefill' => (isset($chatPrefill) ? $chatPrefill : false), 'chat' => & $chat, 'input_data' => $inputData, 'question' => ($inputData->question ?? '')));
+
+        if (!isset($attributePresend['status']) || $attributePresend['status'] !== erLhcoreClassChatEventDispatcher::STOP_WORKFLOW) {
+            try {
+                $offlineData = erLhcoreClassModelChatConfig::fetch('offline_settings');
+                $data = (array)$offlineData->data;
+
+                if (!isset($data['do_not_send']) || $data['do_not_send'] == 0) {
+                    erLhcoreClassChatMail::sendMailRequest($inputData, $chat, array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false));
+                }
+
+            } catch (Exception $e) {
+                $db->rollback();
+                $optionsJson = JSON_FORCE_OBJECT;
+                $outputResponse = array(
+                    'success' => false,
+                    'errors' => [erTranslationClassLhTranslation::getInstance()->getTranslation('chat/startchat','There was a problem sending your request. Please try again later!')]
+                );
+                erLhcoreClassRestAPIHandler::outputResponse($outputResponse, 'json', isset($optionsJson) ? $optionsJson : 0);
+                exit;
+            }
+        }
+
+        erLhcoreClassChatEventDispatcher::getInstance()->dispatch('chat.chat_offline_request', array(
+            'input_data' => $inputData,
+            'chat' => $chat,
+            'prefill' => array('chatprefill' => isset($chatPrefill) ? $chatPrefill : false)));
 
         // Assign chat to user
         if ( erLhcoreClassModelChatConfig::fetch('track_online_visitors')->current_value == 1 && is_numeric($chat->id)) {

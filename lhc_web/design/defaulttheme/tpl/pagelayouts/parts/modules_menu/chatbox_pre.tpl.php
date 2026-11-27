@@ -1,1 +1,0 @@
-<?php $pagelayouts_parts_modules_menu_chatbox_enabled = true?>

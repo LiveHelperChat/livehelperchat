@@ -3236,203 +3236,6 @@
         "extra": ""
       }
     ],
-    "lh_abstract_browse_offer_invitation": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "siteaccess",
-        "type": "varchar(10)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "time_on_site",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "content",
-        "type": "longtext",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "callback_content",
-        "type": "longtext",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "lhc_iframe_content",
-        "type": "tinyint(4)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "custom_iframe_url",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "name",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "identifier",
-        "type": "varchar(50)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "executed_times",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "url",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "active",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "has_url",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "is_wildcard",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "referrer",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "priority",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "hash",
-        "type": "varchar(40)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "width",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "height",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "unit",
-        "type": "varchar(10)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "created_at",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": "0",
-        "extra": ""
-      },
-      {
-        "field": "updated_at",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": "0",
-        "extra": ""
-      },
-      {
-        "field": "muser_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": "0",
-        "extra": ""
-      }
-    ],
     "lh_abstract_email_template": [
       {
         "field": "id",
@@ -5247,107 +5050,6 @@
         "extra": ""
       }
     ],
-    "lh_cobrowse": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "chat_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "online_user_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "mtime",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "finished",
-        "type": "tinyint(1)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "w",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "wh",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "x",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "y",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "url",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "initialize",
-        "type": "longtext",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "modifications",
-        "type": "longtext",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      }
-    ],
     "lh_chat": [
       {
         "field": "id",
@@ -6841,50 +6543,6 @@
       },
       {
         "field": "vtime",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      }
-    ],
-    "lh_chatbox": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "identifier",
-        "type": "varchar(50)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "name",
-        "type": "varchar(100)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "chat_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "active",
         "type": "int(11)",
         "null": "NO",
         "key": "",
@@ -8485,85 +8143,6 @@
         "extra": ""
       }
     ],
-    "lh_faq": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "question",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "answer",
-        "type": "text",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "url",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "email",
-        "type": "varchar(50)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "identifier",
-        "type": "varchar(10)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "active",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "has_url",
-        "type": "tinyint(1)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "is_wildcard",
-        "type": "tinyint(1)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      }
-    ],
     "lh_forgotpasswordhash": [
       {
         "field": "id",
@@ -8778,153 +8357,6 @@
         "default": null,
         "extra": "",
         "collation": "utf8mb4_unicode_ci"
-      }
-    ],
-    "lh_question": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "question",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "location",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "active",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "priority",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "is_voting",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "question_intro",
-        "type": "text",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "revote",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": "0",
-        "extra": ""
-      }
-    ],
-    "lh_question_answer": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "ip",
-        "type": "bigint(20)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "question_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "answer",
-        "type": "text",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "ctime",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      }
-    ],
-    "lh_question_option": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "question_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "option_name",
-        "type": "varchar(250)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": "",
-        "collation": "utf8mb4_unicode_ci"
-      },
-      {
-        "field": "priority",
-        "type": "tinyint(4)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
       }
     ],
     "lh_generic_bot_exception": [
@@ -9646,48 +9078,6 @@
         "type": "int(4)",
         "null": "NO",
         "key": "",
-        "default": null,
-        "extra": ""
-      }
-    ],
-    "lh_question_option_answer": [
-      {
-        "field": "id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "PRI",
-        "default": null,
-        "extra": "auto_increment"
-      },
-      {
-        "field": "question_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "MUL",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "option_id",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "ctime",
-        "type": "int(11)",
-        "null": "NO",
-        "key": "",
-        "default": null,
-        "extra": ""
-      },
-      {
-        "field": "ip",
-        "type": "bigint(20)",
-        "null": "NO",
-        "key": "MUL",
         "default": null,
         "extra": ""
       }
@@ -11551,13 +10941,6 @@
         "hidden": "0"
       },
       {
-        "identifier": "disable_iframe_sharing",
-        "value": "1",
-        "type": "0",
-        "explain": "Disable iframes in sharing mode",
-        "hidden": "0"
-      },
-      {
         "identifier": "remember_username",
         "value": "1",
         "type": "0",
@@ -11653,55 +11036,6 @@
         "value": "8",
         "type": "0",
         "explain": "Minimum phone number length",
-        "hidden": "0"
-      },
-      {
-        "identifier": "sharing_auto_allow",
-        "value": "0",
-        "type": "0",
-        "explain": "Do not ask permission for users to see their screen",
-        "hidden": "0"
-      },
-      {
-        "identifier": "sharing_nodejs_enabled",
-        "value": "0",
-        "type": "0",
-        "explain": "NodeJs support enabled",
-        "hidden": "0"
-      },
-      {
-        "identifier": "sharing_nodejs_secure",
-        "value": "0",
-        "type": "0",
-        "explain": "Connect to NodeJs in https mode",
-        "hidden": "0"
-      },
-      {
-        "identifier": "sharing_nodejs_path",
-        "value": "",
-        "type": "0",
-        "explain": "socket.io path, optional",
-        "hidden": "0"
-      },
-      {
-        "identifier": "disable_js_execution",
-        "value": "1",
-        "type": "0",
-        "explain": "Disable JS execution in Co-Browsing operator window",
-        "hidden": "0"
-      },
-      {
-        "identifier": "sharing_nodejs_socket_host",
-        "value": "",
-        "type": "0",
-        "explain": "Host where NodeJs is running",
-        "hidden": "0"
-      },
-      {
-        "identifier": "sharing_nodejs_sllocation",
-        "value": "https://cdn.socket.io/socket.io-1.1.0.js",
-        "type": "0",
-        "explain": "Location of SocketIO JS library",
         "hidden": "0"
       },
       {
@@ -13190,10 +12524,19 @@
     "lh_chat_online_user" : ["show_on_mobile"],
     "lh_users" : ["active_chats_counter","closed_chats_counter","pending_chats_counter"]
   },
+  "tables_drop" : [
+    "lh_abstract_browse_offer_invitation",
+    "lh_chatbox",
+    "lh_cobrowse",
+    "lh_faq",
+    "lh_question",
+    "lh_question_answer",
+    "lh_question_option",
+    "lh_question_option_answer"
+  ],
   "tables_collation" : {
     "lh_abstract_auto_responder" : "utf8mb4_unicode_ci",
     "lh_abstract_auto_responder_chat" : "utf8mb4_unicode_ci",
-    "lh_abstract_browse_offer_invitation" : "utf8mb4_unicode_ci",
     "lh_abstract_email_template" : "utf8mb4_unicode_ci",
     "lh_abstract_form" : "utf8mb4_unicode_ci",
     "lh_abstract_form_collected" : "utf8mb4_unicode_ci",
@@ -13212,7 +12555,6 @@
     "lh_canned_msg_tag" : "utf8mb4_unicode_ci",
     "lh_canned_msg_tag_link" : "utf8mb4_unicode_ci",
     "lh_chat" : "utf8mb4_unicode_ci",
-    "lh_chatbox" : "utf8mb4_unicode_ci",
     "lh_chat_accept" : "utf8mb4_unicode_ci",
     "lh_chat_archive_range" : "utf8mb4_unicode_ci",
     "lh_chat_blocked_user" : "utf8mb4_unicode_ci",
@@ -13222,7 +12564,6 @@
     "lh_chat_online_user_footprint" : "utf8mb4_unicode_ci",
     "lh_chat_paid" : "utf8mb4_unicode_ci",
     "lh_chat_start_settings" : "utf8mb4_unicode_ci",
-    "lh_cobrowse" : "utf8mb4_unicode_ci",
     "lh_departament" : "utf8mb4_unicode_ci",
     "lh_departament_custom_work_hours" : "utf8mb4_unicode_ci",
     "lh_departament_group" : "utf8mb4_unicode_ci",
@@ -13230,17 +12571,12 @@
     "lh_departament_group_user" : "utf8mb4_unicode_ci",
     "lh_departament_limit_group" : "utf8mb4_unicode_ci",
     "lh_departament_limit_group_member" : "utf8mb4_unicode_ci",
-    "lh_faq" : "utf8mb4_unicode_ci",
     "lh_forgotpasswordhash" : "utf8mb4_unicode_ci",
     "lh_group" : "utf8mb4_unicode_ci",
     "lh_grouprole" : "utf8mb4_unicode_ci",
     "lh_groupuser" : "utf8mb4_unicode_ci",
     "lh_group_work" : "utf8mb4_unicode_ci",
     "lh_msg" : "utf8mb4_unicode_ci",
-    "lh_question" : "utf8mb4_unicode_ci",
-    "lh_question_answer" : "utf8mb4_unicode_ci",
-    "lh_question_option" : "utf8mb4_unicode_ci",
-    "lh_question_option_answer" : "utf8mb4_unicode_ci",
     "lh_role" : "utf8mb4_unicode_ci",
     "lh_rolefunction" : "utf8mb4_unicode_ci",
     "lh_speech_chat_language" : "utf8mb4_unicode_ci",
@@ -13308,10 +12644,6 @@
       },
       "old" : []
     },
-    "lh_faq" : {
-      "new" : {"active_url_2" : "ALTER TABLE `lh_faq` ADD INDEX `active_url_2` (`active`,`url`(191));"},
-      "old" : ["active_url"]
-    },
     "lh_userdep" : {
       "new" : {
         "user_id_type" : "ALTER TABLE `lh_userdep` ADD INDEX `user_id_type` (`user_id`, `type`);",
@@ -13370,10 +12702,6 @@
         "default_unknown_btn" : "ALTER TABLE `lh_generic_bot_trigger` ADD INDEX `default_unknown_btn` (`default_unknown_btn`);",
         "in_progress" : "ALTER TABLE `lh_generic_bot_trigger` ADD INDEX `in_progress` (`in_progress`);"
       },
-      "old" : []
-    },
-    "lh_cobrowse" : {
-      "new" : {"online_user_id" : "ALTER TABLE `lh_cobrowse` ADD INDEX `online_user_id` (`online_user_id`);"},
       "old" : []
     },
     "lh_chat_file" : {
@@ -13683,7 +13011,6 @@
     "lh_speech_chat_language" : "CREATE TABLE IF NOT EXISTS `lh_speech_chat_language` (`id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `language_id` int(11) NOT NULL, `dialect` varchar(50) NOT NULL, PRIMARY KEY (`id`), KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_auto_responder": "CREATE TABLE `lh_abstract_auto_responder` (  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(3) NOT NULL,\n  `wait_message` text NOT NULL,`disabled` tinyint(1) NOT NULL DEFAULT '0',\n  `wait_timeout` int(11) NOT NULL,\n  `position` int(11) NOT NULL,\n  `timeout_message` text NOT NULL,\n  `created_at` int(11) NOT NULL DEFAULT 0,\n  `updated_at` int(11) NOT NULL DEFAULT 0,\n  `muser_id` int(11) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `siteaccess_position` (`siteaccess`,`position`), KEY `disabled` (`disabled`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_auto_responder_chat": "CREATE TABLE `lh_abstract_auto_responder_chat` ( `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `auto_responder_id` int(11) NOT NULL,\n  `wait_timeout_send` int(11) NOT NULL,`pending_send_status` int(11) NOT NULL, `active_send_status` int(11) NOT NULL, \n  PRIMARY KEY (`id`),\n  KEY `chat_id` (`chat_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_abstract_browse_offer_invitation": "CREATE TABLE `lh_abstract_browse_offer_invitation` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `siteaccess` varchar(10) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `content` longtext NOT NULL,\n  `callback_content` longtext NOT NULL,\n  `lhc_iframe_content` tinyint(4) NOT NULL,\n  `custom_iframe_url` varchar(250) NOT NULL,\n  `name` varchar(250) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `executed_times` int(11) NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` int(11) NOT NULL,\n  `is_wildcard` int(11) NOT NULL,\n  `referrer` varchar(250) NOT NULL,\n  `priority` varchar(250) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `width` int(11) NOT NULL,\n  `height` int(11) NOT NULL,\n  `unit` varchar(10) NOT NULL,\n  `created_at` int(11) NOT NULL DEFAULT 0,\n  `updated_at` int(11) NOT NULL DEFAULT 0,\n  `muser_id` int(11) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_email_template": "CREATE TABLE `lh_abstract_email_template` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(250) NOT NULL,\n  `from_name` varchar(150) NOT NULL,\n  `from_name_ac` tinyint(4) NOT NULL,\n  `from_email` varchar(150) NOT NULL,\n  `from_email_ac` tinyint(4) NOT NULL,\n  `content` text NOT NULL,\n  `subject` varchar(250) NOT NULL,\n  `bcc_recipients` varchar(200) NOT NULL,\n  `subject_ac` tinyint(4) NOT NULL,\n  `reply_to` varchar(150) NOT NULL,\n  `reply_to_ac` tinyint(4) NOT NULL,\n  `recipient` varchar(150) NOT NULL,\n  `created_at` int(11) NOT NULL DEFAULT 0,\n  `updated_at` int(11) NOT NULL DEFAULT 0,\n  `muser_id` int(11) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_form": "CREATE TABLE `lh_abstract_form` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(100) NOT NULL,\n  `configuration` longtext NOT NULL, `content` longtext NOT NULL,\n  `recipient` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `name_attr` varchar(250) NOT NULL,\n  `intro_attr` varchar(400) NOT NULL,\n  `xls_columns` text NOT NULL,\n  `pagelayout` varchar(200) NOT NULL,\n  `post_content` text NOT NULL,\n  `form_type` tinyint(1) NOT NULL DEFAULT 0,\n  `agent_evaluation` tinyint(1) NOT NULL DEFAULT 0,\n  `created_at` int(11) NOT NULL DEFAULT 0,\n  `updated_at` int(11) NOT NULL DEFAULT 0,\n  `muser_id` int(11) NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_form_collected": "CREATE TABLE IF NOT EXISTS `lh_abstract_form_collected` (`id` int(11) NOT NULL AUTO_INCREMENT,`form_id` int(11) NOT NULL,`ctime` int(11) NOT NULL,`ip` varchar(250) NOT NULL,`identifier` varchar(250) NOT NULL,`chat_id` bigint(20) NOT NULL,`content` longtext NOT NULL,`custom_fields` longtext NOT NULL,`user_id` bigint(20) NOT NULL DEFAULT 0,`evaluated_user_id` bigint(20) NOT NULL DEFAULT 0,`scope` tinyint(1) NOT NULL DEFAULT 0,`attr_int_1` int(11) NOT NULL DEFAULT 0,`attr_int_2` int(11) NOT NULL DEFAULT 0, `attr_int_3` int(11) NOT NULL DEFAULT 0,PRIMARY KEY (`id`),KEY `form_id_chat_id` (`form_id`,`chat_id`),KEY `evaluated_user_id_ctime` (`evaluated_user_id`,`ctime`,`form_id`,`attr_int_1`),KEY `chat_id` (`chat_id`)) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
@@ -13700,19 +13027,13 @@
     "lh_chat_online_user": "CREATE TABLE `lh_chat_online_user` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `vid` varchar(50) NOT NULL,\n  `ip` varchar(50) NOT NULL,\n  `current_page` text NOT NULL,\n  `page_title` varchar(250) NOT NULL,\n  `referrer` text NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `invitation_seen_count` int(11) NOT NULL,\n  `invitation_id` int(11) NOT NULL,\n  `last_visit` int(11) NOT NULL,\n  `first_visit` int(11) NOT NULL,\n  `total_visits` int(11) NOT NULL,\n  `pages_count` int(11) NOT NULL,\n  `tt_pages_count` int(11) NOT NULL,\n  `invitation_count` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `user_agent` varchar(250) NOT NULL,\n  `user_country_code` varchar(50) NOT NULL,\n  `user_country_name` varchar(50) NOT NULL,\n  `operator_message` varchar(250) NOT NULL,\n  `operator_user_proactive` varchar(100) NOT NULL,\n  `operator_user_id` int(11) NOT NULL,\n  `message_seen` int(11) NOT NULL,\n  `message_seen_ts` int(11) NOT NULL,\n  `lat` varchar(10) NOT NULL,\n  `lon` varchar(10) NOT NULL,\n  `city` varchar(100) NOT NULL,\n  `reopen_chat` int(11) NOT NULL,\n  `time_on_site` int(11) NOT NULL,\n  `tt_time_on_site` int(11) NOT NULL,\n  `requires_email` int(11) NOT NULL,\n  `requires_username` int(11) NOT NULL,\n  `screenshot_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `operation` varchar(200) NOT NULL,\n  `online_attr` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `vid` (`vid`),\n  KEY `dep_id` (`dep_id`),\n  KEY `last_visit_dep_id` (`last_visit`,`dep_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_online_user_footprint": "CREATE TABLE `lh_chat_online_user_footprint` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `online_user_id` int(11) NOT NULL,\n  `page` varchar(2083) NOT NULL,\n  `vtime` varchar(250) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_vtime` (`chat_id`,`vtime`),\n  KEY `online_user_id` (`online_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_online_user_footprint_update": "CREATE TABLE `lh_chat_online_user_footprint_update` (`online_user_id` bigint(20) NOT NULL,  `command` varchar(20) NOT NULL,  `args` varchar(250) NOT NULL,  `ctime` int(11) NOT NULL, KEY `online_user_id` (`online_user_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
-    "lh_chatbox": "CREATE TABLE `lh_chatbox` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `identifier` varchar(50) NOT NULL,\n  `name` varchar(100) NOT NULL,\n  `chat_id` int(11) NOT NULL,\n  `active` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `identifier` (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_departament": "CREATE TABLE `lh_departament` (`created_at` int(11) NOT NULL DEFAULT 0, `updated_at` int(11) NOT NULL DEFAULT 0, `muser_id` int(11) NOT NULL DEFAULT 0, \n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `priority` int(11) NOT NULL,\n  `department_transfer_id` int(11) NOT NULL,\n  `transfer_timeout` int(11) NOT NULL,\n  `identifier` varchar(2083) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `inform_options` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `online_hours_active` tinyint(1) NOT NULL,\n  `inform_delay` int(11) NOT NULL,\n  `inform_close` int(11) NOT NULL,\n  `xmpp_recipients` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `xmpp_group_recipients` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `disabled` int(11) NOT NULL,\n  `delay_lm` int(11) NOT NULL,\n  `hidden` int(11) NOT NULL,\n  `inform_unread` tinyint(1) NOT NULL,\n  `inform_unread_delay` int(11) NOT NULL,\n  `nc_cb_execute` tinyint(1) NOT NULL,\n  `na_cb_execute` tinyint(1) NOT NULL,\n  `active_balancing` tinyint(1) NOT NULL,\n  `max_active_chats` int(11) NOT NULL,\n  `max_timeout_seconds` int(11) NOT NULL,\n  `attr_int_1` int(11) NOT NULL DEFAULT 0,\n  `attr_int_2` int(11) NOT NULL DEFAULT 0,\n  `attr_int_3` int(11) NOT NULL DEFAULT 0,\n  `active_chats_counter` int(11) NOT NULL,\n  `pending_chats_counter` int(11) NOT NULL,\n  `visible_if_online` tinyint(1) NOT NULL,\n  `sort_priority` int(11) NOT NULL,\n  `mod_start_hour` int(4) NOT NULL DEFAULT -1,\n  `mod_end_hour` int(4) NOT NULL DEFAULT -1,\n  `tud_start_hour` int(4) NOT NULL DEFAULT -1,\n  `tud_end_hour` int(4) NOT NULL DEFAULT -1,\n  `wed_start_hour` int(4) NOT NULL DEFAULT -1,\n  `wed_end_hour` int(4) NOT NULL DEFAULT -1,\n  `thd_start_hour` int(4) NOT NULL DEFAULT -1,\n  `thd_end_hour` int(4) NOT NULL DEFAULT -1,\n  `frd_start_hour` int(4) NOT NULL DEFAULT -1,\n  `frd_end_hour` int(4) NOT NULL DEFAULT -1,\n  `sad_start_hour` int(4) NOT NULL DEFAULT -1,\n  `sad_end_hour` int(4) NOT NULL DEFAULT -1,\n  `sud_start_hour` int(4) NOT NULL DEFAULT -1,\n  `sud_end_hour` int(4) NOT NULL DEFAULT -1,\n  `inform_close_all` int(11) NOT NULL,\n  `inform_close_all_email` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `product_configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,\n  `pending_max` int(11) NOT NULL,\n  `pending_group_max` int(11) NOT NULL,\n  `exclude_inactive_chats` int(11) NOT NULL,\n  `max_ac_dep_chats` int(11) NOT NULL,\n  `delay_before_assign` int(11) NOT NULL,\n  `bot_configuration` text COLLATE utf8mb4_unicode_ci NOT NULL,\n  `assign_same_language` int(11) NOT NULL,\n  `archive` tinyint(1) NOT NULL DEFAULT 0,\n  `max_load` int(11) NOT NULL DEFAULT 0,\n  `bot_chats_counter` int(11) NOT NULL DEFAULT 0,\n  `max_load_h` int(11) NOT NULL DEFAULT 0,\n  `inactive_chats_cnt` int(11) NOT NULL DEFAULT 0,\n  `inop_chats_cnt` int(11) NOT NULL DEFAULT 0,\n  `acop_chats_cnt` int(11) NOT NULL DEFAULT 0,\n  `alias` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `max_active_mails` int(11) NOT NULL DEFAULT 0,\n  `active_mail_balancing` tinyint(1) NOT NULL,\n  `max_ac_dep_mails` int(11) NOT NULL,\n  `max_timeout_seconds_mail` int(11) NOT NULL,\n  `delay_before_assign_mail` int(11) NOT NULL,\n  `ignore_op_status` tinyint(1) unsigned NOT NULL DEFAULT 0,\n  PRIMARY KEY (`id`),\n  KEY `disabled_hidden` (`disabled`,`hidden`),\n  KEY `attr_int_1` (`attr_int_1`),\n  KEY `attr_int_2` (`attr_int_2`),\n  KEY `attr_int_3` (`attr_int_3`),\n  KEY `sort_priority_name` (`sort_priority`,`name`),\n  KEY `active_mod` (`online_hours_active`,`mod_start_hour`,`mod_end_hour`),\n  KEY `active_tud` (`online_hours_active`,`tud_start_hour`,`tud_end_hour`),\n  KEY `active_wed` (`online_hours_active`,`wed_start_hour`,`wed_end_hour`),\n  KEY `active_thd` (`online_hours_active`,`thd_start_hour`,`thd_end_hour`),\n  KEY `active_frd` (`online_hours_active`,`frd_start_hour`,`frd_end_hour`),\n  KEY `active_sad` (`online_hours_active`,`sad_start_hour`,`sad_end_hour`),\n  KEY `active_sud` (`online_hours_active`,`sud_start_hour`,`sud_end_hour`),\n  KEY `active_chats_counter` (`active_chats_counter`),\n  KEY `pending_chats_counter` (`pending_chats_counter`),\n  KEY `archive` (`archive`),\n  KEY `bot_chats_counter` (`bot_chats_counter`),\n  KEY `identifier_2` (`identifier`(768)),\n  KEY `alias` (`alias`),\n  KEY `ignore_op_status` (`ignore_op_status`)\n) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;",
     "lh_departament_custom_work_hours": "CREATE TABLE IF NOT EXISTS `lh_departament_custom_work_hours` (`id` int(11) NOT NULL AUTO_INCREMENT,`dep_id` int(11) NOT NULL,`date_from` int(11) NOT NULL,`date_to` int(11) NOT NULL,`start_hour` int(11) NOT NULL,`end_hour` int(11) NOT NULL,PRIMARY KEY (`id`),KEY `dep_id` (`dep_id`),KEY `date_from` (`date_from`),KEY `search_active` (`date_from`, `date_to`, `dep_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_faq": "CREATE TABLE `lh_faq` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `answer` text NOT NULL,\n  `url` varchar(250) NOT NULL,\n  `email` varchar(50) NOT NULL,\n  `identifier` varchar(10) NOT NULL,\n  `active` int(11) NOT NULL,\n  `has_url` tinyint(1) NOT NULL,\n  `is_wildcard` tinyint(1) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `active` (`active`),\n  KEY `active_url` (`active`,`url`),\n  KEY `has_url` (`has_url`),\n  KEY `identifier` (`identifier`),\n  KEY `is_wildcard` (`is_wildcard`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_forgotpasswordhash": "CREATE TABLE `lh_forgotpasswordhash` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `hash` varchar(40) NOT NULL,\n  `created` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_group": "CREATE TABLE `lh_group` (`created_at` int(11) NOT NULL DEFAULT 0, `updated_at` int(11) NOT NULL DEFAULT 0, `muser_id` int(11) NOT NULL DEFAULT 0, \n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_grouprole": "CREATE TABLE `lh_grouprole` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `role_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`role_id`,`group_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_groupuser": "CREATE TABLE `lh_groupuser` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `group_id` int(11) NOT NULL,\n  `user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `group_id` (`group_id`),\n  KEY `user_id` (`user_id`),\n  KEY `group_id_2` (`group_id`,`user_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_msg": "CREATE TABLE `lh_msg` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `msg` longtext NOT NULL,\n  `time` int(11) NOT NULL,\n  `chat_id` int(11) NOT NULL DEFAULT '0',\n  `user_id` int(11) NOT NULL DEFAULT '0',\n  `name_support` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `chat_id_id` (`chat_id`,`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_question": "CREATE TABLE `lh_question` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question` varchar(250) NOT NULL,\n  `location` varchar(250) NOT NULL,\n  `active` int(11) NOT NULL,\n  `priority` int(11) NOT NULL,\n  `is_voting` int(11) NOT NULL,\n  `question_intro` text NOT NULL,\n  `revote` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`id`),\n  KEY `priority` (`priority`),\n  KEY `active_priority` (`active`,`priority`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_question_answer": "CREATE TABLE `lh_question_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `ip` bigint(20) NOT NULL,\n  `question_id` int(11) NOT NULL,\n  `answer` text NOT NULL,\n  `ctime` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `ip` (`ip`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_question_option": "CREATE TABLE `lh_question_option` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_name` varchar(250) NOT NULL,\n  `priority` tinyint(4) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_question_option_answer": "CREATE TABLE `lh_question_option_answer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `question_id` int(11) NOT NULL,\n  `option_id` int(11) NOT NULL,\n  `ctime` int(11) NOT NULL,\n  `ip` bigint(20) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `question_id` (`question_id`),\n  KEY `ip` (`ip`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_role": "CREATE TABLE `lh_role` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(50) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_rolefunction": "CREATE TABLE `lh_rolefunction` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `role_id` int(11) NOT NULL,\n  `module` varchar(100) NOT NULL,\n  `function` varchar(100) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `role_id` (`role_id`)\n) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_transfer": "CREATE TABLE `lh_transfer` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `chat_id` int(11) NOT NULL,\n  `dep_id` int(11) NOT NULL,\n  `transfer_user_id` int(11) NOT NULL,\n  `from_dep_id` int(11) NOT NULL,\n  `transfer_to_user_id` int(11) NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `dep_id` (`dep_id`),\n  KEY `transfer_user_id_dep_id` (`transfer_user_id`,`dep_id`),\n  KEY `transfer_to_user_id` (`transfer_to_user_id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
@@ -13722,7 +13043,6 @@
     "lh_users_remember": "CREATE TABLE `lh_users_remember` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `mtime` int(11) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_users_setting": "CREATE TABLE `lh_users_setting` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `user_id` int(11) NOT NULL,\n  `identifier` varchar(50) NOT NULL,\n  `value` text NOT NULL,\n  PRIMARY KEY (`id`),\n  KEY `user_id` (`user_id`,`identifier`)\n) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_users_setting_option": "CREATE TABLE `lh_users_setting_option` (\n  `identifier` varchar(50) NOT NULL,\n  `class` varchar(50) NOT NULL,\n  `attribute` varchar(40) NOT NULL,\n  PRIMARY KEY (`identifier`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
-    "lh_cobrowse": "CREATE TABLE `lh_cobrowse` ( `id` int(11) NOT NULL AUTO_INCREMENT, `chat_id` int(11) NOT NULL, `mtime` int(11) NOT NULL, `url` varchar(250) NOT NULL, `initialize` longtext NOT NULL, `modifications` longtext NOT NULL, `finished` tinyint(1) NOT NULL, `w` int(11) NOT NULL, `wh` int(11) NOT NULL, `x` int(11) NOT NULL, `y` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_chat_paid": "CREATE TABLE `lh_chat_paid` ( `id` int(11) NOT NULL AUTO_INCREMENT,  `hash` varchar(250) NOT NULL,  `chat_id` int(11) NOT NULL,  PRIMARY KEY (`id`),  KEY `hash` (`hash`(191)),  KEY `chat_id` (`chat_id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_rest_api_key": "CREATE TABLE `lh_abstract_rest_api_key` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL,  `user_id` int(11) NOT NULL,  `active` int(11) NOT NULL DEFAULT '0',  `created_at` int(11) NOT NULL DEFAULT 0, `updated_at` int(11) NOT NULL DEFAULT 0, `muser_id` int(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`),  KEY `user_id` (`user_id`),  KEY `api_key_active` (`api_key`,`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",
     "lh_abstract_rest_api_key_remote": "CREATE TABLE `lh_abstract_rest_api_key_remote` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `api_key` varchar(50) NOT NULL, `username` varchar(50) NOT NULL, `name` varchar(50) NOT NULL,  `host` varchar(250) NOT NULL, `active` tinyint(1) NOT NULL DEFAULT '0', `position` int(11) NOT NULL DEFAULT '0',  `created_at` int(11) NOT NULL DEFAULT 0, `updated_at` int(11) NOT NULL DEFAULT 0, `muser_id` int(11) NOT NULL DEFAULT 0, PRIMARY KEY (`id`), KEY `active` (`active`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci",

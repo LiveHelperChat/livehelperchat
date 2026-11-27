@@ -139,7 +139,6 @@ class erLhcoreClassModelChat {
            'lh_msg',
            'lh_chat_action',
            'lh_chat_online_user_footprint',
-           'lh_cobrowse',
            'lh_speech_chat_language',
            'lh_abstract_survey_item',
            'lh_chat_paid',

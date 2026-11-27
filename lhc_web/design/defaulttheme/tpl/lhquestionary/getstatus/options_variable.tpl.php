@@ -1,1 +1,0 @@
-<?php $questionaryOptionsVariable = 'LHCVotingOptions';$chatCSSPrefix = 'lhc';?>

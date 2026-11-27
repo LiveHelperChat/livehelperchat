@@ -1,1 +1,0 @@
-<?php $pagelayouts_parts_modules_menu_questionary_enabled = true?>

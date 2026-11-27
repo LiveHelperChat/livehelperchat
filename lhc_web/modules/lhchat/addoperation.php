@@ -23,9 +23,6 @@ if (trim($form->operation) != '')
         case 'lhc_screenshot':
             erLhcoreClassChatEventDispatcher::getInstance()->dispatch('file.before_screenshot_addoperacion',array('chat' => & $Chat, 'errors' => & $errors));
             break;
-        case (preg_match('/^lhc_cobrowse/', $form->operation) ? true : false):
-            erLhcoreClassChatEventDispatcher::getInstance()->dispatch('cobrowse.before_started',array('chat' => & $Chat, 'errors' => & $errors));
-            break;
     }
 
     if(empty($errors)) {

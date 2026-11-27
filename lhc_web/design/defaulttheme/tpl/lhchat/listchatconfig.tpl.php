@@ -130,7 +130,7 @@
 
                 <?php $attribute = 'valid_domains'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-				<p class="text-muted small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig', 'Use exact hostnames, including each subdomain. Include the chat server hostname for hosted popups and legacy widgets. Origin headers can be forged and are not an authentication mechanism.');?></p>
+				<p class="text-muted small"><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig', 'Use exact hostnames, including each subdomain. Include the chat server hostname for hosted popups. Origin headers can be forged and are not an authentication mechanism.');?></p>
     		    		    		    
     		    <?php $attribute = 'explicit_http_mode'?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
@@ -169,7 +169,7 @@
     		    <?php $attribute = 'bbc_button_visible';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
-                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','New and old widget supported attribute');?></h5>
+                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Reopen chat');?></h5>
     		    <?php $attribute = 'reopen_chat_enabled';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
@@ -178,13 +178,6 @@
 
                 <?php $attribute = 'open_closed_chat_timeout'?>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-
-                <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Old widget supported attribute');?></h5>
-    		    <?php $attribute = 'reopen_as_new';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		    		    
-    		    <?php $attribute = 'automatically_reopen_chat';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
 
                 <h5><?php echo erTranslationClassLhTranslation::getInstance()->getTranslation('chat/listchatconfig','Other attributes');?></h5>
                 <?php include(erLhcoreClassDesign::designtpl('lhchat/part/listchatconfig/reverse_order_pending.tpl.php'));?>
@@ -245,9 +238,6 @@
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		     
     		    <?php $attribute = 'ignore_user_status';$boolValue = true;?>
-    		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
-    		     
-    		    <?php $attribute = 'faq_email_required';$boolValue = true;?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>
     		    <hr>	
     		    <?php $attribute = 'show_language_switcher';$boolValue = true;?>
@@ -342,8 +332,6 @@
     		    <?php $attribute = 'inform_unread_message';?>
     		    <?php include(erLhcoreClassDesign::designtpl('lhchat/part/chat_settings.tpl.php'));?>    		    
 			</div>
-
-			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/screen_sharing.tpl.php'));?>
 
 			<?php include(erLhcoreClassDesign::designtpl('lhchat/listchatconfig/gdpr.tpl.php'));?>
 

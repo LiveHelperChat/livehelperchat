@@ -286,16 +286,6 @@ $fields = array(
    						'validation_definition' => new ezcInputFormDefinitionElement(
    								ezcInputFormDefinitionElement::OPTIONAL, 'boolean'
    						)),
-                    'load_w2' => array(
-                        'type' => 'checkbox',
-                        'main_attr' => 'bot_configuration_array',
-                        'trans' => erTranslationClassLhTranslation::getInstance()->getTranslation('abstract/widgettheme','Use a new widget look for old embed code. If you can not change easily old embed codes you can force system to load new widget still.'),
-                        'required' => false,
-                        'hidden' => true,
-                        'nginit' => true,
-                        'validation_definition' => new ezcInputFormDefinitionElement(
-                            ezcInputFormDefinitionElement::OPTIONAL, 'unsafe_raw'
-                        )),
                     'drag_enabled' => array(
                         'type' => 'checkbox',
                         'main_attr' => 'bot_configuration_array',
