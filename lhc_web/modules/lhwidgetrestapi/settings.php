@@ -461,10 +461,24 @@ if (isset($startDataFields['pre_conditions']) && !empty($startDataFields['pre_co
     }
 }
 
-$needHelpTimeout = isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value;
+$hasNeedHelpTheme = isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme;
+$needHelpOnClick = $hasNeedHelpTheme && !empty($theme->bot_configuration_array['need_help_on_click']);
+$needHelpTimeout = $hasNeedHelpTheme ? $theme->show_need_help_timeout : erLhcoreClassModelChatConfig::fetch('need_help_tip_timeout')->current_value;
+$needHelpEnabled = $hasNeedHelpTheme ? $theme->show_need_help == 1 : !isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1;
+if ($needHelpEnabled && $hasNeedHelpTheme && !empty($theme->bot_configuration_array['hide_mobile_nh'])) {
+    if (isset($userInstance) && $userInstance !== false) {
+        $needHelpEnabled = in_array($userInstance->device_type, [1, 3]);
+    } elseif ($needHelpOnClick) {
+        // A settings refresh and a visitor without tracking both have no online-user record.
+        $detect = new Mobile_Detect();
+        $needHelpEnabled = !$detect->isMobile() || $detect->isTablet();
+    } else {
+        $needHelpEnabled = false;
+    }
+}
 
-if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme && $theme->show_need_help == 1 && (!isset($theme->bot_configuration_array['hide_mobile_nh']) || $theme->bot_configuration_array['hide_mobile_nh'] == false || (isset($userInstance) && $userInstance !== false && $theme->bot_configuration_array['hide_mobile_nh'] == true && in_array($userInstance->device_type,array(1,3))) )) || (!isset($theme) && erLhcoreClassModelChatConfig::fetch('need_help_tip')->current_value == 1)) && $needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < (time() - ($needHelpTimeout * 24 * 3600))))
-{
+// Dismissing an automatic tooltip starts a cooldown. A visitor can always reopen it manually.
+if (!$disableNeedHelp && $needHelpEnabled && ($needHelpOnClick || ($needHelpTimeout > 0 && (!isset($_GET['hnh']) || $_GET['hnh'] < time() - $needHelpTimeout * 24 * 3600)))) {
     $configInstance = erConfigClassLhConfig::getInstance();
 
     $nhCloseVisible = true;
@@ -492,6 +506,13 @@ if ($disableNeedHelp === false && ((isset($theme) && $theme instanceof erLhAbstr
     $translationInstance = erTranslationClassLhTranslation::getInstance();
 
     if (isset($theme) && $theme instanceof erLhAbstractModelWidgetTheme) {
+
+        if ($needHelpOnClick) {
+            $outputResponse['nh']['on_click'] = true;
+        }
+        if (!empty($theme->bot_configuration_array['need_help_offline'])) {
+            $outputResponse['nh']['offline'] = true;
+        }
 
         if ($theme->show_need_help_delay > 0) {
             $outputResponse['nh']['delay'] = (int)$theme->show_need_help_delay * 1000;
@@ -566,7 +587,7 @@ if (isset($startDataFields['lazy_load']) && $startDataFields['lazy_load'] == tru
 $ts = time();
 
 // Wrapper version
-$outputResponse['wv'] = 283;
+$outputResponse['wv'] = 286;
  
 // React APP versions
 $outputResponse['v'] = 430;

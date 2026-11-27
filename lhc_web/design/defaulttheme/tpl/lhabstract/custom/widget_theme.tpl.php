@@ -1105,6 +1105,14 @@ $('#lhc-theme-preview-chat .btn-bottom-scroll button').attr('data-preview-field'
         		        <label><?php echo erLhcoreClassAbstract::renderInput('show_need_help', $fields['show_need_help'], $object)?> <?php echo $fields['show_need_help']['trans'];?></label>
 						</div>
 
+                        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('need_help_on_click', $fields['need_help_on_click'], $object)?> <?php echo $fields['need_help_on_click']['trans'];?></label>
+                        </div>
+
+                        <div class="form-group">
+                            <label><?php echo erLhcoreClassAbstract::renderInput('need_help_offline', $fields['need_help_offline'], $object)?> <?php echo $fields['need_help_offline']['trans'];?></label>
+                        </div>
+
         		        <div class="form-group">
         		        <label><?php echo erLhcoreClassAbstract::renderInput('hide_mobile_nh', $fields['hide_mobile_nh'], $object)?> <?php echo $fields['hide_mobile_nh']['trans'];?></label>
 						</div>

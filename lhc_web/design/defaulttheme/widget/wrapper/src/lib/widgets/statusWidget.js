@@ -382,16 +382,19 @@ export class statusWidget{
             }
             helperFunctions.removeClass(icon, "offline-status");
         } else {
-            if (!this.attributes.leaveMessage) {
+            if (!this.attributes.leaveMessage && !(this.attributes.nh && this.attributes.nh.offline)) {
                 this.hide();
             } else {
                 helperFunctions.addClass(icon, "offline-status");
+                if (!this.attributes.leaveMessage && !this.attributes.widgetStatus.value && !this.attributes.shidden.value) {
+                    this.show();
+                }
             }
         }
     }
 
     checkLoadStatus() {
-        if (this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true && this.loadStatus['shidden'] == false) {
+        if (!this.waitForNeedHelp && this.loadStatus['theme'] == true && this.loadStatus['main'] == true && this.loadStatus['font'] == true && this.loadStatus['widget'] == true && this.loadStatus['shidden'] == false) {
             var elm = this.cont.shadowRoot.getElementById('lhc_status_container');
             elm && (elm.style.display = "");
             this.attributes.sload.next(true);
@@ -472,7 +475,9 @@ export class statusWidget{
             if (event == "click" && data.status == true) {
                 attributes.onlineStatus.value === false && attributes.eventEmitter.emitEvent('offlineClickAction');
 
-                if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
+                if (_inst.needHelp && _inst.needHelp.toggle(e)) {
+                    attributes.eventEmitter.emitEvent('clickAction');
+                } else if (attributes.onlineStatus.value === false && attributes.offline_redirect !== null){
                     document.location = attributes.offline_redirect;
                     e.preventDefault();
                 } else {
@@ -532,7 +537,7 @@ export class statusWidget{
         attributes.widgetStatus.subscribe((data) => {
             if (this.attributes.mode !== 'popup') {
                 const chatParams = this.attributes['userSession'].getSessionAttributes();
-                (data == true || (!this.attributes.leaveMessage && this.attributes.onlineStatus.value == false && !chatParams['id'])) ? this.hide() : this.show();
+                (data == true || (!this.attributes.leaveMessage && !(attributes.nh && attributes.nh.offline) && this.attributes.onlineStatus.value == false && !chatParams['id'])) ? this.hide() : this.show();
             }
         });
 

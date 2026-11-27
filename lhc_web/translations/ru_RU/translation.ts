@@ -1458,6 +1458,14 @@
       <translation>Показать подсказку запроса помощи?</translation>
     </message>
     <message>
+      <source>Open Need Help when the visitor clicks the status icon</source>
+      <translation>Открывать подсказку при нажатии на кнопку чата</translation>
+    </message>
+    <message>
+      <source>Show Need Help when the chat is offline</source>
+      <translation>Показывать подсказку, когда чат офлайн</translation>
+    </message>
+    <message>
       <source>Hide need help widget for mobile devices.</source>
       <translation>Скрыть виджет &quot;Нужна помощь&quot; для мобильных устройств.</translation>
     </message>
